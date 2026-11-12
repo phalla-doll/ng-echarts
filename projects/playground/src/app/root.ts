@@ -16,6 +16,8 @@ import { SiteAppearance } from './site-appearance';
 const pageTitles: Readonly<Record<string, string>> = {
   '/': 'Bar Blocks',
   '/line': 'Line Blocks',
+  '/pie': 'Pie & Donut Blocks',
+  '/pie-validation': 'Pie validation',
   '/area': 'Area Blocks',
   '/area-validation': 'Area validation',
   '/line-validation': 'Line validation',
@@ -55,7 +57,7 @@ export class Root {
   private readonly routePath = computed(() => this.url().split(/[?#]/, 1)[0] ?? '/');
   protected readonly skipTarget = computed(() => this.routePath() + '#page-content');
   protected readonly galleryMode = computed(() =>
-    ['/', '/line', '/area'].includes(this.routePath()),
+    ['/', '/line', '/area', '/pie'].includes(this.routePath()),
   );
   protected readonly themeLabel = computed(() =>
     this.dark() ? 'Use light theme' : 'Use dark theme',
@@ -69,6 +71,8 @@ export class Root {
       '/line-comparison',
       '/area-comparison',
       '/area-benchmark',
+      '/pie-benchmark',
+      '/pie-comparison',
     ].includes(this.routePath()),
   );
   protected readonly pageTitle = computed(() => pageTitles[this.routePath()] ?? 'Playground');

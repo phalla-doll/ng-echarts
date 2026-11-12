@@ -72,6 +72,14 @@
         ><app-site-icon name="chart" />Area Blocks</a
       >
       <a
+        routerLink="/pie"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="chart" />Pie &amp; Donut Blocks</a
+      >
+      <a
         routerLink="/playground"
         routerLinkActive="active"
         ariaCurrentWhenActive="page"
@@ -120,6 +128,13 @@
         ariaCurrentWhenActive="page"
         (click)="closeMenu()"
         ><app-site-icon name="layers" />Area validation</a
+      >
+      <a
+        routerLink="/pie-validation"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="layers" />Pie validation</a
       >
       <a
         routerLink="/retention"

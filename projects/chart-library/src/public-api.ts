@@ -7,6 +7,8 @@ export type {
   BarLayout,
   CategoryTickFormatter,
   ChartSeries,
+  ChartMeasure,
+  CategoryVisibilityChange,
   ChartTheme,
   LegendVisibilityChange,
   NumericKey,
@@ -14,3 +16,5 @@ export type {
   StringKey,
   ValueFormatter,
 } from '@ng-echarts/chart-library/core';
+
+export { PieChart } from '@ng-echarts/chart-library/pie';

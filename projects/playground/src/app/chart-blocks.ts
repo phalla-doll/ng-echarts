@@ -1,9 +1,13 @@
 import { barBlocks, barExampleSource, type BarBlock } from './bar-blocks';
 import { lineBlocks, lineExampleSource, type LineBlock } from './line-blocks';
 import { areaBlocks, areaExampleSource, type AreaBlock } from './area-blocks';
-export type ChartBlock = BarBlock | LineBlock | AreaBlock;
+import { pieBlocks, pieExampleSource, type PieBlock } from './pie-blocks';
+export type CartesianBlock = BarBlock | LineBlock | AreaBlock;
+export type ChartBlock = CartesianBlock | PieBlock;
 export function chartExampleSource(block: ChartBlock, dark: boolean): string {
   switch (block.kind) {
+    case 'pie':
+      return pieExampleSource(block, dark);
     case 'bar':
       return barExampleSource(block, dark);
     case 'line':
@@ -13,6 +17,13 @@ export function chartExampleSource(block: ChartBlock, dark: boolean): string {
   }
 }
 export const galleryFamilies = {
+  pie: {
+    title: 'Pie & Donut Blocks',
+    noun: 'pie and donut',
+    blocks: pieBlocks,
+    validationRoute: '/pie-validation',
+    validationLabel: 'Pie validation',
+  },
   bar: {
     title: 'Bar Blocks',
     noun: 'bar',

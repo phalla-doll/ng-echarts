@@ -41,6 +41,9 @@ const sources = [
   'src/registry/examples/echarts/ex-stacked-type-echarts-area-chart.tsx',
   'src/registry/examples/echarts/ex-solid-area-variant-echarts-area-chart.tsx',
   'src/registry/charts/echarts-area-chart.tsx',
+  'src/registry/examples/echarts/ex-echarts-pie-chart.tsx',
+  'src/registry/examples/echarts/ex-donut-echarts-pie-chart.tsx',
+  'src/registry/charts/echarts-pie-chart.tsx',
   'src/app/globals.css',
 ];
 const hashes = {};

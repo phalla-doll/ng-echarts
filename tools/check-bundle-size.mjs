@@ -16,13 +16,14 @@ const scenarios = [
   { name: 'bar', entry: '/bar', symbol: 'BarChart', engine: true, families: ['bar'] },
   { name: 'line', entry: '/line', symbol: 'LineChart', engine: true, families: ['line'] },
   { name: 'area', entry: '/area', symbol: 'AreaChart', engine: true, families: ['line'] },
+  { name: 'pie', entry: '/pie', symbol: 'PieChart', engine: true, families: ['pie'] },
   { name: 'core', entry: '/core', symbol: 'ChartFrame', engine: false },
   {
     name: 'root',
     entry: '',
-    symbol: 'BarChart, LineChart, AreaChart, ChartFrame',
+    symbol: 'BarChart, LineChart, AreaChart, PieChart, ChartFrame',
     engine: true,
-    families: ['bar', 'line'],
+    families: ['bar', 'line', 'pie'],
   },
   {
     name: 'root-frame',
@@ -30,7 +31,7 @@ const scenarios = [
     symbol: 'ChartFrame',
     engine: false,
     allowOrphanChunks: true,
-    families: ['bar', 'line'],
+    families: ['bar', 'line', 'pie'],
   },
 ];
 const results = [];
@@ -108,8 +109,8 @@ for (const scenario of scenarios) {
   const reachableEngineInputs = reachableInputs.filter((name) =>
     /node_modules\/(echarts|zrender)\//.test(name),
   );
-  if (['bar', 'line', 'area'].includes(scenario.name)) {
-    const other = ['bar', 'line', 'area'].filter((name) => name !== scenario.name);
+  if (['bar', 'line', 'area', 'pie'].includes(scenario.name)) {
+    const other = ['bar', 'line', 'area', 'pie'].filter((name) => name !== scenario.name);
     assert(
       !inputs.some((name) =>
         other.some((family) => name.includes(`ng-echarts-chart-library-${family}.mjs`)),
@@ -117,6 +118,15 @@ for (const scenario of scenarios) {
       `${scenario.name} includes another component entry`,
     );
   }
+  if (scenario.name === 'pie')
+    assert(
+      !inputs.some(
+        (name) =>
+          /component\/grid\//.test(name) ||
+          (/coord\/cartesian\//.test(name) && !name.endsWith('/cartesianAxisHelper.js')),
+      ),
+      'Pie must exclude Grid and Cartesian coordinate systems',
+    );
   const engineInputs = inputs.filter((name) => /node_modules\/(echarts|zrender)\//.test(name));
   const eagerEngineInputs = eagerInputs.filter((name) =>
     /node_modules\/(echarts|zrender)\//.test(name),
@@ -158,7 +168,7 @@ for (const scenario of scenarios) {
       `${scenario.name} must exclude ECharts and ZRender entirely`,
     );
     assert(
-      !reachableInputs.some((name) => /chart-library-(?:bar|line|area)/.test(name)),
+      !reachableInputs.some((name) => /chart-library-(?:bar|line|area|pie)/.test(name)),
       `${scenario.name} must exclude bar implementation`,
     );
   }
@@ -187,10 +197,13 @@ for (const scenario of scenarios) {
     }),
     { raw: 0, gzip: 0, brotli: 0 },
   );
+  // Four-family root adds the independent Pie engine; focused-entry limits stay unchanged.
   const budget =
-    scenario.engine || scenario.allowOrphanChunks
-      ? { gzip: 200_000, brotli: 175_000 }
-      : { gzip: 10_000, brotli: 9_000 };
+    scenario.name === 'root'
+      ? { gzip: 210_000, brotli: 175_000 }
+      : scenario.engine || scenario.allowOrphanChunks
+        ? { gzip: 200_000, brotli: 175_000 }
+        : { gzip: 10_000, brotli: 9_000 };
   const passed = total.gzip <= budget.gzip && total.brotli <= budget.brotli;
   assert(passed, `${scenario.name} exceeded its measured budget: ${JSON.stringify(total)}`);
   results.push({
@@ -268,6 +281,22 @@ await writeFile(
       total: area.total,
       budget: area.budget,
       passed: area.passed,
+    }),
+    formatOptions,
+  ),
+);
+
+const pie = results.find((result) => result.name === 'pie');
+await writeFile(
+  join(root, 'docs/experiments/data/pie-bundle-size.json'),
+  await format(
+    JSON.stringify({
+      recordedAt,
+      method,
+      files: pie.files,
+      total: pie.total,
+      budget: pie.budget,
+      passed: pie.passed,
     }),
     formatOptions,
   ),

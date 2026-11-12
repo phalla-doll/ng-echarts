@@ -2,7 +2,7 @@
 
 An Angular 22 chart component library inspired by EvilCharts, using Apache ECharts for rendering and TypeScript for its public API.
 
-Status: experimental bar, line, and area components. Updated 12 November 2026. The Angular library and SSR playground now render bars, lines, and areas with native controls; G1 technical feasibility passes for bar; the user has deferred the human screen-reader review to release acceptance, allowing development to continue while G2 remains pending.
+Status: experimental bar, line, area, and pie/donut components. Updated 12 November 2026. The Angular library and SSR playground now render bars, lines, areas, and pies/donuts with native controls; G1 technical feasibility passes for bar; the user has deferred the human screen-reader review to release acceptance, allowing development to continue while G2 remains pending.
 
 ## Project direction
 
@@ -25,6 +25,8 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | [UI spacing review](docs/experiments/UI_SPACING_REVIEW.md) | Shared gutters, aligned headings, consistent panels/controls, breakpoint checks, and before/after captures |
 | [Code presentation](docs/experiments/CODE_PRESENTATION_REVIEW.md) | Google Sans Code, theme-aware syntax colors, and corrected copy actions |
 | [Area-block reference audit](docs/experiments/AREA_BLOCKS_VISUAL_AUDIT.md) | User's visual target, current layout gaps, and gallery correction brief |
+| [Pie/donut API reference](docs/PIE_CHART_API.md) | Single-measure categories, responsive radii, labels, visibility, and raw events |
+| [NG13 pie/donut implementation](docs/experiments/NG13_PIE_CHART.md) | Pie/donut source comparisons, package isolation, browser behavior, and performance |
 | [Area API reference](docs/AREA_CHART_API.md) | Independent gradient/solid fills, same-sign stacks, gap/event semantics, and integration |
 | [NG12 area implementation](docs/experiments/NG12_AREA_CHART.md) | Area source comparisons, gallery, package isolation, browser geometry checks, and performance |
 | [Line API reference](docs/LINE_CHART_API.md) | Multi-series lines, interpolation/points/gaps, shared inputs/events, and local integration |
@@ -73,6 +75,8 @@ The site includes [Get Started](http://localhost:4310/get-started), [Installatio
 | `npm test` | Run library and playground Vitest tests once |
 | `npm run test:browser` | Run Chromium, Firefox, and WebKit scenarios against the production SSR build |
 | `npm run reference:prepare` | Prepare the isolated pinned React reference source and build its harness |
+| `npm run capture:pie` | Capture pinned pie/donut references, both themes, and narrow labeled galleries |
+| `npm run benchmark:pie` | Measure actual Angular donut mount/update and table cost at 12/100 categories |
 | `npm run capture:area` | Capture pinned area references and Angular variants in both themes and three host widths |
 | `npm run benchmark:area` | Measure actual Angular stacked-gradient area mount/update and table cost |
 | `npm run capture:line` | Capture pinned line references and Angular variants in both themes and three host widths |
@@ -87,9 +91,9 @@ The site includes [Get Started](http://localhost:4310/get-started), [Installatio
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
 | `npm run check` | Run formatting, builds, compilation, unit, declaration/runtime consumers, SSR, browser, and size checks |
 
-The latest full check passes 97 unit/integration tests and 121 browser scenarios (plus two skipped CDP-only cases), including three-engine [site/theme](docs/experiments/SITE_THEME_ALIGNMENT.md), [gallery](docs/experiments/BAR_GALLERY_VISUAL_REVIEW.md), layout, and [numeric-formatting checks](docs/experiments/NG09_SHARED_FORMATTING.md). The [lifecycle validation report](docs/experiments/R04_R05_VALIDATION.md) retains the earlier resource baseline. `/validation` provides lifecycle scenarios; `/comparison` provides four reference variants and neutral theme tokens; `/formatting` checks locale/options/custom text and recovery; `/updates` checks immutable inputs/focus; `/retention` checks obsolete-model collection; `/away` verifies route cleanup. CI is configured for all three engines. No lint rules or coverage threshold are configured yet.
+The latest full check passes 107 unit/integration tests and 136 browser scenarios (plus two skipped CDP-only cases), including three-engine [site/theme](docs/experiments/SITE_THEME_ALIGNMENT.md), [gallery](docs/experiments/BAR_GALLERY_VISUAL_REVIEW.md), layout, and [numeric-formatting checks](docs/experiments/NG09_SHARED_FORMATTING.md). The [lifecycle validation report](docs/experiments/R04_R05_VALIDATION.md) retains the earlier resource baseline. `/validation` provides lifecycle scenarios; `/comparison` provides four reference variants and neutral theme tokens; `/formatting` checks locale/options/custom text and recovery; `/updates` checks immutable inputs/focus; `/retention` checks obsolete-model collection; `/away` verifies route cleanup. CI is configured for all three engines. No lint rules or coverage threshold are configured yet.
 
-The [visual review](docs/experiments/R03_VISUAL_REVIEW.md) records 80 current captures and accepted bar differences. R01–R05, [R07 renderer/cost](docs/experiments/R07_RENDERER_COST.md), and [R08 packed consumption](docs/experiments/R08_PACKED_RUNTIME.md) pass for bar. Canvas meets the normal 200×3 benchmark target and the measured size budget. G1 passes; G2 requires the [R06 listening result](docs/experiments/R06_MANUAL_REVIEW.md). The user has deferred that human review to release acceptance; it no longer blocks development. Other chart families and release acceptance remain pending.
+The [visual review](docs/experiments/R03_VISUAL_REVIEW.md) records 80 current captures and accepted bar differences. R01–R05, [R07 renderer/cost](docs/experiments/R07_RENDERER_COST.md), and [R08 packed consumption](docs/experiments/R08_PACKED_RUNTIME.md) pass for bar. Canvas meets the normal 200×3 benchmark target and the measured size budget. G1 passes; G2 requires the [R06 listening result](docs/experiments/R06_MANUAL_REVIEW.md). The user has deferred that human review to release acceptance; it no longer blocks development. Cross-family acceptance and release evidence remain pending.
 
 ## Target environment
 
@@ -99,7 +103,9 @@ Angular 22 with strict TypeScript and template checking. The selected toolchain 
 
 Build a standalone Angular bar chart with typed data, light and dark themes, responsive resizing, tooltip, selectable legend, reduced motion, and safe destruction. Prove that it works in both a client application and an application using server rendering and hydration. Use its measured results to decide the MVP architecture.
 
-NG09/NG10 implementation is complete for the current foundation/bar baseline; NG11 line charts are implemented; NG12 area charts are implemented; NG13 pie/donut is next. Deferred release evidence and family-wide acceptance remain open.
+NG09/NG10 implementation is complete for the current foundation/bar baseline; NG11 line charts are implemented; NG12 area charts are implemented; NG13 pie/donut is implemented; NG14 cross-family acceptance is next. Deferred release evidence and family-wide acceptance remain open.
+
+The `/pie` page presents browser shares, donuts, and outside labels in the same gallery design. `/pie-validation` exercises single-measure category behavior and deferred hydration.
 
 The `/area` page presents independent gradients, stacks, solid fills, and missing observations using the same gallery design. `/area-validation` exercises area behavior and deferred hydration.
 

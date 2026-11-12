@@ -40,3 +40,14 @@ export type CategoryTickFormatter = (category: string, index: number) => string;
 
 /** Pure, synchronous numeric text shared by axes, tooltips, and table actions. */
 export type ValueFormatter = (value: number) => string;
+
+/** One numeric measure; each row becomes a category slice. */
+export interface ChartMeasure<T> {
+  readonly id: string;
+  readonly key: NumericKey<T>;
+  readonly label: string;
+}
+export interface CategoryVisibilityChange {
+  readonly rowId: string;
+  readonly visible: boolean;
+}

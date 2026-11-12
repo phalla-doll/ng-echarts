@@ -10,6 +10,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PieChart } from '@ng-echarts/chart-library/pie';
 import { AreaChart } from '@ng-echarts/chart-library/area';
 import { LineChart } from '@ng-echarts/chart-library/line';
 import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';
@@ -75,8 +76,16 @@ export class Benchmark {
   private readonly destroy = inject(DestroyRef);
   private readonly family = inject(ActivatedRoute).snapshot.data['family'];
   protected readonly benchmarkTitle =
-    this.family === 'area' ? 'Area' : this.family === 'line' ? 'Line' : 'Bar';
-  private reference: ComponentRef<BarChart<Row> | LineChart<Row> | AreaChart<Row>> | null = null;
+    this.family === 'pie'
+      ? 'Pie/donut'
+      : this.family === 'area'
+        ? 'Area'
+        : this.family === 'line'
+          ? 'Line'
+          : 'Bar';
+  private reference: ComponentRef<
+    BarChart<Row> | LineChart<Row> | AreaChart<Row> | PieChart<Row>
+  > | null = null;
 
   constructor() {
     afterNextRender(() => {
@@ -107,16 +116,23 @@ export class Benchmark {
   }
   private create(rows: readonly Row[]): void {
     this.reference =
-      this.family === 'area'
-        ? this.charts().createComponent(AreaChart<Row>)
-        : this.family === 'line'
-          ? this.charts().createComponent(LineChart<Row>)
-          : this.charts().createComponent(BarChart<Row>);
+      this.family === 'pie'
+        ? this.charts().createComponent(PieChart<Row>)
+        : this.family === 'area'
+          ? this.charts().createComponent(AreaChart<Row>)
+          : this.family === 'line'
+            ? this.charts().createComponent(LineChart<Row>)
+            : this.charts().createComponent(BarChart<Row>);
     for (const [key, value] of Object.entries({
       title: 'Benchmark',
-      description: 'Deterministic three-series fixture.',
+      description:
+        this.family === 'pie'
+          ? 'Deterministic single-measure categories.'
+          : 'Deterministic three-series fixture.',
       data: rows,
-      series,
+      ...(this.family === 'pie'
+        ? { measure: { id: 'first', key: 'first', label: 'Value' }, innerRadius: 0.6 }
+        : { series }),
       rowIdKey: 'id',
       categoryKey: 'category',
       animation: false,
@@ -177,7 +193,7 @@ export class Benchmark {
       const start = performance.now();
       toggle.click();
       await painted;
-      if (host.querySelectorAll('tbody td').length !== count * 3)
+      if (host.querySelectorAll('tbody td').length !== count * (this.family === 'pie' ? 1 : 3))
         throw new Error('Expanded table is incomplete');
       if (index > 0) samples.push(performance.now() - start);
       painted = this.rendered();

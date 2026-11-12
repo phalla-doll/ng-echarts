@@ -1,0 +1,105 @@
+<section class="block-section" [id]="block().id" [attr.aria-labelledby]="block().id + '-heading'">
+  <h2 [id]="block().id + '-heading'">
+    <a [href]="'#' + block().id">{{ block().title }}</a>
+  </h2>
+  <div class="block-card">
+    <header class="block-header">
+      <button
+        type="button"
+        class="reload-button"
+        (click)="resetPreview()"
+        [attr.aria-label]="'Reload ' + block().title + ' preview'"
+      >
+        <app-site-icon name="update" />
+      </button>
+      <span class="block-label">{{ block().title }}</span>
+      <div class="block-views" role="group" [attr.aria-label]="block().title + ' view'">
+        <button type="button" (click)="showView('code')" [attr.aria-pressed]="view() === 'code'">
+          Code
+        </button>
+        <button
+          type="button"
+          (click)="showView('preview')"
+          [attr.aria-pressed]="view() === 'preview'"
+        >
+          Preview
+        </button>
+      </div>
+    </header>
+    <div class="block-surface" [hidden]="view() !== 'preview'">
+      <div class="block-metrics" aria-label="Browser distribution in this sample">
+        @for (metric of metrics(); track metric.id; let index = $index) {
+          <div class="block-metric">
+            <span class="metric-label"
+              ><span
+                class="metric-marker"
+                [class.secondary]="index === 1"
+                [style.background]="palette()[index]"
+                aria-hidden="true"
+              ></span
+              >{{ metric.label }}</span
+            >
+            <span class="metric-total">{{ metric.total }}</span>
+          </div>
+        }
+      </div>
+      @for (instance of instances(); track instance) {
+        <nec-pie-chart
+          class="gallery-chart"
+          [title]="block().title"
+          [description]="block().description"
+          [data]="block().rows"
+          rowIdKey="id"
+          categoryKey="browser"
+          [measure]="measure"
+          [innerRadius]="block().innerRadius"
+          [showLabels]="block().showLabels"
+          [theme]="theme()"
+          [showDataTable]="false"
+          [height]="300"
+          [style.--nec-series-1]="palette()[0]"
+          [style.--nec-series-2]="palette()[1]"
+          [style.--nec-series-3]="palette()[2]"
+          [style.--nec-series-4]="palette()[3]"
+          [style.--nec-series-5]="palette()[4]"
+          (pointSelect)="select($event)"
+        />
+      }
+      <p class="block-selection" role="status" [class.has-selection]="selection()">
+        {{ selection() }}
+      </p>
+    </div>
+    <div class="block-code" [hidden]="view() !== 'code'">
+      <div class="code-heading">
+        <span>Standalone Angular component</span
+        ><button type="button" (click)="copySource()">
+          <app-site-icon [name]="copied() ? 'check' : 'copy'" />{{
+            copied() ? 'Copied' : 'Copy code'
+          }}
+        </button>
+      </div>
+      <pre
+        tabindex="0"
+        [attr.aria-label]="block().title + ' Angular source'"
+      ><code [appHighlight]="source()"></code></pre>
+    </div>
+  </div>
+  <div class="integration-card">
+    <div class="integration-heading">
+      <span><app-site-icon name="code" />Angular</span
+      ><button
+        type="button"
+        (click)="copySource()"
+        [attr.aria-label]="(copied() ? 'Copied ' : 'Copy ') + block().title + ' example'"
+      >
+        <app-site-icon [name]="copied() ? 'check' : 'copy'" />
+      </button>
+    </div>
+    <pre><code [appHighlight]="importSource()"></code></pre>
+  </div>
+  @if (copyFailed()) {
+    <p class="copy-notice" role="status">
+      Clipboard access is unavailable. Open Code and select the example to copy it manually.
+    </p>
+  }
+</section>

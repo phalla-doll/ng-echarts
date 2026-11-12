@@ -2,6 +2,24 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: 'pie',
+    data: { family: 'pie' },
+    loadComponent: () => import('./gallery').then((m) => m.Gallery),
+  },
+  {
+    path: 'pie-validation',
+    loadComponent: () => import('./pie-validation').then((m) => m.PieValidation),
+  },
+  {
+    path: 'pie-comparison',
+    loadComponent: () => import('./pie-comparison').then((m) => m.PieComparison),
+  },
+  {
+    path: 'pie-benchmark',
+    data: { family: 'pie' },
+    loadComponent: () => import('./benchmark').then((m) => m.Benchmark),
+  },
+  {
     path: 'area',
     data: { family: 'area' },
     loadComponent: () => import('./gallery').then((module) => module.Gallery),

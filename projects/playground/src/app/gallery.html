@@ -18,7 +18,11 @@
     }
     <div class="gallery-examples">
       @for (block of blocks; track block.id) {
-        <app-bar-block [block]="block" [dark]="dark()" />
+        @if (block.kind === 'pie') {
+          <app-pie-block [block]="block" [dark]="dark()" />
+        } @else {
+          <app-bar-block [block]="block" [dark]="dark()" />
+        }
       }
     </div>
     <footer class="gallery-footer">

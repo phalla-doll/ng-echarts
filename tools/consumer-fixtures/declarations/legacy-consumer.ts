@@ -3,14 +3,22 @@ import {
   BarChart,
   LineChart,
   AreaChart,
+  PieChart,
   ChartFrame,
   type ChartSeries,
 } from '@ng-echarts/chart-library';
 import type { ChartSeries as SharedSeries } from '@ng-echarts/chart-library/core';
 
 @Component({
-  imports: [BarChart, LineChart, AreaChart, ChartFrame],
-  template: `<nec-chart-frame title="Compatibility frame" />
+  imports: [BarChart, LineChart, AreaChart, PieChart, ChartFrame],
+  template: `<nec-pie-chart
+      title="Compatibility pie"
+      [data]="rows"
+      rowIdKey="id"
+      categoryKey="month"
+      [measure]="series[0]!"
+    />
+    <nec-chart-frame title="Compatibility frame" />
     <nec-area-chart
       title="Compatibility area"
       [data]="rows"

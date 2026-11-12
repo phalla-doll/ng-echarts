@@ -16,6 +16,8 @@ The [NG11 line report](experiments/NG11_LINE_CHART.md) adds line evidence for F0
 
 The [NG12 area report](experiments/NG12_AREA_CHART.md) adds F01–F10 automated evidence for independent fills, same-sign stacks, raw events, gaps, inherited state/formatting/motion controls, SSR/deferred hydration, and installed consumers. Three-family package budgets and area performance targets pass; human interpretation, pie/donut, and full-MVP acceptance remain open.
 
+The [NG13 pie/donut report](experiments/NG13_PIE_CHART.md) adds automated F01–F10 evidence for one-measure categories, labels, zero-total and negative rules, raw events, category visibility/focus, states/motion, SSR/deferred hydration and installed consumers. Pie-specific source, timing and bundle evidence is recorded there. NG14 still needs to reconcile all applicable requirements across all families; this does not close human R06/G2 or G3/G4.
+
 ## Requirement coverage
 
 The [NG09 formatting increment](experiments/NG09_SHARED_FORMATTING.md) adds bar evidence for F01/F03/F05/F07/F10: typed numeric formatting, consistent visible text, raw numeric events, configuration-error recovery, and hydrated server errors. It does not close checks for unimplemented families or the deferred human review.

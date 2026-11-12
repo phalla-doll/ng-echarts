@@ -1,0 +1,821 @@
+{
+  "recordedAt": "2026-11-12T16:28:15.567Z",
+  "browser": "158.0.8127.18",
+  "motion": "reduce",
+  "source": {
+    "revision": "4c2dd7c9bae780703244265c9a4b509d40c055ad",
+    "hashes": {
+      "src/registry/examples/echarts/ex-stacked-type-echarts-bar-chart.tsx": "b190f20f483aa162e10b16018a7981fe690bcad0973018016ced7a1da7d31ec0",
+      "src/registry/examples/echarts/ex-horizontal-layout-echarts-bar-chart.tsx": "6aaf83b76ac879d659c558e32158a2eccb742893b685a1578693958aed000432",
+      "src/registry/examples/echarts/ex-gradient-variant-echarts-bar-chart.tsx": "0ecc02c807613372e3964cfcd54a3bfe9f3c89e748932422d3cc81bb1bc184fc",
+      "src/registry/examples/echarts/ex-echarts-bar-chart.tsx": "52e2895c588e21eb30e01936450d3d02b09a0bfcc0d11c7d0419660126d5f9e5",
+      "src/registry/charts/echarts-bar-chart.tsx": "72e6b65dab49e436e6b62d62f2a0e4cd8e4e25c6ebaf3b726a184573174facf3",
+      "src/registry/examples/echarts/ex-echarts-line-chart.tsx": "7eff2995b22e9f45805344d6fddd5e173df7cf8c24870a8622f50858a0228829",
+      "src/registry/examples/echarts/ex-solid-stroke-echarts-line-chart.tsx": "06cc6c3243de12564ff75bb84e1e64d0f5dc0620f06906f85a685806ff1e917d",
+      "src/registry/examples/echarts/ex-monotoney-curve-type-echarts-line-chart.tsx": "d0644fdadd10eff5a6b0d8e5cebff0ba42bec76ffaab3873d64e000e03f0839d",
+      "src/registry/charts/echarts-line-chart.tsx": "102e36102ffeeccf1a5d80cfe9a268198cce7bf65a044da531d5dcd91d1bfd60",
+      "src/registry/examples/echarts/ex-default-type-echarts-area-chart.tsx": "e0e82fc07067217ab9a81811b43321ea54187cc51caae495e07a2dfd016a8a19",
+      "src/registry/examples/echarts/ex-stacked-type-echarts-area-chart.tsx": "ccdfb8ab05ec1102febe2c18771ed82eef18adf61e30a5fd624dfa20d80f5afc",
+      "src/registry/examples/echarts/ex-solid-area-variant-echarts-area-chart.tsx": "a6d492364b5448789a47d2566697616044fee6272660081067503d16335cff69",
+      "src/registry/charts/echarts-area-chart.tsx": "9c8ccec61e4d050262f622aa35985e898ce1ffb459cf146fc34a5290c2fd3188",
+      "src/registry/examples/echarts/ex-echarts-pie-chart.tsx": "8937f764d37ce9c1c184182a8c34050e2640424d5ea1dabef3a2cf111e4e9c6f",
+      "src/registry/examples/echarts/ex-donut-echarts-pie-chart.tsx": "20cbdede32a546be364f106ed443e4f54fa8da641cf7aa1b0be36b5e75b0ff45",
+      "src/registry/charts/echarts-pie-chart.tsx": "dfb481cff6d7387d113be9e124b15646152b2a1b697536b71f1369986652b871",
+      "src/app/globals.css": "238ff732d59c22ad46e2c4a08c85b492e3350ef4275f27719304b9fa56fa6a4d"
+    }
+  },
+  "sourceHashes": {
+    "projects/chart-library/pie/src/lib/pie-chart.ts": "9bc94d4c0f26093198fc174056c4eafb693d40dc153bdbbce285800b6ab0395c",
+    "projects/chart-library/pie/src/lib/pie-model.ts": "51f69318b8d55b98ba58ff70e810cd941d8b8bde04f5710354c90feaaf5c70ce",
+    "projects/chart-library/pie/src/lib/pie-chart.html": "7dbffb0be85edfa1e04d8ad5209bf8d72b62185124cabb32bdc829c1efdc15ae",
+    "projects/chart-library/pie/src/lib/pie-options.ts": "1374872be645217c309a9ce814b1413ca33dcefcf6d773bb80cd8fa179e86a89",
+    "projects/chart-library/pie/src/lib/pie-renderer.ts": "0325d5792fec25a080526d6e1d204cf26bec9f223111d0e6d8ab454b8dd09c12",
+    "projects/playground/src/app/pie-blocks.ts": "e54f05b3e8f214c3e15e27e5928107dc778cdcb92124a26ca87e35d996fb1bd0"
+  },
+  "captures": [
+    {
+      "variant": "default",
+      "implementation": "upstream",
+      "theme": "light",
+      "width": 320,
+      "filename": "default-upstream-light-320.png",
+      "sha256": "ff6bdf30833721e71c016f5f5dd02cba5a061f468f875b22c7ffca6973fe2918",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 320,
+        "height": 360,
+        "top": 20,
+        "right": 340,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 288,
+        "height": 328,
+        "top": 36,
+        "right": 324,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "default",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 320,
+      "filename": "default-angular-light-320.png",
+      "sha256": "a874f96ede5467e69fe193da1e84e12f7832fbd239c58e45515b266a83f3b302",
+      "host": {
+        "x": 20,
+        "y": 407.5,
+        "width": 320,
+        "height": 799,
+        "top": 407.5,
+        "right": 340,
+        "bottom": 1206.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 533.5,
+        "width": 270,
+        "height": 360,
+        "top": 533.5,
+        "right": 315,
+        "bottom": 893.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "default",
+      "implementation": "upstream",
+      "theme": "dark",
+      "width": 320,
+      "filename": "default-upstream-dark-320.png",
+      "sha256": "cf919ac2be481d0d41ad2f7232a38c2587e9537e63ff7b993eb5647632b3db2f",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 320,
+        "height": 360,
+        "top": 20,
+        "right": 340,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 288,
+        "height": 328,
+        "top": 36,
+        "right": 324,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "default",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 320,
+      "filename": "default-angular-dark-320.png",
+      "sha256": "ea80c81c1bfeb014f486f96d0f2184ca1bbc6db13b8af57c3633c9e4d5b37fb4",
+      "host": {
+        "x": 20,
+        "y": 407.5,
+        "width": 320,
+        "height": 799,
+        "top": 407.5,
+        "right": 340,
+        "bottom": 1206.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 533.5,
+        "width": 270,
+        "height": 360,
+        "top": 533.5,
+        "right": 315,
+        "bottom": 893.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "default",
+      "implementation": "upstream",
+      "theme": "light",
+      "width": 768,
+      "filename": "default-upstream-light-768.png",
+      "sha256": "e11610eecfea81514ca8dcb476e5a7dddecf789044bc499b6b4e9b3ead5fb165",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 768,
+        "height": 360,
+        "top": 20,
+        "right": 788,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 736,
+        "height": 328,
+        "top": 36,
+        "right": 772,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "default",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 768,
+      "filename": "default-angular-light-768.png",
+      "sha256": "77290f9846fac7cd58dce8d373005fca708418af30435052d30701d09baf5a62",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 768,
+        "height": 643,
+        "top": 243.5,
+        "right": 788,
+        "bottom": 886.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 718,
+        "height": 360,
+        "top": 345.5,
+        "right": 763,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "default",
+      "implementation": "upstream",
+      "theme": "dark",
+      "width": 768,
+      "filename": "default-upstream-dark-768.png",
+      "sha256": "9d4376bf555d354668bd7e1bb6055cf8dfdaaf91457ddd152cc803c96c12803e",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 768,
+        "height": 360,
+        "top": 20,
+        "right": 788,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 736,
+        "height": 328,
+        "top": 36,
+        "right": 772,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "default",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 768,
+      "filename": "default-angular-dark-768.png",
+      "sha256": "00eea617d1ab99005e7517382bcb3064bb4ff9e12c137cafe2cb4c84ba830859",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 768,
+        "height": 643,
+        "top": 243.5,
+        "right": 788,
+        "bottom": 886.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 718,
+        "height": 360,
+        "top": 345.5,
+        "right": 763,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "default",
+      "implementation": "upstream",
+      "theme": "light",
+      "width": 1440,
+      "filename": "default-upstream-light-1440.png",
+      "sha256": "2527dd2861eb49482e6b1bede9c1d4b5a022eb2585db15db3daba834f2bec96d",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 1440,
+        "height": 360,
+        "top": 20,
+        "right": 1460,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 1408,
+        "height": 328,
+        "top": 36,
+        "right": 1444,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "default",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 1440,
+      "filename": "default-angular-light-1440.png",
+      "sha256": "07e8b36b5adc201a3e148fb8e4432c834d858dc0a9a9f550ba36726d1930d056",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 1440,
+        "height": 599,
+        "top": 243.5,
+        "right": 1460,
+        "bottom": 842.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 1390,
+        "height": 360,
+        "top": 345.5,
+        "right": 1435,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "default",
+      "implementation": "upstream",
+      "theme": "dark",
+      "width": 1440,
+      "filename": "default-upstream-dark-1440.png",
+      "sha256": "7d3b1c539c256271e2cdac77ef88a8523841ef28846266c32adcab5ce38ee03f",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 1440,
+        "height": 360,
+        "top": 20,
+        "right": 1460,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 1408,
+        "height": 328,
+        "top": 36,
+        "right": 1444,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "default",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 1440,
+      "filename": "default-angular-dark-1440.png",
+      "sha256": "fce891f6a181c86ef72071eddaf5a02b04623b39af27d7c1dca930ed93699d68",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 1440,
+        "height": 599,
+        "top": 243.5,
+        "right": 1460,
+        "bottom": 842.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 1390,
+        "height": 360,
+        "top": 345.5,
+        "right": 1435,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "donut",
+      "implementation": "upstream",
+      "theme": "light",
+      "width": 320,
+      "filename": "donut-upstream-light-320.png",
+      "sha256": "1afc92bb53da12e94e8109bd7eb77465b81072e873d12e1a95de7445196b9662",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 320,
+        "height": 360,
+        "top": 20,
+        "right": 340,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 288,
+        "height": 328,
+        "top": 36,
+        "right": 324,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "donut",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 320,
+      "filename": "donut-angular-light-320.png",
+      "sha256": "561eed9ea702c1d7983bdf9062e4d800192701f6a561902c0fd556644919c4ae",
+      "host": {
+        "x": 20,
+        "y": 407.5,
+        "width": 320,
+        "height": 799,
+        "top": 407.5,
+        "right": 340,
+        "bottom": 1206.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 533.5,
+        "width": 270,
+        "height": 360,
+        "top": 533.5,
+        "right": 315,
+        "bottom": 893.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "donut",
+      "implementation": "upstream",
+      "theme": "dark",
+      "width": 320,
+      "filename": "donut-upstream-dark-320.png",
+      "sha256": "cf2f1d9dddb8e6a9160121aedd29396baedc84b041faec0fa0835f8e82a66a47",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 320,
+        "height": 360,
+        "top": 20,
+        "right": 340,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 288,
+        "height": 328,
+        "top": 36,
+        "right": 324,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "donut",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 320,
+      "filename": "donut-angular-dark-320.png",
+      "sha256": "75f72194cf4e804143b6ffa6f5f89d65eccd1270aa3e544e3b9ff543a603e660",
+      "host": {
+        "x": 20,
+        "y": 407.5,
+        "width": 320,
+        "height": 799,
+        "top": 407.5,
+        "right": 340,
+        "bottom": 1206.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 533.5,
+        "width": 270,
+        "height": 360,
+        "top": 533.5,
+        "right": 315,
+        "bottom": 893.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "donut",
+      "implementation": "upstream",
+      "theme": "light",
+      "width": 768,
+      "filename": "donut-upstream-light-768.png",
+      "sha256": "9acedff9fb26f43279edb77b9f4d16c5d116a35e14a2c5a21749da86dc0766b2",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 768,
+        "height": 360,
+        "top": 20,
+        "right": 788,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 736,
+        "height": 328,
+        "top": 36,
+        "right": 772,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "donut",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 768,
+      "filename": "donut-angular-light-768.png",
+      "sha256": "6bbe78425b6a14c9b70ec5b4cc71c07e5ecccf3fa76d4ca945bf0c792f214a5e",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 768,
+        "height": 643,
+        "top": 243.5,
+        "right": 788,
+        "bottom": 886.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 718,
+        "height": 360,
+        "top": 345.5,
+        "right": 763,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "donut",
+      "implementation": "upstream",
+      "theme": "dark",
+      "width": 768,
+      "filename": "donut-upstream-dark-768.png",
+      "sha256": "11c8f4ad78d3001b07cd1254eefe326442627ccbb2b5402caefb8026d3acebd7",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 768,
+        "height": 360,
+        "top": 20,
+        "right": 788,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 736,
+        "height": 328,
+        "top": 36,
+        "right": 772,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "donut",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 768,
+      "filename": "donut-angular-dark-768.png",
+      "sha256": "0f4a556f5193c28fbda29201e308e91ce778405e14ba7a043d75a6870a989cc7",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 768,
+        "height": 643,
+        "top": 243.5,
+        "right": 788,
+        "bottom": 886.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 718,
+        "height": 360,
+        "top": 345.5,
+        "right": 763,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "donut",
+      "implementation": "upstream",
+      "theme": "light",
+      "width": 1440,
+      "filename": "donut-upstream-light-1440.png",
+      "sha256": "911de26f8f062c178bdc5d4841ba2ed0d3824fb4728dcf656f61704450075c6c",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 1440,
+        "height": 360,
+        "top": 20,
+        "right": 1460,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 1408,
+        "height": 328,
+        "top": 36,
+        "right": 1444,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "donut",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 1440,
+      "filename": "donut-angular-light-1440.png",
+      "sha256": "fd5a513547f02c4f228d7539c5f871d37666182bd5b619a185a170d7881ec23f",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 1440,
+        "height": 599,
+        "top": 243.5,
+        "right": 1460,
+        "bottom": 842.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 1390,
+        "height": 360,
+        "top": 345.5,
+        "right": 1435,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "donut",
+      "implementation": "upstream",
+      "theme": "dark",
+      "width": 1440,
+      "filename": "donut-upstream-dark-1440.png",
+      "sha256": "c003cc77439d5af96591833fc0233087c87b788fb3c7d7f4c518d4b92e8e955e",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 1440,
+        "height": 360,
+        "top": 20,
+        "right": 1460,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 1408,
+        "height": 328,
+        "top": 36,
+        "right": 1444,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "donut",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 1440,
+      "filename": "donut-angular-dark-1440.png",
+      "sha256": "0f5bd9e16151245a50391df321b55e73d8d433cab39dab3d13ddc7f13e4a13e9",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 1440,
+        "height": 599,
+        "top": 243.5,
+        "right": 1460,
+        "bottom": 842.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 1390,
+        "height": 360,
+        "top": 345.5,
+        "right": 1435,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "gallery",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 390,
+      "filename": "gallery-dark-390.png",
+      "sha256": "15054479155e91886512a39ed8bb68e63c4444749c42b593dc33c7ef53134f0f"
+    },
+    {
+      "variant": "labels",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 390,
+      "filename": "labels-dark-390.png",
+      "sha256": "c3a0a566ff127d239a4841fb2a5f5753d2fda9ed798afc7d54a734fbcaabfd72"
+    },
+    {
+      "variant": "gallery",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 1440,
+      "filename": "gallery-dark-1440.png",
+      "sha256": "4064e8773f395351045a8d1a90aabcf27ba1b609414216bb9cff5f19dde399e4"
+    },
+    {
+      "variant": "labels",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 1440,
+      "filename": "labels-dark-1440.png",
+      "sha256": "0baa2d86c9ca8a701516d097db52ed8b25ee8338ea1798ca8cb3df5533d1ac22"
+    },
+    {
+      "variant": "gallery",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 390,
+      "filename": "gallery-light-390.png",
+      "sha256": "b69870c9673d8e20b3250a3ce87e853ee28b22b427c0e5282b34b760053678cc"
+    },
+    {
+      "variant": "labels",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 390,
+      "filename": "labels-light-390.png",
+      "sha256": "c7649cc7b8beb77968b956d685445f5ccf7840a05e9fd6139dfb394de3104e2f"
+    },
+    {
+      "variant": "gallery",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 1440,
+      "filename": "gallery-light-1440.png",
+      "sha256": "472e95c54bf6396ed990ba3b76f497ad88dda39ef71ceb29bc0ac8f1d3695df4"
+    },
+    {
+      "variant": "labels",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 1440,
+      "filename": "labels-light-1440.png",
+      "sha256": "891099b76b6ddda391e666d05dfee0bb10e0cd4dc8542061de9e8e3bb1616b6d"
+    }
+  ]
+}

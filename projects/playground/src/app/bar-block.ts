@@ -6,7 +6,7 @@ import {
 } from '@ng-echarts/chart-library/bar';
 import { LineChart } from '@ng-echarts/chart-library/line';
 import { AreaChart } from '@ng-echarts/chart-library/area';
-import { chartExampleSource, type ChartBlock } from './chart-blocks';
+import { chartExampleSource, type CartesianBlock } from './chart-blocks';
 import type { DeviceRow } from './fixtures/evilcharts-bar-fixture';
 import { SiteIcon } from './site-icon';
 import { HighlightCode } from './highlight-code';
@@ -19,7 +19,7 @@ import { HighlightCode } from './highlight-code';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BarBlockExample {
-  readonly block = input.required<ChartBlock>();
+  readonly block = input.required<CartesianBlock>();
   readonly dark = input.required<boolean>();
   protected readonly theme = computed(() => (this.dark() ? 'dark' : 'light'));
   protected readonly color = computed(() =>

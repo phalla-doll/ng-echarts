@@ -18,6 +18,7 @@ The [bar API reference](https://github.com/phalla-doll/ng-echarts/blob/main/docs
 import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';
 import { LineChart } from '@ng-echarts/chart-library/line';
 import { AreaChart } from '@ng-echarts/chart-library/area';
+import { PieChart, type ChartMeasure } from '@ng-echarts/chart-library/pie';
 import { ChartFrame } from '@ng-echarts/chart-library/core';
 ```
 
@@ -46,3 +47,5 @@ Build with `npm run build:lib` from the workspace root. See the root README and 
 `ɵ`-prefixed core exports support implementation across entry points and are not stable consumer APIs. Focused `/bar` excludes line rendering, focused `/line` excludes bar rendering, and core excludes engine runtime modules.
 
 `/area` owns its component, independent fills/stacks, and lazy Line/Grid/Tooltip/Canvas registration. It shares pure curve policy with line through core, excludes Bar/SVG and other component entries, and follows the unchanged 200,000 gzip / 175,000 Brotli family budget. The root compatibility entry reexports all three Cartesian components.
+
+Pie and donut: import `PieChart` and `ChartMeasure<T>` from `@ng-echarts/chart-library/pie`. Supply one measure; use `[innerRadius]="0.6"` for a donut. Category legend changes emit row IDs. See the [pie/donut API](https://github.com/phalla-doll/ng-echarts/blob/main/docs/PIE_CHART_API.md) and [NG13 evidence](https://github.com/phalla-doll/ng-echarts/blob/main/docs/experiments/NG13_PIE_CHART.md).

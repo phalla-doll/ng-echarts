@@ -52,7 +52,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         title: 'Built for Angular',
         paragraphs: [
           'Use standalone components, typed rows, and a small set of inputs. Angular owns the titles, legends, state messages, and data tables; Apache ECharts renders the plot.',
-          'The current collection includes grouped, stacked, horizontal, and gradient bars, plus straight and smooth multi-series lines with optional points and missing-value gaps. Area charts include gradients and stacks; pie/donut is planned.',
+          'The current collection includes grouped, stacked, horizontal, and gradient bars, plus straight and smooth multi-series lines with optional points and missing-value gaps. Area charts include gradients and stacks; pie/donut charts show category shares with optional labels.',
         ],
       },
       {
@@ -68,7 +68,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'included',
         title: 'Included behavior',
         paragraphs: [
-          'Bar, line, and area charts support light and dark themes, responsive resizing, tooltips, keyboard-operable legends, and an optional data table enabled by default. Gallery previews omit the table controls; inspect their datasets in the Code tab. The playground retains the table and its keyboard actions. Plot and table actions emit the original numeric values.',
+          'Bar, line, area, and pie/donut charts support light and dark themes, responsive resizing, tooltips, keyboard-operable legends, and an optional data table enabled by default. Gallery previews omit the table controls; inspect their datasets in the Code tab. The playground retains the table and its keyboard actions. Plot and table actions emit the original numeric values.',
           'Loading, empty, and error states are explicit. Browser initialization is deferred safely in server-rendered applications, and reduced-motion preferences override decorative animation.',
         ],
       },
@@ -76,7 +76,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'status',
         title: 'Project status',
         paragraphs: [
-          'The library is experimental and the package is private. Use the workspace or a packed local build; a public npm installation is not available yet. Automated browser and packaging checks cover bar, line, and area components. Pie/donut and release acceptance remain in development.',
+          'The library is experimental and the package is private. Use the workspace or a packed local build; a public npm installation is not available yet. Automated browser and packaging checks cover all four chart families. Release acceptance remains in development.',
         ],
       },
     ],
@@ -138,13 +138,13 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
       {
         id: 'charts',
         title: 'Charts',
-        paragraphs: ['Explore working bar, line, and area components. Pie/donut remains planned.'],
+        paragraphs: ['Explore working bar, line, area, and pie/donut components.'],
       },
       {
         id: 'shared-behavior',
         title: 'Shared behavior',
         paragraphs: [
-          'Bar, line, and area charts include consistent numeric formatting, selectable legends, tooltips, a native data table, and explicit loading/error/empty states. Use the playground to exercise those controls, or the validation pages to inspect lifecycle and hydration behavior.',
+          'Bar, line, area, and pie/donut charts include consistent numeric formatting, selectable legends, tooltips, a native data table, and explicit loading/error/empty states. Use the playground to exercise those controls, or the validation pages to inspect lifecycle and hydration behavior.',
         ],
       },
     ],
@@ -178,9 +178,10 @@ export const chartCatalog = [
   },
   {
     title: 'Pie & Donut',
-    description: 'Category shares, visibility controls, and inner-radius options are planned.',
+    description:
+      'Compare category shares with pie or donut layouts, category controls, and labels.',
     kind: 'pie',
-    route: null,
-    status: 'Planned',
+    route: '/pie',
+    status: 'Available',
   },
 ] as const;

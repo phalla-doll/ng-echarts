@@ -74,6 +74,25 @@ async function exercise(engine, url, ssr) {
       await page.getByTestId('deferred').locator('canvas').waitFor();
       await page.getByTestId('deferred').locator('table').waitFor();
     }
+    const navigation = page.getByRole('navigation', { name: 'Playground pages' });
+    await navigation.getByRole('link', { name: 'Pie & Donut Blocks', exact: true }).click();
+    await expect(page.locator('nec-pie-chart canvas')).toHaveCount(3);
+    await navigation.getByRole('link', { name: 'Pie validation', exact: true }).click();
+    const pie = page.locator('.primary-pie nec-pie-chart');
+    await expect(pie.locator('canvas')).toHaveCount(1);
+    await pie.getByRole('button', { name: 'Show data table', exact: true }).click();
+    await pie.getByRole('button', { name: 'Select Visits for April: 0', exact: true }).click();
+    await expect(page.locator('.selection')).toHaveText('d/visits/0/table');
+    await page.getByRole('button', { name: 'Update pie values', exact: true }).click();
+    await expect(
+      pie.getByRole('button', { name: 'Select Visits for January: 110', exact: true }),
+    ).toBeVisible();
+    if (ssr) {
+      const deferred = page.locator('.deferred-pie');
+      await deferred.getByRole('button', { name: 'Show data table', exact: true }).click();
+      await expect(deferred.locator('canvas')).toHaveCount(1);
+      await expect(deferred.locator('table')).toBeVisible();
+    }
     await page.getByRole('link', { name: 'Navigate away', exact: true }).click();
     await page.getByRole('heading', { name: 'Navigation cleanup fixture', exact: true }).waitFor();
     assert.equal(await page.locator('canvas').count(), 0);
@@ -212,6 +231,8 @@ try {
      assert.equal(root.AreaChart, area.AreaChart);
      const line = await import('@ng-echarts/chart-library/line');
      assert.equal(root.LineChart, line.LineChart);
+     const pie = await import('@ng-echarts/chart-library/pie');
+     assert.equal(root.PieChart, pie.PieChart);
      const core = await import('@ng-echarts/chart-library/core');
      assert.equal(root.BarChart, bar.BarChart);
      assert.equal(root.ChartFrame, core.ChartFrame);
@@ -301,7 +322,7 @@ try {
     skipLibCheck: tsconfig.compilerOptions.skipLibCheck,
     workspaceAliases: false,
     installedOutsideWorkspace: true,
-    entryPoints: ['.', './core', './bar', './line', './area'],
+    entryPoints: ['.', './core', './bar', './line', './area', './pie'],
     compatibilityIdentity: true,
     privateImportsBlocked: true,
     reactRuntime: false,

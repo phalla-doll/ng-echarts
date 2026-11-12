@@ -13,7 +13,8 @@
     "bar/src/**/*.ts",
     "core/src/**/*.ts",
     "line/src/**/*.ts",
-    "area/src/**/*.ts"
+    "area/src/**/*.ts",
+    "pie/src/**/*.ts"
   ],
   "exclude": ["**/*.spec.ts"]
 }

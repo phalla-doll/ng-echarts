@@ -13,5 +13,11 @@
     "strictTemplates": true,
     "strictInjectionParameters": true
   },
-  "files": ["consumer.ts", "legacy-consumer.ts", "line-consumer.ts", "area-consumer.ts"]
+  "files": [
+    "consumer.ts",
+    "legacy-consumer.ts",
+    "line-consumer.ts",
+    "area-consumer.ts",
+    "pie-consumer.ts"
+  ]
 }

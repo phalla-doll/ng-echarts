@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { PieBlockExample } from './pie-block';
 import { BarBlockExample } from './bar-block';
 import { chartExampleSource, galleryFamilies, type ChartBlock } from './chart-blocks';
 import { SiteAppearance } from './site-appearance';
@@ -7,7 +8,7 @@ import { SiteIcon } from './site-icon';
 
 @Component({
   selector: 'app-gallery',
-  imports: [BarBlockExample, SiteIcon, RouterLink],
+  imports: [BarBlockExample, PieBlockExample, SiteIcon, RouterLink],
   templateUrl: './gallery.html',
   styleUrl: './gallery.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -15,7 +16,13 @@ import { SiteIcon } from './site-icon';
 export class Gallery {
   private readonly requestedFamily = inject(ActivatedRoute).snapshot.data['family'];
   protected readonly family =
-    this.requestedFamily === 'area' ? 'area' : this.requestedFamily === 'line' ? 'line' : 'bar';
+    this.requestedFamily === 'pie'
+      ? 'pie'
+      : this.requestedFamily === 'area'
+        ? 'area'
+        : this.requestedFamily === 'line'
+          ? 'line'
+          : 'bar';
   protected readonly config = galleryFamilies[this.family];
   protected readonly heading = this.config.title;
   protected readonly subtitle = `Ready-made Angular ${this.config.noun} chart blocks, powered by Apache ECharts`;

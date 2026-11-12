@@ -106,3 +106,20 @@ export class InvalidArea {
   readonly rows = [{ id: 'a', category: 'A', count: 1 }];
   readonly series = [{ id: 'v', key: 'category', label: 'Invalid' }] as const;
 }
+
+import { PieChart } from '@ng-echarts/chart-library/pie';
+@Component({
+  selector: 'invalid-pie',
+  imports: [PieChart],
+  template: `<nec-pie-chart
+    title="Bad"
+    [data]="data"
+    rowIdKey="id"
+    categoryKey="label"
+    [measure]="{ id: 'v', key: 'label', label: 'Wrong' }"
+    [innerRadius]="'wrong'"
+  />`,
+})
+export class InvalidPie {
+  readonly data = [{ id: 'a', label: 'A', value: 1 }];
+}

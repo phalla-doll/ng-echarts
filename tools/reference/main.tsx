@@ -9,6 +9,8 @@ import { EChartsExampleLineChart as LineSmooth } from './upstream/src/registry/e
 import { EChartsExampleAreaChart as AreaDefault } from './upstream/src/registry/examples/echarts/ex-default-type-echarts-area-chart';
 import { EChartsExampleAreaChart as AreaStacked } from './upstream/src/registry/examples/echarts/ex-stacked-type-echarts-area-chart';
 import { EChartsExampleAreaChart as AreaSolid } from './upstream/src/registry/examples/echarts/ex-solid-area-variant-echarts-area-chart';
+import { EChartsExamplePieChart as PieDefault } from './upstream/src/registry/examples/echarts/ex-echarts-pie-chart';
+import { EChartsExamplePieChart as PieDonut } from './upstream/src/registry/examples/echarts/ex-donut-echarts-pie-chart';
 import './reference.css';
 
 const parameters = new URLSearchParams(location.search);
@@ -18,6 +20,8 @@ host.style.width = `${Number(parameters.get('width') ?? 768)}px`;
 host.style.height = '360px';
 const Reference =
   {
+    'pie-default': PieDefault,
+    'pie-donut': PieDonut,
     stacked: Stacked,
     horizontal: Horizontal,
     gradient: Gradient,

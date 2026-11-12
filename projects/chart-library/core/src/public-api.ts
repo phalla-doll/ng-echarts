@@ -3,6 +3,8 @@ export type {
   BarLayout,
   CategoryTickFormatter,
   ChartSeries,
+  ChartMeasure,
+  CategoryVisibilityChange,
   ChartTheme,
   LegendVisibilityChange,
   NumericKey,

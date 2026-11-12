@@ -27,7 +27,9 @@
     "benchmark:line": "node tools/benchmark-line.mjs",
     "capture:line": "node tools/capture-line-reference.mjs",
     "benchmark:area": "node tools/benchmark-area.mjs",
-    "capture:area": "node tools/capture-area-reference.mjs"
+    "capture:area": "node tools/capture-area-reference.mjs",
+    "benchmark:pie": "node tools/benchmark-pie.mjs",
+    "capture:pie": "node tools/capture-pie-reference.mjs"
   },
   "private": true,
   "packageManager": "npm@11.19.1",

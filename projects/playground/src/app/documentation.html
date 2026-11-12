@@ -30,25 +30,14 @@
         @if (isCatalog && section.id === 'charts') {
           <div class="component-grid">
             @for (card of cards; track card.kind) {
-              @if (card.route !== null) {
-                <a class="component-card" [routerLink]="card.route"
-                  ><div class="component-art"><app-chart-illustration [kind]="card.kind" /></div>
-                  <div class="component-caption">
-                    <h3>{{ card.title }}</h3>
-                    <span>{{ card.status }}</span>
-                    <p>{{ card.description }}</p>
-                  </div></a
-                >
-              } @else {
-                <div class="component-card planned">
-                  <div class="component-art"><app-chart-illustration [kind]="card.kind" /></div>
-                  <div class="component-caption">
-                    <h3>{{ card.title }}</h3>
-                    <span>{{ card.status }}</span>
-                    <p>{{ card.description }}</p>
-                  </div>
-                </div>
-              }
+              <a class="component-card" [routerLink]="card.route"
+                ><div class="component-art"><app-chart-illustration [kind]="card.kind" /></div>
+                <div class="component-caption">
+                  <h3>{{ card.title }}</h3>
+                  <span>{{ card.status }}</span>
+                  <p>{{ card.description }}</p>
+                </div></a
+              >
             }
           </div>
         }

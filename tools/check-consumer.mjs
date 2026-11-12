@@ -111,6 +111,27 @@ try {
       await writeFile(join(consumer, file), areaExampleSource(block, dark));
       config.files.push(file);
     }
+  const pies = await build({
+    entryPoints: [join(root, 'projects/playground/src/app/pie-blocks.ts')],
+    bundle: true,
+    write: false,
+    platform: 'node',
+    format: 'esm',
+  });
+  const { pieBlocks, pieExampleSource } = await import(
+    `data:text/javascript;base64,${Buffer.from(pies.outputFiles[0].contents).toString('base64')}`
+  );
+  const pieGuide = await readFile(join(root, 'docs/PIE_CHART_API.md'), 'utf8');
+  const pieApiExample = pieGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
+  assert(pieApiExample, 'Pie guide must have a compilable example');
+  await writeFile(join(consumer, 'pie-api-example.ts'), pieApiExample);
+  config.files.push('pie-api-example.ts');
+  for (const dark of [false, true])
+    for (const block of pieBlocks) {
+      const file = `pie-${block.id}-${dark ? 'dark' : 'light'}.ts`;
+      await writeFile(join(consumer, file), pieExampleSource(block, dark));
+      config.files.push(file);
+    }
   await writeFile(configPath, JSON.stringify(config));
   run('npm', ['ci', '--no-audit', '--no-fund'], consumer);
   run(
@@ -138,9 +159,10 @@ try {
     './core',
     './line',
     './package.json',
+    './pie',
   ]);
   assert.equal(manifest.sideEffects, false);
-  for (const entry of ['.', './core', './bar', './line', './area']) {
+  for (const entry of ['.', './core', './bar', './line', './area', './pie']) {
     for (const field of ['types', 'default']) {
       assert(
         await readFile(join(installed, manifest.exports[entry][field])),
