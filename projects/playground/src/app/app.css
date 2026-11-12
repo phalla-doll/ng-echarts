@@ -3,10 +3,10 @@ main {
   --nec-text: var(--site-text);
   --nec-muted: var(--site-muted);
   --nec-border: var(--site-border);
-  min-height: calc(100vh - 48px);
-  max-width: 1120px;
+  min-height: calc(100vh - var(--site-header-height));
+  max-width: var(--site-page-width);
   margin: auto;
-  padding: 44px 48px 48px;
+  padding: var(--site-page-top) var(--site-page-gutter) var(--site-page-bottom);
   color: var(--site-text);
   background: var(--site-bg);
 }
@@ -21,28 +21,28 @@ main {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  margin-bottom: 34px;
+  margin-bottom: 32px;
 }
 
 .title-line {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 h1 {
   margin: 0;
-  font-size: 36px;
+  font-size: var(--site-title-size);
   font-weight: 600;
-  line-height: 40px;
+  line-height: var(--site-title-line);
   letter-spacing: -1px;
 }
 
 .experimental {
   padding: 4px 8px;
   border: 1px solid var(--site-border);
-  border-radius: 5px;
+  border-radius: 6px;
   font-size: 10px;
   line-height: 16px;
   font-weight: 550;
@@ -51,17 +51,17 @@ h1 {
 }
 
 .intro {
-  margin: 12px 0 0;
-  font-size: 13px;
-  line-height: 22px;
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 24px;
   color: var(--site-muted);
   max-width: 65ch;
 }
 
 .workbench {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 246px;
-  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) 224px;
+  gap: 32px;
   align-items: start;
 }
 
@@ -74,8 +74,8 @@ h1 {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 17px;
-  min-height: 39px;
+  margin-bottom: 16px;
+  min-height: 36px;
 }
 
 .dataset-meta {
@@ -98,11 +98,11 @@ nec-bar-chart {
 .event-console {
   display: flex;
   align-items: center;
-  gap: 9px;
-  margin: 14px 0 0;
-  padding: 12px 14px;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 12px 16px;
   border: 1px solid var(--site-border);
-  border-radius: 7px;
+  border-radius: 6px;
   color: var(--site-muted);
 }
 
@@ -119,7 +119,7 @@ nec-bar-chart {
 }
 
 .settings {
-  padding: 6px 0 0 24px;
+  padding: 0 0 0 24px;
   border-left: 1px solid var(--site-border);
 }
 
@@ -127,7 +127,7 @@ nec-bar-chart {
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  margin-top: 17px;
+  margin-top: 16px;
   font-size: 10px;
   line-height: 16px;
   color: var(--site-muted);
@@ -147,7 +147,7 @@ nec-bar-chart {
 }
 
 .status {
-  margin: 30px 0 0;
+  margin: 32px 0 0;
   color: var(--site-muted);
   font-size: 10px;
   line-height: 16px;
@@ -185,27 +185,17 @@ nec-bar-chart {
   line-height: 20px;
 }
 
-@media (min-width: 1700px) {
-  main {
-    padding-top: 52px;
-  }
-  .workbench {
-    grid-template-columns: minmax(0, 1fr) 270px;
-    gap: 40px;
-  }
-}
-
-@media (max-width: 1150px) {
+@media (max-width: 1250px) {
   .workbench {
     grid-template-columns: minmax(0, 1fr);
-    gap: 30px;
+    gap: 32px;
   }
   .settings {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+    gap: 24px;
     border: 1px solid var(--site-border);
-    border-radius: 12px;
+    border-radius: 8px;
     background: var(--site-surface);
     padding: 24px;
   }
@@ -215,7 +205,7 @@ nec-bar-chart {
     grid-column: 1/-1;
   }
   .settings-intro {
-    margin: -14px 0 0;
+    margin: -16px 0 0;
   }
   .settings-group {
     border: 0;
@@ -227,7 +217,7 @@ nec-bar-chart {
   }
   .interaction-note {
     border-top: 1px solid var(--site-border);
-    padding-top: 15px;
+    padding-top: 16px;
   }
   .interaction-note p {
     max-width: none;
@@ -236,46 +226,34 @@ nec-bar-chart {
     align-items: start;
   }
   .dataset-meta {
-    font-size: 10px;
-    line-height: 16px;
+    display: none;
   }
 }
 
 @media (max-width: 600px) {
-  main {
-    padding: 26px 16px 20px;
-    min-height: calc(100vh - 56px);
-  }
   .page-header {
     flex-wrap: wrap;
-    gap: 18px;
-    margin-bottom: 25px;
-  }
-  h1 {
-    font-size: 30px;
-    line-height: 36px;
-    letter-spacing: -1px;
+    gap: 16px;
+    margin-bottom: 32px;
   }
   .intro {
-    font-size: 12px;
-    line-height: 20px;
     max-width: 40ch;
   }
   .preview-toolbar {
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
   }
   .dataset-meta {
     margin-left: auto;
   }
   .settings {
     grid-template-columns: minmax(0, 1fr);
-    gap: 20px;
+    gap: 24px;
     padding: 20px;
   }
   .settings-group {
     border-bottom: 1px solid var(--site-border);
-    padding-bottom: 18px;
+    padding-bottom: 24px;
   }
   .settings-group > p {
     max-width: none;
@@ -290,11 +268,8 @@ nec-bar-chart {
     font-size: 11px;
     line-height: 18px;
   }
-  .source-note {
-    padding: 0 18px 20px;
-  }
   pre {
-    padding: 20px 18px;
+    padding: 16px;
     font-size: 11px;
     line-height: 18px;
   }
@@ -303,8 +278,20 @@ nec-bar-chart {
   }
 }
 
-@media (max-width: 1150px) {
-  .dataset-meta {
-    display: none;
+/* Keep settings readable while the persistent sidebar leaves a narrow content column. */
+@media (min-width: 801px) and (max-width: 920px) {
+  .settings {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .settings-group {
+    border-bottom: 1px solid var(--site-border);
+    padding-bottom: 24px;
+  }
+  .settings-group > p {
+    max-width: none;
+  }
+  .interaction-note {
+    border: 0;
+    padding: 0;
   }
 }

@@ -1,0 +1,311 @@
+{
+  "recordedAt": "2026-11-12T14:45:18.995442+00:00",
+  "baselineCommit": "6b8a0a1",
+  "browser": "{\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36\",\"devicePixelRatio\":1}",
+  "motion": "reduce",
+  "captureMode": "After captures: production SSR; before captures: development preview at baseline. Comparison plot retains its independent light reference theme.",
+  "sourceHashes": {
+    "projects/playground/src/site-controls.css": "711d4887d7c5c927c6076f9d3d3d625f0c1eb3133b6a63c4d3b9d31e1eeaf598",
+    "projects/playground/src/styles.css": "f007d5b120f3c96a679f57232149917f00b95e8cb585486d5d3ceee7424e4822",
+    "projects/playground/src/gallery-shell.css": "3ce9672aeb0dd665da69994c309d889705a6c625e455871b36fe485be2b968c2",
+    "projects/playground/src/documentation.css": "7bd950089c7d63830302b48eeaa7a2b23250b76921ac29a014a00257c8a01aab",
+    "projects/playground/src/app/comparison.css": "dd45800276fe2fd51095ce2df6410d0256b2dbda9ab7af025eab572c50c6b3f3",
+    "projects/playground/src/app/gallery.css": "4af512a47beead9afd46a27d197d6de6768459c4c781aed27ea645e4bcb5a078",
+    "projects/playground/src/app/app.css": "1058155a1a926cc812ab04caf6bec987186aff66f1bec230ba3bf3c9a0375408",
+    "projects/playground/src/app/bar-block.css": "2f0da5813ca7d5c69698bfae995fe519285c2ba61c6ad385563a683038027947",
+    "projects/playground/src/app/root.css": "0714d393a27d8cf5b54a7decacd1e67fa8c1b7ab8e62bcf6050bd8b4a00c986a",
+    "projects/playground/src/app/copy-button.ts": "d95f2c071aafd66c0548b85ac3c28fd0ed8781dd891e00bee7e7de5b5fd2e6a4",
+    "projects/playground/src/app/source-snippet.ts": "e72650f1d9b74d2042cc5f2fd35a48a25ebdb976e28c84633003df3b1cdc6777",
+    "projects/playground/src/app/site-icon.ts": "a9595e20913d8bff10d495445a8abfaf984793e451727ad682e21acc12248622"
+  },
+  "captures": [
+    {
+      "file": "gallery-dark.png",
+      "phase": "after",
+      "route": "/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "dark",
+      "fullPage": false,
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "538412e0f6cc2b547676312b9ffbd9e470fba118f2b1b3ac17da895b88d8f1f9"
+    },
+    {
+      "file": "gallery-light.png",
+      "phase": "after",
+      "route": "/",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "fullPage": false,
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "89b6214b1b8295fb65738d8a84f56ad677023de8e7e46ed492745203ac32779d"
+    },
+    {
+      "file": "gallery-mobile.png",
+      "phase": "after",
+      "route": "/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "fullPage": true,
+      "image": {
+        "width": 390,
+        "height": 3061
+      },
+      "sha256": "c91b58c38dad8cb8c2bcc99efd8d8645ebe0ada0c8f9baf8d9f3f9027e6c5b49"
+    },
+    {
+      "file": "components-dark.png",
+      "phase": "after",
+      "route": "/components",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "dark",
+      "fullPage": false,
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "e2dba68a88feb77dac083cfc65d4c7c2d61133159a52416aace64cff68ef8a93"
+    },
+    {
+      "file": "components-mobile.png",
+      "phase": "after",
+      "route": "/components",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "fullPage": true,
+      "image": {
+        "width": 390,
+        "height": 1891
+      },
+      "sha256": "32e493979753157082d7b3474a2bf99e166fa7b7cfc4a9fb7ac4ff6cd98807d6"
+    },
+    {
+      "file": "playground-dark.png",
+      "phase": "after",
+      "route": "/playground",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "dark",
+      "fullPage": false,
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "ee59faa1455b74e8f0494c269f4a0984873394293779f09a15b895110d22606d"
+    },
+    {
+      "file": "playground-light.png",
+      "phase": "after",
+      "route": "/playground",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "fullPage": false,
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "e286cc96715c17596c29ab2dd9e16e42dda0bc56dd819d9e041a9cceffc472c1"
+    },
+    {
+      "file": "playground-tablet.png",
+      "phase": "after",
+      "route": "/playground",
+      "viewport": {
+        "width": 768,
+        "height": 1000
+      },
+      "theme": "dark",
+      "fullPage": true,
+      "image": {
+        "width": 768,
+        "height": 1509
+      },
+      "sha256": "29c7a422653c3d7884c799c3d70cc8dc22f8232d3ccf8541689f2bdf5f114f08"
+    },
+    {
+      "file": "playground-narrow.png",
+      "phase": "after",
+      "route": "/playground",
+      "viewport": {
+        "width": 801,
+        "height": 1000
+      },
+      "theme": "dark",
+      "fullPage": true,
+      "image": {
+        "width": 801,
+        "height": 1861
+      },
+      "sha256": "d50ebc3ffa0545efe147bf4854d603ed86e07bffa4fd9ed26bf95e2b0ea3c07d"
+    },
+    {
+      "file": "playground-mobile.png",
+      "phase": "after",
+      "route": "/playground",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "fullPage": true,
+      "image": {
+        "width": 390,
+        "height": 1867
+      },
+      "sha256": "549b3052ad1225ec464761d37a8098490ed301487af245863ca6137d30f1e7c1"
+    },
+    {
+      "file": "playground-code.png",
+      "phase": "after",
+      "route": "/playground",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "dark",
+      "fullPage": false,
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "a79e6a094f810cdbe2939e2bb8eb141e3074aa84e1b421e45febd61f82b0b028"
+    },
+    {
+      "file": "get-started-mobile.png",
+      "phase": "after",
+      "route": "/get-started",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "fullPage": true,
+      "image": {
+        "width": 390,
+        "height": 1899
+      },
+      "sha256": "adf41691a7e094047b2161529c29cf5afee953d1b5a303e0ba2974925693faf9"
+    },
+    {
+      "file": "formatting-dark.png",
+      "phase": "after",
+      "route": "/formatting",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "dark",
+      "fullPage": false,
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "a67b1e071403e240cdc799acfeba86aee3be27fc8831fb153e94e2cd184cc081"
+    },
+    {
+      "file": "comparison.png",
+      "phase": "after",
+      "route": "/comparison",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "dark",
+      "fullPage": false,
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "ffaebe37ac3498ff92be3688d20d9d9fb04956a9001a62bd6e731506c2d906b2"
+    },
+    {
+      "file": "navigation-mobile.png",
+      "phase": "after",
+      "route": "/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "fullPage": false,
+      "image": {
+        "width": 390,
+        "height": 844
+      },
+      "sha256": "2b2a226ba83221ed671d7acbe3fb05161235c721fde556e76ea54a44dff61a3e"
+    },
+    {
+      "file": "playground-before.png",
+      "phase": "before",
+      "route": "/playground",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "dark",
+      "fullPage": false,
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "f5966f698e43d6c9361a9dbfdf215c766fdcd9025a9aafc167b56ae6c57c3dc9"
+    },
+    {
+      "file": "components-before.png",
+      "phase": "before",
+      "route": "/components",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "dark",
+      "fullPage": false,
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "5cbc1ba7475406246a9aefb097f9165af332056e58d5609eb38ffbc7b990aa6a"
+    },
+    {
+      "file": "get-started-mobile-before.png",
+      "phase": "before",
+      "route": "/get-started",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "fullPage": true,
+      "image": {
+        "width": 390,
+        "height": 1895
+      },
+      "sha256": "341e432f1f990858a6b62bd338fbc94179503bbc7da593bc0fe5fcb6425ca3dc"
+    }
+  ]
+}

@@ -25,14 +25,15 @@
   border: 0;
 }
 .gallery .gallery-chart .legend {
-  margin: 10px 0 6px;
+  margin: 12px 0 8px;
   gap: 8px;
 }
 .gallery .gallery-chart button {
-  padding: 4px 7px;
+  min-height: 32px;
+  padding: 6px 8px;
   font-size: 11px;
   line-height: 18px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 .gallery .gallery-chart .visibility {
   font-size: 10px;

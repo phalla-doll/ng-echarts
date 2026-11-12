@@ -6,6 +6,7 @@ import { SiteIcon } from './site-icon';
   imports: [SiteIcon],
   template: `<button
       type="button"
+      [class.compact]="compact()"
       (click)="copy()"
       [attr.aria-label]="copied() ? 'Copied' : label()"
     >
@@ -25,7 +26,8 @@ import { SiteIcon } from './site-icon';
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 8px;
+      min-height: 32px;
+      padding: 5px 10px;
       border: 1px solid var(--site-border);
       border-radius: 6px;
       color: var(--site-muted);
@@ -34,9 +36,18 @@ import { SiteIcon } from './site-icon';
       line-height: 20px;
       white-space: nowrap;
     }
+    button.compact {
+      width: 32px;
+      justify-content: center;
+      padding: 0;
+    }
+    button:hover {
+      color: var(--site-text);
+      border-color: var(--site-control-border);
+    }
     app-site-icon {
-      width: 13px;
-      height: 13px;
+      width: 14px;
+      height: 14px;
     }
     p {
       max-width: 240px;

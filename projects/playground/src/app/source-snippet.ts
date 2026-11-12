@@ -18,12 +18,12 @@ import { CopyButton } from './copy-button';
     :host {
       display: block;
       min-width: 0;
-      margin: 22px 0;
+      margin: 24px 0;
     }
     .snippet {
       border: 1px solid var(--site-border);
       padding: 4px;
-      border-radius: 8px;
+      border-radius: var(--site-panel-radius);
       background: var(--site-surface);
     }
     .snippet-heading {
@@ -31,10 +31,11 @@ import { CopyButton } from './copy-button';
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      padding: 2px 8px 7px;
+      min-height: 40px;
+      padding: 4px 8px;
       color: var(--site-muted);
-      font-size: 11px;
-      line-height: 18px;
+      font-size: 12px;
+      line-height: 20px;
     }
     pre {
       margin: 0;
@@ -42,7 +43,7 @@ import { CopyButton } from './copy-button';
       max-height: 510px;
       overflow: auto;
       border: 1px solid var(--site-border);
-      border-radius: 5px;
+      border-radius: var(--site-inset-radius);
       background: var(--site-bg);
       font-size: 12px;
       line-height: 22px;

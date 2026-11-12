@@ -5,9 +5,9 @@
   display: grid;
   grid-template-columns: minmax(0, 640px) 150px;
   gap: 64px;
-  max-width: 1000px;
+  max-width: var(--site-page-width);
   margin: auto;
-  padding: 44px 48px 96px;
+  padding: var(--site-page-top) var(--site-page-gutter) var(--site-page-bottom);
 }
 .gallery-content {
   min-width: 0;
@@ -16,21 +16,21 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 18px;
-  margin-bottom: 72px;
+  gap: 16px;
+  margin-bottom: 64px;
 }
 h1 {
   margin: 0;
-  font-size: 36px;
+  font-size: var(--site-title-size);
   font-weight: 600;
-  line-height: 40px;
+  line-height: var(--site-title-line);
   letter-spacing: -1px;
 }
 .gallery-heading p {
-  margin: 5px 0 0;
+  margin: 8px 0 0;
   color: var(--site-muted);
   font-size: 14px;
-  line-height: 22px;
+  line-height: 24px;
 }
 .copy-page {
   display: inline-flex;
@@ -38,10 +38,10 @@ h1 {
   justify-content: center;
   flex: none;
   gap: 6px;
-  margin-top: 3px;
-  padding: 6px 8px;
+  margin-top: 4px;
+  padding: 5px 10px;
   border: 1px solid var(--site-border);
-  border-radius: 7px;
+  border-radius: 6px;
   font: inherit;
   font-size: 12px;
   line-height: 20px;
@@ -49,18 +49,18 @@ h1 {
   background: var(--site-surface);
 }
 .copy-page app-site-icon {
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
 }
 .gallery-examples {
   display: grid;
-  gap: 44px;
+  gap: 48px;
 }
 .page-outline {
   position: sticky;
-  top: 94px;
+  top: calc(var(--site-header-height) + 48px);
   align-self: start;
-  margin-top: 6px;
+  margin-top: 10px;
   font-size: 12px;
   line-height: 20px;
 }
@@ -70,7 +70,7 @@ h1 {
 }
 .page-outline a {
   display: block;
-  padding: 7px 0 7px 14px;
+  padding: 8px 0 8px 16px;
   border-left: 1px solid var(--site-border);
   color: var(--site-muted);
   text-decoration: none;
@@ -97,8 +97,8 @@ h1 {
 }
 .gallery-footer {
   border-top: 1px solid var(--site-border);
-  margin-top: 40px;
-  padding-top: 20px;
+  margin-top: 48px;
+  padding-top: 24px;
   color: var(--site-muted);
   font-size: 11px;
   line-height: 18px;
@@ -123,31 +123,26 @@ h1 {
 @media (max-width: 1250px) {
   .gallery {
     display: block;
-    max-width: 760px;
-    padding: 44px 32px 72px;
   }
   .page-outline {
     display: none;
   }
 }
 @media (max-width: 600px) {
-  .gallery {
-    padding: 28px 16px 56px;
-  }
   .gallery-heading {
     flex-direction: column;
     gap: 16px;
-    margin-bottom: 44px;
-  }
-  h1 {
-    font-size: 32px;
-    line-height: 38px;
-  }
-  .gallery-heading p {
-    font-size: 13px;
-    line-height: 22px;
+    margin-bottom: 40px;
   }
   .gallery-examples {
-    gap: 36px;
+    gap: 40px;
   }
+  .copy-page {
+    margin-top: 0;
+  }
+}
+
+.copy-page:hover {
+  color: var(--site-text);
+  border-color: var(--site-control-border);
 }

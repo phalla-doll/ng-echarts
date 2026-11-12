@@ -74,6 +74,8 @@ Title, summary, table controls, and identifiers must be deterministic between se
 
 ## Visual design
 
+Use shared page widths, responsive gutters, title scales, panel radii, and control spacing across gallery, documentation, and engineering pages. Follow the [spacing review](experiments/UI_SPACING_REVIEW.md) for current dimensions and breakpoint behavior; keep measurement plots isolated.
+
 Use Heroicons 24 px outline icons for demo navigation and controls, keeping visible text or accessible labels on actions.
 
 Use the locally hosted Inter font for site prose, navigation, controls, metrics, and chart labels. Define whole-number CSS pixel font sizes, line heights, and tracking for the site, keeping normal browser zoom and text antialiasing. Code examples retain a monospace face; historical measurement plots retain their explicit reference typography.

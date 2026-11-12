@@ -1,0 +1,3470 @@
+{
+  "recordedAt": "2026-11-12T14:44:44.202444+00:00",
+  "browser": "{\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36\",\"devicePixelRatio\":1}",
+  "conditions": "Production SSR, default zoom, reduced motion, 1000 px viewport height; each route checked in both themes. Code and historical measurement plot hosts are excluded from the Inter typography audit. Retention and benchmark charts start unmounted.",
+  "summary": {
+    "routes": 12,
+    "widths": 12,
+    "themes": 2,
+    "observations": 288,
+    "issueCount": 0
+  },
+  "results": [
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 320
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "32px",
+        "x": 16,
+        "y": 88
+      },
+      "width": 390
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 36,
+        "y": 104
+      },
+      "width": 768
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52,
+        "y": 104
+      },
+      "width": 800
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52.5,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52.5,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52.5,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 52.5,
+        "y": 96
+      },
+      "width": 801
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 112,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 112,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 112,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 112,
+        "y": 96
+      },
+      "width": 920
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 260,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 112.5,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 112.5,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 112.5,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 112.5,
+        "y": 96
+      },
+      "width": 921
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 278,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 164,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 164,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 164,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 164,
+        "y": 96
+      },
+      "width": 1024
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 391,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 277,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 277,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 277,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 277,
+        "y": 96
+      },
+      "width": 1250
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 287.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 173.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 173.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 173.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 173.5,
+        "y": 96
+      },
+      "width": 1251
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 382,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 268,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 268,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 268,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 268,
+        "y": 96
+      },
+      "width": 1440
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/get-started",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/installation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/components",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/playground",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/formatting",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/updates",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/validation",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/retention",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/away",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 622,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 508,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/benchmark",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 508,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "dark",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 508,
+        "y": 96
+      },
+      "width": 1920
+    },
+    {
+      "issues": [],
+      "route": "/comparison",
+      "theme": "light",
+      "title": {
+        "line": "40px",
+        "size": "36px",
+        "x": 508,
+        "y": 96
+      },
+      "width": 1920
+    }
+  ]
+}

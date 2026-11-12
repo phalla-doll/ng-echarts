@@ -58,8 +58,8 @@ const paths = {
     :host {
       display: inline-flex;
       flex: none;
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
     }
     svg {
       width: 100%;

@@ -1,0 +1,510 @@
+{
+  "recordedAt": "2026-11-12T14:35:27.477434+00:00",
+  "baselineCommit": "6b8a0a1",
+  "results": [
+    {
+      "copy": {
+        "fontSize": "12px",
+        "height": 34,
+        "lineHeight": "20px",
+        "width": 98.953125,
+        "x": 923.046875,
+        "y": 95
+      },
+      "firstCard": {
+        "fontSize": "14px",
+        "height": 442,
+        "lineHeight": "22px",
+        "width": 640,
+        "x": 382,
+        "y": 275
+      },
+      "heading": {
+        "fontSize": "36px",
+        "height": 40,
+        "lineHeight": "40px",
+        "width": 447.34375,
+        "x": 382,
+        "y": 92
+      },
+      "main": {
+        "fontSize": "14px",
+        "height": 2922,
+        "lineHeight": "22px",
+        "width": 1000,
+        "x": 334,
+        "y": 48
+      },
+      "overflow": false,
+      "previewToolbar": null,
+      "route": "/",
+      "settingsHeading": null,
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "copy": {
+        "fontSize": "12px",
+        "height": 34,
+        "lineHeight": "20px",
+        "width": 98.953125,
+        "x": 923.046875,
+        "y": 95
+      },
+      "firstCard": {
+        "fontSize": "14px",
+        "height": 263,
+        "lineHeight": "22px",
+        "width": 306,
+        "x": 382,
+        "y": 347
+      },
+      "heading": {
+        "fontSize": "36px",
+        "height": 40,
+        "lineHeight": "40px",
+        "width": 462.875,
+        "x": 382,
+        "y": 92
+      },
+      "main": {
+        "fontSize": "14px",
+        "height": 1220,
+        "lineHeight": "22px",
+        "width": 1000,
+        "x": 334,
+        "y": 48
+      },
+      "overflow": false,
+      "previewToolbar": null,
+      "route": "/components",
+      "settingsHeading": null,
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "copy": null,
+      "firstCard": {
+        "fontSize": "14px",
+        "height": 604,
+        "lineHeight": "22px",
+        "width": 750,
+        "x": 322,
+        "y": 256
+      },
+      "heading": {
+        "fontSize": "36px",
+        "height": 40,
+        "lineHeight": "40px",
+        "width": 168.59375,
+        "x": 322,
+        "y": 92
+      },
+      "main": {
+        "fontSize": "14px",
+        "height": 997,
+        "lineHeight": "22px",
+        "width": 1120,
+        "x": 274,
+        "y": 48
+      },
+      "overflow": false,
+      "previewToolbar": {
+        "fontSize": "14px",
+        "height": 39,
+        "lineHeight": "22px",
+        "width": 750,
+        "x": 322,
+        "y": 200
+      },
+      "route": "/playground",
+      "settingsHeading": {
+        "fontSize": "14px",
+        "height": 24,
+        "lineHeight": "22px",
+        "width": 221,
+        "x": 1125,
+        "y": 206
+      },
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "copy": null,
+      "firstCard": {
+        "fontSize": "14px",
+        "height": 564,
+        "lineHeight": "22px",
+        "width": 904,
+        "x": 382,
+        "y": 372
+      },
+      "heading": {
+        "fontSize": "36px",
+        "height": 40,
+        "lineHeight": "40px",
+        "width": 904,
+        "x": 382,
+        "y": 92
+      },
+      "main": {
+        "fontSize": "14px",
+        "height": 1004,
+        "lineHeight": "22px",
+        "width": 1000,
+        "x": 334,
+        "y": 48
+      },
+      "overflow": false,
+      "previewToolbar": null,
+      "route": "/formatting",
+      "settingsHeading": null,
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "copy": {
+        "fontSize": "12px",
+        "height": 34,
+        "lineHeight": "20px",
+        "width": 98.953125,
+        "x": 875.046875,
+        "y": 95
+      },
+      "firstCard": {
+        "fontSize": "14px",
+        "height": 442,
+        "lineHeight": "22px",
+        "width": 696,
+        "x": 278,
+        "y": 275
+      },
+      "heading": {
+        "fontSize": "36px",
+        "height": 40,
+        "lineHeight": "40px",
+        "width": 447.34375,
+        "x": 278,
+        "y": 92
+      },
+      "main": {
+        "fontSize": "14px",
+        "height": 2898,
+        "lineHeight": "22px",
+        "width": 760,
+        "x": 246,
+        "y": 48
+      },
+      "overflow": false,
+      "previewToolbar": null,
+      "route": "/",
+      "settingsHeading": null,
+      "viewport": {
+        "height": 1000,
+        "width": 1024
+      }
+    },
+    {
+      "copy": {
+        "fontSize": "12px",
+        "height": 34,
+        "lineHeight": "20px",
+        "width": 98.953125,
+        "x": 875.046875,
+        "y": 95
+      },
+      "firstCard": {
+        "fontSize": "14px",
+        "height": 263,
+        "lineHeight": "22px",
+        "width": 334,
+        "x": 278,
+        "y": 323
+      },
+      "heading": {
+        "fontSize": "36px",
+        "height": 40,
+        "lineHeight": "40px",
+        "width": 462.875,
+        "x": 278,
+        "y": 92
+      },
+      "main": {
+        "fontSize": "14px",
+        "height": 1172,
+        "lineHeight": "22px",
+        "width": 760,
+        "x": 246,
+        "y": 48
+      },
+      "overflow": false,
+      "previewToolbar": null,
+      "route": "/components",
+      "settingsHeading": null,
+      "viewport": {
+        "height": 1000,
+        "width": 1024
+      }
+    },
+    {
+      "copy": null,
+      "firstCard": {
+        "fontSize": "14px",
+        "height": 604,
+        "lineHeight": "22px",
+        "width": 700,
+        "x": 276,
+        "y": 256
+      },
+      "heading": {
+        "fontSize": "36px",
+        "height": 40,
+        "lineHeight": "40px",
+        "width": 168.59375,
+        "x": 276,
+        "y": 92
+      },
+      "main": {
+        "fontSize": "14px",
+        "height": 1395,
+        "lineHeight": "22px",
+        "width": 796,
+        "x": 228,
+        "y": 48
+      },
+      "overflow": false,
+      "previewToolbar": {
+        "fontSize": "14px",
+        "height": 39,
+        "lineHeight": "22px",
+        "width": 700,
+        "x": 276,
+        "y": 200
+      },
+      "route": "/playground",
+      "settingsHeading": {
+        "fontSize": "14px",
+        "height": 24,
+        "lineHeight": "22px",
+        "width": 649.984375,
+        "x": 301,
+        "y": 1006
+      },
+      "viewport": {
+        "height": 1000,
+        "width": 1024
+      }
+    },
+    {
+      "copy": null,
+      "firstCard": {
+        "fontSize": "14px",
+        "height": 564,
+        "lineHeight": "22px",
+        "width": 732,
+        "x": 260,
+        "y": 372
+      },
+      "heading": {
+        "fontSize": "36px",
+        "height": 40,
+        "lineHeight": "40px",
+        "width": 732,
+        "x": 260,
+        "y": 92
+      },
+      "main": {
+        "fontSize": "14px",
+        "height": 996,
+        "lineHeight": "22px",
+        "width": 796,
+        "x": 228,
+        "y": 48
+      },
+      "overflow": false,
+      "previewToolbar": null,
+      "route": "/formatting",
+      "settingsHeading": null,
+      "viewport": {
+        "height": 1000,
+        "width": 1024
+      }
+    },
+    {
+      "copy": {
+        "fontSize": "12px",
+        "height": 34,
+        "lineHeight": "20px",
+        "width": 98.953125,
+        "x": 16,
+        "y": 190
+      },
+      "firstCard": {
+        "fontSize": "14px",
+        "height": 435,
+        "lineHeight": "22px",
+        "width": 358,
+        "x": 16,
+        "y": 312
+      },
+      "heading": {
+        "fontSize": "32px",
+        "height": 38,
+        "lineHeight": "38px",
+        "width": 358,
+        "x": 16,
+        "y": 84
+      },
+      "main": {
+        "fontSize": "14px",
+        "height": 2861,
+        "lineHeight": "22px",
+        "width": 390,
+        "x": 0,
+        "y": 56
+      },
+      "overflow": false,
+      "previewToolbar": null,
+      "route": "/",
+      "settingsHeading": null,
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "copy": {
+        "fontSize": "12px",
+        "height": 34,
+        "lineHeight": "20px",
+        "width": 98.953125,
+        "x": 16,
+        "y": 190
+      },
+      "firstCard": {
+        "fontSize": "14px",
+        "height": 263,
+        "lineHeight": "22px",
+        "width": 358,
+        "x": 16,
+        "y": 384
+      },
+      "heading": {
+        "fontSize": "32px",
+        "height": 38,
+        "lineHeight": "38px",
+        "width": 358,
+        "x": 16,
+        "y": 84
+      },
+      "main": {
+        "fontSize": "14px",
+        "height": 1809,
+        "lineHeight": "22px",
+        "width": 390,
+        "x": 0,
+        "y": 56
+      },
+      "overflow": false,
+      "previewToolbar": null,
+      "route": "/components",
+      "settingsHeading": null,
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "copy": null,
+      "firstCard": {
+        "fontSize": "14px",
+        "height": 604,
+        "lineHeight": "22px",
+        "width": 358,
+        "x": 16,
+        "y": 251
+      },
+      "heading": {
+        "fontSize": "30px",
+        "height": 36,
+        "lineHeight": "36px",
+        "width": 138.828125,
+        "x": 16,
+        "y": 82
+      },
+      "main": {
+        "fontSize": "14px",
+        "height": 1714,
+        "lineHeight": "22px",
+        "width": 390,
+        "x": 0,
+        "y": 56
+      },
+      "overflow": false,
+      "previewToolbar": {
+        "fontSize": "14px",
+        "height": 39,
+        "lineHeight": "22px",
+        "width": 358,
+        "x": 16,
+        "y": 195
+      },
+      "route": "/playground",
+      "settingsHeading": {
+        "fontSize": "14px",
+        "height": 24,
+        "lineHeight": "22px",
+        "width": 316,
+        "x": 37,
+        "y": 1025
+      },
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "copy": null,
+      "firstCard": {
+        "fontSize": "14px",
+        "height": 586,
+        "lineHeight": "22px",
+        "width": 358,
+        "x": 16,
+        "y": 470
+      },
+      "heading": {
+        "fontSize": "30px",
+        "height": 36,
+        "lineHeight": "36px",
+        "width": 358,
+        "x": 16,
+        "y": 84
+      },
+      "main": {
+        "fontSize": "14px",
+        "height": 1100,
+        "lineHeight": "22px",
+        "width": 390,
+        "x": 0,
+        "y": 56
+      },
+      "overflow": false,
+      "previewToolbar": null,
+      "route": "/formatting",
+      "settingsHeading": null,
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    }
+  ]
+}

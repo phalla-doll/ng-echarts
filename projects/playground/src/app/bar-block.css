@@ -8,7 +8,7 @@
 h2 {
   margin: 0 0 16px;
   font-size: 20px;
-  line-height: 28px;
+  line-height: 32px;
   font-weight: 500;
   letter-spacing: 0;
 }
@@ -20,15 +20,15 @@ h2 a {
 .integration-card {
   padding: 4px;
   border: 1px solid var(--site-border);
-  border-radius: 8px;
+  border-radius: var(--site-panel-radius);
   background: var(--site-surface);
 }
 .block-header {
   display: flex;
   align-items: center;
-  height: 30px;
-  padding: 0 7px;
-  gap: 7px;
+  height: 36px;
+  padding: 0 8px;
+  gap: 8px;
   color: var(--site-muted);
 }
 button {
@@ -40,11 +40,15 @@ button {
 }
 .reload-button {
   display: inline-flex;
-  padding: 3px 0;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
 }
 .reload-button app-site-icon {
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
 }
 .block-label {
   font-size: 12px;
@@ -57,10 +61,12 @@ button {
   display: flex;
   align-self: stretch;
   margin-left: auto;
-  gap: 14px;
+  gap: 16px;
 }
 .block-views button {
-  padding: 0 2px 6px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 4px;
   font-size: 12px;
   line-height: 20px;
   border-bottom: 1px solid transparent;
@@ -72,19 +78,19 @@ button {
 .block-surface,
 .block-code {
   border: 1px solid var(--site-border);
-  border-radius: 5px;
+  border-radius: var(--site-inset-radius);
   background: var(--site-bg);
   overflow: hidden;
 }
 .block-metrics {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  padding: 16px 12px 12px;
+  padding: 20px 8px 16px;
 }
 .block-metric {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 8px;
   padding: 0 12px;
 }
 .block-metric + .block-metric {
@@ -140,7 +146,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 28px;
+  height: 32px;
   padding: 0 8px;
   color: var(--site-muted);
 }
@@ -156,21 +162,24 @@ button {
   line-height: 20px;
 }
 .integration-heading app-site-icon {
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
 }
 .integration-heading button,
 .code-heading button {
   display: inline-flex;
   align-items: center;
   gap: 5px;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
   padding: 4px;
 }
 .integration-card pre {
   margin: 0;
   border: 1px solid var(--site-border);
-  border-radius: 5px;
-  padding: 13px 10px;
+  border-radius: var(--site-inset-radius);
+  padding: 12px 16px;
   overflow: auto;
   font-size: 12px;
   line-height: 20px;
@@ -189,12 +198,12 @@ button {
   color: var(--site-muted);
 }
 .code-heading app-site-icon {
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
 }
 .block-code pre {
   margin: 0;
-  padding: 18px;
+  padding: 16px;
   max-height: 430px;
   overflow: auto;
   font-size: 12px;
@@ -211,13 +220,13 @@ button {
     line-height: 18px;
   }
   .block-views {
-    gap: 10px;
+    gap: 12px;
   }
   .block-metrics {
-    padding: 14px 4px 10px;
+    padding: 16px 4px 12px;
   }
   .block-metric {
-    padding: 0 10px;
+    padding: 0 12px;
   }
   .metric-total {
     font-size: 21px;
