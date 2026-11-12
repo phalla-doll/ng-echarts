@@ -52,4 +52,4 @@ These captures were inspected at a 1100 × 1050 viewport, DPR 1, system font, re
 - R07: SVG comparison, required benchmark fixtures/raw samples, cold-load/table costs, measured data envelope, and numeric bundle budget.
 - R08: full packed client and SSR build/runtime consumers outside the workspace; the current fixture compiles declarations and templates only.
 
-The public API remains experimental. Custom value formatters and final formatting configuration are not implemented yet; locale number formatting is shared across axes, tooltip, and table. No line, area, or pie/donut implementation has started.
+At this initial snapshot the public API remained experimental, custom value formatters/configuration were pending, and locale number formatting was shared across axes, tooltip, and table. The later [NG09 increment](NG09_SHARED_FORMATTING.md) implements custom value formatters and number-format options. No line, area, or pie/donut implementation has started.

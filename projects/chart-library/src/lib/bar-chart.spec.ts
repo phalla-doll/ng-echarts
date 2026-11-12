@@ -32,6 +32,60 @@ async function setup() {
 }
 
 describe('bar Angular controls', () => {
+  it('updates numeric text and table actions while preserving missing values and raw events', async () => {
+    const { fixture, element } = await setup();
+    fixture.componentRef.setInput('data', [
+      ...data,
+      { id: 'third', category: 'C', value: -1234.5 },
+    ]);
+    fixture.componentRef.setInput('locale', 'de-DE');
+    fixture.componentRef.setInput('numberFormatOptions', { style: 'currency', currency: 'EUR' });
+    await fixture.whenStable();
+    element.querySelector<HTMLButtonElement>('.table-toggle')!.click();
+    await fixture.whenStable();
+    expect(element.querySelector('tbody')?.textContent).toContain('-1.234,50\u00a0€');
+    expect(element.querySelector('tbody')?.textContent).toContain('Missing');
+    const format = vi.fn((value: number) => `Value ${value}`);
+    fixture.componentRef.setInput('valueFormatter', format);
+    await fixture.whenStable();
+    const action = element.querySelector<HTMLButtonElement>('tbody button')!;
+    expect(action.getAttribute('aria-label')).toBe('Select Values for A: Value 0');
+    const events: PointSelection<Row>[] = [];
+    fixture.componentInstance.pointSelect.subscribe((event) => events.push(event));
+    action.click();
+    expect(events[0]?.value).toBe(0);
+    expect(format).toHaveBeenCalledTimes(2);
+    fixture.componentRef.setInput('theme', 'dark');
+    fixture.componentRef.setInput('layout', 'horizontal');
+    await fixture.whenStable();
+    expect(format).toHaveBeenCalledTimes(2);
+  });
+
+  it('recovers formatting errors with application-error and loading precedence intact', async () => {
+    const { fixture, element } = await setup();
+    fixture.componentRef.setInput('valueFormatter', () => {
+      throw new Error('Private formatter details');
+    });
+    await fixture.whenStable();
+    expect(element.querySelector('[role=alert]')?.textContent).toContain('Value formatting failed');
+    expect(element.textContent).not.toContain('Private formatter details');
+    fixture.componentRef.setInput('loading', true);
+    await fixture.whenStable();
+    expect(element.querySelector('[role=status]')?.textContent).toContain('Loading');
+    fixture.componentRef.setInput('error', 'Application error');
+    await fixture.whenStable();
+    expect(element.querySelector('[role=alert]')?.textContent).toBe('Application error');
+    fixture.componentRef.setInput('error', null);
+    fixture.componentRef.setInput('loading', false);
+    fixture.componentRef.setInput('valueFormatter', undefined);
+    fixture.componentRef.setInput('numberFormatOptions', { style: 'currency' });
+    await fixture.whenStable();
+    expect(element.querySelector('[role=alert]')?.textContent).toContain('number format options');
+    fixture.componentRef.setInput('numberFormatOptions', undefined);
+    await fixture.whenStable();
+    expect(element.querySelector('[role=alert]')).toBeNull();
+    expect(element.querySelector('.table-toggle')).not.toBeNull();
+  });
   it('discards removed visibility IDs even while rows are invalid', async () => {
     const { fixture, element } = await setup();
     element.querySelector<HTMLButtonElement>('.legend button')!.click();

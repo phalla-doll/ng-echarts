@@ -10,4 +10,5 @@ export type {
   NumericKey,
   PointSelection,
   StringKey,
+  ValueFormatter,
 } from './lib/chart-types';

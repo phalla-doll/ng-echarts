@@ -59,4 +59,4 @@ Accessibility-tree assertions are not a screen-reader listening session. The [ma
 
 ## Remaining work
 
-The [R03 bar baseline](R03_VISUAL_REVIEW.md), [R07 Canvas choice and measurements](R07_RENDERER_COST.md), and [R08 packed client/SSR consumers](R08_PACKED_RUNTIME.md) are recorded. Complete the R06 human listening review before resolving G2 and expanding chart families. G1 passes for the tested bar boundary. The four-family acceptance matrix remains open.
+The [R03 bar baseline](R03_VISUAL_REVIEW.md), [R07 Canvas choice and measurements](R07_RENDERER_COST.md), and [R08 packed client/SSR consumers](R08_PACKED_RUNTIME.md) are recorded. G1 passes for the tested bar boundary. The four-family acceptance matrix remains open. The original G2-before-expansion sequence was superseded by the user's 12 November 2026 [R06 deferral](R06_MANUAL_REVIEW.md#development-sequencing-decision): development continues while human listening and G2 remain pending for release acceptance. The measurements above remain the historical baseline.

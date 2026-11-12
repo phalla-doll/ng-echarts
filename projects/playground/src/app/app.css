@@ -310,29 +310,8 @@ nec-bar-chart {
   }
 }
 
-.preview-column,
-.settings {
-  scroll-margin-top: 90px;
-}
-.settings-jump,
-.back-to-example {
-  display: none;
-  align-items: center;
-  gap: 7px;
-  color: var(--site-blue);
-  font-size: 12px;
-  text-decoration: none;
-}
 @media (max-width: 1150px) {
   .dataset-meta {
     display: none;
-  }
-  .settings-jump {
-    display: inline-flex;
-    margin-left: auto;
-  }
-  .back-to-example {
-    display: inline-flex;
-    grid-column: 1/-1;
   }
 }

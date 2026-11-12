@@ -37,3 +37,6 @@ export type BarLayout = 'vertical' | 'horizontal';
 
 /** Pure, synchronous axis-only formatting. Use identical functions on server and client. */
 export type CategoryTickFormatter = (category: string, index: number) => string;
+
+/** Pure, synchronous numeric text shared by axes, tooltips, and table actions. */
+export type ValueFormatter = (value: number) => string;

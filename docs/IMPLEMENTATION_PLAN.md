@@ -1,6 +1,6 @@
 # Angular chart implementation plan
 
-Updated 12 November 2026. Begin with the Angular workspace and one bar chart. Expand to the other MVP families only after the feasibility and quality gates pass. The [product specification](PRODUCT_SPEC.md) owns behavior; this plan sequences the [backlog](BACKLOG.md) into reviewable increments.
+Updated 12 November 2026. Begin with the Angular workspace and one bar chart. Expand from the technically proven bar baseline while tracking outstanding release quality checks. The [product specification](PRODUCT_SPEC.md) owns behavior; this plan sequences the [backlog](BACKLOG.md) into reviewable increments.
 
 ## Initial scaffold
 
@@ -71,4 +71,8 @@ The [playground layout review](experiments/PLAYGROUND_LAYOUT_REVIEW.md) adds a r
 
 R01–R05, R07, and R08 now pass for bar, including real packed-runtime consumers. G1 passes; G2 remains pending for the human R06 listening review. G3/G4 still require the remaining chart families and final release evidence. A declaration fixture or SSR response alone would not establish those results; see the [R&D gates](RND_PLAN.md#decision-gates).
 
-The remaining bar feasibility action is to record the human result from [R06](experiments/R06_MANUAL_REVIEW.md), then resolve G2 and revise the effort estimate. The review server uses port 4310 during this session. After G2, begin NG09 with demonstrated shared behavior, value formatting, and per-chart package-size/entry-point checks; then complete bar acceptance and add line, area, and pie/donut. Do not expand chart families before that gate passes.
+On 12 November 2026 the user deferred the [R06 human listening review](experiments/R06_MANUAL_REVIEW.md) and authorized continued development. R06 and G2 remain pending; they no longer block NG09–NG13. This direction supersedes earlier G2-before-expansion instructions in `AGENTS.md` and historical reports. Retain the human review before G3/G4 release acceptance.
+
+Next: implement NG09 shared behavior, value formatting, and per-chart package-size/entry-point checks; then finish bar acceptance and add line, area, and pie/donut. Continue automated accessibility, lifecycle, and hydration checks throughout. The local review server uses port 4310.
+
+NG09 now has a [shared numeric-formatting increment](experiments/NG09_SHARED_FORMATTING.md): locale/options/custom callbacks produce consistent numeric text across the chart and native table. The `/formatting` route demonstrates the API and failure recovery. Next, establish per-chart package boundaries before loading additional renderer families.

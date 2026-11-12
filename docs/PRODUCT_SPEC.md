@@ -61,7 +61,7 @@ Composed charts, radar, radial charts, Sankey, calendar heatmaps, range brushing
 - An empty row list or a dataset with no plottable measures produces the empty state. An all-zero Cartesian series is valid data. A chart with all legend items hidden stays ready so its controls can restore visibility.
 - Support duplicate display labels through separate stable identifiers. Preserve legend visibility by identifier across updates; new entries start visible and removed entries are discarded. Point activation emits an event without adding persistent point-selection state in MVP.
 - Treat rows, series, and configuration as immutable inputs; changes require a new reference. Batch multiple input changes into one rendering update.
-- Default to the explicit locale `en-US`; consumers may supply a locale or pure value formatter. Use the same locale and input data on server and client. Tooltip text is escaped before entering any HTML formatter.
+- Default to the explicit locale `en-US`; consumers may supply a locale, immutable `Intl.NumberFormatOptions`, or a pure synchronous value formatter returning text. Custom numeric text applies consistently to axes, tooltips, table cells, and action labels; callbacks must handle generated axis ticks as well as supplied observations. Missing values bypass numeric formatting, and events retain raw numbers. Use the same locale, configuration, formatter, and input data on server and client. Tooltip text is escaped before entering any HTML formatter.
 - An optional pure, synchronous category-tick formatter may shorten axis labels. Preserve full category text in tooltips, tables, and action labels, and keep stable row identities independent of formatted text.
 
 ## State and interaction behavior

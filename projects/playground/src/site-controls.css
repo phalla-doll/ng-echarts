@@ -252,3 +252,26 @@
   font-size: 12px;
   line-height: 1.7;
 }
+
+/* Navigation between the chart example and its inspector on narrow layouts. */
+.workbench :where(.preview-column, .settings) {
+  scroll-margin-top: 90px;
+}
+.workbench :where(.settings-jump, .back-to-example) {
+  display: none;
+  align-items: center;
+  gap: 7px;
+  color: var(--site-blue);
+  font-size: 12px;
+  text-decoration: none;
+}
+@media (max-width: 1150px) {
+  .workbench :where(.settings-jump) {
+    display: inline-flex;
+    margin-left: auto;
+  }
+  .workbench :where(.back-to-example) {
+    display: inline-flex;
+    grid-column: 1/-1;
+  }
+}

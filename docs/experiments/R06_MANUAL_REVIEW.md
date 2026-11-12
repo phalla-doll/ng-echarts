@@ -1,6 +1,6 @@
 # R06 screen-reader review
 
-Status: listening review pending. Chart: bar. Task: NG06. Requirements: F05, F08, F09. Gate: G2.
+Status: human listening review deferred at the user’s request on 12 November 2026; no listening result is recorded. Chart: bar. Task: NG06. Requirements: F05, F08, F09. Gate: G2.
 
 The [R&D plan](../RND_PLAN.md#research-experiments) requires a sample to be read with a screen reader. Automated accessibility-tree, keyboard, focus, and motion checks support this review but cannot record a human listening result.
 
@@ -19,4 +19,8 @@ Use Node from `.nvmrc`, run `npm run build:lib` and `npm start -- --host 127.0.0
 
 ## Record a result
 
-Record the tested commit, OS, browser/version, screen-reader/version, pass/fail per item, and any exact announcement or navigation problem. Store that result here before marking R06 passed. A skipped or unavailable listening session leaves R06 and G2 pending; it does not prevent independent R03/R04/R07/R08 work.
+Record the tested commit, OS, browser/version, screen-reader/version, pass/fail per item, and any exact announcement or navigation problem. Store that result here before marking R06 passed. R06 and G2 remain pending. Per the user’s 12 November 2026 direction, this deferred review does not block NG09–NG13 development. Complete the human review before G3/G4 release acceptance; automated checks continue during implementation.
+
+## Development sequencing decision
+
+The user asked to skip this review for now after clarifying that VoiceOver is a quality check rather than a technical build prerequisite. This supersedes the earlier G2-before-expansion sequencing in the contributor guide and historical reports. It does not mark R06 passed or remove keyboard, table, focus, motion, or SSR checks.

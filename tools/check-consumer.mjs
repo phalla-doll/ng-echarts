@@ -76,8 +76,20 @@ try {
     ),
     `Expected the invalid category-formatter diagnostic:\n${invalid.stdout}\n${invalid.stderr}`,
   );
+  assert(
+    /Type '\(_value: number\) => number' is not assignable to type 'ValueFormatter'/.test(
+      `${invalid.stdout}${invalid.stderr}`,
+    ),
+    `Expected the invalid value-formatter diagnostic:\n${invalid.stdout}\n${invalid.stderr}`,
+  );
+  assert(
+    /Type '\{ readonly style: "invalid"; \}' is not assignable to type 'NumberFormatOptions'/.test(
+      `${invalid.stdout}${invalid.stderr}`,
+    ),
+    `Expected the invalid number-format-options diagnostic:\n${invalid.stdout}\n${invalid.stderr}`,
+  );
   console.log(
-    'PASS: packed library and ECharts declarations compile in isolation; invalid keys and category formatter are rejected (skipLibCheck=false).',
+    'PASS: packed library and ECharts declarations compile in isolation; invalid keys and formatters/options are rejected (skipLibCheck=false).',
   );
 } finally {
   await rm(consumer, { recursive: true, force: true });

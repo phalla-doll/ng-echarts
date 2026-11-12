@@ -1,6 +1,6 @@
 # ng-echarts research and development plan
 
-Status: R01–R05, R07, and R08 pass for the bar prototype. R02 confirms the direct adapter and G1 passes. R06 human listening and G2 remain pending; G3/G4 require the full MVP. Updated 12 November 2026. See the [R01 evidence](experiments/R01_TOOLCHAIN.md) and [implementation plan](IMPLEMENTATION_PLAN.md).
+Status: R01–R05, R07, and R08 pass for the bar prototype. R02 confirms the direct adapter and G1 passes. R06 human listening is deferred by the user; G2 remains pending without blocking development. G3/G4 require the full MVP and outstanding quality evidence. Updated 12 November 2026. See the [R01 evidence](experiments/R01_TOOLCHAIN.md) and [implementation plan](IMPLEMENTATION_PLAN.md).
 
 The [provenance ledger](UPSTREAM_PROVENANCE.md), [R02 initial adapter choice](experiments/R02_ADAPTER.md), and [bar prototype report](experiments/BAR_PROTOTYPE.md) record the first development slice. Initial passing checks do not close the remaining experiments.
 
@@ -39,11 +39,11 @@ Pin the upstream revision, select exact tool versions, choose bar fixtures by ex
 
 Estimate: 4 to 6 engineering days.
 
-Complete R02 through R08 using the same fixture. Produce a working bar prototype, comparison captures, measurements, an isolated consumer package test, and an updated architecture decision record. Prototype grouped and stacked data, dynamic updates, themes, state precedence, reduced motion, and accessible legend and table actions. Add the second layout when the adapter is stable. Resolve G1 and G2 before expanding to other chart families.
+Complete R02 through R08 using the same fixture. Produce a working bar prototype, comparison captures, measurements, an isolated consumer package test, and an updated architecture decision record. Prototype grouped and stacked data, dynamic updates, themes, state precedence, reduced motion, and accessible legend and table actions. Add the second layout when the adapter is stable. G1 passes for bar. The user deferred the R06 human review on 12 November 2026; continue shared foundation and additional chart development while G2 remains pending, and complete the review before release acceptance.
 
 ### Phase 2 Shared foundation and bar completion
 
-Estimate: 4 to 6 engineering days after the feasibility gate.
+Estimate: 4 to 6 engineering days after technical feasibility.
 
 Extract only the shared responsibilities demonstrated by the prototype. Complete bar variants in MVP scope, standardize data validation, formatting, selection, themes, loading and error behavior, and stabilize the public API through a consumer example.
 
@@ -66,11 +66,13 @@ Total planning estimate: 19 to 30 engineering days for one experienced engineer 
 | Gate | Required evidence | Result | Status |
 | --- | --- | --- | --- |
 | G1 Feasible Angular integration | R01, R04, R05, and R08 pass; R02 choice confirmed using their evidence | Select integration and lifecycle strategy before adding chart families | Pass for bar |
-| G2 Product quality | R03, R06, and R07 pass against the current specification | Accept the bar baseline, renderer, numeric size budget, supported data envelope, and revised effort | Pending R06 human review |
+| G2 Product quality | R03, R06, and R07 pass against the current specification | Accept the bar baseline, renderer, numeric size budget, supported data envelope, and revised effort | Pending R06 human review; deferred to release, development may continue |
 | G3 MVP complete | Every applicable row of the acceptance matrix passes across four chart families | Freeze public API and produce release candidate | Pending |
 | G4 Distribution ready | Isolated packed-consumer install, documentation, artifact license, notices, and compatibility matrix pass | Produce a local release package; publication remains a separate action | Pending |
 
 The team can perform research and routine implementation decisions without repeatedly asking for approval. A material change to product scope, such as introducing React or dropping Angular 22, should be raised as a concrete decision with the experiment evidence.
+
+The user’s 12 November 2026 sequencing decision permits NG09–NG13 while the human R06 result is deferred. It supersedes the earlier expansion prerequisite without accepting the missing evidence. G3/G4 still require that review.
 
 A gate remains pending when evidence is missing and fails when its criterion is not met. Revising a target alone does not pass a gate: document the reason, align the specification, and rerun the affected checks. Use the [acceptance matrix](ACCEPTANCE_MATRIX.md) to ensure an experiment result is attached to every affected requirement. Prototype evidence applies to the bar chart until the other families are exercised.
 

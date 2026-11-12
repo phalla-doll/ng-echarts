@@ -6,6 +6,7 @@ import {
   type ChartSeries,
   type NumericKey,
   type PointSelection,
+  type ValueFormatter,
 } from '@ng-echarts/chart-library';
 import type { EChartsCoreOption } from 'echarts/core';
 
@@ -22,10 +23,14 @@ import type { EChartsCoreOption } from 'echarts/core';
       categoryKey="category"
       [series]="series"
       [categoryTickFormatter]="categoryTickFormatter"
+      [numberFormatOptions]="numberFormatOptions"
+      [valueFormatter]="valueFormatter"
       (pointSelect)="select($event)"
     />`,
 })
 export class Consumer {
+  readonly numberFormatOptions: Intl.NumberFormatOptions = { style: 'currency', currency: 'USD' };
+  readonly valueFormatter: ValueFormatter = (value) => `${value} visits`;
   readonly options: EChartsCoreOption = { animation: false };
   readonly categoryTickFormatter: CategoryTickFormatter = (category, index) =>
     `${index}: ${category}`;
@@ -51,3 +56,6 @@ void [invalidSeries, nullish, unknown];
 // @ts-expect-error Category ticks accept text labels and return text, never numbers.
 const invalidFormatter: CategoryTickFormatter = (category: number) => category;
 void invalidFormatter;
+// @ts-expect-error Numeric value formatters must return synchronous text.
+const invalidValueFormatter: ValueFormatter = (value) => value;
+void invalidValueFormatter;

@@ -1,6 +1,6 @@
 # R07 bar renderer and cost
 
-Status: pass for the bar prototype on the reference machine. Recorded 12 November 2026. Task: NG08. Requirements: F02, F04, F08. Gate: G2.
+Status: pass for the bar prototype on the reference machine. Recorded 12 November 2026; rerun after the NG09 numeric-formatting increment. Task: NG08. Requirements: F02, F04, F08. Gate: G2.
 
 ## Method and reproduction
 
@@ -18,10 +18,10 @@ Separate production Canvas and SVG harness bundles use the same pure library val
 
 | Fixture | Operation | p95 | Result |
 | --- | --- | --- | --- |
-| 200 × 3 | mount | 17.40 ms | Pass (≤200 ms) |
-| 200 × 3 | update | 17.20 ms | Pass (≤200 ms) |
-| 2000 × 3 | mount | 44.80 ms | Stress observation |
-| 2000 × 3 | update | 71.10 ms | Stress observation |
+| 200 × 3 | mount | 17.70 ms | Pass (≤200 ms) |
+| 200 × 3 | update | 17.60 ms | Pass (≤200 ms) |
+| 2000 × 3 | mount | 46.70 ms | Stress observation |
+| 2000 × 3 | update | 66.80 ms | Stress observation |
 
 The normal Angular mount and update satisfy the proposed 200 ms p95 target. The initial supported performance envelope is **up to 200 categories and three series** under these recorded conditions. The 2,000-category fixture is stress evidence, not a portable latency promise or a hard input limit. The API continues to validate finite values independently of this recommendation.
 
@@ -29,16 +29,16 @@ The normal Angular mount and update satisfy the proposed 200 ms p95 target. The 
 
 | Renderer | Fixture | Operation | p95 |
 | --- | --- | --- | --- |
-| canvas | 200 × 3 | mount | 7.50 ms |
-| canvas | 200 × 3 | update | 5.30 ms |
-| canvas | 2000 × 3 | mount | 43.80 ms |
-| canvas | 2000 × 3 | update | 42.50 ms |
-| svg | 200 × 3 | mount | 8.80 ms |
-| svg | 200 × 3 | update | 6.20 ms |
-| svg | 2000 × 3 | mount | 56.90 ms |
-| svg | 2000 × 3 | update | 51.30 ms |
+| canvas | 200 × 3 | mount | 7.90 ms |
+| canvas | 200 × 3 | update | 5.80 ms |
+| canvas | 2000 × 3 | mount | 45.10 ms |
+| canvas | 2000 × 3 | update | 42.30 ms |
+| svg | 200 × 3 | mount | 8.70 ms |
+| svg | 200 × 3 | update | 5.70 ms |
+| svg | 2000 × 3 | mount | 55.00 ms |
+| svg | 2000 × 3 | update | 46.80 ms |
 
-Choose **Canvas** for the bar adapter: it has lower measured mount/update p95 and a smaller measured module payload. SVG remains a valid engine option for future research, rather than being declared incompatible. The [Canvas light](captures/renderer-canvas-light.png), [SVG light](captures/renderer-svg-light.png), [Canvas dark](captures/renderer-canvas-dark.png), and [SVG dark](captures/renderer-svg-dark.png) captures were reviewed; geometry and palette agree for the comparison fixture, with expected rasterization differences.
+Retain **Canvas** for the bar adapter: this rerun has lower mount p95 in both fixtures, lower stress-update p95, and a smaller measured module payload. Normal direct-update results are close (5.80 ms Canvas, 5.70 ms SVG), so they do not establish a portable renderer ranking. SVG remains a valid engine option for future research, rather than being declared incompatible. The [Canvas light](captures/renderer-canvas-light.png), [SVG light](captures/renderer-svg-light.png), [Canvas dark](captures/renderer-canvas-dark.png), and [SVG dark](captures/renderer-svg-dark.png) captures were reviewed; geometry and palette agree for the comparison fixture, with expected rasterization differences.
 
 ## Loading, table, resize, and interaction
 
@@ -50,6 +50,8 @@ Resize and tooltip dispatch timings are reported separately for both renderers a
 
 [Size evidence](data/bar-bundle-size.json) links the **production Angular package** with the Angular linker, bundles/minifies/splits its public entry, keeps Angular/RxJS peers external, and sums independently compressed JavaScript chunks. It includes the bar component, native controls, adapter, and modular Canvas engine; it excludes Angular/RxJS framework bytes and source maps. This differs from the direct benchmark bundles, which include a harness but no Angular component.
 
-Observed linked package size: **178,140 gzip bytes / 152,373 Brotli bytes**. Adopt prototype budgets of **200,000 gzip bytes / 175,000 Brotli bytes**, providing measured headroom. `npm run check:bundle` fails above either threshold. Do not silently raise the budget when adding chart families; establish per-chart entry-point measurements in NG09 and repeat the consumer build. No React runtime is included.
+Observed linked package size: **178,402 gzip bytes / 152,619 Brotli bytes**. Adopt prototype budgets of **200,000 gzip bytes / 175,000 Brotli bytes**, providing measured headroom. `npm run check:bundle` fails above either threshold. Do not silently raise the budget when adding chart families; establish per-chart entry-point measurements in NG09 and repeat the consumer build. No React runtime is included.
 
 R07 passes for the current bar choice and envelope. Repeat affected measurements after meaningful renderer, option-building, lifecycle, or table changes. Other chart families need their own results before G3; this result does not complete the pending R06 human listening review or G2.
+
+The [NG09 formatting report](NG09_SHARED_FORMATTING.md) records this follow-up: normal Angular p95 is 17.70 ms mount / 17.60 ms update, with budgets unchanged. Custom callback execution cost depends on consumer code; these benchmark timings use default numeric formatting.

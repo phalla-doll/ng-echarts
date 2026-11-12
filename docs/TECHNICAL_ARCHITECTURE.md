@@ -191,6 +191,14 @@ The [initial adapter decision](experiments/R02_ADAPTER.md) selects a direct, laz
 
 Theme colors are read at the component host when series, theme, or revision changes; temporary color probes stay inside the plot surface. CSS measurement does not run inside `computed` builders. The [prototype report](experiments/BAR_PROTOTYPE.md) records the initial slice; the validation evidence below records later progress. The [renderer comparison](experiments/R07_RENDERER_COST.md) selects Canvas, and [R08](experiments/R08_PACKED_RUNTIME.md) passes packed client/SSR consumption.
 
+### Numeric value formatting
+
+`BarChart<T>` accepts `numberFormatOptions?: Intl.NumberFormatOptions` and `valueFormatter?: ValueFormatter`, with the exported type `ValueFormatter = (value: number) => string`. The existing explicit `locale` defaults to `en-US`. The shared pure `createValueFormatting` helper validates the locale/options, then uses a custom callback when present or the bound `Intl.NumberFormat` method otherwise. See the [library guide](../projects/chart-library/README.md#numeric-formatting).
+
+The same function supplies value-axis ticks, escaped tooltip values, and native table cells/action labels. Custom callbacks are checked against unique observed numbers and cached, with positive/negative zero distinguished; missing values bypass them. Native table row derivation stays deferred until expansion. Consumer callbacks must remain pure and deterministic and handle all finite axis values. Replacing immutable configuration/data recreates the formatting state; theme/layout changes reuse it. Selection events retain original numeric values.
+
+Invalid locale/options or observed-value callbacks participate in normal configuration-error precedence and permit input-driven recovery. Generated ticks may introduce unseen values: callback exceptions or nontext results are sanitized, and the browser controller contains update/resize failures and disposes the chart. No raw exception details enter the UI. The `/formatting` fixture exercises locale/options/custom text, SSR errors, precedence, escaping, and renderer recovery.
+
 ### Category tick formatting
 
 The experimental `BarChart<T>` exports an optional `categoryTickFormatter` input and the type `CategoryTickFormatter = (category: string, index: number) => string`. Omitting it preserves full axis labels. For month ticks, a consumer can bind a readonly function such as `readonly monthTick: CategoryTickFormatter = (label) => label.slice(0, 3)` through `[categoryTickFormatter]="monthTick"`.

@@ -17,6 +17,7 @@ const pageTitles: Readonly<Record<string, string>> = {
   '/': 'Bar charts',
   '/comparison': 'Visual comparison',
   '/updates': 'Input updates',
+  '/formatting': 'Value formatting',
   '/validation': 'Lifecycle validation',
   '/away': 'Navigation cleanup',
   '/benchmark': 'Render benchmark',

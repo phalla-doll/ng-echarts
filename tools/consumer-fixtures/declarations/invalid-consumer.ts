@@ -53,3 +53,22 @@ export class InvalidFormatterConsumer {
   readonly series: readonly ChartSeries<Row>[] = [{ id: 'count', key: 'count', label: 'Count' }];
   readonly badFormatter = (_category: string) => 42;
 }
+
+@Component({
+  imports: [BarChart],
+  template: `<nec-bar-chart
+    title="Invalid value formatter"
+    [data]="rows"
+    rowIdKey="id"
+    categoryKey="category"
+    [series]="series"
+    [valueFormatter]="badValueFormatter"
+    [numberFormatOptions]="badNumberOptions"
+  />`,
+})
+export class InvalidValueFormatterConsumer {
+  readonly rows: readonly Row[] = [{ id: 'a', category: 'A', count: 1 }];
+  readonly series: readonly ChartSeries<Row>[] = [{ id: 'count', key: 'count', label: 'Count' }];
+  readonly badValueFormatter = (_value: number) => 42;
+  readonly badNumberOptions = { style: 'invalid' } as const;
+}

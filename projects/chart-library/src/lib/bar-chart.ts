@@ -22,6 +22,7 @@ import { normalizeBarData, resolveBarState } from './bar-model';
 import { buildBarOptions, defaultBarTheme, type BarThemeTokens } from './bar-options';
 import { ChartFrame } from './chart-frame';
 import { formatCategoryTicks } from './category-ticks';
+import { createValueFormatting } from './value-formatting';
 import { ChartFocusKeeper } from './chart-focus';
 import type {
   BarLayout,
@@ -31,6 +32,7 @@ import type {
   LegendVisibilityChange,
   PointSelection,
   StringKey,
+  ValueFormatter,
 } from './chart-types';
 import { PlotController, type PlotPoint } from './plot-controller';
 
@@ -56,6 +58,8 @@ export class BarChart<T extends object> {
   readonly theme = input<ChartTheme>('light');
   readonly themeRevision = input(0);
   readonly locale = input('en-US');
+  readonly numberFormatOptions = input<Intl.NumberFormatOptions>();
+  readonly valueFormatter = input<ValueFormatter>();
   readonly categoryTickFormatter = input<CategoryTickFormatter>();
   readonly loading = input(false);
   readonly error = input<string | null>(null);
@@ -83,14 +87,15 @@ export class BarChart<T extends object> {
     normalizeBarData(this.data(), this.rowIdKey(), this.categoryKey(), this.series()),
   );
   private readonly formatting = computed(() => {
-    try {
-      return { format: new Intl.NumberFormat(this.locale()).format, error: null };
-    } catch {
-      return {
-        format: new Intl.NumberFormat('en-US').format,
-        error: 'The chart locale is invalid.',
-      };
-    }
+    const model = this.model();
+    return createValueFormatting(
+      this.locale(),
+      this.numberFormatOptions(),
+      this.valueFormatter(),
+      model.kind === 'error'
+        ? []
+        : model.rows.flatMap((row) => row.points.map((point) => point.value)),
+    );
   });
   private readonly categoryTicks = computed(() => {
     const model = this.model();
@@ -163,11 +168,14 @@ export class BarChart<T extends object> {
     return model.rows.map((row) => ({
       id: row.id,
       category: row.category,
-      cells: row.points.map((point, index) => ({
-        ...point,
-        text: point.value === null ? 'Missing' : this.formatting().format(point.value),
-        actionLabel: `Select ${model.series[index]?.label ?? ''} for ${row.category}: ${point.value === null ? 'Missing' : this.formatting().format(point.value)}`,
-      })),
+      cells: row.points.map((point, index) => {
+        const text = point.value === null ? 'Missing' : this.formatting().format(point.value);
+        return {
+          ...point,
+          text,
+          actionLabel: `Select ${model.series[index]?.label ?? ''} for ${row.category}: ${text}`,
+        };
+      }),
     }));
   });
 
