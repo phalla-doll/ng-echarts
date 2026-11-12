@@ -74,6 +74,8 @@ Title, summary, table controls, and identifiers must be deterministic between se
 
 ## Visual design
 
+The user's 12 November 2026 [area-block reference review](experiments/AREA_BLOCKS_VISUAL_AUDIT.md) establishes a neutral chart-block gallery as the site direction: reference-led typography, subdued chrome, compact code/preview headers, and complete chart compositions. Keep engineering settings and validation fixtures separate from the gallery. The earlier blue-accented workspace layout is not the visual acceptance target. The area examples and advanced dotted-fill behavior identified in the audit need an explicit implementation-scope decision; this direction does not claim they already exist.
+
 Capture reference images for the agreed upstream examples at the pinned revision. Match typography, spacing, axis treatments, color use, fills, tooltip hierarchy, and legend behavior. Compare the same fixture data at 320, 768, and 1440 px host widths in both themes.
 
 Require a reviewed visual baseline for each MVP chart. Canvas and SVG rasterization can differ, so evaluate measured differences and visible defects rather than promising pixel identity. Document intentional changes for readability or accessibility.
