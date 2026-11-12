@@ -6,6 +6,8 @@ Experimental Angular 22 library. The local package identity is `@ng-echarts/char
 
 `ChartSeries<T>` restricts measure keys to numeric/nullish numeric fields. `PointSelection<T>` includes the original row, numeric value, row/series IDs, and `plot` or `table` source. Null/missing values stay missing. The table is initially collapsed, and legend filtering preserves its full dataset. Set `[showDataTable]="false"` to omit both its toggle and contents, as the gallery does; the default is `true`. Keep it enabled or provide equivalent controls when users need keyboard point selection. Reenabling preserves the previous expansion state.
 
+The [bar API reference](https://github.com/phalla-doll/ng-echarts/blob/main/docs/BAR_CHART_API.md) lists every input/default, event payload, behavior, tested version, and current limit.
+
 ## Imports and package boundaries
 
 ```ts
@@ -15,7 +17,7 @@ import { ChartFrame } from '@ng-echarts/chart-library/core';
 
 `/bar` owns the component and lazy modular Canvas renderer. `/core` owns `ChartFrame` and shared types and includes no ECharts/ZRender runtime bytes. Root imports remain compatible and refer to the same classes; use focused subpaths for new code. Internal source paths are not public exports. All entries ship in one tarball with the existing required Angular/ECharts peers.
 
-`npm run check:bundle` measures focused and compatibility imports and rejects unrelated chart families, SVG, or eagerly included engine code. The bar gzip/Brotli budgets remain 200,000/175,000 bytes; core is limited to 10,000/9,000 bytes, excluding Angular/RxJS peers. See [package evidence](../../docs/experiments/NG09_PACKAGE_BOUNDARIES.md).
+`npm run check:bundle` measures focused and compatibility imports and rejects unrelated chart families, SVG, or eagerly included engine code. The bar gzip/Brotli budgets remain 200,000/175,000 bytes; core is limited to 10,000/9,000 bytes, excluding Angular/RxJS peers. See [package evidence](https://github.com/phalla-doll/ng-echarts/blob/main/docs/experiments/NG09_PACKAGE_BOUNDARIES.md).
 
 ## Numeric formatting
 

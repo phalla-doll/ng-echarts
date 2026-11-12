@@ -10,6 +10,8 @@ Current bar evidence: [R03](experiments/R03_VISUAL_REVIEW.md) accepts four refer
 
 The [NG09 package increment](experiments/NG09_PACKAGE_BOUNDARIES.md) adds public `/core` and `/bar` entries, root compatibility, strict exported declarations, installed client/SSR checks, and module-level size/isolation assertions. This strengthens F01/F10 and package evidence without completing family-wide acceptance or deferred release review.
 
+The [consolidated NG09/NG10 review](experiments/NG09_NG10_ACCEPTANCE.md) records implementation completion and a bar-specific F01–F10 status table. F09 human interpretation and release gates remain pending; the next development task is NG11. The [bar API](BAR_CHART_API.md) describes current behavior and its integration example is compiled from the document itself.
+
 ## Requirement coverage
 
 The [NG09 formatting increment](experiments/NG09_SHARED_FORMATTING.md) adds bar evidence for F01/F03/F05/F07/F10: typed numeric formatting, consistent visible text, raw numeric events, configuration-error recovery, and hydrated server errors. It does not close checks for unimplemented families or the deferred human review.

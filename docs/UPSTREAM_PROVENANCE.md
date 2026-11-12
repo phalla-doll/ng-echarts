@@ -22,6 +22,7 @@ Paths below are relative to the repository root. Full terms are preserved in [th
 | Local file | Upstream material | Treatment |
 | --- | --- | --- |
 | `projects/playground/src/app/fixtures/evilcharts-bar-fixture.ts` | Primary example's twelve rows and series labels | Adapted dataset; added stable IDs and readonly TypeScript types; source header retained |
+| `docs/BAR_CHART_API.md` | Primary fixture's January Desktop/Mobile values | Small integration example; stable ID and Angular implementation are new; zero/missing second row demonstrates the local data contract |
 | `projects/playground/src/app/fixtures/evilcharts-horizontal-fixture.ts` | Horizontal example's six Desktop values and blue light/dark palette | Adapted dataset; stable IDs, readonly types, and source notice added |
 | `projects/chart-library/bar/src/lib/bar-options.ts` | Primary example's light/dark Desktop and Mobile colors; gradient example's 20%/90% fade behavior | Adapted first two default colors and fade boundaries; transparent color conversion, option/tooltip builders, and additional colors are new |
 | `projects/playground/src/app/comparison.css` | Four root/dark tokens from pinned `src/app/globals.css`: background, foreground, muted-foreground, border | Adapted as `--nec-background`, `--nec-text`, `--nec-muted`, `--nec-border`; source header and MIT notice retained; fixture only, not library defaults |

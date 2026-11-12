@@ -35,8 +35,10 @@ A separate `npm run benchmark:bar` rerun also passed: normal Angular 200×3 p95 
 
 The linked package is **178,402 gzip / 152,619 Brotli bytes**, within unchanged 200,000/175,000 budgets. This adds 262/246 bytes over the previous measured package. See [size evidence](data/bar-bundle-size.json) and the [packed runtime result](data/packed-runtime.json).
 
-## Remaining NG09 work
+## Follow-up and remaining family work
 
 - Consolidate only state/validation responsibilities demonstrated by multiple chart implementations.
 - Package boundaries are now implemented and measured in the [follow-up increment](NG09_PACKAGE_BOUNDARIES.md); retain those assertions as line, area, and pie/donut modules are added.
 - Continue family-specific visual, runtime, performance, and accessibility evidence; this bar increment does not complete the four-family acceptance matrix.
+
+The [consolidated NG09/NG10 review](NG09_NG10_ACCEPTANCE.md) now records implementation completion for the current baseline. Demonstrated reuse and each additional family’s acceptance remain later checks; the next implementation is NG11 line charts.

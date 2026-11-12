@@ -57,6 +57,11 @@ try {
   );
   await writeFile(join(consumer, 'quick-start-example.ts'), quickStartExample);
   config.files.push('quick-start-example.ts');
+  const barGuide = await readFile(join(root, 'docs/BAR_CHART_API.md'), 'utf8');
+  const barApiExample = barGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
+  assert(barApiExample, 'Bar API guide must contain its compilable integration example');
+  await writeFile(join(consumer, 'bar-api-example.ts'), barApiExample);
+  config.files.push('bar-api-example.ts');
   for (const dark of [false, true]) {
     for (const block of barBlocks) {
       const file = `${block.id}-${dark ? 'dark' : 'light'}.ts`;

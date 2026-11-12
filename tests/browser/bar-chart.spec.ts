@@ -1,3 +1,4 @@
+import { deviceRows } from '../../projects/playground/src/app/fixtures/evilcharts-bar-fixture';
 import { firstGreenBarPoint } from './canvas-point';
 import { expect, test, type Page } from '@playwright/test';
 
@@ -102,3 +103,57 @@ test('switches themes/layouts, resizes hidden surfaces, and remounts one instanc
     await expect(page.locator('canvas')).toHaveCount(1);
   }
 });
+
+for (const theme of ['light', 'dark'] as const) {
+  test(`preserves raw values and point actions across all eight bar combinations in ${theme} theme`, async ({
+    page,
+  }) => {
+    if (theme === 'dark')
+      await page.getByRole('button', { name: 'Use dark theme', exact: true }).click();
+    await page.getByRole('button', { name: 'Update values', exact: true }).click();
+    await page.getByRole('button', { name: 'Show data table', exact: true }).click();
+    const chart = page.locator('nec-bar-chart');
+    const canvas = chart.locator('canvas');
+    const expected = new Map(deviceRows.map((row) => [row.month, row.desktop! + 100]));
+    async function setToggle(name: string, pressed: boolean) {
+      const toggle = page.getByRole('button', { name, exact: true });
+      if ((await toggle.getAttribute('aria-pressed')) !== String(pressed)) await toggle.click();
+      await expect(toggle).toHaveAttribute('aria-pressed', String(pressed));
+    }
+    for (const horizontal of [false, true]) {
+      for (const stacked of [false, true]) {
+        for (const gradient of [false, true]) {
+          await setToggle('Horizontal layout', horizontal);
+          await setToggle('Stack series', stacked);
+          await setToggle('Gradient fills', gradient);
+          // Wait for the scheduled renderer update without a fixed-duration sleep.
+          await page.evaluate(
+            () =>
+              new Promise<void>((resolve) =>
+                requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+              ),
+          );
+          await expect(canvas).toHaveCount(1);
+          await expect(chart.locator('tbody tr')).toHaveCount(12);
+          const point = await firstGreenBarPoint(canvas);
+          await page.mouse.click(point.x, point.y);
+          await expect(page.locator('.selection')).toHaveText(/^.+: desktop = \d+ \(plot\)$/);
+          const selection = await page.locator('.selection').innerText();
+          const match = selection.match(/^(.+): desktop = (\d+) \(plot\)$/);
+          expect(
+            match,
+            `Painted point for horizontal=${horizontal}, stacked=${stacked}, gradient=${gradient}`,
+          ).not.toBeNull();
+          expect(Number(match![2])).toBe(expected.get(match![1]!));
+          const action = chart.getByRole('button', {
+            name: 'Select Desktop for January: 442',
+            exact: true,
+          });
+          await action.focus();
+          await page.keyboard.press('Enter');
+          await expect(page.locator('.selection')).toHaveText('January: desktop = 442 (table)');
+        }
+      }
+    }
+  });
+}

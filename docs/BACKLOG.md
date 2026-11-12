@@ -1,6 +1,6 @@
 # ng-echarts delivery backlog
 
-Updated 12 November 2026. NG01–NG05 are complete for the bar feasibility scope. NG06 awaits human listening review; NG07 implementation and NG08 measurement/package evidence pass, with their NG06/G2 dependencies still open. NG09 is in progress; NG10–NG22 remain pending. The user deferred R06 on 12 November 2026 so it no longer blocks development; it remains required before release acceptance. Priority P0 blocks the next milestone, P1 belongs to MVP, and P2 follows MVP. IDs are stable so experiment reports and changes can reference them.
+Updated 12 November 2026. NG01–NG05 are complete for the bar feasibility scope. NG06 awaits human listening review; NG07 implementation and NG08 measurement/package evidence pass, with their NG06/G2 dependencies still open. NG09/NG10 implementation is complete for the bar-proven baseline; NG11–NG22 remain pending. Human release evidence remains separate. The user deferred R06 on 12 November 2026 so it no longer blocks development; it remains required before release acceptance. Priority P0 blocks the next milestone, P1 belongs to MVP, and P2 follows MVP. IDs are stable so experiment reports and changes can reference them.
 
 NG01 evidence: [R01 toolchain report](experiments/R01_TOOLCHAIN.md). The [implementation plan](IMPLEMENTATION_PLAN.md) sequences the remaining work. G1 passes for bar; G2 awaits R06, and G3/G4 remain pending.
 
@@ -8,7 +8,7 @@ NG02 evidence: [reference fixtures and provenance](UPSTREAM_PROVENANCE.md). NG03
 
 Development update: [R03](experiments/R03_VISUAL_REVIEW.md) passes the four agreed bar references and tooltip review. [R04/R05](experiments/R04_R05_VALIDATION.md) pass input/focus, lifecycle/retention, and hydration paths. [R07](experiments/R07_RENDERER_COST.md) selects Canvas with actual Angular timings and a measured size budget; [R08](experiments/R08_PACKED_RUNTIME.md) passes external packed client/SSR consumption. Record the [R06 human result](experiments/R06_MANUAL_REVIEW.md) before resolving G2 and release acceptance. Development may continue under the user’s explicit deferral.
 
-The user selected a [reference-aligned gallery](experiments/BAR_GALLERY_VISUAL_REVIEW.md) for the existing bar charts. This site correction retains `/playground` for engineering controls and does not complete NG09 or add area-chart behavior.
+The user selected a [reference-aligned gallery](experiments/BAR_GALLERY_VISUAL_REVIEW.md) for the existing bar charts. That historical site correction retained `/playground` for engineering controls without completing NG09 or adding area-chart behavior; the later consolidated review below records current completion.
 
 ## Feasibility milestone
 
@@ -27,18 +27,18 @@ The [site-wide theme update](experiments/SITE_THEME_ALIGNMENT.md) adds basic Get
 
 ## MVP milestone
 
-NG09 first increment: [shared numeric formatting](experiments/NG09_SHARED_FORMATTING.md) adds locale/options/custom value text across axes, tooltips, and tables, with raw numeric events and failure recovery. The [package-boundary increment](experiments/NG09_PACKAGE_BOUNDARIES.md) adds focused `/core` and `/bar` entries, compatibility checks, and module/size assertions. Next, consolidate the NG09 foundation and NG10 bar checklist; shared responsibilities should only be extracted when another implementation demonstrates their reuse. NG09 remains in progress pending that consolidated review.
+NG09 first increment: [shared numeric formatting](experiments/NG09_SHARED_FORMATTING.md) adds locale/options/custom value text across axes, tooltips, and tables, with raw numeric events and failure recovery. The [package-boundary increment](experiments/NG09_PACKAGE_BOUNDARIES.md) adds focused `/core` and `/bar` entries, compatibility checks, and module/size assertions. The [consolidated foundation/bar review](experiments/NG09_NG10_ACCEPTANCE.md) records NG09/NG10 implementation completion and requirement-level evidence. Shared runtime responsibilities should only be extracted when another implementation demonstrates reuse; cross-family acceptance and deferred human review remain open.
 
-| ID | Priority | Work | Depends on | Done when |
-| --- | --- | --- | --- | --- |
-| NG09 | P1 | Complete shared state, formatting, validation, and motion behavior | NG08 technical evidence; R06 deferred by user | Shared contracts and fixtures cover F01 through F10; family-specific checks remain open |
-| NG10 | P1 | Finish MVP bar layouts, stacks, and fills | NG09 | Bar acceptance and visual checklist pass |
-| NG11 | P1 | Add line chart | NG09 | Multiple series, gaps, points, and straight/smooth interpolation validated |
-| NG12 | P1 | Add area chart | NG11 | Gradients and stacks validated without cross-series contamination |
-| NG13 | P1 | Add pie and donut | NG09 | Single-measure category API, legend visibility, labels, zero totals, and negative validation pass |
-| NG14 | P1 | Complete acceptance matrix across all MVP families | NG10, NG12, NG13 | Functional, visual, browser, accessibility, lifecycle, and performance evidence passes; G3 resolved |
-| NG15 | P1 | Finish API reference, integration examples, and compatibility table | NG14 | Fresh developer can install local package and reproduce examples |
-| NG16 | P1 | Prepare local release candidate, artifact license, and notices | NG15 | Final isolated client/SSR consumer, attribution, dependencies, and G4 checks pass |
+| ID | Priority | Work | Depends on | Done when | Implementation status |
+| --- | --- | --- | --- | --- | --- |
+| NG09 | P1 | Complete shared state, formatting, validation, and motion behavior | NG08 technical evidence; R06 deferred by user | Shared contracts and fixtures cover F01 through F10; family-specific checks remain open | Complete for bar baseline; deferred human release review remains open |
+| NG10 | P1 | Finish MVP bar layouts, stacks, and fills | NG09 | Bar acceptance and visual checklist pass | Complete for bar baseline; deferred human release review remains open |
+| NG11 | P1 | Add line chart | NG09 | Multiple series, gaps, points, and straight/smooth interpolation validated | Pending |
+| NG12 | P1 | Add area chart | NG11 | Gradients and stacks validated without cross-series contamination | Pending |
+| NG13 | P1 | Add pie and donut | NG09 | Single-measure category API, legend visibility, labels, zero totals, and negative validation pass | Pending |
+| NG14 | P1 | Complete acceptance matrix across all MVP families | NG10, NG12, NG13 | Functional, visual, browser, accessibility, lifecycle, and performance evidence passes; G3 resolved | Pending |
+| NG15 | P1 | Finish API reference, integration examples, and compatibility table | NG14 | Fresh developer can install local package and reproduce examples | Pending |
+| NG16 | P1 | Prepare local release candidate, artifact license, and notices | NG15 | Final isolated client/SSR consumer, attribution, dependencies, and G4 checks pass | Pending |
 
 ## Subsequent collection
 
@@ -59,4 +59,4 @@ Review Angular code against the [template and derived-state conventions](TECHNIC
 
 Use the [acceptance matrix](ACCEPTANCE_MATRIX.md) to connect task completion to product requirements and gate evidence. NG03 selects a prototype candidate; NG08 confirms it. NG09 establishes shared behavior; NG14 verifies that behavior in every family. A successful bar prototype cannot close requirements for charts that have not been implemented.
 
-Next: consolidate NG09 foundation and NG10 bar acceptance after the completed formatting and package-boundary increments, then proceed to NG11–NG13. The user deferred the R06 listening session on 12 November 2026; keep R06/G2 pending and complete that evidence before G3/G4. Continue automated keyboard, focus, motion, and hydration checks during development.
+Next: implement NG11 line charts using the completed NG09 foundation and NG10 bar baseline, then NG12 area and NG13 pie/donut. The user deferred the R06 listening session on 12 November 2026; keep R06/G2 pending and complete that evidence before G3/G4. Continue automated keyboard, focus, motion, and hydration checks during development.

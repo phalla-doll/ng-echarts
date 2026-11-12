@@ -1,6 +1,6 @@
 # NG09 package boundaries
 
-Recorded 12 November 2026. This completes the package-boundary slice following [shared formatting](NG09_SHARED_FORMATTING.md). The next increment consolidates NG09 foundation and NG10 bar acceptance; this report does not close family-wide release acceptance or the deferred human review.
+Recorded 12 November 2026. This completes the package-boundary slice following [shared formatting](NG09_SHARED_FORMATTING.md). The follow-up [NG09/NG10 review](NG09_NG10_ACCEPTANCE.md) consolidates foundation and bar acceptance; this report does not close family-wide release acceptance or the deferred human review.
 
 ## Public imports and ownership
 
