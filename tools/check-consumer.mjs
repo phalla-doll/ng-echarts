@@ -45,6 +45,18 @@ try {
   );
   const configPath = join(consumer, 'tsconfig.json');
   const config = JSON.parse(await readFile(configPath, 'utf8'));
+  const documentation = await build({
+    entryPoints: [join(root, 'projects/playground/src/app/documentation-content.ts')],
+    bundle: true,
+    write: false,
+    platform: 'node',
+    format: 'esm',
+  });
+  const { quickStartExample } = await import(
+    `data:text/javascript;base64,${Buffer.from(documentation.outputFiles[0].contents).toString('base64')}`
+  );
+  await writeFile(join(consumer, 'quick-start-example.ts'), quickStartExample);
+  config.files.push('quick-start-example.ts');
   for (const dark of [false, true]) {
     for (const block of barBlocks) {
       const file = `${block.id}-${dark ? 'dark' : 'light'}.ts`;

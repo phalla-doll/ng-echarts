@@ -78,6 +78,7 @@ async function exercise(engine, url, ssr) {
     assert.equal(await page.locator('canvas').count(), 0);
     await page.getByRole('link', { name: 'Playground', exact: true }).click();
     await page.locator('nec-bar-chart canvas').waitFor();
+    await page.getByRole('button', { name: 'Use light theme', exact: true }).click();
     await page.getByRole('button', { name: 'Use dark theme', exact: true }).click();
     await expect(page.locator('.legend .swatch').first()).toHaveCSS(
       'background-color',

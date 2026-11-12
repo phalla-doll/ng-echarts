@@ -1,0 +1,79 @@
+<main class="documentation">
+  <article class="documentation-content">
+    <header class="documentation-heading">
+      <div>
+        <h1>{{ page.title }}</h1>
+        <p>{{ page.intro }}</p>
+      </div>
+      <app-copy-button label="Copy Page" [text]="markdown()" />
+    </header>
+    @for (section of page.sections; track section.id) {
+      <section
+        class="doc-section"
+        [id]="section.id"
+        [attr.aria-labelledby]="section.id + '-heading'"
+      >
+        <h2 [id]="section.id + '-heading'">
+          <a [href]="page.path + '#' + section.id" (click)="selectSection(section.id)">{{
+            section.title
+          }}</a>
+        </h2>
+        @for (paragraph of section.paragraphs; track $index) {
+          <p>{{ paragraph }}</p>
+        }
+        @if (section.source) {
+          <app-source-snippet
+            [source]="section.source"
+            [language]="section.language ?? 'TypeScript'"
+          />
+        }
+        @if (isCatalog && section.id === 'charts') {
+          <div class="component-grid">
+            @for (card of cards; track card.kind) {
+              @if (card.route !== null) {
+                <a class="component-card" [routerLink]="card.route"
+                  ><div class="component-art"><app-chart-illustration [kind]="card.kind" /></div>
+                  <div class="component-caption">
+                    <h3>{{ card.title }}</h3>
+                    <span>{{ card.status }}</span>
+                    <p>{{ card.description }}</p>
+                  </div></a
+                >
+              } @else {
+                <div class="component-card planned">
+                  <div class="component-art"><app-chart-illustration [kind]="card.kind" /></div>
+                  <div class="component-caption">
+                    <h3>{{ card.title }}</h3>
+                    <span>{{ card.status }}</span>
+                    <p>{{ card.description }}</p>
+                  </div>
+                </div>
+              }
+            }
+          </div>
+        }
+      </section>
+    }
+    <nav class="doc-pagination" aria-label="Documentation pages">
+      @if (page.previous) {
+        <a [routerLink]="page.previous.path"
+          ><span>Previous</span><strong>{{ page.previous.label }}</strong></a
+        >
+      }
+      <a class="next-page" [routerLink]="page.next.path"
+        ><span>Next</span><strong>{{ page.next.label }}<app-site-icon name="chevron" /></strong
+      ></a>
+    </nav>
+  </article>
+  <aside class="documentation-outline" aria-label="On this page">
+    <p>On this page</p>
+    @for (section of page.sections; track section.id) {
+      <a
+        [href]="page.path + '#' + section.id"
+        (click)="selectSection(section.id)"
+        [class.active]="activeSection() === section.id"
+        >{{ section.title }}</a
+      >
+    }
+  </aside>
+</main>

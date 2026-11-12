@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { BarChart, type ChartSeries, type PointSelection } from '@ng-echarts/chart-library';
 import { deviceRows, deviceSeries, type DeviceRow } from './fixtures/evilcharts-bar-fixture';
+import { SiteAppearance } from './site-appearance';
 
 @Component({
   selector: 'app-updates',
@@ -16,6 +17,7 @@ import { deviceRows, deviceSeries, type DeviceRow } from './fixtures/evilcharts-
     </div>
     <nec-bar-chart
       title="Updated visits"
+      [theme]="theme()"
       description="Stable identities across immutable updates."
       [data]="rows()"
       rowIdKey="id"
@@ -29,6 +31,7 @@ import { deviceRows, deviceSeries, type DeviceRow } from './fixtures/evilcharts-
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Updates {
+  protected readonly theme = inject(SiteAppearance).theme;
   protected readonly rows = signal<readonly DeviceRow[]>(deviceRows);
   protected readonly series = signal<readonly ChartSeries<DeviceRow>[]>(deviceSeries);
   protected readonly selection = signal('No selection');

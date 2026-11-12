@@ -1,6 +1,6 @@
 # R07 bar renderer and cost
 
-Status: pass for the bar prototype on the reference machine. Recorded 12 November 2026; rerun after the NG09 numeric-formatting increment. Task: NG08. Requirements: F02, F04, F08. Gate: G2.
+Status: pass for the bar prototype on the reference machine. Recorded 12 November 2026; rerun after the site-wide theme and responsive measurement-wrapper update. Task: NG08. Requirements: F02, F04, F08. Gate: G2.
 
 ## Method and reproduction
 
@@ -18,10 +18,10 @@ Separate production Canvas and SVG harness bundles use the same pure library val
 
 | Fixture | Operation | p95 | Result |
 | --- | --- | --- | --- |
-| 200 × 3 | mount | 17.70 ms | Pass (≤200 ms) |
-| 200 × 3 | update | 17.60 ms | Pass (≤200 ms) |
-| 2000 × 3 | mount | 46.70 ms | Stress observation |
-| 2000 × 3 | update | 66.80 ms | Stress observation |
+| 200 × 3 | mount | 17.40 ms | Pass (≤200 ms) |
+| 200 × 3 | update | 17.50 ms | Pass (≤200 ms) |
+| 2000 × 3 | mount | 39.80 ms | Stress observation |
+| 2000 × 3 | update | 69.10 ms | Stress observation |
 
 The normal Angular mount and update satisfy the proposed 200 ms p95 target. The initial supported performance envelope is **up to 200 categories and three series** under these recorded conditions. The 2,000-category fixture is stress evidence, not a portable latency promise or a hard input limit. The API continues to validate finite values independently of this recommendation.
 
@@ -29,16 +29,16 @@ The normal Angular mount and update satisfy the proposed 200 ms p95 target. The 
 
 | Renderer | Fixture | Operation | p95 |
 | --- | --- | --- | --- |
-| canvas | 200 × 3 | mount | 7.90 ms |
-| canvas | 200 × 3 | update | 5.80 ms |
-| canvas | 2000 × 3 | mount | 45.10 ms |
-| canvas | 2000 × 3 | update | 42.30 ms |
-| svg | 200 × 3 | mount | 8.70 ms |
-| svg | 200 × 3 | update | 5.70 ms |
-| svg | 2000 × 3 | mount | 55.00 ms |
-| svg | 2000 × 3 | update | 46.80 ms |
+| canvas | 200 × 3 | mount | 6.60 ms |
+| canvas | 200 × 3 | update | 5.70 ms |
+| canvas | 2000 × 3 | mount | 41.70 ms |
+| canvas | 2000 × 3 | update | 42.00 ms |
+| svg | 200 × 3 | mount | 9.10 ms |
+| svg | 200 × 3 | update | 6.60 ms |
+| svg | 2000 × 3 | mount | 56.40 ms |
+| svg | 2000 × 3 | update | 49.00 ms |
 
-Retain **Canvas** for the bar adapter: this rerun has lower mount p95 in both fixtures, lower stress-update p95, and a smaller measured module payload. Normal direct-update results are close (5.80 ms Canvas, 5.70 ms SVG), so they do not establish a portable renderer ranking. SVG remains a valid engine option for future research, rather than being declared incompatible. The [Canvas light](captures/renderer-canvas-light.png), [SVG light](captures/renderer-svg-light.png), [Canvas dark](captures/renderer-canvas-dark.png), and [SVG dark](captures/renderer-svg-dark.png) captures were reviewed; geometry and palette agree for the comparison fixture, with expected rasterization differences.
+Retain **Canvas** for the bar adapter: the latest rerun has lower measured mount/update p95 in both fixtures and a smaller measured module payload. These local observations do not establish a portable renderer ranking. SVG remains a valid engine option for future research, rather than being declared incompatible. The [Canvas light](captures/renderer-canvas-light.png), [SVG light](captures/renderer-svg-light.png), [Canvas dark](captures/renderer-canvas-dark.png), and [SVG dark](captures/renderer-svg-dark.png) captures were reviewed; geometry and palette agree for the comparison fixture, with expected rasterization differences.
 
 ## Loading, table, resize, and interaction
 
@@ -54,4 +54,4 @@ Observed linked package size: **178,402 gzip bytes / 152,619 Brotli bytes**. Ado
 
 R07 passes for the current bar choice and envelope. Repeat affected measurements after meaningful renderer, option-building, lifecycle, or table changes. Other chart families need their own results before G3; this result does not complete the pending R06 human listening review or G2.
 
-The [NG09 formatting report](NG09_SHARED_FORMATTING.md) records this follow-up: normal Angular p95 is 17.70 ms mount / 17.60 ms update, with budgets unchanged. Custom callback execution cost depends on consumer code; these benchmark timings use default numeric formatting.
+The original [NG09 formatting report](NG09_SHARED_FORMATTING.md) keeps its [archived raw samples](data/bar-benchmark-ng09.json). The latest [site alignment](SITE_THEME_ALIGNMENT.md) rerun measures normal Angular p95 of **17.40 ms mount / 17.50 ms update**, with the fixed 768 px reference host retained inside the responsive wrapper. Custom callback execution cost depends on consumer code; benchmark timings use default numeric formatting.

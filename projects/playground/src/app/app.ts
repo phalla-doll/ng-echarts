@@ -17,13 +17,9 @@ import { SiteIcon } from './site-icon';
 })
 export class App {
   protected readonly darkTheme = inject(SiteAppearance).dark;
-  protected readonly themeIcon = computed(() => (this.darkTheme() ? 'sun' : 'moon'));
   protected readonly view = signal<'preview' | 'code'>('preview');
   private readonly copiedSource = signal<string | null>(null);
   protected readonly copyFailed = signal(false);
-  protected readonly themeLabel = computed(() =>
-    this.darkTheme() ? 'Use light theme' : 'Use dark theme',
-  );
   protected readonly theme = computed(() => (this.darkTheme() ? 'dark' : 'light'));
   protected readonly horizontal = signal(false);
   protected readonly layout = computed(() => (this.horizontal() ? 'horizontal' : 'vertical'));
@@ -82,9 +78,6 @@ export class App {
     }
   }
 
-  protected toggleTheme(): void {
-    this.darkTheme.update((value) => !value);
-  }
   protected toggleLayout(): void {
     this.horizontal.update((value) => !value);
   }

@@ -1,0 +1,300 @@
+{
+  "recordedAt": "2026-11-12T14:10:57.077254+00:00",
+  "baselineCommit": "b5f5801",
+  "referenceUrl": "https://evilcharts.com/docs/echarts/",
+  "resolvedReferenceUrl": "https://evilcharts.com/docs/echarts/components",
+  "browser": {
+    "deviceScaleFactor": 1,
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+  },
+  "motion": "reduce",
+  "font": "Local Inter loaded; existing variable Latin WOFF2 with system fallback",
+  "captureMode": "Local development preview; production SSR/hydration is checked separately by Playwright",
+  "sourceHashes": {
+    "projects/playground/src/app/root.css": "bcd3d11beb9b2d5ad75461f2b607ae1979e5a41cfdb862cc2e09eaf316d9bcba",
+    "projects/playground/src/app/root.html": "beaee3321c162cf9ecce4d48a11f60bf208c5d208996f05fd4d59fd6e5d0bf87",
+    "projects/playground/src/app/site-appearance.ts": "dfeb6ed76f4b2e93fe3835d3d23d001a6781c7894daee4c6314a010581ead8ac",
+    "projects/playground/src/site-controls.css": "d82bbb54b6657a71081d3fb2eb728bfc30bac4cb376c649f59933de0f516ec8f",
+    "projects/playground/src/styles.css": "b1f8a92e3cb38ed3c1bfbad22ed3214cc5f00efb016c5e1c123bd1a0c7f29f35",
+    "projects/playground/src/documentation.css": "228ac919f40decad5365716651de599a05e47da54a49434224ec49daece5329a",
+    "projects/playground/src/app/documentation.ts": "cc01dccb337bb06b231572759a2fa28ca148b3052d22a3b21fc361928b03a144",
+    "projects/playground/src/app/documentation.html": "8bde044d7422c6be72399c28e8263bbc01641a58ec32cccec7e1e9535eb129c3",
+    "projects/playground/src/app/documentation-content.ts": "c2845eaca59b7e8559b0b90b56cf42fb488d605df3489f0e24ec79327d1eaeb7",
+    "projects/playground/src/app/chart-illustration.ts": "3c84d63358c381efc452e08ce50866970579cb3699463a5f74f35006496712a5",
+    "projects/playground/public/fonts/inter-latin.woff2": "c940764593d0fe5d596be327ca7558855e018039fb78509aa21921fd3644c3e4"
+  },
+  "captures": [
+    {
+      "file": "benchmark-dark.png",
+      "route": "/benchmark",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "a9adb8251d77c09f22cdca32deabad2b95f676790d7e27e125db802cfa55e4c9",
+      "referencePlotTheme": "light"
+    },
+    {
+      "file": "cleanup-dark.png",
+      "route": "/away",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "aebbcecd4165916721111da8a32173422d2442f6312ab3ff9c80f84a30482674"
+    },
+    {
+      "file": "comparison-reference.png",
+      "route": "/comparison",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "ff15583ac789aea7a76f5869758408c4bd310c4616a04c63c80e1c072faf8707",
+      "referencePlotTheme": "light"
+    },
+    {
+      "file": "components-dark.png",
+      "route": "/components",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "3e630084b037611dbd83c194ea82383f4e1acf1ac63d1ba3b582861c6c54c3e5"
+    },
+    {
+      "file": "components-light.png",
+      "route": "/components",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "d9493f276800dafbb5cf71e530846f64b49f60bf53b23c98f90af244ef5d7b1b"
+    },
+    {
+      "file": "components-mobile.png",
+      "route": "/components",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "image": {
+        "width": 390,
+        "height": 1847
+      },
+      "fullPage": true,
+      "sha256": "5db641858babb079336055bca428d59c32d57e97c346cb7349ead75861c590ac"
+    },
+    {
+      "file": "formatting-dark.png",
+      "route": "/formatting",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "68a82ac55f5fcbba3907ad56f332196d0f0861956dc141c46a749205f21d74f1"
+    },
+    {
+      "file": "get-started-dark.png",
+      "route": "/get-started",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "ecad73c33bf338773e63ce121341f78f77b83849aa4b6a9a32562d3203ee60a1"
+    },
+    {
+      "file": "installation-dark.png",
+      "route": "/installation",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "4eeb80d3855a338fb1abfe067533710b902cf9d03760767af7b669fdc75a137d"
+    },
+    {
+      "file": "installation-mobile.png",
+      "route": "/installation",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "image": {
+        "width": 390,
+        "height": 1848
+      },
+      "fullPage": true,
+      "sha256": "aa62bcdb6df5d6da0c932653d5860e39a7baf9a400d7c2346785e5d12b887e40"
+    },
+    {
+      "file": "navigation-mobile.png",
+      "route": "/playground",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "image": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": false,
+      "sha256": "8d3950805471fb7dd5e42c7971503f71b559a1b02d5ad009ef4684b0f30a926c"
+    },
+    {
+      "file": "playground-dark.png",
+      "route": "/playground",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "7159697546dd3024ddc7aef23989ff5dfe763d99fca45083831689b09a4c1fe2"
+    },
+    {
+      "file": "playground-light.png",
+      "route": "/playground",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "3e79537ed47349e37f9c01246d3f03ac5e3ce6ca6c6ad47f314fa5dc349d65ce"
+    },
+    {
+      "file": "playground-mobile.png",
+      "route": "/playground",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "image": {
+        "width": 390,
+        "height": 1728
+      },
+      "fullPage": true,
+      "sha256": "54fca8d59d50c37e43c3de2a44b62403d031bd6178e33513d07107d55c4f71a1"
+    },
+    {
+      "file": "reference-components.png",
+      "route": "https://evilcharts.com/docs/echarts/components",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "c90456147708e2a10af1e14a1433fcb1e580ed34f9a006192cb3d033657f967b"
+    },
+    {
+      "file": "retention-dark.png",
+      "route": "/retention",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "40496f5b5207da29cc833f0a3abff2ea986c2d0a7fb993d8649a81fb10e13e5b"
+    },
+    {
+      "file": "updates-dark.png",
+      "route": "/updates",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "6d8c50314e7dc662ca59328bcf5a097548baed34b3c351f02e66a61d1da6c160"
+    },
+    {
+      "file": "validation-dark.png",
+      "route": "/validation",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "068831bf9b347b23e39044b165e9a7cf7704e9c2c71121fdb8b4f8738120cafe"
+    }
+  ]
+}

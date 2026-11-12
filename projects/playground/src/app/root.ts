@@ -15,6 +15,9 @@ import { SiteAppearance } from './site-appearance';
 
 const pageTitles: Readonly<Record<string, string>> = {
   '/': 'Bar Blocks',
+  '/get-started': 'Get started',
+  '/installation': 'Installation',
+  '/components': 'Components',
   '/playground': 'Bar playground',
   '/comparison': 'Visual comparison',
   '/updates': 'Input updates',
@@ -36,9 +39,7 @@ export class Root {
   private readonly router = inject(Router);
   private readonly menuToggle = viewChild.required<ElementRef<HTMLButtonElement>>('menuToggle');
   private readonly appearance = inject(SiteAppearance);
-  protected readonly dark = computed(() =>
-    this.galleryMode() ? this.appearance.galleryDark() : this.appearance.dark(),
-  );
+  protected readonly dark = this.appearance.dark;
   protected readonly menuOpen = signal(false);
   private readonly url = toSignal(
     this.router.events.pipe(
@@ -50,10 +51,10 @@ export class Root {
   private readonly routePath = computed(() => this.url().split(/[?#]/, 1)[0] ?? '/');
   protected readonly skipTarget = computed(() => this.routePath() + '#page-content');
   protected readonly galleryMode = computed(() => this.routePath() === '/');
-  protected readonly galleryThemeLabel = computed(() =>
+  protected readonly themeLabel = computed(() =>
     this.dark() ? 'Use light theme' : 'Use dark theme',
   );
-  protected readonly galleryThemeIcon = computed(() => (this.dark() ? 'sun' : 'moon'));
+  protected readonly themeIcon = computed(() => (this.dark() ? 'sun' : 'moon'));
   protected readonly fullWidth = computed(() =>
     ['/comparison', '/benchmark'].includes(this.routePath()),
   );
@@ -61,8 +62,8 @@ export class Root {
   protected toggleMenu(): void {
     this.menuOpen.update((open) => !open);
   }
-  protected toggleGalleryTheme(): void {
-    this.appearance.galleryDark.update((dark) => !dark);
+  protected toggleTheme(): void {
+    this.appearance.toggle();
   }
   protected closeMenu(restoreFocus = false): void {
     const wasOpen = this.menuOpen();

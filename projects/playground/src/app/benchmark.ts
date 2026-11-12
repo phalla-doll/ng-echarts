@@ -40,13 +40,20 @@ declare global {
 
 @Component({
   selector: 'app-benchmark',
-  template: `<h1>Bar benchmark fixture</h1>
+  template: `<main class="measurement-page">
+    <h1>Bar benchmark fixture</h1>
     <p>Automated measurements run through the benchmark command.</p>
-    <div data-benchmark-host><ng-container #charts /></div>`,
+    <p>
+      The preview keeps its fixed 768 px measurement width and reference theme. Scroll inside the
+      preview on a narrow screen.
+    </p>
+    <div class="measurement-scroll" tabindex="0" role="region" aria-label="Bar benchmark preview">
+      <div data-benchmark-host><ng-container #charts /></div>
+    </div>
+  </main>`,
   styles: `
     :host {
       display: block;
-      padding: 20px;
     }
     [data-benchmark-host] {
       width: 768px;

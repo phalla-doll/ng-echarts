@@ -6,6 +6,7 @@ import {
   type PointSelection,
   type ValueFormatter,
 } from '@ng-echarts/chart-library';
+import { SiteAppearance } from './site-appearance';
 
 type FormatMode =
   'default' | 'currency' | 'custom' | 'bad-value' | 'bad-axis' | 'bad-options' | 'bad-locale';
@@ -40,6 +41,7 @@ interface Row {
     <p>Locale: {{ locale() }}</p>
     <nec-bar-chart
       title="Formatted values"
+      [theme]="theme()"
       description="Includes fractions, zero, a negative value, and a missing observation."
       [data]="rows"
       rowIdKey="id"
@@ -58,6 +60,7 @@ interface Row {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Formatting {
+  protected readonly theme = inject(SiteAppearance).theme;
   private readonly route = inject(ActivatedRoute);
   private readonly mode = signal<FormatMode>(
     this.route.snapshot.queryParamMap.get('invalid') === 'locale' ? 'bad-locale' : 'default',

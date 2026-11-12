@@ -12,6 +12,8 @@ The user selected a [reference-aligned gallery](experiments/BAR_GALLERY_VISUAL_R
 
 ## Feasibility milestone
 
+The [site-wide theme update](experiments/SITE_THEME_ALIGNMENT.md) adds basic Get Started, Installation, and Components pages and aligns existing tool pages with the approved gallery. The catalog labels unimplemented families as planned. This supports later NG15 documentation work without completing its full API, compatibility, or release requirements.
+
 | ID | Priority | Work | Depends on | Done when |
 | --- | --- | --- | --- | --- |
 | NG01 | P0 | Lock the Angular 22 toolchain and build a library workspace | None | Exact versions and reproducible production build recorded |

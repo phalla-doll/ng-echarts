@@ -1,41 +1,50 @@
-/* Shared workbench tokens and controls; chart-package styles remain independent. */
+/* Shared neutral tokens and workbench controls; library styles remain independent. */
 .site-shell {
-  --site-bg: #f7f9fc;
-  --site-surface: #fff;
-  --site-subtle: #f0f4f9;
-  --site-text: #202a3b;
-  --site-muted: #65748a;
-  --site-border: #e2e8f1;
-  --site-blue: #315bea;
-  --site-blue-soft: #edf2ff;
+  --site-bg: #fff;
+  --site-surface: #f7f7f7;
+  --site-subtle: #ededed;
+  --site-text: #171717;
+  --site-muted: #6b6b6b;
+  --site-border: #e5e5e5;
+  --site-active: #171717;
+  --site-active-soft: #ededed;
+  --site-switch: #737373;
+  --site-control-border: #9b9b9b;
+  --gallery-primary: #047857;
+  --gallery-secondary: #be123c;
 }
-
 .site-shell.dark {
-  --site-bg: #101722;
-  --site-surface: #18202c;
-  --site-subtle: #202c3d;
-  --site-text: #edf2fa;
-  --site-muted: #a7b5ca;
-  --site-border: #334359;
-  --site-blue: #9bb5ff;
-  --site-blue-soft: #233652;
+  --site-bg: #0a0a0a;
+  --site-surface: #111;
+  --site-subtle: #1b1b1b;
+  --site-text: #f5f5f5;
+  --site-muted: #a3a3a3;
+  --site-border: #222;
+  --site-active: #f5f5f5;
+  --site-active-soft: #1b1b1b;
+  --site-switch: #b3b3b3;
+  --site-control-border: #737373;
+  --gallery-primary: #10b981;
+  --gallery-secondary: #f43f5e;
   color-scheme: dark;
 }
 .workbench :where(.view-control) {
   display: flex;
-  gap: 3px;
-  padding: 3px;
-  border: 1px solid var(--site-border);
-  border-radius: 8px;
-  background: var(--site-subtle);
+  gap: 14px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--site-border);
+  border-radius: 0;
+  background: transparent;
 }
 .workbench :where(.view-control button) {
   display: flex;
   align-items: center;
   gap: 7px;
-  padding: 7px 11px;
+  padding: 8px 2px;
   border: 0;
-  border-radius: 5px;
+  border-radius: 0;
+  border-bottom: 1px solid transparent;
   color: var(--site-muted);
   background: transparent;
   font-size: 11px;
@@ -45,9 +54,8 @@
   height: 14px;
 }
 .workbench :where(.view-control button[aria-pressed='true']) {
-  background: var(--site-surface);
+  border-bottom-color: var(--site-text);
   color: var(--site-text);
-  box-shadow: 0 1px 3px #15233b12;
 }
 .workbench :where(.settings-heading) {
   display: flex;
@@ -65,7 +73,7 @@
   padding: 4px 0;
   border: 0;
   background: transparent;
-  color: var(--site-blue);
+  color: var(--site-active);
   font-size: 10px;
 }
 .workbench :where(.settings-intro) {
@@ -103,7 +111,7 @@
   flex: none;
   width: 28px;
   height: 17px;
-  border: 1px solid #b5c0d0;
+  border: 1px solid var(--site-control-border);
   border-radius: 12px;
   background: var(--site-subtle);
 }
@@ -115,15 +123,15 @@
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background: #748399;
+  background: var(--site-switch);
 }
 .workbench :where(.setting-toggle[aria-pressed='true'] .switch) {
-  border-color: #315bea;
-  background: #315bea;
+  border-color: var(--site-text);
+  background: var(--site-text);
 }
 .workbench :where(.setting-toggle[aria-pressed='true'] .switch)::after {
   left: 13px;
-  background: white;
+  background: var(--site-bg);
 }
 .workbench :where(.settings-group > p) {
   margin: 0 0 13px;
@@ -139,8 +147,8 @@
   min-height: 36px;
 }
 .workbench :where(.update-button[aria-pressed='true']) {
-  color: var(--site-blue);
-  border-color: var(--site-blue);
+  color: var(--site-active);
+  border-color: var(--site-active);
 }
 .workbench :where(.setting-hint) {
   display: block;
@@ -162,9 +170,9 @@
   font-size: 10px;
 }
 .workbench :where(.state-controls button[aria-pressed='true']) {
-  border-color: var(--site-blue);
-  background: var(--site-blue-soft);
-  color: var(--site-blue);
+  border-color: var(--site-active);
+  background: var(--site-active-soft);
+  color: var(--site-active);
 }
 .workbench :where(.mount-control) {
   margin-top: 12px;
@@ -194,18 +202,18 @@
   padding: 0 10px;
   color: inherit;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 650;
   letter-spacing: -0.7px;
 }
 .site-shell :where(.brand-mark) {
   display: grid;
   place-items: center;
-  width: 34px;
-  height: 37px;
-  border-radius: 10px;
-  background: #315bea;
-  color: white;
+  width: 24px;
+  height: 28px;
+  border-radius: 0;
+  background: transparent;
+  color: var(--site-text);
 }
 .site-shell :where(.brand-mark app-site-icon) {
   width: 22px;
@@ -221,7 +229,7 @@
 }
 .workbench :where(.source-panel) {
   border: 1px solid var(--site-border);
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--site-surface);
   overflow: hidden;
 }
@@ -261,7 +269,7 @@
   display: none;
   align-items: center;
   gap: 7px;
-  color: var(--site-blue);
+  color: var(--site-active);
   font-size: 12px;
   text-decoration: none;
 }
@@ -274,4 +282,21 @@
     display: inline-flex;
     grid-column: 1/-1;
   }
+}
+
+/* Shared top-bar link and icon treatment. */
+.site-shell :where(.site-actions a) {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: inherit;
+  text-decoration: none;
+}
+.site-shell :where(.site-actions a app-site-icon) {
+  width: 12px;
+  height: 12px;
+}
+.site-shell :where(.site-actions button app-site-icon) {
+  width: 14px;
+  height: 14px;
 }

@@ -15,7 +15,7 @@ import { SiteIcon } from './site-icon';
 export class Gallery {
   protected readonly blocks = barBlocks;
   protected readonly activeBlock = signal(barBlocks[0]!.id);
-  protected readonly dark = inject(SiteAppearance).galleryDark;
+  protected readonly dark = inject(SiteAppearance).dark;
   private readonly copiedPage = signal<string | null>(null);
   protected readonly copyFailed = signal(false);
   private readonly markdown = computed(() =>

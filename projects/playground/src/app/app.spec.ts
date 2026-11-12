@@ -1,22 +1,18 @@
 import { PLATFORM_ID } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { App } from './app';
+import { SiteAppearance } from './site-appearance';
 
 describe('Playground', () => {
-  it('integrates the built library and switches the theme through its button', async () => {
+  it('integrates the built library and follows the shared site theme', async () => {
     TestBed.configureTestingModule({ providers: [{ provide: PLATFORM_ID, useValue: 'server' }] });
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const element = fixture.nativeElement as HTMLElement;
-    const button = element.querySelector('button')!;
-
     expect(element.querySelector('nec-chart-frame h2')?.textContent).toBe('Device visits by month');
-    expect(button.getAttribute('aria-pressed')).toBe('false');
-    button.click();
-    await fixture.whenStable();
-
     expect(element.querySelector('main')?.classList.contains('dark')).toBe(true);
-    expect(button.getAttribute('aria-pressed')).toBe('true');
-    expect(button.textContent).toContain('Use light theme');
+    TestBed.inject(SiteAppearance).toggle();
+    await fixture.whenStable();
+    expect(element.querySelector('main')?.classList.contains('dark')).toBe(false);
   });
 });

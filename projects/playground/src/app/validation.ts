@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { BarChart } from '@ng-echarts/chart-library';
 import { DeferredChart } from './deferred-chart';
 import { deviceRows, deviceSeries } from './fixtures/evilcharts-bar-fixture';
+import { SiteAppearance } from './site-appearance';
 
 @Component({
   selector: 'app-validation',
@@ -29,6 +30,7 @@ import { deviceRows, deviceSeries } from './fixtures/evilcharts-bar-fixture';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Validation {
+  protected readonly theme = inject(SiteAppearance).theme;
   protected readonly rows = deviceRows;
   protected readonly mounted = signal(true);
   protected readonly hidden = signal(true);

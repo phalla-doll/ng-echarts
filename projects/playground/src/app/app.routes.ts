@@ -2,6 +2,21 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: 'get-started',
+    data: { page: 'get-started' },
+    loadComponent: () => import('./documentation').then((module) => module.Documentation),
+  },
+  {
+    path: 'installation',
+    data: { page: 'installation' },
+    loadComponent: () => import('./documentation').then((module) => module.Documentation),
+  },
+  {
+    path: 'components',
+    data: { page: 'components' },
+    loadComponent: () => import('./documentation').then((module) => module.Documentation),
+  },
+  {
     path: 'formatting',
     loadComponent: () => import('./formatting').then((module) => module.Formatting),
   },

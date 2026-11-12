@@ -2,6 +2,8 @@
 
 Reviewed 12 November 2026. The user selected the existing bar charts for the first correction after the [area-block reference audit](AREA_BLOCKS_VISUAL_AUDIT.md). This implements the gallery direction without introducing area rendering or changing the chart-library API.
 
+This report records the gallery increment at `b5f5801`. The subsequent [site alignment](SITE_THEME_ALIGNMENT.md) extends its styling to all pages and replaces the independent gallery/workbench themes with one shared preference. Original captures and test counts below describe the earlier snapshot.
+
 ## Design and result
 
 The home route `/` now presents a neutral chart-block gallery. The original settings workspace remains at `/playground`; `/comparison`, `/formatting`, `/validation`, and the other engineering fixtures remain available separately.

@@ -24,7 +24,29 @@
       <span>ng-echarts<span class="brand-caption">Charts for Angular</span></span>
     </a>
     <nav aria-label="Playground pages">
-      <p class="nav-heading">Explore</p>
+      <p class="nav-heading">Get started</p>
+      <a
+        routerLink="/get-started"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="book" />Get Started</a
+      >
+      <a
+        routerLink="/installation"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="code" />Installation</a
+      >
+      <a
+        routerLink="/components"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="layers" />Components</a
+      >
+      <p class="nav-heading nav-group">Charts</p>
       <a
         routerLink="/"
         routerLinkActive="active"
@@ -70,6 +92,20 @@
         ><app-site-icon name="layers" />Lifecycle validation</a
       >
       <a
+        routerLink="/retention"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="update" />Retention checks</a
+      >
+      <a
+        routerLink="/benchmark"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="chart" />Render benchmark</a
+      >
+      <a
         routerLink="/away"
         routerLinkActive="active"
         ariaCurrentWhenActive="page"
@@ -97,31 +133,23 @@
       <a class="mobile-brand" routerLink="/" aria-label="ng-echarts home" (click)="closeMenu()"
         >ng-echarts</a
       >
-      <div class="breadcrumb" [hidden]="galleryMode()">
-        <span>Workspace</span><app-site-icon name="chevron" /><strong>{{ pageTitle() }}</strong>
-      </div>
-      @if (galleryMode()) {
-        <div class="gallery-header-links">
-          <a
-            href="https://github.com/phalla-doll/ng-echarts"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Source<app-site-icon name="arrow"
-          /></a>
-          <button
-            type="button"
-            (click)="toggleGalleryTheme()"
-            [attr.aria-label]="galleryThemeLabel()"
-          >
-            <app-site-icon [name]="galleryThemeIcon()" />
-          </button>
-          <span>Angular 22</span>
-        </div>
-      }
-      <div class="header-meta" [hidden]="galleryMode()">
-        <span class="angular-mark" aria-hidden="true">A</span>Angular 22<span class="version"
-          >v0.0.0</span
+      <span class="header-title" [hidden]="galleryMode()">{{ pageTitle() }}</span>
+      <div class="site-actions">
+        <a
+          href="https://github.com/phalla-doll/ng-echarts"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Source<app-site-icon name="arrow"
+        /></a>
+        <button
+          type="button"
+          (click)="toggleTheme()"
+          [attr.aria-label]="themeLabel()"
+          [attr.aria-pressed]="dark()"
         >
+          <app-site-icon [name]="themeIcon()" />
+        </button>
+        <span>Angular 22</span>
       </div>
     </header>
     <div class="page-content" id="page-content" tabindex="-1"><router-outlet /></div>

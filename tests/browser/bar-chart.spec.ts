@@ -11,6 +11,7 @@ test.beforeEach(async ({ page }) => {
       collected.push(message.text());
   });
   await page.goto('/playground');
+  await page.getByRole('button', { name: 'Use light theme', exact: true }).click();
   await expect(page.locator('nec-bar-chart canvas')).toHaveCount(1);
 });
 test.afterEach(async ({ page }) => {

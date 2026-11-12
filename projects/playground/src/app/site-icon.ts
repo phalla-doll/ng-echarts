@@ -15,6 +15,10 @@ const paths = {
   copy: 'M9 9h11v12H9zM15 9V3H3v12h6',
   check: 'm5 12 4 4L19 6',
   arrow: 'M5 19 19 5M7 5h12v12',
+  book: 'M3 4h6a3 3 0 0 1 3 3v14a3 3 0 0 0-3-3H3V4Zm18 0h-6a3 3 0 0 0-3 3m0 14a3 3 0 0 1 3-3h6V4Z',
+  line: 'M3 18 8 10l5 4 8-10M3 4v17h18',
+  area: 'm3 16 5-7 6 4 7-8v16H3V4',
+  pie: 'M12 3v9h9a9 9 0 1 1-9-9Zm4 0a9 9 0 0 1 5 5h-5V3Z',
 } as const;
 
 @Component({

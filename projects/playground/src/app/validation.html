@@ -23,11 +23,13 @@
         categoryKey="month"
         [series]="series()"
         [themeRevision]="revision()"
+        [theme]="theme()"
         [animation]="false"
       />
       <nec-bar-chart
         data-testid="loading"
         title="Loading visits"
+        [theme]="theme()"
         description="Server/client initial loading state."
         [data]="rows"
         rowIdKey="id"
@@ -39,6 +41,7 @@
       <nec-bar-chart
         data-testid="hidden"
         title="Initially hidden visits"
+        [theme]="theme()"
         description="Initial zero-width surface."
         [style.display]="hidden() ? 'none' : 'block'"
         [data]="rows"

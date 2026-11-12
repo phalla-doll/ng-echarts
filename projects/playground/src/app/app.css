@@ -1,20 +1,14 @@
 main {
-  --nec-background: #fff;
-  --nec-text: #18202c;
-  --nec-muted: #536176;
-  --nec-border: #d6dce5;
-  min-height: calc(100vh - 73px);
-  padding: 40px 36px 24px;
+  --nec-background: var(--site-bg);
+  --nec-text: var(--site-text);
+  --nec-muted: var(--site-muted);
+  --nec-border: var(--site-border);
+  min-height: calc(100vh - 48px);
+  max-width: 1120px;
+  margin: auto;
+  padding: 44px 48px 48px;
   color: var(--site-text);
   background: var(--site-bg);
-}
-
-main.dark {
-  --nec-background: #18202c;
-  --nec-text: #edf2fa;
-  --nec-muted: #b2bfd2;
-  --nec-border: #3b4a61;
-  color-scheme: dark;
 }
 
 .workspace {
@@ -41,7 +35,7 @@ h1 {
   margin: 0;
   font-size: 36px;
   font-weight: 600;
-  line-height: 1.25;
+  line-height: 40px;
   letter-spacing: -1.3px;
 }
 
@@ -97,12 +91,11 @@ h1 {
 }
 
 .dataset-meta > span {
-  color: #aeb8c7;
+  color: var(--site-muted);
 }
 
 nec-bar-chart {
-  border-radius: 16px;
-  box-shadow: 0 4px 18px #14223c04;
+  border-radius: 8px;
 }
 
 .event-console {
@@ -111,7 +104,7 @@ nec-bar-chart {
   gap: 9px;
   margin: 14px 0 0;
   padding: 12px 14px;
-  border: 1px dashed var(--site-border);
+  border: 1px solid var(--site-border);
   border-radius: 7px;
   color: var(--site-muted);
 }
@@ -169,8 +162,8 @@ nec-bar-chart {
   justify-content: center;
   min-height: 570px;
   padding: 32px;
-  border: 1px dashed var(--site-border);
-  border-radius: 16px;
+  border: 1px solid var(--site-border);
+  border-radius: 8px;
   background: var(--site-surface);
   text-align: center;
 }
@@ -178,7 +171,7 @@ nec-bar-chart {
 .unmounted > app-site-icon {
   width: 30px;
   height: 30px;
-  color: var(--site-blue);
+  color: var(--site-active);
 }
 
 .unmounted h2 {
@@ -251,7 +244,7 @@ nec-bar-chart {
 @media (max-width: 600px) {
   main {
     padding: 26px 16px 20px;
-    min-height: calc(100vh - 65px);
+    min-height: calc(100vh - 56px);
   }
   .page-header {
     flex-wrap: wrap;

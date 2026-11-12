@@ -6,17 +6,15 @@ export async function firstGreenBarPoint(canvas: Locator): Promise<{ x: number; 
   return canvas.evaluate((element: HTMLCanvasElement) => {
     const context = element.getContext('2d', { willReadFrequently: true })!;
     const pixels = context.getImageData(0, 0, element.width, element.height).data;
+    const isGreen = (offset: number): boolean =>
+      pixels[offset + 3] === 255 &&
+      ((pixels[offset] === 4 && pixels[offset + 1] === 120 && pixels[offset + 2] === 87) ||
+        (pixels[offset] === 16 && pixels[offset + 1] === 185 && pixels[offset + 2] === 129));
     for (let x = 0; x < element.width - 4; x++) {
       const ys: number[] = [];
       for (let y = 0; y < element.height; y++) {
         const offset = (y * element.width + x + 3) * 4;
-        if (
-          pixels[offset] === 4 &&
-          pixels[offset + 1] === 120 &&
-          pixels[offset + 2] === 87 &&
-          pixels[offset + 3] === 255
-        )
-          ys.push(y);
+        if (isGreen(offset)) ys.push(y);
       }
       if (ys.length > 8) {
         const rect = element.getBoundingClientRect();
@@ -25,8 +23,7 @@ export async function firstGreenBarPoint(canvas: Locator): Promise<{ x: number; 
         let lastX = firstX;
         while (lastX + 1 < element.width) {
           const offset = (y * element.width + lastX + 1) * 4;
-          if (pixels[offset] !== 4 || pixels[offset + 1] !== 120 || pixels[offset + 2] !== 87)
-            break;
+          if (!isGreen(offset)) break;
           lastX++;
         }
         // Use the bar interior; WebKit rounds fractional pointer coordinates at painted edges.

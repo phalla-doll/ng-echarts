@@ -37,6 +37,8 @@ The later [gallery correction](experiments/BAR_GALLERY_VISUAL_REVIEW.md) compose
 
 ## Reuse classification
 
+The [site-wide alignment](experiments/SITE_THEME_ALIGNMENT.md) adds original documentation, SVG catalog illustrations, and shared neutral styling informed by the live documentation layout. `documentation-content.ts` reuses the January/February figures from the already attributed monthly fixture in its quick-start example. No additional upstream chart implementation or dataset is copied. The new setup commands describe this repository's Angular workspace rather than the upstream registry CLI.
+
 All paths in this table are under the pinned `src/registry/` tree.
 
 | Inspected source and concern | Decision |

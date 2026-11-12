@@ -51,6 +51,7 @@ test('keeps code, preview, theme, copy feedback, and reset controls in sync', as
   );
   await page.goto('/playground');
   await expect(page.locator('nec-bar-chart canvas')).toHaveCount(1);
+  await page.getByRole('button', { name: 'Use light theme', exact: true }).click();
   await page.getByRole('button', { name: 'Horizontal layout', exact: true }).click();
   await page.getByRole('button', { name: 'Stack series', exact: true }).click();
   await page.getByRole('button', { name: 'Use dark theme', exact: true }).click();
