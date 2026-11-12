@@ -10,11 +10,14 @@ Experimental Angular 22 library. The local package identity is `@ng-echarts/char
 
 The [bar API reference](https://github.com/phalla-doll/ng-echarts/blob/main/docs/BAR_CHART_API.md) lists every input/default, event payload, behavior, tested version, and current limit.
 
+`AreaChart<T>` is available from `/area`; see the [area API reference](https://github.com/phalla-doll/ng-echarts/blob/main/docs/AREA_CHART_API.md) for independent fills, same-sign stacks, raw events, and gap semantics.
+
 ## Imports and package boundaries
 
 ```ts
 import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';
 import { LineChart } from '@ng-echarts/chart-library/line';
+import { AreaChart } from '@ng-echarts/chart-library/area';
 import { ChartFrame } from '@ng-echarts/chart-library/core';
 ```
 
@@ -41,3 +44,5 @@ Chart axes and tooltips inherit the host element's CSS `font-family`. Initial br
 Build with `npm run build:lib` from the workspace root. See the root README and `docs/IMPLEMENTATION_PLAN.md` for the implementation sequence and validation commands.
 
 `ɵ`-prefixed core exports support implementation across entry points and are not stable consumer APIs. Focused `/bar` excludes line rendering, focused `/line` excludes bar rendering, and core excludes engine runtime modules.
+
+`/area` owns its component, independent fills/stacks, and lazy Line/Grid/Tooltip/Canvas registration. It shares pure curve policy with line through core, excludes Bar/SVG and other component entries, and follows the unchanged 200,000 gzip / 175,000 Brotli family budget. The root compatibility entry reexports all three Cartesian components.

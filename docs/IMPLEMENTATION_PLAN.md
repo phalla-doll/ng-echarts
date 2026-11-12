@@ -13,6 +13,7 @@ projects/chart-library/
   core/src/                   Shared contracts and presentation shell
   bar/src/                    Bar implementation and colocated tests
   line/src/                   Line implementation and colocated tests
+  area/src/                   Area implementation and colocated tests
   src/public-api.ts           Compatibility exports
 projects/playground/
   src/app/                    SSR page and interactive fixtures
@@ -75,7 +76,7 @@ R01–R05, R07, and R08 now pass for bar, including real packed-runtime consumer
 
 On 12 November 2026 the user deferred the [R06 human listening review](experiments/R06_MANUAL_REVIEW.md) and authorized continued development. R06 and G2 remain pending; they no longer block NG09–NG13. This direction supersedes earlier G2-before-expansion instructions in `AGENTS.md` and historical reports. Retain the human review before G3/G4 release acceptance.
 
-Next: implement NG12 area charts, then NG13 pie/donut. NG11 multi-series line charts now have [implementation evidence](experiments/NG11_LINE_CHART.md). The [NG09/NG10 acceptance review](experiments/NG09_NG10_ACCEPTANCE.md) records implementation completion for the current foundation/bar baseline, with cross-family acceptance and deferred human release evidence still open. Continue automated accessibility, lifecycle, and hydration checks throughout. The local review server uses port 4310.
+Next: implement NG13 pie/donut. NG12 area charts have [implementation evidence](experiments/NG12_AREA_CHART.md). NG11 multi-series line charts now have [implementation evidence](experiments/NG11_LINE_CHART.md). The [NG09/NG10 acceptance review](experiments/NG09_NG10_ACCEPTANCE.md) records implementation completion for the current foundation/bar baseline, with cross-family acceptance and deferred human release evidence still open. Continue automated accessibility, lifecycle, and hydration checks throughout. The local review server uses port 4310.
 
 NG09 now has a [shared numeric-formatting increment](experiments/NG09_SHARED_FORMATTING.md): locale/options/custom callbacks produce consistent numeric text across the chart and native table. The `/formatting` route demonstrates the API and failure recovery. The [package-boundary increment](experiments/NG09_PACKAGE_BOUNDARIES.md) now adds measured `/core` and `/bar` entries, compatible root exports, and strict installed-package checks before additional renderer families are loaded.
 
@@ -85,4 +86,6 @@ The follow-up [site alignment](experiments/SITE_THEME_ALIGNMENT.md) extends the 
 
 The [bar API reference](BAR_CHART_API.md) now lists implemented inputs/defaults, outputs, formatting, state behavior, versions, and limits; its actual integration example is compiled by the isolated consumer check. The combined layout/stack/fill checklist covers all eight combinations in both themes. This closes the NG09/NG10 implementation review and makes NG11 the next development task without closing G2/G3/G4.
 
-NG11 adds `/line`, `/line-validation`, a focused `/line` package entry, and shared Cartesian policy now demonstrated by bar and line. The [line API](LINE_CHART_API.md) and generated gallery examples are compiled against the packed artifact; source/visual, timing, package, and browser evidence are recorded in the NG11 report. NG12 is the next implementation increment.
+NG11 adds `/line`, `/line-validation`, a focused `/line` package entry, and shared Cartesian policy now demonstrated by bar and line. The [line API](LINE_CHART_API.md) and generated gallery examples are compiled against the packed artifact; source/visual, timing, package, and browser evidence are recorded in the NG11 report. The following NG12 area increment is now recorded below.
+
+NG12 adds `/area`, `/area-validation`, a focused `/area` entry, and shared pure curve options/event decoding demonstrated by line and area. The [area API](AREA_CHART_API.md), generated examples, pinned-source comparisons, signed-stack/gap browser checks, runtime consumers, and performance results are recorded in the NG12 report. NG13 pie/donut is next; full-MVP and deferred release evidence remain open.

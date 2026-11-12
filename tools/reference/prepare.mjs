@@ -37,6 +37,10 @@ const sources = [
   'src/registry/examples/echarts/ex-solid-stroke-echarts-line-chart.tsx',
   'src/registry/examples/echarts/ex-monotoney-curve-type-echarts-line-chart.tsx',
   'src/registry/charts/echarts-line-chart.tsx',
+  'src/registry/examples/echarts/ex-default-type-echarts-area-chart.tsx',
+  'src/registry/examples/echarts/ex-stacked-type-echarts-area-chart.tsx',
+  'src/registry/examples/echarts/ex-solid-area-variant-echarts-area-chart.tsx',
+  'src/registry/charts/echarts-area-chart.tsx',
   'src/app/globals.css',
 ];
 const hashes = {};

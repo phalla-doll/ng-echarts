@@ -2,6 +2,24 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: 'area',
+    data: { family: 'area' },
+    loadComponent: () => import('./gallery').then((module) => module.Gallery),
+  },
+  {
+    path: 'area-validation',
+    loadComponent: () => import('./area-validation').then((module) => module.AreaValidation),
+  },
+  {
+    path: 'area-comparison',
+    loadComponent: () => import('./area-comparison').then((module) => module.AreaComparison),
+  },
+  {
+    path: 'area-benchmark',
+    data: { family: 'area' },
+    loadComponent: () => import('./benchmark').then((module) => module.Benchmark),
+  },
+  {
     path: 'line-comparison',
     loadComponent: () => import('./line-comparison').then((module) => module.LineComparison),
   },

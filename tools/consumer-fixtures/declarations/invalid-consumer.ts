@@ -89,3 +89,20 @@ export class InvalidLine {
   readonly rows = [{ id: 'a', category: 'A', count: 1 }];
   readonly series = [{ id: 'v', key: 'category', label: 'Invalid' }] as const;
 }
+
+import { AreaChart } from '@ng-echarts/chart-library/area';
+@Component({
+  imports: [AreaChart],
+  template: `<nec-area-chart
+    title="Invalid line"
+    [data]="rows"
+    rowIdKey="id"
+    categoryKey="category"
+    [series]="series"
+    [stacked]="'yes'"
+  />`,
+})
+export class InvalidArea {
+  readonly rows = [{ id: 'a', category: 'A', count: 1 }];
+  readonly series = [{ id: 'v', key: 'category', label: 'Invalid' }] as const;
+}

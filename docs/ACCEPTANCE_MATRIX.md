@@ -12,7 +12,9 @@ The [NG09 package increment](experiments/NG09_PACKAGE_BOUNDARIES.md) adds public
 
 The [consolidated NG09/NG10 review](experiments/NG09_NG10_ACCEPTANCE.md) records implementation completion and a bar-specific F01–F10 status table. F09 human interpretation and release gates remain pending; the next development task is NG11. The [bar API](BAR_CHART_API.md) describes current behavior and its integration example is compiled from the document itself.
 
-The [NG11 line report](experiments/NG11_LINE_CHART.md) adds line evidence for F01–F10 automated behavior, pinned visual comparisons, installed client/SSR consumption, Canvas performance, and family-isolated bundles. Human interpretation and full-MVP requirements remain open; area and pie/donut are unimplemented.
+The [NG11 line report](experiments/NG11_LINE_CHART.md) adds line evidence for F01–F10 automated behavior, pinned visual comparisons, installed client/SSR consumption, Canvas performance, and family-isolated bundles. Human interpretation and full-MVP requirements remain open; at that snapshot area and pie/donut were unimplemented.
+
+The [NG12 area report](experiments/NG12_AREA_CHART.md) adds F01–F10 automated evidence for independent fills, same-sign stacks, raw events, gaps, inherited state/formatting/motion controls, SSR/deferred hydration, and installed consumers. Three-family package budgets and area performance targets pass; human interpretation, pie/donut, and full-MVP acceptance remain open.
 
 ## Requirement coverage
 

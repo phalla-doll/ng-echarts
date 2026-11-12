@@ -23,9 +23,8 @@
     </div>
     <footer class="gallery-footer">
       <p>Examples use the local workspace package. Public npm installation is not available yet.</p>
-      <a [routerLink]="isLine ? '/line-validation' : '/playground'"
-        >Open the interactive {{ isLine ? 'line validation' : 'playground'
-        }}<app-site-icon name="arrow"
+      <a [routerLink]="config.validationRoute"
+        >Open {{ config.validationLabel }}<app-site-icon name="arrow"
       /></a>
     </footer>
   </div>
@@ -39,8 +38,8 @@
         >{{ block.title }}</a
       >
     }
-    <a class="outline-playground" [routerLink]="isLine ? '/line-validation' : '/playground'"
-      >{{ isLine ? 'Line validation' : 'Interactive playground' }}<app-site-icon name="arrow"
+    <a class="outline-playground" [routerLink]="config.validationRoute"
+      >{{ config.validationLabel }}<app-site-icon name="arrow"
     /></a>
   </aside>
 </main>

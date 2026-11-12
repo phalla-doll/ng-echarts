@@ -6,6 +6,9 @@ import { EChartsExampleBarChart as Gradient } from './upstream/src/registry/exam
 import { EChartsExampleLineChart as LineDefault } from './upstream/src/registry/examples/echarts/ex-echarts-line-chart';
 import { EChartsExampleLineChart as LineSolid } from './upstream/src/registry/examples/echarts/ex-solid-stroke-echarts-line-chart';
 import { EChartsExampleLineChart as LineSmooth } from './upstream/src/registry/examples/echarts/ex-monotoney-curve-type-echarts-line-chart';
+import { EChartsExampleAreaChart as AreaDefault } from './upstream/src/registry/examples/echarts/ex-default-type-echarts-area-chart';
+import { EChartsExampleAreaChart as AreaStacked } from './upstream/src/registry/examples/echarts/ex-stacked-type-echarts-area-chart';
+import { EChartsExampleAreaChart as AreaSolid } from './upstream/src/registry/examples/echarts/ex-solid-area-variant-echarts-area-chart';
 import './reference.css';
 
 const parameters = new URLSearchParams(location.search);
@@ -19,6 +22,9 @@ const Reference =
     horizontal: Horizontal,
     gradient: Gradient,
     'line-default': LineDefault,
+    'area-default': AreaDefault,
+    'area-stacked': AreaStacked,
+    'area-solid': AreaSolid,
     'line-solid': LineSolid,
     'line-smooth': LineSmooth,
   }[parameters.get('variant') ?? ''] ?? EChartsExampleBarChart;

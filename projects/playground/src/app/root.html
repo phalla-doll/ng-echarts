@@ -64,6 +64,14 @@
         ><app-site-icon name="chart" />Line Blocks</a
       >
       <a
+        routerLink="/area"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="chart" />Area Blocks</a
+      >
+      <a
         routerLink="/playground"
         routerLinkActive="active"
         ariaCurrentWhenActive="page"
@@ -105,6 +113,13 @@
         ariaCurrentWhenActive="page"
         (click)="closeMenu()"
         ><app-site-icon name="layers" />Line validation</a
+      >
+      <a
+        routerLink="/area-validation"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="layers" />Area validation</a
       >
       <a
         routerLink="/retention"

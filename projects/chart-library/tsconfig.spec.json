@@ -10,6 +10,7 @@
     "src/**/*.d.ts",
     "bar/src/**/*.spec.ts",
     "core/src/**/*.spec.ts",
-    "line/src/**/*.spec.ts"
+    "line/src/**/*.spec.ts",
+    "area/src/**/*.spec.ts"
   ]
 }

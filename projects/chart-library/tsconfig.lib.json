@@ -8,6 +8,12 @@
     "declarationMap": true,
     "types": []
   },
-  "include": ["src/**/*.ts", "bar/src/**/*.ts", "core/src/**/*.ts", "line/src/**/*.ts"],
+  "include": [
+    "src/**/*.ts",
+    "bar/src/**/*.ts",
+    "core/src/**/*.ts",
+    "line/src/**/*.ts",
+    "area/src/**/*.ts"
+  ],
   "exclude": ["**/*.spec.ts"]
 }

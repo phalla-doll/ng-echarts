@@ -1,3 +1,4 @@
+export { AreaChart } from '@ng-echarts/chart-library/area';
 export { LineChart } from '@ng-echarts/chart-library/line';
 // Compatibility entry: prefer /bar or /core for focused imports.
 export { BarChart } from '@ng-echarts/chart-library/bar';

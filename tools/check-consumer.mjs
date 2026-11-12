@@ -53,6 +53,16 @@ try {
   const { lineBlocks, lineExampleSource } = await import(
     `data:text/javascript;base64,${Buffer.from(lines.outputFiles[0].contents).toString('base64')}`
   );
+  const areas = await build({
+    entryPoints: [join(root, 'projects/playground/src/app/area-blocks.ts')],
+    bundle: true,
+    write: false,
+    platform: 'node',
+    format: 'esm',
+  });
+  const { areaBlocks, areaExampleSource } = await import(
+    `data:text/javascript;base64,${Buffer.from(areas.outputFiles[0].contents).toString('base64')}`
+  );
   const configPath = join(consumer, 'tsconfig.json');
   const config = JSON.parse(await readFile(configPath, 'utf8'));
   const documentation = await build({
@@ -90,6 +100,17 @@ try {
       await writeFile(join(consumer, file), lineExampleSource(block, dark));
       config.files.push(file);
     }
+  const areaGuide = await readFile(join(root, 'docs/AREA_CHART_API.md'), 'utf8');
+  const areaApiExample = areaGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
+  assert(areaApiExample, 'Area API guide must contain a compilable integration example');
+  await writeFile(join(consumer, 'area-api-example.ts'), areaApiExample);
+  config.files.push('area-api-example.ts');
+  for (const dark of [false, true])
+    for (const block of areaBlocks) {
+      const file = `area-${block.id}-${dark ? 'dark' : 'light'}.ts`;
+      await writeFile(join(consumer, file), areaExampleSource(block, dark));
+      config.files.push(file);
+    }
   await writeFile(configPath, JSON.stringify(config));
   run('npm', ['ci', '--no-audit', '--no-fund'], consumer);
   run(
@@ -112,13 +133,14 @@ try {
   const manifest = JSON.parse(await readFile(join(installed, 'package.json'), 'utf8'));
   assert.deepEqual(Object.keys(manifest.exports).sort(), [
     '.',
+    './area',
     './bar',
     './core',
     './line',
     './package.json',
   ]);
   assert.equal(manifest.sideEffects, false);
-  for (const entry of ['.', './core', './bar', './line']) {
+  for (const entry of ['.', './core', './bar', './line', './area']) {
     for (const field of ['types', 'default']) {
       assert(
         await readFile(join(installed, manifest.exports[entry][field])),

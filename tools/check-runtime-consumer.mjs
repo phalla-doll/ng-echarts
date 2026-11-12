@@ -119,6 +119,32 @@ async function exercise(engine, url, ssr) {
       await expect(deferred.locator('canvas')).toHaveCount(1);
       await expect(deferred.locator('table')).toBeVisible();
     }
+    await page
+      .getByRole('navigation', { name: 'Playground pages' })
+      .getByRole('link', { name: 'Area Blocks', exact: true })
+      .click();
+    await expect(page.locator('nec-area-chart canvas')).toHaveCount(4);
+    await page
+      .getByRole('navigation', { name: 'Playground pages' })
+      .getByRole('link', { name: 'Area validation', exact: true })
+      .click();
+    const areaChart = page.locator('.primary-area nec-area-chart');
+    await expect(areaChart.locator('canvas')).toHaveCount(1);
+    await areaChart.getByRole('button', { name: 'Show data table', exact: true }).click();
+    await areaChart
+      .getByRole('button', { name: 'Select Desktop for April: -160', exact: true })
+      .click();
+    await expect(page.locator('.selection')).toHaveText('d/desktop/-160/table');
+    await page.getByRole('button', { name: 'Update area values', exact: true }).click();
+    await expect(
+      areaChart.getByRole('button', { name: 'Select Desktop for January: 110', exact: true }),
+    ).toBeVisible();
+    if (ssr) {
+      const deferred = page.locator('.deferred-area');
+      await deferred.getByRole('button', { name: 'Show data table', exact: true }).click();
+      await expect(deferred.locator('canvas')).toHaveCount(1);
+      await expect(deferred.locator('table')).toBeVisible();
+    }
     await page.getByRole('link', { name: 'Navigate away', exact: true }).click();
     await expect(page.locator('canvas')).toHaveCount(0);
     assert.deepEqual(errors, []);
@@ -182,6 +208,8 @@ try {
      import '@angular/compiler';
      const root = await import('@ng-echarts/chart-library');
      const bar = await import('@ng-echarts/chart-library/bar');
+     const area = await import('@ng-echarts/chart-library/area');
+     assert.equal(root.AreaChart, area.AreaChart);
      const line = await import('@ng-echarts/chart-library/line');
      assert.equal(root.LineChart, line.LineChart);
      const core = await import('@ng-echarts/chart-library/core');
@@ -273,7 +301,7 @@ try {
     skipLibCheck: tsconfig.compilerOptions.skipLibCheck,
     workspaceAliases: false,
     installedOutsideWorkspace: true,
-    entryPoints: ['.', './core', './bar', './line'],
+    entryPoints: ['.', './core', './bar', './line', './area'],
     compatibilityIdentity: true,
     privateImportsBlocked: true,
     reactRuntime: false,

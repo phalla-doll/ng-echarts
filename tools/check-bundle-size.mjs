@@ -15,11 +15,12 @@ await mkdir(directory, { recursive: true });
 const scenarios = [
   { name: 'bar', entry: '/bar', symbol: 'BarChart', engine: true, families: ['bar'] },
   { name: 'line', entry: '/line', symbol: 'LineChart', engine: true, families: ['line'] },
+  { name: 'area', entry: '/area', symbol: 'AreaChart', engine: true, families: ['line'] },
   { name: 'core', entry: '/core', symbol: 'ChartFrame', engine: false },
   {
     name: 'root',
     entry: '',
-    symbol: 'BarChart, LineChart, ChartFrame',
+    symbol: 'BarChart, LineChart, AreaChart, ChartFrame',
     engine: true,
     families: ['bar', 'line'],
   },
@@ -107,6 +108,15 @@ for (const scenario of scenarios) {
   const reachableEngineInputs = reachableInputs.filter((name) =>
     /node_modules\/(echarts|zrender)\//.test(name),
   );
+  if (['bar', 'line', 'area'].includes(scenario.name)) {
+    const other = ['bar', 'line', 'area'].filter((name) => name !== scenario.name);
+    assert(
+      !inputs.some((name) =>
+        other.some((family) => name.includes(`ng-echarts-chart-library-${family}.mjs`)),
+      ),
+      `${scenario.name} includes another component entry`,
+    );
+  }
   const engineInputs = inputs.filter((name) => /node_modules\/(echarts|zrender)\//.test(name));
   const eagerEngineInputs = eagerInputs.filter((name) =>
     /node_modules\/(echarts|zrender)\//.test(name),
@@ -148,7 +158,7 @@ for (const scenario of scenarios) {
       `${scenario.name} must exclude ECharts and ZRender entirely`,
     );
     assert(
-      !reachableInputs.some((name) => /chart-library-(?:bar|line)/.test(name)),
+      !reachableInputs.some((name) => /chart-library-(?:bar|line|area)/.test(name)),
       `${scenario.name} must exclude bar implementation`,
     );
   }
@@ -242,6 +252,22 @@ await writeFile(
       total: line.total,
       budget: line.budget,
       passed: line.passed,
+    }),
+    formatOptions,
+  ),
+);
+
+const area = results.find((result) => result.name === 'area');
+await writeFile(
+  join(root, 'docs/experiments/data/area-bundle-size.json'),
+  await format(
+    JSON.stringify({
+      recordedAt,
+      method,
+      files: area.files,
+      total: area.total,
+      budget: area.budget,
+      passed: area.passed,
     }),
     formatOptions,
   ),

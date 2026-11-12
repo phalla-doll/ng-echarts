@@ -1,10 +1,23 @@
 import { Component } from '@angular/core';
-import { BarChart, LineChart, ChartFrame, type ChartSeries } from '@ng-echarts/chart-library';
+import {
+  BarChart,
+  LineChart,
+  AreaChart,
+  ChartFrame,
+  type ChartSeries,
+} from '@ng-echarts/chart-library';
 import type { ChartSeries as SharedSeries } from '@ng-echarts/chart-library/core';
 
 @Component({
-  imports: [BarChart, LineChart, ChartFrame],
+  imports: [BarChart, LineChart, AreaChart, ChartFrame],
   template: `<nec-chart-frame title="Compatibility frame" />
+    <nec-area-chart
+      title="Compatibility area"
+      [data]="rows"
+      rowIdKey="id"
+      categoryKey="month"
+      [series]="series"
+    />
     <nec-line-chart
       title="Compatibility line"
       [data]="rows"

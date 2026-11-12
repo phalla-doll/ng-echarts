@@ -10,6 +10,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AreaChart } from '@ng-echarts/chart-library/area';
 import { LineChart } from '@ng-echarts/chart-library/line';
 import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';
 import { registerPostInit, type EChartsType } from 'echarts/core';
@@ -43,13 +44,18 @@ declare global {
 @Component({
   selector: 'app-benchmark',
   template: `<main class="measurement-page">
-    <h1>{{ lineMode ? 'Line' : 'Bar' }} benchmark fixture</h1>
+    <h1>{{ benchmarkTitle }} benchmark fixture</h1>
     <p>Automated measurements run through the benchmark command.</p>
     <p>
       The preview keeps its fixed 768 px measurement width and reference theme. Scroll inside the
       preview on a narrow screen.
     </p>
-    <div class="measurement-scroll" tabindex="0" role="region" aria-label="Bar benchmark preview">
+    <div
+      class="measurement-scroll"
+      tabindex="0"
+      role="region"
+      [attr.aria-label]="benchmarkTitle + ' benchmark preview'"
+    >
       <div data-benchmark-host><ng-container #charts /></div>
     </div>
   </main>`,
@@ -67,8 +73,10 @@ export class Benchmark {
   private readonly charts = viewChild.required('charts', { read: ViewContainerRef });
   private readonly injector = inject(Injector);
   private readonly destroy = inject(DestroyRef);
-  protected readonly lineMode = inject(ActivatedRoute).snapshot.data['family'] === 'line';
-  private reference: ComponentRef<BarChart<Row> | LineChart<Row>> | null = null;
+  private readonly family = inject(ActivatedRoute).snapshot.data['family'];
+  protected readonly benchmarkTitle =
+    this.family === 'area' ? 'Area' : this.family === 'line' ? 'Line' : 'Bar';
+  private reference: ComponentRef<BarChart<Row> | LineChart<Row> | AreaChart<Row>> | null = null;
 
   constructor() {
     afterNextRender(() => {
@@ -98,9 +106,12 @@ export class Benchmark {
     }));
   }
   private create(rows: readonly Row[]): void {
-    this.reference = this.lineMode
-      ? this.charts().createComponent(LineChart<Row>)
-      : this.charts().createComponent(BarChart<Row>);
+    this.reference =
+      this.family === 'area'
+        ? this.charts().createComponent(AreaChart<Row>)
+        : this.family === 'line'
+          ? this.charts().createComponent(LineChart<Row>)
+          : this.charts().createComponent(BarChart<Row>);
     for (const [key, value] of Object.entries({
       title: 'Benchmark',
       description: 'Deterministic three-series fixture.',
@@ -110,6 +121,7 @@ export class Benchmark {
       categoryKey: 'category',
       animation: false,
       height: 320,
+      ...(this.family === 'area' ? { stacked: true, gradient: true } : {}),
     }))
       this.reference.setInput(key, value);
   }

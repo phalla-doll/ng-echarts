@@ -25,7 +25,9 @@
     "benchmark:bar": "node tools/benchmark-bar.mjs",
     "check:bundle": "node tools/check-bundle-size.mjs",
     "benchmark:line": "node tools/benchmark-line.mjs",
-    "capture:line": "node tools/capture-line-reference.mjs"
+    "capture:line": "node tools/capture-line-reference.mjs",
+    "benchmark:area": "node tools/benchmark-area.mjs",
+    "capture:area": "node tools/capture-area-reference.mjs"
   },
   "private": true,
   "packageManager": "npm@11.19.1",

@@ -19,3 +19,5 @@ The original reference includes its brush and short axis labels. Angular keeps 1
 The source archive retains upstream's MIT license. The tracked [notice](../../projects/chart-library/third-party/evilcharts-LICENSE.txt) also accompanies the adapted fixture/palette and rendered references. Do not copy additional upstream material without updating the provenance ledger.
 
 NG11 extends the same pinned harness with unmodified primary/solid/monotoneY line examples. Run `npm run capture:line` after preparation/build to record 36 line comparison captures plus four gallery captures. See [NG11](../../docs/experiments/NG11_LINE_CHART.md) for the exact mapping, source hashes, and intentional differences; the line tool uses the same free local ports and stops its child servers.
+
+NG12 adds unmodified default-type, stacked-type, and solid-area-variant examples from the same revision. `npm run capture:area` records 36 area comparison images plus four gallery captures. The [area report](../../docs/experiments/NG12_AREA_CHART.md) records the distinct Mobile dataset, source hashes, and differences in outlines/fill opacity/native controls.

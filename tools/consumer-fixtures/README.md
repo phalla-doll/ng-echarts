@@ -11,3 +11,5 @@ Runtime consumers use the focused playground imports. Before browser checks, an 
 The strict check compiles the actual TypeScript integration example extracted from `docs/BAR_CHART_API.md`, alongside the generated gallery and quick-start examples, so the API guide cannot silently drift from the installed package.
 
 Line coverage compiles the actual line API guide, eight generated line gallery variants, typed `/line` inputs/events, and invalid boolean/measure templates. Installed client/SSR browsers exercise line galleries, updates, missing values, keyboard actions, deferred hydration, and teardown after the existing bar scenarios. Core `ɵ` exports are implementation-only; public root/focused components retain identical class identities.
+
+Area coverage compiles the actual area API example and eight generated variants, validates typed fills/stacks and invalid measure/boolean templates, compares root/focused component identities, and exercises area galleries, signed values, updates, tables, deferred hydration, and teardown in installed client/SSR consumers.
