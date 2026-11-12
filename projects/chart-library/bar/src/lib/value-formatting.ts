@@ -1,4 +1,4 @@
-import type { ValueFormatter } from './chart-types';
+import type { ValueFormatter } from '@ng-echarts/chart-library/core';
 
 const formatterError = 'Value formatting failed. Use a pure function that returns text.';
 

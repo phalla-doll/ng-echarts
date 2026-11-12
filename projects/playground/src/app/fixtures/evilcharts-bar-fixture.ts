@@ -1,7 +1,7 @@
 // Dataset and palette adapted from EvilCharts, copyright (c) 2026 Gurbinder, MIT.
 // Source revision and per-file provenance: docs/UPSTREAM_PROVENANCE.md.
 // Full license: projects/chart-library/third-party/evilcharts-LICENSE.txt.
-import type { ChartSeries } from '@ng-echarts/chart-library';
+import type { ChartSeries } from '@ng-echarts/chart-library/bar';
 
 export interface DeviceRow {
   readonly id: string;

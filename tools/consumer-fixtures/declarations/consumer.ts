@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import {
   BarChart,
-  ChartFrame,
   type CategoryTickFormatter,
   type ChartSeries,
   type NumericKey,
   type PointSelection,
   type ValueFormatter,
-} from '@ng-echarts/chart-library';
+} from '@ng-echarts/chart-library/bar';
+import { ChartFrame } from '@ng-echarts/chart-library/core';
 import type { EChartsCoreOption } from 'echarts/core';
 
 // Check installed Angular template metadata and ECharts declarations under TS 6.

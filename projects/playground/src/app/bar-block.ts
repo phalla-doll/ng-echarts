@@ -3,7 +3,7 @@ import {
   BarChart,
   type CategoryTickFormatter,
   type PointSelection,
-} from '@ng-echarts/chart-library';
+} from '@ng-echarts/chart-library/bar';
 import { barExampleSource, type BarBlock } from './bar-blocks';
 import type { DeviceRow } from './fixtures/evilcharts-bar-fixture';
 import { SiteIcon } from './site-icon';
@@ -28,7 +28,7 @@ export class BarBlockExample {
   protected readonly instances = computed(() => [this.generation()]);
   private readonly copiedText = signal<string | null>(null);
   protected readonly copyFailed = signal(false);
-  protected readonly importSource = "import { BarChart } from '@ng-echarts/chart-library';";
+  protected readonly importSource = "import { BarChart } from '@ng-echarts/chart-library/bar';";
   protected readonly source = computed(() => barExampleSource(this.block(), this.dark()));
   protected readonly copied = computed(() => this.copiedText() === this.source());
   protected readonly selection = signal('');

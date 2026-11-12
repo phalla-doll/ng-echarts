@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BarChart, type ChartSeries } from '@ng-echarts/chart-library';
+import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';
 
 interface Row {
   id: string;

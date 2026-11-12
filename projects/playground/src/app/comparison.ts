@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
-import { BarChart, type CategoryTickFormatter } from '@ng-echarts/chart-library';
+import { BarChart, type CategoryTickFormatter } from '@ng-echarts/chart-library/bar';
 import { deviceRows, deviceSeries } from './fixtures/evilcharts-bar-fixture';
 import { horizontalRows, horizontalSeries } from './fixtures/evilcharts-horizontal-fixture';
 

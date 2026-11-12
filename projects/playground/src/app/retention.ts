@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { BarChart } from '@ng-echarts/chart-library';
+import { BarChart } from '@ng-echarts/chart-library/bar';
 import { SiteAppearance } from './site-appearance';
 
 @Component({

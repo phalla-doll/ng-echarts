@@ -8,6 +8,8 @@ The [initial bar report](experiments/BAR_PROTOTYPE.md) adds valid/invalid packed
 
 Current bar evidence: [R03](experiments/R03_VISUAL_REVIEW.md) accepts four reference variants and tooltip hierarchy; [R04/R05](experiments/R04_R05_VALIDATION.md) pass update/focus, resource/retention, and hydration/navigation scenarios. [R07](experiments/R07_RENDERER_COST.md) passes normal Angular timing targets and selects Canvas with a measured size budget. [R08](experiments/R08_PACKED_RUNTIME.md) builds and runs installed tarballs in isolated client and SSR applications across all three engines. R02 is confirmed and G1 passes. R06 automated checks pass, but its [human listening result](experiments/R06_MANUAL_REVIEW.md) and G2 remain pending. Every family-wide requirement remains open until the unimplemented families have evidence. The user deferred human listening on 12 November 2026: it no longer blocks NG09–NG13 development, but remains required before G3/G4 release acceptance.
 
+The [NG09 package increment](experiments/NG09_PACKAGE_BOUNDARIES.md) adds public `/core` and `/bar` entries, root compatibility, strict exported declarations, installed client/SSR checks, and module-level size/isolation assertions. This strengthens F01/F10 and package evidence without completing family-wide acceptance or deferred release review.
+
 ## Requirement coverage
 
 The [NG09 formatting increment](experiments/NG09_SHARED_FORMATTING.md) adds bar evidence for F01/F03/F05/F07/F10: typed numeric formatting, consistent visible text, raw numeric events, configuration-error recovery, and hydrated server errors. It does not close checks for unimplemented families or the deferred human review.

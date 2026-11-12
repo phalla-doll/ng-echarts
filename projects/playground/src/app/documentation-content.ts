@@ -16,7 +16,7 @@ export interface DocPage {
 
 export const quickStartExample = [
   "import { Component } from '@angular/core';",
-  "import { BarChart, type ChartSeries } from '@ng-echarts/chart-library';",
+  "import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';",
   '',
   'interface Visit { id: string; month: string; desktop: number; mobile: number | null; }',
   '',
@@ -59,7 +59,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'first-chart',
         title: 'Your first chart',
         paragraphs: [
-          'After building the local package, import BarChart in a standalone component. Supply stable row and series identifiers, then replace input references when data changes.',
+          'After building the local package, import BarChart from @ng-echarts/chart-library/bar in a standalone component. Supply stable row and series identifiers, then replace input references when data changes.',
         ],
         source: quickStartExample,
         language: 'TypeScript',
@@ -119,7 +119,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'development',
         title: 'Development and checks',
         paragraphs: [
-          'Run the library watcher in a second terminal when editing library source. The site consumes dist/chart-library rather than a source alias.',
+          'Run the library watcher in a second terminal when editing library source. The site consumes built /bar and /core package entries in dist/chart-library rather than source aliases. Existing root imports remain compatible.',
           'The full check builds the library and site, verifies strict templates and declarations, exercises isolated consumers, and runs browser scenarios in Chromium, Firefox, and WebKit.',
         ],
         source:

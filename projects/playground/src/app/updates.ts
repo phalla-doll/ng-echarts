@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { BarChart, type ChartSeries, type PointSelection } from '@ng-echarts/chart-library';
+import { BarChart, type ChartSeries, type PointSelection } from '@ng-echarts/chart-library/bar';
 import { deviceRows, deviceSeries, type DeviceRow } from './fixtures/evilcharts-bar-fixture';
 import { SiteAppearance } from './site-appearance';
 

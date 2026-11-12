@@ -9,7 +9,7 @@ import {
   viewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { BarChart, type ChartSeries } from '@ng-echarts/chart-library';
+import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';
 import { registerPostInit, type EChartsType } from 'echarts/core';
 
 interface Row {

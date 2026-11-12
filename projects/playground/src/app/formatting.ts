@@ -5,7 +5,7 @@ import {
   type ChartSeries,
   type PointSelection,
   type ValueFormatter,
-} from '@ng-echarts/chart-library';
+} from '@ng-echarts/chart-library/bar';
 import { SiteAppearance } from './site-appearance';
 
 type FormatMode =

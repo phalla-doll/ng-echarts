@@ -9,9 +9,10 @@ The workspace contains an Angular library, a zoneless SSR playground with client
 The selected toolchain is Node 24.22.2, npm 11.19.1, Angular/CLI 22.2.6, TypeScript 6.0.3, RxJS 7.8.2, ECharts 6.1.0, and ng-packagr 22.2.0. The lockfiles pin the full dependency graphs. These versions fit Angular's [supported ranges](https://angular.dev/reference/versions). Reproduction commands and results belong in [R01 evidence](experiments/R01_TOOLCHAIN.md).
 
 ```text
-projects/chart-library/src/
-  lib/chart-frame.*            Shared presentation shell
-  public-api.ts               Experimental package exports
+projects/chart-library/
+  core/src/                   Shared contracts and presentation shell
+  bar/src/                    Bar implementation and colocated tests
+  src/public-api.ts           Compatibility exports
 projects/playground/
   src/app/                    SSR page and interactive fixtures
   public/                     Static assets
@@ -73,10 +74,10 @@ R01–R05, R07, and R08 now pass for bar, including real packed-runtime consumer
 
 On 12 November 2026 the user deferred the [R06 human listening review](experiments/R06_MANUAL_REVIEW.md) and authorized continued development. R06 and G2 remain pending; they no longer block NG09–NG13. This direction supersedes earlier G2-before-expansion instructions in `AGENTS.md` and historical reports. Retain the human review before G3/G4 release acceptance.
 
-Next: implement NG09 shared behavior, value formatting, and per-chart package-size/entry-point checks; then finish bar acceptance and add line, area, and pie/donut. Continue automated accessibility, lifecycle, and hydration checks throughout. The local review server uses port 4310.
+Next: consolidate the NG09 foundation and NG10 bar acceptance checklist using the completed formatting and package-boundary evidence, then add line, area, and pie/donut. Continue automated accessibility, lifecycle, and hydration checks throughout. The local review server uses port 4310.
 
-NG09 now has a [shared numeric-formatting increment](experiments/NG09_SHARED_FORMATTING.md): locale/options/custom callbacks produce consistent numeric text across the chart and native table. The `/formatting` route demonstrates the API and failure recovery. Next, establish per-chart package boundaries before loading additional renderer families.
+NG09 now has a [shared numeric-formatting increment](experiments/NG09_SHARED_FORMATTING.md): locale/options/custom callbacks produce consistent numeric text across the chart and native table. The `/formatting` route demonstrates the API and failure recovery. The [package-boundary increment](experiments/NG09_PACKAGE_BOUNDARIES.md) now adds measured `/core` and `/bar` entries, compatible root exports, and strict installed-package checks before additional renderer families are loaded.
 
-The user selected a reference-aligned gallery using existing bars first. The [gallery correction](experiments/BAR_GALLERY_VISUAL_REVIEW.md) moves the original workspace to `/playground` and makes `/` a neutral, dark-by-default gallery. It adds no chart-family implementation or library API. NG09 package boundaries remain the next development increment.
+The user selected a reference-aligned gallery using existing bars first. The [gallery correction](experiments/BAR_GALLERY_VISUAL_REVIEW.md) moves the original workspace to `/playground` and makes `/` a neutral, dark-by-default gallery. It adds no chart-family implementation or library API. That gallery snapshot predates the completed NG09 package-boundary increment.
 
 The follow-up [site alignment](experiments/SITE_THEME_ALIGNMENT.md) extends the approved visual language to the remaining pages and adds basic setup/component documentation. One shared theme now spans navigation; comparison and benchmark plots retain their measurement conditions. These preview docs do not complete the full NG15 API/compatibility acceptance, and no planned chart family is presented as implemented.

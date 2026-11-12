@@ -1,6 +1,6 @@
 import { InjectionToken } from '@angular/core';
 import { defaultBarTheme, type BarThemeTokens } from './bar-options';
-import type { ChartSeries, ChartTheme } from './chart-types';
+import type { ChartSeries, ChartTheme } from '@ng-echarts/chart-library/core';
 import type { BarRendererFactory, PlotEnvironment } from './plot-controller';
 
 export const BAR_RENDERER_LOADER = new InjectionToken<() => Promise<BarRendererFactory>>(

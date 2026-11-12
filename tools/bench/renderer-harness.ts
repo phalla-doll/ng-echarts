@@ -1,7 +1,10 @@
 import { init, type EChartsType } from 'echarts/core';
-import { normalizeBarData } from '../../projects/chart-library/src/lib/bar-model';
-import { buildBarOptions, defaultBarTheme } from '../../projects/chart-library/src/lib/bar-options';
-import type { ChartSeries } from '../../projects/chart-library/src/lib/chart-types';
+import { normalizeBarData } from '../../projects/chart-library/bar/src/lib/bar-model';
+import {
+  buildBarOptions,
+  defaultBarTheme,
+} from '../../projects/chart-library/bar/src/lib/bar-options';
+import type { ChartSeries } from '../../projects/chart-library/core/src/lib/chart-types';
 
 interface Row {
   id: string;

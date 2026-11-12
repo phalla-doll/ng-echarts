@@ -1,5 +1,5 @@
 import { createValueFormatting } from './value-formatting';
-import type { ValueFormatter } from './chart-types';
+import type { ValueFormatter } from '@ng-echarts/chart-library/core';
 
 describe('shared numeric formatting', () => {
   it('uses explicit locales and options for zero, negative, and fractional values', () => {

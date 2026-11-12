@@ -1,4 +1,4 @@
-import type { BarLayout, ChartSeries } from '@ng-echarts/chart-library';
+import type { BarLayout, ChartSeries } from '@ng-echarts/chart-library/bar';
 import { deviceRows, deviceSeries, type DeviceRow } from './fixtures/evilcharts-bar-fixture';
 import { horizontalRows, horizontalSeries } from './fixtures/evilcharts-horizontal-fixture';
 
@@ -66,7 +66,7 @@ export function barExampleSource(block: BarBlock, dark: boolean): string {
     .join('');
   return [
     "import { ChangeDetectionStrategy, Component } from '@angular/core';",
-    "import { BarChart, type ChartSeries } from '@ng-echarts/chart-library';",
+    "import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';",
     '',
     'interface Visit { id: string; month: string; desktop: number | null; mobile: number | null; }',
     '',

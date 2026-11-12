@@ -1,4 +1,4 @@
-import type { CategoryTickFormatter } from './chart-types';
+import type { CategoryTickFormatter } from '@ng-echarts/chart-library/core';
 
 /** Evaluate consumer code before rendering, never from an ECharts callback. */
 export function formatCategoryTicks(

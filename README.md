@@ -25,6 +25,7 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | [UI spacing review](docs/experiments/UI_SPACING_REVIEW.md) | Shared gutters, aligned headings, consistent panels/controls, breakpoint checks, and before/after captures |
 | [Code presentation](docs/experiments/CODE_PRESENTATION_REVIEW.md) | Google Sans Code, theme-aware syntax colors, and corrected copy actions |
 | [Area-block reference audit](docs/experiments/AREA_BLOCKS_VISUAL_AUDIT.md) | User's visual target, current layout gaps, and gallery correction brief |
+| [Package boundaries](docs/experiments/NG09_PACKAGE_BOUNDARIES.md) | Focused core/bar imports, compatible root API, strict packed consumers, and module/size checks |
 | [Shared value formatting](docs/experiments/NG09_SHARED_FORMATTING.md) | Currency/percentage options, custom numeric text, and consistent axis/tooltip/table behavior |
 | [Lifecycle and hydration validation](docs/experiments/R04_R05_VALIDATION.md) | Three-browser results, input/focus/retention, teardown, and hydration |
 | [Renderer and cost](docs/experiments/R07_RENDERER_COST.md) | Actual Angular timings, Canvas/SVG comparison, data envelope, and size budget |
@@ -71,7 +72,7 @@ The site includes [Get Started](http://localhost:4310/get-started), [Installatio
 | `npm run check:consumer` | Check a built tarball's declarations in an isolated Angular consumer |
 | `npm run check:runtime` | Build/run isolated client and SSR consumers in all three browser engines |
 | `npm run benchmark:bar` | Measure actual Angular mount/update and compare production Canvas/SVG harnesses |
-| `npm run check:bundle` | Enforce the linked bar package size budget, excluding Angular/RxJS peers |
+| `npm run check:bundle` | Check core/bar/root module boundaries and size budgets, excluding Angular/RxJS peers |
 | `npm run check:ssr` | Check production server markup and hydration metadata after a build |
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
 | `npm run check` | Run formatting, builds, compilation, unit, declaration/runtime consumers, SSR, browser, and size checks |

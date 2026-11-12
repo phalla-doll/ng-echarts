@@ -38,5 +38,5 @@ The linked package is **178,402 gzip / 152,619 Brotli bytes**, within unchanged 
 ## Remaining NG09 work
 
 - Consolidate only state/validation responsibilities demonstrated by multiple chart implementations.
-- Establish and measure per-chart package boundaries before adding renderer modules for line, area, and pie/donut.
+- Package boundaries are now implemented and measured in the [follow-up increment](NG09_PACKAGE_BOUNDARIES.md); retain those assertions as line, area, and pie/donut modules are added.
 - Continue family-specific visual, runtime, performance, and accessibility evidence; this bar increment does not complete the four-family acceptance matrix.

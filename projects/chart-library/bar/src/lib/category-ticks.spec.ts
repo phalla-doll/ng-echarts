@@ -1,5 +1,5 @@
 import { formatCategoryTicks } from './category-ticks';
-import type { CategoryTickFormatter } from './chart-types';
+import type { CategoryTickFormatter } from '@ng-echarts/chart-library/core';
 
 describe('category tick formatting', () => {
   it('preserves duplicate full labels by default and passes the original index to a pure formatter', () => {

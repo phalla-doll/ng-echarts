@@ -83,6 +83,22 @@ try {
     !relative(consumer, installed).startsWith('..'),
     'Installed package must stay inside isolated consumer',
   );
+  const manifest = JSON.parse(await readFile(join(installed, 'package.json'), 'utf8'));
+  assert.deepEqual(Object.keys(manifest.exports).sort(), [
+    '.',
+    './bar',
+    './core',
+    './package.json',
+  ]);
+  assert.equal(manifest.sideEffects, false);
+  for (const entry of ['.', './core', './bar']) {
+    for (const field of ['types', 'default']) {
+      assert(
+        await readFile(join(installed, manifest.exports[entry][field])),
+        `${entry} ${field} must ship`,
+      );
+    }
+  }
   run(
     process.execPath,
     ['node_modules/@angular/compiler-cli/bundles/src/bin/ngc.js', '-p', 'tsconfig.json'],

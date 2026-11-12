@@ -1,7 +1,7 @@
 import { PLATFORM_ID } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { BarChart } from './bar-chart';
-import type { ChartSeries, PointSelection } from './chart-types';
+import type { ChartSeries, PointSelection } from '@ng-echarts/chart-library/core';
 
 interface Row {
   id: string;

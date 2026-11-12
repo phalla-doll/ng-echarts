@@ -10,7 +10,7 @@
     "chart-library": {
       "projectType": "library",
       "root": "projects/chart-library",
-      "sourceRoot": "projects/chart-library/src",
+      "sourceRoot": "projects/chart-library",
       "prefix": "nec",
       "architect": {
         "build": {

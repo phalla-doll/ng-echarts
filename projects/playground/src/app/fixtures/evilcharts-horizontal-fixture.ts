@@ -1,7 +1,7 @@
 // Adapted from EvilCharts ex-horizontal-layout-echarts-bar-chart.tsx at
 // 4c2dd7c9bae780703244265c9a4b509d40c055ad (2026 Gurbinder, MIT).
 // See docs/UPSTREAM_PROVENANCE.md and the preserved third-party notice.
-import type { ChartSeries } from '@ng-echarts/chart-library';
+import type { ChartSeries } from '@ng-echarts/chart-library/bar';
 import type { DeviceRow } from './evilcharts-bar-fixture';
 
 export const horizontalRows: readonly DeviceRow[] = [

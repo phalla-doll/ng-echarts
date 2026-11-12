@@ -20,7 +20,7 @@ import {
 import { BAR_RENDERER_LOADER, browserPlotEnvironment, readBarTheme } from './bar-browser';
 import { normalizeBarData, resolveBarState } from './bar-model';
 import { buildBarOptions, defaultBarTheme, type BarThemeTokens } from './bar-options';
-import { ChartFrame } from './chart-frame';
+import { ChartFrame } from '@ng-echarts/chart-library/core';
 import { formatCategoryTicks } from './category-ticks';
 import { createValueFormatting } from './value-formatting';
 import { ChartFocusKeeper } from './chart-focus';
@@ -33,7 +33,7 @@ import type {
   PointSelection,
   StringKey,
   ValueFormatter,
-} from './chart-types';
+} from '@ng-echarts/chart-library/core';
 import { PlotController, type PlotPoint } from './plot-controller';
 
 /** Experimental bar prototype. The contract remains subject to the feasibility gates. */

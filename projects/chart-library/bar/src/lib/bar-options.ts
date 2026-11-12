@@ -4,7 +4,7 @@ import type { BarSeriesOption } from 'echarts/charts';
 import type { GridComponentOption, TooltipComponentOption } from 'echarts/components';
 import type { ComposeOption } from 'echarts/core';
 import type { BarModel } from './bar-model';
-import type { BarLayout, ChartTheme } from './chart-types';
+import type { BarLayout, ChartTheme } from '@ng-echarts/chart-library/core';
 
 export type BarOption = ComposeOption<
   BarSeriesOption | GridComponentOption | TooltipComponentOption

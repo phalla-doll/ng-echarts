@@ -1,6 +1,6 @@
-// Experimental local API. Chart contracts will be validated in the bar prototype.
-export { ChartFrame } from './lib/chart-frame';
-export { BarChart } from './lib/bar-chart';
+// Compatibility entry: prefer /bar or /core for focused imports.
+export { BarChart } from '@ng-echarts/chart-library/bar';
+export { ChartFrame } from '@ng-echarts/chart-library/core';
 export type {
   BarLayout,
   CategoryTickFormatter,
@@ -11,4 +11,4 @@ export type {
   PointSelection,
   StringKey,
   ValueFormatter,
-} from './lib/chart-types';
+} from '@ng-echarts/chart-library/core';

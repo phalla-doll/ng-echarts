@@ -7,6 +7,7 @@ import { join, relative, resolve } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 import { chromium, firefox, webkit } from 'playwright';
 import { expect } from '@playwright/test';
+import { format, resolveConfig } from 'prettier';
 
 const root = resolve(import.meta.dirname, '..');
 const consumer = await realpath(await mkdtemp(join(tmpdir(), 'ng-echarts-runtime-')));
@@ -147,6 +148,23 @@ try {
     !relative(consumer, installed).startsWith('..'),
     'Runtime package must be installed inside the isolated consumer',
   );
+  await run(process.execPath, [
+    '--input-type=module',
+    '-e',
+    `import assert from 'node:assert/strict';
+     import { createRequire } from 'node:module';
+     import '@angular/compiler';
+     const root = await import('@ng-echarts/chart-library');
+     const bar = await import('@ng-echarts/chart-library/bar');
+     const core = await import('@ng-echarts/chart-library/core');
+     assert.equal(root.BarChart, bar.BarChart);
+     assert.equal(root.ChartFrame, core.ChartFrame);
+     assert.deepEqual(Object.keys(core), ['ChartFrame']);
+     const require = createRequire(process.cwd() + '/package.json');
+     for (const path of ['src/lib/bar-chart', 'bar/src/lib/bar-chart', 'fesm2022/ng-echarts-chart-library-bar.mjs']) {
+       assert.throws(() => require.resolve('@ng-echarts/chart-library/' + path), { code: 'ERR_PACKAGE_PATH_NOT_EXPORTED' });
+     }`,
+  ]);
   const tree = JSON.parse(await run('npm', ['ls', '--omit=dev', '--json']));
   const forbidden = (node) =>
     Object.entries(node.dependencies ?? {}).some(
@@ -227,12 +245,18 @@ try {
     skipLibCheck: tsconfig.compilerOptions.skipLibCheck,
     workspaceAliases: false,
     installedOutsideWorkspace: true,
+    entryPoints: ['.', './core', './bar'],
+    compatibilityIdentity: true,
+    privateImportsBlocked: true,
     reactRuntime: false,
     results,
   };
   await writeFile(
     join(root, 'docs/experiments/data/packed-runtime.json'),
-    `${JSON.stringify(evidence, null, 2)}\n`,
+    await format(JSON.stringify(evidence), {
+      ...(await resolveConfig(join(root, '.prettierrc'))),
+      parser: 'json',
+    }),
   );
   console.log(
     'PASS: independently installed tarball builds and runs in client and SSR/hydration applications across all three engines.',

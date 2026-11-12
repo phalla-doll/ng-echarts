@@ -1,4 +1,4 @@
-import type { ChartSeries, StringKey } from './chart-types';
+import type { ChartSeries, StringKey } from '@ng-echarts/chart-library/core';
 
 export interface BarPoint<T> {
   readonly rowId: string;

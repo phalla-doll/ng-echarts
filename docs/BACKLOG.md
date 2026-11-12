@@ -27,7 +27,7 @@ The [site-wide theme update](experiments/SITE_THEME_ALIGNMENT.md) adds basic Get
 
 ## MVP milestone
 
-NG09 first increment: [shared numeric formatting](experiments/NG09_SHARED_FORMATTING.md) adds locale/options/custom value text across axes, tooltips, and tables, with raw numeric events and failure recovery. Package boundaries and further demonstrated shared responsibilities remain open; NG09 is not complete.
+NG09 first increment: [shared numeric formatting](experiments/NG09_SHARED_FORMATTING.md) adds locale/options/custom value text across axes, tooltips, and tables, with raw numeric events and failure recovery. The [package-boundary increment](experiments/NG09_PACKAGE_BOUNDARIES.md) adds focused `/core` and `/bar` entries, compatibility checks, and module/size assertions. Next, consolidate the NG09 foundation and NG10 bar checklist; shared responsibilities should only be extracted when another implementation demonstrates their reuse. NG09 remains in progress pending that consolidated review.
 
 | ID | Priority | Work | Depends on | Done when |
 | --- | --- | --- | --- | --- |
@@ -59,4 +59,4 @@ Review Angular code against the [template and derived-state conventions](TECHNIC
 
 Use the [acceptance matrix](ACCEPTANCE_MATRIX.md) to connect task completion to product requirements and gate evidence. NG03 selects a prototype candidate; NG08 confirms it. NG09 establishes shared behavior; NG14 verifies that behavior in every family. A successful bar prototype cannot close requirements for charts that have not been implemented.
 
-Next: complete NG09 shared value formatting and per-chart package boundaries, then NG10–NG13. The user deferred the R06 listening session on 12 November 2026; keep R06/G2 pending and complete that evidence before G3/G4. Continue automated keyboard, focus, motion, and hydration checks during development.
+Next: consolidate NG09 foundation and NG10 bar acceptance after the completed formatting and package-boundary increments, then proceed to NG11–NG13. The user deferred the R06 listening session on 12 November 2026; keep R06/G2 pending and complete that evidence before G3/G4. Continue automated keyboard, focus, motion, and hydration checks during development.
