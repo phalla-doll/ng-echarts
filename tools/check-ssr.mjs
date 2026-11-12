@@ -27,8 +27,9 @@ try {
   const html = await response.text();
   assert.equal(response.status, 200, `SSR response failed:\n${html}\n${output}`);
   assert(html.includes('ng-echarts playground'), 'Page heading must render on the server');
-  assert(html.includes('Bar chart prototype'), 'Library component must render on the server');
-  assert(html.includes('Workspace ready'), 'Projected content must render on the server');
+  assert(html.includes('Device visits by month'), 'Library component must render on the server');
+  assert(html.includes('Show data table'), 'Accessible table control must render on the server');
+  assert(!html.includes('<canvas'), 'The renderer must remain browser-only');
   assert(/ngh="/.test(html), 'Server must emit Angular hydration metadata');
   console.log(
     'PASS: production SSR returns library markup and hydration metadata. Browser hydration remains a separate check.',

@@ -10,17 +10,51 @@
         {{ themeLabel() }}
       </button>
     </header>
-
-    <nec-chart-frame
-      title="Bar chart prototype"
-      description="The first milestone will validate typed data, rendering, keyboard controls, and hydration."
-    >
-      <div class="plot-placeholder">
-        <span>Workspace ready</span>
-        <p>The chart renderer will be added during the feasibility milestone.</p>
-      </div>
-    </nec-chart-frame>
-
-    <p class="status">Scaffold only · chart behavior and compatibility experiments are pending.</p>
+    <div class="controls" aria-label="Prototype scenarios">
+      <button type="button" [attr.aria-pressed]="horizontal()" (click)="toggleLayout()">
+        Horizontal layout
+      </button>
+      <button type="button" [attr.aria-pressed]="stacked()" (click)="toggleStack()">
+        Stack series
+      </button>
+      <button type="button" [attr.aria-pressed]="gradient()" (click)="toggleGradient()">
+        Gradient fills
+      </button>
+      <button type="button" [attr.aria-pressed]="loading()" (click)="toggleLoading()">
+        Loading state
+      </button>
+      <button type="button" [attr.aria-pressed]="failure()" (click)="toggleError()">
+        Error state
+      </button>
+      <button type="button" [attr.aria-pressed]="empty()" (click)="toggleEmpty()">
+        Empty data
+      </button>
+      <button type="button" (click)="updateValues()">Update values</button>
+      <button type="button" [attr.aria-pressed]="mounted()" (click)="toggleMount()">
+        Show chart
+      </button>
+    </div>
+    @if (mounted()) {
+      <nec-bar-chart
+        title="Device visits by month"
+        description="Monthly desktop and mobile visits. Use the legend to change visibility or open the data table to explore values."
+        [data]="rows()"
+        rowIdKey="id"
+        categoryKey="month"
+        [series]="series"
+        [theme]="theme()"
+        [layout]="layout()"
+        [stacked]="stacked()"
+        [gradient]="gradient()"
+        [loading]="loading()"
+        [error]="error()"
+        [height]="360"
+        (pointSelect)="showPoint($event)"
+      />
+    }
+    <p class="selection" role="status">{{ selectedPoint() }}</p>
+    <p class="status">
+      Experimental bar prototype · visual parity and feasibility gates are pending.
+    </p>
   </div>
 </main>

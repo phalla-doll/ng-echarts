@@ -22,7 +22,7 @@ tools/
 docs/experiments/              Results and gate decisions
 ```
 
-ECharts is installed for the upcoming adapter and declaration checks. It is not imported into the playground runtime yet. No upstream implementation has been copied. The generated Angular welcome screen is replaced with an explicitly labeled prototype placeholder.
+The first bar slice now loads a modular Canvas adapter lazily and renders the pinned fixture. Adapted data and palette values are tracked in the [provenance ledger](UPSTREAM_PROVENANCE.md); React implementation bodies have not been copied. The [prototype report](experiments/BAR_PROTOTYPE.md) records behavior, captures, and remaining research.
 
 ## Delivery increments
 
@@ -54,16 +54,17 @@ Use Node from `.nvmrc`; `nvm use` is available if you use nvm. Then run:
 
 ```sh
 npm ci
+npx playwright install chromium
 npm run build:lib
 npm start
 ```
 
 The playground runs at `http://localhost:4200`. In another terminal, `npm run watch:lib` rebuilds library changes. The playground resolves the built package in `dist/chart-library`, rather than library source files.
 
-Before review, run `npm run check`. It checks formatting, production builds, strict Angular/TypeScript compilation, unit tests, isolated packed declarations, and a production SSR response. `npm run test:watch` starts interactive unit tests; `npm run format` applies formatting. No ESLint configuration or numeric coverage gate exists yet. Add behavior tests with the prototype, and select browser automation during R04–R06.
+Before review, run `npm run check`. It checks formatting, production builds, strict Angular/TypeScript compilation, unit tests, isolated packed declarations and invalid-key examples, a production SSR response, and Playwright Chromium scenarios. `npm run test:watch` starts interactive unit tests; `npm run format` applies formatting. No ESLint configuration or numeric coverage gate exists yet. Expand browser coverage during R04–R06.
 
 ## Gate status and next action
 
 Only scaffold results can close NG01/R01. The package declaration fixture does not close R08, and SSR metadata does not close R05 or F10. Keep G1–G4 pending until their complete criteria in the [R&D plan](RND_PLAN.md#decision-gates) pass.
 
-Next: NG02 reference-fixture and provenance work, followed by the provisional adapter decision in NG03. Do not start line, area, or pie/donut while the bar feasibility evidence remains open.
+NG02's fixture/provenance record and NG03's initial adapter decision are recorded. The bar slice is in progress; next complete upstream comparisons and the remaining lifecycle, hydration, accessibility, renderer, and packed-runtime evidence. Do not start line, area, or pie/donut while the bar feasibility evidence remains open.

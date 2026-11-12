@@ -4,6 +4,8 @@ Updated 12 November 2026. R01 scaffold evidence is available; product requiremen
 
 The [R01 report](experiments/R01_TOOLCHAIN.md) records passing builds, strict compilation, isolated declarations, unit integration tests, and an SSR response check. These results contribute to F01 and package-isolation research but do not complete typed chart inputs, browser hydration, R08, or any gate.
 
+The [initial bar report](experiments/BAR_PROTOTYPE.md) adds valid/invalid packed-template checks, data/state/control tests, and a passing single-chart Chromium SSR/hydration path. It contributes evidence to F01–F10 for bar only; broader browser, accessibility, lifecycle, parity, performance, and full packed-runtime checks remain open. No requirement or gate is closed by this partial slice.
+
 ## Requirement coverage
 
 | Requirement | Experiments | Delivery tasks | Required evidence |

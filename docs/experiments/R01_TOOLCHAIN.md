@@ -2,6 +2,8 @@
 
 Status: pass for the initial toolchain scope. Executed 12 November 2026 on macOS with Node 24.22.2 and npm 11.19.1. Task: NG01. This establishes the build boundary for the prototype; G1–G4 remain pending.
 
+This report records the original scaffold at commit `7bcdaf5`. The current check command also includes browser tests; install Chromium with `npx playwright install chromium` before running it. Subsequent implementation results are recorded in the [bar prototype report](BAR_PROTOTYPE.md).
+
 ## Tested versions
 
 | Dependency | Installed version |
@@ -43,7 +45,7 @@ On this machine, Node 24 is installed under `/opt/homebrew/opt/node@24/bin`; com
 
 The packed package is private and uses the temporary name `@ng-echarts/chart-library`. The declaration check verifies that the installed package resolves within the isolated consumer rather than to a workspace link. Temporary artifacts are removed afterward.
 
-The SSR build explicitly allows `localhost` and `127.0.0.1` for local validation. A deployed playground would need its actual hostname configured. CI is configured to run `npm ci` and `npm run check`; a hosted CI run has not been executed for these local changes.
+The SSR build explicitly allows `localhost` and `127.0.0.1` for local validation. A deployed playground would need its actual hostname configured. The [hosted scaffold workflow](https://github.com/phalla-doll/ng-echarts/actions/runs/43179314050) passed for commit `7bcdaf5`. The prototype branch has only been validated locally so far.
 
 ## Remaining evidence
 

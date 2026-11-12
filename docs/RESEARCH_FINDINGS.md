@@ -73,3 +73,5 @@ The pinned EvilCharts license is MIT and identifies copyright 2026 Gurbinder. It
 7. What data sizes and update rates meet measured performance targets?
 
 The workspace and presentation shell establish the initial build boundary. Chart compatibility remains a development target; renderer lifecycle, browser hydration, visual parity, accessibility, and performance require the remaining experiments.
+
+The [initial bar prototype](experiments/BAR_PROTOTYPE.md) now builds with ECharts 6.1.0, renders through a lazy Canvas adapter, and passes the first Chromium SSR/hydration scenarios. Its packed declarations reject invalid chart-key examples under TypeScript 6.0.3. These results cover the initial bar path; full R03–R08 evidence remains pending.

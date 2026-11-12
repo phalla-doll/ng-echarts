@@ -183,4 +183,10 @@ The first implementation should record exact choices and measured evidence here 
 
 The workspace uses Angular/CLI 22.2.6, TypeScript 6.0.3, Node 24.22.2, npm 11.19.1, RxJS 7.8.2, and ng-packagr 22.2.0. Strict TypeScript, strict templates, and dependency declaration checking are enabled. The zoneless playground has a real SSR route and client hydration configured. Vitest/jsdom cover Angular integration; Prettier formats the workspace.
 
-`@ng-echarts/chart-library` is a private, temporary package identity. The playground resolves the production library output, while a separate tarball fixture checks declarations outside the workspace. Only the experimental `ChartFrame` presentation shell is exported. ECharts 6.1.0 is installed for declaration checks and the upcoming adapter; its library dependency contract remains undecided. See the [implementation plan](IMPLEMENTATION_PLAN.md) and [R01 report](experiments/R01_TOOLCHAIN.md).
+`@ng-echarts/chart-library` is a private, temporary package identity. The playground resolves the production library output, while a separate tarball fixture checks declarations outside the workspace. The experimental `ChartFrame`, `BarChart<T>`, and typed contracts are exported. ECharts `^6.1.0` is a provisional peer; 6.1.0 is tested. See the [implementation plan](IMPLEMENTATION_PLAN.md) and [R01 report](experiments/R01_TOOLCHAIN.md).
+
+### Initial bar implementation
+
+The [initial adapter decision](experiments/R02_ADAPTER.md) selects a direct, lazy Canvas adapter. Pure model/option modules are separate from the browser lifecycle controller and theme utility. The component waits for a browser render callback and application stability; it retains Angular ownership of the legend, status messages, and table. Options use stable series/row IDs and full replacement to remove stale series. Visibility is retained in Angular state. Browser failures invalidate pending work and allow retry or input-driven recovery.
+
+Theme colors are read at the component host when series, theme, or revision changes; temporary color probes stay inside the plot surface. CSS measurement does not run inside `computed` builders. The [prototype report](experiments/BAR_PROTOTYPE.md) records current evidence and open gates; multiple/deferred hydration, renderer comparison, and final package-runtime checks remain pending.

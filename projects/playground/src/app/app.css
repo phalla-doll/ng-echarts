@@ -64,21 +64,19 @@ button:focus-visible {
   outline-offset: 3px;
 }
 
-.plot-placeholder {
-  display: grid;
-  min-height: 20rem;
-  place-content: center;
-  padding: 1rem;
-  text-align: center;
-  border: 1px dashed var(--nec-border);
-  border-radius: 0.5rem;
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
 }
-
-.plot-placeholder span {
-  font-weight: 600;
+.controls button {
+  font-size: 0.875rem;
 }
-
-.plot-placeholder p,
+.controls button[aria-pressed='true'] {
+  box-shadow: inset 0 -3px #648dff;
+}
+.selection,
 .status {
   font-size: 0.875rem;
   line-height: 1.6;

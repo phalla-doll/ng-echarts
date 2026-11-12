@@ -35,4 +35,4 @@ Recheck platform documentation when development begins and when compatibility ra
 
 ## Research boundaries
 
-Initial research inspected repository metadata, registry structure, source excerpts, and official documentation. The subsequent Angular scaffold and its validation are recorded in the [R01 report](experiments/R01_TOOLCHAIN.md). No upstream implementation has been copied. Chart runtime compatibility, measured performance, completed accessibility compliance, npm name availability, and release timing remain subject to the implementation gates.
+Initial research inspected repository metadata, registry structure, source excerpts, and official documentation. The subsequent Angular scaffold and bar checks are recorded in the [R01 report](experiments/R01_TOOLCHAIN.md) and [prototype report](experiments/BAR_PROTOTYPE.md). Adapted fixture data and palette values are listed in the [provenance ledger](UPSTREAM_PROVENANCE.md); no React implementation bodies have been copied. Full chart compatibility, measured performance, completed accessibility compliance, npm name availability, and release timing remain subject to the implementation gates.

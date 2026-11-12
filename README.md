@@ -2,7 +2,7 @@
 
 An Angular 22 chart component library inspired by EvilCharts, using Apache ECharts for rendering and TypeScript for its public API.
 
-Status: workspace scaffolded. Updated 12 November 2026. The Angular library, SSR playground, and validation tooling are ready; chart implementation and feasibility experiments beyond the toolchain remain pending.
+Status: experimental bar prototype. Updated 12 November 2026. The Angular library and SSR playground now render bars with native controls; feasibility and product-quality gates remain pending.
 
 ## Project direction
 
@@ -16,6 +16,8 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | --- | --- |
 | [Product specification](docs/PRODUCT_SPEC.md) | Users, scope, behavior, requirements, and acceptance criteria |
 | [Implementation plan](docs/IMPLEMENTATION_PLAN.md) | Delivery increments, scaffold boundaries, and developer workflow |
+| [Upstream provenance](docs/UPSTREAM_PROVENANCE.md) | Pinned fixtures, reuse decisions, and adapted-file notices |
+| [Bar prototype evidence](docs/experiments/BAR_PROTOTYPE.md) | Implemented behavior, test results, captures, and open research |
 | [Research findings](docs/RESEARCH_FINDINGS.md) | Upstream inventory, verified compatibility facts, reuse assessment, and unknowns |
 | [Technical architecture](docs/TECHNICAL_ARCHITECTURE.md) | Proposed Angular design, public API, rendering lifecycle, and decisions |
 | [Research and development plan](docs/RND_PLAN.md) | Experiments, deliverables, decision gates, and effort estimates |
@@ -37,6 +39,7 @@ Use Node 24.22.2 (`.nvmrc`) and npm 11.19.1. Angular/CLI 22.2.6, TypeScript 6.0.
 
 ```sh
 npm ci
+npx playwright install chromium
 npm run build:lib
 npm start
 ```
@@ -47,13 +50,14 @@ Open `http://localhost:4200`. In another terminal, run `npm run watch:lib` while
 | --- | --- |
 | `npm run build` | Build the library and production browser/server playground |
 | `npm test` | Run library and playground Vitest tests once |
+| `npm run test:browser` | Run Chromium scenarios against the production SSR build |
 | `npm run typecheck` | Strict Angular/TypeScript compilation with `skipLibCheck: false` |
 | `npm run check:consumer` | Check a built tarball's declarations in an isolated Angular consumer |
 | `npm run check:ssr` | Check production server markup and hydration metadata after a build |
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
-| `npm run check` | Run all scaffold checks in dependency order |
+| `npm run check` | Run formatting, builds, compilation, unit, package, SSR, and browser checks |
 
-The [toolchain report](docs/experiments/R01_TOOLCHAIN.md) records tested versions and evidence. CI is configured to run the same checks on pushes and pull requests. No lint rules or coverage threshold are configured yet.
+The [toolchain report](docs/experiments/R01_TOOLCHAIN.md) records the original scaffold evidence; the [prototype report](docs/experiments/BAR_PROTOTYPE.md) records subsequent checks. CI runs the same workflow on pushes and pull requests. No lint rules or coverage threshold are configured yet.
 
 ## Target environment
 
@@ -63,4 +67,4 @@ Angular 22 with strict TypeScript and template checking. The selected toolchain 
 
 Build a standalone Angular bar chart with typed data, light and dark themes, responsive resizing, tooltip, selectable legend, reduced motion, and safe destruction. Prove that it works in both a client application and an application using server rendering and hydration. Use its measured results to decide the MVP architecture.
 
-The playground currently demonstrates the shared `ChartFrame` presentation shell and a theme switch. ECharts is installed but no chart renderer is implemented. No upstream source has been copied and no package has been published. `@ng-echarts/chart-library` is a private local identity for packaging experiments.
+The playground renders the pinned Desktop/Mobile bar fixture, with controls for themes, layouts, stacks, gradients, states, updates, and remounting. `@ng-echarts/chart-library` is a private, experimental package identity. ECharts is a peer dependency; no package has been published. Adapted fixture data and colors are tracked in the provenance ledger with the upstream MIT notice.

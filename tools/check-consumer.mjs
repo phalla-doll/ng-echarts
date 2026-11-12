@@ -26,6 +26,10 @@ try {
     'Package must include declarations',
   );
   assert(!packed.files.some((file) => file.path.endsWith('.spec.ts')), 'Do not ship tests');
+  assert(
+    packed.files.some((file) => file.path === 'third-party/evilcharts-LICENSE.txt'),
+    'Package must preserve the upstream MIT notice',
+  );
   await cp(join(root, 'tools/consumer-fixtures/declarations'), consumer, { recursive: true });
   run('npm', ['ci', '--no-audit', '--no-fund'], consumer);
   run(
@@ -50,8 +54,24 @@ try {
     ['node_modules/@angular/compiler-cli/bundles/src/bin/ngc.js', '-p', 'tsconfig.json'],
     consumer,
   );
+  const invalid = spawnSync(
+    process.execPath,
+    ['node_modules/@angular/compiler-cli/bundles/src/bin/ngc.js', '-p', 'tsconfig.invalid.json'],
+    { cwd: consumer, encoding: 'utf8', env: process.env },
+  );
+  assert(invalid.status !== 0, 'Invalid category keys must fail Angular template compilation');
+  assert(
+    /Type '"count"' is not assignable/.test(`${invalid.stdout}${invalid.stderr}`),
+    `Expected the invalid category-key diagnostic:\n${invalid.stdout}\n${invalid.stderr}`,
+  );
+  assert(
+    /Type '"category"' is not assignable to type '"count"'/.test(
+      `${invalid.stdout}${invalid.stderr}`,
+    ),
+    `Expected the invalid numeric-key diagnostic:\n${invalid.stdout}\n${invalid.stderr}`,
+  );
   console.log(
-    'PASS: packed library and ECharts declarations compile in an isolated Angular consumer (skipLibCheck=false).',
+    'PASS: packed library and ECharts declarations compile in isolation; invalid key examples are rejected (skipLibCheck=false).',
   );
 } finally {
   await rm(consumer, { recursive: true, force: true });

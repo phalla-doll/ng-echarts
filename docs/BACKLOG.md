@@ -1,8 +1,10 @@
 # ng-echarts delivery backlog
 
-Updated 12 November 2026. NG01 is complete for the initial scaffold; NG02–NG22 remain pending. Priority P0 blocks the next milestone, P1 belongs to MVP, and P2 follows MVP. IDs are stable so experiment reports and changes can reference them.
+Updated 12 November 2026. NG01 and NG02 are complete for their initial scope; NG03 has an initial decision; NG04–NG07 are in progress; NG08–NG22 remain pending. Priority P0 blocks the next milestone, P1 belongs to MVP, and P2 follows MVP. IDs are stable so experiment reports and changes can reference them.
 
 NG01 evidence: [R01 toolchain report](experiments/R01_TOOLCHAIN.md). The [implementation plan](IMPLEMENTATION_PLAN.md) sequences the remaining work. G1–G4 remain pending.
+
+NG02 evidence: [reference fixtures and provenance](UPSTREAM_PROVENANCE.md). NG03 initial choice: [direct adapter review](experiments/R02_ADAPTER.md). [Bar prototype results](experiments/BAR_PROTOTYPE.md) contribute to NG04–NG07 without closing their full criteria. Upstream captures, broader lifecycle/hydration/accessibility checks, and all performance/package runtime evidence remain open.
 
 ## Feasibility milestone
 
@@ -49,4 +51,4 @@ Review Angular code against the [template and derived-state conventions](TECHNIC
 
 Use the [acceptance matrix](ACCEPTANCE_MATRIX.md) to connect task completion to product requirements and gate evidence. NG03 selects a prototype candidate; NG08 confirms it. NG09 establishes shared behavior; NG14 verifies that behavior in every family. A successful bar prototype cannot close requirements for charts that have not been implemented.
 
-The current deliverable includes the workspace scaffold and passing R01 toolchain checks. The ordered next action is NG02, followed by NG03 and the bar feasibility milestone.
+The current deliverable includes the workspace scaffold and the first working bar slice. Next: complete R03 reference comparisons, expand R04–R06 browser evidence, and proceed to R07/R08 before resolving G1/G2.

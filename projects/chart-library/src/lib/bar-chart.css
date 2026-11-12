@@ -1,0 +1,67 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+.plot {
+  width: 100%;
+}
+.plot[hidden] {
+  display: none;
+}
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+button {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--nec-border, #d6dce5);
+  border-radius: 0.375rem;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+button:focus-visible,
+.table-scroll:focus-visible {
+  outline: 3px solid var(--nec-focus, #648dff);
+  outline-offset: 3px;
+}
+.swatch {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 0.125rem;
+  margin-right: 0.375rem;
+}
+.visibility {
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+}
+.table-toggle {
+  margin: 0.25rem 0;
+}
+.table-scroll {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  text-align: left;
+}
+caption {
+  padding: 0.5rem;
+  text-align: left;
+  font-weight: 600;
+}
+th,
+td {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--nec-border, #d6dce5);
+}
+td {
+  white-space: nowrap;
+}

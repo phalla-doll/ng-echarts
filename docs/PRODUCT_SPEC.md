@@ -97,4 +97,4 @@ Deliver installation instructions, typed examples, an API reference, data limits
 
 Use the [acceptance matrix](ACCEPTANCE_MATRIX.md) to track F01 through F10, visual parity, and quality targets. Every required check must pass against its current criterion. A revised target needs a recorded rationale, an aligned specification, and a successful rerun before its gate can pass.
 
-The local project name is fixed by the user. Package naming, distribution licensing, and registry publication remain future release decisions; the current work produces local planning documents.
+The local project name is fixed by the user. Public package naming, distribution licensing, and registry publication remain future release decisions; the current work produces an experimental local library and playground.

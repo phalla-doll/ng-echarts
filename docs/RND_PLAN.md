@@ -2,6 +2,8 @@
 
 Status: R01 toolchain scope passed; R02–R08 and G1–G4 remain pending. Updated 12 November 2026. See the [R01 evidence](experiments/R01_TOOLCHAIN.md) and [implementation plan](IMPLEMENTATION_PLAN.md).
 
+The [provenance ledger](UPSTREAM_PROVENANCE.md), [R02 initial adapter choice](experiments/R02_ADAPTER.md), and [bar prototype report](experiments/BAR_PROTOTYPE.md) record the first development slice. Initial passing checks do not close the remaining experiments.
+
 ## Objective
 
 Establish that an Angular 22 and TypeScript 6.0 library can reproduce selected EvilCharts designs with reliable updates, accessible controls, and safe browser lifecycle behavior. Resolve the architectural uncertainties with one bar chart, then expand to the four-family MVP in the [product specification](PRODUCT_SPEC.md).

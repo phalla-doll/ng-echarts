@@ -2,7 +2,7 @@
 
 ## Project Structure and Scope
 
-Angular 22 chart library using Apache ECharts. The workspace is scaffolded; chart implementation is pending.
+Angular 22 chart library using Apache ECharts. A bar prototype is implemented; feasibility gates remain open.
 
 - `README.md`: overview and document index.
 - `docs/PRODUCT_SPEC.md`: MVP scope and required behavior.
@@ -14,7 +14,7 @@ Library source and colocated tests: `projects/chart-library/src/`. Playground so
 
 ## Implementation Workflow
 
-The product specification owns scope; research findings own compatibility ranges. Follow the implementation plan, beginning with NG02 after the scaffold. Prove the bar prototype through G1/G2 before expanding to line, area, and pie/donut. Record per-file provenance against the pinned upstream revision.
+The product specification owns scope; research findings own compatibility ranges. Follow the implementation plan and upstream provenance ledger. Prove the bar prototype through G1/G2 before expanding to line, area, and pie/donut.
 
 ## Build, Test, and Development Commands
 
@@ -24,7 +24,7 @@ Use Node from `.nvmrc` and npm 11.19.1; install with `npm ci`.
 - `npm start`: serve playground; first run `npm run build:lib`.
 - `npm run watch:lib`: rebuild library changes alongside the playground.
 - `npm test`: run Vitest once; `npm run test:watch` watches.
-- `npm run check`: formatting, builds, strict compilation, tests, isolated declarations, and SSR response.
+- `npm run check`: formatting, builds, strict compilation, tests, isolated declarations, SSR, and Chromium scenarios. First install browsers with `npx playwright install chromium`.
 - `npm run format`: apply Prettier.
 
 Verify documentation links, heading anchors, and `git diff --check` before committing.
@@ -37,7 +37,7 @@ Require strict TypeScript and templates. Keep bindings simple; derive chart stat
 
 ## Testing Guidelines
 
-Use Vitest and colocated `*.spec.ts` tests with deterministic fixtures. No numeric coverage threshold exists. Check resizing, keyboard interaction, reduced motion, zoneless updates, hydration, and teardown in browsers. Validate packed artifacts outside the workspace with `skipLibCheck: false`. SSR markup alone does not prove hydration. Record evidence; never mark planned checks as passing.
+Use Vitest for colocated `*.spec.ts` tests and Playwright in `tests/browser/`, with deterministic fixtures. No numeric coverage threshold exists. Check resizing, keyboard interaction, motion, updates, hydration, and teardown in browsers. Validate packed artifacts outside the workspace with `skipLibCheck: false`. Record evidence; never mark planned checks as passing.
 
 ## Commit and Pull Request Guidelines
 

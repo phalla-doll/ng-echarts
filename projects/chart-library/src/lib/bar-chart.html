@@ -1,0 +1,96 @@
+<nec-chart-frame
+  [title]="title()"
+  [description]="description()"
+  [style.--nec-background]="tokens().background"
+  [style.--nec-text]="tokens().text"
+  [style.--nec-muted]="tokens().muted"
+  [style.--nec-border]="tokens().border"
+>
+  @let currentState = state();
+  @switch (currentState.kind) {
+    @case ('loading') {
+      <p role="status">{{ currentState.message }}</p>
+    }
+    @case ('empty') {
+      <p role="status">{{ currentState.message }}</p>
+    }
+    @case ('error') {
+      <p role="alert">{{ currentState.message }}</p>
+      @if (rendererError()) {
+        <button type="button" (click)="retryRenderer()">Retry chart</button>
+      }
+    }
+  }
+  <div
+    #plot
+    class="plot"
+    [hidden]="currentState.kind !== 'ready'"
+    [style.height.px]="plotHeight()"
+    aria-hidden="true"
+  ></div>
+  @if (currentState.kind === 'ready') {
+    <div class="legend" aria-label="Chart series">
+      @for (item of legendItems(); track item.id) {
+        <button type="button" [attr.aria-pressed]="item.visible" (click)="toggleSeries(item.id)">
+          <span class="swatch" [style.background]="item.color" aria-hidden="true"></span>
+          {{ item.label }} <span class="visibility">{{ item.visible ? 'Visible' : 'Hidden' }}</span>
+        </button>
+      }
+    </div>
+    <button
+      type="button"
+      class="table-toggle"
+      [attr.aria-expanded]="tableExpanded()"
+      (click)="toggleTable()"
+    >
+      {{ tableExpanded() ? 'Hide data table' : 'Show data table' }}
+    </button>
+    @if (tableExpanded()) {
+      <div
+        class="table-scroll"
+        tabindex="0"
+        role="region"
+        [attr.aria-label]="title() + ' data table'"
+      >
+        <table>
+          <caption>
+            {{
+              title()
+            }}
+            values
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Category</th>
+              @for (item of legendItems(); track item.id) {
+                <th scope="col">{{ item.label }}</th>
+              }
+            </tr>
+          </thead>
+          <tbody>
+            @for (row of tableRows(); track row.id) {
+              <tr>
+                <th scope="row">{{ row.category }}</th>
+                @for (cell of row.cells; track cell.seriesId) {
+                  <td>
+                    @if (cell.value !== null) {
+                      <button
+                        type="button"
+                        [attr.aria-label]="cell.actionLabel"
+                        (click)="selectPoint(cell, 'table')"
+                      >
+                        {{ cell.text }}
+                      </button>
+                    } @else {
+                      <span>{{ cell.text }}</span>
+                    }
+                  </td>
+                }
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  }
+</nec-chart-frame>
