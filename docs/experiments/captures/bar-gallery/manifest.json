@@ -1,0 +1,133 @@
+{
+  "recordedAt": "2026-11-12T13:44:06.028054+00:00",
+  "baselineCommit": "5fe594f",
+  "referenceUrl": "https://evilcharts.com/docs/echarts/area-chart/blocks",
+  "upstreamFixtureRevision": "4c2dd7c9bae780703244265c9a4b509d40c055ad",
+  "browser": {
+    "deviceScaleFactor": 1,
+    "url": "http://127.0.0.1:4310/",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36"
+  },
+  "motion": "reduce",
+  "fonts": "Local Inter Latin WOFF2 loaded before capture; system fallback for other glyphs",
+  "sourceHashes": {
+    "projects/playground/src/app/gallery.css": "5cb902f9c9fa42899e3b156afeb316b968754b3d9e317c4b29c81e1500f6deb3",
+    "projects/playground/src/app/bar-block.css": "c9cb4a5a96db6e6049f1a30fe5bd828eeb7aa5f256b9a7f8cb1f38d3d833bf5d",
+    "projects/playground/src/gallery-shell.css": "7662f18ec4c71ffd9722df877f8e906ccfac56691766a1e193d5ee58192589fd",
+    "projects/playground/public/fonts/inter-latin.woff2": "c940764593d0fe5d596be327ca7558855e018039fb78509aa21921fd3644c3e4"
+  },
+  "captures": [
+    {
+      "file": "code-desktop.png",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "7cfcc594ce0cdaa0b673c59d9e76a066720e368a00858d92b50a21bb6336a9e0"
+    },
+    {
+      "file": "dark-desktop.png",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "b808e255f54ef35a9a471a65ca4d88ef3839340567118f1fdb625b17e23b8fa7"
+    },
+    {
+      "file": "dark-mobile.png",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "image": {
+        "width": 390,
+        "height": 2834
+      },
+      "fullPage": true,
+      "sha256": "bdb8dccf47588b9eb09755e6b605dd60dbd5643523045ce8b3cbf0373bf52364"
+    },
+    {
+      "file": "dark-small-mobile.png",
+      "theme": "dark",
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "image": {
+        "width": 320,
+        "height": 2834
+      },
+      "fullPage": true,
+      "sha256": "e143c53e51d234604e83689eb9c44f79da775c6dfcf79489b09d6e23dad7e467"
+    },
+    {
+      "file": "dark-tablet.png",
+      "theme": "dark",
+      "viewport": {
+        "width": 900,
+        "height": 1000
+      },
+      "image": {
+        "width": 900,
+        "height": 2861
+      },
+      "fullPage": true,
+      "sha256": "b45c7487028f90f30829db671a824bb15f8c1d72a335a84b0ba8209b8d6a6c07"
+    },
+    {
+      "file": "light-desktop.png",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "2b0f5b7d297f179952de4cc213044f36e1c2884fceba80050c3df9b69ab8a4a4"
+    },
+    {
+      "file": "light-mobile.png",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "image": {
+        "width": 390,
+        "height": 2834
+      },
+      "fullPage": true,
+      "sha256": "cad249f3461e05c604d28ac6c02307dece4e9e8e2f8d3cd153a2725935b0ba74"
+    },
+    {
+      "file": "mobile-navigation.png",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "image": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": false,
+      "sha256": "f80a8effd87e76bbf276a4aaad185aecb0bedcde8c58296abe7fded3d9134bb6"
+    }
+  ]
+}

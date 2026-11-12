@@ -178,9 +178,11 @@ try {
           ? 'text/javascript'
           : asset.endsWith('.css')
             ? 'text/css'
-            : asset.endsWith('.ttf')
-              ? 'font/ttf'
-              : 'text/html',
+            : asset.endsWith('.woff2')
+              ? 'font/woff2'
+              : asset.endsWith('.ttf')
+                ? 'font/ttf'
+                : 'text/html',
       );
       response.end(body);
     } catch {

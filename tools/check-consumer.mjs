@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { cp, mkdtemp, realpath, rm } from 'node:fs/promises';
+import { cp, mkdtemp, realpath, rm, readFile, writeFile } from 'node:fs/promises';
+import { build } from 'esbuild';
 import { tmpdir } from 'node:os';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -31,6 +32,27 @@ try {
     'Package must preserve the upstream MIT notice',
   );
   await cp(join(root, 'tools/consumer-fixtures/declarations'), consumer, { recursive: true });
+  // Compile the actual copied gallery examples, not a second hand-maintained template.
+  const examples = await build({
+    entryPoints: [join(root, 'projects/playground/src/app/bar-blocks.ts')],
+    bundle: true,
+    write: false,
+    platform: 'node',
+    format: 'esm',
+  });
+  const { barBlocks, barExampleSource } = await import(
+    `data:text/javascript;base64,${Buffer.from(examples.outputFiles[0].contents).toString('base64')}`
+  );
+  const configPath = join(consumer, 'tsconfig.json');
+  const config = JSON.parse(await readFile(configPath, 'utf8'));
+  for (const dark of [false, true]) {
+    for (const block of barBlocks) {
+      const file = `${block.id}-${dark ? 'dark' : 'light'}.ts`;
+      await writeFile(join(consumer, file), barExampleSource(block, dark));
+      config.files.push(file);
+    }
+  }
+  await writeFile(configPath, JSON.stringify(config));
   run('npm', ['ci', '--no-audit', '--no-fund'], consumer);
   run(
     'npm',

@@ -74,7 +74,7 @@ Title, summary, table controls, and identifiers must be deterministic between se
 
 ## Visual design
 
-The user's 12 November 2026 [area-block reference review](experiments/AREA_BLOCKS_VISUAL_AUDIT.md) establishes a neutral chart-block gallery as the site direction: reference-led typography, subdued chrome, compact code/preview headers, and complete chart compositions. Keep engineering settings and validation fixtures separate from the gallery. The earlier blue-accented workspace layout is not the visual acceptance target. The area examples and advanced dotted-fill behavior identified in the audit need an explicit implementation-scope decision; this direction does not claim they already exist.
+The user's 12 November 2026 [area-block reference review](experiments/AREA_BLOCKS_VISUAL_AUDIT.md) establishes a neutral chart-block gallery as the site direction: reference-led typography, subdued chrome, compact code/preview headers, and complete chart compositions. Keep engineering settings and validation fixtures separate from the gallery. The user selected existing bar charts for the first [gallery correction](experiments/BAR_GALLERY_VISUAL_REVIEW.md). The earlier blue-accented workspace is retained as an engineering fixture; area examples and advanced dotted-fill behavior remain later work.
 
 Capture reference images for the agreed upstream examples at the pinned revision. Match typography, spacing, axis treatments, color use, fills, tooltip hierarchy, and legend behavior. Compare the same fixture data at 320, 768, and 1440 px host widths in both themes.
 

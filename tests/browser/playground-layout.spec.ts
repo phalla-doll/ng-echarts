@@ -6,7 +6,7 @@ test('opens the mobile navigation with keyboard support and closes it after rout
 }) => {
   const errors = collectBrowserErrors(page);
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/');
+  await page.goto('/playground');
   await page.getByRole('link', { name: 'Skip to content', exact: true }).focus();
   await page.keyboard.press('Enter');
   await expect(page.locator('#page-content')).toBeFocused();
@@ -49,7 +49,7 @@ test('keeps code, preview, theme, copy feedback, and reset controls in sync', as
       },
     }),
   );
-  await page.goto('/');
+  await page.goto('/playground');
   await expect(page.locator('nec-bar-chart canvas')).toHaveCount(1);
   await page.getByRole('button', { name: 'Horizontal layout', exact: true }).click();
   await page.getByRole('button', { name: 'Stack series', exact: true }).click();

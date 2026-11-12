@@ -26,8 +26,9 @@ try {
   const response = await fetch(`http://localhost:${port}`, { signal: AbortSignal.timeout(15_000) });
   const html = await response.text();
   assert.equal(response.status, 200, `SSR response failed:\n${html}\n${output}`);
-  assert(html.includes('ng-echarts playground'), 'Page heading must render on the server');
-  assert(html.includes('Device visits by month'), 'Library component must render on the server');
+  assert(html.includes('ng-echarts | Angular charts'), 'Page title must render on the server');
+  assert(html.includes('Bar Blocks'), 'Gallery heading must render on the server');
+  assert(html.includes('Device Visits'), 'Gallery library component must render on the server');
   assert(html.includes('Show data table'), 'Accessible table control must render on the server');
   assert(!html.includes('<canvas'), 'The renderer must remain browser-only');
   assert(/ngh="/.test(html), 'Server must emit Angular hydration metadata');

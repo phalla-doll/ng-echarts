@@ -17,6 +17,10 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
+    loadComponent: () => import('./gallery').then((module) => module.Gallery),
+  },
+  {
+    path: 'playground',
     loadComponent: () => import('./app').then((module) => module.App),
   },
   {

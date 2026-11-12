@@ -138,7 +138,7 @@ try {
   }
   const coldPage = await browser.newPage({ reducedMotion: 'reduce' });
   const coldStart = Date.now();
-  await coldPage.goto(`http://localhost:${port}/`);
+  await coldPage.goto(`http://localhost:${port}/playground`);
   await coldPage.locator('nec-bar-chart canvas').waitFor();
   evidence.cold.push({
     renderer: 'angular-canvas',

@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => {
     if (message.type() === 'error' || /NG05\d+/.test(message.text()))
       collected.push(message.text());
   });
-  await page.goto('/');
+  await page.goto('/playground');
   await expect(page.locator('nec-bar-chart canvas')).toHaveCount(1);
 });
 test.afterEach(async ({ page }) => {

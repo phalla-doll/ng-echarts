@@ -1,0 +1,43 @@
+<main class="gallery">
+  <div class="gallery-content">
+    <header class="gallery-heading">
+      <div>
+        <h1>Bar Blocks</h1>
+        <p>Ready-made Angular bar chart blocks, powered by Apache ECharts</p>
+      </div>
+      <button type="button" class="copy-page" (click)="copyPage()">
+        <app-site-icon [name]="copied() ? 'check' : 'copy'" />{{
+          copied() ? 'Copied' : 'Copy Page'
+        }}
+      </button>
+    </header>
+    @if (copyFailed()) {
+      <p role="status" class="gallery-note">
+        Clipboard access is unavailable. Open an example's Code view to select its source manually.
+      </p>
+    }
+    <div class="gallery-examples">
+      @for (block of blocks; track block.id) {
+        <app-bar-block [block]="block" [dark]="dark()" />
+      }
+    </div>
+    <footer class="gallery-footer">
+      <p>Examples use the local workspace package. Public npm installation is not available yet.</p>
+      <a routerLink="/playground">Open the interactive playground<app-site-icon name="arrow" /></a>
+    </footer>
+  </div>
+  <aside class="page-outline" aria-label="On this page">
+    <p>On this page</p>
+    @for (block of blocks; track block.id) {
+      <a
+        [href]="'#' + block.id"
+        (click)="selectBlock(block.id)"
+        [class.active]="activeBlock() === block.id"
+        >{{ block.title }}</a
+      >
+    }
+    <a class="outline-playground" routerLink="/playground"
+      >Interactive playground<app-site-icon name="arrow"
+    /></a>
+  </aside>
+</main>

@@ -8,6 +8,8 @@ NG02 evidence: [reference fixtures and provenance](UPSTREAM_PROVENANCE.md). NG03
 
 Development update: [R03](experiments/R03_VISUAL_REVIEW.md) passes the four agreed bar references and tooltip review. [R04/R05](experiments/R04_R05_VALIDATION.md) pass input/focus, lifecycle/retention, and hydration paths. [R07](experiments/R07_RENDERER_COST.md) selects Canvas with actual Angular timings and a measured size budget; [R08](experiments/R08_PACKED_RUNTIME.md) passes external packed client/SSR consumption. Record the [R06 human result](experiments/R06_MANUAL_REVIEW.md) before resolving G2 and release acceptance. Development may continue under the user’s explicit deferral.
 
+The user selected a [reference-aligned gallery](experiments/BAR_GALLERY_VISUAL_REVIEW.md) for the existing bar charts. This site correction retains `/playground` for engineering controls and does not complete NG09 or add area-chart behavior.
+
 ## Feasibility milestone
 
 | ID | Priority | Work | Depends on | Done when |

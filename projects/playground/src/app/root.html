@@ -2,10 +2,11 @@
   (keydown.escape)="closeMenu(true)"
   class="site-shell"
   [class.dark]="dark()"
+  [class.gallery-layout]="galleryMode()"
   [class.focus-layout]="fullWidth()"
   [class.menu-open]="menuOpen()"
 >
-  <a class="skip-link" href="#page-content">Skip to content</a>
+  <a class="skip-link" [href]="skipTarget()">Skip to content</a>
   <button
     #menuToggle
     class="menu-button ui-icon-button"
@@ -30,7 +31,14 @@
         [routerLinkActiveOptions]="{ exact: true }"
         ariaCurrentWhenActive="page"
         (click)="closeMenu()"
-        ><app-site-icon name="chart" />Playground</a
+        ><app-site-icon name="chart" />Bar Blocks</a
+      >
+      <a
+        routerLink="/playground"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="layers" />Playground</a
       >
       <a
         routerLink="/comparison"
@@ -89,10 +97,28 @@
       <a class="mobile-brand" routerLink="/" aria-label="ng-echarts home" (click)="closeMenu()"
         >ng-echarts</a
       >
-      <div class="breadcrumb">
+      <div class="breadcrumb" [hidden]="galleryMode()">
         <span>Workspace</span><app-site-icon name="chevron" /><strong>{{ pageTitle() }}</strong>
       </div>
-      <div class="header-meta">
+      @if (galleryMode()) {
+        <div class="gallery-header-links">
+          <a
+            href="https://github.com/phalla-doll/ng-echarts"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Source<app-site-icon name="arrow"
+          /></a>
+          <button
+            type="button"
+            (click)="toggleGalleryTheme()"
+            [attr.aria-label]="galleryThemeLabel()"
+          >
+            <app-site-icon [name]="galleryThemeIcon()" />
+          </button>
+          <span>Angular 22</span>
+        </div>
+      }
+      <div class="header-meta" [hidden]="galleryMode()">
         <span class="angular-mark" aria-hidden="true">A</span>Angular 22<span class="version"
           >v0.0.0</span
         >

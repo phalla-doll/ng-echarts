@@ -113,7 +113,7 @@ test('releases native resources across repeated real chart mount/destroy cycles'
   test.setTimeout(120_000);
   const errors = collectBrowserErrors(page);
   await installResourceAudit(page);
-  await page.goto('/');
+  await page.goto('/playground');
   await expect(page.locator('canvas')).toHaveCount(1);
   const cycles = browserName === 'chromium' ? 100 : 10;
   const samples: unknown[] = [];
@@ -165,7 +165,7 @@ test('recovers from a failed browser renderer import without exposing the except
   const asset = await rendererAsset();
   const errors = collectBrowserErrors(page, asset);
   await page.route(`**/${asset}`, (route) => route.abort('failed'));
-  await page.goto('/');
+  await page.goto('/playground');
   await expect(page.getByRole('alert')).toHaveText(
     'Unable to render chart. Try again or update the data.',
   );
@@ -192,7 +192,7 @@ test('ignores a renderer import that finishes after its chart is destroyed', asy
     await gate;
     await route.continue();
   });
-  await page.goto('/');
+  await page.goto('/playground');
   await started;
   await page.getByRole('button', { name: 'Update values', exact: true }).click();
   await page.getByRole('button', { name: 'Show chart', exact: true }).click();

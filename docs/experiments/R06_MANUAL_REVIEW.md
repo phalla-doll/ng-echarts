@@ -14,7 +14,7 @@ Use Node from `.nvmrc`, run `npm run build:lib` and `npm start -- --host 127.0.0
 2. Focus Desktop and Mobile legend buttons. Verify that names and pressed states identify which series are visible, including after keyboard toggling.
 3. Open the data table. Verify its expanded state, caption, row/column headings, numeric values, and point action names. Activate January's Desktop value with the keyboard.
 4. Hide both series. Verify that the complete table is still available and legend controls can restore the plot.
-5. On `/updates`, check row action names after reordering/renaming. Check loading/error/empty messages from the main playground.
+5. On `/updates`, check row action names after reordering/renaming. Check loading/error/empty messages from `/playground`.
 6. Test both themes and a narrow window. Check that focus remains visible. With Reduce Motion enabled, check that no decorative chart animation is apparent.
 
 ## Record a result

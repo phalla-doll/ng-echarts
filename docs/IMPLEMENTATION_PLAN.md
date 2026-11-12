@@ -76,3 +76,5 @@ On 12 November 2026 the user deferred the [R06 human listening review](experimen
 Next: implement NG09 shared behavior, value formatting, and per-chart package-size/entry-point checks; then finish bar acceptance and add line, area, and pie/donut. Continue automated accessibility, lifecycle, and hydration checks throughout. The local review server uses port 4310.
 
 NG09 now has a [shared numeric-formatting increment](experiments/NG09_SHARED_FORMATTING.md): locale/options/custom callbacks produce consistent numeric text across the chart and native table. The `/formatting` route demonstrates the API and failure recovery. Next, establish per-chart package boundaries before loading additional renderer families.
+
+The user selected a reference-aligned gallery using existing bars first. The [gallery correction](experiments/BAR_GALLERY_VISUAL_REVIEW.md) moves the original workspace to `/playground` and makes `/` a neutral, dark-by-default gallery. It adds no chart-family implementation or library API. NG09 package boundaries remain the next development increment.

@@ -33,6 +33,8 @@ Paths below are relative to the repository root. Full terms are preserved in [th
 
 The component templates, generic contracts, data validation, option transformations, lifecycle controller, CSS resolution, and tests are new Angular implementation. No upstream React implementation or helper bodies have been copied into them.
 
+The later [gallery correction](experiments/BAR_GALLERY_VISUAL_REVIEW.md) composes only the existing monthly/horizontal fixtures in `bar-blocks.ts`; it does not add upstream datasets or copy block/component implementations. `gallery-shell.css`, `gallery.*`, and `bar-block.*` are new Angular presentation code informed by the user's area-block screenshot and live-page inspection. The local Inter font has its own bundled SIL Open Font License.
+
 ## Reuse classification
 
 All paths in this table are under the pinned `src/registry/` tree.

@@ -2,6 +2,8 @@
 
 Recorded 12 November 2026. Chart: bar. Task: NG09, first increment. Requirements: F01, F03, F05, F07, F10. This increment implements the common numeric-text contract; NG09 remains in progress until shared state/package-boundary work is complete.
 
+The results below describe the formatting increment at `5fe594f`. Later site and current regression evidence are recorded in the [bar-gallery review](BAR_GALLERY_VISUAL_REVIEW.md).
+
 ## Development sequencing
 
 The user deferred the R06 human listening review and authorized continued development. The [review record](R06_MANUAL_REVIEW.md) and current plans reflect that decision. R06/G2 remain pending; they no longer block implementation and must be completed before G3/G4 release acceptance. Automated keyboard, table, focus, motion, and hydration checks continue.

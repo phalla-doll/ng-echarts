@@ -1,0 +1,226 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+.block-section {
+  scroll-margin-top: 76px;
+}
+h2 {
+  margin: 0 0 16px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+}
+h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+.block-card,
+.integration-card {
+  padding: 4px;
+  border: 1px solid var(--site-border);
+  border-radius: 8px;
+  background: var(--site-surface);
+}
+.block-header {
+  display: flex;
+  align-items: center;
+  height: 29px;
+  padding: 0 7px;
+  gap: 7px;
+  color: var(--site-muted);
+}
+button {
+  font: inherit;
+  cursor: pointer;
+  color: inherit;
+  background: transparent;
+  border: 0;
+}
+.reload-button {
+  display: inline-flex;
+  padding: 3px 0;
+}
+.reload-button app-site-icon {
+  width: 13px;
+  height: 13px;
+}
+.block-label {
+  font:
+    12px ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.block-views {
+  display: flex;
+  align-self: stretch;
+  margin-left: auto;
+  gap: 14px;
+}
+.block-views button {
+  padding: 0 2px 6px;
+  font-size: 12px;
+  border-bottom: 1px solid transparent;
+}
+.block-views button[aria-pressed='true'] {
+  border-color: var(--site-text);
+  color: var(--site-text);
+}
+.block-surface,
+.block-code {
+  border: 1px solid var(--site-border);
+  border-radius: 5px;
+  background: var(--site-bg);
+  overflow: hidden;
+}
+.block-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 16px 12px 12px;
+}
+.block-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 0 12px;
+}
+.block-metric + .block-metric {
+  border-left: 1px solid var(--site-border);
+}
+.metric-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--site-muted);
+}
+.metric-marker {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--gallery-primary);
+}
+.metric-marker.secondary {
+  background: var(--gallery-secondary);
+}
+.metric-total {
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: -0.6px;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.metric-unit {
+  margin-left: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--site-muted);
+}
+.block-selection {
+  margin: 0;
+  padding: 0;
+  min-height: 0;
+  font-size: 11px;
+  color: var(--site-muted);
+}
+.block-selection.has-selection {
+  padding: 0 16px 12px;
+}
+.integration-card {
+  margin-top: 24px;
+}
+.integration-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 28px;
+  padding: 0 8px;
+  color: var(--site-muted);
+}
+.integration-heading > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  padding: 0 2px 6px;
+  border-bottom: 1px solid var(--site-text);
+  color: var(--site-text);
+  font-size: 12px;
+}
+.integration-heading app-site-icon {
+  width: 13px;
+  height: 13px;
+}
+.integration-heading button,
+.code-heading button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px;
+}
+.integration-card pre {
+  margin: 0;
+  border: 1px solid var(--site-border);
+  border-radius: 5px;
+  padding: 13px 10px;
+  overflow: auto;
+  font-size: 12px;
+  color: var(--site-muted);
+  background: var(--site-bg);
+}
+.code-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  font-size: 11px;
+  border-bottom: 1px solid var(--site-border);
+  color: var(--site-muted);
+}
+.code-heading app-site-icon {
+  width: 13px;
+  height: 13px;
+}
+.block-code pre {
+  margin: 0;
+  padding: 18px;
+  max-height: 430px;
+  overflow: auto;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.copy-notice {
+  color: var(--site-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+@media (max-width: 600px) {
+  .block-label {
+    font-size: 11px;
+  }
+  .block-views {
+    gap: 10px;
+  }
+  .block-metrics {
+    padding: 14px 4px 10px;
+  }
+  .block-metric {
+    padding: 0 10px;
+  }
+  .metric-total {
+    font-size: 21px;
+  }
+  .metric-unit {
+    font-size: 10px;
+  }
+  .integration-card pre {
+    font-size: 10px;
+  }
+}

@@ -4,4 +4,5 @@ import { Injectable, signal } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 export class SiteAppearance {
   readonly dark = signal(false);
+  readonly galleryDark = signal(true);
 }

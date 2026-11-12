@@ -2,6 +2,8 @@
 
 Reviewed 12 November 2026. Scope: the Angular playground interface, with the existing bar library and research gates preserved.
 
+Historical workspace review at `42d7dd9`. The user later clarified the expected gallery direction; see the [reference audit](AREA_BLOCKS_VISUAL_AUDIT.md) and [bar-gallery correction](BAR_GALLERY_VISUAL_REVIEW.md). The workspace remains at `/playground`; it is no longer the home page. The original captures and design notes below describe that earlier snapshot.
+
 ## Findings and direction
 
 The previous page placed navigation, chart settings, and lifecycle actions in flat rows. On narrow screens, wrapping controls pushed the chart below the first viewport and made the active page difficult to identify.

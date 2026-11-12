@@ -20,6 +20,7 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | [Bar prototype evidence](docs/experiments/BAR_PROTOTYPE.md) | Implemented behavior, test results, captures, and open research |
 | [Visual comparison](docs/experiments/R03_VISUAL_REVIEW.md) | Pinned upstream comparisons at three host widths and remaining alignment work |
 | [Playground layout review](docs/experiments/PLAYGROUND_LAYOUT_REVIEW.md) | Responsive site design, before/after captures, navigation, and interface checks |
+| [Bar gallery correction](docs/experiments/BAR_GALLERY_VISUAL_REVIEW.md) | Reference-aligned home page, four existing bar variants, copyable Angular examples, and verification |
 | [Area-block reference audit](docs/experiments/AREA_BLOCKS_VISUAL_AUDIT.md) | User's visual target, current layout gaps, and gallery correction brief |
 | [Shared value formatting](docs/experiments/NG09_SHARED_FORMATTING.md) | Currency/percentage options, custom numeric text, and consistent axis/tooltip/table behavior |
 | [Lifecycle and hydration validation](docs/experiments/R04_R05_VALIDATION.md) | Three-browser results, input/focus/retention, teardown, and hydration |
@@ -52,7 +53,7 @@ npm run build:lib
 npm start -- --port 4310
 ```
 
-Open `http://localhost:4310`. In another terminal, run `npm run watch:lib` while editing the library. The playground consumes its built package from `dist/chart-library`.
+Open `http://localhost:4310` for the bar-block gallery, or `http://localhost:4310/playground` for interactive settings. In another terminal, run `npm run watch:lib` while editing the library. The playground consumes its built package from `dist/chart-library`.
 
 | Command | Purpose |
 | --- | --- |
@@ -70,7 +71,7 @@ Open `http://localhost:4310`. In another terminal, run `npm run watch:lib` while
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
 | `npm run check` | Run formatting, builds, compilation, unit, declaration/runtime consumers, SSR, browser, and size checks |
 
-The latest full check passes 48 unit/integration tests and 55 browser scenarios (plus two skipped CDP-only cases), including three-engine layout and [numeric-formatting checks](docs/experiments/NG09_SHARED_FORMATTING.md). The [lifecycle validation report](docs/experiments/R04_R05_VALIDATION.md) retains the earlier resource baseline. `/validation` provides lifecycle scenarios; `/comparison` provides four reference variants and neutral theme tokens; `/formatting` checks locale/options/custom text and recovery; `/updates` checks immutable inputs/focus; `/retention` checks obsolete-model collection; `/away` verifies route cleanup. CI is configured for all three engines. No lint rules or coverage threshold are configured yet.
+The latest full check passes 48 unit/integration tests and 64 browser scenarios (plus two skipped CDP-only cases), including three-engine [gallery](docs/experiments/BAR_GALLERY_VISUAL_REVIEW.md), layout, and [numeric-formatting checks](docs/experiments/NG09_SHARED_FORMATTING.md). The [lifecycle validation report](docs/experiments/R04_R05_VALIDATION.md) retains the earlier resource baseline. `/validation` provides lifecycle scenarios; `/comparison` provides four reference variants and neutral theme tokens; `/formatting` checks locale/options/custom text and recovery; `/updates` checks immutable inputs/focus; `/retention` checks obsolete-model collection; `/away` verifies route cleanup. CI is configured for all three engines. No lint rules or coverage threshold are configured yet.
 
 The [visual review](docs/experiments/R03_VISUAL_REVIEW.md) records 80 current captures and accepted bar differences. R01–R05, [R07 renderer/cost](docs/experiments/R07_RENDERER_COST.md), and [R08 packed consumption](docs/experiments/R08_PACKED_RUNTIME.md) pass for bar. Canvas meets the normal 200×3 benchmark target and the measured size budget. G1 passes; G2 requires the [R06 listening result](docs/experiments/R06_MANUAL_REVIEW.md). The user has deferred that human review to release acceptance; it no longer blocks development. Other chart families and release acceptance remain pending.
 
@@ -82,4 +83,4 @@ Angular 22 with strict TypeScript and template checking. The selected toolchain 
 
 Build a standalone Angular bar chart with typed data, light and dark themes, responsive resizing, tooltip, selectable legend, reduced motion, and safe destruction. Prove that it works in both a client application and an application using server rendering and hydration. Use its measured results to decide the MVP architecture.
 
-The playground renders the pinned Desktop/Mobile bar fixture in a responsive workspace with grouped settings, preview/code views, copy, reset, and light/dark themes. It retains layout, stack, gradient, state, update, and remount controls. `@ng-echarts/chart-library` is a private, experimental package identity. ECharts is a peer dependency; no package has been published. Adapted fixture data and colors are tracked in the provenance ledger with the upstream MIT notice.
+The home page presents the existing grouped, stacked, gradient, and horizontal bars in a neutral gallery with code/preview controls, calculated totals, copyable Angular examples, and light/dark themes. The `/playground` route retains the pinned Desktop/Mobile fixture and grouped settings. It retains layout, stack, gradient, state, update, and remount controls. `@ng-echarts/chart-library` is a private, experimental package identity. ECharts is a peer dependency; no package has been published. Adapted fixture data and colors are tracked in the provenance ledger with the upstream MIT notice.

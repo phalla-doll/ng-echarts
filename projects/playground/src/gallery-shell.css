@@ -1,0 +1,206 @@
+/* Neutral gallery chrome, scoped away from engineering and comparison fixtures. */
+app-root .site-shell.gallery-layout {
+  --site-bg: #fff;
+  --site-surface: #f7f7f7;
+  --site-subtle: #ededed;
+  --site-text: #171717;
+  --site-muted: #6b6b6b;
+  --site-border: #e5e5e5;
+  --site-blue: #171717;
+  --site-blue-soft: #ededed;
+  --gallery-primary: #047857;
+  --gallery-secondary: #be123c;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+app-root .site-shell.gallery-layout.dark {
+  --site-bg: #0a0a0a;
+  --site-surface: #111;
+  --site-subtle: #1b1b1b;
+  --site-text: #f5f5f5;
+  --site-muted: #a3a3a3;
+  --site-border: #222;
+  --site-blue: #f5f5f5;
+  --site-blue-soft: #1b1b1b;
+  --gallery-primary: #10b981;
+  --gallery-secondary: #f43f5e;
+}
+app-root .gallery-layout .sidebar {
+  padding: 26px 14px 18px;
+  background: var(--site-bg);
+}
+app-root .gallery-layout .sidebar nav {
+  margin-top: 35px;
+}
+app-root .gallery-layout .sidebar nav a {
+  min-height: 36px;
+  padding: 8px 10px;
+  font-size: 12px;
+  gap: 9px;
+}
+app-root .gallery-layout .sidebar nav a.active {
+  background: var(--site-subtle);
+  color: var(--site-text);
+  font-weight: 500;
+}
+app-root .gallery-layout .brand {
+  font-size: 18px;
+}
+app-root .gallery-layout .brand-mark {
+  background: transparent;
+  color: var(--site-text);
+  width: 24px;
+  height: 28px;
+  border-radius: 0;
+}
+app-root .gallery-layout .brand-caption {
+  font-size: 10px;
+}
+app-root .gallery-layout .site-header {
+  min-height: 48px;
+  background: var(--site-bg);
+  border-bottom-color: transparent;
+  padding: 0 26px;
+}
+app-root .gallery-layout .gallery-header-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--site-muted);
+}
+app-root .gallery-layout .gallery-header-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: inherit;
+  text-decoration: none;
+}
+app-root .gallery-layout .gallery-header-links a app-site-icon {
+  width: 12px;
+  height: 12px;
+}
+app-root .gallery-layout .gallery-header-links button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 30px;
+  border: 0;
+  border-left: 1px solid var(--site-border);
+  border-right: 1px solid var(--site-border);
+  border-radius: 0;
+  background: transparent;
+  color: var(--site-text);
+}
+app-root .gallery-layout .gallery-header-links button app-site-icon {
+  width: 14px;
+  height: 14px;
+}
+app-root .gallery-layout .page-content {
+  scroll-margin-top: 48px;
+}
+app-root .gallery-layout .sidebar-note {
+  font-size: 11px;
+}
+app-root .gallery-layout .release-dot {
+  background: var(--site-muted);
+}
+
+/* The reusable chart keeps its native controls and table; only gallery presentation changes. */
+.gallery .gallery-chart {
+  --nec-background: var(--site-bg);
+  --nec-text: var(--site-text);
+  --nec-muted: var(--site-muted);
+  --nec-border: var(--site-border);
+  --nec-focus: #9b9b9b;
+}
+.gallery .gallery-chart .chart-frame {
+  padding: 0 16px 12px;
+  border: 0;
+  border-radius: 0;
+  font-size: 12px;
+}
+.gallery .gallery-chart .chart-frame > header {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.gallery .gallery-chart .legend {
+  margin: 10px 0 6px;
+  gap: 8px;
+}
+.gallery .gallery-chart button {
+  padding: 4px 7px;
+  font-size: 11px;
+  border-radius: 4px;
+}
+.gallery .gallery-chart .visibility {
+  font-size: 10px;
+  color: var(--site-muted);
+}
+.gallery .gallery-chart .swatch {
+  width: 8px;
+  height: 8px;
+  margin-right: 3px;
+}
+.gallery .gallery-chart .table-toggle {
+  margin: 4px 0 0;
+}
+.gallery .gallery-chart .table-scroll {
+  margin-top: 12px;
+}
+.gallery .gallery-chart .table-scroll button {
+  color: var(--site-text);
+}
+.gallery .gallery-chart caption {
+  font-size: 12px;
+}
+.gallery button:focus-visible,
+.gallery a:focus-visible,
+app-root .gallery-layout button:focus-visible,
+app-root .gallery-layout a:focus-visible {
+  outline: 2px solid var(--site-text);
+  outline-offset: 3px;
+}
+@media (max-width: 800px) {
+  app-root .gallery-layout .site-header {
+    min-height: 56px;
+    padding: 0 16px 0 68px;
+    border-bottom-color: var(--site-border);
+  }
+  app-root .gallery-layout .sidebar {
+    top: 56px;
+    padding: 22px 16px;
+    max-height: calc(100dvh - 56px);
+  }
+  app-root .gallery-layout .sidebar nav {
+    margin: 0;
+  }
+  app-root .gallery-layout .menu-button {
+    top: 8px;
+    border-color: var(--site-border);
+    color: var(--site-text);
+    background: var(--site-bg);
+  }
+  app-root .gallery-layout .gallery-header-links {
+    gap: 8px;
+  }
+  app-root .gallery-layout .gallery-header-links > span {
+    display: none;
+  }
+  app-root .gallery-layout .page-content {
+    scroll-margin-top: 56px;
+  }
+}
+@media (max-width: 380px) {
+  app-root .gallery-layout .gallery-header-links > a {
+    display: none;
+  }
+}
