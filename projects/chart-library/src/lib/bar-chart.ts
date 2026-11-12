@@ -61,6 +61,7 @@ export class BarChart<T extends object> {
   readonly numberFormatOptions = input<Intl.NumberFormatOptions>();
   readonly valueFormatter = input<ValueFormatter>();
   readonly categoryTickFormatter = input<CategoryTickFormatter>();
+  readonly showDataTable = input(true);
   readonly loading = input(false);
   readonly error = input<string | null>(null);
   readonly animation = input(true);
@@ -164,7 +165,13 @@ export class BarChart<T extends object> {
   });
   protected readonly tableRows = computed(() => {
     const model = this.model();
-    if (!this.tableExpanded() || this.state().kind !== 'ready' || model.kind === 'error') return [];
+    if (
+      !this.showDataTable() ||
+      !this.tableExpanded() ||
+      this.state().kind !== 'ready' ||
+      model.kind === 'error'
+    )
+      return [];
     return model.rows.map((row) => ({
       id: row.id,
       category: row.category,

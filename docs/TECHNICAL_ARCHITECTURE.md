@@ -140,6 +140,8 @@ Expose library-scoped CSS custom properties for background, text, muted text, bo
 
 Native Angular controls own keyboard navigation and selection. The plot reflects the same state through renderer actions. Provide a data table because pointer tooltips and a painted canvas alone do not expose all values accessibly.
 
+`showDataTable` is a boolean signal input, defaulting to `true`. Guard both the toggle and expanded table in the template and skip table-row derivation while disabled. The gallery explicitly binds `false` in its previews and generated source; other consumers keep the default. Disabling and reenabling the input preserves the prior expansion preference. An application that disables the table owns any equivalent keyboard point-action interface; the gallery's Code tab exposes sample data rather than replacing those actions.
+
 The data table exposes equivalent point-activation buttons; the MVP does not require keyboard navigation inside Canvas or SVG marks. Respect reduced motion at initial render and when the preference changes. Consumer animation settings may disable motion but may not override a reduced-motion preference to force decorative motion.
 
 Tooltips accept plain data by default. Escape strings before any HTML formatting; avoid arbitrary HTML insertion. Angular template customization, if added later, must have explicit positioning and focus behavior.

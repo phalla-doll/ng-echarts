@@ -32,6 +32,22 @@ async function setup() {
 }
 
 describe('bar Angular controls', () => {
+  it('can omit the table controls and expanded values without changing the legend', async () => {
+    const { fixture, element } = await setup();
+    element.querySelector<HTMLButtonElement>('.table-toggle')!.click();
+    await fixture.whenStable();
+    expect(element.querySelectorAll('tbody tr')).toHaveLength(2);
+    fixture.componentRef.setInput('showDataTable', false);
+    await fixture.whenStable();
+    expect(element.querySelector('.table-toggle')).toBeNull();
+    expect(element.querySelector('table')).toBeNull();
+    expect(element.querySelectorAll('.legend button')).toHaveLength(1);
+    fixture.componentRef.setInput('showDataTable', true);
+    await fixture.whenStable();
+    expect(element.querySelector('.table-toggle')?.getAttribute('aria-expanded')).toBe('true');
+    expect(element.querySelectorAll('tbody tr')).toHaveLength(2);
+  });
+
   it('updates numeric text and table actions while preserving missing values and raw events', async () => {
     const { fixture, element } = await setup();
     fixture.componentRef.setInput('data', [

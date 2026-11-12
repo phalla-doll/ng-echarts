@@ -29,7 +29,15 @@ try {
   assert(html.includes('ng-echarts | Angular charts'), 'Page title must render on the server');
   assert(html.includes('Bar Blocks'), 'Gallery heading must render on the server');
   assert(html.includes('Device Visits'), 'Gallery library component must render on the server');
-  assert(html.includes('Show data table'), 'Accessible table control must render on the server');
+  assert(!html.includes('Show data table'), 'Gallery must omit table controls on the server');
+  const playgroundResponse = await fetch(`http://localhost:${port}/playground`, {
+    signal: AbortSignal.timeout(15_000),
+  });
+  assert.equal(playgroundResponse.status, 200, 'Playground SSR response must succeed');
+  assert(
+    (await playgroundResponse.text()).includes('Show data table'),
+    'Default accessible table control must still render on the server',
+  );
   assert(!html.includes('<canvas'), 'The renderer must remain browser-only');
   assert(/ngh="/.test(html), 'Server must emit Angular hydration metadata');
   console.log(

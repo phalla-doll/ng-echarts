@@ -79,6 +79,7 @@ export function barExampleSource(block: BarBlock, dark: boolean): string {
     `    description="${block.description}"`,
     '    [data]="visits" rowIdKey="id" categoryKey="month" [series]="series"',
     '    [categoryTickFormatter]="monthTick"',
+    '    [showDataTable]="false"',
     `    theme="${dark ? 'dark' : 'light'}" layout="${block.layout}"`,
     `    [stacked]="${block.stacked}" [gradient]="${block.gradient}" [height]="230"`,
     '  />`,',

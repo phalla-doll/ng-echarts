@@ -1,0 +1,36 @@
+{
+  "recordedAt": "2026-11-12T15:03:17.122740+00:00",
+  "baselineCommit": "6fe4130",
+  "browser": "Chromium 156, macOS; isolated agent-browser session",
+  "deviceScaleFactor": 1,
+  "motion": "reduce",
+  "captureMode": "Production SSR; preview view, local fonts loaded; no table controls",
+  "sourceHashes": {
+    "projects/chart-library/src/lib/bar-chart.ts": "4b936c5a0922960ba116cfb2f68bb0e17f1800c17ffe5ff301a2720d5e4558d8",
+    "projects/chart-library/src/lib/bar-chart.html": "477b87fdbc2d7778882da733c36c75992998bcd30cfba79422d1ddb513bb85ed",
+    "projects/playground/src/app/bar-block.html": "8a0ff0cc194afc66d8ee2c838602b2b50368fd79a225398a7cd9a286185e169b",
+    "projects/playground/src/app/bar-blocks.ts": "c5f5f8ee329b20550a8dc80aeb131fd5b6d2992049f9996148359c11f5768f6a"
+  },
+  "captures": [
+    {
+      "file": "dark-desktop.png",
+      "route": "/",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "48d8c40bcf572d65034a8b0eec98eb7eed8b503300d9bc07998109ab00595b0f"
+    },
+    {
+      "file": "dark-mobile.png",
+      "route": "/",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "sha256": "e842b144e5ec920d91e2b7961abcdee23ebc191b62e1ac2e905756fbbdead0e4"
+    }
+  ]
+}

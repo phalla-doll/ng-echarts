@@ -8,7 +8,7 @@ declare global {
   }
 }
 
-test('hydrates bar blocks and keeps code, copying, preview reset, theme, and table events usable', async ({
+test('hydrates bar blocks without table controls and keeps code, copying, preview reset, theme, and plot events usable', async ({
   page,
 }) => {
   const errors = collectBrowserErrors(page);
@@ -28,7 +28,10 @@ test('hydrates bar blocks and keeps code, copying, preview reset, theme, and tab
   expect(html).toContain('Bar Blocks');
   expect(html).toContain('Horizontal Comparison');
   expect(html).not.toContain('<canvas');
+  expect(html).not.toContain('Show data table');
   await expect(page.locator('app-bar-block canvas')).toHaveCount(4);
+  await expect(page.locator('app-bar-block .table-toggle')).toHaveCount(0);
+  await expect(page.locator('app-bar-block table')).toHaveCount(0);
   await expect(page.locator('.site-shell')).toHaveClass(
     /gallery-layout.*dark|dark.*gallery-layout/,
   );
@@ -45,6 +48,7 @@ test('hydrates bar blocks and keeps code, copying, preview reset, theme, and tab
   await expect(first.getByRole('button', { name: 'Copied', exact: true })).toBeVisible();
   expect(await page.evaluate(() => window.galleryClipboard)).toContain('export class DeviceVisits');
   expect(await page.evaluate(() => window.galleryClipboard)).toContain('"desktop": 342');
+  expect(await page.evaluate(() => window.galleryClipboard)).toContain('[showDataTable]="false"');
   await page.getByRole('button', { name: 'Copy Page', exact: true }).click();
   expect(await page.evaluate(() => window.galleryClipboard)).toContain('# Bar Blocks');
   expect(await page.evaluate(() => window.galleryClipboard)).toContain('layout="horizontal"');
@@ -57,15 +61,7 @@ test('hydrates bar blocks and keeps code, copying, preview reset, theme, and tab
   const point = await firstGreenBarPoint(first.locator('canvas'));
   await page.mouse.click(point.x, point.y);
   await expect(first.getByRole('status')).toHaveText('January: desktop = 342 (plot)');
-  await first.getByRole('button', { name: 'Show data table', exact: true }).click();
-  await expect(first.locator('tbody tr')).toHaveCount(12);
-  const action = first.getByRole('button', {
-    name: 'Select Desktop for January: 342',
-    exact: true,
-  });
-  await action.focus();
-  await page.keyboard.press('Enter');
-  await expect(first.getByRole('status')).toHaveText('January: desktop = 342 (table)');
+  await expect(first.locator('.table-toggle')).toHaveCount(0);
   await first.getByRole('button', { name: 'Code', exact: true }).click();
   await expect(first.locator('.block-code')).toContainText('theme="light"');
   await expect(first.getByRole('button', { name: 'Copy code', exact: true })).toBeVisible();

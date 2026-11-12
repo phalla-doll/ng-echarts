@@ -70,6 +70,8 @@ Apply state precedence in this order: supplied application error, loading, valid
 
 The table is collapsed by default behind a labeled button. When expanded, it exposes every supplied row and numeric value, including explicit missing-value text, and a keyboard-operable action for each plottable point. Table point actions and plot activation emit the same event with an interaction source. A Cartesian legend toggles series; a pie/donut legend toggles category rows. Legend changes preserve focus and do not remove rows from the accessible table.
 
+`showDataTable` defaults to `true`; setting it to `false` omits both the toggle and table. Gallery previews and their copied examples use this option at the user's request, with datasets available in each Code tab. The playground and validation fixtures retain table controls. Source code inspection does not provide the equivalent keyboard point actions of the table; applications needing those actions should retain the default or provide an equivalent interface.
+
 Title, summary, table controls, and identifiers must be deterministic between server output and the initial client render. The renderer owns only its dedicated plot surface. SSR support means hydrating the surrounding Angular UI and starting the plot safely in the browser, rather than rendering the plot on the server.
 
 ## Visual design

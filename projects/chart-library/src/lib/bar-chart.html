@@ -37,60 +37,62 @@
         </button>
       }
     </div>
-    <button
-      type="button"
-      class="table-toggle"
-      [attr.aria-expanded]="tableExpanded()"
-      (click)="toggleTable()"
-    >
-      {{ tableExpanded() ? 'Hide data table' : 'Show data table' }}
-    </button>
-    @if (tableExpanded()) {
-      <div
-        class="table-scroll"
-        tabindex="0"
-        role="region"
-        [attr.aria-label]="title() + ' data table'"
+    @if (showDataTable()) {
+      <button
+        type="button"
+        class="table-toggle"
+        [attr.aria-expanded]="tableExpanded()"
+        (click)="toggleTable()"
       >
-        <table>
-          <caption>
-            {{
-              title()
-            }}
-            values
-          </caption>
-          <thead>
-            <tr>
-              <th scope="col">Category</th>
-              @for (item of legendItems(); track item.id) {
-                <th scope="col">{{ item.label }}</th>
-              }
-            </tr>
-          </thead>
-          <tbody>
-            @for (row of tableRows(); track row.id) {
+        {{ tableExpanded() ? 'Hide data table' : 'Show data table' }}
+      </button>
+      @if (tableExpanded()) {
+        <div
+          class="table-scroll"
+          tabindex="0"
+          role="region"
+          [attr.aria-label]="title() + ' data table'"
+        >
+          <table>
+            <caption>
+              {{
+                title()
+              }}
+              values
+            </caption>
+            <thead>
               <tr>
-                <th scope="row">{{ row.category }}</th>
-                @for (cell of row.cells; track cell.seriesId) {
-                  <td>
-                    @if (cell.value !== null) {
-                      <button
-                        type="button"
-                        [attr.aria-label]="cell.actionLabel"
-                        (click)="selectPoint(cell, 'table')"
-                      >
-                        {{ cell.text }}
-                      </button>
-                    } @else {
-                      <span>{{ cell.text }}</span>
-                    }
-                  </td>
+                <th scope="col">Category</th>
+                @for (item of legendItems(); track item.id) {
+                  <th scope="col">{{ item.label }}</th>
                 }
               </tr>
-            }
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              @for (row of tableRows(); track row.id) {
+                <tr>
+                  <th scope="row">{{ row.category }}</th>
+                  @for (cell of row.cells; track cell.seriesId) {
+                    <td>
+                      @if (cell.value !== null) {
+                        <button
+                          type="button"
+                          [attr.aria-label]="cell.actionLabel"
+                          (click)="selectPoint(cell, 'table')"
+                        >
+                          {{ cell.text }}
+                        </button>
+                      } @else {
+                        <span>{{ cell.text }}</span>
+                      }
+                    </td>
+                  }
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
     }
   }
 </nec-chart-frame>

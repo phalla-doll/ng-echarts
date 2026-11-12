@@ -68,7 +68,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'included',
         title: 'Included behavior',
         paragraphs: [
-          'Every bar example supports light and dark themes, responsive resizing, tooltips, keyboard-operable legends, and a toggleable data table. Plot and table actions emit the original numeric values.',
+          'Bar charts support light and dark themes, responsive resizing, tooltips, keyboard-operable legends, and an optional data table enabled by default. Gallery previews omit the table controls; inspect their datasets in the Code tab. The playground retains the table and its keyboard actions. Plot and table actions emit the original numeric values.',
           'Loading, empty, and error states are explicit. Browser initialization is deferred safely in server-rendered applications, and reduced-motion preferences override decorative animation.',
         ],
       },
