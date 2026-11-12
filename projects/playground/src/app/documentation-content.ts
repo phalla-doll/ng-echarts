@@ -119,7 +119,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'development',
         title: 'Development and checks',
         paragraphs: [
-          'Run the library watcher in a second terminal when editing library source. The site consumes built /bar and /core package entries in dist/chart-library rather than source aliases. Existing root imports remain compatible.',
+          'Run the library watcher in a second terminal when editing library source. The site consumes built /bar, /line, /area, /pie, and /core package entries in dist/chart-library rather than source aliases. Existing root imports remain compatible.',
           'The full check builds the library and site, verifies strict templates and declarations, exercises isolated consumers, and runs browser scenarios in Chromium, Firefox, and WebKit.',
         ],
         source:
@@ -139,6 +139,15 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'charts',
         title: 'Charts',
         paragraphs: ['Explore working bar, line, area, and pie/donut components.'],
+      },
+      {
+        id: 'data-contracts',
+        title: 'Choose the data contract',
+        paragraphs: [
+          'Bar, line, and area charts accept a typed array of ChartSeries<T> measures. PieChart accepts one ChartMeasure<T> and turns category rows into slices. Import each component from its focused @ng-echarts/chart-library/bar, /line, /area, or /pie entry.',
+          'Use innerRadius 0 for a pie or 0.6 for a donut. Optional outside labels may shorten or hide collisions, while category controls retain full labels. Pie measures must be nonnegative; all-zero totals show an empty state.',
+          'Pie legend changes emit rowId and visible; Cartesian legend changes emit seriesId and visible. Point selection in every family includes the original row and raw value. The data table remains the keyboard point-action alternative; gallery examples opt out of it.',
+        ],
       },
       {
         id: 'shared-behavior',

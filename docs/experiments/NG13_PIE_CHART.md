@@ -50,7 +50,6 @@ The measured starting envelope is 12 categories on this reference machine. The 1
 
 All seven scenarios pass their recorded caps. Every engine remains lazy; core has zero engine modules and focused pie retains only the Pie family. The [pie size result](data/pie-bundle-size.json) and [module matrix](data/package-boundaries.json) preserve contributing modules and static/lazy reachability.
 
-
 ## End-to-end story
 
 The story is `/pie` → typed browser fixture → Angular normalization/options → lazy Canvas rendering → native category controls and original-row selection events. There is no API, database, credential or external service in this flow. The local server uses port 4310, leaving 4200 untouched.
@@ -70,3 +69,20 @@ Regression stages pass formatting, production builds, strict TypeScript/template
 The fifteen pie-specific browser scenarios include pixel checks of pie center/donut hole, actual sector clicks, raw zero table actions, missing values, category events, immutable update/reorder focus, retained hidden IDs, formatter options, all-hidden recovery, negative/zero/error/empty/loading recovery, deferred interaction hydration, failed/late imports and ten repeated mount/destroy cycles with observer/motion/frame cleanup. Unit cases additionally cover duplicate labels/IDs, solid palette filtering, all-missing and overflow totals, three radii with both label modes, escaped tooltips and changed reduced-motion preferences.
 
 `npm run capture:pie` passes with 32 captures and source/image hashes verified; `npm run benchmark:pie` passes the normal target. The agent-browser review at port 4310 confirms the local gallery, syntax-highlighted/copyable code, theme switching, mobile menu and navigation to pie validation. Documentation links/anchors and `git diff --check` are verified before committing. NG13 completion does not close NG14 cross-family acceptance, NG15 integration/documentation review, human R06/G2, or G3/G4 release acceptance. NG14 is next.
+
+
+## Documentation alignment review
+
+The follow-up review against implementation `1ddc39c` covers the related documentation below. It updates current guidance while retaining dated experiment results as historical evidence; no NG14 or release gate is marked complete.
+
+| Documentation | Coverage |
+| --- | --- |
+| [Root guide](../../README.md) and [packaged README](../../projects/chart-library/README.md) | Four-family imports/routes, API/evidence navigation, numeric rules, provisional status, and current bundle caps |
+| [Product specification](../PRODUCT_SPEC.md) and [architecture](../TECHNICAL_ARCHITECTURE.md) | One-measure pie contract, event identities, radius/label policy, state rules, exported types, and focused packaging |
+| [API guide](../PIE_CHART_API.md) | All inputs/defaults, raw point/category events, keyboard alternative, missing/zero/negative rules, exclusions, and compiled integration example |
+| [Research findings](../RESEARCH_FINDINGS.md), [R&D plan](../RND_PLAN.md), and [sources](../SOURCES.md) | Recorded four-family compatibility, exact tested versions versus peer ranges, primary pie/donut references, and deferred evidence |
+| [Implementation plan](../IMPLEMENTATION_PLAN.md), [backlog](../BACKLOG.md), and [acceptance matrix](../ACCEPTANCE_MATRIX.md#implemented-family-evidence) | NG13 implementation completion, NG14 next, per-family evidence, and explicit remaining lifecycle/measurement/human criteria |
+| [Site documentation content](../../projects/playground/src/app/documentation-content.ts) | Current focused imports, Cartesian versus radial data contracts, pie labels/empty rules, and category versus series legend events |
+| [Consumer guide](../../tools/consumer-fixtures/README.md) and [reference harness](../../tools/reference/README.md) | All focused entries, copied/API examples, installed CSR/SSR checks, and reproducible family captures |
+
+Review validation: all 18 declared pie inputs and both outputs are covered in the API guide; 249 local documentation links/anchors resolve. The production playground build, all nine documentation-page scenarios across Chromium/Firefox/WebKit, Prettier checks, and `git diff --check` pass. This documentation-only review retains the prior 107-test/136-browser implementation evidence without claiming a new full regression run.

@@ -40,7 +40,7 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | [Packed runtime](docs/experiments/R08_PACKED_RUNTIME.md) | Isolated client/SSR production builds and three-browser package checks |
 | [Screen-reader review](docs/experiments/R06_MANUAL_REVIEW.md) | Deferred human listening checklist, required before release acceptance |
 | [Research findings](docs/RESEARCH_FINDINGS.md) | Upstream inventory, verified compatibility facts, reuse assessment, and unknowns |
-| [Technical architecture](docs/TECHNICAL_ARCHITECTURE.md) | Proposed Angular design, public API, rendering lifecycle, and decisions |
+| [Technical architecture](docs/TECHNICAL_ARCHITECTURE.md) | Implemented Angular design, public API, rendering lifecycle, and provisional release decisions |
 | [Research and development plan](docs/RND_PLAN.md) | Experiments, deliverables, decision gates, and effort estimates |
 | [Delivery backlog](docs/BACKLOG.md) | Ordered implementation tasks and release checks |
 | [Acceptance matrix](docs/ACCEPTANCE_MATRIX.md) | Requirements mapped to experiments, delivery tasks, and release evidence |
@@ -99,7 +99,22 @@ The [visual review](docs/experiments/R03_VISUAL_REVIEW.md) records 80 current ca
 
 Angular 22 with strict TypeScript and template checking. The selected toolchain follows the supported ranges recorded in [research findings](docs/RESEARCH_FINDINGS.md#angular-22-toolchain).
 
-## Bar feasibility milestone
+## Implemented chart families
+
+Package entries below follow `@ng-echarts/chart-library`. All four families are experimental; implementation completion does not close NG14 or the release gates.
+
+| Component | Entry | Gallery / behavior fixture | API and evidence |
+| --- | --- | --- | --- |
+| `BarChart<T>` | `/bar` | `/` / `/playground`, `/validation` | [API](docs/BAR_CHART_API.md), [bar acceptance](docs/experiments/NG09_NG10_ACCEPTANCE.md) |
+| `LineChart<T>` | `/line` | `/line` / `/line-validation` | [API](docs/LINE_CHART_API.md), [NG11](docs/experiments/NG11_LINE_CHART.md) |
+| `AreaChart<T>` | `/area` | `/area` / `/area-validation` | [API](docs/AREA_CHART_API.md), [NG12](docs/experiments/NG12_AREA_CHART.md) |
+| `PieChart<T>` (pie and donut) | `/pie` | `/pie` / `/pie-validation` | [API](docs/PIE_CHART_API.md), [NG13](docs/experiments/NG13_PIE_CHART.md) |
+
+Cartesian charts take `series: readonly ChartSeries<T>[]`; pie/donut takes one `measure: ChartMeasure<T>`. Cartesian legend events identify a `seriesId`; pie legend events identify a `rowId`. Both point events retain the original row and numeric value. See the guides for zero/missing/negative rules and optional keyboard table actions.
+
+Focused families keep the 200,000 gzip / 175,000 Brotli byte cap; `/core` keeps 10,000/9,000. The combined four-family root uses 210,000/175,000; its frame-only scenario keeps 200,000/175,000. [Current measured boundaries](docs/experiments/data/package-boundaries.json) include all lazy chunks; prefer focused imports.
+
+## Bar feasibility baseline
 
 Build a standalone Angular bar chart with typed data, light and dark themes, responsive resizing, tooltip, selectable legend, reduced motion, and safe destruction. Prove that it works in both a client application and an application using server rendering and hydration. Use its measured results to decide the MVP architecture.
 

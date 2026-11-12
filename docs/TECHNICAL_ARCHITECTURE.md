@@ -1,10 +1,10 @@
 # ng-echarts technical architecture
 
-Status: proposed design, to be resolved by the [R&D gates](RND_PLAN.md#decision-gates). Updated 12 November 2026.
+Status: implemented experimental architecture for bar, line, area, and pie/donut. Cross-family acceptance and [release gates](RND_PLAN.md#decision-gates) remain open. Updated 12 November 2026.
 
 ## Architecture direction
 
-Use standalone Angular components with strict templates, typed inputs and outputs, signals for local state, and OnPush change detection. Keep rendering behind a small adapter so deterministic data transformations can be tested separately from browser lifecycle behavior. The first experiment compares this direct adapter with an existing Angular wrapper only if that wrapper declares compatible peer dependencies.
+Use standalone Angular components with strict templates, typed inputs and outputs, signals for local state, and OnPush change detection. Keep rendering behind a small adapter so deterministic data transformations can be tested separately from browser lifecycle behavior. The direct lazy Canvas adapter is selected by [R02](experiments/R02_ADAPTER.md), confirmed for bar by lifecycle, hydration, and packed-runtime evidence; NG11–NG13 record its implementation in the remaining families.
 
 The library runtime must have no React, React DOM, Recharts, Next.js, or Motion for React dependency.
 
@@ -61,37 +61,21 @@ Computed builders must be deterministic: no DOM reads, signal writes, output emi
 
 Review these boundaries in the bar prototype and preserve them as other chart families are added. There is no arbitrary template line limit or blanket ban on function calls.
 
-## Proposed public contract
+## Current public contract
 
-Names below illustrate the intended shape and are not an installed API.
+Use the exported types rather than copying their mapped-type definitions. The installed API remains experimental; the [bar](BAR_CHART_API.md), [line](LINE_CHART_API.md), [area](AREA_CHART_API.md), and [pie/donut](PIE_CHART_API.md) guides own exact inputs/defaults and each includes an integration example compiled against the packed artifact.
 
 ```ts
+import type {
+  ChartSeries, ChartMeasure, PointSelection,
+  LegendVisibilityChange, CategoryVisibilityChange,
+} from '@ng-echarts/chart-library/core';
+
 interface RevenueRow {
   id: string;
   month: string;
   revenue: number | null;
   cost: number | null;
-}
-
-type NumericKey<T> = {
-  [K in keyof T]-?: [NonNullable<T[K]>] extends [never]
-    ? never
-    : NonNullable<T[K]> extends number ? K : never
-}[keyof T] & string;
-
-interface ChartSeries<T> {
-  id: string;
-  key: NumericKey<T>;
-  label: string;
-  color?: string;
-}
-
-interface PointSelection<T> {
-  rowId: string;
-  seriesId: string;
-  row: T;
-  value: number;
-  source: 'plot' | 'table';
 }
 ```
 
@@ -109,11 +93,11 @@ interface PointSelection<T> {
 />
 ```
 
-Expected inputs cover rows, category and identity keys, series, dimensions, explicit `light` or `dark` theme, numeric theme revision, locale and formatting, loading, error, and animation preference. The theme revision lets an application request another CSS-token read after changing its palette within the same theme. Automatic observation of application classes or CSS is outside MVP.
+Shared inputs cover rows, category and identity keys, dimensions, explicit `light` or `dark` theme, numeric theme revision, locale and formatting, loading, error, and animation preference. The theme revision lets an application request another CSS-token read after changing its palette within the same theme. Automatic observation of application classes or CSS is outside MVP.
 
 Cartesian charts accept multiple `ChartSeries<T>` definitions. Pie/donut accepts one numeric measure with a stable measure identifier; each row becomes a slice. Both emit `PointSelection<T>` with the measure or series identifier and row identifier. A separate legend output identifies either a Cartesian series or a pie category and its new visibility. Legend visibility is internal state retained by identifier; there is no controlled-selection API or persistent point-selection state in MVP.
 
-Row identity and category keys must resolve to strings. Numeric keys must reject string, unknown, and exclusively nullish fields. Runtime validation still checks external data, unique identifiers, and finite values. Prototype generic inference and intentional type-error cases in Angular templates before freezing the API; the sketch alone does not establish type safety.
+Row identity and category keys must resolve to strings. Numeric keys must reject string, unknown, and exclusively nullish fields. Runtime validation still checks external data, unique identifiers, and finite values. Strict installed consumers verify generic inference and intentionally invalid templates across all four families. Preserve these checks before changing or freezing the API.
 
 Implement the state precedence and table actions from [the product specification](PRODUCT_SPEC.md#state-and-interaction-behavior) in the shared component layer. Missing values use one shared presentation rule. Legend filtering affects the plot but preserves the full table, its stable focus targets, and missing-value indicators.
 
@@ -148,7 +132,7 @@ Tooltips accept plain data by default. Escape strings before any HTML formatting
 
 ## Packaging and workspace
 
-Current workspace layout; the bar implementation and browser validation fixtures are present:
+Current workspace layout; all four family implementations and browser validation fixtures are present:
 
 ```text
 projects/
@@ -167,7 +151,7 @@ docs/                  Product, research, and architecture records
 
 Use Angular's library tooling and package format. The package exposes `/core` for shared contracts, `ChartFrame`, and internal Cartesian policy, plus focused `/bar`, `/line`, `/area`, and `/pie` component entries with convenient contract type exports. The root entry reexports the same component identities for compatibility. Secondary entry points are generated by ng-packagr, never hand-written package-export paths ([S8](SOURCES.md#platform-sources)). Bar imports core through its public package specifier; core has no runtime bar or ECharts dependency. NG11 demonstrates common Cartesian runtime behavior across bar and line; shared helpers use explicitly unsupported `ɵ` exports in core, while renderer-family options and loaders stay private.
 
-New bar/line examples and the playground use their focused `@ng-echarts/chart-library/bar` and `/line` imports. The workspace maps subpaths to built output; isolated consumers delete all workspace aliases and compile against the tarball. The library source root spans secondary folders so unit-test discovery includes every entry. `npm run check:bundle` verifies all focused entries, the compatibility root, and a root-only frame import. It records contributing modules, static versus lazy engine imports, emitted orphan chunks, and compressed totals. `/core` excludes ECharts/ZRender entirely; `/bar` retains Bar while `/line` and `/area` retain the shared ECharts Line engine, required helpers, and Canvas in their lazy renderer chunks. ECharts core's custom-series registry is shared support code, not a registered custom-chart implementation. Root imports offer compatibility rather than a chart-isolation guarantee: esbuild may emit an unreachable renderer chunk for a frame-only root import. Prefer `/core` for the lightweight frame. See [NG09 package evidence](experiments/NG09_PACKAGE_BOUNDARIES.md).
+All gallery examples and the playground use focused `/bar`, `/line`, `/area`, and `/pie` package imports. The workspace maps subpaths to built output; isolated consumers delete all workspace aliases and compile against the tarball. The library source root spans secondary folders so unit-test discovery includes every entry. `npm run check:bundle` verifies all focused entries, the compatibility root, and a root-only frame import. It records contributing modules, static versus lazy engine imports, emitted orphan chunks, and compressed totals. `/core` excludes ECharts/ZRender entirely; `/bar` retains Bar while `/line` and `/area` retain the shared ECharts Line engine, required helpers, and Canvas in their lazy renderer chunks. ECharts core's custom-series registry is shared support code, not a registered custom-chart implementation. Root imports offer compatibility rather than a chart-isolation guarantee: esbuild may emit an unreachable renderer chunk for a frame-only root import. Prefer `/core` for the lightweight frame. See [NG09 package evidence](experiments/NG09_PACKAGE_BOUNDARIES.md).
 
 Angular and ECharts peer requirements remain unchanged. A core-only bundle excludes renderer bytes but does not make the package's required ECharts peer optional.
 
@@ -229,7 +213,7 @@ The demo's `HighlightCode` directive computes escaped syntax markup using a priv
 
 Demo icons use a local `SiteIcon` component with a pinned subset of Heroicons v2.2.0 24 px outline paths. SVG geometry is preserved, and native Angular template control flow supports multiple paths. Icons inherit `currentColor`, stay decorative/nonfocusable, and rely on the surrounding action's accessible label. The upstream MIT notice is served in public assets; no icon dependency enters the chart-library package. See the [provenance ledger](UPSTREAM_PROVENANCE.md#demo-site-icons-heroicons).
 
-The shell uses one root-provided, dark-by-default appearance signal, computed route labels, and a native navigation disclosure on small screens. `Gallery`, `App` at `/playground`, and utility/deferred charts follow this shared theme; client-side navigation retains it. Each `BarBlockExample` composes a real bar chart with derived totals, code/preview state, copy feedback, and reset. Documentation at `/get-started`, `/installation`, and `/components` uses shared code/copy components and a truthful availability catalog. The actual quick-start and eight generated gallery examples compile in the isolated consumer. Site-only styles and the local Inter font stay outside the package. The site uses whole-number CSS pixel font sizes, line heights, and tracking, with native text antialiasing and browser zoom preserved. Comparison and benchmark plot hosts retain independent measurement themes, full-width contexts, and original system typography; their surrounding documentation uses Inter. See the [site alignment report](experiments/SITE_THEME_ALIGNMENT.md).
+The shell uses one root-provided, dark-by-default appearance signal, computed route labels, and a native navigation disclosure on small screens. `Gallery`, `App` at `/playground`, and utility/deferred charts follow this shared theme; client-side navigation retains it. Each `BarBlockExample` composes a real bar chart with derived totals, code/preview state, copy feedback, and reset. Documentation at `/get-started`, `/installation`, and `/components` uses shared code/copy components and a truthful availability catalog. The actual quick-start, four family API examples, and 30 generated gallery examples (both themes) compile in the isolated consumer. Site-only styles and the local Inter font stay outside the package. The site uses whole-number CSS pixel font sizes, line heights, and tracking, with native text antialiasing and browser zoom preserved. Comparison and benchmark plot hosts retain independent measurement themes, full-width contexts, and original system typography; their surrounding documentation uses Inter. See the [site alignment report](experiments/SITE_THEME_ALIGNMENT.md).
 
 `Root` owns navigation and the router outlet; `Gallery` is the home page and `App` is the settings playground. The lazy `/validation` page contains regular, initial-loading, and initial-hidden bars, plus a separate `DeferredChart` inside `@defer (hydrate on interaction)`. `/away` has no charts. These paths passed the [R05 workspace bar checks](experiments/R04_R05_VALIDATION.md) in Chromium, Firefox, and WebKit without a hydration bypass. R04 and R08 now also pass, confirming R02 and G1 for this bar boundary. The R06 human review and G2 remain pending.
 

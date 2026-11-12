@@ -1,6 +1,6 @@
 # ng-echarts product specification
 
-Status: proposed baseline for implementation. Updated 12 November 2026.
+Status: implementation baseline; all four selected chart families are present. Cross-family and release acceptance remain pending. Updated 12 November 2026. See the [current evidence index](ACCEPTANCE_MATRIX.md#implemented-family-evidence).
 
 ## Purpose and users
 
@@ -41,7 +41,7 @@ Composed charts, radar, radial charts, Sankey, calendar heatmaps, range brushing
 
 | ID | Requirement | Acceptance |
 | --- | --- | --- |
-| F01 | Accept immutable, typed row arrays and series definitions | An external consumer builds with strict TypeScript and strict templates; invalid numeric keys fail type checks; runtime data and identifiers are validated |
+| F01 | Accept immutable, typed row arrays and Cartesian series or one pie measure | An external consumer builds with strict TypeScript and strict templates; invalid numeric keys fail type checks; runtime data and identifiers are validated |
 | F02 | Update when inputs change | New rows, removed series, labels, and theme changes appear without stale graphics or duplicate chart instances |
 | F03 | Format values consistently | Values use the same locale and formatter in axes, tooltips, and tables; legend labels match series or category labels; zero remains valid |
 | F04 | Provide responsive layout | Resize within a dashboard card; recover when a hidden container becomes visible; no clipped required controls at 320 px host width |
@@ -56,13 +56,15 @@ Composed charts, radar, radial charts, Sankey, calendar heatmaps, range brushing
 
 - Cartesian rows have a stable string identifier, a string category label, and one or more numeric measures. Pie/donut rows have a stable string identifier, a string category label, and one numeric measure. Row identifiers must be unique within a chart; Cartesian series identifiers must also be unique.
 - Null or missing numeric values represent gaps or absent observations, never implicit zero. Lines and areas do not connect across gaps. In a stack, a missing observation contributes no segment and remains marked as missing in the table. Non-finite and nonnumeric supplied values produce a validation error.
-- Cartesian charts permit negative values. Pie and donut reject negative values; an all-zero total produces an empty state.
+- Cartesian charts permit negative values. Pie and donut reject negative values and non-finite totals; an all-zero or all-missing dataset produces an empty state. Missing pie observations have no slice. Hiding all positive slices preserves ready-state recovery controls without drawing equal-size placeholder slices.
 - Preserve supplied category order unless the consumer explicitly transforms the data.
 - An empty row list or a dataset with no plottable measures produces the empty state. An all-zero Cartesian series is valid data. A chart with all legend items hidden stays ready so its controls can restore visibility.
 - Support duplicate display labels through separate stable identifiers. Preserve legend visibility by identifier across updates; new entries start visible and removed entries are discarded. Point activation emits an event without adding persistent point-selection state in MVP.
 - Treat rows, series, and configuration as immutable inputs; changes require a new reference. Batch multiple input changes into one rendering update.
 - Default to the explicit locale `en-US`; consumers may supply a locale, immutable `Intl.NumberFormatOptions`, or a pure synchronous value formatter returning text. Custom numeric text applies consistently to axes, tooltips, table cells, and action labels; callbacks must handle generated axis ticks as well as supplied observations. Missing values bypass numeric formatting, and events retain raw numbers. Use the same locale, configuration, formatter, and input data on server and client. Tooltip text is escaped before entering any HTML formatter.
 - An optional pure, synchronous category-tick formatter may shorten axis labels. Preserve full category text in tooltips, tables, and action labels, and keep stable row identities independent of formatted text.
+
+Pie/donut uses `ChartMeasure<T>` with one stable measure ID, numeric key, and label. `innerRadius` is a ratio of outer radius from 0 to 0.9 (`0` pie, `0.6` donut). Optional outside category labels reserve plot space and may truncate or suppress overlaps; full labels remain in native controls. `CategoryVisibilityChange` emits `{ rowId, visible }`, while Cartesian `LegendVisibilityChange` emits `{ seriesId, visible }`. A pie `PointSelection<T>.seriesId` carries the measure ID. Zero and hidden supplied values retain table actions in a ready dataset; missing values have no action. See the [pie/donut API](PIE_CHART_API.md).
 
 ## State and interaction behavior
 
@@ -94,14 +96,14 @@ Require a reviewed visual baseline for each MVP chart. Canvas and SVG rasterizat
 
 ## Quality and performance targets
 
-These engineering targets apply to the full MVP. [R07](experiments/R07_RENDERER_COST.md) records measured bar-prototype results; other families and environments still need validation.
+These engineering targets apply to the full MVP. [R07](experiments/R07_RENDERER_COST.md) records the original bar results; [NG11](experiments/NG11_LINE_CHART.md), [NG12](experiments/NG12_AREA_CHART.md), and [NG13](experiments/NG13_PIE_CHART.md) add family-specific measurements. NG14 must still reconcile the full criteria, including lifecycle repetitions and unmeasured interaction/resize profiles; passing warm timings alone does not close acceptance.
 
 - Normal Cartesian fixture: 200 categories and three series; stress fixture: 2,000 categories and three series. Pie/donut fixtures use 12 and 100 categories respectively. These are benchmark inputs, not promised data limits.
 - On a recorded reference machine using a production build, each normal fixture's warm mount and input update should complete within 200 ms at p95 over 30 measured runs after one warm-up. Disable animation, preload modules, use a visible 768 px host, and keep the table collapsed. Start before validation and option building; end when the render triggered by that operation finishes. Use the 29th sorted sample as p95. Record the completion signal and raw timings in R07.
 - Report cold module loading and expanded-table cost separately. Excluding them from the warm rendering target must not hide them from the benchmark report.
 - Record interaction, resizing, and stress-fixture performance separately. Identify the supported data envelope from measurements before release.
 - Repeatedly mount and destroy 100 charts without orphaned instances, observers, event listeners, tooltips, or animation callbacks.
-- Report compressed production bundle sizes for the adapter, required renderer, and each chart entry point. Establish the numeric size budget after the prototype rather than inventing one now.
+- Report compressed production bundle sizes including all emitted lazy renderer chunks, excluding Angular/RxJS peers. Recorded gzip/Brotli caps in bytes are 200,000/175,000 per focused family, 10,000/9,000 for core, 210,000/175,000 for the combined four-family root, and 200,000/175,000 for root-frame. The root gzip cap changed from 200,000 after adding the Pie engine; [NG13](experiments/NG13_PIE_CHART.md#performance-and-packaging) records the rationale and successful rerun. Keep unrelated chart engines out of focused entries and engine runtime out of core.
 - Exercise Chromium, Firefox, and WebKit integration paths; align the published browser policy with Angular 22's documented baseline.
 
 ## Delivery and acceptance

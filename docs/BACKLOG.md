@@ -12,7 +12,7 @@ The user selected a [reference-aligned gallery](experiments/BAR_GALLERY_VISUAL_R
 
 ## Feasibility milestone
 
-The [site-wide theme update](experiments/SITE_THEME_ALIGNMENT.md) adds basic Get Started, Installation, and Components pages and aligns existing tool pages with the approved gallery. The catalog labels unimplemented families as planned. This supports later NG15 documentation work without completing its full API, compatibility, or release requirements.
+The [site-wide theme update](experiments/SITE_THEME_ALIGNMENT.md) adds basic Get Started, Installation, and Components pages and aligns existing tool pages with the approved gallery. That initial catalog labeled unimplemented families as planned; all four MVP families are now available following NG11–NG13. This supports later NG15 documentation work without completing its full API, compatibility, or release requirements.
 
 | ID | Priority | Work | Depends on | Done when |
 | --- | --- | --- | --- | --- |

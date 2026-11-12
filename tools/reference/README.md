@@ -1,6 +1,6 @@
 # Pinned EvilCharts visual reference
 
-This private research harness renders the unmodified primary, stacked, horizontal, and gradient bar examples from revision `4c2dd7c9bae780703244265c9a4b509d40c055ad`. Its React dependencies are isolated in this directory's development manifest and lockfile. They are not Angular library dependencies.
+This private research harness renders selected unmodified bar, line, area, and pie/donut examples from revision `4c2dd7c9bae780703244265c9a4b509d40c055ad`. Its React dependencies are isolated in this directory's development manifest and lockfile. They are not Angular library dependencies.
 
 From the workspace root, using the Node version in `.nvmrc`:
 
