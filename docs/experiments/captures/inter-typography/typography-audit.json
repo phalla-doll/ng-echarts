@@ -1,0 +1,223 @@
+{
+  "recordedAt": "2026-11-12T14:22:26.078301+00:00",
+  "browser": "{\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36\",\"devicePixelRatio\":1}",
+  "conditions": "Production SSR preview, dark theme, reduced motion. Excludes native code blocks and explicit comparison/benchmark plot typography. CSS pixels at default browser zoom.",
+  "results": [
+    {
+      "fontLoaded": true,
+      "route": "/",
+      "textIssues": [],
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/get-started",
+      "textIssues": [],
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/installation",
+      "textIssues": [],
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/components",
+      "textIssues": [],
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/playground",
+      "textIssues": [],
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/formatting",
+      "textIssues": [],
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/updates",
+      "textIssues": [],
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/validation",
+      "textIssues": [],
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/retention",
+      "textIssues": [],
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/away",
+      "textIssues": [],
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/benchmark",
+      "textIssues": [],
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/comparison",
+      "textIssues": [],
+      "viewport": {
+        "height": 1000,
+        "width": 1440
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/",
+      "textIssues": [],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/get-started",
+      "textIssues": [],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/installation",
+      "textIssues": [],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/components",
+      "textIssues": [],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/playground",
+      "textIssues": [],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/formatting",
+      "textIssues": [],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/updates",
+      "textIssues": [],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/validation",
+      "textIssues": [],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/retention",
+      "textIssues": [],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/away",
+      "textIssues": [],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/benchmark",
+      "textIssues": [],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "fontLoaded": true,
+      "route": "/comparison",
+      "textIssues": [],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    }
+  ]
+}

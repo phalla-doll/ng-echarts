@@ -11,6 +11,7 @@ export type BarOption = ComposeOption<
 >;
 
 export interface BarThemeTokens {
+  readonly fontFamily: string;
   readonly background: string;
   readonly text: string;
   readonly muted: string;
@@ -21,6 +22,7 @@ export interface BarThemeTokens {
 export function defaultBarTheme(theme: ChartTheme): BarThemeTokens {
   return theme === 'dark'
     ? {
+        fontFamily: 'system-ui, sans-serif',
         background: '#18202c',
         text: '#edf2fa',
         muted: '#b2bfd2',
@@ -28,6 +30,7 @@ export function defaultBarTheme(theme: ChartTheme): BarThemeTokens {
         series: ['#10b981', '#f43f5e', '#60a5fa', '#fbbf24'],
       }
     : {
+        fontFamily: 'system-ui, sans-serif',
         background: '#ffffff',
         text: '#18202c',
         muted: '#536176',
@@ -92,7 +95,7 @@ export function buildBarOptions<T>(
     animationDuration: 300,
     animationDurationUpdate: 200,
     backgroundColor: tokens.background,
-    textStyle: { fontFamily: 'system-ui, sans-serif', color: tokens.text },
+    textStyle: { fontFamily: tokens.fontFamily, color: tokens.text },
     grid: {
       left: 12,
       right: 16,
@@ -108,7 +111,12 @@ export function buildBarOptions<T>(
       confine: true,
       backgroundColor: tokens.background,
       borderColor: tokens.border,
-      textStyle: { color: tokens.text, fontSize: 12 },
+      textStyle: {
+        fontFamily: tokens.fontFamily,
+        color: tokens.text,
+        fontSize: 12,
+        lineHeight: 20,
+      },
       padding: [6, 10],
       borderRadius: 6,
       extraCssText:

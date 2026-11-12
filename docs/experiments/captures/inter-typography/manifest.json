@@ -1,0 +1,120 @@
+{
+  "recordedAt": "2026-11-12T14:22:49.034377+00:00",
+  "baselineCommit": "731668a",
+  "captureMode": "Development preview; typography audit and browser scenarios use production SSR. All captures wait for chart canvas or font readiness.",
+  "browser": "Chromium 156, macOS; agent-browser isolated session",
+  "motion": "reduce",
+  "font": "Local Inter Latin variable WOFF2, existing bundled OFL license",
+  "sourceHashes": {
+    "projects/playground/src/site-controls.css": "68ed833acb3924dcdc8636b6c3c18e2e9e3b0af5ddbdc0ddb08730d8b337e089",
+    "projects/playground/src/styles.css": "f460bea0d7b9dab6492118b23857f624427572079cb82df5ce60d89429ffbfc1",
+    "projects/playground/src/gallery-shell.css": "21b7efa9eb0b2f86c420d5f300ae4cfa9c8a9cd07ab06053d6bed3112ae8e3f4",
+    "projects/playground/src/documentation.css": "eef46505d52e5705a8442ae6c38a9b612afa1cd6cfd5f3151de507a01801f879",
+    "projects/playground/src/app/comparison.css": "dd45800276fe2fd51095ce2df6410d0256b2dbda9ab7af025eab572c50c6b3f3",
+    "projects/playground/src/app/gallery.css": "3821293f5ad1b218ad7476ffc4800c3cc190d0b7af230fe7604220b1d0763947",
+    "projects/playground/src/app/app.css": "3b2c8483d472cfe27e5319f024f08e087148d1f4f0e7e561073c50380419e3fa",
+    "projects/playground/src/app/bar-block.css": "4a12ea541feef66225a5c0c04b62164a014d186697791a150a561043ad7068a1",
+    "projects/playground/src/app/root.css": "3ccc397e00420a7c600ce5474ad268885157b674f40b226023573b90f9549ef0",
+    "projects/chart-library/src/lib/bar-browser.ts": "b20ac54934f70a708375a67997751d31b5180b1c8da9fb67f75f269613ad3006",
+    "projects/chart-library/src/lib/bar-options.ts": "614c5a97257a0cfa8399b7a3b2b31e32c7c8cf6d9734e886d8913f7d063f991f",
+    "projects/playground/public/fonts/inter-latin.woff2": "c940764593d0fe5d596be327ca7558855e018039fb78509aa21921fd3644c3e4"
+  },
+  "captures": [
+    {
+      "file": "gallery-dark.png",
+      "route": "/",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "deviceScaleFactor": 1,
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "4eb19a6ff9a8839fea05024cd32acc150ec8335aaa336f6673099e2b6248d914"
+    },
+    {
+      "file": "gallery-light.png",
+      "route": "/",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "deviceScaleFactor": 1,
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "bd5e2108139793ecee2025156d56cbf505e9d9862a7ae5782bfdc83baaf509b2"
+    },
+    {
+      "file": "gallery-retina.png",
+      "route": "/",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "deviceScaleFactor": 2,
+      "image": {
+        "width": 2880,
+        "height": 2000
+      },
+      "fullPage": false,
+      "sha256": "97fd038cbfcea5a9a7cf68cb29dbce2a799d25bb2bcfc106a8f4931e260bcbda"
+    },
+    {
+      "file": "gallery-mobile.png",
+      "route": "/",
+      "theme": "dark",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 1,
+      "image": {
+        "width": 390,
+        "height": 2917
+      },
+      "fullPage": true,
+      "sha256": "7930dadcea8ac903a5437741088643ae330bfee3a5bde9e9ffbfe8acced6eb73"
+    },
+    {
+      "file": "components-dark.png",
+      "route": "/components",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "deviceScaleFactor": 1,
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "d6428c00bc3f69734c386bd310596addba38d62b239523a4399ea027457718c2"
+    },
+    {
+      "file": "playground-dark.png",
+      "route": "/playground",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "deviceScaleFactor": 1,
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "fullPage": false,
+      "sha256": "ee680067e27af7e1903cded886cdffb554f54e91ea1125f22139e6b7f096b4b4"
+    }
+  ]
+}

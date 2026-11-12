@@ -11,9 +11,21 @@ export const BAR_RENDERER_LOADER = new InjectionToken<() => Promise<BarRendererF
   },
 );
 
-export function browserPlotEnvironment(load: () => Promise<BarRendererFactory>): PlotEnvironment {
+export function browserPlotEnvironment(
+  load: () => Promise<BarRendererFactory>,
+  host: HTMLElement,
+): PlotEnvironment {
   return {
-    load,
+    load: async () => {
+      // Canvas text measurements must use the loaded host font from the first render.
+      // A failed web font still permits the browser's normal fallback stack.
+      const font = getComputedStyle(host).fontFamily || 'system-ui, sans-serif';
+      const [factory] = await Promise.all([
+        load(),
+        host.ownerDocument.fonts?.load(`12px ${font}`).catch(() => undefined),
+      ]);
+      return factory;
+    },
     observe: (host, onResize) => {
       const observer = new ResizeObserver(onResize);
       observer.observe(host);
@@ -24,7 +36,7 @@ export function browserPlotEnvironment(load: () => Promise<BarRendererFactory>):
   };
 }
 
-/** Resolve inherited CSS colors, including modern color syntax, at the browser boundary. */
+/** Resolve inherited typography and CSS colors at the browser boundary. */
 export function readBarTheme<T>(
   host: HTMLElement,
   theme: ChartTheme,
@@ -52,6 +64,7 @@ export function readBarTheme<T>(
     resolve(styles.getPropertyValue(`--nec-${name}`).trim(), fallback);
   try {
     return {
+      fontFamily: styles.fontFamily || defaults.fontFamily,
       background: token('background', defaults.background),
       text: token('text', defaults.text),
       muted: token('muted', defaults.muted),

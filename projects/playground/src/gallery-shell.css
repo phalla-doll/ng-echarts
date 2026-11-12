@@ -11,6 +11,7 @@
   border: 0;
   border-radius: 0;
   font-size: 12px;
+  line-height: 20px;
 }
 .gallery .gallery-chart .chart-frame > header {
   position: absolute;
@@ -30,10 +31,12 @@
 .gallery .gallery-chart button {
   padding: 4px 7px;
   font-size: 11px;
+  line-height: 18px;
   border-radius: 4px;
 }
 .gallery .gallery-chart .visibility {
   font-size: 10px;
+  line-height: 16px;
   color: var(--site-muted);
 }
 .gallery .gallery-chart .swatch {
@@ -52,6 +55,7 @@
 }
 .gallery .gallery-chart caption {
   font-size: 12px;
+  line-height: 20px;
 }
 .gallery button:focus-visible,
 .gallery a:focus-visible,

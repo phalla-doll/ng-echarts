@@ -31,6 +31,7 @@ import { SiteIcon } from './site-icon';
       color: var(--site-muted);
       background: var(--site-surface);
       font-size: 12px;
+      line-height: 20px;
       white-space: nowrap;
     }
     app-site-icon {
@@ -41,7 +42,7 @@ import { SiteIcon } from './site-icon';
       max-width: 240px;
       color: var(--site-muted);
       font-size: 11px;
-      line-height: 1.6;
+      line-height: 18px;
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

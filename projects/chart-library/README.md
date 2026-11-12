@@ -18,6 +18,8 @@ Known observation labels are cached for custom formatters; missing values never 
 
 Use `--nec-background`, `--nec-text`, `--nec-muted`, `--nec-border`, `--nec-focus`, and `--nec-series-1` onward for CSS tokens. Change `theme` or increment `themeRevision` to request new color reads. Reduced motion overrides decorative animation. The renderer initializes only in the browser.
 
+Chart axes and tooltips inherit the host element's CSS `font-family`. Initial browser rendering waits for that font to load; failed font requests use the normal fallback stack. The package does not bundle or require Inter. When changing fonts after initialization, load the new face first and increment `themeRevision` to reread the host style.
+
 `ChartFrame` remains a presentation shell with required `title`, optional `description`, and projected content. All APIs remain provisional until the bar feasibility experiments pass. Preserve the packaged upstream notice in `third-party/`.
 
 Build with `npm run build:lib` from the workspace root. See the root README and `docs/IMPLEMENTATION_PLAN.md` for the implementation sequence and validation commands.

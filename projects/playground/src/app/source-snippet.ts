@@ -34,6 +34,7 @@ import { CopyButton } from './copy-button';
       padding: 2px 8px 7px;
       color: var(--site-muted);
       font-size: 11px;
+      line-height: 18px;
     }
     pre {
       margin: 0;
@@ -44,7 +45,7 @@ import { CopyButton } from './copy-button';
       border-radius: 5px;
       background: var(--site-bg);
       font-size: 12px;
-      line-height: 1.8;
+      line-height: 22px;
     }
     pre:focus-visible {
       outline: 2px solid var(--site-text);

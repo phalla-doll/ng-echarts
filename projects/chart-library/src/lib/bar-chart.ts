@@ -222,7 +222,7 @@ export class BarChart<T extends object> {
           this.removeMotionListener = () => preference.removeEventListener('change', onMotion);
           this.controller = new PlotController(
             this.plot().nativeElement,
-            browserPlotEnvironment(this.loadRenderer),
+            browserPlotEnvironment(this.loadRenderer, this.host.nativeElement),
             (point) => this.selectPoint(point, 'plot'),
             () => this.rendererError.set(true),
           );

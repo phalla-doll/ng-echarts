@@ -50,7 +50,7 @@ Resize and tooltip dispatch timings are reported separately for both renderers a
 
 [Size evidence](data/bar-bundle-size.json) links the **production Angular package** with the Angular linker, bundles/minifies/splits its public entry, keeps Angular/RxJS peers external, and sums independently compressed JavaScript chunks. It includes the bar component, native controls, adapter, and modular Canvas engine; it excludes Angular/RxJS framework bytes and source maps. This differs from the direct benchmark bundles, which include a harness but no Angular component.
 
-Observed linked package size: **178,402 gzip bytes / 152,619 Brotli bytes**. Adopt prototype budgets of **200,000 gzip bytes / 175,000 Brotli bytes**, providing measured headroom. `npm run check:bundle` fails above either threshold. Do not silently raise the budget when adding chart families; establish per-chart entry-point measurements in NG09 and repeat the consumer build. No React runtime is included.
+Observed linked package size after the Inter font-resolution follow-up: **178,495 gzip bytes / 152,713 Brotli bytes**. Adopt prototype budgets of **200,000 gzip bytes / 175,000 Brotli bytes**, providing measured headroom. `npm run check:bundle` fails above either threshold. Do not silently raise the budget when adding chart families; establish per-chart entry-point measurements in NG09 and repeat the consumer build. No React runtime is included.
 
 R07 passes for the current bar choice and envelope. Repeat affected measurements after meaningful renderer, option-building, lifecycle, or table changes. Other chart families need their own results before G3; this result does not complete the pending R06 human listening review or G2.
 

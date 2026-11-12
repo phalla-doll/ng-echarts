@@ -192,7 +192,8 @@ test('ignores a renderer import that finishes after its chart is destroyed', asy
     await gate;
     await route.continue();
   });
-  await page.goto('/playground');
+  // The intentionally held script can delay Firefox's load event until it is released.
+  await page.goto('/playground', { waitUntil: 'domcontentloaded' });
   await started;
   await page.getByRole('button', { name: 'Update values', exact: true }).click();
   await page.getByRole('button', { name: 'Show chart', exact: true }).click();

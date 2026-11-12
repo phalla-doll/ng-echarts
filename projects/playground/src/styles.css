@@ -10,13 +10,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Instrument Sans';
-  src: url('/fonts/instrument-sans.ttf') format('truetype');
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-}
 * {
   box-sizing: border-box;
 }
@@ -24,7 +17,8 @@ body {
   margin: 0;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 14px;
-  -webkit-font-smoothing: antialiased;
+  line-height: 22px;
+  font-synthesis: none;
 }
 button,
 input,
@@ -59,7 +53,7 @@ a:focus-visible {
   color: var(--site-text, #171717);
   background: var(--site-surface, #fff);
   font-weight: 500;
-  line-height: 1.3;
+  line-height: 20px;
   text-decoration: none;
 }
 .ui-button:hover,
@@ -93,14 +87,14 @@ a:focus-visible {
   font-size: 36px;
   font-weight: 600;
   line-height: 40px;
-  letter-spacing: -1.1px;
+  letter-spacing: -1px;
 }
 .utility-page > p,
 .measurement-page > p {
   max-width: 70ch;
   color: var(--site-muted);
   font-size: 13px;
-  line-height: 1.7;
+  line-height: 22px;
 }
 .utility-page > .controls {
   display: flex;
@@ -119,6 +113,7 @@ a:focus-visible {
   color: var(--site-muted);
   background: var(--site-surface);
   font-size: 11px;
+  line-height: 18px;
 }
 .utility-page > .controls > button:hover {
   color: var(--site-text);
@@ -140,22 +135,26 @@ a:focus-visible {
 .workbench .chart-frame header p {
   color: var(--site-muted);
   font-size: 13px;
+  line-height: 22px;
 }
 .utility-page .chart-frame header h2,
 .workbench .chart-frame header h2 {
   font-weight: 500;
   font-size: 16px;
+  line-height: 24px;
 }
 .utility-page .chart-frame button,
 .workbench .chart-frame button {
   border-color: var(--site-border);
   font-size: 12px;
+  line-height: 20px;
   border-radius: 5px;
 }
 .utility-page .chart-frame .visibility,
 .workbench .chart-frame .visibility {
   color: var(--site-muted);
   font-size: 10px;
+  line-height: 16px;
 }
 .utility-page .chart-frame .swatch,
 .workbench .chart-frame .swatch {
@@ -165,6 +164,7 @@ a:focus-visible {
 .utility-page .selection {
   min-height: 20px;
   font-size: 12px;
+  line-height: 20px;
   color: var(--site-muted);
 }
 .measurement-scroll {
@@ -190,7 +190,7 @@ a:focus-visible {
   .measurement-page > h1 {
     font-size: 30px;
     line-height: 36px;
-    letter-spacing: -0.8px;
+    letter-spacing: -1px;
   }
 }
 
@@ -202,6 +202,19 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
+/* Preserve historical measurement typography inside the plots only. */
+.comparison-host,
+[data-benchmark-host] {
+  font-size: 16px;
+  line-height: normal;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+}
+
 /* Documentation typography for reference controls; the comparison plot stays isolated. */
 .focus-layout app-comparison main > header {
   max-width: 1000px;
@@ -209,23 +222,25 @@ a:focus-visible {
   padding: 0 48px;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 12px;
+  line-height: 20px;
 }
 .focus-layout app-comparison main > header h1 {
   margin: 0 0 12px;
   font-size: 36px;
   font-weight: 600;
   line-height: 40px;
-  letter-spacing: -1.1px;
+  letter-spacing: -1px;
 }
 .focus-layout app-comparison main > header p {
   color: var(--nec-muted);
   font-size: 13px;
-  line-height: 1.7;
+  line-height: 22px;
 }
 .focus-layout app-comparison main > header .controls button {
   padding: 8px 11px;
   border-radius: 5px;
   font-size: 11px;
+  line-height: 18px;
 }
 @media (max-width: 600px) {
   .focus-layout app-comparison main > header {
