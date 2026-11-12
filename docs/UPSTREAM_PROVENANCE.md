@@ -10,9 +10,9 @@ Baseline: [`4c2dd7c9bae780703244265c9a4b509d40c055ad`](https://github.com/legion
 | `ex-stacked-type-echarts-bar-chart` | [`src/registry/examples/echarts/ex-stacked-type-echarts-bar-chart.tsx`](https://github.com/legions-developer/evilcharts/blob/4c2dd7c9bae780703244265c9a4b509d40c055ad/src/registry/examples/echarts/ex-stacked-type-echarts-bar-chart.tsx) | Stacking reference using the same data |
 | `ex-horizontal-layout-echarts-bar-chart` | [`src/registry/examples/echarts/ex-horizontal-layout-echarts-bar-chart.tsx`](https://github.com/legions-developer/evilcharts/blob/4c2dd7c9bae780703244265c9a4b509d40c055ad/src/registry/examples/echarts/ex-horizontal-layout-echarts-bar-chart.tsx) | Layout reference; its own dataset must be recorded before exact visual comparison |
 
-Use the primary dataset for prototype behavior tests. Stable month IDs were added for Angular events and updates. The primary upstream brush is excluded by the MVP scope. Raw reference files were inspected outside the repository; the React application has not been installed or rendered locally.
+Use the primary dataset for prototype behavior tests. Stable month IDs were added for Angular events and updates. The primary upstream brush is excluded by the MVP scope. The reference tool downloads unmodified source into ignored `tools/reference/upstream/` and builds the primary React example in an isolated client harness; it does not build the full upstream website.
 
-R03 reference captures remain pending. Capture the pinned upstream and Angular fixture at 320, 768, and 1440 px **host** widths in light/dark themes, with recorded viewport, browser, DPR, fonts, motion setting, and dimensions. Current prototype screenshots are progress evidence, not reviewed parity baselines.
+The [R03 review](experiments/R03_VISUAL_REVIEW.md) records upstream/Angular captures at 320, 768, and 1440 px **host** widths in both themes, with viewport, browser, DPR, fonts, motion, dimensions, and source hashes. Parity remains pending for the documented differences and additional variants.
 
 ## Per-file provenance
 
@@ -23,6 +23,8 @@ Paths below are relative to the repository root. Full terms are preserved in [th
 | `projects/playground/src/app/fixtures/evilcharts-bar-fixture.ts` | Primary example's twelve rows and series labels | Adapted dataset; added stable IDs and readonly TypeScript types; source header retained |
 | `projects/chart-library/src/lib/bar-options.ts` | Primary example's light/dark Desktop and Mobile colors | Adapted first two default colors; additional colors and option-building code are new |
 | `projects/chart-library/third-party/evilcharts-LICENSE.txt` | Pinned `LICENSE` | Verbatim notice, included in the packed library by `ng-package.json` |
+| `tools/reference/tokens.css` (generated, ignored) | Pinned `src/app/globals.css` root/dark variable blocks | Extracted by the preparation script for the isolated reference build; the downloaded source retains its MIT license |
+| `docs/experiments/captures/bar-reference/upstream-*.png` | Rendered primary example and its real imported modules | Reference screenshots; source hashes and harness differences recorded in the capture manifest/review |
 
 The component templates, generic contracts, data validation, option transformations, lifecycle controller, CSS resolution, and tests are new Angular implementation. No upstream React implementation or helper bodies have been copied into them.
 

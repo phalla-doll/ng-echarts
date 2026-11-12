@@ -1,0 +1,57 @@
+<h1>Bar lifecycle validation</h1>
+<p>Fixtures for server rendering, hydration, hidden surfaces, updates, and cleanup.</p>
+<div class="controls">
+  <button type="button" (click)="toggleMount()" [attr.aria-pressed]="mounted()">
+    Mount regular charts
+  </button>
+  <button type="button" (click)="revealHidden()">Reveal hidden chart</button>
+  <button type="button" (click)="finishLoading()">Finish loading</button>
+  <button type="button" (click)="toggleMobile()" [attr.aria-pressed]="mobile()">
+    Mobile series
+  </button>
+  <button type="button" (click)="refreshPalette()">Refresh palette</button>
+</div>
+<div class="charts" [style.--nec-series-1]="palette() ? '#2563eb' : '#047857'">
+  @if (mounted()) {
+    <nec-bar-chart
+      data-testid="primary"
+      title="Primary visits"
+      description="Immediate server-rendered chart."
+      [data]="rows"
+      rowIdKey="id"
+      categoryKey="month"
+      [series]="series()"
+      [themeRevision]="revision()"
+      [animation]="false"
+    />
+    <nec-bar-chart
+      data-testid="loading"
+      title="Loading visits"
+      description="Server/client initial loading state."
+      [data]="rows"
+      rowIdKey="id"
+      categoryKey="month"
+      [series]="series()"
+      [loading]="loading()"
+      [animation]="false"
+    />
+    <nec-bar-chart
+      data-testid="hidden"
+      title="Initially hidden visits"
+      description="Initial zero-width surface."
+      [style.display]="hidden() ? 'none' : 'block'"
+      [data]="rows"
+      rowIdKey="id"
+      categoryKey="month"
+      [series]="series()"
+      [animation]="false"
+    />
+  }
+  <section data-testid="deferred" aria-label="Deferred hydration fixture">
+    @defer (hydrate on interaction) {
+      <app-deferred-chart />
+    } @placeholder {
+      <p>Deferred chart placeholder</p>
+    }
+  </section>
+</div>

@@ -18,6 +18,8 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | [Implementation plan](docs/IMPLEMENTATION_PLAN.md) | Delivery increments, scaffold boundaries, and developer workflow |
 | [Upstream provenance](docs/UPSTREAM_PROVENANCE.md) | Pinned fixtures, reuse decisions, and adapted-file notices |
 | [Bar prototype evidence](docs/experiments/BAR_PROTOTYPE.md) | Implemented behavior, test results, captures, and open research |
+| [Visual comparison](docs/experiments/R03_VISUAL_REVIEW.md) | Pinned upstream comparisons at three host widths and remaining alignment work |
+| [Lifecycle and hydration validation](docs/experiments/R04_R05_VALIDATION.md) | Three-browser results, real teardown cycles, accessibility snapshots, and open checks |
 | [Research findings](docs/RESEARCH_FINDINGS.md) | Upstream inventory, verified compatibility facts, reuse assessment, and unknowns |
 | [Technical architecture](docs/TECHNICAL_ARCHITECTURE.md) | Proposed Angular design, public API, rendering lifecycle, and decisions |
 | [Research and development plan](docs/RND_PLAN.md) | Experiments, deliverables, decision gates, and effort estimates |
@@ -39,7 +41,7 @@ Use Node 24.22.2 (`.nvmrc`) and npm 11.19.1. Angular/CLI 22.2.6, TypeScript 6.0.
 
 ```sh
 npm ci
-npx playwright install chromium
+npx playwright install chromium firefox webkit
 npm run build:lib
 npm start
 ```
@@ -50,14 +52,18 @@ Open `http://localhost:4200`. In another terminal, run `npm run watch:lib` while
 | --- | --- |
 | `npm run build` | Build the library and production browser/server playground |
 | `npm test` | Run library and playground Vitest tests once |
-| `npm run test:browser` | Run Chromium scenarios against the production SSR build |
+| `npm run test:browser` | Run Chromium, Firefox, and WebKit scenarios against the production SSR build |
+| `npm run reference:prepare` | Prepare the isolated pinned React reference source and build its harness |
+| `npm run capture:bar` | Capture both implementations at three widths in both themes after preparing/building |
 | `npm run typecheck` | Strict Angular/TypeScript compilation with `skipLibCheck: false` |
 | `npm run check:consumer` | Check a built tarball's declarations in an isolated Angular consumer |
 | `npm run check:ssr` | Check production server markup and hydration metadata after a build |
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
 | `npm run check` | Run formatting, builds, compilation, unit, package, SSR, and browser checks |
 
-The [toolchain report](docs/experiments/R01_TOOLCHAIN.md) records the original scaffold evidence; the [prototype report](docs/experiments/BAR_PROTOTYPE.md) records subsequent checks. CI runs the same workflow on pushes and pull requests. No lint rules or coverage threshold are configured yet.
+The latest [validation report](docs/experiments/R04_R05_VALIDATION.md) records 22 unit/integration tests and 30 passing browser checks, including multiple/deferred hydration and real resource cleanup. `/validation` provides the dedicated scenarios; `/away` verifies route cleanup. CI is configured for all three engines. No lint rules or coverage threshold are configured yet.
+
+The [visual review](docs/experiments/R03_VISUAL_REVIEW.md) records 12 upstream/Angular captures and outstanding axis/spacing differences. R05 passes for the tested workspace bar paths; R03, R04, R06–R08 and G1/G2 remain open. The full leak audit, manual screen-reader review, performance/renderer selection, and packed-runtime consumers are still required.
 
 ## Target environment
 

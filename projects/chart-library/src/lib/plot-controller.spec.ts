@@ -155,4 +155,23 @@ describe('plot lifecycle coordination', () => {
       expect(h.frames.size).toBe(0);
     }
   });
+
+  it('disposes failed renderer updates and waits for explicit recovery instead of retrying on resize', async () => {
+    const h = harness();
+    vi.mocked(h.renderer.update).mockImplementationOnce(() => {
+      throw new Error('Renderer failure');
+    });
+    h.controller.update({});
+    await h.flush();
+    expect(h.onError).toHaveBeenCalledTimes(1);
+    expect(h.renderer.dispose).toHaveBeenCalledTimes(1);
+    h.resize();
+    await h.flush();
+    expect(h.factory).toHaveBeenCalledTimes(1);
+    h.controller.update({ animation: false });
+    await h.flush();
+    expect(h.factory).toHaveBeenCalledTimes(2);
+    expect(h.renderer.update).toHaveBeenLastCalledWith({ animation: false });
+    h.controller.destroy();
+  });
 });

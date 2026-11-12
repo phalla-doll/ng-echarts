@@ -6,3 +6,6 @@ coverage/
 test-results/
 playwright-report/
 package-lock.json
+tools/reference/upstream/
+tools/reference/tokens.css
+tools/reference/dist/

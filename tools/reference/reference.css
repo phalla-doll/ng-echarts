@@ -1,0 +1,20 @@
+@import 'tailwindcss';
+@import './tokens.css';
+@source './upstream/src/registry/charts/echarts-bar-chart.tsx';
+@source './upstream/src/registry/ui';
+@source './upstream/src/registry/examples/echarts/ex-echarts-bar-chart.tsx';
+
+@custom-variant dark (&:is(.dark *));
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+}
+body {
+  margin: 20px;
+  font-family: system-ui, sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+}

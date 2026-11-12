@@ -1,0 +1,87 @@
+- region "Primary visits":
+    - heading "Primary visits" [level=2]
+    - paragraph: Immediate server-rendered chart.
+    - button "Desktop Visible" [pressed]
+    - button "Mobile Visible" [pressed]
+    - button "Hide data table" [expanded]
+    - region "Primary visits data table":
+        - table "Primary visits values":
+            - caption: Primary visits values
+            - rowgroup:
+                - row "Category Desktop Mobile":
+                    - columnheader "Category"
+                    - columnheader "Desktop"
+                    - columnheader "Mobile"
+            - rowgroup:
+                - 'row "January Select Desktop for January: 342 Select Mobile for January: 184"':
+                    - rowheader "January"
+                    - 'cell "Select Desktop for January: 342"':
+                        - 'button "Select Desktop for January: 342"': '342'
+                    - 'cell "Select Mobile for January: 184"':
+                        - 'button "Select Mobile for January: 184"': '184'
+                - 'row "February Select Desktop for February: 876 Select Mobile for February: 491"':
+                    - rowheader "February"
+                    - 'cell "Select Desktop for February: 876"':
+                        - 'button "Select Desktop for February: 876"': '876'
+                    - 'cell "Select Mobile for February: 491"':
+                        - 'button "Select Mobile for February: 491"': '491'
+                - 'row "March Select Desktop for March: 512 Select Mobile for March: 290"':
+                    - rowheader "March"
+                    - 'cell "Select Desktop for March: 512"':
+                        - 'button "Select Desktop for March: 512"': '512'
+                    - 'cell "Select Mobile for March: 290"':
+                        - 'button "Select Mobile for March: 290"': '290'
+                - 'row "April Select Desktop for April: 629 Select Mobile for April: 391"':
+                    - rowheader "April"
+                    - 'cell "Select Desktop for April: 629"':
+                        - 'button "Select Desktop for April: 629"': '629'
+                    - 'cell "Select Mobile for April: 391"':
+                        - 'button "Select Mobile for April: 391"': '391'
+                - 'row "May Select Desktop for May: 458 Select Mobile for May: 309"':
+                    - rowheader "May"
+                    - 'cell "Select Desktop for May: 458"':
+                        - 'button "Select Desktop for May: 458"': '458'
+                    - 'cell "Select Mobile for May: 309"':
+                        - 'button "Select Mobile for May: 309"': '309'
+                - 'row "June Select Desktop for June: 781 Select Mobile for June: 449"':
+                    - rowheader "June"
+                    - 'cell "Select Desktop for June: 781"':
+                        - 'button "Select Desktop for June: 781"': '781'
+                    - 'cell "Select Mobile for June: 449"':
+                        - 'button "Select Mobile for June: 449"': '449'
+                - 'row "July Select Desktop for July: 394 Select Mobile for July: 234"':
+                    - rowheader "July"
+                    - 'cell "Select Desktop for July: 394"':
+                        - 'button "Select Desktop for July: 394"': '394'
+                    - 'cell "Select Mobile for July: 234"':
+                        - 'button "Select Mobile for July: 234"': '234'
+                - 'row "August Select Desktop for August: 925 Select Mobile for August: 557"':
+                    - rowheader "August"
+                    - 'cell "Select Desktop for August: 925"':
+                        - 'button "Select Desktop for August: 925"': '925'
+                    - 'cell "Select Mobile for August: 557"':
+                        - 'button "Select Mobile for August: 557"': '557'
+                - 'row "September Select Desktop for September: 647 Select Mobile for September: 367"':
+                    - rowheader "September"
+                    - 'cell "Select Desktop for September: 647"':
+                        - 'button "Select Desktop for September: 647"': '647'
+                    - 'cell "Select Mobile for September: 367"':
+                        - 'button "Select Mobile for September: 367"': '367'
+                - 'row "October Select Desktop for October: 532 Select Mobile for October: 357"':
+                    - rowheader "October"
+                    - 'cell "Select Desktop for October: 532"':
+                        - 'button "Select Desktop for October: 532"': '532'
+                    - 'cell "Select Mobile for October: 357"':
+                        - 'button "Select Mobile for October: 357"': '357'
+                - 'row "November Select Desktop for November: 803 Select Mobile for November: 515"':
+                    - rowheader "November"
+                    - 'cell "Select Desktop for November: 803"':
+                        - 'button "Select Desktop for November: 803"': '803'
+                    - 'cell "Select Mobile for November: 515"':
+                        - 'button "Select Mobile for November: 515"': '515'
+                - 'row "December Select Desktop for December: 271 Select Mobile for December: 149"':
+                    - rowheader "December"
+                    - 'cell "Select Desktop for December: 271"':
+                        - 'button "Select Desktop for December: 271"': '271'
+                    - 'cell "Select Mobile for December: 149"':
+                        - 'button "Select Mobile for December: 149"': '149'

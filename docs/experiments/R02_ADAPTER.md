@@ -25,4 +25,4 @@ The provisional package contract makes ECharts `^6.1.0` a peer; the tested versi
 
 ## Confirmation criteria
 
-The [prototype report](BAR_PROTOTYPE.md) records partial lifecycle and browser evidence. Confirm or revise this choice after complete R04, R05, and R08 results. Multiple/deferred hydration, all required browser engines, real resource auditing, and packed client/SSR runtime consumers remain necessary. Reopen the comparison if a concrete failure makes the direct adapter unsuitable; do not treat initial passing tests as G1 approval.
+The [current validation report](R04_R05_VALIDATION.md) records passing R05 workspace bar paths in all three engines, including multiple/deferred hydration and navigation. R04's full input/retention review and R08's packed client/SSR runtime consumers remain necessary before confirming this choice. Reopen the comparison if a concrete failure makes the direct adapter unsuitable; the current evidence does not pass G1.

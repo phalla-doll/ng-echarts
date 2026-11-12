@@ -6,6 +6,8 @@ The [R01 report](experiments/R01_TOOLCHAIN.md) records passing builds, strict co
 
 The [initial bar report](experiments/BAR_PROTOTYPE.md) adds valid/invalid packed-template checks, data/state/control tests, and a passing single-chart Chromium SSR/hydration path. It contributes evidence to F01–F10 for bar only; broader browser, accessibility, lifecycle, parity, performance, and full packed-runtime checks remain open. No requirement or gate is closed by this partial slice.
 
+The [visual review](experiments/R03_VISUAL_REVIEW.md) now supplies twelve pinned reference/Angular captures but leaves parity pending. The [R04/R05 report](experiments/R04_R05_VALIDATION.md) adds passing Chromium/Firefox/WebKit scenarios, multiple/deferred hydration and navigation, native-resource teardown checks, and accessibility snapshots. R05 passes for workspace bar fixtures; R04 retained-object/input coverage and R06 manual checks remain pending. F10 still requires packed-runtime evidence, and every family-wide requirement remains open.
+
 ## Requirement coverage
 
 | Requirement | Experiments | Delivery tasks | Required evidence |

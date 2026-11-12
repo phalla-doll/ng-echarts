@@ -2,6 +2,8 @@
 
 Status: partial implementation evidence; R03–R08 and G1/G2 remain pending. Executed 12 November 2026. Tasks: NG02 complete, NG03 initial choice recorded, NG04–NG07 in progress. Chart: bar only. Requirements exercised: F01–F10; none is closed across the MVP.
 
+This is the initial prototype snapshot at `1cfe577`. For current development results, see the [visual review](R03_VISUAL_REVIEW.md) and [lifecycle/hydration report](R04_R05_VALIDATION.md). R05 has since passed for workspace bar fixtures, with 22 unit/integration tests and 30 browser scenarios now passing; the remaining experiments and gates stay open as recorded there.
+
 ## Implemented behavior
 
 The playground renders the pinned twelve-month Desktop/Mobile fixture. The experimental `BarChart<T>` accepts immutable data and typed keys/series; supports grouped/stacked bars, both layouts, solid/gradient fills, explicit themes, locale formatting, loading/error/empty states, and point/legend outputs. Missing observations remain missing; Cartesian zero and negative values remain valid. Plot and table activation use stable row/series IDs.
@@ -28,7 +30,7 @@ Reproduce with Node 24.22.2 and npm 11.19.1:
 
 ```sh
 npm ci
-npx playwright install chromium
+npx playwright install chromium firefox webkit
 npm run check
 ```
 
@@ -41,7 +43,7 @@ These captures were inspected at a 1100 × 1050 viewport, DPR 1, system font, re
 - [Light prototype](captures/bar-prototype-light.png)
 - [Dark prototype with data table](captures/bar-prototype-dark.png)
 
-## Remaining research
+## Remaining research after the initial prototype
 
 - R03: render the pinned upstream examples, capture all required widths/themes, review differences, and finish parity/template-boundary evidence.
 - R04: expand real browser checks for initially hidden mounting, removed series, failed imports and updates, and 100-cycle resource cleanup.

@@ -2,7 +2,7 @@
 
 Status: pass for the initial toolchain scope. Executed 12 November 2026 on macOS with Node 24.22.2 and npm 11.19.1. Task: NG01. This establishes the build boundary for the prototype; G1–G4 remain pending.
 
-This report records the original scaffold at commit `7bcdaf5`. The current check command also includes browser tests; install Chromium with `npx playwright install chromium` before running it. Subsequent implementation results are recorded in the [bar prototype report](BAR_PROTOTYPE.md).
+This report records the original scaffold at commit `7bcdaf5`. The current check command includes three-browser tests; run `npx playwright install chromium firefox webkit` before using it. Current implementation results are recorded in the [lifecycle/hydration report](R04_R05_VALIDATION.md).
 
 ## Tested versions
 

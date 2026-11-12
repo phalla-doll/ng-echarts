@@ -1,8 +1,10 @@
 # ng-echarts research and development plan
 
-Status: R01 toolchain scope passed; R02–R08 and G1–G4 remain pending. Updated 12 November 2026. See the [R01 evidence](experiments/R01_TOOLCHAIN.md) and [implementation plan](IMPLEMENTATION_PLAN.md).
+Status: R01 passed; R05 passed for the workspace bar scenarios. R02–R04, R06–R08, and G1–G4 remain pending. Updated 12 November 2026. See the [R01 evidence](experiments/R01_TOOLCHAIN.md) and [implementation plan](IMPLEMENTATION_PLAN.md).
 
 The [provenance ledger](UPSTREAM_PROVENANCE.md), [R02 initial adapter choice](experiments/R02_ADAPTER.md), and [bar prototype report](experiments/BAR_PROTOTYPE.md) record the first development slice. Initial passing checks do not close the remaining experiments.
+
+Current evidence: [R03 visual review](experiments/R03_VISUAL_REVIEW.md) and [R04/R05 validation](experiments/R04_R05_VALIDATION.md). The former records twelve captures with alignment work still open; the latter records passing browser scenarios in all three engines and 100 real Chromium teardown cycles. R04 remains pending for the broader input matrix and retained-object review. Accessibility snapshots contribute to R06 but do not replace manual screen-reader testing.
 
 ## Objective
 

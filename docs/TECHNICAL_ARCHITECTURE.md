@@ -189,4 +189,10 @@ The workspace uses Angular/CLI 22.2.6, TypeScript 6.0.3, Node 24.22.2, npm 11.19
 
 The [initial adapter decision](experiments/R02_ADAPTER.md) selects a direct, lazy Canvas adapter. Pure model/option modules are separate from the browser lifecycle controller and theme utility. The component waits for a browser render callback and application stability; it retains Angular ownership of the legend, status messages, and table. Options use stable series/row IDs and full replacement to remove stale series. Visibility is retained in Angular state. Browser failures invalidate pending work and allow retry or input-driven recovery.
 
-Theme colors are read at the component host when series, theme, or revision changes; temporary color probes stay inside the plot surface. CSS measurement does not run inside `computed` builders. The [prototype report](experiments/BAR_PROTOTYPE.md) records current evidence and open gates; multiple/deferred hydration, renderer comparison, and final package-runtime checks remain pending.
+Theme colors are read at the component host when series, theme, or revision changes; temporary color probes stay inside the plot surface. CSS measurement does not run inside `computed` builders. The [prototype report](experiments/BAR_PROTOTYPE.md) records the initial slice; the validation evidence below records later progress. Renderer comparison and final package-runtime checks remain pending.
+
+### Validation fixtures
+
+`Root` owns navigation and the router outlet; `App` is the default playground page. The lazy `/validation` page contains regular, initial-loading, and initial-hidden bars, plus a separate `DeferredChart` inside `@defer (hydrate on interaction)`. `/away` has no charts. These paths passed the [R05 workspace bar checks](experiments/R04_R05_VALIDATION.md) in Chromium, Firefox, and WebKit without a hydration bypass. The result supports the current browser boundary; it does not confirm R02 until R04 and R08 also pass.
+
+Native resource counters are installed by browser tests before application code. They track ResizeObserver targets, motion listeners, and scheduled frames; post-GC Chromium counters are retained as diagnostic data. Retained-object attribution remains open. The [visual reference harness](../tools/reference/README.md) has its own private development dependencies and never enters Angular library builds.

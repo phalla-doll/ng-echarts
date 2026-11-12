@@ -20,6 +20,7 @@ test('hydrates one chart and emits equivalent pointer and keyboard table selecti
   page,
 }) => {
   const canvas = page.locator('nec-bar-chart canvas');
+  await canvas.scrollIntoViewIfNeeded();
   // Find an interior pixel in the first green bar; avoid private ECharts APIs or debug globals.
   const point = await canvas.evaluate((element: HTMLCanvasElement) => {
     const context = element.getContext('2d', { willReadFrequently: true })!;
@@ -38,9 +39,19 @@ test('hydrates one chart and emits equivalent pointer and keyboard table selecti
       }
       if (ys.length > 8) {
         const rect = element.getBoundingClientRect();
+        const y = ys[Math.floor(ys.length / 2)]!;
+        const firstX = x + 3;
+        let lastX = firstX;
+        while (lastX + 1 < element.width) {
+          const offset = (y * element.width + lastX + 1) * 4;
+          if (pixels[offset] !== 4 || pixels[offset + 1] !== 120 || pixels[offset + 2] !== 87)
+            break;
+          lastX++;
+        }
+        // Use the bar interior; WebKit rounds fractional pointer coordinates at painted edges.
         return {
-          x: rect.x + ((x + 3) * rect.width) / element.width,
-          y: rect.y + (ys[Math.floor(ys.length / 2)]! * rect.height) / element.height,
+          x: rect.x + (((firstX + lastX) / 2) * rect.width) / element.width,
+          y: rect.y + (y * rect.height) / element.height,
         };
       }
     }

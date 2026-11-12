@@ -24,7 +24,7 @@ Use Node from `.nvmrc` and npm 11.19.1; install with `npm ci`.
 - `npm start`: serve playground; first run `npm run build:lib`.
 - `npm run watch:lib`: rebuild library changes alongside the playground.
 - `npm test`: run Vitest once; `npm run test:watch` watches.
-- `npm run check`: formatting, builds, strict compilation, tests, isolated declarations, SSR, and Chromium scenarios. First install browsers with `npx playwright install chromium`.
+- `npm run check`: formatting, builds, strict compilation, tests, isolated declarations, SSR, and three-browser scenarios. First install browsers with `npx playwright install chromium firefox webkit`.
 - `npm run format`: apply Prettier.
 
 Verify documentation links, heading anchors, and `git diff --check` before committing.

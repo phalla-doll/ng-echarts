@@ -3,7 +3,7 @@ import { BarChart, type PointSelection } from '@ng-echarts/chart-library';
 import { deviceRows, deviceSeries, type DeviceRow } from './fixtures/evilcharts-bar-fixture';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-playground',
   imports: [BarChart],
   templateUrl: './app.html',
   styleUrl: './app.css',

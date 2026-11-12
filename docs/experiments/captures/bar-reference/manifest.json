@@ -1,0 +1,351 @@
+{
+  "source": {
+    "revision": "4c2dd7c9bae780703244265c9a4b509d40c055ad",
+    "hashes": {
+      "src/registry/examples/echarts/ex-echarts-bar-chart.tsx": "52e2895c588e21eb30e01936450d3d02b09a0bfcc0d11c7d0419660126d5f9e5",
+      "src/registry/charts/echarts-bar-chart.tsx": "72e6b65dab49e436e6b62d62f2a0e4cd8e4e25c6ebaf3b726a184573174facf3",
+      "src/app/globals.css": "238ff732d59c22ad46e2c4a08c85b492e3350ef4275f27719304b9fa56fa6a4d"
+    }
+  },
+  "browser": "158.0.8127.18",
+  "reducedMotion": "reduce",
+  "sourceExampleUnmodified": true,
+  "captures": [
+    {
+      "implementation": "upstream",
+      "theme": "light",
+      "width": 320,
+      "filename": "upstream-light-320.png",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 320,
+        "height": 360,
+        "top": 20,
+        "right": 340,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 288,
+        "height": 328,
+        "top": 36,
+        "right": 324,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "implementation": "angular",
+      "theme": "light",
+      "width": 320,
+      "filename": "angular-light-320.png",
+      "host": {
+        "x": 20,
+        "y": 625.59375,
+        "width": 320,
+        "height": 715,
+        "top": 625.59375,
+        "right": 340,
+        "bottom": 1340.59375,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 799.59375,
+        "width": 270,
+        "height": 360,
+        "top": 799.59375,
+        "right": 315,
+        "bottom": 1159.59375,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "implementation": "upstream",
+      "theme": "dark",
+      "width": 320,
+      "filename": "upstream-dark-320.png",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 320,
+        "height": 360,
+        "top": 20,
+        "right": 340,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 288,
+        "height": 328,
+        "top": 36,
+        "right": 324,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 320,
+      "filename": "angular-dark-320.png",
+      "host": {
+        "x": 20,
+        "y": 625.59375,
+        "width": 320,
+        "height": 715,
+        "top": 625.59375,
+        "right": 340,
+        "bottom": 1340.59375,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 799.59375,
+        "width": 270,
+        "height": 360,
+        "top": 799.59375,
+        "right": 315,
+        "bottom": 1159.59375,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "implementation": "upstream",
+      "theme": "light",
+      "width": 768,
+      "filename": "upstream-light-768.png",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 768,
+        "height": 360,
+        "top": 20,
+        "right": 788,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 736,
+        "height": 328,
+        "top": 36,
+        "right": 772,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "implementation": "angular",
+      "theme": "light",
+      "width": 768,
+      "filename": "angular-light-768.png",
+      "host": {
+        "x": 20,
+        "y": 400.59375,
+        "width": 768,
+        "height": 623,
+        "top": 400.59375,
+        "right": 788,
+        "bottom": 1023.59375,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 526.59375,
+        "width": 718,
+        "height": 360,
+        "top": 526.59375,
+        "right": 763,
+        "bottom": 886.59375,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "implementation": "upstream",
+      "theme": "dark",
+      "width": 768,
+      "filename": "upstream-dark-768.png",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 768,
+        "height": 360,
+        "top": 20,
+        "right": 788,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 736,
+        "height": 328,
+        "top": 36,
+        "right": 772,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 768,
+      "filename": "angular-dark-768.png",
+      "host": {
+        "x": 20,
+        "y": 400.59375,
+        "width": 768,
+        "height": 623,
+        "top": 400.59375,
+        "right": 788,
+        "bottom": 1023.59375,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 526.59375,
+        "width": 718,
+        "height": 360,
+        "top": 526.59375,
+        "right": 763,
+        "bottom": 886.59375,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "implementation": "upstream",
+      "theme": "light",
+      "width": 1440,
+      "filename": "upstream-light-1440.png",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 1440,
+        "height": 360,
+        "top": 20,
+        "right": 1460,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 1408,
+        "height": 328,
+        "top": 36,
+        "right": 1444,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "implementation": "angular",
+      "theme": "light",
+      "width": 1440,
+      "filename": "angular-light-1440.png",
+      "host": {
+        "x": 20,
+        "y": 358.59375,
+        "width": 1440,
+        "height": 599,
+        "top": 358.59375,
+        "right": 1460,
+        "bottom": 957.59375,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 460.59375,
+        "width": 1390,
+        "height": 360,
+        "top": 460.59375,
+        "right": 1435,
+        "bottom": 820.59375,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "implementation": "upstream",
+      "theme": "dark",
+      "width": 1440,
+      "filename": "upstream-dark-1440.png",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 1440,
+        "height": 360,
+        "top": 20,
+        "right": 1460,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 1408,
+        "height": 328,
+        "top": 36,
+        "right": 1444,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 1440,
+      "filename": "angular-dark-1440.png",
+      "host": {
+        "x": 20,
+        "y": 358.59375,
+        "width": 1440,
+        "height": 599,
+        "top": 358.59375,
+        "right": 1460,
+        "bottom": 957.59375,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 460.59375,
+        "width": 1390,
+        "height": 360,
+        "top": 460.59375,
+        "right": 1435,
+        "bottom": 820.59375,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    }
+  ]
+}

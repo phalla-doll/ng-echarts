@@ -1,0 +1,46 @@
+{
+  "browserName": "chromium",
+  "cycles": 100,
+  "samples": [
+    {
+      "cycle": 1,
+      "documents": 1,
+      "nodes": 251,
+      "jsEventListeners": 34,
+      "usedSize": 5353012,
+      "totalSize": 5849088,
+      "embedderHeapUsedSize": 661888,
+      "backingStorageSize": 810720
+    },
+    {
+      "cycle": 10,
+      "documents": 1,
+      "nodes": 258,
+      "jsEventListeners": 35,
+      "usedSize": 6834076,
+      "totalSize": 7684096,
+      "embedderHeapUsedSize": 736192,
+      "backingStorageSize": 810897
+    },
+    {
+      "cycle": 50,
+      "documents": 1,
+      "nodes": 258,
+      "jsEventListeners": 35,
+      "usedSize": 7321268,
+      "totalSize": 8732672,
+      "embedderHeapUsedSize": 777472,
+      "backingStorageSize": 810881
+    },
+    {
+      "cycle": 100,
+      "documents": 1,
+      "nodes": 258,
+      "jsEventListeners": 35,
+      "usedSize": 7589948,
+      "totalSize": 8732672,
+      "embedderHeapUsedSize": 814776,
+      "backingStorageSize": 810881
+    }
+  ]
+}

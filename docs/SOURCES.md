@@ -30,9 +30,12 @@ The registry count includes every entry in `items`. The ECharts example count fi
 | S13 | [Angular template complexity guidance](https://angular.dev/style-guide#avoid-overly-complex-logic-in-templates) and neighboring component conventions | Simple template expressions, TypeScript derivations, and component member conventions |
 | S14 | [Angular computed signals](https://angular.dev/guide/signals#computed-signals-are-both-lazily-evaluated-and-memoized) | Lazy cached derivation, tracked dependencies, and the distinction between derived state and side effects |
 | S15 | [Angular unit testing](https://angular.dev/guide/testing) | CLI Vitest integration and DOM-based unit test setup |
+| S16 | [Angular incremental hydration](https://angular.dev/guide/incremental-hydration) | Server-rendered deferred content, hydration triggers, and event replay |
 
 Recheck platform documentation when development begins and when compatibility ranges change. Preserve the pinned upstream revision for reproducible comparisons, even if a later revision is evaluated separately.
 
 ## Research boundaries
 
-Initial research inspected repository metadata, registry structure, source excerpts, and official documentation. The subsequent Angular scaffold and bar checks are recorded in the [R01 report](experiments/R01_TOOLCHAIN.md) and [prototype report](experiments/BAR_PROTOTYPE.md). Adapted fixture data and palette values are listed in the [provenance ledger](UPSTREAM_PROVENANCE.md); no React implementation bodies have been copied. Full chart compatibility, measured performance, completed accessibility compliance, npm name availability, and release timing remain subject to the implementation gates.
+Initial research inspected repository metadata, registry structure, source excerpts, and official documentation. The Angular scaffold and initial bar checks are recorded in the [R01 report](experiments/R01_TOOLCHAIN.md) and [prototype report](experiments/BAR_PROTOTYPE.md). Adapted fixture data and palette values are listed in the [provenance ledger](UPSTREAM_PROVENANCE.md); no React implementation bodies have been copied into the Angular library. Full chart compatibility, measured performance, completed accessibility compliance, npm name availability, and release timing remain subject to the implementation gates.
+
+Current visual and browser evidence is recorded in the [R03 review](experiments/R03_VISUAL_REVIEW.md) and [R04/R05 report](experiments/R04_R05_VALIDATION.md). The reference harness executes unmodified upstream React code separately from Angular library builds. Its font/CSS/build context is documented so the captures are not mistaken for the full upstream website.

@@ -36,6 +36,12 @@ yarn-error.log
 /coverage
 /test-results
 /playwright-report
+/tools/reference/upstream
+/tools/reference/upstream.tar.gz
+/tools/reference/tokens.css
+/tools/reference/source-manifest.json
+/tools/reference/node_modules
+/tools/reference/dist
 /libpeerconnection.log
 testem.log
 /typings

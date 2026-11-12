@@ -54,17 +54,19 @@ Use Node from `.nvmrc`; `nvm use` is available if you use nvm. Then run:
 
 ```sh
 npm ci
-npx playwright install chromium
+npx playwright install chromium firefox webkit
 npm run build:lib
 npm start
 ```
 
 The playground runs at `http://localhost:4200`. In another terminal, `npm run watch:lib` rebuilds library changes. The playground resolves the built package in `dist/chart-library`, rather than library source files.
 
-Before review, run `npm run check`. It checks formatting, production builds, strict Angular/TypeScript compilation, unit tests, isolated packed declarations and invalid-key examples, a production SSR response, and Playwright Chromium scenarios. `npm run test:watch` starts interactive unit tests; `npm run format` applies formatting. No ESLint configuration or numeric coverage gate exists yet. Expand browser coverage during R04–R06.
+Before review, run `npm run check`. It checks formatting, production builds, strict Angular/TypeScript compilation, unit tests, isolated packed declarations and invalid-key examples, a production SSR response, and Playwright scenarios in Chromium, Firefox, and WebKit. `npm run test:watch` starts interactive unit tests; `npm run format` applies formatting. No ESLint configuration or numeric coverage gate exists yet.
+
+The `/validation` route exercises multiple/loading/hidden/deferred charts; `/away` exercises cleanup. Use `npm run reference:prepare` to install the separate reference harness and prepare pinned upstream source, then `npm run build` and `npm run capture:bar` for reproducible comparison images. See the [visual review](experiments/R03_VISUAL_REVIEW.md) and [browser evidence](experiments/R04_R05_VALIDATION.md).
 
 ## Gate status and next action
 
 Only scaffold results can close NG01/R01. The package declaration fixture does not close R08, and SSR metadata does not close R05 or F10. Keep G1–G4 pending until their complete criteria in the [R&D plan](RND_PLAN.md#decision-gates) pass.
 
-NG02's fixture/provenance record and NG03's initial adapter decision are recorded. The bar slice is in progress; next complete upstream comparisons and the remaining lifecycle, hydration, accessibility, renderer, and packed-runtime evidence. Do not start line, area, or pie/donut while the bar feasibility evidence remains open.
+NG02's fixture/provenance record and NG03's initial adapter decision are recorded. R05 passes for workspace bar fixtures. Next align the visual differences, complete the broader R04 input matrix/heap attribution and R06 screen-reader/motion checks, then collect R07 renderer/performance and R08 packed-runtime evidence. Do not start line, area, or pie/donut while G1/G2 remain open.
