@@ -77,6 +77,39 @@ describe('bar data contract', () => {
 });
 
 describe('bar options boundary', () => {
+  it.each(['vertical', 'horizontal'] as const)(
+    'formats only category ticks in %s layout',
+    (layout) => {
+      const model = normalizeBarData(rows, 'id', 'category', series);
+      if (model.kind === 'error') throw new Error(model.message);
+      const options = buildBarOptions(
+        model,
+        new Set(),
+        defaultBarTheme('light'),
+        layout,
+        false,
+        false,
+        false,
+        String,
+        ['Short', 'Short'],
+      );
+      const axis = layout === 'vertical' ? options.xAxis : options.yAxis;
+      const category = Array.isArray(axis) ? axis[0] : axis;
+      if (category?.type !== 'category') throw new Error('Expected category axis');
+      expect(category?.data).toEqual(['first', 'second']);
+      const tick = category?.axisLabel?.formatter;
+      if (typeof tick !== 'function') throw new Error('Expected category tick callback');
+      expect(tick('second', 1, undefined)).toBe('Short');
+      const tooltip = Array.isArray(options.tooltip) ? options.tooltip[0] : options.tooltip;
+      const formatter = tooltip?.formatter;
+      if (typeof formatter !== 'function') throw new Error('Expected tooltip callback');
+      expect(formatter({ data: { id: 'second' } } as never, '', () => {})).toContain(
+        '&lt;Same&gt;',
+      );
+      expect(model.rows[1]?.category).toBe('<Same>');
+    },
+  );
+
   it('preserves stable identities and missing values and escapes tooltip labels', () => {
     const model = normalizeBarData(rows, 'id', 'category', series);
     if (model.kind === 'error') throw new Error(model.message);

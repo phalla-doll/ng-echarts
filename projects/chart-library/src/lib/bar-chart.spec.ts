@@ -32,6 +32,32 @@ async function setup() {
 }
 
 describe('bar Angular controls', () => {
+  it('contains formatter failures, preserves state precedence, and recovers full table labels', async () => {
+    const { fixture, element } = await setup();
+    fixture.componentRef.setInput('categoryTickFormatter', () => {
+      throw new Error('Private details');
+    });
+    await fixture.whenStable();
+    expect(element.querySelector('[role=alert]')?.textContent).toContain(
+      'Category tick formatting failed',
+    );
+    expect(element.textContent).not.toContain('Private details');
+    expect(element.querySelector('.table-toggle')).toBeNull();
+    fixture.componentRef.setInput('loading', true);
+    await fixture.whenStable();
+    expect(element.querySelector('[role=status]')?.textContent).toContain('Loading');
+    fixture.componentRef.setInput('loading', false);
+    fixture.componentRef.setInput('categoryTickFormatter', (label: string) => label.toLowerCase());
+    await fixture.whenStable();
+    expect(element.querySelector('[role=alert]')).toBeNull();
+    element.querySelector<HTMLButtonElement>('.table-toggle')!.click();
+    await fixture.whenStable();
+    expect(element.querySelector('tbody th')?.textContent).toContain('A');
+    expect(element.querySelector('tbody button')?.getAttribute('aria-label')).toBe(
+      'Select Values for A: 0',
+    );
+  });
+
   it('keeps every value accessible when all series are hidden and emits typed table actions', async () => {
     const { fixture, element } = await setup();
     const events: PointSelection<Row>[] = [];

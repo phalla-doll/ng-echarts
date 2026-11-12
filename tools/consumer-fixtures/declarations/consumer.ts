@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {
   BarChart,
   ChartFrame,
+  type CategoryTickFormatter,
   type ChartSeries,
   type NumericKey,
   type PointSelection,
@@ -20,11 +21,14 @@ import type { EChartsCoreOption } from 'echarts/core';
       rowIdKey="id"
       categoryKey="category"
       [series]="series"
+      [categoryTickFormatter]="categoryTickFormatter"
       (pointSelect)="select($event)"
     />`,
 })
 export class Consumer {
   readonly options: EChartsCoreOption = { animation: false };
+  readonly categoryTickFormatter: CategoryTickFormatter = (category, index) =>
+    `${index}: ${category}`;
   readonly rows: readonly Row[] = [{ id: 'a', category: 'A', count: 0 }];
   readonly series: readonly ChartSeries<Row>[] = [{ id: 'count', key: 'count', label: 'Count' }];
   select(point: PointSelection<Row>): void {
@@ -44,3 +48,6 @@ const nullish: NumericKey<{ missing: null }> = 'missing';
 // @ts-expect-error Unknown and mixed fields must not slip through numeric constraints.
 const unknown: NumericKey<{ unknown: unknown; mixed: number | string }> = 'unknown';
 void [invalidSeries, nullish, unknown];
+// @ts-expect-error Category ticks accept text labels and return text, never numbers.
+const invalidFormatter: CategoryTickFormatter = (category: number) => category;
+void invalidFormatter;

@@ -4,7 +4,7 @@ Status: R01 passed; R05 passed for the workspace bar scenarios. R02â€“R04, R06â€
 
 The [provenance ledger](UPSTREAM_PROVENANCE.md), [R02 initial adapter choice](experiments/R02_ADAPTER.md), and [bar prototype report](experiments/BAR_PROTOTYPE.md) record the first development slice. Initial passing checks do not close the remaining experiments.
 
-Current evidence: [R03 visual review](experiments/R03_VISUAL_REVIEW.md) and [R04/R05 validation](experiments/R04_R05_VALIDATION.md). The former records twelve captures with alignment work still open; the latter records passing browser scenarios in all three engines and 100 real Chromium teardown cycles. R04 remains pending for the broader input matrix and retained-object review. Accessibility snapshots contribute to R06 but do not replace manual screen-reader testing.
+Current evidence: [R03 visual review](experiments/R03_VISUAL_REVIEW.md) and [R04/R05 validation](experiments/R04_R05_VALIDATION.md). The former retains twelve initial captures and adds sixteen neutral-theme/tooltip views plus typed category-tick formatting, with variant and tooltip styling work still open; the latter records passing browser scenarios in all three engines and 100 real Chromium teardown cycles. R04 remains pending for the broader input matrix and retained-object review. Accessibility snapshots contribute to R06 but do not replace manual screen-reader testing.
 
 ## Objective
 

@@ -6,7 +6,7 @@ NG01 evidence: [R01 toolchain report](experiments/R01_TOOLCHAIN.md). The [implem
 
 NG02 evidence: [reference fixtures and provenance](UPSTREAM_PROVENANCE.md). NG03 initial choice: [direct adapter review](experiments/R02_ADAPTER.md). [Initial bar prototype results](experiments/BAR_PROTOTYPE.md) and the reports below contribute to NG04–NG07 without closing their full task criteria.
 
-Development update: [upstream captures and visual review](experiments/R03_VISUAL_REVIEW.md) are recorded at all required widths/themes. [Three-browser validation](experiments/R04_R05_VALIDATION.md) passes multiple/deferred hydration, navigation, hidden mounting, import failure/races, and real teardown scenarios. R05 passes for these bar fixtures; NG04–NG07 remain in progress while parity, the full input/retention matrix, and R06 are completed.
+Development update: [upstream captures and visual review](experiments/R03_VISUAL_REVIEW.md) now include typed category-tick formatting, a neutral-token comparison route, all required widths/themes, and tooltip views. The original captures remain as historical evidence. [Three-browser validation](experiments/R04_R05_VALIDATION.md) passes multiple/deferred hydration, navigation, hidden mounting, import failure/races, and real teardown scenarios. R05 passes for these bar fixtures; NG04–NG07 remain in progress while parity, the full input/retention matrix, and R06 are completed.
 
 ## Feasibility milestone
 
@@ -53,4 +53,4 @@ Review Angular code against the [template and derived-state conventions](TECHNIC
 
 Use the [acceptance matrix](ACCEPTANCE_MATRIX.md) to connect task completion to product requirements and gate evidence. NG03 selects a prototype candidate; NG08 confirms it. NG09 establishes shared behavior; NG14 verifies that behavior in every family. A successful bar prototype cannot close requirements for charts that have not been implemented.
 
-Next: align category ticks and comparison-theme/plot spacing from R03, finish R04 input/heap review and R06 screen-reader/motion evidence, then run R07/R08 before resolving G1/G2. Do not expand chart families while those gates remain open.
+Next: compare stacked/horizontal/gradient variants and refine tooltip hierarchy in R03, finish R04 input/heap review and R06 screen-reader/motion evidence, then run R07/R08 before resolving G1/G2. Do not expand chart families while those gates remain open.

@@ -1,0 +1,45 @@
+/* Neutral tokens adapted from EvilCharts globals.css, revision
+ * 4c2dd7c9bae780703244265c9a4b509d40c055ad (2026 Gurbinder, MIT).
+ * See docs/UPSTREAM_PROVENANCE.md and the preserved third-party notice. */
+main {
+  --nec-background: oklch(1 0 0);
+  --nec-text: oklch(0.145 0 0);
+  --nec-muted: oklch(0.4 0 0);
+  --nec-border: oklch(0.922 0 0);
+  min-height: 100vh;
+  padding: 20px;
+  color: var(--nec-text);
+  background: var(--nec-background);
+}
+main.dark {
+  --nec-background: oklch(14% 0 270);
+  --nec-text: oklch(0.985 0 0);
+  --nec-muted: oklch(0.708 0 0);
+  --nec-border: oklch(100% 0 271.152 / 0.075);
+  color-scheme: dark;
+}
+header {
+  margin-bottom: 2rem;
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+button {
+  border: 1px solid var(--nec-border);
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  color: inherit;
+  background: var(--nec-background);
+  font: inherit;
+  cursor: pointer;
+}
+button:focus-visible {
+  outline: 3px solid #648dff;
+  outline-offset: 3px;
+}
+.comparison-host {
+  max-width: 1440px;
+  margin: 0 auto;
+}

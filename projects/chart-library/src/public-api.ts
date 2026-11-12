@@ -3,6 +3,7 @@ export { ChartFrame } from './lib/chart-frame';
 export { BarChart } from './lib/bar-chart';
 export type {
   BarLayout,
+  CategoryTickFormatter,
   ChartSeries,
   ChartTheme,
   LegendVisibilityChange,

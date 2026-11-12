@@ -6,6 +6,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   imports: [RouterLink, RouterOutlet],
   template: `<nav aria-label="Playground pages">
       <a routerLink="/">Playground</a>
+      <a routerLink="/comparison">Visual comparison</a>
       <a routerLink="/validation">Lifecycle validation</a>
       <a routerLink="/away">Navigate away</a>
     </nav>

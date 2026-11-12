@@ -191,6 +191,16 @@ The [initial adapter decision](experiments/R02_ADAPTER.md) selects a direct, laz
 
 Theme colors are read at the component host when series, theme, or revision changes; temporary color probes stay inside the plot surface. CSS measurement does not run inside `computed` builders. The [prototype report](experiments/BAR_PROTOTYPE.md) records the initial slice; the validation evidence below records later progress. Renderer comparison and final package-runtime checks remain pending.
 
+### Category tick formatting
+
+The experimental `BarChart<T>` exports an optional `categoryTickFormatter` input and the type `CategoryTickFormatter = (category: string, index: number) => string`. Omitting it preserves full axis labels. For month ticks, a consumer can bind a readonly function such as `readonly monthTick: CategoryTickFormatter = (label) => label.slice(0, 3)` through `[categoryTickFormatter]="monthTick"`.
+
+The function must be pure, synchronous, and deterministic on server and client. A cached `computed` evaluates it against original category strings and zero-based row positions when the model/function changes; layout, theme, resize, and tooltip rendering do not invoke consumer code again. Empty strings intentionally suppress ticks. Duplicate labels remain distinct through row IDs. Full category strings remain in tooltip titles, table headings, and action labels. This input does not format numeric values.
+
+Thrown exceptions, nonfunction JavaScript inputs, and nontext results produce a generic configuration error without leaking exception details. Application error and loading retain precedence; replacing the input permits recovery. TypeScript and packed Angular template checks reject incorrect signatures. The `/comparison` route exercises valid/invalid inputs and documents the neutral theme mapping in the [R03 review](experiments/R03_VISUAL_REVIEW.md).
+
+Axes retain explicit 12 px labels and value ticks for readability. The plot keeps insets of left 12, right 16, top 12, bottom 8 px, using ECharts 6 `outerBoundsMode: 'same'` and `outerBoundsContain: 'axisLabel'` instead of deprecated `containLabel`. The title and native controls occupy separate space from the plot; the upstream brush is excluded. These are reviewed prototype design choices, not a claim of completed visual parity.
+
 ### Validation fixtures
 
 `Root` owns navigation and the router outlet; `App` is the default playground page. The lazy `/validation` page contains regular, initial-loading, and initial-hidden bars, plus a separate `DeferredChart` inside `@defer (hydrate on interaction)`. `/away` has no charts. These paths passed the [R05 workspace bar checks](experiments/R04_R05_VALIDATION.md) in Chromium, Firefox, and WebKit without a hydration bypass. The result supports the current browser boundary; it does not confirm R02 until R04 and R08 also pass.

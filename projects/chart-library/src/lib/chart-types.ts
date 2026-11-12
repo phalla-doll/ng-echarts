@@ -34,3 +34,6 @@ export interface LegendVisibilityChange {
 
 export type ChartTheme = 'light' | 'dark';
 export type BarLayout = 'vertical' | 'horizontal';
+
+/** Pure, synchronous axis-only formatting. Use identical functions on server and client. */
+export type CategoryTickFormatter = (category: string, index: number) => string;

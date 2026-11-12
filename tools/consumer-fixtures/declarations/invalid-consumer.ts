@@ -36,3 +36,20 @@ export class InvalidSeriesConsumer {
   readonly rows: readonly Row[] = [{ id: 'a', category: 'A', count: 1 }];
   readonly badSeries = [{ id: 'bad', key: 'category', label: 'Invalid measure' }] as const;
 }
+
+@Component({
+  imports: [BarChart],
+  template: `<nec-bar-chart
+    title="Invalid category formatter"
+    [data]="rows"
+    rowIdKey="id"
+    categoryKey="category"
+    [series]="series"
+    [categoryTickFormatter]="badFormatter"
+  />`,
+})
+export class InvalidFormatterConsumer {
+  readonly rows: readonly Row[] = [{ id: 'a', category: 'A', count: 1 }];
+  readonly series: readonly ChartSeries<Row>[] = [{ id: 'count', key: 'count', label: 'Count' }];
+  readonly badFormatter = (_category: string) => 42;
+}

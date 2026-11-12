@@ -22,9 +22,11 @@ Paths below are relative to the repository root. Full terms are preserved in [th
 | --- | --- | --- |
 | `projects/playground/src/app/fixtures/evilcharts-bar-fixture.ts` | Primary example's twelve rows and series labels | Adapted dataset; added stable IDs and readonly TypeScript types; source header retained |
 | `projects/chart-library/src/lib/bar-options.ts` | Primary example's light/dark Desktop and Mobile colors | Adapted first two default colors; additional colors and option-building code are new |
+| `projects/playground/src/app/comparison.css` | Four root/dark tokens from pinned `src/app/globals.css`: background, foreground, muted-foreground, border | Adapted as `--nec-background`, `--nec-text`, `--nec-muted`, `--nec-border`; source header and MIT notice retained; fixture only, not library defaults |
 | `projects/chart-library/third-party/evilcharts-LICENSE.txt` | Pinned `LICENSE` | Verbatim notice, included in the packed library by `ng-package.json` |
 | `tools/reference/tokens.css` (generated, ignored) | Pinned `src/app/globals.css` root/dark variable blocks | Extracted by the preparation script for the isolated reference build; the downloaded source retains its MIT license |
 | `docs/experiments/captures/bar-reference/upstream-*.png` | Rendered primary example and its real imported modules | Reference screenshots; source hashes and harness differences recorded in the capture manifest/review |
+| `docs/experiments/captures/bar-alignment/upstream-*.png` | Same unmodified primary example, including tooltip views | Follow-up references alongside the Angular neutral-token fixture; source and comparison CSS hashes recorded |
 
 The component templates, generic contracts, data validation, option transformations, lifecycle controller, CSS resolution, and tests are new Angular implementation. No upstream React implementation or helper bodies have been copied into them.
 

@@ -57,6 +57,7 @@ export function buildBarOptions<T>(
   gradient: boolean,
   animation: boolean,
   format: (value: number) => string,
+  categoryTicks: readonly string[] = model.rows.map((row) => row.category),
 ): BarOption {
   const horizontal = layout === 'horizontal';
   const categoryAxis = {
@@ -67,14 +68,15 @@ export function buildBarOptions<T>(
     axisTick: { show: false },
     axisLabel: {
       color: tokens.muted,
-      formatter: (_value: string, index: number) => model.rows[index]?.category ?? '',
+      fontSize: 12,
+      formatter: (_value: string, index: number) => categoryTicks[index] ?? '',
     },
   };
   const valueAxis = {
     type: 'value' as const,
     axisLine: { show: false },
     axisTick: { show: false },
-    axisLabel: { color: tokens.muted, formatter: format },
+    axisLabel: { color: tokens.muted, fontSize: 12, formatter: format },
     splitLine: { lineStyle: { color: tokens.border, type: 'dashed' as const } },
   };
   return {
@@ -83,7 +85,14 @@ export function buildBarOptions<T>(
     animationDurationUpdate: 200,
     backgroundColor: tokens.background,
     textStyle: { fontFamily: 'system-ui, sans-serif', color: tokens.text },
-    grid: { left: 12, right: 16, top: 12, bottom: 8, containLabel: true },
+    grid: {
+      left: 12,
+      right: 16,
+      top: 12,
+      bottom: 8,
+      outerBoundsMode: 'same',
+      outerBoundsContain: 'axisLabel',
+    },
     xAxis: horizontal ? valueAxis : categoryAxis,
     yAxis: horizontal ? categoryAxis : valueAxis,
     tooltip: {

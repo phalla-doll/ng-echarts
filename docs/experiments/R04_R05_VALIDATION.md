@@ -12,7 +12,7 @@ npx playwright install chromium firefox webkit
 npm run check
 ```
 
-The complete check passed: production library/client/server builds, strict compilation, 22 Vitest tests across five files, packed declaration/invalid-key checks, SSR response checks, and **30 browser scenarios** (ten each in Chromium 158.0.8127.18, Firefox 159.0, and WebKit 27.2). Tests use the production server, default reduced motion, and the pinned monthly fixture. Hosted CI is configured for all three engines; these development changes have been validated locally.
+The complete check passed: production library/client/server builds, strict compilation, 31 Vitest tests across six files, packed declaration/invalid-key checks, SSR response checks, and **36 browser scenarios** (twelve each in Chromium 158.0.8127.18, Firefox 159.0, and WebKit 27.2). Tests use the production server, default reduced motion, and the pinned monthly fixture. The follow-up `/comparison` scenarios verify actual painted abbreviated/full ticks, unchanged full tooltip/table labels, formatter-error disposal/recovery, and control/plot containment at 320/768/1440 px in both themes. Hosted CI is configured for all three engines; these development changes have been validated locally.
 
 ## R05 SSR and hydration
 

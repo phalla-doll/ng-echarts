@@ -54,16 +54,16 @@ Open `http://localhost:4200`. In another terminal, run `npm run watch:lib` while
 | `npm test` | Run library and playground Vitest tests once |
 | `npm run test:browser` | Run Chromium, Firefox, and WebKit scenarios against the production SSR build |
 | `npm run reference:prepare` | Prepare the isolated pinned React reference source and build its harness |
-| `npm run capture:bar` | Capture both implementations at three widths in both themes after preparing/building |
+| `npm run capture:bar` | Capture the neutral comparison fixture and upstream at three widths in both themes, plus tooltips |
 | `npm run typecheck` | Strict Angular/TypeScript compilation with `skipLibCheck: false` |
 | `npm run check:consumer` | Check a built tarball's declarations in an isolated Angular consumer |
 | `npm run check:ssr` | Check production server markup and hydration metadata after a build |
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
 | `npm run check` | Run formatting, builds, compilation, unit, package, SSR, and browser checks |
 
-The latest [validation report](docs/experiments/R04_R05_VALIDATION.md) records 22 unit/integration tests and 30 passing browser checks, including multiple/deferred hydration and real resource cleanup. `/validation` provides the dedicated scenarios; `/away` verifies route cleanup. CI is configured for all three engines. No lint rules or coverage threshold are configured yet.
+The latest [validation report](docs/experiments/R04_R05_VALIDATION.md) records 31 unit/integration tests and 36 passing browser checks, including multiple/deferred hydration and real resource cleanup. `/validation` provides lifecycle scenarios; `/comparison` provides abbreviated category ticks and pinned neutral theme tokens; `/away` verifies route cleanup. CI is configured for all three engines. No lint rules or coverage threshold are configured yet.
 
-The [visual review](docs/experiments/R03_VISUAL_REVIEW.md) records 12 upstream/Angular captures and outstanding axis/spacing differences. R05 passes for the tested workspace bar paths; R03, R04, R06–R08 and G1/G2 remain open. The full leak audit, manual screen-reader review, performance/renderer selection, and packed-runtime consumers are still required.
+The [visual review](docs/experiments/R03_VISUAL_REVIEW.md) retains the original 12 captures and adds 16 neutral-theme/tooltip captures, with remaining visual differences recorded. R05 passes for the tested workspace bar paths; R03, R04, R06–R08 and G1/G2 remain open. The full leak audit, manual screen-reader review, performance/renderer selection, and packed-runtime consumers are still required.
 
 ## Target environment
 

@@ -1,5 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
-import { BarChart, type PointSelection } from '@ng-echarts/chart-library';
+import {
+  BarChart,
+  type CategoryTickFormatter,
+  type PointSelection,
+} from '@ng-echarts/chart-library';
 import { deviceRows, deviceSeries, type DeviceRow } from './fixtures/evilcharts-bar-fixture';
 
 @Component({
@@ -38,6 +42,8 @@ export class App {
         : deviceRows,
   );
   protected readonly series = deviceSeries;
+  protected readonly categoryTickFormatter: CategoryTickFormatter = (category) =>
+    category.slice(0, 3);
   protected readonly selectedPoint = signal('Select a bar or a value in the data table.');
 
   protected toggleTheme(): void {

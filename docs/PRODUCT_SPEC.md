@@ -62,6 +62,7 @@ Composed charts, radar, radial charts, Sankey, calendar heatmaps, range brushing
 - Support duplicate display labels through separate stable identifiers. Preserve legend visibility by identifier across updates; new entries start visible and removed entries are discarded. Point activation emits an event without adding persistent point-selection state in MVP.
 - Treat rows, series, and configuration as immutable inputs; changes require a new reference. Batch multiple input changes into one rendering update.
 - Default to the explicit locale `en-US`; consumers may supply a locale or pure value formatter. Use the same locale and input data on server and client. Tooltip text is escaped before entering any HTML formatter.
+- An optional pure, synchronous category-tick formatter may shorten axis labels. Preserve full category text in tooltips, tables, and action labels, and keep stable row identities independent of formatted text.
 
 ## State and interaction behavior
 

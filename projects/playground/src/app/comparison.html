@@ -1,0 +1,34 @@
+<main [class.dark]="theme() === 'dark'">
+  <header>
+    <h1>Bar visual comparison</h1>
+    <p>
+      Pinned monthly values and neutral theme tokens. Full labels remain in tooltips and tables.
+    </p>
+    <div class="controls">
+      <button type="button" (click)="toggleTheme()">Toggle comparison theme</button>
+      <button type="button" [attr.aria-pressed]="abbreviated()" (click)="toggleTicks()">
+        Abbreviate category ticks
+      </button>
+      <button
+        type="button"
+        [attr.aria-pressed]="invalidFormatter()"
+        (click)="toggleFormatterError()"
+      >
+        Simulate formatter error
+      </button>
+    </div>
+  </header>
+  <div class="comparison-host">
+    <nec-bar-chart
+      title="Device visits by month"
+      description="Monthly desktop and mobile visits. Use the legend to change visibility or open the data table to explore values."
+      [data]="rows"
+      rowIdKey="id"
+      categoryKey="month"
+      [series]="series"
+      [theme]="theme()"
+      [categoryTickFormatter]="tickFormatter()"
+      [height]="360"
+    />
+  </div>
+</main>

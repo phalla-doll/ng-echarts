@@ -70,8 +70,14 @@ try {
     ),
     `Expected the invalid numeric-key diagnostic:\n${invalid.stdout}\n${invalid.stderr}`,
   );
+  assert(
+    /Type '\(_category: string\) => number' is not assignable to type 'CategoryTickFormatter'/.test(
+      `${invalid.stdout}${invalid.stderr}`,
+    ),
+    `Expected the invalid category-formatter diagnostic:\n${invalid.stdout}\n${invalid.stderr}`,
+  );
   console.log(
-    'PASS: packed library and ECharts declarations compile in isolation; invalid key examples are rejected (skipLibCheck=false).',
+    'PASS: packed library and ECharts declarations compile in isolation; invalid keys and category formatter are rejected (skipLibCheck=false).',
   );
 } finally {
   await rm(consumer, { recursive: true, force: true });

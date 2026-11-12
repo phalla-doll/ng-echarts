@@ -1,10 +1,11 @@
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { setTimeout as delay } from 'node:timers/promises';
 import { chromium } from 'playwright';
 
-const output = new URL('../docs/experiments/captures/bar-reference/', import.meta.url);
+const output = new URL('../docs/experiments/captures/bar-alignment/', import.meta.url);
 const source = JSON.parse(
   await readFile(new URL('./reference/source-manifest.json', import.meta.url), 'utf8'),
 );
@@ -74,10 +75,12 @@ try {
         if (implementation === 'upstream') {
           await page.goto(`http://127.0.0.1:4174/?width=${width}&theme=${theme}`);
         } else {
-          await page.goto('http://localhost:4175');
+          await page.goto('http://localhost:4175/comparison');
           if (theme === 'dark')
-            await page.getByRole('button', { name: 'Use dark theme', exact: true }).click();
-          await page.locator('.workspace').evaluate((element, value) => {
+            await page
+              .getByRole('button', { name: 'Toggle comparison theme', exact: true })
+              .click();
+          await page.locator('.comparison-host').evaluate((element, value) => {
             element.style.maxWidth = 'none';
             element.style.width = `${value}px`;
           }, width);
@@ -94,6 +97,22 @@ try {
           host: element.getBoundingClientRect().toJSON(),
           canvas: element.querySelector('canvas')?.getBoundingClientRect().toJSON(),
           font: getComputedStyle(element).fontFamily,
+          tokens: Object.fromEntries(
+            ['background', 'text', 'muted', 'border'].map((token) => [
+              token,
+              (
+                getComputedStyle(element).getPropertyValue(`--nec-${token}`) ||
+                getComputedStyle(element).getPropertyValue(
+                  {
+                    background: '--background',
+                    text: '--foreground',
+                    muted: '--muted-foreground',
+                    border: '--border',
+                  }[token],
+                )
+              ).trim(),
+            ]),
+          ),
           dpr: devicePixelRatio,
         }));
         assert.equal(metadata.host.width, width);
@@ -101,16 +120,77 @@ try {
         const filename = `${implementation}-${theme}-${width}.png`;
         await host.screenshot({ path: new URL(filename, output).pathname });
         captures.push({ implementation, theme, width, filename, ...metadata });
+        if (width === 768) {
+          const canvas = page.locator('canvas');
+          await canvas.scrollIntoViewIfNeeded();
+          const point = await canvas.evaluate((element) => {
+            const context = element.getContext('2d', { willReadFrequently: true });
+            const pixels = context.getImageData(0, 0, element.width, element.height).data;
+            for (let x = 0; x < element.width - 4; x++) {
+              const ys = [];
+              for (let y = 0; y < element.height; y++) {
+                const offset = (y * element.width + x + 3) * 4;
+                const green = pixels[offset + 1];
+                if (
+                  green > pixels[offset] * 2 &&
+                  green > pixels[offset + 2] * 1.2 &&
+                  pixels[offset + 3] === 255
+                )
+                  ys.push(y);
+              }
+              if (ys.length > 8) {
+                const rect = element.getBoundingClientRect();
+                return {
+                  x: rect.x + ((x + 4) * rect.width) / element.width,
+                  y: rect.y + (ys[Math.floor(ys.length / 2)] * rect.height) / element.height,
+                };
+              }
+            }
+            throw new Error('First green bar was not painted');
+          });
+          await page.mouse.move(point.x, point.y);
+          await page.getByText('January', { exact: true }).waitFor();
+          const tooltipFilename = `${implementation}-${theme}-${width}-tooltip.png`;
+          await host.screenshot({ path: new URL(tooltipFilename, output).pathname });
+          captures.push({
+            implementation,
+            theme,
+            width,
+            filename: tooltipFilename,
+            tooltip: 'January',
+            ...metadata,
+          });
+        }
+        assert.deepEqual(errors, []);
         await page.close();
       }
     }
   }
   await writeFile(
     new URL('manifest.json', output),
-    `${JSON.stringify({ source, browser: browser.version(), reducedMotion: 'reduce', sourceExampleUnmodified: true, captures }, null, 2)}\n`,
+    `${JSON.stringify(
+      {
+        source,
+        browser: browser.version(),
+        reducedMotion: 'reduce',
+        sourceExampleUnmodified: true,
+        angularRoute: '/comparison',
+        categoryTicks: 'first three characters; full tooltip/table labels',
+        comparisonThemeSha256: createHash('sha256')
+          .update(
+            await readFile(
+              new URL('../projects/playground/src/app/comparison.css', import.meta.url),
+            ),
+          )
+          .digest('hex'),
+        captures,
+      },
+      null,
+      2,
+    )}\n`,
   );
   console.log(
-    'Captured 12 pinned upstream/Angular comparisons at exact 320, 768, and 1440px host widths.',
+    'Captured 12 pinned upstream/Angular comparisons at exact 320, 768, and 1440px host widths, plus four tooltip views at 768px.',
   );
 } finally {
   await browser?.close();

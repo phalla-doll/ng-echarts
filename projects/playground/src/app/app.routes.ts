@@ -7,6 +7,10 @@ export const routes: Routes = [
     loadComponent: () => import('./app').then((module) => module.App),
   },
   {
+    path: 'comparison',
+    loadComponent: () => import('./comparison').then((module) => module.Comparison),
+  },
+  {
     path: 'validation',
     loadComponent: () => import('./validation').then((module) => module.Validation),
   },

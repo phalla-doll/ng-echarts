@@ -21,8 +21,10 @@ import { BAR_RENDERER_LOADER, browserPlotEnvironment, readBarTheme } from './bar
 import { normalizeBarData, resolveBarState } from './bar-model';
 import { buildBarOptions, defaultBarTheme, type BarThemeTokens } from './bar-options';
 import { ChartFrame } from './chart-frame';
+import { formatCategoryTicks } from './category-ticks';
 import type {
   BarLayout,
+  CategoryTickFormatter,
   ChartSeries,
   ChartTheme,
   LegendVisibilityChange,
@@ -53,6 +55,7 @@ export class BarChart<T extends object> {
   readonly theme = input<ChartTheme>('light');
   readonly themeRevision = input(0);
   readonly locale = input('en-US');
+  readonly categoryTickFormatter = input<CategoryTickFormatter>();
   readonly loading = input(false);
   readonly error = input<string | null>(null);
   readonly animation = input(true);
@@ -87,6 +90,13 @@ export class BarChart<T extends object> {
       };
     }
   });
+  private readonly categoryTicks = computed(() => {
+    const model = this.model();
+    return formatCategoryTicks(
+      model.kind === 'error' ? [] : model.rows.map((row) => row.category),
+      this.categoryTickFormatter(),
+    );
+  });
   private readonly settings = computed(() => ({
     height: this.height(),
     layout: this.layout(),
@@ -111,7 +121,7 @@ export class BarChart<T extends object> {
           ? 'Chart layout is invalid.'
           : !['light', 'dark'].includes(settings.theme) || !Number.isFinite(settings.themeRevision)
             ? 'Chart theme configuration is invalid.'
-            : this.formatting().error;
+            : (this.formatting().error ?? this.categoryTicks().error);
     return resolveBarState(
       settings.error,
       settings.loading,
@@ -142,6 +152,7 @@ export class BarChart<T extends object> {
       this.gradient(),
       this.animation() && !this.reducedMotion(),
       this.formatting().format,
+      this.categoryTicks().labels,
     );
   });
   protected readonly tableRows = computed(() => {
@@ -164,6 +175,7 @@ export class BarChart<T extends object> {
       this.model();
       this.settings();
       this.formatting();
+      this.categoryTicks();
       this.rendererError.set(false);
     });
     effect(() => {
