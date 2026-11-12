@@ -1,4 +1,4 @@
-# EvilCharts fixture and reuse ledger
+# Upstream provenance and reuse ledger
 
 Baseline: [`4c2dd7c9bae780703244265c9a4b509d40c055ad`](https://github.com/legions-developer/evilcharts/commit/4c2dd7c9bae780703244265c9a4b509d40c055ad). Recorded 12 November 2026 for NG02 and R03. Compare later revisions separately.
 
@@ -34,6 +34,32 @@ Paths below are relative to the repository root. Full terms are preserved in [th
 The component templates, generic contracts, data validation, option transformations, lifecycle controller, CSS resolution, and tests are new Angular implementation. No upstream React implementation or helper bodies have been copied into them.
 
 The later [gallery correction](experiments/BAR_GALLERY_VISUAL_REVIEW.md) composes only the existing monthly/horizontal fixtures in `bar-blocks.ts`; it does not add upstream datasets or copy block/component implementations. `gallery-shell.css`, `gallery.*`, and `bar-block.*` are new Angular presentation code informed by the user's area-block screenshot and live-page inspection. The local Inter font has its own bundled SIL Open Font License.
+
+## Demo-site icons: Heroicons
+
+The demo uses [Heroicons](https://heroicons.com/) **v2.2.0**, pinned to [`0435d4ca364a608cc75e2f8683d374e55abbae26`](https://github.com/tailwindlabs/heroicons/tree/0435d4ca364a608cc75e2f8683d374e55abbae26). Only the selected `optimized/24/outline/*.svg` paths are embedded in `projects/playground/src/app/site-icon.ts`. Paths are copied verbatim; shared SVG attributes retain the upstream 24×24 view box, 1.5 stroke, rounded caps/joins, and `currentColor`. Multiple paths render through Angular's native template control flow.
+
+The existing local aliases, icon dimensions, accessible button/link labels, and decorative `aria-hidden` treatment are preserved; SVGs are explicitly nonfocusable. There is no React/Vue wrapper, icon font, runtime CDN, or extra package dependency. This is demo presentation code outside the chart-library package. The catalog chart illustrations remain original SVG artwork.
+
+The complete [MIT notice](../projects/playground/public/third-party/heroicons-LICENSE.txt), copyright Tailwind Labs, Inc., ships with the demo's public assets. The [provenance manifest](experiments/data/heroicons-provenance.json) records each exact upstream filename and SHA-256 hash, plus the license hash.
+
+| Local alias | Heroicons outline name |
+| --- | --- |
+| `chart` | `chart-bar` |
+| `compare` | `view-columns` |
+| `update` | `arrow-path` |
+| `layers` | `square-3-stack-3d` |
+| `leave` | `arrow-right-start-on-rectangle` |
+| `code` | `code-bracket` |
+| `sun` | `sun` |
+| `moon` | `moon` |
+| `menu` | `bars-3` |
+| `close` | `x-mark` |
+| `chevron` | `chevron-right` |
+| `copy` | `document-duplicate` |
+| `check` | `check` |
+| `arrow` | `arrow-up-right` |
+| `book` | `book-open` |
 
 ## Reuse classification
 

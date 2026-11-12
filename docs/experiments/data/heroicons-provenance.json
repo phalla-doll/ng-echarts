@@ -1,0 +1,102 @@
+{
+  "project": "Heroicons",
+  "version": "v2.2.0",
+  "revision": "0435d4ca364a608cc75e2f8683d374e55abbae26",
+  "style": "24 px outline, 1.5 stroke, round caps and joins, currentColor",
+  "upstream": "https://github.com/tailwindlabs/heroicons",
+  "localFile": "projects/playground/src/app/site-icon.ts",
+  "license": "projects/playground/public/third-party/heroicons-LICENSE.txt",
+  "licenseSha256": "60e0b68c0f35c078eef3a5d29419d0b03ff84ec1df9c3f9d6e39a519a5ae7985",
+  "icons": [
+    {
+      "alias": "chart",
+      "name": "chart-bar",
+      "source": "optimized/24/outline/chart-bar.svg",
+      "sha256": "544fcc117350dcd26a3c8cc7388e791aa4b8f5b810b8f028229dcc9698ef6325"
+    },
+    {
+      "alias": "compare",
+      "name": "view-columns",
+      "source": "optimized/24/outline/view-columns.svg",
+      "sha256": "010ac4106175f2feb31952ff68a5492fcff4828165947c393369adcd04067206"
+    },
+    {
+      "alias": "update",
+      "name": "arrow-path",
+      "source": "optimized/24/outline/arrow-path.svg",
+      "sha256": "b191971e5cd0347fb23ea91c87e7468b2a3759613d3dd928fdd326004a5542ae"
+    },
+    {
+      "alias": "layers",
+      "name": "square-3-stack-3d",
+      "source": "optimized/24/outline/square-3-stack-3d.svg",
+      "sha256": "21294b239b8f312fa44835fc135b5396cba1dcc8b86f0e03431c5e551b7249ba"
+    },
+    {
+      "alias": "leave",
+      "name": "arrow-right-start-on-rectangle",
+      "source": "optimized/24/outline/arrow-right-start-on-rectangle.svg",
+      "sha256": "8c47227fa69f5a749a114f9c011760bb427500d20cd1eef761a11359204f245e"
+    },
+    {
+      "alias": "code",
+      "name": "code-bracket",
+      "source": "optimized/24/outline/code-bracket.svg",
+      "sha256": "0f7fa03b666ab2c0497e41b1bf766e6c35011cc88e170dedfadef84f547bec23"
+    },
+    {
+      "alias": "sun",
+      "name": "sun",
+      "source": "optimized/24/outline/sun.svg",
+      "sha256": "e55df00558e838b63e6aeebc4af511b37a427f739ce1c4a63a8116a558b1b12e"
+    },
+    {
+      "alias": "moon",
+      "name": "moon",
+      "source": "optimized/24/outline/moon.svg",
+      "sha256": "4dfd046e7cc6747a64b7656d5eec90907fe1eec8e7a1d3467ca25f6e599d3908"
+    },
+    {
+      "alias": "menu",
+      "name": "bars-3",
+      "source": "optimized/24/outline/bars-3.svg",
+      "sha256": "0e76cceaeef6685444adf1ccb47d743d791d30e19181289ce19d3fb5e5c7ed74"
+    },
+    {
+      "alias": "close",
+      "name": "x-mark",
+      "source": "optimized/24/outline/x-mark.svg",
+      "sha256": "f44f8d4070a779c324f07a199122b4cc8686b5a8d9705727dc38d0cfd3bb27ec"
+    },
+    {
+      "alias": "chevron",
+      "name": "chevron-right",
+      "source": "optimized/24/outline/chevron-right.svg",
+      "sha256": "db9cc118ca95a91b0ffe68dbf1052d5c5820bf5cc46b4f9f9109ac5bfc3a5fe6"
+    },
+    {
+      "alias": "copy",
+      "name": "document-duplicate",
+      "source": "optimized/24/outline/document-duplicate.svg",
+      "sha256": "33f61fb51ee237ffcba5d5c8a6993e205dc8bea0bff8e765efc2409b46c4f5d7"
+    },
+    {
+      "alias": "check",
+      "name": "check",
+      "source": "optimized/24/outline/check.svg",
+      "sha256": "a38b003121485ad864240dd3145324deae133485f3ed28a8a9d99747912c5f18"
+    },
+    {
+      "alias": "arrow",
+      "name": "arrow-up-right",
+      "source": "optimized/24/outline/arrow-up-right.svg",
+      "sha256": "1f68c653040a054b04775e30949267f1326558900e9e22955e4457c3c423179f"
+    },
+    {
+      "alias": "book",
+      "name": "book-open",
+      "source": "optimized/24/outline/book-open.svg",
+      "sha256": "dc4fab6a62dcebe7c1c31096a7062151363b803b62919ba47ef32ba37ad127df"
+    }
+  ]
+}

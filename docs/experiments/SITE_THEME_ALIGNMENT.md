@@ -35,6 +35,12 @@ The complete `npm run check` passed: production library/client/server builds, st
 
 The preceding commit's CI run also revealed a Firefox timing dependency in the deliberately held renderer-import test: waiting for page `load` could wait for the very request the test had withheld. That navigation now waits for `domcontentloaded`; the destruction and late-import assertions remain intact. The corrected case passed three repetitions in each browser.
 
+## Heroicons follow-up
+
+The user selected [Heroicons](https://heroicons.com/) for the demo. `SiteIcon` now renders a pinned subset of 15 official v2.2.0 outline icons through native Angular SVG paths. The 24×24 view box, 1.5 stroke, rounded caps/joins, and `currentColor` are preserved. Existing display dimensions and action labels remain; decorative icons are hidden from assistive technology and explicitly nonfocusable. See the [source mapping and MIT notice](../UPSTREAM_PROVENANCE.md#demo-site-icons-heroicons). The chart-library package and chart illustration artwork are unchanged.
+
+Production browser/server builds, strict compilation, SSR checks, formatting, and all 48 unit/integration tests passed, along with all 24 existing gallery, playground-layout, and site-page scenarios across Chromium, Firefox, and WebKit. These exercise theme changes, copy/reset feedback, mobile navigation, keyboard use, responsive layout, and hydration. Visual inspection confirmed the icons in [dark](captures/heroicons/gallery-dark.png), [light](captures/heroicons/gallery-light.png), and [mobile navigation](captures/heroicons/mobile-navigation.png) views. The [capture manifest](captures/heroicons/manifest.json) records geometry, conditions, source/image hashes, and an attribute audit of all 37 rendered icon instances.
+
 ## Measurement boundaries
 
 The comparison chart retains its own explicit theme control, data, CSS tokens, 16 px system typography, and review host widths. Its explanatory copy now makes the independent reference theme clear. The benchmark chart retains a fixed 768 px host and its reference theme; an outer scrolling region keeps narrow pages usable without shrinking that host. These fixture settings are separate from the site's theme. At the initial site-alignment baseline, the public chart-library API, renderer, models, and packaged styles were unchanged; the subsequent typography follow-up adds inherited Canvas/tooltip font resolution as described above.

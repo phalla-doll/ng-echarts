@@ -1,0 +1,57 @@
+{
+  "recordedAt": "2026-11-12T14:31:19.093096+00:00",
+  "baselineCommit": "a96cda8",
+  "browser": "Chromium 156 on macOS, isolated agent-browser session",
+  "deviceScaleFactor": 1,
+  "motion": "reduce",
+  "captureMode": "Development preview; production behavior checked separately in Playwright",
+  "iconAudit": {
+    "rendered": 37,
+    "invalidGeometryOrAccessibilityAttributes": 0
+  },
+  "sourceSha256": "eb0ef9732e8fa841c6788f6ab72ffd237d239acab9622f10a2654786ceb78e87",
+  "captures": [
+    {
+      "file": "gallery-dark.png",
+      "route": "/",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "b3ca84fd92da0b902faccdee1d331470218e03dbec31c7704b6645ac50bf970c"
+    },
+    {
+      "file": "gallery-light.png",
+      "route": "/",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "b1efa994b0b02c4b09bbab2546a5231ccd07f6dc6fdb562b51e7ee4d051ce870"
+    },
+    {
+      "file": "mobile-navigation.png",
+      "route": "/",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "image": {
+        "width": 390,
+        "height": 844
+      },
+      "sha256": "22a9907e07ae095c2256149b481a3fdfa1e5dac330bf9dfbbedb430309476eae"
+    }
+  ]
+}
