@@ -61,6 +61,12 @@ The complete [MIT notice](../projects/playground/public/third-party/heroicons-LI
 | `arrow` | `arrow-up-right` |
 | `book` | `book-open` |
 
+## Demo code presentation dependencies
+
+Google Sans Code is locally hosted from the official [Google Fonts distribution](https://fonts.google.com/specimen/Google+Sans+Code), maintained in [googlefonts/googlesans-code](https://github.com/googlefonts/googlesans-code). The original Latin WOFF2 asset is unchanged; [download provenance](experiments/data/google-sans-code.json) records the exact versioned asset URL and hashes. The [full SIL Open Font License](../projects/playground/public/fonts/GOOGLE-SANS-CODE-OFL.txt), copyright 2025 The Google Sans Code Project Authors, ships beside it. The original font name is retained.
+
+The demo depends on [highlight.js 11.12.0](https://github.com/highlightjs/highlight.js) under BSD-3-Clause, using only its core, TypeScript, XML, and Bash modules. The [complete license](../projects/playground/public/third-party/highlightjs-LICENSE.txt), copyright 2006 Ivan Sagalaev, ships with public assets. `highlight-code.ts` and `syntax-highlighting.css` are local integration and theme code. No upstream theme stylesheet is copied. Neither dependency is added to the chart-library package.
+
 ## Reuse classification
 
 The [site-wide alignment](experiments/SITE_THEME_ALIGNMENT.md) adds original documentation, SVG catalog illustrations, and shared neutral styling informed by the live documentation layout. `documentation-content.ts` reuses the January/February figures from the already attributed monthly fixture in its quick-start example. No additional upstream chart implementation or dataset is copied. The new setup commands describe this repository's Angular workspace rather than the upstream registry CLI.

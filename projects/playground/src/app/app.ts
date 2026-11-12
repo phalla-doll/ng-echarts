@@ -7,10 +7,11 @@ import {
 import { deviceRows, deviceSeries, type DeviceRow } from './fixtures/evilcharts-bar-fixture';
 import { SiteAppearance } from './site-appearance';
 import { SiteIcon } from './site-icon';
+import { HighlightCode } from './highlight-code';
 
 @Component({
   selector: 'app-playground',
-  imports: [BarChart, SiteIcon],
+  imports: [BarChart, SiteIcon, HighlightCode],
   templateUrl: './app.html',
   styleUrl: './app.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

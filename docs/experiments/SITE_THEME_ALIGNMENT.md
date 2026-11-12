@@ -4,6 +4,8 @@ Reviewed 12 November 2026. Baseline: `b5f5801`. The user approved the neutral ba
 
 The later [UI spacing review](UI_SPACING_REVIEW.md) records the current shared layout tokens, responsive alignment, and refined control/panel spacing. The original captures and measurements below describe their recorded baselines.
 
+The [code presentation follow-up](CODE_PRESENTATION_REVIEW.md) adds Google Sans Code, syntax colors in both themes, and corrected text copy controls.
+
 ## Implemented pages and design
 
 The shared shell now uses the approved Inter typography, near-black canvas (`#0a0a0a`), inset surfaces (`#111111`), restrained borders (`#222222`), white text (`#f5f5f5`), and muted text (`#a3a3a3`) on every route. The light palette uses white and neutral grays. Navigation, active links, the compact header, focus indicators, switches, toolbars, code panels, and chart frames share the same styling. The former blue workspace treatment has been removed.

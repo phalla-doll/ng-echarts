@@ -165,8 +165,7 @@ button {
   width: 14px;
   height: 14px;
 }
-.integration-heading button,
-.code-heading button {
+.integration-heading button {
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -187,15 +186,33 @@ button {
   background: var(--site-bg);
 }
 .code-heading {
+  min-height: 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  padding: 12px;
-  font-size: 11px;
-  line-height: 18px;
+  padding: 8px 12px;
+  font-size: 12px;
+  line-height: 20px;
   border-bottom: 1px solid var(--site-border);
   color: var(--site-muted);
+}
+.code-heading button {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 100px;
+  min-height: 32px;
+  padding: 5px 10px;
+  border: 1px solid var(--site-border);
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.code-heading button:hover {
+  color: var(--site-text);
+  border-color: var(--site-control-border);
 }
 .code-heading app-site-icon {
   width: 14px;

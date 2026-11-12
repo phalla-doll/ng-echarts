@@ -285,6 +285,8 @@
   line-height: 20px;
 }
 .workbench :where(.source-heading .ui-button) {
+  flex: none;
+  white-space: nowrap;
   font-size: 11px;
   line-height: 18px;
   min-height: 32px;

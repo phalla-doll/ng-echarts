@@ -1,0 +1,43 @@
+/* Local token colors; highlight.js supplies escaped spans, not layout styles. */
+.site-shell {
+  --code-keyword: #cf222e;
+  --code-string: #0a3069;
+  --code-title: #8250df;
+  --code-number: #0550ae;
+  --code-attribute: #116329;
+  --code-type: #953800;
+  --code-comment: #57606a;
+}
+.site-shell.dark {
+  --code-keyword: #ff7b72;
+  --code-string: #a5d6ff;
+  --code-title: #d2a8ff;
+  --code-number: #79c0ff;
+  --code-attribute: #7ee787;
+  --code-type: #ffa657;
+  --code-comment: #8b949e;
+}
+.syntax-code {
+  color: var(--site-text);
+}
+.syntax-code :is(.hljs-keyword, .hljs-selector-tag, .hljs-meta) {
+  color: var(--code-keyword);
+}
+.syntax-code :is(.hljs-string, .hljs-regexp, .hljs-template-tag) {
+  color: var(--code-string);
+}
+.syntax-code :is(.hljs-title, .hljs-section) {
+  color: var(--code-title);
+}
+.syntax-code :is(.hljs-number, .hljs-literal, .hljs-symbol) {
+  color: var(--code-number);
+}
+.syntax-code :is(.hljs-attr, .hljs-attribute, .hljs-name) {
+  color: var(--code-attribute);
+}
+.syntax-code :is(.hljs-type, .hljs-built_in, .hljs-variable) {
+  color: var(--code-type);
+}
+.syntax-code :is(.hljs-comment, .hljs-quote) {
+  color: var(--code-comment);
+}

@@ -1,0 +1,87 @@
+{
+  "recordedAt": "2026-11-12T14:55:00.704647+00:00",
+  "baselineCommit": "d3d637d",
+  "browser": "Chromium 156, macOS; isolated agent-browser session",
+  "deviceScaleFactor": 1,
+  "motion": "reduce",
+  "captureMode": "Production SSR; source view selected, local fonts loaded; gallery scrolled to Gradient Fills",
+  "sourceHashes": {
+    "projects/playground/src/app/highlight-code.ts": "55d9700e6a2fbe3d5f1b3791ca27088c747c5db41000621000f6db611011fe2f",
+    "projects/playground/src/syntax-highlighting.css": "26e63e29ff370c0428280bd869e6b49442d3af521b308eb4143902e6a4ca77f5",
+    "projects/playground/src/app/bar-block.css": "4371ac1bb10bae6aa639a7d357d4b59d39fe4a52fd16d807e443b0c6f51965be",
+    "projects/playground/src/styles.css": "2279dfba98b4f7b201483b0c44fce7358966b50a5b0366895c8a9736e131c670",
+    "projects/playground/public/fonts/google-sans-code-latin.woff2": "98eee6fe6dc8f6341f80caf9c7e72a5241dd78188d403a12bc6aeb23a3e8c1a3"
+  },
+  "captures": [
+    {
+      "file": "gradient-dark.png",
+      "route": "/",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "2b9c822d21489c3a99253b108136ccb503d8f6873792a228cadd131323c8b1b7"
+    },
+    {
+      "file": "gradient-light.png",
+      "route": "/",
+      "theme": "light",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "07d1e2cd0d7df331b99ae18d2db673c2ffeb82bc64fce048f31648255478cc4f"
+    },
+    {
+      "file": "gradient-mobile.png",
+      "route": "/",
+      "theme": "light",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "image": {
+        "width": 390,
+        "height": 844
+      },
+      "sha256": "83bb090e0aad08ffe48258a4b13bf0f390e1482365d8625cb98c35594f281f95"
+    },
+    {
+      "file": "playground-template.png",
+      "route": "/playground",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "1284d3192ee0c1957d497ff2c646f64867e40bb1b14a4e29a8fc5c6298179393"
+    },
+    {
+      "file": "quick-start.png",
+      "route": "/get-started",
+      "theme": "dark",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "image": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "15cdafcc5f2ea68b260ee38c2a21e3d505bf469ec2f6d28b033e2971790b3813"
+    }
+  ]
+}

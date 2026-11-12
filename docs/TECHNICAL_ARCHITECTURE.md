@@ -211,6 +211,8 @@ Axes retain explicit 12 px labels and value ticks for readability. The plot keep
 
 ### Validation fixtures
 
+The demo's `HighlightCode` directive computes escaped syntax markup using a private highlight.js core instance with TypeScript, XML/HTML, and Bash grammars. Normal Angular HTML binding sanitization is retained, with no bypass or browser-only mutation. SSR and client use the same pinned highlighter; clipboard handlers retain raw source. Code uses a local Google Sans Code variable face with an included OFL notice. The highlighter/font remain outside the packaged chart library. See the [code presentation review](experiments/CODE_PRESENTATION_REVIEW.md).
+
 `site-controls.css` owns shared `--site-page-*`, `--site-title-*`, `--site-header-height`, and panel-radius tokens. Route styles consume these values instead of choosing separate page gutters and heading scales. The workbench and page outlines share the 1250 px layout breakpoint; settings stack when the persistent sidebar leaves a narrow content column. See the [UI spacing review](experiments/UI_SPACING_REVIEW.md) for measured before/after geometry and visual evidence.
 
 Demo icons use a local `SiteIcon` component with a pinned subset of Heroicons v2.2.0 24 px outline paths. SVG geometry is preserved, and native Angular template control flow supports multiple paths. Icons inherit `currentColor`, stay decorative/nonfocusable, and rely on the surrounding action's accessible label. The upstream MIT notice is served in public assets; no icon dependency enters the chart-library package. See the [provenance ledger](UPSTREAM_PROVENANCE.md#demo-site-icons-heroicons).

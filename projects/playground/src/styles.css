@@ -1,6 +1,7 @@
 @import './site-controls.css';
 @import './gallery-shell.css';
 @import './documentation.css';
+@import './syntax-highlighting.css';
 
 @font-face {
   font-family: 'Inter';
@@ -10,6 +11,20 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Google Sans Code';
+  src: url('/fonts/google-sans-code-latin.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+}
+pre,
+code,
+kbd,
+samp {
+  font-family: 'Google Sans Code', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-variant-ligatures: none;
+}
 * {
   box-sizing: border-box;
 }

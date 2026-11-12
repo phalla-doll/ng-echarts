@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { CopyButton } from './copy-button';
+import { HighlightCode } from './highlight-code';
 
 @Component({
   selector: 'app-source-snippet',
-  imports: [CopyButton],
+  imports: [CopyButton, HighlightCode],
   template: `<div class="snippet">
     <div class="snippet-heading">
       <span>{{ language() }}</span><app-copy-button
@@ -12,7 +13,10 @@ import { CopyButton } from './copy-button';
         [compact]="true"
       />
     </div>
-    <pre tabindex="0" [attr.aria-label]="language() + ' example'"><code>{{ source() }}</code></pre>
+    <pre
+      tabindex="0"
+      [attr.aria-label]="language() + ' example'"
+    ><code [appHighlight]="source()" [language]="language()"></code></pre>
   </div>`,
   styles: `
     :host {

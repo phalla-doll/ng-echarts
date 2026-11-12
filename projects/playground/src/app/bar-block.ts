@@ -7,10 +7,11 @@ import {
 import { barExampleSource, type BarBlock } from './bar-blocks';
 import type { DeviceRow } from './fixtures/evilcharts-bar-fixture';
 import { SiteIcon } from './site-icon';
+import { HighlightCode } from './highlight-code';
 
 @Component({
   selector: 'app-bar-block',
-  imports: [BarChart, SiteIcon],
+  imports: [BarChart, SiteIcon, HighlightCode],
   templateUrl: './bar-block.html',
   styleUrl: './bar-block.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -27,6 +28,7 @@ export class BarBlockExample {
   protected readonly instances = computed(() => [this.generation()]);
   private readonly copiedText = signal<string | null>(null);
   protected readonly copyFailed = signal(false);
+  protected readonly importSource = "import { BarChart } from '@ng-echarts/chart-library';";
   protected readonly source = computed(() => barExampleSource(this.block(), this.dark()));
   protected readonly copied = computed(() => this.copiedText() === this.source());
   protected readonly selection = signal('');

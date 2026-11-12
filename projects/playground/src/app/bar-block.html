@@ -80,7 +80,7 @@
       <pre
         tabindex="0"
         [attr.aria-label]="block().title + ' Angular source'"
-      ><code>{{ source() }}</code></pre>
+      ><code [appHighlight]="source()"></code></pre>
     </div>
   </div>
   <div class="integration-card">
@@ -94,7 +94,7 @@
         <app-site-icon [name]="copied() ? 'check' : 'copy'" />
       </button>
     </div>
-    <pre><code>import {{ '{' }} BarChart {{ '}' }} from '{{ '@' }}ng-echarts/chart-library';</code></pre>
+    <pre><code [appHighlight]="importSource"></code></pre>
   </div>
   @if (copyFailed()) {
     <p class="copy-notice" role="status">

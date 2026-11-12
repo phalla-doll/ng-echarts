@@ -1,0 +1,13 @@
+{
+  "recordedAt": "2026-11-12T14:49:58.082900+00:00",
+  "font": "Google Sans Code",
+  "cssSource": "https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@300..800&display=swap",
+  "assetSource": "https://fonts.gstatic.com/s/googlesanscode/v22/pxiSyogzv91QhV44Z_GQBHsGf5PuckJMZfIVTPZaiXEp_jF58LQ.woff2",
+  "localAsset": "projects/playground/public/fonts/google-sans-code-latin.woff2",
+  "bytes": 34948,
+  "sha256": "98eee6fe6dc8f6341f80caf9c7e72a5241dd78188d403a12bc6aeb23a3e8c1a3",
+  "licenseSource": "https://raw.githubusercontent.com/google/fonts/main/ofl/googlesanscode/OFL.txt",
+  "localLicense": "projects/playground/public/fonts/GOOGLE-SANS-CODE-OFL.txt",
+  "licenseSha256": "ff8f4fbc4f1a71c7d4c6481c48dc2b21c43f8dc15872536667fee45c15d20928",
+  "scope": "Latin variable upright face, 300\u2013800; local code text with normal monospace fallbacks"
+}

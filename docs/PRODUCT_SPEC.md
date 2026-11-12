@@ -74,11 +74,13 @@ Title, summary, table controls, and identifiers must be deterministic between se
 
 ## Visual design
 
+Provide theme-aware syntax colors for TypeScript, Angular templates, and terminal examples. Copy actions must retain the original plain source and keep their icon and label aligned on one line. See the [code presentation review](experiments/CODE_PRESENTATION_REVIEW.md).
+
 Use shared page widths, responsive gutters, title scales, panel radii, and control spacing across gallery, documentation, and engineering pages. Follow the [spacing review](experiments/UI_SPACING_REVIEW.md) for current dimensions and breakpoint behavior; keep measurement plots isolated.
 
 Use Heroicons 24 px outline icons for demo navigation and controls, keeping visible text or accessible labels on actions.
 
-Use the locally hosted Inter font for site prose, navigation, controls, metrics, and chart labels. Define whole-number CSS pixel font sizes, line heights, and tracking for the site, keeping normal browser zoom and text antialiasing. Code examples retain a monospace face; historical measurement plots retain their explicit reference typography.
+Use the locally hosted Inter font for site prose, navigation, controls, metrics, and chart labels. Define whole-number CSS pixel font sizes, line heights, and tracking for the site, keeping normal browser zoom and text antialiasing. Code examples and inline code use locally hosted Google Sans Code with monospace fallbacks; historical measurement plots retain their explicit reference typography.
 
 The user's 12 November 2026 [area-block reference review](experiments/AREA_BLOCKS_VISUAL_AUDIT.md) establishes a neutral chart-block gallery as the site direction: reference-led typography, subdued chrome, compact code/preview headers, and complete chart compositions. Keep engineering settings and validation fixtures separate from the gallery. The user selected existing bar charts for the first [gallery correction](experiments/BAR_GALLERY_VISUAL_REVIEW.md). The settings workspace remains an engineering fixture; area examples and advanced dotted-fill behavior remain later work.
 

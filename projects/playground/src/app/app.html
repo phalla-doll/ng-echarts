@@ -80,7 +80,10 @@
               }}
             </button>
           </div>
-          <pre><code>{{ source() }}</code></pre>
+          <pre
+            tabindex="0"
+            aria-label="Angular template"
+          ><code [appHighlight]="source()" language="html"></code></pre>
           <p class="source-note">
             Import <code>BarChart</code> in your standalone component. Bind your rows to
             <code>visits</code> and your series configuration to <code>series</code>. For short
