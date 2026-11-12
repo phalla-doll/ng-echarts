@@ -18,7 +18,7 @@ The official compatibility table currently lists these ranges for Angular 22.x (
 | TypeScript | `>=6.0.0 <6.1.0` |
 | RxJS | `^6.5.3 || ^7.4.0` |
 
-Proposed development line: Node.js 24 within the supported range, Angular and CLI 22, TypeScript 6.0, and RxJS 7 within the supported range. Select exact available patches during environment setup and commit the lockfile. Angular, CLI, compiler, and library packaging tools must have mutually compatible versions.
+Selected scaffold: Node.js 24.22.2, npm 11.19.1, Angular and CLI 22.2.6, TypeScript 6.0.3, RxJS 7.8.2, ECharts 6.1.0, and ng-packagr 22.2.0. Workspace and declaration-consumer lockfiles pin reproducible dependency graphs. See the [R01 toolchain report](experiments/R01_TOOLCHAIN.md) for commands and results.
 
 Upstream TypeScript 5 settings are not an Angular 22 toolchain. ECharts types and any reused utilities must compile under the selected TypeScript 6.0 version before the port can claim compatibility.
 
@@ -72,4 +72,4 @@ The pinned EvilCharts license is MIT and identifies copyright 2026 Gurbinder. It
 6. Which tooltip and legend implementation provides the best accessibility and customization balance?
 7. What data sizes and update rates meet measured performance targets?
 
-Compatibility is currently a development target. No Angular implementation, runtime benchmark, or browser experiment has yet been completed.
+The workspace and presentation shell establish the initial build boundary. Chart compatibility remains a development target; renderer lifecycle, browser hydration, visual parity, accessibility, and performance require the remaining experiments.

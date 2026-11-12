@@ -1,0 +1,9 @@
+<section class="chart-frame" [attr.aria-label]="title()">
+  <header>
+    <h2>{{ title() }}</h2>
+    @if (description()) {
+      <p>{{ description() }}</p>
+    }
+  </header>
+  <ng-content />
+</section>

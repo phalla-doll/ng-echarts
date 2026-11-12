@@ -146,7 +146,7 @@ Tooltips accept plain data by default. Escape strings before any HTML formatting
 
 ## Packaging and workspace
 
-Proposed implementation layout, not folders already scaffolded:
+Scaffolded workspace layout; renderer and chart-specific implementation remain pending:
 
 ```text
 projects/
@@ -178,3 +178,9 @@ The requested folder remains `ng-echarts`. Angular's naming guidance recommends 
 | Distribution | Local library and packed consumer first | Package name, notices, and release checks are ready |
 
 The first implementation should record exact choices and measured evidence here before widening scope.
+
+### Scaffold decisions
+
+The workspace uses Angular/CLI 22.2.6, TypeScript 6.0.3, Node 24.22.2, npm 11.19.1, RxJS 7.8.2, and ng-packagr 22.2.0. Strict TypeScript, strict templates, and dependency declaration checking are enabled. The zoneless playground has a real SSR route and client hydration configured. Vitest/jsdom cover Angular integration; Prettier formats the workspace.
+
+`@ng-echarts/chart-library` is a private, temporary package identity. The playground resolves the production library output, while a separate tarball fixture checks declarations outside the workspace. Only the experimental `ChartFrame` presentation shell is exported. ECharts 6.1.0 is installed for declaration checks and the upcoming adapter; its library dependency contract remains undecided. See the [implementation plan](IMPLEMENTATION_PLAN.md) and [R01 report](experiments/R01_TOOLCHAIN.md).

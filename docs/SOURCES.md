@@ -29,9 +29,10 @@ The registry count includes every entry in `items`. The ECharts example count fi
 | S12 | [Angular component lifecycle](https://angular.dev/guide/components/lifecycle) | Render callbacks and lifecycle planning; integration timing still requires R05 evidence |
 | S13 | [Angular template complexity guidance](https://angular.dev/style-guide#avoid-overly-complex-logic-in-templates) and neighboring component conventions | Simple template expressions, TypeScript derivations, and component member conventions |
 | S14 | [Angular computed signals](https://angular.dev/guide/signals#computed-signals-are-both-lazily-evaluated-and-memoized) | Lazy cached derivation, tracked dependencies, and the distinction between derived state and side effects |
+| S15 | [Angular unit testing](https://angular.dev/guide/testing) | CLI Vitest integration and DOM-based unit test setup |
 
 Recheck platform documentation when development begins and when compatibility ranges change. Preserve the pinned upstream revision for reproducible comparisons, even if a later revision is evaluated separately.
 
 ## Research boundaries
 
-Repository metadata, registry structure, source excerpts, and official documentation were inspected. No upstream or Angular application was installed or run for this planning deliverable. The plans do not establish runtime compatibility, measured performance, completed accessibility compliance, npm name availability, or a release date.
+Initial research inspected repository metadata, registry structure, source excerpts, and official documentation. The subsequent Angular scaffold and its validation are recorded in the [R01 report](experiments/R01_TOOLCHAIN.md). No upstream implementation has been copied. Chart runtime compatibility, measured performance, completed accessibility compliance, npm name availability, and release timing remain subject to the implementation gates.

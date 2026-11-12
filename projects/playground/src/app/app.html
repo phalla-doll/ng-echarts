@@ -1,0 +1,26 @@
+<main [class.dark]="darkTheme()">
+  <div class="workspace">
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">Angular 22 · ECharts</p>
+        <h1>ng-echarts playground</h1>
+        <p class="intro">A workspace for building and validating native Angular charts.</p>
+      </div>
+      <button type="button" [attr.aria-pressed]="darkTheme()" (click)="toggleTheme()">
+        {{ themeLabel() }}
+      </button>
+    </header>
+
+    <nec-chart-frame
+      title="Bar chart prototype"
+      description="The first milestone will validate typed data, rendering, keyboard controls, and hydration."
+    >
+      <div class="plot-placeholder">
+        <span>Workspace ready</span>
+        <p>The chart renderer will be added during the feasibility milestone.</p>
+      </div>
+    </nec-chart-frame>
+
+    <p class="status">Scaffold only · chart behavior and compatibility experiments are pending.</p>
+  </div>
+</main>

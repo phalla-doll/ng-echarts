@@ -1,0 +1,85 @@
+main {
+  --nec-background: #ffffff;
+  --nec-text: #18202c;
+  --nec-muted: #536176;
+  --nec-border: #d6dce5;
+  min-height: 100vh;
+  padding: 4rem 1.25rem;
+  color: var(--nec-text);
+  background: #f4f6fa;
+}
+
+main.dark {
+  --nec-background: #18202c;
+  --nec-text: #edf2fa;
+  --nec-muted: #b2bfd2;
+  --nec-border: #3b4a61;
+  color-scheme: dark;
+  background: #101722;
+}
+
+.workspace {
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+h1 {
+  margin: 0.5rem 0;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  letter-spacing: -0.04em;
+}
+
+.eyebrow,
+.intro,
+.status {
+  color: var(--nec-muted);
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
+
+button {
+  padding: 0.75rem 1rem;
+  color: var(--nec-text);
+  background: var(--nec-background);
+  border: 1px solid var(--nec-border);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font: inherit;
+}
+
+button:focus-visible {
+  outline: 3px solid #648dff;
+  outline-offset: 3px;
+}
+
+.plot-placeholder {
+  display: grid;
+  min-height: 20rem;
+  place-content: center;
+  padding: 1rem;
+  text-align: center;
+  border: 1px dashed var(--nec-border);
+  border-radius: 0.5rem;
+}
+
+.plot-placeholder span {
+  font-weight: 600;
+}
+
+.plot-placeholder p,
+.status {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}

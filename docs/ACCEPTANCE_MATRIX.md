@@ -1,6 +1,8 @@
 # ng-echarts acceptance matrix
 
-Updated 12 November 2026. All evidence is pending. This matrix connects the [product specification](PRODUCT_SPEC.md) to experiments and delivery tasks; the specification owns the detailed criteria and numeric targets.
+Updated 12 November 2026. R01 scaffold evidence is available; product requirement acceptance remains pending. This matrix connects the [product specification](PRODUCT_SPEC.md) to experiments and delivery tasks; the specification owns the detailed criteria and numeric targets.
+
+The [R01 report](experiments/R01_TOOLCHAIN.md) records passing builds, strict compilation, isolated declarations, unit integration tests, and an SSR response check. These results contribute to F01 and package-isolation research but do not complete typed chart inputs, browser hydration, R08, or any gate.
 
 ## Requirement coverage
 

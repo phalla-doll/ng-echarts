@@ -2,39 +2,42 @@
 
 ## Project Structure and Scope
 
-Planning repository for an Angular 22 chart library using Apache ECharts. Source, tests, and assets are not scaffolded.
+Angular 22 chart library using Apache ECharts. The workspace is scaffolded; chart implementation is pending.
 
 - `README.md`: overview and document index.
 - `docs/PRODUCT_SPEC.md`: MVP scope and required behavior.
 - `docs/TECHNICAL_ARCHITECTURE.md`: proposed API, rendering lifecycle, and implementation conventions.
-- `docs/RND_PLAN.md`, `docs/BACKLOG.md`, and `docs/ACCEPTANCE_MATRIX.md`: experiments, tasks, and evidence.
+- `docs/IMPLEMENTATION_PLAN.md`, `docs/RND_PLAN.md`, `docs/BACKLOG.md`, and `docs/ACCEPTANCE_MATRIX.md`: delivery sequence, experiments, tasks, and evidence.
 - `docs/RESEARCH_FINDINGS.md` and `docs/SOURCES.md`: compatibility facts and upstream references.
 
-Planned directories: `projects/chart-library/`, `projects/playground/`, and `tools/consumer-fixtures/`. Store experiment reports under `docs/experiments/` when work begins.
+Library source and colocated tests: `projects/chart-library/src/`. Playground source: `projects/playground/src/`; assets: `projects/playground/public/`. Isolated consumers: `tools/consumer-fixtures/`; evidence: `docs/experiments/`.
 
 ## Implementation Workflow
 
-The product specification owns scope; research findings own compatibility ranges. Start with NG01/NG02. Prove the bar prototype through G1/G2 before expanding to line, area, and pie/donut. Preserve the pinned upstream revision and record per-file provenance for adapted code.
+The product specification owns scope; research findings own compatibility ranges. Follow the implementation plan, beginning with NG02 after the scaffold. Prove the bar prototype through G1/G2 before expanding to line, area, and pie/donut. Record per-file provenance against the pinned upstream revision.
 
 ## Build, Test, and Development Commands
 
-No `package.json`, development server, or build/test tooling exists yet.
+Use Node from `.nvmrc` and npm 11.19.1; install with `npm ci`.
 
-- `git status --short`: inspect pending changes.
-- `git diff --check`: detect whitespace errors in tracked changes.
-- `git diff --cached --check`: check staged changes before committing.
+- `npm run build`: build library and production playground.
+- `npm start`: serve playground; first run `npm run build:lib`.
+- `npm run watch:lib`: rebuild library changes alongside the playground.
+- `npm test`: run Vitest once; `npm run test:watch` watches.
+- `npm run check`: formatting, builds, strict compilation, tests, isolated declarations, and SSR response.
+- `npm run format`: apply Prettier.
 
-Verify documentation links and heading anchors. During NG01, select the supported toolchain, add reproducible scripts and a lockfile, and document actual build, test, lint, and development commands here.
+Verify documentation links, heading anchors, and `git diff --check` before committing.
 
 ## Coding Style and Naming
 
-Use two-space indentation, kebab-case filenames such as `bar-chart.ts`, and colocated component files. No formatter or linter is configured.
+Use two-space indentation, kebab-case filenames such as `bar-chart.ts`, colocated component files, and Prettier. ESLint is not configured.
 
 Require strict TypeScript and templates. Keep bindings simple; derive chart state with `computed` and deterministic transformations in pure functions. Keep DOM operations and ECharts side effects in the browser adapter. Use `protected` for template-only members and `readonly` signal references. Add no React runtime dependencies.
 
 ## Testing Guidelines
 
-Frameworks and coverage thresholds remain undecided. Colocate unit tests as `*.spec.ts`; use deterministic fixtures. Check resizing, keyboard interaction, reduced motion, zoneless updates, SSR/hydration, and teardown in browsers. Validate packed artifacts in an isolated consumer, including declarations without `skipLibCheck`. Do not bypass hydration to claim compatibility. Record acceptance evidence; never mark planned checks as passing.
+Use Vitest and colocated `*.spec.ts` tests with deterministic fixtures. No numeric coverage threshold exists. Check resizing, keyboard interaction, reduced motion, zoneless updates, hydration, and teardown in browsers. Validate packed artifacts outside the workspace with `skipLibCheck: false`. SSR markup alone does not prove hydration. Record evidence; never mark planned checks as passing.
 
 ## Commit and Pull Request Guidelines
 

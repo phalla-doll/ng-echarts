@@ -1,6 +1,6 @@
 # ng-echarts research and development plan
 
-Status: ready to begin research; no experiments executed. Updated 12 November 2026.
+Status: R01 toolchain scope passed; R02–R08 and G1–G4 remain pending. Updated 12 November 2026. See the [R01 evidence](experiments/R01_TOOLCHAIN.md) and [implementation plan](IMPLEMENTATION_PLAN.md).
 
 ## Objective
 

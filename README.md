@@ -2,7 +2,7 @@
 
 An Angular 22 chart component library inspired by EvilCharts, using Apache ECharts for rendering and TypeScript for its public API.
 
-Status: planning and research. Created 12 November 2026. This folder contains product and engineering plans; implementation and compatibility experiments have not started.
+Status: workspace scaffolded. Updated 12 November 2026. The Angular library, SSR playground, and validation tooling are ready; chart implementation and feasibility experiments beyond the toolchain remain pending.
 
 ## Project direction
 
@@ -15,6 +15,7 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | Document | Purpose |
 | --- | --- |
 | [Product specification](docs/PRODUCT_SPEC.md) | Users, scope, behavior, requirements, and acceptance criteria |
+| [Implementation plan](docs/IMPLEMENTATION_PLAN.md) | Delivery increments, scaffold boundaries, and developer workflow |
 | [Research findings](docs/RESEARCH_FINDINGS.md) | Upstream inventory, verified compatibility facts, reuse assessment, and unknowns |
 | [Technical architecture](docs/TECHNICAL_ARCHITECTURE.md) | Proposed Angular design, public API, rendering lifecycle, and decisions |
 | [Research and development plan](docs/RND_PLAN.md) | Experiments, deliverables, decision gates, and effort estimates |
@@ -30,12 +31,36 @@ Keep the four-family MVP separate from later chart families and advanced visual 
 
 Before coding, read the [template and derived-state conventions](docs/TECHNICAL_ARCHITECTURE.md#templates-and-derived-state). They apply Angular's template guidance to chart states, legends, accessible tables, and the renderer boundary.
 
+## Development
+
+Use Node 24.22.2 (`.nvmrc`) and npm 11.19.1. Angular/CLI 22.2.6, TypeScript 6.0.3, RxJS 7.8.2, and ECharts 6.1.0 are locked for the initial experiments.
+
+```sh
+npm ci
+npm run build:lib
+npm start
+```
+
+Open `http://localhost:4200`. In another terminal, run `npm run watch:lib` while editing the library. The playground consumes its built package from `dist/chart-library`.
+
+| Command | Purpose |
+| --- | --- |
+| `npm run build` | Build the library and production browser/server playground |
+| `npm test` | Run library and playground Vitest tests once |
+| `npm run typecheck` | Strict Angular/TypeScript compilation with `skipLibCheck: false` |
+| `npm run check:consumer` | Check a built tarball's declarations in an isolated Angular consumer |
+| `npm run check:ssr` | Check production server markup and hydration metadata after a build |
+| `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
+| `npm run check` | Run all scaffold checks in dependency order |
+
+The [toolchain report](docs/experiments/R01_TOOLCHAIN.md) records tested versions and evidence. CI is configured to run the same checks on pushes and pull requests. No lint rules or coverage threshold are configured yet.
+
 ## Target environment
 
-Angular 22 with strict TypeScript and template checking. Use the supported Node.js, TypeScript, and RxJS ranges recorded in [research findings](docs/RESEARCH_FINDINGS.md#angular-22-toolchain). Exact tool versions will be locked during the first experiment.
+Angular 22 with strict TypeScript and template checking. The selected toolchain follows the supported ranges recorded in [research findings](docs/RESEARCH_FINDINGS.md#angular-22-toolchain).
 
 ## First development milestone
 
 Build a standalone Angular bar chart with typed data, light and dark themes, responsive resizing, tooltip, selectable legend, reduced motion, and safe destruction. Prove that it works in both a client application and an application using server rendering and hydration. Use its measured results to decide the MVP architecture.
 
-No dependencies have been installed, no upstream source has been copied into this folder, and no package has been published.
+The playground currently demonstrates the shared `ChartFrame` presentation shell and a theme switch. ECharts is installed but no chart renderer is implemented. No upstream source has been copied and no package has been published. `@ng-echarts/chart-library` is a private local identity for packaging experiments.

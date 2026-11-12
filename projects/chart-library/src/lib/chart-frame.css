@@ -1,0 +1,22 @@
+:host {
+  display: block;
+}
+
+.chart-frame {
+  padding: 1.5rem;
+  color: var(--nec-text, #18202c);
+  background: var(--nec-background, #ffffff);
+  border: 1px solid var(--nec-border, #d6dce5);
+  border-radius: 1rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+p {
+  margin: 0.5rem 0 1.5rem;
+  color: var(--nec-muted, #536176);
+  line-height: 1.5;
+}
