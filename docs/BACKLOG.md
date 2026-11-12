@@ -1,6 +1,6 @@
 # ng-echarts delivery backlog
 
-Updated 12 November 2026. NG01–NG05 are complete for the bar feasibility scope. NG06 awaits human listening review; NG07 implementation and NG08 measurement/package evidence pass, with their NG06/G2 dependencies still open. NG09/NG10 implementation is complete for the bar-proven baseline; NG11–NG22 remain pending. Human release evidence remains separate. The user deferred R06 on 12 November 2026 so it no longer blocks development; it remains required before release acceptance. Priority P0 blocks the next milestone, P1 belongs to MVP, and P2 follows MVP. IDs are stable so experiment reports and changes can reference them.
+Updated 12 November 2026. NG01–NG05 are complete for the bar feasibility scope. NG06 awaits human listening review; NG07 implementation and NG08 measurement/package evidence pass, with their NG06/G2 dependencies still open. NG09/NG10 implementation is complete for the bar-proven baseline; NG11 line implementation is complete; NG12–NG22 remain pending. Human release evidence remains separate. The user deferred R06 on 12 November 2026 so it no longer blocks development; it remains required before release acceptance. Priority P0 blocks the next milestone, P1 belongs to MVP, and P2 follows MVP. IDs are stable so experiment reports and changes can reference them.
 
 NG01 evidence: [R01 toolchain report](experiments/R01_TOOLCHAIN.md). The [implementation plan](IMPLEMENTATION_PLAN.md) sequences the remaining work. G1 passes for bar; G2 awaits R06, and G3/G4 remain pending.
 
@@ -33,7 +33,7 @@ NG09 first increment: [shared numeric formatting](experiments/NG09_SHARED_FORMAT
 | --- | --- | --- | --- | --- | --- |
 | NG09 | P1 | Complete shared state, formatting, validation, and motion behavior | NG08 technical evidence; R06 deferred by user | Shared contracts and fixtures cover F01 through F10; family-specific checks remain open | Complete for bar baseline; deferred human release review remains open |
 | NG10 | P1 | Finish MVP bar layouts, stacks, and fills | NG09 | Bar acceptance and visual checklist pass | Complete for bar baseline; deferred human release review remains open |
-| NG11 | P1 | Add line chart | NG09 | Multiple series, gaps, points, and straight/smooth interpolation validated | Pending |
+| NG11 | P1 | Add line chart | NG09 | Multiple series, gaps, points, and straight/smooth interpolation validated | Complete for current implementation; release review remains open |
 | NG12 | P1 | Add area chart | NG11 | Gradients and stacks validated without cross-series contamination | Pending |
 | NG13 | P1 | Add pie and donut | NG09 | Single-measure category API, legend visibility, labels, zero totals, and negative validation pass | Pending |
 | NG14 | P1 | Complete acceptance matrix across all MVP families | NG10, NG12, NG13 | Functional, visual, browser, accessibility, lifecycle, and performance evidence passes; G3 resolved | Pending |
@@ -59,4 +59,4 @@ Review Angular code against the [template and derived-state conventions](TECHNIC
 
 Use the [acceptance matrix](ACCEPTANCE_MATRIX.md) to connect task completion to product requirements and gate evidence. NG03 selects a prototype candidate; NG08 confirms it. NG09 establishes shared behavior; NG14 verifies that behavior in every family. A successful bar prototype cannot close requirements for charts that have not been implemented.
 
-Next: implement NG11 line charts using the completed NG09 foundation and NG10 bar baseline, then NG12 area and NG13 pie/donut. The user deferred the R06 listening session on 12 November 2026; keep R06/G2 pending and complete that evidence before G3/G4. Continue automated keyboard, focus, motion, and hydration checks during development.
+Next: implement NG12 area charts on the demonstrated line/Cartesian foundation, then NG13 pie/donut. See the [NG11 line report](experiments/NG11_LINE_CHART.md) for implementation and verification evidence. The user deferred the R06 listening session on 12 November 2026; keep R06/G2 pending and complete that evidence before G3/G4. Continue automated keyboard, focus, motion, and hydration checks during development.

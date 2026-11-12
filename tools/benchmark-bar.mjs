@@ -1,3 +1,4 @@
+import { format, resolveConfig } from 'prettier';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { createServer } from 'node:http';
@@ -16,6 +17,7 @@ const bundles = {};
 for (const renderer of ['canvas', 'svg']) {
   await build({
     entryPoints: [join(root, `tools/bench/${renderer}.ts`)],
+    alias: { '@ng-echarts/chart-library/core': join(root, 'tools/bench/core-policy.ts') },
     outfile: join(directory, `${renderer}.js`),
     bundle: true,
     minify: true,
@@ -189,7 +191,10 @@ try {
   assert.deepEqual(errors, []);
   await writeFile(
     join(root, 'docs/experiments/data/bar-benchmark.json'),
-    `${JSON.stringify(evidence, null, 2)}\n`,
+    await format(JSON.stringify(evidence), {
+      ...(await resolveConfig(join(root, '.prettierrc'))),
+      parser: 'json',
+    }),
   );
   assert(
     evidence.angular.filter((result) => result.targetApplies).every((result) => result.passed),

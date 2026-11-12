@@ -15,6 +15,8 @@ import { SiteAppearance } from './site-appearance';
 
 const pageTitles: Readonly<Record<string, string>> = {
   '/': 'Bar Blocks',
+  '/line': 'Line Blocks',
+  '/line-validation': 'Line validation',
   '/get-started': 'Get started',
   '/installation': 'Installation',
   '/components': 'Components',
@@ -50,13 +52,13 @@ export class Root {
   );
   private readonly routePath = computed(() => this.url().split(/[?#]/, 1)[0] ?? '/');
   protected readonly skipTarget = computed(() => this.routePath() + '#page-content');
-  protected readonly galleryMode = computed(() => this.routePath() === '/');
+  protected readonly galleryMode = computed(() => ['/', '/line'].includes(this.routePath()));
   protected readonly themeLabel = computed(() =>
     this.dark() ? 'Use light theme' : 'Use dark theme',
   );
   protected readonly themeIcon = computed(() => (this.dark() ? 'sun' : 'moon'));
   protected readonly fullWidth = computed(() =>
-    ['/comparison', '/benchmark'].includes(this.routePath()),
+    ['/comparison', '/benchmark', '/line-benchmark', '/line-comparison'].includes(this.routePath()),
   );
   protected readonly pageTitle = computed(() => pageTitles[this.routePath()] ?? 'Playground');
   protected toggleMenu(): void {

@@ -28,8 +28,8 @@ test('renders honest component availability and navigates copyable setup documen
   expect(html).toContain('Planned');
   expect(html).not.toContain('<canvas');
   await expect(page.locator('.component-card')).toHaveCount(4);
-  await expect(page.locator('a.component-card')).toHaveCount(1);
-  await expect(page.locator('.component-card.planned')).toHaveCount(3);
+  await expect(page.locator('a.component-card')).toHaveCount(2);
+  await expect(page.locator('.component-card.planned')).toHaveCount(2);
   await expect(
     page.locator('.component-card.planned a, .component-card.planned button'),
   ).toHaveCount(0);
@@ -49,7 +49,7 @@ test('renders honest component availability and navigates copyable setup documen
   );
   await nav.getByRole('link', { name: 'Components', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Components', exact: true })).toBeVisible();
-  await page.locator('a.component-card').click();
+  await page.locator('a.component-card').filter({ hasText: 'Bar Chart' }).click();
   await expect(page.getByRole('heading', { name: 'Bar Blocks', exact: true })).toBeVisible();
   await expect(page.locator('canvas')).toHaveCount(4);
   expect(errors).toEqual([]);

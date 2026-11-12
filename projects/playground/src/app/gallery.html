@@ -2,8 +2,8 @@
   <div class="gallery-content">
     <header class="gallery-heading">
       <div>
-        <h1>Bar Blocks</h1>
-        <p>Ready-made Angular bar chart blocks, powered by Apache ECharts</p>
+        <h1>{{ heading }}</h1>
+        <p>{{ subtitle }}</p>
       </div>
       <button type="button" class="copy-page" (click)="copyPage()">
         <app-site-icon [name]="copied() ? 'check' : 'copy'" />{{
@@ -23,7 +23,10 @@
     </div>
     <footer class="gallery-footer">
       <p>Examples use the local workspace package. Public npm installation is not available yet.</p>
-      <a routerLink="/playground">Open the interactive playground<app-site-icon name="arrow" /></a>
+      <a [routerLink]="isLine ? '/line-validation' : '/playground'"
+        >Open the interactive {{ isLine ? 'line validation' : 'playground'
+        }}<app-site-icon name="arrow"
+      /></a>
     </footer>
   </div>
   <aside class="page-outline" aria-label="On this page">
@@ -36,8 +39,8 @@
         >{{ block.title }}</a
       >
     }
-    <a class="outline-playground" routerLink="/playground"
-      >Interactive playground<app-site-icon name="arrow"
+    <a class="outline-playground" [routerLink]="isLine ? '/line-validation' : '/playground'"
+      >{{ isLine ? 'Line validation' : 'Interactive playground' }}<app-site-icon name="arrow"
     /></a>
   </aside>
 </main>

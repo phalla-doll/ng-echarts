@@ -193,7 +193,7 @@ a:focus-visible {
   background: white;
 }
 
-.measurement-scroll:not(:has(nec-bar-chart)) {
+.measurement-scroll:not(:has(nec-bar-chart, nec-line-chart)) {
   display: none;
 }
 .measurement-scroll:focus-visible {

@@ -3,6 +3,7 @@ import { deviceRows, deviceSeries, type DeviceRow } from './fixtures/evilcharts-
 import { horizontalRows, horizontalSeries } from './fixtures/evilcharts-horizontal-fixture';
 
 export interface BarBlock {
+  readonly kind: 'bar';
   readonly id: string;
   readonly title: string;
   readonly description: string;
@@ -17,6 +18,7 @@ export interface BarBlock {
 /** Compositions of the existing, attributed fixtures; no new upstream datasets. */
 export const barBlocks: readonly BarBlock[] = [
   {
+    kind: 'bar',
     id: 'device-visits',
     title: 'Device Visits',
     description: 'Desktop and mobile visits across twelve months.',
@@ -27,6 +29,7 @@ export const barBlocks: readonly BarBlock[] = [
     gradient: false,
   },
   {
+    kind: 'bar',
     id: 'stacked-comparison',
     title: 'Stacked Comparison',
     description: 'Monthly visits combined into stacked totals.',
@@ -37,6 +40,7 @@ export const barBlocks: readonly BarBlock[] = [
     gradient: false,
   },
   {
+    kind: 'bar',
     id: 'gradient-fills',
     title: 'Gradient Fills',
     description: 'The same monthly observations with fading fills.',
@@ -47,6 +51,7 @@ export const barBlocks: readonly BarBlock[] = [
     gradient: true,
   },
   {
+    kind: 'bar',
     id: 'horizontal-comparison',
     title: 'Horizontal Comparison',
     description: 'Desktop visits from January through June.',

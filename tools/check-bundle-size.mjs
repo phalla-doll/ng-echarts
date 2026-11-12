@@ -13,10 +13,24 @@ const directory = join(root, 'dist/linked-package-budget');
 await rm(directory, { recursive: true, force: true });
 await mkdir(directory, { recursive: true });
 const scenarios = [
-  { name: 'bar', entry: '/bar', symbol: 'BarChart', engine: true },
+  { name: 'bar', entry: '/bar', symbol: 'BarChart', engine: true, families: ['bar'] },
+  { name: 'line', entry: '/line', symbol: 'LineChart', engine: true, families: ['line'] },
   { name: 'core', entry: '/core', symbol: 'ChartFrame', engine: false },
-  { name: 'root', entry: '', symbol: 'BarChart, ChartFrame', engine: true },
-  { name: 'root-frame', entry: '', symbol: 'ChartFrame', engine: false, allowOrphanChunks: true },
+  {
+    name: 'root',
+    entry: '',
+    symbol: 'BarChart, LineChart, ChartFrame',
+    engine: true,
+    families: ['bar', 'line'],
+  },
+  {
+    name: 'root-frame',
+    entry: '',
+    symbol: 'ChartFrame',
+    engine: false,
+    allowOrphanChunks: true,
+    families: ['bar', 'line'],
+  },
 ];
 const results = [];
 for (const scenario of scenarios) {
@@ -112,9 +126,10 @@ for (const scenario of scenarios) {
   ].sort();
   if (scenario.engine || (scenario.allowOrphanChunks && engineInputs.length)) {
     assert(engineInputs.length > 0, `${scenario.name} must retain its lazy engine`);
-    assert(families.includes('bar'), `${scenario.name} must retain bar rendering`);
+    for (const family of scenario.families)
+      assert(families.includes(family), `${scenario.name} must retain ${family} rendering`);
     assert(
-      families.every((name) => ['bar', 'helper'].includes(name)),
+      families.every((name) => [...scenario.families, 'helper'].includes(name)),
       `${scenario.name} includes unrelated charts: ${families}`,
     );
     assert(
@@ -133,7 +148,7 @@ for (const scenario of scenarios) {
       `${scenario.name} must exclude ECharts and ZRender entirely`,
     );
     assert(
-      !reachableInputs.some((name) => /chart-library-bar/.test(name)),
+      !reachableInputs.some((name) => /chart-library-(?:bar|line)/.test(name)),
       `${scenario.name} must exclude bar implementation`,
     );
   }
@@ -212,6 +227,22 @@ await writeFile(
   join(root, 'docs/experiments/data/package-boundaries.json'),
   await format(
     JSON.stringify({ recordedAt, method, scenarios: results, passed: true }),
+    formatOptions,
+  ),
+);
+
+const line = results.find((result) => result.name === 'line');
+await writeFile(
+  join(root, 'docs/experiments/data/line-bundle-size.json'),
+  await format(
+    JSON.stringify({
+      recordedAt,
+      method,
+      files: line.files,
+      total: line.total,
+      budget: line.budget,
+      passed: line.passed,
+    }),
     formatOptions,
   ),
 );

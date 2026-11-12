@@ -2,6 +2,24 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: 'line-comparison',
+    loadComponent: () => import('./line-comparison').then((module) => module.LineComparison),
+  },
+  {
+    path: 'line-benchmark',
+    data: { family: 'line' },
+    loadComponent: () => import('./benchmark').then((module) => module.Benchmark),
+  },
+  {
+    path: 'line',
+    data: { family: 'line' },
+    loadComponent: () => import('./gallery').then((module) => module.Gallery),
+  },
+  {
+    path: 'line-validation',
+    loadComponent: () => import('./line-validation').then((module) => module.LineValidation),
+  },
+  {
     path: 'get-started',
     data: { page: 'get-started' },
     loadComponent: () => import('./documentation').then((module) => module.Documentation),

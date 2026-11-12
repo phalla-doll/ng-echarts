@@ -43,6 +43,16 @@ try {
   const { barBlocks, barExampleSource } = await import(
     `data:text/javascript;base64,${Buffer.from(examples.outputFiles[0].contents).toString('base64')}`
   );
+  const lines = await build({
+    entryPoints: [join(root, 'projects/playground/src/app/line-blocks.ts')],
+    bundle: true,
+    write: false,
+    platform: 'node',
+    format: 'esm',
+  });
+  const { lineBlocks, lineExampleSource } = await import(
+    `data:text/javascript;base64,${Buffer.from(lines.outputFiles[0].contents).toString('base64')}`
+  );
   const configPath = join(consumer, 'tsconfig.json');
   const config = JSON.parse(await readFile(configPath, 'utf8'));
   const documentation = await build({
@@ -62,6 +72,11 @@ try {
   assert(barApiExample, 'Bar API guide must contain its compilable integration example');
   await writeFile(join(consumer, 'bar-api-example.ts'), barApiExample);
   config.files.push('bar-api-example.ts');
+  const lineGuide = await readFile(join(root, 'docs/LINE_CHART_API.md'), 'utf8');
+  const lineApiExample = lineGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
+  assert(lineApiExample, 'Line API guide must contain a compilable integration example');
+  await writeFile(join(consumer, 'line-api-example.ts'), lineApiExample);
+  config.files.push('line-api-example.ts');
   for (const dark of [false, true]) {
     for (const block of barBlocks) {
       const file = `${block.id}-${dark ? 'dark' : 'light'}.ts`;
@@ -69,6 +84,12 @@ try {
       config.files.push(file);
     }
   }
+  for (const dark of [false, true])
+    for (const block of lineBlocks) {
+      const file = `${block.id}-${dark ? 'dark' : 'light'}.ts`;
+      await writeFile(join(consumer, file), lineExampleSource(block, dark));
+      config.files.push(file);
+    }
   await writeFile(configPath, JSON.stringify(config));
   run('npm', ['ci', '--no-audit', '--no-fund'], consumer);
   run(
@@ -93,10 +114,11 @@ try {
     '.',
     './bar',
     './core',
+    './line',
     './package.json',
   ]);
   assert.equal(manifest.sideEffects, false);
-  for (const entry of ['.', './core', './bar']) {
+  for (const entry of ['.', './core', './bar', './line']) {
     for (const field of ['types', 'default']) {
       assert(
         await readFile(join(installed, manifest.exports[entry][field])),
@@ -113,6 +135,10 @@ try {
     process.execPath,
     ['node_modules/@angular/compiler-cli/bundles/src/bin/ngc.js', '-p', 'tsconfig.invalid.json'],
     { cwd: consumer, encoding: 'utf8', env: process.env },
+  );
+  assert(
+    /Type 'string' is not assignable to type 'boolean'/.test(`${invalid.stdout}${invalid.stderr}`),
+    'Line smooth must reject nonboolean template inputs',
   );
   assert(invalid.status !== 0, 'Invalid category keys must fail Angular template compilation');
   assert(

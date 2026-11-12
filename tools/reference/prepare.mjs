@@ -33,6 +33,10 @@ const sources = [
   'src/registry/examples/echarts/ex-gradient-variant-echarts-bar-chart.tsx',
   'src/registry/examples/echarts/ex-echarts-bar-chart.tsx',
   'src/registry/charts/echarts-bar-chart.tsx',
+  'src/registry/examples/echarts/ex-echarts-line-chart.tsx',
+  'src/registry/examples/echarts/ex-solid-stroke-echarts-line-chart.tsx',
+  'src/registry/examples/echarts/ex-monotoney-curve-type-echarts-line-chart.tsx',
+  'src/registry/charts/echarts-line-chart.tsx',
   'src/app/globals.css',
 ];
 const hashes = {};

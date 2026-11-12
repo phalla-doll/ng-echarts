@@ -1,0 +1,1140 @@
+{
+  "recordedAt": "2026-11-12T15:40:49.692Z",
+  "browser": "158.0.8127.18",
+  "motion": "reduce",
+  "source": {
+    "revision": "4c2dd7c9bae780703244265c9a4b509d40c055ad",
+    "hashes": {
+      "src/registry/examples/echarts/ex-stacked-type-echarts-bar-chart.tsx": "b190f20f483aa162e10b16018a7981fe690bcad0973018016ced7a1da7d31ec0",
+      "src/registry/examples/echarts/ex-horizontal-layout-echarts-bar-chart.tsx": "6aaf83b76ac879d659c558e32158a2eccb742893b685a1578693958aed000432",
+      "src/registry/examples/echarts/ex-gradient-variant-echarts-bar-chart.tsx": "0ecc02c807613372e3964cfcd54a3bfe9f3c89e748932422d3cc81bb1bc184fc",
+      "src/registry/examples/echarts/ex-echarts-bar-chart.tsx": "52e2895c588e21eb30e01936450d3d02b09a0bfcc0d11c7d0419660126d5f9e5",
+      "src/registry/charts/echarts-bar-chart.tsx": "72e6b65dab49e436e6b62d62f2a0e4cd8e4e25c6ebaf3b726a184573174facf3",
+      "src/registry/examples/echarts/ex-echarts-line-chart.tsx": "7eff2995b22e9f45805344d6fddd5e173df7cf8c24870a8622f50858a0228829",
+      "src/registry/examples/echarts/ex-solid-stroke-echarts-line-chart.tsx": "06cc6c3243de12564ff75bb84e1e64d0f5dc0620f06906f85a685806ff1e917d",
+      "src/registry/examples/echarts/ex-monotoney-curve-type-echarts-line-chart.tsx": "d0644fdadd10eff5a6b0d8e5cebff0ba42bec76ffaab3873d64e000e03f0839d",
+      "src/registry/charts/echarts-line-chart.tsx": "102e36102ffeeccf1a5d80cfe9a268198cce7bf65a044da531d5dcd91d1bfd60",
+      "src/app/globals.css": "238ff732d59c22ad46e2c4a08c85b492e3350ef4275f27719304b9fa56fa6a4d"
+    }
+  },
+  "sourceHashes": {
+    "projects/chart-library/core/src/lib/cartesian-chart.ts": "563aa2a086f987002329360010458d37b6f8aefd35c5b387aa410ef361d836a1",
+    "projects/chart-library/line/src/lib/line-options.ts": "bff9396c7a7479eec97965e6fa383f93ab9577960370ce61dc52894a5d06622d",
+    "projects/chart-library/line/src/lib/line-renderer.ts": "5a8d11320879bb1e5f36d007c9e7f6ac6342310ce6ef6a2bfe322855c27a248a",
+    "projects/playground/src/app/line-blocks.ts": "185e5f4af14e6927e08e3ffec53773b2331d3891c2d1dba65c9132ef992bfffc"
+  },
+  "captures": [
+    {
+      "variant": "straight",
+      "implementation": "upstream",
+      "theme": "light",
+      "width": 320,
+      "filename": "straight-upstream-light-320.png",
+      "sha256": "78e70e7655520cd09f5479d75c85f363162439ffe1322fa7060b9145b36fe570",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 320,
+        "height": 360,
+        "top": 20,
+        "right": 340,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 288,
+        "height": 328,
+        "top": 36,
+        "right": 324,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "straight",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 320,
+      "filename": "straight-angular-light-320.png",
+      "sha256": "a5d9c9672d82c62aa6d30cade2adb19787e4ebae29888b3104b1e608812c3833",
+      "host": {
+        "x": 20,
+        "y": 407.5,
+        "width": 320,
+        "height": 667,
+        "top": 407.5,
+        "right": 340,
+        "bottom": 1074.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 533.5,
+        "width": 270,
+        "height": 360,
+        "top": 533.5,
+        "right": 315,
+        "bottom": 893.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "straight",
+      "implementation": "upstream",
+      "theme": "dark",
+      "width": 320,
+      "filename": "straight-upstream-dark-320.png",
+      "sha256": "b67d8fa2e4176e3a1e4e462f6a99ea09d990c5376ffd889a1b4ff9fc3cda1770",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 320,
+        "height": 360,
+        "top": 20,
+        "right": 340,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 288,
+        "height": 328,
+        "top": 36,
+        "right": 324,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "straight",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 320,
+      "filename": "straight-angular-dark-320.png",
+      "sha256": "528bce76ed0d4b01cca7e869a01ffdb8e48c802b4f0e9002ae6419a1131f4b96",
+      "host": {
+        "x": 20,
+        "y": 407.5,
+        "width": 320,
+        "height": 667,
+        "top": 407.5,
+        "right": 340,
+        "bottom": 1074.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 533.5,
+        "width": 270,
+        "height": 360,
+        "top": 533.5,
+        "right": 315,
+        "bottom": 893.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "straight",
+      "implementation": "upstream",
+      "theme": "light",
+      "width": 768,
+      "filename": "straight-upstream-light-768.png",
+      "sha256": "bb6b104b44b870613e234a1e9ead45971d0e92cefa4f27c1cb458fbeef07d0c0",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 768,
+        "height": 360,
+        "top": 20,
+        "right": 788,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 736,
+        "height": 328,
+        "top": 36,
+        "right": 772,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "straight",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 768,
+      "filename": "straight-angular-light-768.png",
+      "sha256": "47c11ce9db41337da5de358ec5343014a384930f72c31cdc93ff3d69af9bc58c",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 768,
+        "height": 599,
+        "top": 243.5,
+        "right": 788,
+        "bottom": 842.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 718,
+        "height": 360,
+        "top": 345.5,
+        "right": 763,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "straight",
+      "implementation": "upstream",
+      "theme": "dark",
+      "width": 768,
+      "filename": "straight-upstream-dark-768.png",
+      "sha256": "923f6c834aaf2599f0c5c3d67a1b3da588d8b573f58f7c93fdd076d0dd2f50a2",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 768,
+        "height": 360,
+        "top": 20,
+        "right": 788,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 736,
+        "height": 328,
+        "top": 36,
+        "right": 772,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "straight",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 768,
+      "filename": "straight-angular-dark-768.png",
+      "sha256": "8fe82f451ca65023f659c2c5a6b26d351cfc9b1aacdc61ae7c51995249ba3855",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 768,
+        "height": 599,
+        "top": 243.5,
+        "right": 788,
+        "bottom": 842.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 718,
+        "height": 360,
+        "top": 345.5,
+        "right": 763,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "straight",
+      "implementation": "upstream",
+      "theme": "light",
+      "width": 1440,
+      "filename": "straight-upstream-light-1440.png",
+      "sha256": "2b6be8e9001d8c9d276f23a07178f10596aa74172f0b393a18f60ce068950d8e",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 1440,
+        "height": 360,
+        "top": 20,
+        "right": 1460,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 1408,
+        "height": 328,
+        "top": 36,
+        "right": 1444,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "straight",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 1440,
+      "filename": "straight-angular-light-1440.png",
+      "sha256": "56a964a09c3d33ac1c0b1aa486f82eaa5a01172f4b4215f79ee06db414a134bf",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 1440,
+        "height": 599,
+        "top": 243.5,
+        "right": 1460,
+        "bottom": 842.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 1390,
+        "height": 360,
+        "top": 345.5,
+        "right": 1435,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "straight",
+      "implementation": "upstream",
+      "theme": "dark",
+      "width": 1440,
+      "filename": "straight-upstream-dark-1440.png",
+      "sha256": "7e30e2a2b0f3d16b7fd1ba14cac64259b90846eb51793ef27425fc62005b6916",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 1440,
+        "height": 360,
+        "top": 20,
+        "right": 1460,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 1408,
+        "height": 328,
+        "top": 36,
+        "right": 1444,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "straight",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 1440,
+      "filename": "straight-angular-dark-1440.png",
+      "sha256": "2f3d0965f5c386c65e2a1a9989d7f13e4de94e769cfe1111a95c866a5c9e2f86",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 1440,
+        "height": 599,
+        "top": 243.5,
+        "right": 1460,
+        "bottom": 842.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 1390,
+        "height": 360,
+        "top": 345.5,
+        "right": 1435,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "smooth",
+      "implementation": "upstream",
+      "theme": "light",
+      "width": 320,
+      "filename": "smooth-upstream-light-320.png",
+      "sha256": "12d6e6f0e127d510baee0a522a42ab9a58e7d3c3c25a77ddb357bdca6e6465e4",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 320,
+        "height": 360,
+        "top": 20,
+        "right": 340,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 288,
+        "height": 328,
+        "top": 36,
+        "right": 324,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "smooth",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 320,
+      "filename": "smooth-angular-light-320.png",
+      "sha256": "a3fc816a96a47c87144a6b87cc43a31cff066fd487d8a80558e8969d3b8d3f8f",
+      "host": {
+        "x": 20,
+        "y": 407.5,
+        "width": 320,
+        "height": 667,
+        "top": 407.5,
+        "right": 340,
+        "bottom": 1074.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 533.5,
+        "width": 270,
+        "height": 360,
+        "top": 533.5,
+        "right": 315,
+        "bottom": 893.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "smooth",
+      "implementation": "upstream",
+      "theme": "dark",
+      "width": 320,
+      "filename": "smooth-upstream-dark-320.png",
+      "sha256": "5c44233b195bd28ce47f179661358de667444b92727241627f09e34bbd1c3eb3",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 320,
+        "height": 360,
+        "top": 20,
+        "right": 340,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 288,
+        "height": 328,
+        "top": 36,
+        "right": 324,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "smooth",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 320,
+      "filename": "smooth-angular-dark-320.png",
+      "sha256": "43674b4d46d7ae88feb61f8699f695bf07486fa0cba89a5443d356d46f875ec5",
+      "host": {
+        "x": 20,
+        "y": 407.5,
+        "width": 320,
+        "height": 667,
+        "top": 407.5,
+        "right": 340,
+        "bottom": 1074.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 533.5,
+        "width": 270,
+        "height": 360,
+        "top": 533.5,
+        "right": 315,
+        "bottom": 893.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "smooth",
+      "implementation": "upstream",
+      "theme": "light",
+      "width": 768,
+      "filename": "smooth-upstream-light-768.png",
+      "sha256": "c91d15c3e75a80ae7cde56bed3f55cce716e3908f12762158c6e6db529641801",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 768,
+        "height": 360,
+        "top": 20,
+        "right": 788,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 736,
+        "height": 328,
+        "top": 36,
+        "right": 772,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "smooth",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 768,
+      "filename": "smooth-angular-light-768.png",
+      "sha256": "71479ab09d6c4e5e84f248a465c82b1cf4755e3f87fcb7aad9bc55e3d3107ef0",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 768,
+        "height": 599,
+        "top": 243.5,
+        "right": 788,
+        "bottom": 842.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 718,
+        "height": 360,
+        "top": 345.5,
+        "right": 763,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "smooth",
+      "implementation": "upstream",
+      "theme": "dark",
+      "width": 768,
+      "filename": "smooth-upstream-dark-768.png",
+      "sha256": "3742cb3ff1bce5b95f077e108ff4e096a461ecefce25c5dca34cf9bf135e645c",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 768,
+        "height": 360,
+        "top": 20,
+        "right": 788,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 736,
+        "height": 328,
+        "top": 36,
+        "right": 772,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "smooth",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 768,
+      "filename": "smooth-angular-dark-768.png",
+      "sha256": "3c4fd61e78460145b69799cf7dacbbe1834431b3262fe56b8c07d1d787998b75",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 768,
+        "height": 599,
+        "top": 243.5,
+        "right": 788,
+        "bottom": 842.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 718,
+        "height": 360,
+        "top": 345.5,
+        "right": 763,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "smooth",
+      "implementation": "upstream",
+      "theme": "light",
+      "width": 1440,
+      "filename": "smooth-upstream-light-1440.png",
+      "sha256": "9de7c8b1dbb5cb5ca42d0bfb61cc62960dfe973fea676e048fedbcd2f13b5b30",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 1440,
+        "height": 360,
+        "top": 20,
+        "right": 1460,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 1408,
+        "height": 328,
+        "top": 36,
+        "right": 1444,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "smooth",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 1440,
+      "filename": "smooth-angular-light-1440.png",
+      "sha256": "be146cf93067ab2196b9e9721d889fe825778fc9e32f716ecc5107565ae6c55d",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 1440,
+        "height": 599,
+        "top": 243.5,
+        "right": 1460,
+        "bottom": 842.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 1390,
+        "height": 360,
+        "top": 345.5,
+        "right": 1435,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "smooth",
+      "implementation": "upstream",
+      "theme": "dark",
+      "width": 1440,
+      "filename": "smooth-upstream-dark-1440.png",
+      "sha256": "2166508b32b1727f1e5939bdca1021a763f1080d21e93a72d4a9e57d2497e522",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 1440,
+        "height": 360,
+        "top": 20,
+        "right": 1460,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 1408,
+        "height": 328,
+        "top": 36,
+        "right": 1444,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "smooth",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 1440,
+      "filename": "smooth-angular-dark-1440.png",
+      "sha256": "411cf4d31ede3b9a9135be5f0aa4eb294d0106f35afc6628d64fa42f36d2ccf8",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 1440,
+        "height": 599,
+        "top": 243.5,
+        "right": 1460,
+        "bottom": 842.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 1390,
+        "height": 360,
+        "top": 345.5,
+        "right": 1435,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "minimal",
+      "implementation": "upstream",
+      "theme": "light",
+      "width": 320,
+      "filename": "minimal-upstream-light-320.png",
+      "sha256": "5fb130cf55f548505ece3d45ff62dc164a13194e3a3aa0b084b22b76df1afab9",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 320,
+        "height": 360,
+        "top": 20,
+        "right": 340,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 288,
+        "height": 328,
+        "top": 36,
+        "right": 324,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "minimal",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 320,
+      "filename": "minimal-angular-light-320.png",
+      "sha256": "6b74dea3443695c74250be57d0b8028cead240319b4fa996f5563872818b98fb",
+      "host": {
+        "x": 20,
+        "y": 407.5,
+        "width": 320,
+        "height": 667,
+        "top": 407.5,
+        "right": 340,
+        "bottom": 1074.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 533.5,
+        "width": 270,
+        "height": 360,
+        "top": 533.5,
+        "right": 315,
+        "bottom": 893.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "minimal",
+      "implementation": "upstream",
+      "theme": "dark",
+      "width": 320,
+      "filename": "minimal-upstream-dark-320.png",
+      "sha256": "fefbdc2a560b952a3c63d3f1fff9660e91011d3c5fbd307adef05d93e8375b37",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 320,
+        "height": 360,
+        "top": 20,
+        "right": 340,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 288,
+        "height": 328,
+        "top": 36,
+        "right": 324,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "minimal",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 320,
+      "filename": "minimal-angular-dark-320.png",
+      "sha256": "f732b8edb93eaaf3ea5977dcb0330c4188445ccf35e16dec2e6f9c5b1d2dd4c1",
+      "host": {
+        "x": 20,
+        "y": 407.5,
+        "width": 320,
+        "height": 667,
+        "top": 407.5,
+        "right": 340,
+        "bottom": 1074.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 533.5,
+        "width": 270,
+        "height": 360,
+        "top": 533.5,
+        "right": 315,
+        "bottom": 893.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "minimal",
+      "implementation": "upstream",
+      "theme": "light",
+      "width": 768,
+      "filename": "minimal-upstream-light-768.png",
+      "sha256": "dca0cebe0367680334a730bb42b0ffcb03e637374eb92b3e55f26bccca91ef7b",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 768,
+        "height": 360,
+        "top": 20,
+        "right": 788,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 736,
+        "height": 328,
+        "top": 36,
+        "right": 772,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "minimal",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 768,
+      "filename": "minimal-angular-light-768.png",
+      "sha256": "5ce1ff77aaf868424bd3f78b3cd37aca2a865e5942946bc2c076da4b0b8d88c5",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 768,
+        "height": 599,
+        "top": 243.5,
+        "right": 788,
+        "bottom": 842.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 718,
+        "height": 360,
+        "top": 345.5,
+        "right": 763,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "minimal",
+      "implementation": "upstream",
+      "theme": "dark",
+      "width": 768,
+      "filename": "minimal-upstream-dark-768.png",
+      "sha256": "b8cfbcddbf43688c0745063589f976900714ed3486c8a113aecf88c8e5e114b7",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 768,
+        "height": 360,
+        "top": 20,
+        "right": 788,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 736,
+        "height": 328,
+        "top": 36,
+        "right": 772,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "minimal",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 768,
+      "filename": "minimal-angular-dark-768.png",
+      "sha256": "c6722ba874beb0157390e9ad853f5179e78616525f917deadb9d701cea03817f",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 768,
+        "height": 599,
+        "top": 243.5,
+        "right": 788,
+        "bottom": 842.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 718,
+        "height": 360,
+        "top": 345.5,
+        "right": 763,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "minimal",
+      "implementation": "upstream",
+      "theme": "light",
+      "width": 1440,
+      "filename": "minimal-upstream-light-1440.png",
+      "sha256": "1bf9a3dca3110d716b6941bdf4675e489addd76b966fe113653700721c6e9423",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 1440,
+        "height": 360,
+        "top": 20,
+        "right": 1460,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 1408,
+        "height": 328,
+        "top": 36,
+        "right": 1444,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "minimal",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 1440,
+      "filename": "minimal-angular-light-1440.png",
+      "sha256": "6ed131ddc213464426b5b3dac16ae6bd60e8e73278873e59dae63ba68fe36393",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 1440,
+        "height": 599,
+        "top": 243.5,
+        "right": 1460,
+        "bottom": 842.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 1390,
+        "height": 360,
+        "top": 345.5,
+        "right": 1435,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "minimal",
+      "implementation": "upstream",
+      "theme": "dark",
+      "width": 1440,
+      "filename": "minimal-upstream-dark-1440.png",
+      "sha256": "11cb1cb780979e267f4dfde104e0fae5457a61fd9a1451652f7e6a29f0842f18",
+      "host": {
+        "x": 20,
+        "y": 20,
+        "width": 1440,
+        "height": 360,
+        "top": 20,
+        "right": 1460,
+        "bottom": 380,
+        "left": 20
+      },
+      "canvas": {
+        "x": 36,
+        "y": 36,
+        "width": 1408,
+        "height": 328,
+        "top": 36,
+        "right": 1444,
+        "bottom": 364,
+        "left": 36
+      },
+      "font": "system-ui, sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "minimal",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 1440,
+      "filename": "minimal-angular-dark-1440.png",
+      "sha256": "f53ff3beed61c1fcb16f18a994d1546fff8753955bba25f63a40f9ca9e4abf40",
+      "host": {
+        "x": 20,
+        "y": 243.5,
+        "width": 1440,
+        "height": 599,
+        "top": 243.5,
+        "right": 1460,
+        "bottom": 842.5,
+        "left": 20
+      },
+      "canvas": {
+        "x": 45,
+        "y": 345.5,
+        "width": 1390,
+        "height": 360,
+        "top": 345.5,
+        "right": 1435,
+        "bottom": 705.5,
+        "left": 45
+      },
+      "font": "system-ui, -apple-system, \"system-ui\", \"Segoe UI\", sans-serif",
+      "dpr": 1
+    },
+    {
+      "variant": "gallery",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 390,
+      "filename": "gallery-dark-390.png",
+      "sha256": "ceeadd6df45f8ff2fa4da8434dde00060a3dd7dd97f3af32bbeccf8bbc982d2b"
+    },
+    {
+      "variant": "gallery",
+      "implementation": "angular",
+      "theme": "dark",
+      "width": 1440,
+      "filename": "gallery-dark-1440.png",
+      "sha256": "f3552309b1983af395d1a64c0aa67cd6ab7be863e1f9604fd7cf57fb582be334"
+    },
+    {
+      "variant": "gallery",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 390,
+      "filename": "gallery-light-390.png",
+      "sha256": "e2f7edc8fdb0827f9cad478acc00c5db7a14281db3f54d793e5c82261ad3082b"
+    },
+    {
+      "variant": "gallery",
+      "implementation": "angular",
+      "theme": "light",
+      "width": 1440,
+      "filename": "gallery-light-1440.png",
+      "sha256": "6a894a925e9e6715a85b4887bc73c91fd2b938b52582fdf5f3dbaf92ac6fe923"
+    }
+  ]
+}

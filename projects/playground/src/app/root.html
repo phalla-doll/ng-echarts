@@ -56,6 +56,14 @@
         ><app-site-icon name="chart" />Bar Blocks</a
       >
       <a
+        routerLink="/line"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="chart" />Line Blocks</a
+      >
+      <a
         routerLink="/playground"
         routerLinkActive="active"
         ariaCurrentWhenActive="page"
@@ -90,6 +98,13 @@
         ariaCurrentWhenActive="page"
         (click)="closeMenu()"
         ><app-site-icon name="layers" />Lifecycle validation</a
+      >
+      <a
+        routerLink="/line-validation"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="layers" />Line validation</a
       >
       <a
         routerLink="/retention"

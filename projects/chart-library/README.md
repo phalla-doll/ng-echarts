@@ -2,6 +2,8 @@
 
 Experimental Angular 22 library. The local package identity is `@ng-echarts/chart-library`; it is private and is not a selected public npm name.
 
+`LineChart<T>` is now available from `/line`; see the [line API reference](https://github.com/phalla-doll/ng-echarts/blob/main/docs/LINE_CHART_API.md) for smooth/straight interpolation, optional points, gaps, and shared input/event behavior.
+
 `BarChart<T>` is an experimental native Angular bar component. ECharts `^6.1.0` is a required peer; 6.1.0 is tested. Inputs include `title`, `description`, readonly `data` and `series`, string identity/category keys, `height`, `layout`, `stacked`, `gradient`, `theme`, `themeRevision`, `locale`, `numberFormatOptions`, `valueFormatter`, `categoryTickFormatter`, `showDataTable`, `loading`, `error`, and `animation`. `pointSelect` and `legendChange` emit stable identifiers. Replace input references when data changes.
 
 `ChartSeries<T>` restricts measure keys to numeric/nullish numeric fields. `PointSelection<T>` includes the original row, numeric value, row/series IDs, and `plot` or `table` source. Null/missing values stay missing. The table is initially collapsed, and legend filtering preserves its full dataset. Set `[showDataTable]="false"` to omit both its toggle and contents, as the gallery does; the default is `true`. Keep it enabled or provide equivalent controls when users need keyboard point selection. Reenabling preserves the previous expansion state.
@@ -12,10 +14,11 @@ The [bar API reference](https://github.com/phalla-doll/ng-echarts/blob/main/docs
 
 ```ts
 import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';
+import { LineChart } from '@ng-echarts/chart-library/line';
 import { ChartFrame } from '@ng-echarts/chart-library/core';
 ```
 
-`/bar` owns the component and lazy modular Canvas renderer. `/core` owns `ChartFrame` and shared types and includes no ECharts/ZRender runtime bytes. Root imports remain compatible and refer to the same classes; use focused subpaths for new code. Internal source paths are not public exports. All entries ship in one tarball with the existing required Angular/ECharts peers.
+`/bar` owns the component and lazy modular Canvas renderer. `/line` owns the line component and its lazy Canvas renderer. `/core` owns `ChartFrame`, shared types, and internal Cartesian behavior and includes no ECharts/ZRender runtime bytes. Root imports remain compatible and refer to the same classes; use focused subpaths for new code. Internal source paths are not public exports. All entries ship in one tarball with the existing required Angular/ECharts peers.
 
 `npm run check:bundle` measures focused and compatibility imports and rejects unrelated chart families, SVG, or eagerly included engine code. The bar gzip/Brotli budgets remain 200,000/175,000 bytes; core is limited to 10,000/9,000 bytes, excluding Angular/RxJS peers. See [package evidence](https://github.com/phalla-doll/ng-echarts/blob/main/docs/experiments/NG09_PACKAGE_BOUNDARIES.md).
 
@@ -36,3 +39,5 @@ Chart axes and tooltips inherit the host element's CSS `font-family`. Initial br
 `ChartFrame` remains a presentation shell with required `title`, optional `description`, and projected content. All APIs remain provisional until the bar feasibility experiments pass. Preserve the packaged upstream notice in `third-party/`.
 
 Build with `npm run build:lib` from the workspace root. See the root README and `docs/IMPLEMENTATION_PLAN.md` for the implementation sequence and validation commands.
+
+`ɵ`-prefixed core exports support implementation across entry points and are not stable consumer APIs. Focused `/bar` excludes line rendering, focused `/line` excludes bar rendering, and core excludes engine runtime modules.

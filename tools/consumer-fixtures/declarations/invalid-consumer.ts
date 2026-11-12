@@ -72,3 +72,20 @@ export class InvalidValueFormatterConsumer {
   readonly badValueFormatter = (_value: number) => 42;
   readonly badNumberOptions = { style: 'invalid' } as const;
 }
+
+import { LineChart } from '@ng-echarts/chart-library/line';
+@Component({
+  imports: [LineChart],
+  template: `<nec-line-chart
+    title="Invalid line"
+    [data]="rows"
+    rowIdKey="id"
+    categoryKey="category"
+    [series]="series"
+    [smooth]="'yes'"
+  />`,
+})
+export class InvalidLine {
+  readonly rows = [{ id: 'a', category: 'A', count: 1 }];
+  readonly series = [{ id: 'v', key: 'category', label: 'Invalid' }] as const;
+}

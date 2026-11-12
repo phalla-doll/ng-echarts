@@ -9,6 +9,8 @@ import {
   viewChild,
   ViewContainerRef,
 } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { LineChart } from '@ng-echarts/chart-library/line';
 import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';
 import { registerPostInit, type EChartsType } from 'echarts/core';
 
@@ -41,7 +43,7 @@ declare global {
 @Component({
   selector: 'app-benchmark',
   template: `<main class="measurement-page">
-    <h1>Bar benchmark fixture</h1>
+    <h1>{{ lineMode ? 'Line' : 'Bar' }} benchmark fixture</h1>
     <p>Automated measurements run through the benchmark command.</p>
     <p>
       The preview keeps its fixed 768 px measurement width and reference theme. Scroll inside the
@@ -65,7 +67,8 @@ export class Benchmark {
   private readonly charts = viewChild.required('charts', { read: ViewContainerRef });
   private readonly injector = inject(Injector);
   private readonly destroy = inject(DestroyRef);
-  private reference: ComponentRef<BarChart<Row>> | null = null;
+  protected readonly lineMode = inject(ActivatedRoute).snapshot.data['family'] === 'line';
+  private reference: ComponentRef<BarChart<Row> | LineChart<Row>> | null = null;
 
   constructor() {
     afterNextRender(() => {
@@ -95,7 +98,9 @@ export class Benchmark {
     }));
   }
   private create(rows: readonly Row[]): void {
-    this.reference = this.charts().createComponent(BarChart<Row>);
+    this.reference = this.lineMode
+      ? this.charts().createComponent(LineChart<Row>)
+      : this.charts().createComponent(BarChart<Row>);
     for (const [key, value] of Object.entries({
       title: 'Benchmark',
       description: 'Deterministic three-series fixture.',

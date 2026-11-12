@@ -23,7 +23,9 @@
     "capture:bar": "node tools/capture-bar-reference.mjs",
     "check:runtime": "node tools/check-runtime-consumer.mjs",
     "benchmark:bar": "node tools/benchmark-bar.mjs",
-    "check:bundle": "node tools/check-bundle-size.mjs"
+    "check:bundle": "node tools/check-bundle-size.mjs",
+    "benchmark:line": "node tools/benchmark-line.mjs",
+    "capture:line": "node tools/capture-line-reference.mjs"
   },
   "private": true,
   "packageManager": "npm@11.19.1",

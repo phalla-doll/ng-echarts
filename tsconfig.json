@@ -4,7 +4,8 @@
     "paths": {
       "@ng-echarts/chart-library": ["./dist/chart-library"],
       "@ng-echarts/chart-library/bar": ["./dist/chart-library/bar"],
-      "@ng-echarts/chart-library/core": ["./dist/chart-library/core"]
+      "@ng-echarts/chart-library/core": ["./dist/chart-library/core"],
+      "@ng-echarts/chart-library/line": ["./dist/chart-library/line"]
     },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

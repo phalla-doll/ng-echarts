@@ -4,6 +4,8 @@ import {
   type CategoryTickFormatter,
   type PointSelection,
 } from '@ng-echarts/chart-library/bar';
+import { LineChart } from '@ng-echarts/chart-library/line';
+import { lineExampleSource, type LineBlock } from './line-blocks';
 import { barExampleSource, type BarBlock } from './bar-blocks';
 import type { DeviceRow } from './fixtures/evilcharts-bar-fixture';
 import { SiteIcon } from './site-icon';
@@ -11,13 +13,13 @@ import { HighlightCode } from './highlight-code';
 
 @Component({
   selector: 'app-bar-block',
-  imports: [BarChart, SiteIcon, HighlightCode],
+  imports: [BarChart, LineChart, SiteIcon, HighlightCode],
   templateUrl: './bar-block.html',
   styleUrl: './bar-block.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BarBlockExample {
-  readonly block = input.required<BarBlock>();
+  readonly block = input.required<BarBlock | LineBlock>();
   readonly dark = input.required<boolean>();
   protected readonly theme = computed(() => (this.dark() ? 'dark' : 'light'));
   protected readonly color = computed(() =>
@@ -28,8 +30,17 @@ export class BarBlockExample {
   protected readonly instances = computed(() => [this.generation()]);
   private readonly copiedText = signal<string | null>(null);
   protected readonly copyFailed = signal(false);
-  protected readonly importSource = "import { BarChart } from '@ng-echarts/chart-library/bar';";
-  protected readonly source = computed(() => barExampleSource(this.block(), this.dark()));
+  protected readonly importSource = computed(() =>
+    this.block().kind === 'line'
+      ? "import { LineChart } from '@ng-echarts/chart-library/line';"
+      : "import { BarChart } from '@ng-echarts/chart-library/bar';",
+  );
+  protected readonly source = computed(() => {
+    const block = this.block();
+    return block.kind === 'line'
+      ? lineExampleSource(block, this.dark())
+      : barExampleSource(block, this.dark());
+  });
   protected readonly copied = computed(() => this.copiedText() === this.source());
   protected readonly selection = signal('');
   protected readonly monthTick: CategoryTickFormatter = (month) => month.slice(0, 3);

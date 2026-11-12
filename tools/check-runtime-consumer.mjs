@@ -95,6 +95,32 @@ async function exercise(engine, url, ssr) {
       .focus();
     await page.keyboard.press('Enter');
     await expect(page.locator('.selection')).toHaveText('January: desktop = 442 (table)');
+    await page
+      .getByRole('navigation', { name: 'Playground pages' })
+      .getByRole('link', { name: 'Line Blocks', exact: true })
+      .click();
+    await expect(page.locator('nec-line-chart canvas')).toHaveCount(4);
+    await page
+      .getByRole('navigation', { name: 'Playground pages' })
+      .getByRole('link', { name: 'Line validation', exact: true })
+      .click();
+    const line = page.locator('.primary-line nec-line-chart');
+    await expect(line.locator('canvas')).toHaveCount(1);
+    await line.getByRole('button', { name: 'Show data table', exact: true }).click();
+    await line.getByRole('button', { name: 'Select Mobile for May: -20', exact: true }).click();
+    await expect(page.locator('.selection')).toHaveText('e/mobile/-20/table');
+    await page.getByRole('button', { name: 'Update line values', exact: true }).click();
+    await expect(
+      line.getByRole('button', { name: 'Select Desktop for January: 110', exact: true }),
+    ).toBeVisible();
+    if (ssr) {
+      const deferred = page.locator('.deferred-line');
+      await deferred.getByRole('button', { name: 'Show data table', exact: true }).click();
+      await expect(deferred.locator('canvas')).toHaveCount(1);
+      await expect(deferred.locator('table')).toBeVisible();
+    }
+    await page.getByRole('link', { name: 'Navigate away', exact: true }).click();
+    await expect(page.locator('canvas')).toHaveCount(0);
     assert.deepEqual(errors, []);
     return {
       engine: browser.browserType().name(),
@@ -156,10 +182,12 @@ try {
      import '@angular/compiler';
      const root = await import('@ng-echarts/chart-library');
      const bar = await import('@ng-echarts/chart-library/bar');
+     const line = await import('@ng-echarts/chart-library/line');
+     assert.equal(root.LineChart, line.LineChart);
      const core = await import('@ng-echarts/chart-library/core');
      assert.equal(root.BarChart, bar.BarChart);
      assert.equal(root.ChartFrame, core.ChartFrame);
-     assert.deepEqual(Object.keys(core), ['ChartFrame']);
+     assert.deepEqual(Object.keys(core).filter(name => !name.startsWith('ɵ')), ['ChartFrame']);
      const require = createRequire(process.cwd() + '/package.json');
      for (const path of ['src/lib/bar-chart', 'bar/src/lib/bar-chart', 'fesm2022/ng-echarts-chart-library-bar.mjs']) {
        assert.throws(() => require.resolve('@ng-echarts/chart-library/' + path), { code: 'ERR_PACKAGE_PATH_NOT_EXPORTED' });
@@ -245,7 +273,7 @@ try {
     skipLibCheck: tsconfig.compilerOptions.skipLibCheck,
     workspaceAliases: false,
     installedOutsideWorkspace: true,
-    entryPoints: ['.', './core', './bar'],
+    entryPoints: ['.', './core', './bar', './line'],
     compatibilityIdentity: true,
     privateImportsBlocked: true,
     reactRuntime: false,
