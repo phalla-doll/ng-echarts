@@ -3,6 +3,7 @@
 @source './upstream/src/registry/charts/echarts-bar-chart.tsx';
 @source './upstream/src/registry/ui';
 @source './upstream/src/registry/examples/echarts/ex-echarts-bar-chart.tsx';
+@source './upstream/src/registry/examples/echarts/*bar-chart.tsx';
 
 @custom-variant dark (&:is(.dark *));
 @theme inline {

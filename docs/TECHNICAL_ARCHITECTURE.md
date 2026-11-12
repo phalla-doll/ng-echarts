@@ -146,7 +146,7 @@ Tooltips accept plain data by default. Escape strings before any HTML formatting
 
 ## Packaging and workspace
 
-Scaffolded workspace layout; renderer and chart-specific implementation remain pending:
+Current workspace layout; the bar implementation and browser validation fixtures are present:
 
 ```text
 projects/
@@ -170,10 +170,10 @@ The requested folder remains `ng-echarts`. Angular's naming guidance recommends 
 | Decision | Current direction | Revisit trigger |
 | --- | --- | --- |
 | Rendering engine | ECharts, starting from upstream ECharts designs | Prototype fails required behavior or visual goals |
-| Angular integration | Initial choice in R02; confirm after R04, R05, and R08 | Lifecycle, hydration, or packaging evidence invalidates the initial choice |
+| Angular integration | Direct adapter confirmed by R02/R04/R05/R08 for bar | Lifecycle, hydration, or packaging evidence invalidates the initial choice |
 | Public API | Typed object inputs and Angular events | Template inference or consumer usability fails |
 | SSR | Stable fallback with browser chart initialization | A later product requirement needs server-rendered chart images |
-| Renderer | Canvas first; SVG comparison required | Measurements favor SVG or both need consumer selection |
+| Renderer | Canvas selected by R07 bar measurements | Measurements favor SVG or both need consumer selection |
 | Styling | CSS tokens and independent core styles | A concrete consumer requires an optional theme integration |
 | Distribution | Local library and packed consumer first | Package name, notices, and release checks are ready |
 
@@ -189,7 +189,7 @@ The workspace uses Angular/CLI 22.2.6, TypeScript 6.0.3, Node 24.22.2, npm 11.19
 
 The [initial adapter decision](experiments/R02_ADAPTER.md) selects a direct, lazy Canvas adapter. Pure model/option modules are separate from the browser lifecycle controller and theme utility. The component waits for a browser render callback and application stability; it retains Angular ownership of the legend, status messages, and table. Options use stable series/row IDs and full replacement to remove stale series. Visibility is retained in Angular state. Browser failures invalidate pending work and allow retry or input-driven recovery.
 
-Theme colors are read at the component host when series, theme, or revision changes; temporary color probes stay inside the plot surface. CSS measurement does not run inside `computed` builders. The [prototype report](experiments/BAR_PROTOTYPE.md) records the initial slice; the validation evidence below records later progress. Renderer comparison and final package-runtime checks remain pending.
+Theme colors are read at the component host when series, theme, or revision changes; temporary color probes stay inside the plot surface. CSS measurement does not run inside `computed` builders. The [prototype report](experiments/BAR_PROTOTYPE.md) records the initial slice; the validation evidence below records later progress. The [renderer comparison](experiments/R07_RENDERER_COST.md) selects Canvas, and [R08](experiments/R08_PACKED_RUNTIME.md) passes packed client/SSR consumption.
 
 ### Category tick formatting
 
@@ -203,6 +203,6 @@ Axes retain explicit 12 px labels and value ticks for readability. The plot keep
 
 ### Validation fixtures
 
-`Root` owns navigation and the router outlet; `App` is the default playground page. The lazy `/validation` page contains regular, initial-loading, and initial-hidden bars, plus a separate `DeferredChart` inside `@defer (hydrate on interaction)`. `/away` has no charts. These paths passed the [R05 workspace bar checks](experiments/R04_R05_VALIDATION.md) in Chromium, Firefox, and WebKit without a hydration bypass. The result supports the current browser boundary; it does not confirm R02 until R04 and R08 also pass.
+`Root` owns navigation and the router outlet; `App` is the default playground page. The lazy `/validation` page contains regular, initial-loading, and initial-hidden bars, plus a separate `DeferredChart` inside `@defer (hydrate on interaction)`. `/away` has no charts. These paths passed the [R05 workspace bar checks](experiments/R04_R05_VALIDATION.md) in Chromium, Firefox, and WebKit without a hydration bypass. R04 and R08 now also pass, confirming R02 and G1 for this bar boundary. The R06 human review and G2 remain pending.
 
-Native resource counters are installed by browser tests before application code. They track ResizeObserver targets, motion listeners, and scheduled frames; post-GC Chromium counters are retained as diagnostic data. Retained-object attribution remains open. The [visual reference harness](../tools/reference/README.md) has its own private development dependencies and never enters Angular library builds.
+Native resource counters are installed by browser tests before application code. They track ResizeObserver targets, motion listeners, and scheduled frames; post-GC Chromium counters are retained as diagnostic data. The separate `/retention` fixture now checks collection of obsolete unique row identities through post-GC snapshots; the recorded growth is dominated by V8 code nodes, with stable DOM/listener/closure counts. The `/updates` route checks immutable identity changes and focus retention. `ChartFocusKeeper` restores native focus after keyed DOM moves and falls back to table/status controls after removal, without taking focus from another control or pointer target; document listeners are cleaned up on destroy. The `/benchmark` route subscribes to the public ECharts completion hook without adding instrumentation to the package API. The [visual reference harness](../tools/reference/README.md) has its own private development dependencies and never enters Angular library builds.

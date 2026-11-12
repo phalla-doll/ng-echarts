@@ -1,8 +1,8 @@
 # Initial bar prototype evidence
 
-Status: partial implementation evidence; R03–R08 and G1/G2 remain pending. Executed 12 November 2026. Tasks: NG02 complete, NG03 initial choice recorded, NG04–NG07 in progress. Chart: bar only. Requirements exercised: F01–F10; none is closed across the MVP.
+Historical status at `1cfe577`: partial implementation evidence; later experiment results are linked below. Executed 12 November 2026. Tasks: NG02 complete, NG03 initial choice recorded, NG04–NG07 in progress. Chart: bar only. Requirements exercised: F01–F10; none is closed across the MVP.
 
-This is the initial prototype snapshot at `1cfe577`. For current development results, see the [visual review](R03_VISUAL_REVIEW.md) and [lifecycle/hydration report](R04_R05_VALIDATION.md). R05 has since passed for workspace bar fixtures, with 31 unit/integration tests and 36 browser scenarios now passing; the remaining experiments and gates stay open as recorded there.
+This is the initial prototype snapshot at `1cfe577`. For current development results, see the [visual review](R03_VISUAL_REVIEW.md) and [lifecycle/hydration report](R04_R05_VALIDATION.md). R01–R05, R07, and R08 have since passed for bar, with 33 unit/integration tests and 43 browser scenarios now passing. G1 passes; R06 human listening and G2 remain pending, as recorded in the current reports.
 
 ## Implemented behavior
 

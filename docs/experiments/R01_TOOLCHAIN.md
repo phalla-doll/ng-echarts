@@ -1,6 +1,6 @@
 # R01 toolchain and scaffold evidence
 
-Status: pass for the initial toolchain scope. Executed 12 November 2026 on macOS with Node 24.22.2 and npm 11.19.1. Task: NG01. This establishes the build boundary for the prototype; G1–G4 remain pending.
+Status: pass for the initial toolchain scope. Executed 12 November 2026 on macOS with Node 24.22.2 and npm 11.19.1. Task: NG01. This snapshot established the build boundary without resolving the decision gates; see the linked current reports for later G1 evidence.
 
 This report records the original scaffold at commit `7bcdaf5`. The current check command includes three-browser tests; run `npx playwright install chromium firefox webkit` before using it. Current implementation results are recorded in the [lifecycle/hydration report](R04_R05_VALIDATION.md).
 

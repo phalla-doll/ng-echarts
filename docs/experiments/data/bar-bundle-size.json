@@ -1,0 +1,34 @@
+{
+  "recordedAt": "2026-11-12T09:45:41.148Z",
+  "method": "Link the production Angular package, bundle/minify/split its public entry; Angular and RxJS peers external; includes bar adapter/controls and modular Canvas engine; sums independently compressed JavaScript chunks",
+  "files": [
+    {
+      "name": "chunk-WOT6VMZA.js",
+      "raw": 106,
+      "gzip": 120,
+      "brotli": 91
+    },
+    {
+      "name": "ng-echarts-chart-library-bar-renderer-D3lDpuCi-A3P4ZVEK.js",
+      "raw": 497697,
+      "gzip": 169120,
+      "brotli": 144428
+    },
+    {
+      "name": "ng-echarts-chart-library.js",
+      "raw": 31173,
+      "gzip": 8900,
+      "brotli": 7854
+    }
+  ],
+  "total": {
+    "raw": 528976,
+    "gzip": 178140,
+    "brotli": 152373
+  },
+  "budget": {
+    "gzip": 200000,
+    "brotli": 175000
+  },
+  "passed": true
+}

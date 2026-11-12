@@ -80,7 +80,7 @@ Require a reviewed visual baseline for each MVP chart. Canvas and SVG rasterizat
 
 ## Quality and performance targets
 
-These are proposed engineering targets to validate during R&D, not measured capabilities.
+These engineering targets apply to the full MVP. [R07](experiments/R07_RENDERER_COST.md) records measured bar-prototype results; other families and environments still need validation.
 
 - Normal Cartesian fixture: 200 categories and three series; stress fixture: 2,000 categories and three series. Pie/donut fixtures use 12 and 100 categories respectively. These are benchmark inputs, not promised data limits.
 - On a recorded reference machine using a production build, each normal fixture's warm mount and input update should complete within 200 ms at p95 over 30 measured runs after one warm-up. Disable animation, preload modules, use a visible 768 px host, and keep the table collapsed. Start before validation and option building; end when the render triggered by that operation finishes. Use the 29th sorted sample as p95. Record the completion signal and raw timings in R07.

@@ -2,7 +2,7 @@
 
 An Angular 22 chart component library inspired by EvilCharts, using Apache ECharts for rendering and TypeScript for its public API.
 
-Status: experimental bar prototype. Updated 12 November 2026. The Angular library and SSR playground now render bars with native controls; feasibility and product-quality gates remain pending.
+Status: experimental bar prototype. Updated 12 November 2026. The Angular library and SSR playground now render bars with native controls; G1 technical feasibility passes for bar; G2 awaits the human screen-reader review.
 
 ## Project direction
 
@@ -19,7 +19,10 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | [Upstream provenance](docs/UPSTREAM_PROVENANCE.md) | Pinned fixtures, reuse decisions, and adapted-file notices |
 | [Bar prototype evidence](docs/experiments/BAR_PROTOTYPE.md) | Implemented behavior, test results, captures, and open research |
 | [Visual comparison](docs/experiments/R03_VISUAL_REVIEW.md) | Pinned upstream comparisons at three host widths and remaining alignment work |
-| [Lifecycle and hydration validation](docs/experiments/R04_R05_VALIDATION.md) | Three-browser results, real teardown cycles, accessibility snapshots, and open checks |
+| [Lifecycle and hydration validation](docs/experiments/R04_R05_VALIDATION.md) | Three-browser results, input/focus/retention, teardown, and hydration |
+| [Renderer and cost](docs/experiments/R07_RENDERER_COST.md) | Actual Angular timings, Canvas/SVG comparison, data envelope, and size budget |
+| [Packed runtime](docs/experiments/R08_PACKED_RUNTIME.md) | Isolated client/SSR production builds and three-browser package checks |
+| [Screen-reader review](docs/experiments/R06_MANUAL_REVIEW.md) | Remaining human listening checklist before G2 |
 | [Research findings](docs/RESEARCH_FINDINGS.md) | Upstream inventory, verified compatibility facts, reuse assessment, and unknowns |
 | [Technical architecture](docs/TECHNICAL_ARCHITECTURE.md) | Proposed Angular design, public API, rendering lifecycle, and decisions |
 | [Research and development plan](docs/RND_PLAN.md) | Experiments, deliverables, decision gates, and effort estimates |
@@ -54,22 +57,25 @@ Open `http://localhost:4200`. In another terminal, run `npm run watch:lib` while
 | `npm test` | Run library and playground Vitest tests once |
 | `npm run test:browser` | Run Chromium, Firefox, and WebKit scenarios against the production SSR build |
 | `npm run reference:prepare` | Prepare the isolated pinned React reference source and build its harness |
-| `npm run capture:bar` | Capture the neutral comparison fixture and upstream at three widths in both themes, plus tooltips |
+| `npm run capture:bar` | Capture all four reference variants at three widths/two themes, plus narrow tooltips |
 | `npm run typecheck` | Strict Angular/TypeScript compilation with `skipLibCheck: false` |
 | `npm run check:consumer` | Check a built tarball's declarations in an isolated Angular consumer |
+| `npm run check:runtime` | Build/run isolated client and SSR consumers in all three browser engines |
+| `npm run benchmark:bar` | Measure actual Angular mount/update and compare production Canvas/SVG harnesses |
+| `npm run check:bundle` | Enforce the linked bar package size budget, excluding Angular/RxJS peers |
 | `npm run check:ssr` | Check production server markup and hydration metadata after a build |
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
-| `npm run check` | Run formatting, builds, compilation, unit, package, SSR, and browser checks |
+| `npm run check` | Run formatting, builds, compilation, unit, declaration/runtime consumers, SSR, browser, and size checks |
 
-The latest [validation report](docs/experiments/R04_R05_VALIDATION.md) records 31 unit/integration tests and 36 passing browser checks, including multiple/deferred hydration and real resource cleanup. `/validation` provides lifecycle scenarios; `/comparison` provides abbreviated category ticks and pinned neutral theme tokens; `/away` verifies route cleanup. CI is configured for all three engines. No lint rules or coverage threshold are configured yet.
+The latest [validation report](docs/experiments/R04_R05_VALIDATION.md) records 33 unit/integration tests and 43 passing browser scenarios (plus two skipped CDP-only cases), including multiple/deferred hydration and real resource cleanup. `/validation` provides lifecycle scenarios; `/comparison` provides four reference variants and neutral theme tokens; `/updates` checks immutable inputs/focus; `/retention` checks obsolete-model collection; `/away` verifies route cleanup. CI is configured for all three engines. No lint rules or coverage threshold are configured yet.
 
-The [visual review](docs/experiments/R03_VISUAL_REVIEW.md) retains the original 12 captures and adds 16 neutral-theme/tooltip captures, with remaining visual differences recorded. R05 passes for the tested workspace bar paths; R03, R04, R06–R08 and G1/G2 remain open. The full leak audit, manual screen-reader review, performance/renderer selection, and packed-runtime consumers are still required.
+The [visual review](docs/experiments/R03_VISUAL_REVIEW.md) records 80 current captures and accepted bar differences. R01–R05, [R07 renderer/cost](docs/experiments/R07_RENDERER_COST.md), and [R08 packed consumption](docs/experiments/R08_PACKED_RUNTIME.md) pass for bar. Canvas meets the normal 200×3 benchmark target and the measured size budget. G1 passes; G2 requires the [R06 listening result](docs/experiments/R06_MANUAL_REVIEW.md). Other chart families and release acceptance remain pending.
 
 ## Target environment
 
 Angular 22 with strict TypeScript and template checking. The selected toolchain follows the supported ranges recorded in [research findings](docs/RESEARCH_FINDINGS.md#angular-22-toolchain).
 
-## First development milestone
+## Bar feasibility milestone
 
 Build a standalone Angular bar chart with typed data, light and dark themes, responsive resizing, tooltip, selectable legend, reduced motion, and safe destruction. Prove that it works in both a client application and an application using server rendering and hydration. Use its measured results to decide the MVP architecture.
 

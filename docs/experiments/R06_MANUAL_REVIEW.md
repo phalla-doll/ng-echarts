@@ -1,0 +1,22 @@
+# R06 screen-reader review
+
+Status: listening review pending. Chart: bar. Task: NG06. Requirements: F05, F08, F09. Gate: G2.
+
+The [R&D plan](../RND_PLAN.md#research-experiments) requires a sample to be read with a screen reader. Automated accessibility-tree, keyboard, focus, and motion checks support this review but cannot record a human listening result.
+
+## Reproduce
+
+Use Node from `.nvmrc`, run `npm run build:lib` and `npm start -- --host 127.0.0.1 --port 4310`, then open `http://127.0.0.1:4310/validation`. On macOS, enable VoiceOver with Command-F5 (or the configured system shortcut). Enable the browser's full keyboard navigation if necessary.
+
+## Listening checklist
+
+1. Navigate to “Primary visits”. Verify that its heading and description explain the chart without needing the canvas.
+2. Focus Desktop and Mobile legend buttons. Verify that names and pressed states identify which series are visible, including after keyboard toggling.
+3. Open the data table. Verify its expanded state, caption, row/column headings, numeric values, and point action names. Activate January's Desktop value with the keyboard.
+4. Hide both series. Verify that the complete table is still available and legend controls can restore the plot.
+5. On `/updates`, check row action names after reordering/renaming. Check loading/error/empty messages from the main playground.
+6. Test both themes and a narrow window. Check that focus remains visible. With Reduce Motion enabled, check that no decorative chart animation is apparent.
+
+## Record a result
+
+Record the tested commit, OS, browser/version, screen-reader/version, pass/fail per item, and any exact announcement or navigation problem. Store that result here before marking R06 passed. A skipped or unavailable listening session leaves R06 and G2 pending; it does not prevent independent R03/R04/R07/R08 work.

@@ -1,0 +1,48 @@
+{
+  "recordedAt": "2026-11-12T09:45:38.909Z",
+  "node": "v24.22.2",
+  "package": "@ng-echarts/chart-library",
+  "version": "0.0.0",
+  "skipLibCheck": false,
+  "workspaceAliases": false,
+  "installedOutsideWorkspace": true,
+  "reactRuntime": false,
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "158.0.8127.18",
+      "mode": "client",
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "158.0.8127.18",
+      "mode": "ssr-hydration",
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "mode": "client",
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "mode": "ssr-hydration",
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "mode": "client",
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "mode": "ssr-hydration",
+      "passed": true
+    }
+  ]
+}

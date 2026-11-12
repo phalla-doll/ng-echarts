@@ -32,6 +32,19 @@ async function setup() {
 }
 
 describe('bar Angular controls', () => {
+  it('discards removed visibility IDs even while rows are invalid', async () => {
+    const { fixture, element } = await setup();
+    element.querySelector<HTMLButtonElement>('.legend button')!.click();
+    await fixture.whenStable();
+    fixture.componentRef.setInput('data', [{ id: 'bad', category: 'Invalid', value: Number.NaN }]);
+    await fixture.whenStable();
+    fixture.componentRef.setInput('series', []);
+    await fixture.whenStable();
+    fixture.componentRef.setInput('data', data);
+    fixture.componentRef.setInput('series', series);
+    await fixture.whenStable();
+    expect(element.querySelector('.legend button')?.getAttribute('aria-pressed')).toBe('true');
+  });
   it('contains formatter failures, preserves state precedence, and recovers full table labels', async () => {
     const { fixture, element } = await setup();
     fixture.componentRef.setInput('categoryTickFormatter', () => {

@@ -5,6 +5,10 @@
       Pinned monthly values and neutral theme tokens. Full labels remain in tooltips and tables.
     </p>
     <div class="controls">
+      <button type="button" (click)="showVariant('grouped')">Grouped reference</button>
+      <button type="button" (click)="showVariant('stacked')">Stacked reference</button>
+      <button type="button" (click)="showVariant('horizontal')">Horizontal reference</button>
+      <button type="button" (click)="showVariant('gradient')">Gradient reference</button>
       <button type="button" (click)="toggleTheme()">Toggle comparison theme</button>
       <button type="button" [attr.aria-pressed]="abbreviated()" (click)="toggleTicks()">
         Abbreviate category ticks
@@ -22,10 +26,14 @@
     <nec-bar-chart
       title="Device visits by month"
       description="Monthly desktop and mobile visits. Use the legend to change visibility or open the data table to explore values."
-      [data]="rows"
+      [data]="rows()"
       rowIdKey="id"
       categoryKey="month"
-      [series]="series"
+      [series]="series()"
+      [layout]="layout()"
+      [stacked]="stacked()"
+      [gradient]="gradient()"
+      [style.--nec-series-1]="seriesColor()"
       [theme]="theme()"
       [categoryTickFormatter]="tickFormatter()"
       [height]="360"

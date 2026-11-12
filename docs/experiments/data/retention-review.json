@@ -1,0 +1,144 @@
+{
+  "browser": "chromium",
+  "cycles": 100,
+  "method": "CDP post-GC heap snapshot; unique flattened row IDs, constant display label",
+  "samples": [
+    {
+      "cycle": 10,
+      "retainedIdentities": ["ng-echarts-retention-10"],
+      "dom": {
+        "documents": 1,
+        "nodes": 113,
+        "jsEventListeners": 41
+      },
+      "heap": {
+        "usedSize": 7262564,
+        "totalSize": 8290304,
+        "embedderHeapUsedSize": 581720,
+        "backingStorageSize": 811843
+      },
+      "categories": {
+        "synthetic": {
+          "count": 32,
+          "bytes": 0
+        },
+        "native": {
+          "count": 20364,
+          "bytes": 2632830
+        },
+        "string": {
+          "count": 32067,
+          "bytes": 972028
+        },
+        "object shape": {
+          "count": 9310,
+          "bytes": 508512
+        },
+        "code": {
+          "count": 66765,
+          "bytes": 4408240
+        },
+        "array": {
+          "count": 1482,
+          "bytes": 294252
+        },
+        "number": {
+          "count": 16561,
+          "bytes": 2856
+        },
+        "symbol": {
+          "count": 78,
+          "bytes": 384
+        },
+        "object": {
+          "count": 4994,
+          "bytes": 141116
+        },
+        "closure": {
+          "count": 9814,
+          "bytes": 293744
+        },
+        "concatenated string": {
+          "count": 2208,
+          "bytes": 44160
+        },
+        "regexp": {
+          "count": 27,
+          "bytes": 648
+        }
+      }
+    },
+    {
+      "cycle": 100,
+      "retainedIdentities": ["ng-echarts-retention-100"],
+      "dom": {
+        "documents": 1,
+        "nodes": 113,
+        "jsEventListeners": 41
+      },
+      "heap": {
+        "usedSize": 7904104,
+        "totalSize": 8290304,
+        "embedderHeapUsedSize": 551040,
+        "backingStorageSize": 811827
+      },
+      "categories": {
+        "synthetic": {
+          "count": 32,
+          "bytes": 0
+        },
+        "native": {
+          "count": 21547,
+          "bytes": 2650394
+        },
+        "string": {
+          "count": 32069,
+          "bytes": 971984
+        },
+        "object shape": {
+          "count": 9512,
+          "bytes": 517016
+        },
+        "code": {
+          "count": 69638,
+          "bytes": 4991636
+        },
+        "array": {
+          "count": 1482,
+          "bytes": 294252
+        },
+        "number": {
+          "count": 16563,
+          "bytes": 2856
+        },
+        "symbol": {
+          "count": 78,
+          "bytes": 384
+        },
+        "object": {
+          "count": 5055,
+          "bytes": 142488
+        },
+        "concatenated string": {
+          "count": 2208,
+          "bytes": 44160
+        },
+        "closure": {
+          "count": 9814,
+          "bytes": 293744
+        },
+        "regexp": {
+          "count": 27,
+          "bytes": 648
+        }
+      }
+    }
+  ],
+  "topObjectGrowth": [
+    {
+      "name": "Object",
+      "count": 61,
+      "bytes": 1372
+    }
+  ]
+}

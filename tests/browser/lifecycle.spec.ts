@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { readdir, stat, writeFile } from 'node:fs/promises';
+import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { collectBrowserErrors, installResourceAudit } from './resource-audit';
 
@@ -149,14 +149,13 @@ async function rendererAsset(): Promise<string> {
     if (
       file.startsWith('chunk-') &&
       file.endsWith('.js') &&
-      (await stat(join(directory, file))).size > 400_000
+      /export\s*\{[^}]*\bcreateBarRenderer\b/.test(await readFile(join(directory, file), 'utf8'))
     )
       candidates.push(file);
   }
-  expect(
-    candidates,
-    'Expected one large lazy Canvas renderer chunk in this prototype build',
-  ).toHaveLength(1);
+  expect(candidates, 'Expected one lazy module exporting the Canvas renderer factory').toHaveLength(
+    1,
+  );
   return candidates[0]!;
 }
 

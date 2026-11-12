@@ -22,6 +22,7 @@ import { normalizeBarData, resolveBarState } from './bar-model';
 import { buildBarOptions, defaultBarTheme, type BarThemeTokens } from './bar-options';
 import { ChartFrame } from './chart-frame';
 import { formatCategoryTicks } from './category-ticks';
+import { ChartFocusKeeper } from './chart-focus';
 import type {
   BarLayout,
   CategoryTickFormatter,
@@ -74,6 +75,7 @@ export class BarChart<T extends object> {
   private readonly measuredTheme = signal<BarThemeTokens | null>(null);
   private controller: PlotController | null = null;
   private removeMotionListener: (() => void) | null = null;
+  private focusKeeper: ChartFocusKeeper | null = null;
 
   protected readonly rendererError = signal(false);
   protected readonly tableExpanded = signal(false);
@@ -179,9 +181,22 @@ export class BarChart<T extends object> {
       this.rendererError.set(false);
     });
     effect(() => {
-      const model = this.model();
-      if (model.kind === 'error') return;
-      const validIds = new Set(model.series.map((item) => item.id));
+      // Valid series removals still count while row data is loading or invalid.
+      const series = this.series();
+      if (
+        !Array.isArray(series) ||
+        !series.every(
+          (item) =>
+            item &&
+            typeof item.id === 'string' &&
+            item.id &&
+            typeof item.key === 'string' &&
+            typeof item.label === 'string',
+        )
+      )
+        return;
+      const validIds = new Set(series.map((item) => item.id));
+      if (validIds.size !== series.length) return;
       const previous = untracked(this.hiddenIds);
       const retained = new Set([...previous].filter((id) => validIds.has(id)));
       if (retained.size !== previous.size) this.hiddenIds.set(retained);
@@ -204,6 +219,7 @@ export class BarChart<T extends object> {
             () => this.rendererError.set(true),
           );
           this.browserReady.set(true);
+          this.focusKeeper = new ChartFocusKeeper(this.host.nativeElement);
         } catch {
           this.rendererError.set(true);
         }
@@ -237,9 +253,16 @@ export class BarChart<T extends object> {
       this.browserReady();
       this.controller?.update(this.options());
     });
+    afterRenderEffect(() => {
+      this.state();
+      this.tableRows();
+      this.legendItems();
+      this.focusKeeper?.restore();
+    });
     this.destroyRef.onDestroy(() => {
       this.removeMotionListener?.();
       this.controller?.destroy();
+      this.focusKeeper?.destroy();
     });
   }
 

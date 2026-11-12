@@ -132,7 +132,8 @@ describe('bar options boundary', () => {
     if (typeof formatter !== 'function') throw new Error('Expected tooltip callback');
     const html = formatter({ data: { id: 'first' } } as never, '', () => {});
     expect(html).toContain('&lt;Same&gt;');
-    expect(html).toContain('&lt;Amount&gt;: 0');
+    expect(html).toContain('&lt;Amount&gt;');
+    expect(html).toContain('>0</span>');
     expect(html).not.toContain('<Amount>');
   });
 

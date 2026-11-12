@@ -1,66 +1,43 @@
 # R03 bar visual comparison
 
-Status: category-tick and neutral-theme alignment implemented; variant and tooltip styling review remains pending. Recorded 12 November 2026. Chart: grouped vertical bar. Tasks: NG02, NG04. Requirements: F03, F04, F06, F09. Gate: G2.
+Status: pass for the agreed bar prototype, with the intentional differences below. Recorded 12 November 2026. Tasks: NG02, NG04. Requirements: F03, F04, F06, F09. Gate: G2. Other chart families still require their own visual baseline.
 
-## Reference and method
+## References and reproduction
 
-The isolated [reference harness](../../tools/reference/README.md) builds the unmodified pinned `ex-echarts-bar-chart` React example and its real imported bar/UI modules at revision `4c2dd7c9bae780703244265c9a4b509d40c055ad`. It extracts the source's light/dark theme tokens and generates Tailwind utilities. It uses a system font, rather than the full upstream website's Next.js font integration. React is confined to the reference tool's development dependencies.
+The isolated [reference harness](../../tools/reference/README.md) renders four **unmodified** examples and their real bar/UI imports at revision `4c2dd7c9bae780703244265c9a4b509d40c055ad`. The [provenance ledger](../UPSTREAM_PROVENANCE.md) records exact source paths, fixtures, colors, and notices. React remains confined to the reference tool's development dependencies.
 
-Both implementations use the original twelve-month Desktop/Mobile values and their green/rose colors. Chromium 158.0.8127.18 captured each at DPR 1, reduced motion, a 1000 px viewport height, and a viewport 40 px wider than the specified **host**. The reference host is 360 px high including its brush/legend; Angular reserves 360 px for the plot and adds its title and controls. This geometry difference is recorded, not hidden through image scaling.
+Run `npm run reference:prepare`, `npm run build`, and `npm run capture:bar`. The [current gallery](captures/bar-variants/index.html) contains all **80 images**: both implementations, four variants, three host widths, two themes, plus January tooltips at 320 and 768 px. The [manifest](captures/bar-variants/manifest.json) records original example/module/theme hashes, browser, host/canvas rectangles, fonts, DPR, and comparison stylesheet hash. All images were reviewed through ten comparison sheets, with the narrow tooltip details inspected separately.
 
-The [capture manifest](captures/bar-reference/manifest.json) records exact host/canvas rectangles, fonts, browser, and SHA-256 hashes of the primary example, bar module, and upstream theme CSS. All twelve captures were inspected.
-
-| Host width | Light reference / Angular | Dark reference / Angular |
+| Variant | Fixture | Representative reference / Angular |
 | --- | --- | --- |
-| 320 px | [Upstream](captures/bar-reference/upstream-light-320.png) / [Angular](captures/bar-reference/angular-light-320.png) | [Upstream](captures/bar-reference/upstream-dark-320.png) / [Angular](captures/bar-reference/angular-dark-320.png) |
-| 768 px | [Upstream](captures/bar-reference/upstream-light-768.png) / [Angular](captures/bar-reference/angular-light-768.png) | [Upstream](captures/bar-reference/upstream-dark-768.png) / [Angular](captures/bar-reference/angular-dark-768.png) |
-| 1440 px | [Upstream](captures/bar-reference/upstream-light-1440.png) / [Angular](captures/bar-reference/angular-light-1440.png) | [Upstream](captures/bar-reference/upstream-dark-1440.png) / [Angular](captures/bar-reference/angular-dark-1440.png) |
+| Grouped | Twelve months, Desktop/Mobile, green/rose | [Reference](captures/bar-variants/grouped-upstream-light-768.png) / [Angular](captures/bar-variants/grouped-angular-light-768.png) |
+| Stacked | Same twelve-month values and series order | [Reference](captures/bar-variants/stacked-upstream-dark-768.png) / [Angular](captures/bar-variants/stacked-angular-dark-768.png) |
+| Horizontal | Six months, Desktop only: 186, 305, 237, 173, 209, 214; blue palette | [Reference](captures/bar-variants/horizontal-upstream-light-320.png) / [Angular](captures/bar-variants/horizontal-angular-light-320.png) |
+| Gradient | Primary twelve-month values; solid color through 20%, clear by 90% | [Reference](captures/bar-variants/gradient-upstream-dark-768.png) / [Angular](captures/bar-variants/gradient-angular-dark-768.png) |
+| Narrow tooltip | Full January title, marker, series labels and aligned values | [Reference](captures/bar-variants/grouped-upstream-light-320-tooltip.png) / [Angular](captures/bar-variants/grouped-angular-light-320-tooltip.png) |
 
-## Initial findings and disposition
+Chromium 158.0.8127.18 uses DPR 1, reduced motion, a 1000 px viewport height, and viewport width equal to host width plus 40 px. Host widths are exactly 320, 768, and 1440 px. Original captures are not scaled; gallery thumbnails fit their columns and link to the originals. The reference host is 360 px high including its legend/brush. Angular reserves 360 px for its plot, adding its heading, summary, native controls, and card padding. Geometry is recorded rather than concealed through image scaling.
 
-This table describes the original `bar-reference/` baseline. The follow-up below records the implemented changes.
+The harness uses system DOM fonts instead of the full upstream Next.js font setup. Canvas typography can differ; this is a pinned example comparison, not a build of the upstream website. The [initial default-theme capture](captures/bar-reference/manifest.json) and [first neutral-theme increment](captures/bar-alignment/manifest.json) remain historical evidence.
 
-| Concern | Observed result | Next action |
-| --- | --- | --- |
-| Values, order, and series palette | Twelve groups preserve their relative values/order and the selected light/dark colors | Retain fixture and behavioral tests |
-| Narrow controls | At 320 px, the title/description wrap and the legend buttons stack without clipping | Retain wrapping and visible button labels |
-| Brush | Present upstream and absent in Angular | Intentional MVP exclusion; do not add it to satisfy visual similarity |
-| Legend and table | Upstream overlays a small legend above the plot; Angular supplies buttons below it and a table control | Intentional accessible UI difference; retain keyboard operation and visible state |
-| Axis labels | Upstream abbreviates months and uses smaller labels; Angular uses full names, reducing visible tick density at 320/768 px | Prototype a pure category-tick formatter while retaining full table/tooltip labels; verify its typed input and error behavior |
-| Plot spacing and axes | Angular's title/card padding, explicit value labels, grid treatment, and plot height differ | Normalize a comparison theme and review spacing/axis defaults after the formatter work; retain useful value interpretation |
-| Default surface colors | Upstream uses neutral surfaces; the playground uses its blue-gray theme tokens | Add a documented token-mapping comparison fixture; do not present current default-theme captures as identical styling |
-| Tooltip and other variants | Captures show the default grouped view with no hover | Add tooltip captures and stacked/horizontal/gradient references before final visual acceptance |
+## Reviewed checklist and decisions
 
-## Follow-up: category ticks and neutral tokens
+| Concern | Result and disposition |
+| --- | --- |
+| Data, ordering, layout | Selected fixtures preserve values, supplied order, category roles, grouping, and stacks. The horizontal fixture uses its own upstream dataset rather than substituting primary values. |
+| Theme and palette | `/comparison` maps upstream background, foreground, muted-foreground, and border tokens to `--nec-background`, `--nec-text`, `--nec-muted`, and `--nec-border`. Series palettes match the selected example in each theme. Library defaults remain an independent consumer theme. |
+| Category text | Optional pure `categoryTickFormatter(category, index): string` abbreviates only axis labels. Full category text and stable row IDs remain in tooltips, table headings, and events. Original indices, duplicate labels, empty ticks, invalid callback containment, and recovery are checked. |
+| Typography and axes | Retain explicit 12 px ticks and the numeric value axis for interpretation. Upstream uses 10 px category ticks and omits value labels in these examples. Platform system typography and stronger direct-token grid lines are accepted prototype choices. |
+| Plot and card spacing | Keep plot insets 12/16/12/8 px and ECharts 6 outer-bounds label containment. The Angular heading/summary and native controls occupy separate space. This produces different plot proportions and bar widths from the upstream overlay layout. |
+| Bar geometry and fills | Keep rounded 2 px corners, the renderer's grouped spacing and 48 px width cap, and contiguous stacked values without synthetic separator strokes. These small geometry differences preserve interpretation. Gradient alpha now holds through 20% and fades to clear by 90%, allowing the grid to remain visible underneath. |
+| Tooltip hierarchy | A 12 px escaped text tooltip now has a full category title, series-color markers, aligned tabular values, 6/10 px padding, and rounded surface. Tooltip bounds remain inside the plot at 320 and 768 px in both themes. Default pointer-relative placement and shadow are accepted differences from upstream. |
+| Native controls | Legend buttons retain visible names/state and keyboard operation; the complete table remains available even with every series hidden. Buttons wrap without horizontal clipping at 320 px. |
+| Brush | Present in the primary upstream example and excluded from Angular by MVP scope. No brush was added to imitate the reference geometry. |
 
-The `/comparison` route uses the same monthly values, three-character category ticks, and four pinned upstream neutral tokens. The [provenance ledger](../UPSTREAM_PROVENANCE.md) records the source and mapping: `background → --nec-background`, `foreground → --nec-text`, `muted-foreground → --nec-muted`, and `border → --nec-border`. Library defaults and the default playground palette remain unchanged. The ordinary playground also uses the new category-tick formatter.
+These choices establish an Angular bar baseline; they do not promise pixel identity or whole-library acceptance. The numeric quality/performance criteria are unchanged.
 
-The [follow-up manifest](captures/bar-alignment/manifest.json) records the source hashes, comparison stylesheet hash, CSS token values, host/canvas rectangles, fonts, browser, and DPR. Conditions match the initial method; captures are not scaled. All sixteen follow-up images were inspected.
+## Template and behavior review
 
-| Host width | Light reference / Angular neutral | Dark reference / Angular neutral |
-| --- | --- | --- |
-| 320 px | [Upstream](captures/bar-alignment/upstream-light-320.png) / [Angular](captures/bar-alignment/angular-light-320.png) | [Upstream](captures/bar-alignment/upstream-dark-320.png) / [Angular](captures/bar-alignment/angular-dark-320.png) |
-| 768 px | [Upstream](captures/bar-alignment/upstream-light-768.png) / [Angular](captures/bar-alignment/angular-light-768.png) | [Upstream](captures/bar-alignment/upstream-dark-768.png) / [Angular](captures/bar-alignment/angular-dark-768.png) |
-| 1440 px | [Upstream](captures/bar-alignment/upstream-light-1440.png) / [Angular](captures/bar-alignment/angular-light-1440.png) | [Upstream](captures/bar-alignment/upstream-dark-1440.png) / [Angular](captures/bar-alignment/angular-dark-1440.png) |
-| January tooltip, 768 px | [Upstream](captures/bar-alignment/upstream-light-768-tooltip.png) / [Angular](captures/bar-alignment/angular-light-768-tooltip.png) | [Upstream](captures/bar-alignment/upstream-dark-768-tooltip.png) / [Angular](captures/bar-alignment/angular-dark-768-tooltip.png) |
+State, category ticks, options, legend items, and table rows are derived in TypeScript. Full table formatting waits for expansion. Templates contain simple guards, stable `@for` identities, and named actions. Browser measurement, focus repair, renderer imports, and instance calls remain outside computed builders.
 
-### Decisions and remaining differences
-
-- Category ticks now abbreviate months through an optional pure, synchronous `categoryTickFormatter(category, index): string`. Without it, the library preserves full ticks. Both layouts use precomputed labels; row identities, tooltip titles, table headings, and action labels retain full values. Empty tick text is allowed; exceptions/nontext results yield a generic recoverable configuration error.
-- At 320 px, both examples show alternate abbreviated months; Angular now shows all twelve at 768 and 1440 px. Native legend/table controls wrap without horizontal overflow in both themes.
-- Keep Angular's 12 px tick text, visible numeric value axis, and card title/summary for interpretation. The primary upstream example uses 10 px category text and no value labels. Keep native legend/table buttons below the plot and omit the out-of-scope brush. These decisions intentionally preserve a taller card and different plot proportions.
-- Keep plot insets at left 12, right 16, top 12, bottom 8 px, independently of title/controls. Replace deprecated `containLabel` with ECharts 6 `outerBoundsMode: 'same'` and `outerBoundsContain: 'axisLabel'`. The current captures verify containment rather than copying the upstream legend/brush bands.
-- Neutral surfaces and foreground/muted/border tokens now match the pinned source in the comparison fixture. This is an opt-in consumer theme, not a change to library defaults. Grid opacity, bar width/spacing, and canvas typography still differ and need comparison across the remaining variants before the baseline is accepted.
-- Tooltip values and full category title agree. Angular still uses simple label/value lines without the upstream color markers and aligned numeric column; placement, padding, font size, and shadow differ. Refine the default hierarchy and review narrow-host containment. These tooltip screenshots do not close visual acceptance.
-
-The complete local `npm run check` passed with 31 unit/integration tests and 36 browser scenarios. New tests inspect actual Canvas tick text, verify full tooltip/table labels, recover from a throwing formatter, and check controls/plot containment at every review width/theme in Chromium, Firefox, and WebKit. Pure tests cover original row indices, duplicate/empty tick labels, both layouts, and invalid runtime callback results. An isolated packed Angular consumer accepts the typed callback and rejects a numeric-returning callback.
-
-## Template review
-
-The component derives state, options, legend items, and table rows in TypeScript. The table's formatting is deferred until expansion. Templates use simple guards, named actions, and stable `@for` identifiers. DOM reads, CSS color resolution, renderer imports, and instance calls stay in browser modules. No computed builder initializes or mutates the renderer.
-
-## Reproduction and status
-
-Run `npm run reference:prepare`, `npm run build`, and `npm run capture:bar`. The pinned source and tool lockfile make the reference reproducible; screenshots still depend on recorded fonts and browser versions.
-
-R03 remains pending for stacked/horizontal/gradient comparisons and the remaining tooltip/spacing review. Category ticks, theme mapping, and the documented plot/axis decisions complete this alignment increment. These screenshots establish comparison evidence, not pixel equivalence or a passed G2. The product specification's visual criteria and performance targets remain unchanged.
+Browser checks cover the four variants at all review widths/themes and inspect full table values. Separate tests verify actual Canvas tick text, unchanged full tooltip/table labels, generic formatter-error disposal/recovery, keyboard focus through reorders/removals, and typed packed-consumer inputs. See [lifecycle evidence](R04_R05_VALIDATION.md), [renderer measurements](R07_RENDERER_COST.md), and [packed consumption](R08_PACKED_RUNTIME.md). R03 passing does not close G2 while the [R06 listening review](R06_MANUAL_REVIEW.md) remains pending.

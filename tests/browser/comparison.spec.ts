@@ -11,27 +11,42 @@ test('fits the comparison plot and controls at all review widths in both themes'
   page,
 }) => {
   await page.goto('/comparison');
-  for (const theme of ['light', 'dark']) {
-    if (theme === 'dark')
+  for (const variant of ['Grouped', 'Stacked', 'Horizontal', 'Gradient']) {
+    await page.getByRole('button', { name: `${variant} reference`, exact: true }).click();
+    const main = page.locator('app-comparison main');
+    if (await main.evaluate((element) => element.classList.contains('dark')))
       await page.getByRole('button', { name: 'Toggle comparison theme', exact: true }).click();
-    for (const width of [320, 768, 1440]) {
-      await page.setViewportSize({ width: width + 40, height: 1000 });
-      const chart = page.locator('nec-bar-chart');
-      await expect
-        .poll(() => chart.evaluate((element) => element.getBoundingClientRect().width))
-        .toBe(width);
-      await expect
-        .poll(() =>
-          chart.locator('canvas').evaluate((element) => element.getBoundingClientRect().width),
-        )
-        .toBeLessThanOrEqual(width);
-      for (const selector of ['.legend', '.chart-frame']) {
-        const fits = await chart
-          .locator(selector)
-          .evaluate((element) => element.scrollWidth <= element.clientWidth);
-        expect(fits, `${selector} overflows at ${width}px in ${theme}`).toBe(true);
+    for (const theme of ['light', 'dark']) {
+      if (theme === 'dark')
+        await page.getByRole('button', { name: 'Toggle comparison theme', exact: true }).click();
+      for (const width of [320, 768, 1440]) {
+        await page.setViewportSize({ width: width + 40, height: 1000 });
+        const chart = page.locator('nec-bar-chart');
+        await expect
+          .poll(() => chart.evaluate((element) => element.getBoundingClientRect().width))
+          .toBe(width);
+        await expect
+          .poll(() =>
+            chart.locator('canvas').evaluate((element) => element.getBoundingClientRect().width),
+          )
+          .toBeLessThanOrEqual(width);
+        for (const selector of ['.legend', '.chart-frame']) {
+          const fits = await chart
+            .locator(selector)
+            .evaluate((element) => element.scrollWidth <= element.clientWidth);
+          expect(fits, `${selector} overflows at ${width}px in ${theme}`).toBe(true);
+        }
       }
     }
+    await page.getByRole('button', { name: 'Show data table', exact: true }).click();
+    await expect(page.locator('tbody tr')).toHaveCount(variant === 'Horizontal' ? 6 : 12);
+    await expect(
+      page.getByRole('button', {
+        name: `Select Desktop for January: ${variant === 'Horizontal' ? 186 : 342}`,
+        exact: true,
+      }),
+    ).toBeVisible();
+    await page.getByRole('button', { name: 'Hide data table', exact: true }).click();
   }
 });
 
@@ -63,7 +78,7 @@ test('hydrates formatted ticks, retains full tooltip/table labels, and recovers 
   const point = await firstGreenBarPoint(canvas);
   await page.mouse.move(point.x, point.y);
   await expect(page.locator('nec-bar-chart strong')).toHaveText('January');
-  await expect(page.locator('nec-bar-chart .plot')).toContainText('Desktop: 342');
+  await expect(page.locator('nec-bar-chart .plot')).toContainText(/Desktop\s*342/);
   await page.getByRole('button', { name: 'Show data table', exact: true }).click();
   await expect(
     page.getByRole('button', { name: 'Select Desktop for January: 342', exact: true }),

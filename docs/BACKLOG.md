@@ -1,12 +1,12 @@
 # ng-echarts delivery backlog
 
-Updated 12 November 2026. NG01 and NG02 are complete for their initial scope; NG03 has an initial decision; NG04–NG07 are in progress; NG08–NG22 remain pending. Priority P0 blocks the next milestone, P1 belongs to MVP, and P2 follows MVP. IDs are stable so experiment reports and changes can reference them.
+Updated 12 November 2026. NG01–NG05 are complete for the bar feasibility scope. NG06 awaits human listening review; NG07 implementation and NG08 measurement/package evidence pass, with their NG06/G2 dependencies still open. NG09–NG22 remain pending. Priority P0 blocks the next milestone, P1 belongs to MVP, and P2 follows MVP. IDs are stable so experiment reports and changes can reference them.
 
-NG01 evidence: [R01 toolchain report](experiments/R01_TOOLCHAIN.md). The [implementation plan](IMPLEMENTATION_PLAN.md) sequences the remaining work. G1–G4 remain pending.
+NG01 evidence: [R01 toolchain report](experiments/R01_TOOLCHAIN.md). The [implementation plan](IMPLEMENTATION_PLAN.md) sequences the remaining work. G1 passes for bar; G2 awaits R06, and G3/G4 remain pending.
 
 NG02 evidence: [reference fixtures and provenance](UPSTREAM_PROVENANCE.md). NG03 initial choice: [direct adapter review](experiments/R02_ADAPTER.md). [Initial bar prototype results](experiments/BAR_PROTOTYPE.md) and the reports below contribute to NG04–NG07 without closing their full task criteria.
 
-Development update: [upstream captures and visual review](experiments/R03_VISUAL_REVIEW.md) now include typed category-tick formatting, a neutral-token comparison route, all required widths/themes, and tooltip views. The original captures remain as historical evidence. [Three-browser validation](experiments/R04_R05_VALIDATION.md) passes multiple/deferred hydration, navigation, hidden mounting, import failure/races, and real teardown scenarios. R05 passes for these bar fixtures; NG04–NG07 remain in progress while parity, the full input/retention matrix, and R06 are completed.
+Development update: [R03](experiments/R03_VISUAL_REVIEW.md) passes the four agreed bar references and tooltip review. [R04/R05](experiments/R04_R05_VALIDATION.md) pass input/focus, lifecycle/retention, and hydration paths. [R07](experiments/R07_RENDERER_COST.md) selects Canvas with actual Angular timings and a measured size budget; [R08](experiments/R08_PACKED_RUNTIME.md) passes external packed client/SSR consumption. Record the [R06 human result](experiments/R06_MANUAL_REVIEW.md) before resolving G2 or starting more chart families.
 
 ## Feasibility milestone
 
@@ -53,4 +53,4 @@ Review Angular code against the [template and derived-state conventions](TECHNIC
 
 Use the [acceptance matrix](ACCEPTANCE_MATRIX.md) to connect task completion to product requirements and gate evidence. NG03 selects a prototype candidate; NG08 confirms it. NG09 establishes shared behavior; NG14 verifies that behavior in every family. A successful bar prototype cannot close requirements for charts that have not been implemented.
 
-Next: compare stacked/horizontal/gradient variants and refine tooltip hierarchy in R03, finish R04 input/heap review and R06 screen-reader/motion evidence, then run R07/R08 before resolving G1/G2. Do not expand chart families while those gates remain open.
+Next: finish the R06 human listening review and resolve G2, then begin NG09 shared behavior and per-chart package boundaries before NG10–NG13. Automatic bar feasibility work is complete; no line, area, or pie/donut implementation starts while G2 remains open.

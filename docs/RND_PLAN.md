@@ -1,10 +1,10 @@
 # ng-echarts research and development plan
 
-Status: R01 passed; R05 passed for the workspace bar scenarios. R02–R04, R06–R08, and G1–G4 remain pending. Updated 12 November 2026. See the [R01 evidence](experiments/R01_TOOLCHAIN.md) and [implementation plan](IMPLEMENTATION_PLAN.md).
+Status: R01–R05, R07, and R08 pass for the bar prototype. R02 confirms the direct adapter and G1 passes. R06 human listening and G2 remain pending; G3/G4 require the full MVP. Updated 12 November 2026. See the [R01 evidence](experiments/R01_TOOLCHAIN.md) and [implementation plan](IMPLEMENTATION_PLAN.md).
 
 The [provenance ledger](UPSTREAM_PROVENANCE.md), [R02 initial adapter choice](experiments/R02_ADAPTER.md), and [bar prototype report](experiments/BAR_PROTOTYPE.md) record the first development slice. Initial passing checks do not close the remaining experiments.
 
-Current evidence: [R03 visual review](experiments/R03_VISUAL_REVIEW.md) and [R04/R05 validation](experiments/R04_R05_VALIDATION.md). The former retains twelve initial captures and adds sixteen neutral-theme/tooltip views plus typed category-tick formatting, with variant and tooltip styling work still open; the latter records passing browser scenarios in all three engines and 100 real Chromium teardown cycles. R04 remains pending for the broader input matrix and retained-object review. Accessibility snapshots contribute to R06 but do not replace manual screen-reader testing.
+Current evidence: [R03](experiments/R03_VISUAL_REVIEW.md) accepts 80 selected-variant and tooltip captures with documented Angular differences. [R04/R05](experiments/R04_R05_VALIDATION.md) pass immutable input/focus, native-resource cleanup, obsolete-model collection, multiple/deferred hydration, and navigation checks. [R07](experiments/R07_RENDERER_COST.md) selects Canvas, records normal/stress timings and a size budget, and [R08](experiments/R08_PACKED_RUNTIME.md) passes isolated client/SSR builds and runtime scenarios. The [R06 human listening checklist](experiments/R06_MANUAL_REVIEW.md) is the only remaining bar quality experiment evidence. This does not accept unimplemented families or the release artifact.
 
 ## Objective
 
@@ -25,7 +25,7 @@ Establish that an Angular 22 and TypeScript 6.0 library can reproduce selected E
 
 A failed experiment must produce a concrete design adjustment or narrower requirement and a rerun. Record outcomes as pass, fail, or pending with evidence links; writing a test does not count as passing it.
 
-R02 is intentionally provisional: do not claim proven SSR or teardown behavior before R04 and R05 run. If no wrapper qualifies, record why and continue with the direct adapter. Bound initial wrapper exploration to half an engineering day; expand it only if a concrete prototype failure makes further comparison useful.
+R02 began provisionally and is now confirmed for bar by R04/R05/R08; do not generalize those results to untested families or dependency versions. If no wrapper qualifies, record why and continue with the direct adapter. Bound initial wrapper exploration to half an engineering day; expand it only if a concrete prototype failure makes further comparison useful.
 
 ## Execution sequence
 
@@ -63,12 +63,12 @@ Total planning estimate: 19 to 30 engineering days for one experienced engineer 
 
 ## Decision gates
 
-| Gate | Required evidence | Result |
-| --- | --- | --- |
-| G1 Feasible Angular integration | R01, R04, R05, and R08 pass; R02 choice confirmed using their evidence | Select integration and lifecycle strategy before adding chart families |
-| G2 Product quality | R03, R06, and R07 pass against the current specification | Accept the bar baseline, renderer, numeric size budget, supported data envelope, and revised effort |
-| G3 MVP complete | Every applicable row of the acceptance matrix passes across four chart families | Freeze public API and produce release candidate |
-| G4 Distribution ready | Isolated packed-consumer install, documentation, artifact license, notices, and compatibility matrix pass | Produce a local release package; publication remains a separate action |
+| Gate | Required evidence | Result | Status |
+| --- | --- | --- | --- |
+| G1 Feasible Angular integration | R01, R04, R05, and R08 pass; R02 choice confirmed using their evidence | Select integration and lifecycle strategy before adding chart families | Pass for bar |
+| G2 Product quality | R03, R06, and R07 pass against the current specification | Accept the bar baseline, renderer, numeric size budget, supported data envelope, and revised effort | Pending R06 human review |
+| G3 MVP complete | Every applicable row of the acceptance matrix passes across four chart families | Freeze public API and produce release candidate | Pending |
+| G4 Distribution ready | Isolated packed-consumer install, documentation, artifact license, notices, and compatibility matrix pass | Produce a local release package; publication remains a separate action | Pending |
 
 The team can perform research and routine implementation decisions without repeatedly asking for approval. A material change to product scope, such as introducing React or dropping Angular 22, should be raised as a concrete decision with the experiment evidence.
 

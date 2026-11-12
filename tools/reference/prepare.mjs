@@ -28,6 +28,9 @@ const tokens = [css.match(/:root\s*\{[^}]+\}/)?.[0], css.match(/\.dark\s*\{[^}]+
 if (tokens.some((block) => !block)) throw new Error('Unable to locate pinned theme tokens');
 await writeFile(join(root, 'tokens.css'), `${tokens.join('\n')}\n`);
 const sources = [
+  'src/registry/examples/echarts/ex-stacked-type-echarts-bar-chart.tsx',
+  'src/registry/examples/echarts/ex-horizontal-layout-echarts-bar-chart.tsx',
+  'src/registry/examples/echarts/ex-gradient-variant-echarts-bar-chart.tsx',
   'src/registry/examples/echarts/ex-echarts-bar-chart.tsx',
   'src/registry/charts/echarts-bar-chart.tsx',
   'src/app/globals.css',

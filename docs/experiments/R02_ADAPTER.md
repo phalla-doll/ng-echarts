@@ -1,6 +1,6 @@
 # R02 initial Angular integration choice
 
-Status: initial choice recorded; final experiment remains pending. Date: 12 November 2026. Chart: bar. Tasks: NG03, NG04. Requirements: F02, F04, F05, F07, F10. Gate: G1.
+Status: pass; direct adapter confirmed for bar by R04, R05, and R08. Date: 12 November 2026. Chart: bar. Tasks: NG03, NG04. Requirements: F02, F04, F05, F07, F10. Gate: G1.
 
 ## Comparison
 
@@ -21,8 +21,8 @@ The direct prototype keeps the relevant decisions local: wait for application st
 - `bar-browser.ts`: browser scheduling, resize observation, theme resolution, and loader injection.
 - `bar-chart.ts`: Angular signals, inputs/outputs, controls, and browser coordination.
 
-The provisional package contract makes ECharts `^6.1.0` a peer; the tested version is exactly 6.1.0. `notMerge: true` replaces options so removed series do not survive updates; Angular retains legend state independently. Canvas is the initial renderer, not the R07 decision.
+The provisional package contract makes ECharts `^6.1.0` a peer; the tested version is exactly 6.1.0. `notMerge: true` replaces options so removed series do not survive updates; Angular retains legend state independently. Canvas is also the measured [R07 selection](R07_RENDERER_COST.md).
 
 ## Confirmation criteria
 
-The [current validation report](R04_R05_VALIDATION.md) records passing R05 workspace bar paths in all three engines, including multiple/deferred hydration and navigation. R04's full input/retention review and R08's packed client/SSR runtime consumers remain necessary before confirming this choice. Reopen the comparison if a concrete failure makes the direct adapter unsuitable; the current evidence does not pass G1.
+The [current validation report](R04_R05_VALIDATION.md) records passing R04/R05 input, focus, teardown/retention, multiple/deferred hydration, and navigation paths. [R08](R08_PACKED_RUNTIME.md) additionally builds and runs the installed tarball in client and SSR applications across all three engines. These results confirm the direct adapter and pass G1 for bar. Reopen the comparison if a concrete failure invalidates this boundary; R06/G2 and other chart families remain separate requirements.
