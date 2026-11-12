@@ -1,33 +1,58 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  ElementRef,
+  inject,
+  signal,
+  viewChild,
+} from '@angular/core';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { filter, map } from 'rxjs';
+import { SiteIcon } from './site-icon';
+import { SiteAppearance } from './site-appearance';
+
+const pageTitles: Readonly<Record<string, string>> = {
+  '/': 'Bar charts',
+  '/comparison': 'Visual comparison',
+  '/updates': 'Input updates',
+  '/validation': 'Lifecycle validation',
+  '/away': 'Navigation cleanup',
+  '/benchmark': 'Render benchmark',
+  '/retention': 'Retention validation',
+};
 
 @Component({
   selector: 'app-root',
-  imports: [RouterLink, RouterOutlet],
-  template: `<nav aria-label="Playground pages">
-      <a routerLink="/">Playground</a>
-      <a routerLink="/comparison">Visual comparison</a>
-      <a routerLink="/updates">Input updates</a>
-      <a routerLink="/validation">Lifecycle validation</a>
-      <a routerLink="/away">Navigate away</a>
-    </nav>
-    <router-outlet />`,
-  styles: `
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      padding: 1rem 1.5rem;
-      background: #18202c;
-    }
-    a {
-      color: #edf2fa;
-    }
-    a:focus-visible {
-      outline: 3px solid #648dff;
-      outline-offset: 4px;
-    }
-  `,
+  imports: [RouterLink, RouterLinkActive, RouterOutlet, SiteIcon],
+  templateUrl: './root.html',
+  styleUrl: './root.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Root {}
+export class Root {
+  private readonly router = inject(Router);
+  private readonly menuToggle = viewChild.required<ElementRef<HTMLButtonElement>>('menuToggle');
+  protected readonly dark = inject(SiteAppearance).dark;
+  protected readonly menuOpen = signal(false);
+  private readonly url = toSignal(
+    this.router.events.pipe(
+      filter((event) => event instanceof NavigationEnd),
+      map((event) => event.urlAfterRedirects),
+    ),
+    { initialValue: this.router.url },
+  );
+  private readonly routePath = computed(() => this.url().split(/[?#]/, 1)[0] ?? '/');
+  protected readonly fullWidth = computed(() =>
+    ['/comparison', '/benchmark'].includes(this.routePath()),
+  );
+  protected readonly pageTitle = computed(() => pageTitles[this.routePath()] ?? 'Playground');
+  protected toggleMenu(): void {
+    this.menuOpen.update((open) => !open);
+  }
+  protected closeMenu(restoreFocus = false): void {
+    const wasOpen = this.menuOpen();
+    this.menuOpen.set(false);
+    if (restoreFocus && wasOpen) this.menuToggle().nativeElement.focus();
+  }
+}

@@ -56,16 +56,18 @@ Use Node from `.nvmrc`; `nvm use` is available if you use nvm. Then run:
 npm ci
 npx playwright install chromium firefox webkit
 npm run build:lib
-npm start
+npm start -- --port 4310
 ```
 
-The playground runs at `http://localhost:4200`. In another terminal, `npm run watch:lib` rebuilds library changes. The playground resolves the built package in `dist/chart-library`, rather than library source files.
+The playground runs at `http://localhost:4310`, leaving Angular's default port available for other projects. In another terminal, `npm run watch:lib` rebuilds library changes. The playground resolves the built package in `dist/chart-library`, rather than library source files.
 
 Before review, run `npm run check`. It checks formatting, production builds, strict Angular/TypeScript compilation, unit tests, isolated packed declarations and invalid-key examples, a production SSR response, Playwright scenarios in Chromium/Firefox/WebKit, isolated client/SSR runtime consumers, and the linked package budget. Run `npm run benchmark:bar` separately on the reference machine after relevant performance changes. `npm run test:watch` starts interactive unit tests; `npm run format` applies formatting. No ESLint configuration or numeric coverage gate exists yet.
 
 The `/comparison` route exercises pure category-tick formatting and maps pinned neutral tokens; `/validation` exercises multiple/loading/hidden/deferred charts; `/away` exercises cleanup. Use `npm run reference:prepare` to install the separate reference harness and prepare pinned upstream source, then `npm run build` and `npm run capture:bar` for reproducible comparison images. See the [visual review](experiments/R03_VISUAL_REVIEW.md) and [browser evidence](experiments/R04_R05_VALIDATION.md).
 
 ## Gate status and next action
+
+The [playground layout review](experiments/PLAYGROUND_LAYOUT_REVIEW.md) adds a responsive navigation shell, grouped chart settings, preview/code views, and local typography without expanding the library scope. It includes before/after captures and three-engine interface checks. Comparison and benchmark fixtures preserve their full-width measurement conditions.
 
 R01–R05, R07, and R08 now pass for bar, including real packed-runtime consumers. G1 passes; G2 remains pending for the human R06 listening review. G3/G4 still require the remaining chart families and final release evidence. A declaration fixture or SSR response alone would not establish those results; see the [R&D gates](RND_PLAN.md#decision-gates).
 

@@ -178,7 +178,9 @@ try {
           ? 'text/javascript'
           : asset.endsWith('.css')
             ? 'text/css'
-            : 'text/html',
+            : asset.endsWith('.ttf')
+              ? 'font/ttf'
+              : 'text/html',
       );
       response.end(body);
     } catch {

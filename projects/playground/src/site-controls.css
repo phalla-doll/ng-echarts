@@ -1,0 +1,254 @@
+/* Shared workbench tokens and controls; chart-package styles remain independent. */
+.site-shell {
+  --site-bg: #f7f9fc;
+  --site-surface: #fff;
+  --site-subtle: #f0f4f9;
+  --site-text: #202a3b;
+  --site-muted: #65748a;
+  --site-border: #e2e8f1;
+  --site-blue: #315bea;
+  --site-blue-soft: #edf2ff;
+}
+
+.site-shell.dark {
+  --site-bg: #101722;
+  --site-surface: #18202c;
+  --site-subtle: #202c3d;
+  --site-text: #edf2fa;
+  --site-muted: #a7b5ca;
+  --site-border: #334359;
+  --site-blue: #9bb5ff;
+  --site-blue-soft: #233652;
+  color-scheme: dark;
+}
+.workbench :where(.view-control) {
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+  border: 1px solid var(--site-border);
+  border-radius: 8px;
+  background: var(--site-subtle);
+}
+.workbench :where(.view-control button) {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 11px;
+  border: 0;
+  border-radius: 5px;
+  color: var(--site-muted);
+  background: transparent;
+  font-size: 11px;
+}
+.workbench :where(.view-control app-site-icon) {
+  width: 14px;
+  height: 14px;
+}
+.workbench :where(.view-control button[aria-pressed='true']) {
+  background: var(--site-surface);
+  color: var(--site-text);
+  box-shadow: 0 1px 3px #15233b12;
+}
+.workbench :where(.settings-heading) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+.workbench :where(.settings h2) {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+.workbench :where(.reset-button) {
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  color: var(--site-blue);
+  font-size: 10px;
+}
+.workbench :where(.settings-intro) {
+  margin: 9px 0 26px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--site-muted);
+}
+.workbench :where(.settings-group) {
+  margin: 0 0 22px;
+  padding: 0 0 20px;
+  border-bottom: 1px solid var(--site-border);
+}
+.workbench :where(.settings h3) {
+  margin: 0 0 13px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.workbench :where(.setting-toggle) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 41px;
+  width: 100%;
+  padding: 7px 0;
+  border: 0;
+  background: transparent;
+  color: var(--site-text);
+  font-size: 12px;
+  text-align: left;
+}
+.workbench :where(.switch) {
+  position: relative;
+  flex: none;
+  width: 28px;
+  height: 17px;
+  border: 1px solid #b5c0d0;
+  border-radius: 12px;
+  background: var(--site-subtle);
+}
+.workbench :where(.switch)::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #748399;
+}
+.workbench :where(.setting-toggle[aria-pressed='true'] .switch) {
+  border-color: #315bea;
+  background: #315bea;
+}
+.workbench :where(.setting-toggle[aria-pressed='true'] .switch)::after {
+  left: 13px;
+  background: white;
+}
+.workbench :where(.settings-group > p) {
+  margin: 0 0 13px;
+  max-width: 32ch;
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--site-muted);
+}
+.workbench :where(.update-button) {
+  width: 100%;
+  justify-content: center;
+  font-size: 11px;
+  min-height: 36px;
+}
+.workbench :where(.update-button[aria-pressed='true']) {
+  color: var(--site-blue);
+  border-color: var(--site-blue);
+}
+.workbench :where(.setting-hint) {
+  display: block;
+  margin-top: 9px;
+  font-size: 10px;
+  color: var(--site-muted);
+}
+.workbench :where(.state-controls) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.workbench :where(.state-controls button) {
+  padding: 7px 8px;
+  border: 1px solid var(--site-border);
+  border-radius: 5px;
+  color: var(--site-muted);
+  background: var(--site-surface);
+  font-size: 10px;
+}
+.workbench :where(.state-controls button[aria-pressed='true']) {
+  border-color: var(--site-blue);
+  background: var(--site-blue-soft);
+  color: var(--site-blue);
+}
+.workbench :where(.mount-control) {
+  margin-top: 12px;
+}
+.workbench :where(.interaction-note) {
+  display: flex;
+  align-items: start;
+  gap: 9px;
+  color: var(--site-muted);
+}
+.workbench :where(.interaction-note app-site-icon) {
+  margin-top: 2px;
+  width: 15px;
+  height: 15px;
+}
+.workbench :where(.interaction-note p) {
+  margin: 0;
+  max-width: 30ch;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.site-shell :where(.brand) {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 0 10px;
+  color: inherit;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 650;
+  letter-spacing: -0.7px;
+}
+.site-shell :where(.brand-mark) {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 37px;
+  border-radius: 10px;
+  background: #315bea;
+  color: white;
+}
+.site-shell :where(.brand-mark app-site-icon) {
+  width: 22px;
+  height: 22px;
+}
+.site-shell :where(.brand-caption) {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  font-weight: 450;
+  letter-spacing: 0;
+  color: var(--site-muted);
+}
+.workbench :where(.source-panel) {
+  border: 1px solid var(--site-border);
+  border-radius: 12px;
+  background: var(--site-surface);
+  overflow: hidden;
+}
+.workbench :where(.source-heading) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--site-border);
+  font-size: 12px;
+}
+.workbench :where(.source-heading .ui-button) {
+  font-size: 11px;
+  min-height: 32px;
+}
+.workbench :where(pre) {
+  overflow: auto;
+  margin: 0;
+  padding: 28px;
+  font-size: 12px;
+  line-height: 1.85;
+  color: var(--site-text);
+}
+.workbench :where(.source-note) {
+  margin: 0;
+  padding: 0 28px 24px;
+  color: var(--site-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}

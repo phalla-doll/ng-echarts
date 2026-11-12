@@ -1,0 +1,96 @@
+<div
+  (keydown.escape)="closeMenu(true)"
+  class="site-shell"
+  [class.dark]="dark()"
+  [class.focus-layout]="fullWidth()"
+  [class.menu-open]="menuOpen()"
+>
+  <a class="skip-link" href="#page-content">Skip to content</a>
+  <button
+    #menuToggle
+    class="menu-button ui-icon-button"
+    type="button"
+    (click)="toggleMenu()"
+    [attr.aria-expanded]="menuOpen()"
+    aria-controls="site-navigation"
+    [attr.aria-label]="menuOpen() ? 'Close navigation' : 'Open navigation'"
+  >
+    <app-site-icon [name]="menuOpen() ? 'close' : 'menu'" />
+  </button>
+  <aside class="sidebar" id="site-navigation">
+    <a class="brand" routerLink="/" aria-label="ng-echarts home" (click)="closeMenu()">
+      <span class="brand-mark"><app-site-icon name="chart" /></span>
+      <span>ng-echarts<span class="brand-caption">Charts for Angular</span></span>
+    </a>
+    <nav aria-label="Playground pages">
+      <p class="nav-heading">Explore</p>
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="chart" />Playground</a
+      >
+      <a
+        routerLink="/comparison"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="compare" />Visual comparison</a
+      >
+      <p class="nav-heading validation-heading">Validation</p>
+      <a
+        routerLink="/updates"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="update" />Input updates</a
+      >
+      <a
+        routerLink="/validation"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="layers" />Lifecycle validation</a
+      >
+      <a
+        routerLink="/away"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="leave" />Navigate away</a
+      >
+    </nav>
+    <div class="sidebar-note">
+      <span class="release-dot"></span>
+      <div>
+        Work in progress
+        <p>Public API may change.</p>
+      </div>
+    </div>
+    <a
+      class="source-link"
+      href="https://github.com/phalla-doll/ng-echarts"
+      target="_blank"
+      rel="noopener noreferrer"
+      ><app-site-icon name="code" />View source on GitHub<app-site-icon name="arrow"
+    /></a>
+  </aside>
+  <div class="site-body">
+    <header class="site-header">
+      <a class="mobile-brand" routerLink="/" aria-label="ng-echarts home" (click)="closeMenu()"
+        >ng-echarts</a
+      >
+      <div class="breadcrumb">
+        <span>Workspace</span><app-site-icon name="chevron" /><strong>{{ pageTitle() }}</strong>
+      </div>
+      <div class="header-meta">
+        <span class="angular-mark" aria-hidden="true">A</span>Angular 22<span class="version"
+          >v0.0.0</span
+        >
+      </div>
+    </header>
+    <div class="page-content" id="page-content" tabindex="-1"><router-outlet /></div>
+  </div>
+</div>

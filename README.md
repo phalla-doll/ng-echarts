@@ -19,6 +19,7 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | [Upstream provenance](docs/UPSTREAM_PROVENANCE.md) | Pinned fixtures, reuse decisions, and adapted-file notices |
 | [Bar prototype evidence](docs/experiments/BAR_PROTOTYPE.md) | Implemented behavior, test results, captures, and open research |
 | [Visual comparison](docs/experiments/R03_VISUAL_REVIEW.md) | Pinned upstream comparisons at three host widths and remaining alignment work |
+| [Playground layout review](docs/experiments/PLAYGROUND_LAYOUT_REVIEW.md) | Responsive site design, before/after captures, navigation, and interface checks |
 | [Lifecycle and hydration validation](docs/experiments/R04_R05_VALIDATION.md) | Three-browser results, input/focus/retention, teardown, and hydration |
 | [Renderer and cost](docs/experiments/R07_RENDERER_COST.md) | Actual Angular timings, Canvas/SVG comparison, data envelope, and size budget |
 | [Packed runtime](docs/experiments/R08_PACKED_RUNTIME.md) | Isolated client/SSR production builds and three-browser package checks |
@@ -46,10 +47,10 @@ Use Node 24.22.2 (`.nvmrc`) and npm 11.19.1. Angular/CLI 22.2.6, TypeScript 6.0.
 npm ci
 npx playwright install chromium firefox webkit
 npm run build:lib
-npm start
+npm start -- --port 4310
 ```
 
-Open `http://localhost:4200`. In another terminal, run `npm run watch:lib` while editing the library. The playground consumes its built package from `dist/chart-library`.
+Open `http://localhost:4310`. In another terminal, run `npm run watch:lib` while editing the library. The playground consumes its built package from `dist/chart-library`.
 
 | Command | Purpose |
 | --- | --- |
@@ -67,7 +68,7 @@ Open `http://localhost:4200`. In another terminal, run `npm run watch:lib` while
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
 | `npm run check` | Run formatting, builds, compilation, unit, declaration/runtime consumers, SSR, browser, and size checks |
 
-The latest [validation report](docs/experiments/R04_R05_VALIDATION.md) records 33 unit/integration tests and 43 passing browser scenarios (plus two skipped CDP-only cases), including multiple/deferred hydration and real resource cleanup. `/validation` provides lifecycle scenarios; `/comparison` provides four reference variants and neutral theme tokens; `/updates` checks immutable inputs/focus; `/retention` checks obsolete-model collection; `/away` verifies route cleanup. CI is configured for all three engines. No lint rules or coverage threshold are configured yet.
+The latest full check passes 33 unit/integration tests and 49 browser scenarios (plus two skipped CDP-only cases), including six new three-engine interface checks recorded in the [layout review](docs/experiments/PLAYGROUND_LAYOUT_REVIEW.md). The [lifecycle validation report](docs/experiments/R04_R05_VALIDATION.md) retains the earlier resource baseline. `/validation` provides lifecycle scenarios; `/comparison` provides four reference variants and neutral theme tokens; `/updates` checks immutable inputs/focus; `/retention` checks obsolete-model collection; `/away` verifies route cleanup. CI is configured for all three engines. No lint rules or coverage threshold are configured yet.
 
 The [visual review](docs/experiments/R03_VISUAL_REVIEW.md) records 80 current captures and accepted bar differences. R01–R05, [R07 renderer/cost](docs/experiments/R07_RENDERER_COST.md), and [R08 packed consumption](docs/experiments/R08_PACKED_RUNTIME.md) pass for bar. Canvas meets the normal 200×3 benchmark target and the measured size budget. G1 passes; G2 requires the [R06 listening result](docs/experiments/R06_MANUAL_REVIEW.md). Other chart families and release acceptance remain pending.
 
@@ -79,4 +80,4 @@ Angular 22 with strict TypeScript and template checking. The selected toolchain 
 
 Build a standalone Angular bar chart with typed data, light and dark themes, responsive resizing, tooltip, selectable legend, reduced motion, and safe destruction. Prove that it works in both a client application and an application using server rendering and hydration. Use its measured results to decide the MVP architecture.
 
-The playground renders the pinned Desktop/Mobile bar fixture, with controls for themes, layouts, stacks, gradients, states, updates, and remounting. `@ng-echarts/chart-library` is a private, experimental package identity. ECharts is a peer dependency; no package has been published. Adapted fixture data and colors are tracked in the provenance ledger with the upstream MIT notice.
+The playground renders the pinned Desktop/Mobile bar fixture in a responsive workspace with grouped settings, preview/code views, copy, reset, and light/dark themes. It retains layout, stack, gradient, state, update, and remount controls. `@ng-echarts/chart-library` is a private, experimental package identity. ECharts is a peer dependency; no package has been published. Adapted fixture data and colors are tracked in the provenance ledger with the upstream MIT notice.

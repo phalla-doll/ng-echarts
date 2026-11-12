@@ -5,7 +5,7 @@ import { deviceRows, deviceSeries, type DeviceRow } from './fixtures/evilcharts-
 @Component({
   selector: 'app-updates',
   imports: [BarChart],
-  template: `<main>
+  template: `<main class="utility-page">
     <h1>Input update validation</h1>
     <div class="controls">
       <button type="button" (click)="reorder()">Reorder rows and series</button>
@@ -26,27 +26,6 @@ import { deviceRows, deviceSeries, type DeviceRow } from './fixtures/evilcharts-
     />
     <p role="status" class="selection">{{ selection() }}</p>
   </main>`,
-  styles: `
-    main {
-      padding: 1.5rem;
-      max-width: 960px;
-      margin: auto;
-    }
-    .controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-    button {
-      padding: 0.75rem;
-      font: inherit;
-    }
-    button:focus-visible {
-      outline: 3px solid #648dff;
-      outline-offset: 3px;
-    }
-  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Updates {

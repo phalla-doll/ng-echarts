@@ -2,60 +2,195 @@
   <div class="workspace">
     <header class="page-header">
       <div>
-        <p class="eyebrow">Angular 22 · ECharts</p>
-        <h1>ng-echarts playground</h1>
-        <p class="intro">A workspace for building and validating native Angular charts.</p>
+        <div class="title-line">
+          <h1>Bar charts</h1>
+          <span class="experimental">Experimental</span>
+        </div>
+        <p class="intro">
+          Compare categories, combine series, and explore the values behind each bar.
+        </p>
       </div>
-      <button type="button" [attr.aria-pressed]="darkTheme()" (click)="toggleTheme()">
-        {{ themeLabel() }}
+      <button
+        class="ui-button theme-button"
+        type="button"
+        [attr.aria-pressed]="darkTheme()"
+        (click)="toggleTheme()"
+      >
+        <app-site-icon [name]="themeIcon()" />{{ themeLabel() }}
       </button>
     </header>
-    <div class="controls" aria-label="Prototype scenarios">
-      <button type="button" [attr.aria-pressed]="horizontal()" (click)="toggleLayout()">
-        Horizontal layout
-      </button>
-      <button type="button" [attr.aria-pressed]="stacked()" (click)="toggleStack()">
-        Stack series
-      </button>
-      <button type="button" [attr.aria-pressed]="gradient()" (click)="toggleGradient()">
-        Gradient fills
-      </button>
-      <button type="button" [attr.aria-pressed]="loading()" (click)="toggleLoading()">
-        Loading state
-      </button>
-      <button type="button" [attr.aria-pressed]="failure()" (click)="toggleError()">
-        Error state
-      </button>
-      <button type="button" [attr.aria-pressed]="empty()" (click)="toggleEmpty()">
-        Empty data
-      </button>
-      <button type="button" (click)="updateValues()">Update values</button>
-      <button type="button" [attr.aria-pressed]="mounted()" (click)="toggleMount()">
-        Show chart
-      </button>
+
+    <div class="workbench">
+      <section class="preview-column" id="chart-example" aria-label="Bar chart example">
+        <div class="preview-toolbar">
+          <div class="view-control" role="group" aria-label="Example view">
+            <button
+              type="button"
+              [attr.aria-pressed]="view() === 'preview'"
+              (click)="showView('preview')"
+            >
+              <app-site-icon name="chart" />Preview
+            </button>
+            <button
+              type="button"
+              [attr.aria-pressed]="view() === 'code'"
+              (click)="showView('code')"
+            >
+              <app-site-icon name="code" />Angular code
+            </button>
+          </div>
+          <span class="dataset-meta"
+            >{{ rows().length }} months<span aria-hidden="true">/</span
+            >{{ series.length }} series</span
+          >
+          <a class="settings-jump" href="#chart-settings"
+            ><app-site-icon name="layers" />Chart settings</a
+          >
+        </div>
+        <div class="chart-preview" [hidden]="view() !== 'preview'">
+          @if (mounted()) {
+            <nec-bar-chart
+              title="Device visits by month"
+              description="Desktop and mobile visits, January–December."
+              [data]="rows()"
+              rowIdKey="id"
+              categoryKey="month"
+              [series]="series"
+              [categoryTickFormatter]="categoryTickFormatter"
+              [theme]="theme()"
+              [layout]="layout()"
+              [stacked]="stacked()"
+              [gradient]="gradient()"
+              [loading]="loading()"
+              [error]="error()"
+              [height]="360"
+              (pointSelect)="showPoint($event)"
+            />
+          } @else {
+            <div class="unmounted">
+              <app-site-icon name="chart" />
+              <h2>Your chart is hidden</h2>
+              <p>Turn on “Show chart” in the settings to bring it back.</p>
+              <button type="button" class="ui-button" (click)="toggleMount()">Restore chart</button>
+            </div>
+          }
+          <div class="event-console">
+            <app-site-icon name="check" />
+            <p class="selection" role="status">{{ selectedPoint() }}</p>
+          </div>
+        </div>
+        <div class="source-panel" [hidden]="view() !== 'code'">
+          <div class="source-heading">
+            <span>Angular template</span
+            ><button class="ui-button" type="button" (click)="copySource()">
+              <app-site-icon [name]="copied() ? 'check' : 'copy'" />{{
+                copied() ? 'Copied' : 'Copy code'
+              }}
+            </button>
+          </div>
+          <pre><code>{{ source() }}</code></pre>
+          <p class="source-note">
+            Import <code>BarChart</code> in your standalone component. Bind your rows to
+            <code>visits</code> and your series configuration to <code>series</code>. For short
+            month labels, define
+            <code>categoryTickFormatter = (label: string) =&gt; label.slice(0, 3)</code>.
+          </p>
+          @if (copyFailed()) {
+            <p role="status" class="source-note">
+              Clipboard access is unavailable. Select the template to copy it manually.
+            </p>
+          }
+        </div>
+        <footer class="example-footer">
+          <span>Sample data for exploring the component.</span
+          ><a
+            href="https://github.com/phalla-doll/ng-echarts/blob/main/docs/TECHNICAL_ARCHITECTURE.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Read the API notes<app-site-icon name="arrow"
+          /></a>
+        </footer>
+      </section>
+
+      <aside class="settings" id="chart-settings" tabindex="-1" aria-label="Chart settings">
+        <div class="settings-heading">
+          <h2>Chart settings</h2>
+          <button class="reset-button" type="button" (click)="resetControls()">
+            Reset controls
+          </button>
+        </div>
+        <p class="settings-intro">Adjust the chart’s appearance and data.</p>
+        <section class="settings-group" aria-labelledby="appearance-heading">
+          <h3 id="appearance-heading">Appearance</h3>
+          <button
+            class="setting-toggle"
+            type="button"
+            [attr.aria-pressed]="horizontal()"
+            (click)="toggleLayout()"
+          >
+            <span>Horizontal layout</span><span class="switch" aria-hidden="true"></span>
+          </button>
+          <button
+            class="setting-toggle"
+            type="button"
+            [attr.aria-pressed]="stacked()"
+            (click)="toggleStack()"
+          >
+            <span>Stack series</span><span class="switch" aria-hidden="true"></span>
+          </button>
+          <button
+            class="setting-toggle"
+            type="button"
+            [attr.aria-pressed]="gradient()"
+            (click)="toggleGradient()"
+          >
+            <span>Gradient fills</span><span class="switch" aria-hidden="true"></span>
+          </button>
+        </section>
+        <section class="settings-group" aria-labelledby="data-heading">
+          <h3 id="data-heading">Sample data</h3>
+          <p>12 monthly observations with Desktop and Mobile series.</p>
+          <button
+            class="ui-button update-button"
+            type="button"
+            [attr.aria-pressed]="changed()"
+            (click)="updateValues()"
+          >
+            <app-site-icon name="update" />Update values
+          </button>
+          <span class="setting-hint">Toggle a +100 change to Desktop.</span>
+        </section>
+        <section class="settings-group" aria-labelledby="states-heading">
+          <h3 id="states-heading">Try a state</h3>
+          <div class="state-controls">
+            <button type="button" [attr.aria-pressed]="loading()" (click)="toggleLoading()">
+              Loading state
+            </button>
+            <button type="button" [attr.aria-pressed]="failure()" (click)="toggleError()">
+              Error state
+            </button>
+            <button type="button" [attr.aria-pressed]="empty()" (click)="toggleEmpty()">
+              Empty data
+            </button>
+          </div>
+          <button
+            class="setting-toggle mount-control"
+            type="button"
+            [attr.aria-pressed]="mounted()"
+            (click)="toggleMount()"
+          >
+            <span>Show chart</span><span class="switch" aria-hidden="true"></span>
+          </button>
+        </section>
+        <div class="interaction-note">
+          <app-site-icon name="layers" />
+          <p>Try selecting a bar, hiding a series, or opening the data table.</p>
+        </div>
+        <a class="back-to-example" href="#chart-example"
+          >Back to example<app-site-icon name="arrow"
+        /></a>
+      </aside>
     </div>
-    @if (mounted()) {
-      <nec-bar-chart
-        title="Device visits by month"
-        description="Monthly desktop and mobile visits. Use the legend to change visibility or open the data table to explore values."
-        [data]="rows()"
-        rowIdKey="id"
-        categoryKey="month"
-        [series]="series"
-        [categoryTickFormatter]="categoryTickFormatter"
-        [theme]="theme()"
-        [layout]="layout()"
-        [stacked]="stacked()"
-        [gradient]="gradient()"
-        [loading]="loading()"
-        [error]="error()"
-        [height]="360"
-        (pointSelect)="showPoint($event)"
-      />
-    }
-    <p class="selection" role="status">{{ selectedPoint() }}</p>
-    <p class="status">
-      Experimental bar prototype · visual parity and feasibility gates are pending.
-    </p>
+    <p class="status">Native Angular components. Powered by Apache ECharts.</p>
   </div>
 </main>

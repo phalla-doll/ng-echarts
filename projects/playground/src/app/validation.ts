@@ -10,28 +10,20 @@ import { deviceRows, deviceSeries } from './fixtures/evilcharts-bar-fixture';
   styles: `
     :host {
       display: block;
-      padding: 1.5rem;
-      background: #f4f6fa;
-      color: #18202c;
-    }
-    .controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    button {
-      padding: 0.75rem;
-      font: inherit;
-      cursor: pointer;
-    }
-    button:focus-visible {
-      outline: 3px solid #648dff;
-      outline-offset: 3px;
     }
     .charts {
       display: grid;
-      gap: 1.5rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+      gap: 24px;
+    }
+    .charts > section {
+      grid-column: 1/-1;
+    }
+    @media (max-width: 1100px) {
+      .charts {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
