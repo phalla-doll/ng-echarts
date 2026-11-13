@@ -118,4 +118,4 @@ Deliver installation instructions, typed examples, an API reference, data limits
 
 Use the [acceptance matrix](ACCEPTANCE_MATRIX.md) to track F01 through F10, visual parity, and quality targets. Every required check must pass against its current criterion. A revised target needs a recorded rationale, an aligned specification, and a successful rerun before its gate can pass.
 
-The local project name is fixed by the user. Public package naming, distribution licensing, and registry publication remain future release decisions; the current work produces an experimental local library and playground.
+The local project name is fixed by the user. Original library code is MIT licensed under the user’s 13 November 2026 decision; upstream/dependency notices remain separate. Public package naming and registry publication remain future decisions. The current work produces an experimental private `0.1.0-rc.0` candidate and playground; the [release checklist](RELEASE_CHECKLIST.md) records final-artifact checks and open human acceptance.

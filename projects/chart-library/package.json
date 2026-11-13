@@ -1,6 +1,6 @@
 {
   "name": "@ng-echarts/chart-library",
-  "version": "0.0.0",
+  "version": "0.1.0-rc.0",
   "peerDependencies": {
     "@angular/common": "^22.2.6",
     "@angular/core": "^22.2.6",
@@ -10,5 +10,23 @@
     "tslib": "^2.3.0"
   },
   "sideEffects": false,
-  "private": true
+  "private": true,
+  "description": "Standalone, typed Angular charts powered by Apache ECharts.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phalla-doll/ng-echarts.git",
+    "directory": "projects/chart-library"
+  },
+  "homepage": "https://github.com/phalla-doll/ng-echarts#readme",
+  "bugs": {
+    "url": "https://github.com/phalla-doll/ng-echarts/issues"
+  },
+  "keywords": [
+    "angular",
+    "echarts",
+    "charts",
+    "typescript",
+    "ssr"
+  ]
 }

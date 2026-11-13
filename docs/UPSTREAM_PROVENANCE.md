@@ -88,7 +88,7 @@ All paths in this table are under the pinned `src/registry/` tree.
 | `ui/echarts-dot.tsx`: gradient sampling and marker variants | Defer advanced marker/pattern helpers; initial gradient uses a simple ECharts linear fill |
 | Bar module's brush integration and Motion animations | Defer brush; use ECharts animation gated by browser motion preference |
 
-Before adapting another helper or fixture, add its exact source, local destination, and treatment here, preserve required notices, and check its dependencies. This ledger does not select a distribution license for original project code.
+Before adapting another helper or fixture, add its exact source, local destination, and treatment here, preserve required notices, and check its dependencies. The user selected MIT for original library code on 13 November 2026; its full [license](../projects/chart-library/LICENSE) ships with the local candidate. The [notice index](../projects/chart-library/THIRD_PARTY_NOTICES.md) and [dependency-notice provenance](../projects/chart-library/third-party/provenance.json) preserve separate upstream/dependency terms. The [NG16 report](experiments/NG16_LOCAL_RELEASE.md) records artifact verification.
 
 ## NG11 line references and shared policy
 

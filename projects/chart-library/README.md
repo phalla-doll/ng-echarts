@@ -1,13 +1,13 @@
 # Angular chart library
 
-Experimental standalone Angular 22 components using Apache ECharts. The local identity `@ng-echarts/chart-library` is private and has not been published. Public naming, final artifact licensing/notices and release acceptance remain open. Preserve `third-party/evilcharts-LICENSE.txt` with the package.
+Experimental standalone Angular 22 components using Apache ECharts. The local identity `@ng-echarts/chart-library` is private and has not been published. Local candidate: `0.1.0-rc.0`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. Public naming and human release acceptance remain open.
 
 ## Installation
 
 In the source checkout, use Node 24.22.2 and npm 11.19.1, then run `npm ci` and `npm run pack:lib`. Install the resulting file into a separate Angular application:
 
 ```sh
-npm install /absolute/path/to/ng-echarts-chart-library-0.0.0.tgz echarts@6.1.0
+npm install /absolute/path/to/ng-echarts-chart-library-0.1.0-rc.0.tgz echarts@6.1.0
 ```
 
 Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes.
@@ -97,3 +97,7 @@ Raw ECharts options, custom tooltip templates, time/logarithmic axes, server plo
 ## Repository guides
 
 The checkout contains complete [installation](https://github.com/phalla-doll/ng-echarts/blob/main/docs/INSTALLATION.md), [integration](https://github.com/phalla-doll/ng-echarts/blob/main/docs/INTEGRATION_GUIDE.md), and [compatibility](https://github.com/phalla-doll/ng-echarts/blob/main/docs/COMPATIBILITY.md) guides, plus [bar](https://github.com/phalla-doll/ng-echarts/blob/main/docs/BAR_CHART_API.md), [line](https://github.com/phalla-doll/ng-echarts/blob/main/docs/LINE_CHART_API.md), [area](https://github.com/phalla-doll/ng-echarts/blob/main/docs/AREA_CHART_API.md) and [pie/donut](https://github.com/phalla-doll/ng-echarts/blob/main/docs/PIE_CHART_API.md) references. In the source workspace, run `npm run build:lib`, `npm run check:consumer` and `npm run check:docs` to reproduce documentation checks; these scripts are not commands inside the installed package.
+
+## License
+
+Original library code is [MIT licensed](LICENSE). Adapted EvilCharts material and external dependencies retain their own notices; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). This private local candidate does not complete the deferred human screen-reader review or public release gates.

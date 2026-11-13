@@ -1,3 +1,4 @@
+import { consumerArtifact } from './consumer-artifact.mjs';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { mkdtemp, realpath, readFile, writeFile, rm } from 'node:fs/promises';
@@ -44,13 +45,7 @@ const run = async (command, args, cwd, env = {}) => {
   return output;
 };
 try {
-  const packed = JSON.parse(
-    await run(
-      'npm',
-      ['pack', join(root, 'dist/chart-library'), '--pack-destination', parent, '--json'],
-      parent,
-    ),
-  )[0];
+  const packed = await consumerArtifact(root, parent);
   console.log('Scaffolding the exact documented Angular application outside the workspace…');
   await run('sh', ['-eu', '-c', shell('scaffold')], parent);
   console.log('Installing the documented version pins and local tarball…');
@@ -217,6 +212,12 @@ try {
   }
   const evidence = {
     recordedAt: new Date().toISOString(),
+    artifact: {
+      name: packed.name,
+      version: packed.version,
+      sha256: packed.sha256,
+      exactCandidate: packed.exactCandidate,
+    },
     node: process.version,
     npm: (await run('npm', ['--version'], consumer)).trim(),
     method:

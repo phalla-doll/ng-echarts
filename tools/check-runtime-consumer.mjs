@@ -1,3 +1,4 @@
+import { consumerArtifact } from './consumer-artifact.mjs';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { createServer } from 'node:http';
@@ -202,9 +203,7 @@ try {
   );
   console.log('Installing locked, isolated client/SSR consumers…');
   await run('npm', ['ci', '--no-audit', '--no-fund']);
-  const packed = JSON.parse(
-    await run('npm', ['pack', join(root, 'dist/chart-library'), '--json']),
-  )[0];
+  const packed = await consumerArtifact(root, consumer);
   assert(packed.files.some((file) => file.path === 'third-party/evilcharts-LICENSE.txt'));
   await run('npm', [
     'install',
@@ -319,6 +318,7 @@ try {
     node: process.version,
     package: packed.name,
     version: packed.version,
+    artifact: { sha256: packed.sha256, exactCandidate: packed.exactCandidate },
     skipLibCheck: tsconfig.compilerOptions.skipLibCheck,
     workspaceAliases: false,
     installedOutsideWorkspace: true,

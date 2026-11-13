@@ -157,7 +157,7 @@ Angular and ECharts peer requirements remain unchanged. A core-only bundle exclu
 
 R08 installs a production packed artifact into a consumer outside this workspace, without source aliases, symlinks, or parent-workspace dependency resolution. Exercise both client rendering and an SSR route from that artifact. Inspect the package contents, public declaration files, peer ranges, and consumer bundle. Run a dedicated declaration-compatibility check without `skipLibCheck`; broad error suppression cannot establish TypeScript 6 compatibility.
 
-A temporary local package identity is sufficient for these tests. Finalize the local distributable's license and third-party notices at G4; public registry naming and publication remain later work.
+A temporary local package identity is sufficient for these tests. The user selected MIT for original library code. NG16 now prepares a private 0.1.0-rc.0 artifact with original/upstream/dependency notices and an inventory/checksum manifest. Exact-artifact strict/docs/client/SSR checks are documented in the [release checklist](RELEASE_CHECKLIST.md). G4 still requires the deferred human evidence; public registry naming and publication remain later work.
 
 The requested folder remains `ng-echarts`. Angular's naming guidance recommends avoiding `ng-` for published libraries, so select a distinct package namespace before registry release ([S8](SOURCES.md#platform-sources)).
 

@@ -1,3 +1,4 @@
+import { consumerArtifact } from './consumer-artifact.mjs';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { cp, mkdtemp, realpath, rm, readFile, writeFile } from 'node:fs/promises';
@@ -18,10 +19,8 @@ function run(command, args, cwd) {
 }
 
 try {
-  // The library must be built first; never resolve its source through workspace aliases.
-  const packed = JSON.parse(
-    run('npm', ['pack', './dist/chart-library', '--pack-destination', consumer, '--json'], root),
-  )[0];
+  // Pack the production build or copy the exact candidate; never resolve workspace source aliases.
+  const packed = await consumerArtifact(root, consumer);
   assert(
     packed.files.some((file) => file.path.endsWith('.d.ts')),
     'Package must include declarations',

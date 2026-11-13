@@ -16,7 +16,7 @@ Library source and colocated tests: `projects/chart-library/{core,bar,line,area,
 
 ## Implementation Workflow
 
-The product specification owns scope; research findings own compatibility ranges. Follow the implementation plan and upstream provenance ledger. G1 passes for bar. The user deferred R06 human listening to release acceptance and authorized continued development through NG14/NG15; retain human F09 and G2/G3/G4 as pending until their evidence exists. NG16 final artifact/license/notices is next. Demo deployment does not publish the library package or close release gates.
+The product specification owns scope; research findings own compatibility ranges. Follow the implementation plan and upstream provenance ledger. G1 passes for bar. The user deferred R06 human listening to release acceptance and authorized continued development through NG16 automated packaging; retain human F09 and G2/G3/G4 as pending until their evidence exists. NG16 prepares the private 0.1.0-rc.0 candidate with the user-selected MIT license, preserved notices and exact-artifact checks; human release gates remain pending. Demo deployment does not publish the library package or close release gates.
 
 ## Build, Test, and Development Commands
 
@@ -29,6 +29,7 @@ Use Node from `.nvmrc` and npm 11.19.1; install with `npm ci`.
 - `npm run check`: formatting, builds, strict compilation, tests, isolated declarations/documentation/runtime consumers, SSR, three-browser scenarios, and package budgets. First install browsers with `npx playwright install chromium firefox webkit`.
 - `npm run build:pages` / `npm run check:pages`: prerender and verify the static preview under `/ng-echarts/`; retain direct-route HTML, subpath-safe links/fonts, hydration, and notices.
 - `npm run deploy:pages`: rebuild/check and push compiled assets to `gh-pages`; requires GitHub CLI access. Source commits are separate, and pushes to `main` do not automatically redeploy the preview.
+- `npm run release:local`: build/pack one private candidate, verify metadata/notices and pass byte-identical copies to strict/docs/client/SSR consumers. `release:prepare` and `release:check` run separate phases; keep human gates pending.
 - `npm run capture:visual`: capture all gallery families/themes at 320/390/768/1440 px, including tooltip bounds and narrow label/control evidence; first run `npm run build`.
 - `npm run format`: apply Prettier.
 

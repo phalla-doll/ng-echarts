@@ -1,10 +1,16 @@
 {
-  "recordedAt": "2026-11-13T03:32:00.866Z",
+  "recordedAt": "2026-11-13T04:47:55.501Z",
+  "artifact": {
+    "name": "@ng-echarts/chart-library",
+    "version": "0.1.0-rc.0",
+    "sha256": "313e3c2d7a3593d9e7710e140a5f2dfda9e580c5a52f52b8f3aff77cdc7228b0",
+    "exactCandidate": true
+  },
   "node": "v24.22.2",
   "npm": "11.19.1",
   "method": "Fresh pinned CLI scaffold outside workspace; execute INSTALLATION.md shell blocks; install local tarball; copy exact INTEGRATION_GUIDE.md App; strict ngc and production build; generated server HTML then three-engine hydration/actions/updates/themes/resize.",
   "sources": {
-    "docs/INSTALLATION.md": "48c6742ca143b52f21e0de79698ab210ae11703ed0598d6e253337d684ac3989",
+    "docs/INSTALLATION.md": "eecad2721f712cf6842a9480ce8715c940ebeea5e9def3c6326137ed60e9bee7",
     "docs/INTEGRATION_GUIDE.md": "fae391e57437fd43e2cf425036bbf3d80218411556049d35bcd1186e83173d4a"
   },
   "installedOutsideWorkspace": true,
@@ -24,7 +30,7 @@
     "@angular/platform-server": "22.2.6",
     "@angular/router": "22.2.6",
     "@angular/ssr": "22.2.6",
-    "@ng-echarts/chart-library": "0.0.0",
+    "@ng-echarts/chart-library": "0.1.0-rc.0",
     "@types/express": "5.0.6",
     "@types/node": "22.20.5",
     "echarts": "6.1.0",

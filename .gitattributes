@@ -1,0 +1,4 @@
+# Preserve upstream license/notice bytes, including their CRLF and blank lines.
+projects/chart-library/third-party/*-LICENSE.txt -text -whitespace
+projects/chart-library/third-party/*-NOTICE.txt -text -whitespace
+projects/chart-library/third-party/tslib-CopyrightNotice.txt -text -whitespace

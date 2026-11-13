@@ -20,7 +20,7 @@ The [NG13 pie/donut report](experiments/NG13_PIE_CHART.md) adds automated F01–
 
 ## Implemented family evidence
 
-This index records automated implementation acceptance, not completed human NG14/G3 acceptance. The latest regression has 119 unit/integration tests, 160 passing browser scenarios (plus two CDP-only skips), and six installed-package client/SSR modes. [Package evidence](experiments/data/package-boundaries.json) covers seven import scenarios.
+This index records automated implementation acceptance, not completed human NG14/G3 acceptance. The latest regression has 119 unit/integration tests, 172 passing browser scenarios (plus two CDP-only skips), and six installed-package client/SSR modes. [Package evidence](experiments/data/package-boundaries.json) covers seven import scenarios.
 
 | Family | Contract and automated behavior | Visual/performance evidence |
 | --- | --- | --- |
@@ -72,3 +72,5 @@ The separate [GitHub Pages preview](GITHUB_PAGES.md) has deployed static-route H
 G1 requires technical feasibility evidence and a confirmed integration choice. G2 requires the bar quality checks to pass and records the chosen renderer, size budget, data envelope, and revised estimate. G3 requires the full MVP matrix to pass. G4 checks the final packaged artifact and its documentation and notices.
 
 Store reports under `docs/experiments/` when work begins and link each report to its requirement, chart family, task, and gate. Keep status as pending, pass, or fail. A planned check, revised target, or screenshot alone cannot substitute for a required behavioral result.
+
+The [NG16 local candidate](experiments/NG16_LOCAL_RELEASE.md) adds final-artifact automated evidence for F01/F10, metadata, notices, dependencies and distribution contents. All three isolated consumer stages use the same `0.1.0-rc.0` tarball and digest, with snapshots in the candidate record. Original library code is MIT licensed by user choice. G4, NG14/G3 and F09 remain pending for the deferred human interpretation evidence; automated packaging success does not close those gates.
