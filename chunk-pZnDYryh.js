@@ -1,4 +1,4 @@
-import{t as hn}from"./chunk-hs90fSUX.js";import{t as e}from"./chunk-B7Ng-UbO.js";import{n as f,r as fr,t as d}from"./main-HAN366AN.js";import{t as R}from"./chunk-D6xZvPsN.js";import"./chunk-C9qtUQfy.js";import"./chunk-oZYvXsgK.js";import"./chunk-CHOzXRiQ.js";import{A as Lo,Ct as dg,Fn as yI,It as g,Mt as fi,Nt as fl,S as Ig,St as cw,Tn as ug,Zt as nT,pn as qw,vn as sl,yn as sw}from"./chunk-BtXVNPlF.js";var _=`import {
+import{t as hn}from"./chunk-hs90fSUX.js";import{t as e}from"./chunk-B7Ng-UbO.js";import{n as f,r as fr,t as d}from"./main-5KZMNGAQ.js";import{t as R}from"./chunk-BpAwS7Qr.js";import"./chunk-CPFea2qP.js";import"./chunk-6hmMJn_H.js";import"./chunk-BdXZZnHG.js";import{A as Lo,Ct as dg,Fn as yI,It as g,Mt as fi,Nt as fl,S as Ig,St as cw,Tn as ug,Zt as nT,pn as qw,vn as sl,yn as sw}from"./chunk-BtXVNPlF.js";var _=`import {
   ChangeDetectionStrategy,
   Component,
   computed,
@@ -39,6 +39,7 @@ interface Device {
       rowIdKey="id"
       categoryKey="month"
       [series]="series"
+      [selectedRowId]="selectedId() || null"
       (pointSelect)="selectMonth($event.rowId)"
     />
     <nec-pie-chart
