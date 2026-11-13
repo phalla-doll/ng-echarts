@@ -26,6 +26,8 @@ test('hydrates linked charts and connects real plot clicks, keyboard values and 
   await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('jan');
   await expect(detail.getByRole('heading')).toHaveText('Device share · January');
   await expect(page.locator('.linked-status')).toContainText('January: 526 visits');
+  // The selected group must remain detectable while its default hover emphasis is active.
+  await expect.poll(() => solidBarGroups(overview)).toBe(1);
   await page.mouse.move(0, 0);
   await expect.poll(() => solidBarGroups(overview)).toBe(1);
   await overview.getByRole('button', { name: 'Show data table', exact: true }).click();

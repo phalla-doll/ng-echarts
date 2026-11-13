@@ -20,7 +20,15 @@ export async function solidBarGroups(chart: Locator): Promise<number> {
       let count = 0;
       for (let y = 0; y < canvas.height; y++) {
         const offset = (y * canvas.width + x) * 4;
-        if (target.every((value, channel) => pixels[offset + channel] === value)) count++;
+        // ECharts lifts hovered RGB channels by 10% (at most 24 byte values).
+        // Accept that emphasis while still rejecting the 35%-opacity context bars.
+        if (
+          pixels[offset + 3] === 255 &&
+          Math.abs(pixels[offset]! - target[0]!) <= 24 &&
+          Math.abs(pixels[offset + 1]! - target[1]!) <= 24 &&
+          Math.abs(pixels[offset + 2]! - target[2]!) <= 24
+        )
+          count++;
       }
       const painted = count > 8;
       if (painted && !previous) groups++;
