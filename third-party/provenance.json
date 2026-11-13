@@ -1,0 +1,77 @@
+{
+  "description": "Exact copied license and notice bytes for the local candidate; external peers/dependencies are not embedded in the library modules.",
+  "entries": [
+    {
+      "package": "@angular/core",
+      "version": "22.2.6",
+      "license": "MIT",
+      "source": "node_modules/@angular/core/LICENSE",
+      "file": "angular-LICENSE.txt",
+      "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+    },
+    {
+      "package": "@angular/common",
+      "version": "22.2.6",
+      "license": "MIT",
+      "source": "node_modules/@angular/common/LICENSE",
+      "file": "angular-LICENSE.txt",
+      "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+    },
+    {
+      "package": "echarts",
+      "version": "6.1.0",
+      "license": "Apache-2.0",
+      "source": "node_modules/echarts/LICENSE",
+      "file": "echarts-LICENSE.txt",
+      "sha256": "634293835b43a6dd2094fa39182a3d9a6b9ca43b7fdb9ac354e8037af2a3093a"
+    },
+    {
+      "package": "echarts",
+      "version": "6.1.0",
+      "license": "Apache-2.0",
+      "source": "node_modules/echarts/NOTICE",
+      "file": "echarts-NOTICE.txt",
+      "sha256": "d491d358344f842685c1b1585970999db65fe30ecf7ef3867af8814f4016c016"
+    },
+    {
+      "package": "zrender",
+      "version": "6.1.0",
+      "license": "BSD-3-Clause",
+      "source": "node_modules/zrender/LICENSE",
+      "file": "zrender-LICENSE.txt",
+      "sha256": "a681e9d183c72b4af4856935893805eb48c08f0f5a3f260203db7444c20fb98a"
+    },
+    {
+      "package": "rxjs",
+      "version": "7.8.2",
+      "license": "Apache-2.0",
+      "source": "node_modules/rxjs/LICENSE.txt",
+      "file": "rxjs-LICENSE.txt",
+      "sha256": "81c407ac717813b0e3795402960e04003c7bba8ba59b621624707028531c9ade"
+    },
+    {
+      "package": "tslib",
+      "version": "2.8.1",
+      "license": "0BSD",
+      "source": "node_modules/tslib/LICENSE.txt",
+      "file": "tslib-LICENSE.txt",
+      "sha256": "210b19e543130388c68654b7497e967119ce17145f66ab7d85688fbd70f08751"
+    },
+    {
+      "package": "tslib",
+      "version": "2.8.1",
+      "license": "0BSD",
+      "source": "node_modules/tslib/CopyrightNotice.txt",
+      "file": "tslib-CopyrightNotice.txt",
+      "sha256": "da16ddb65f8ca390998fb99223d0112498b56b45784d00afd77ff8ce1ac4de8b"
+    },
+    {
+      "package": "EvilCharts",
+      "revision": "4c2dd7c9bae780703244265c9a4b509d40c055ad",
+      "license": "MIT",
+      "file": "evilcharts-LICENSE.txt",
+      "source": "https://github.com/legions-developer/evilcharts/blob/4c2dd7c9bae780703244265c9a4b509d40c055ad/LICENSE",
+      "sha256": "7b6baf25f6caa0de061a2c99a47205d6651cdefc6e636910bc51bb3853ed056e"
+    }
+  ]
+}
