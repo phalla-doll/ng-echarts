@@ -1,0 +1,190 @@
+{
+  "verifiedAt": "2026-11-13T12:22:03.792Z",
+  "site": "https://phalla-doll.github.io/ng-echarts/",
+  "deploymentCommit": "937f504b69cbd0c95b649f33096609a8960a5dc5",
+  "deploymentRun": "https://github.com/phalla-doll/ng-echarts/actions/runs/43424323023",
+  "marker": {
+    "builtAt": "2026-11-13T12:20:20.334Z",
+    "sourceBaseCommit": "30966733d11d4c289f5f6286feb28b6f87ae1f5d",
+    "includesWorkingTree": false
+  },
+  "assetSha256": "c778d041a39eddeac62ce2e38a1ee9dd7b4d4789a08466f82ff8d8d46982123d",
+  "assetMatchesSource": true,
+  "checks": [
+    {
+      "browser": "chromium",
+      "theme": "dark",
+      "width": 320,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "chromium",
+      "theme": "dark",
+      "width": 390,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "chromium",
+      "theme": "dark",
+      "width": 768,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "chromium",
+      "theme": "dark",
+      "width": 1440,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "chromium",
+      "theme": "light",
+      "width": 320,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "chromium",
+      "theme": "light",
+      "width": 390,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "chromium",
+      "theme": "light",
+      "width": 768,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "chromium",
+      "theme": "light",
+      "width": 1440,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "firefox",
+      "theme": "dark",
+      "width": 320,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "firefox",
+      "theme": "dark",
+      "width": 390,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "firefox",
+      "theme": "dark",
+      "width": 768,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "firefox",
+      "theme": "dark",
+      "width": 1440,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "firefox",
+      "theme": "light",
+      "width": 320,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "firefox",
+      "theme": "light",
+      "width": 390,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "firefox",
+      "theme": "light",
+      "width": 768,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "firefox",
+      "theme": "light",
+      "width": 1440,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "webkit",
+      "theme": "dark",
+      "width": 320,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "webkit",
+      "theme": "dark",
+      "width": 390,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "webkit",
+      "theme": "dark",
+      "width": 768,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "webkit",
+      "theme": "dark",
+      "width": 1440,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "webkit",
+      "theme": "light",
+      "width": 320,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "webkit",
+      "theme": "light",
+      "width": 390,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "webkit",
+      "theme": "light",
+      "width": 768,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    },
+    {
+      "browser": "webkit",
+      "theme": "light",
+      "width": 1440,
+      "allProductNamesAndValuesVisible": true,
+      "horizontalOverflow": false
+    }
+  ],
+  "pagesStatus": "built",
+  "prerenderedRoutes": 30,
+  "fullPagesVerification": {
+    "local": ["chromium", "firefox", "webkit"],
+    "live": ["chromium", "firefox", "webkit"],
+    "result": "pass"
+  }
+}
