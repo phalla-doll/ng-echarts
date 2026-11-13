@@ -12,7 +12,7 @@ This is demo presentation work. The private rc.2 package and its API are unchang
 
 ## Visual and browser evidence
 
-The [capture manifest](captures/focus-refinement/manifest.json) records Chromium, Firefox and WebKit versions, nine source hashes, 162 focus checks and 16 images at 2× density. Both themes and 1440/320 px are included. The audit verifies the computed ring after entering keyboard modality and focusing real controls across all five chart galleries, linked charts, documentation, workbench, ordinary/reference comparisons and mobile navigation. Native details/Enter and Skip to content are exercised, and current table-action focus is verified. All three engines also emulate forced colors and verify the Month/table-region override. No page overflow, browser or HTTP errors are recorded.
+The [capture manifest](captures/focus-refinement/manifest.json) records Chromium, Firefox and WebKit versions, nine source hashes, 162 focus checks and 16 images at 2× density. Both themes and 1440/320 px are included. The audit verifies the computed ring after entering keyboard modality and focusing real controls across all five chart galleries, linked charts, documentation, workbench, ordinary/reference comparisons and mobile navigation. Each direct route proves the theme control responds and waits for the current-route link before keyboard actions, keeping prerendered HTML/initial lazy navigation separate from the hydrated interaction check. Native details/Enter and Skip to content are exercised, and current table-action focus is verified. All three engines also emulate forced colors and verify the Month/table-region override. No page overflow, browser or HTTP errors are recorded.
 
 Reviewed examples:
 
@@ -36,3 +36,15 @@ The existing three-engine linked/gallery/visual-refinement/site/navigation/code/
 During this round, the previous feature's [GitHub run](https://github.com/phalla-doll/ng-echarts/actions/runs/43386867839) completed with one WebKit failure in the exact-palette bar counter (204 scenarios passed, two expected skips). ECharts' default hover emphasis lifts RGB channels by 10%; the original counter accepted only the resting color. The sampler now permits a maximum 24-value RGB difference while still requiring opaque pixels and rejecting faded context bars. The linking scenario checks the selected group both with the pointer over it and after moving away. All 15 linked scenarios pass locally across the three engines after this harness correction; remote CI remains a separate result.
 
 The Pages build prerenders 29 routes, and local static verification passes in Chromium, Firefox and WebKit. Formatting, local documentation links/anchors, whitespace and capture hashes are checked before committing. The retained rc.2 tarball remains SHA-256 `c41489c8880e41c62f11121599c9cecb1acfa2c5ab6c3b06ee2abf4d95b2d7fd`. Live delivery is recorded after deployment.
+
+## Live delivery
+
+Focus styling/source commit `642510295be7cdd97a7fefcc3f1f545c6bb6a89d` and preceding sampler fix `2022382` are pushed. The [live demo](https://phalla-doll.github.io/ng-echarts/linked/) is deployed from static commit `12a580dffff425fb6778d61ddd44eb4e5f5c1474`; the [Pages run](https://github.com/phalla-doll/ng-echarts/actions/runs/43389471080) succeeds. `preview-build.json` identifies clean source `6425102`. Live Pages verification passes in all three engines, and [the live focus audit](data/focus-live.json) passes all 162 cases with no overflow/browser/HTTP errors. Its nine source hashes and local captures are verified before committing this record. The audit harness now waits for client controls/route readiness on direct loads; the deployed UI styles are unchanged by that validation refinement.
+
+Reproduce the live audit without generating another image set:
+
+```sh
+FOCUS_CAPTURE_IMAGES=0 node tools/capture-focus-refinement.mjs https://phalla-doll.github.io/ng-echarts/ /tmp/ng-echarts-focus-live
+```
+
+The previous docs-only [workspace run](https://github.com/phalla-doll/ng-echarts/actions/runs/43387100568) also succeeds; the earlier WebKit exact-color failure was intermittent. A new workspace CI run for the focus/sampler update proceeds independently. Local/live validation above records executed results without claiming that new remote run has finished.

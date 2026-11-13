@@ -1,0 +1,2321 @@
+{
+  "recordedAt": "2026-11-13T08:07:16.418Z",
+  "base": "https://phalla-doll.github.io/ng-echarts/",
+  "node": "v24.22.2",
+  "deviceScaleFactor": 2,
+  "engines": [
+    { "name": "chromium", "version": "158.0.8127.18", "forcedColorsEmulated": true },
+    { "name": "firefox", "version": "159.0", "forcedColorsEmulated": true },
+    { "name": "webkit", "version": "27.2", "forcedColorsEmulated": true }
+  ],
+  "sources": [
+    {
+      "path": "projects/playground/src/site-focus.css",
+      "sha256": "cd01ea23202f2a5e53cdf1d00495bfd917fe144056926a4bfb5b23bc65cc3631"
+    },
+    {
+      "path": "projects/playground/src/styles.css",
+      "sha256": "17e530a219e65f34a6ff7f9fab9da087ddabefd82d324326efbdb4bfb296afc9"
+    },
+    {
+      "path": "projects/playground/src/site-controls.css",
+      "sha256": "37dc5edbb213ea4b44ac6c554130c743a06cefc061f9a7f05c779e89c4bfba75"
+    },
+    {
+      "path": "projects/playground/src/gallery-shell.css",
+      "sha256": "036bba2876c3da5ae064b65631cadbd43247b3c4b295555c19c0da836ad49530"
+    },
+    {
+      "path": "projects/playground/src/app/linked-visits.css",
+      "sha256": "61dad46b0885eba52ef1b4cc122a308099a05f35bbd56b1e833e11fbcf8b14a1"
+    },
+    {
+      "path": "projects/playground/src/app/linked-charts.css",
+      "sha256": "e6667e76499cb93838347e33227455d7f441e04fa006dc1f7f64aef654743b95"
+    },
+    {
+      "path": "projects/playground/src/app/comparison.css",
+      "sha256": "d75102085258c7c9327a99e6d580a895cb9d559e475799ff99f69813573d95c6"
+    },
+    {
+      "path": "projects/playground/src/app/source-snippet.ts",
+      "sha256": "ecffd6a88cd0a7a4699f1d7e046edaf2eff35f8f1ced23735f843ce8f4483e87"
+    },
+    {
+      "path": "tools/capture-focus-refinement.mjs",
+      "sha256": "05ccc658b230a09b30cd4d400f64111780f125d9514e7714ed8e1d5f1d013554"
+    }
+  ],
+  "checks": [
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "month",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "reset",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "chart-legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "table-scroll",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "table-value",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "details-summary",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "linked-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "navigation-link",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "month",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "reset",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "chart-legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "table-scroll",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "table-value",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "details-summary",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "linked-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "mobile-menu",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/",
+      "theme": "dark",
+      "width": 1440,
+      "target": "bar/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/line",
+      "theme": "dark",
+      "width": 1440,
+      "target": "line/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/area",
+      "theme": "dark",
+      "width": 1440,
+      "target": "area/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/pie",
+      "theme": "dark",
+      "width": 1440,
+      "target": "pie/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/composed",
+      "theme": "dark",
+      "width": 1440,
+      "target": "composed/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/installation",
+      "theme": "dark",
+      "width": 1440,
+      "target": "documentation-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/comparison",
+      "theme": "dark",
+      "width": 1440,
+      "target": "comparison-control",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/comparison",
+      "theme": "dark",
+      "width": 1440,
+      "target": "reference-control",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/playground",
+      "theme": "dark",
+      "width": 1440,
+      "target": "workbench-control",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/playground",
+      "theme": "dark",
+      "width": 1440,
+      "target": "workbench-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "month",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "reset",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "chart-legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "table-scroll",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "table-value",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "details-summary",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "linked-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "navigation-link",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "month",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "reset",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "chart-legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "table-scroll",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "table-value",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "details-summary",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "linked-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "mobile-menu",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/",
+      "theme": "light",
+      "width": 1440,
+      "target": "bar/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/line",
+      "theme": "light",
+      "width": 1440,
+      "target": "line/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/area",
+      "theme": "light",
+      "width": 1440,
+      "target": "area/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/pie",
+      "theme": "light",
+      "width": 1440,
+      "target": "pie/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/composed",
+      "theme": "light",
+      "width": 1440,
+      "target": "composed/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/installation",
+      "theme": "light",
+      "width": 1440,
+      "target": "documentation-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/comparison",
+      "theme": "light",
+      "width": 1440,
+      "target": "comparison-control",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/comparison",
+      "theme": "light",
+      "width": 1440,
+      "target": "reference-control",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/playground",
+      "theme": "light",
+      "width": 1440,
+      "target": "workbench-control",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/playground",
+      "theme": "light",
+      "width": 1440,
+      "target": "workbench-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "system",
+      "width": 1440,
+      "target": "forced-month",
+      "forced": true,
+      "style": {
+        "width": "2px",
+        "offset": "2px",
+        "color": "rgba(55, 0, 110, 0.8)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "chromium",
+      "route": "/ng-echarts/linked",
+      "theme": "system",
+      "width": 1440,
+      "target": "forced-table-scroll",
+      "forced": true,
+      "style": {
+        "width": "2px",
+        "offset": "-2px",
+        "color": "rgba(55, 0, 110, 0.8)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "month",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "reset",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "chart-legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "table-scroll",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "table-value",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "details-summary",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "linked-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "navigation-link",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "month",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "reset",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "chart-legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "table-scroll",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "table-value",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "details-summary",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "linked-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "mobile-menu",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/",
+      "theme": "dark",
+      "width": 1440,
+      "target": "bar/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/line",
+      "theme": "dark",
+      "width": 1440,
+      "target": "line/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/area",
+      "theme": "dark",
+      "width": 1440,
+      "target": "area/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/pie",
+      "theme": "dark",
+      "width": 1440,
+      "target": "pie/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/composed",
+      "theme": "dark",
+      "width": 1440,
+      "target": "composed/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/installation",
+      "theme": "dark",
+      "width": 1440,
+      "target": "documentation-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/comparison",
+      "theme": "dark",
+      "width": 1440,
+      "target": "comparison-control",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/comparison",
+      "theme": "dark",
+      "width": 1440,
+      "target": "reference-control",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/playground",
+      "theme": "dark",
+      "width": 1440,
+      "target": "workbench-control",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/playground",
+      "theme": "dark",
+      "width": 1440,
+      "target": "workbench-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "month",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "reset",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "chart-legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "table-scroll",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "table-value",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "details-summary",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "linked-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "navigation-link",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "month",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "reset",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "chart-legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "table-scroll",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "table-value",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "details-summary",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "linked-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "mobile-menu",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/",
+      "theme": "light",
+      "width": 1440,
+      "target": "bar/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/line",
+      "theme": "light",
+      "width": 1440,
+      "target": "line/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/area",
+      "theme": "light",
+      "width": 1440,
+      "target": "area/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/pie",
+      "theme": "light",
+      "width": 1440,
+      "target": "pie/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/composed",
+      "theme": "light",
+      "width": 1440,
+      "target": "composed/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/installation",
+      "theme": "light",
+      "width": 1440,
+      "target": "documentation-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/comparison",
+      "theme": "light",
+      "width": 1440,
+      "target": "comparison-control",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/comparison",
+      "theme": "light",
+      "width": 1440,
+      "target": "reference-control",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/playground",
+      "theme": "light",
+      "width": 1440,
+      "target": "workbench-control",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/playground",
+      "theme": "light",
+      "width": 1440,
+      "target": "workbench-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "system",
+      "width": 1440,
+      "target": "forced-month",
+      "forced": true,
+      "style": {
+        "width": "2px",
+        "offset": "2px",
+        "color": "rgb(51, 153, 255)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "firefox",
+      "route": "/ng-echarts/linked",
+      "theme": "system",
+      "width": 1440,
+      "target": "forced-table-scroll",
+      "forced": true,
+      "style": {
+        "width": "2px",
+        "offset": "-2px",
+        "color": "rgb(51, 153, 255)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "month",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "reset",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "chart-legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "table-scroll",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "table-value",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "details-summary",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "linked-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 1440,
+      "target": "navigation-link",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "month",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "reset",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "chart-legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "table-scroll",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "table-value",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "details-summary",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "linked-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "dark",
+      "width": 320,
+      "target": "mobile-menu",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/",
+      "theme": "dark",
+      "width": 1440,
+      "target": "bar/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/line",
+      "theme": "dark",
+      "width": 1440,
+      "target": "line/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/area",
+      "theme": "dark",
+      "width": 1440,
+      "target": "area/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/pie",
+      "theme": "dark",
+      "width": 1440,
+      "target": "pie/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/composed",
+      "theme": "dark",
+      "width": 1440,
+      "target": "composed/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/installation",
+      "theme": "dark",
+      "width": 1440,
+      "target": "documentation-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/comparison",
+      "theme": "dark",
+      "width": 1440,
+      "target": "comparison-control",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/comparison",
+      "theme": "dark",
+      "width": 1440,
+      "target": "reference-control",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/playground",
+      "theme": "dark",
+      "width": 1440,
+      "target": "workbench-control",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/playground",
+      "theme": "dark",
+      "width": 1440,
+      "target": "workbench-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "month",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "reset",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "chart-legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "table-scroll",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "table-value",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "details-summary",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "linked-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 1440,
+      "target": "navigation-link",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "month",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "reset",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "chart-legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "table-scroll",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "table-value",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "details-summary",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "linked-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "light",
+      "width": 320,
+      "target": "mobile-menu",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/",
+      "theme": "light",
+      "width": 1440,
+      "target": "bar/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/line",
+      "theme": "light",
+      "width": 1440,
+      "target": "line/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/area",
+      "theme": "light",
+      "width": 1440,
+      "target": "area/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/pie",
+      "theme": "light",
+      "width": 1440,
+      "target": "pie/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/composed",
+      "theme": "light",
+      "width": 1440,
+      "target": "composed/legend",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/installation",
+      "theme": "light",
+      "width": 1440,
+      "target": "documentation-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/comparison",
+      "theme": "light",
+      "width": 1440,
+      "target": "comparison-control",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/comparison",
+      "theme": "light",
+      "width": 1440,
+      "target": "reference-control",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/playground",
+      "theme": "light",
+      "width": 1440,
+      "target": "workbench-control",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/playground",
+      "theme": "light",
+      "width": 1440,
+      "target": "workbench-code",
+      "forced": false,
+      "style": {
+        "width": "1px",
+        "offset": "-2px",
+        "color": "rgb(115, 115, 115)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "system",
+      "width": 1440,
+      "target": "forced-month",
+      "forced": true,
+      "style": {
+        "width": "2px",
+        "offset": "2px",
+        "color": "rgba(63, 99, 139, 0.8)",
+        "focusVisible": true
+      }
+    },
+    {
+      "engine": "webkit",
+      "route": "/ng-echarts/linked",
+      "theme": "system",
+      "width": 1440,
+      "target": "forced-table-scroll",
+      "forced": true,
+      "style": {
+        "width": "2px",
+        "offset": "-2px",
+        "color": "rgba(63, 99, 139, 0.8)",
+        "focusVisible": true
+      }
+    }
+  ],
+  "captures": [],
+  "errors": []
+}

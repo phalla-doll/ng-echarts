@@ -49,6 +49,35 @@ try {
     page.on('response', (response) => {
       if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`);
     });
+    const navigate = async (route, theme) => {
+      await page.goto(new URL(route, base).href);
+      const shell = page.locator('.site-shell');
+      // Static HTML is focusable before its listeners hydrate. Prove the theme
+      // control responds, then set the requested theme on every direct route.
+      await expect(async () => {
+        const light = page.getByRole('button', { name: 'Use light theme', exact: true });
+        if (await light.count()) await light.click();
+        await expect(shell).not.toHaveClass(/dark/, { timeout: 1000 });
+      }).toPass({ timeout: 15_000 });
+      if (theme === 'dark') {
+        await page.getByRole('button', { name: 'Use dark theme', exact: true }).click();
+        await expect(shell).toHaveClass(/dark/);
+      }
+      // The root shell can respond before a lazy initial route has finished.
+      // Wait for its current-route link rather than activating prerendered controls early.
+      const expectedPath = new URL(route, base).pathname.replace(/\/$/, '');
+      await expect
+        .poll(
+          async () => {
+            const href = await page
+              .getByRole('link', { name: 'Skip to content', exact: true })
+              .getAttribute('href');
+            return new URL(href, base).pathname.replace(/\/$/, '');
+          },
+          { timeout: 15_000 },
+        )
+        .toBe(expectedPath);
+    };
     const focus = async (locator, target, theme, width, inset = false, forced = false) => {
       await expect(locator).toBeVisible();
       await page.keyboard.press('Tab');
@@ -97,10 +126,8 @@ try {
     for (const theme of ['dark', 'light']) {
       for (const width of [1440, 320]) {
         await page.setViewportSize({ width, height: 1000 });
-        await page.goto(new URL('linked/', base).href);
+        await navigate('linked/', theme);
         await expect(page.locator('canvas')).toHaveCount(2);
-        const switchTheme = page.getByRole('button', { name: `Use ${theme} theme`, exact: true });
-        if (await switchTheme.count()) await switchTheme.click();
         await page.evaluate(() => document.fonts.ready);
         const month = page.getByRole('combobox', { name: 'Month', exact: true });
         await month.selectOption('dec');
@@ -147,7 +174,7 @@ try {
       }
       await page.setViewportSize({ width: 1440, height: 1000 });
       for (const route of ['', 'line/', 'area/', 'pie/', 'composed/']) {
-        await page.goto(new URL(route, base).href);
+        await navigate(route, theme);
         await expect(page.locator('canvas').first()).toBeVisible();
         await focus(
           page.locator('.legend button').first(),
@@ -156,7 +183,7 @@ try {
           1440,
         );
       }
-      await page.goto(new URL('installation/', base).href);
+      await navigate('installation/', theme);
       await focus(
         page.locator('app-source-snippet pre').first(),
         'documentation-code',
@@ -168,18 +195,18 @@ try {
       await page.keyboard.press('Enter');
       await expect(page.locator('#page-content')).toBeFocused();
       await expect(page.locator('#page-content')).toHaveCSS('outline-style', 'none');
-      await page.goto(new URL('comparison/', base).href);
+      await navigate('comparison/', theme);
       await focus(
         page.locator('.comparison-page .controls button').first(),
         'comparison-control',
         theme,
         1440,
       );
-      await page.goto(new URL('comparison/?reference=1', base).href);
+      await navigate('comparison/?reference=1', theme);
       if (theme === 'dark')
         await page.getByRole('button', { name: 'Toggle comparison theme', exact: true }).click();
       await focus(page.locator('.reference-mode button').first(), 'reference-control', theme, 1440);
-      await page.goto(new URL('playground/', base).href);
+      await navigate('playground/', theme);
       const code = page.getByRole('button', { name: 'Angular code', exact: true });
       await focus(code, 'workbench-control', theme, 1440);
       await page.keyboard.press('Enter');
@@ -191,7 +218,7 @@ try {
         true,
       );
     }
-    await page.goto(new URL('linked/', base).href);
+    await navigate('linked/', 'dark');
     await expect(page.locator('canvas')).toHaveCount(2);
     await page.emulateMedia({ forcedColors: 'active' });
     const supported = await page.evaluate(() => matchMedia('(forced-colors: active)').matches);

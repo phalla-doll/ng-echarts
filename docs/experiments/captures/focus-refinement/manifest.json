@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-13T07:51:26.778Z",
+  "recordedAt": "2026-11-13T08:07:14.282Z",
   "base": "http://localhost:4184/",
   "node": "v24.22.2",
   "deviceScaleFactor": 2,
@@ -43,7 +43,7 @@
     },
     {
       "path": "tools/capture-focus-refinement.mjs",
-      "sha256": "dce8165d54f14bb753ede007988832be05806cecb0ff9d7ac5ece202b739b116"
+      "sha256": "05ccc658b230a09b30cd4d400f64111780f125d9514e7714ed8e1d5f1d013554"
     }
   ],
   "checks": [
