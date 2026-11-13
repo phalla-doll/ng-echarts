@@ -1,0 +1,2521 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="description"
+      content="Twelve chart ideas for ng-echarts, presented with interactive sample data in one offline HTML file."
+    />
+    <title>Chart possibilities — ng-echarts</title>
+    <script>
+      (() => {
+        const query = new URLSearchParams(location.search);
+        if (query.get('embedded') === '1' && parent !== window) {
+          document.documentElement.dataset.embedded = '1';
+          document.documentElement.dataset.theme = query.get('theme') === 'dark' ? 'dark' : 'light';
+        }
+      })();
+    </script>
+    <style>
+      @font-face {
+        font-family: Inter;
+        src: url('../fonts/inter-latin.woff2')
+          format('woff2');
+        font-weight: 100 900;
+        font-display: swap;
+      }
+      :root {
+        --bg: #fafafa;
+        --panel: #fff;
+        --text: #171717;
+        --muted: #666;
+        --line: #e5e5e5;
+        --hover: #f4f4f4;
+        --green: #059669;
+        --rose: #e11d48;
+        --track: #f0f0f0;
+        color-scheme: light;
+      }
+      :root[data-theme='dark'] {
+        --bg: #0a0a0a;
+        --panel: #101010;
+        --text: #f5f5f5;
+        --muted: #a3a3a3;
+        --line: #292929;
+        --hover: #202020;
+        --green: #10b981;
+        --rose: #fb7185;
+        --track: #242424;
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font:
+          14px/1.6 Inter,
+          Arial,
+          sans-serif;
+      }
+      button,
+      select {
+        font: inherit;
+      }
+      button {
+        cursor: pointer;
+      }
+      a {
+        color: inherit;
+      }
+      button,
+      a,
+      summary {
+        touch-action: manipulation;
+      }
+      button:focus-visible,
+      a:focus-visible,
+      summary:focus-visible,
+      .table-wrap:focus-visible {
+        outline: 2px solid var(--text);
+        outline-offset: 4px;
+      }
+      button {
+        color: var(--text);
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        padding: 7px 12px;
+      }
+      button:hover {
+        background: var(--hover);
+      }
+      [hidden] {
+        display: none !important;
+      }
+      .topbar {
+        border-bottom: 1px solid var(--line);
+        background: var(--panel);
+      }
+      .topbar-inner {
+        max-width: 1328px;
+        margin: auto;
+        padding: 17px 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 17px;
+        font-weight: 650;
+        letter-spacing: -0.5px;
+      }
+      .brand svg {
+        width: 29px;
+        height: 29px;
+      }
+      .top-actions {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .offline {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      #theme {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      #theme svg {
+        width: 16px;
+        height: 16px;
+      }
+      main {
+        max-width: 1328px;
+        margin: 0 auto;
+        padding: 51px 32px 40px;
+      }
+      .intro {
+        display: flex;
+        gap: 40px;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 28px;
+      }
+      h1 {
+        font-size: 40px;
+        line-height: 1.2;
+        letter-spacing: -1.5px;
+        font-weight: 600;
+        margin: 0 0 13px;
+      }
+      .intro p {
+        font-size: 15px;
+        max-width: 670px;
+        margin: 0;
+        color: var(--muted);
+      }
+      .collection-note {
+        flex-shrink: 0;
+        text-align: right;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .collection-note strong {
+        display: block;
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        padding: 0 0 20px;
+        margin-bottom: 28px;
+        border-bottom: 1px solid var(--line);
+      }
+      .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        padding: 2px;
+      }
+      .filters button {
+        border: 0;
+        border-radius: 6px;
+        white-space: nowrap;
+        background: transparent;
+        padding: 8px 12px;
+        min-height: 36px;
+        font-size: 12px;
+        line-height: 20px;
+        color: var(--muted);
+      }
+      .filters button:hover {
+        background: var(--hover);
+        color: var(--text);
+      }
+      .filters button[aria-pressed='true'] {
+        background: var(--hover);
+        color: var(--text);
+        font-weight: 550;
+      }
+      #count {
+        white-space: nowrap;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 24px;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--panel);
+        overflow: hidden;
+        scroll-margin-top: 20px;
+      }
+      .card-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 24px 24px 0;
+        min-height: 76px;
+      }
+      .card h2 {
+        font-size: 16px;
+        letter-spacing: -0.4px;
+        line-height: 24px;
+        font-weight: 600;
+        margin: 0 0 4px;
+      }
+      .subtitle {
+        font-size: 12px;
+        line-height: 20px;
+        color: var(--muted);
+        margin: 0;
+      }
+      .metric-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: center;
+        padding: 20px 24px 0;
+        min-height: 64px;
+      }
+      .metric {
+        font-size: 28px;
+        font-weight: 550;
+        line-height: 32px;
+        letter-spacing: -1px;
+      }
+      .metric small {
+        font-size: 12px;
+        color: var(--muted);
+        font-weight: 400;
+        letter-spacing: 0;
+        margin-left: 6px;
+        display: inline-block;
+        line-height: 20px;
+      }
+      .legend {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        font-size: 11px;
+        color: var(--muted);
+        line-height: 20px;
+      }
+      .legend span {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 2px;
+        background: var(--green);
+      }
+      .dot.rose {
+        background: var(--rose);
+      }
+      .dot.gray {
+        background: #8b8b8b;
+      }
+      .plot {
+        height: 272px;
+        flex: none;
+        margin: 20px 12px 12px;
+      }
+      .card--waterfall .plot {
+        height: 288px;
+        margin: 20px 12px;
+      }
+      .bullet-columns {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 24px 0;
+        color: var(--muted);
+        font-size: 10px;
+        line-height: 16px;
+      }
+      .card--bullet .plot {
+        height: 252px;
+        margin: 8px 24px 20px;
+      }
+      .card--bullet .dot {
+        width: 12px;
+        height: 3px;
+        border-radius: 1px;
+      }
+      .card--bullet .dot.target {
+        width: 2px;
+        height: 12px;
+        border-radius: 0;
+        background: var(--text);
+      }
+      .treemap-key {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        padding: 14px 24px 0;
+        color: var(--muted);
+        font-size: 10px;
+        line-height: 16px;
+      }
+      .treemap-key span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .treemap-key i {
+        width: 6px;
+        height: 6px;
+        border-radius: 1px;
+        background: var(--family-color);
+      }
+      .treemap-key span:nth-child(1) {
+        --family-color: #246c53;
+      }
+      .treemap-key span:nth-child(2) {
+        --family-color: #276963;
+      }
+      .treemap-key span:nth-child(3) {
+        --family-color: #784457;
+      }
+      .treemap-key span:nth-child(4) {
+        --family-color: #48515c;
+      }
+      html[data-theme='light'] .treemap-key span:nth-child(1) {
+        --family-color: #a3d3bd;
+      }
+      html[data-theme='light'] .treemap-key span:nth-child(2) {
+        --family-color: #9bc9c2;
+      }
+      html[data-theme='light'] .treemap-key span:nth-child(3) {
+        --family-color: #d7b1bf;
+      }
+      html[data-theme='light'] .treemap-key span:nth-child(4) {
+        --family-color: #c0cad4;
+      }
+      .card--treemap {
+        container-type: inline-size;
+      }
+      .card--treemap .plot {
+        height: 320px;
+        margin: 16px 24px 20px;
+      }
+      @container (max-width: 408px) {
+        .card--treemap .plot {
+          height: auto;
+          aspect-ratio: 0.77;
+          min-height: 320px;
+        }
+      }
+      .lollipop-columns {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 24px 0;
+        color: var(--muted);
+        font-size: 10px;
+        line-height: 16px;
+      }
+      .card--lollipop .plot {
+        height: 304px;
+        margin: 8px 24px 20px;
+      }
+      .card--radial .plot {
+        height: 336px;
+      }
+      .card-footer {
+        border-top: 1px solid var(--line);
+        padding: 16px 24px;
+        margin-top: auto;
+      }
+      .card-footer p {
+        font-size: 12px;
+        color: var(--muted);
+        margin: 0 0 12px;
+        line-height: 20px;
+        max-width: 68ch;
+      }
+      .card-footer p strong {
+        font-weight: 500;
+        color: var(--text);
+      }
+      .card-footer > p {
+        min-height: 40px;
+      }
+      details {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      summary {
+        cursor: pointer;
+        width: fit-content;
+        user-select: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        min-height: 28px;
+        list-style: none;
+        line-height: 20px;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary::before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-right: 1px solid currentColor;
+        border-bottom: 1px solid currentColor;
+        transform: rotate(-45deg);
+        margin-right: 2px;
+      }
+      details[open] > summary::before {
+        transform: rotate(45deg);
+      }
+      .card-footer .data-note {
+        margin: 12px 0;
+      }
+      .card-footer details {
+        font-size: 11px;
+      }
+      .card-footer details[open] {
+        padding-bottom: 4px;
+      }
+      .card-footer .table-wrap {
+        margin-top: 12px;
+      }
+      .card-footer details > summary {
+        color: var(--text);
+      }
+      .card-footer details > summary:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      summary:hover {
+        color: var(--text);
+      }
+      .table-wrap {
+        max-height: 230px;
+        overflow: auto;
+        margin-top: 12px;
+        border: 1px solid var(--line);
+        border-radius: 5px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 11px;
+        text-align: left;
+        font-variant-numeric: tabular-nums;
+      }
+      th,
+      td {
+        padding: 7px 10px;
+        border-bottom: 1px solid var(--line);
+        white-space: nowrap;
+      }
+      th {
+        font-weight: 500;
+        color: var(--text);
+        background: var(--panel);
+      }
+      thead th {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+      }
+      tbody th {
+        font-weight: 400;
+        color: var(--muted);
+      }
+      td {
+        color: var(--muted);
+      }
+      .mode {
+        display: flex;
+        gap: 3px;
+        padding: 3px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+      }
+      .mode button {
+        border: 0;
+        font-size: 11px;
+        padding: 4px 10px;
+        min-height: 28px;
+        line-height: 20px;
+        background: transparent;
+      }
+      .mode button[aria-pressed='true'] {
+        background: var(--hover);
+      }
+      .card--sparklines {
+        container-type: inline-size;
+      }
+      .spark-grid {
+        height: 356px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        padding: 32px 24px;
+      }
+      .spark-panel {
+        min-width: 0;
+        align-self: center;
+      }
+      .spark-panel + .spark-panel {
+        border-left: 1px solid var(--line);
+        padding-left: 14px;
+      }
+      .spark-label {
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .spark-value {
+        font-size: 24px;
+        letter-spacing: -1px;
+        margin: 5px 0;
+      }
+      .spark-plot {
+        height: 120px;
+      }
+      .delta {
+        font-size: 11px;
+        line-height: 18px;
+        min-height: 36px;
+        color: var(--green);
+      }
+      .delta-context {
+        color: var(--muted);
+      }
+      .delta.negative {
+        color: var(--rose);
+      }
+      .bottom {
+        padding: 35px 0 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 28px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .bottom p {
+        margin: 0;
+        max-width: 640px;
+      }
+      .bottom details {
+        max-width: 520px;
+      }
+      .bottom pre {
+        font:
+          11px/1.5 Inter,
+          Arial,
+          sans-serif;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+        max-height: 280px;
+        overflow: auto;
+      }
+      .recommendation {
+        padding: 28px 0 0;
+        margin-top: 36px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        gap: 24px;
+        align-items: center;
+      }
+      .recommendation h2 {
+        font-size: 15px;
+        font-weight: 550;
+        margin: 0;
+        white-space: nowrap;
+      }
+      .recommendation p {
+        font-size: 13px;
+        color: var(--muted);
+        margin: 0;
+      }
+      .recommendation a {
+        text-decoration-color: var(--line);
+        text-underline-offset: 4px;
+      }
+      .skip {
+        position: fixed;
+        top: -80px;
+        left: 20px;
+        background: var(--panel);
+        padding: 10px;
+        z-index: 10;
+      }
+      .skip:focus {
+        top: 10px;
+      }
+      noscript {
+        display: block;
+        margin: 20px;
+        padding: 20px;
+      }
+      @media (min-width: 1500px) {
+        main {
+          padding-top: 62px;
+        }
+      }
+      @media (max-width: 900px) {
+        main {
+          padding: 35px 22px;
+        }
+        .topbar-inner {
+          padding: 15px 22px;
+        }
+        .grid {
+          gap: 24px 20px;
+        }
+        .card-header {
+          padding: 22px 20px 0;
+        }
+        .metric-row {
+          padding: 20px 20px 0;
+        }
+        .card-footer {
+          padding: 16px 20px;
+        }
+        .plot {
+          height: 260px;
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+        .bullet-columns {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .card--bullet .plot {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+        .lollipop-columns {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .card--lollipop .plot {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+        .treemap-key {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .card--treemap .plot {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+        .collection-note {
+          display: none;
+        }
+        .spark-grid {
+          padding-left: 20px;
+          padding-right: 20px;
+          gap: 8px;
+        }
+        .spark-panel + .spark-panel {
+          padding-left: 8px;
+        }
+        .spark-value {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 680px) {
+        .card-footer > p {
+          min-height: 0;
+        }
+        h1 {
+          font-size: 31px;
+          letter-spacing: -1px;
+        }
+        .intro p {
+          font-size: 14px;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .offline {
+          display: none;
+        }
+        .toolbar {
+          display: block;
+          padding: 0 0 20px;
+          margin-bottom: 24px;
+        }
+        #count {
+          display: block;
+          padding: 12px 2px 0;
+          font-size: 11px;
+        }
+        .filters button {
+          padding: 8px 10px;
+        }
+        .topbar-inner {
+          padding: 13px 18px;
+        }
+        main {
+          padding: 31px 16px;
+        }
+        .plot {
+          height: 256px;
+        }
+        .metric-row {
+          flex-wrap: wrap;
+        }
+        .card-header {
+          gap: 8px;
+        }
+        .recommendation {
+          display: block;
+          padding: 24px 0 0;
+        }
+        .recommendation h2 {
+          margin-bottom: 8px;
+        }
+        .bottom {
+          display: block;
+        }
+        .bottom details {
+          margin-top: 18px;
+        }
+        .spark-grid {
+          height: 320px;
+        }
+        .card--radial .plot {
+          height: 300px;
+        }
+        .spark-value {
+          font-size: 22px;
+          line-height: 28px;
+        }
+        .brand {
+          font-size: 16px;
+        }
+        .intro {
+          margin-bottom: 18px;
+        }
+      }
+      @container (max-width: 460px) {
+        .spark-grid {
+          height: auto;
+          grid-template-columns: 1fr;
+          gap: 0;
+          padding: 16px 20px 20px;
+        }
+        .spark-panel {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) minmax(88px, 42%);
+          column-gap: 16px;
+          row-gap: 3px;
+          padding: 16px 0;
+          align-items: center;
+          align-self: stretch;
+        }
+        .spark-panel + .spark-panel {
+          border-left: 0;
+          border-top: 1px solid var(--line);
+          padding-left: 0;
+        }
+        .spark-label {
+          grid-column: 1;
+          grid-row: 1;
+          line-height: 16px;
+        }
+        .spark-value {
+          grid-column: 1;
+          grid-row: 2;
+          margin: 0;
+          font-size: 24px;
+          line-height: 32px;
+        }
+        .delta {
+          grid-column: 1;
+          grid-row: 3;
+          min-height: 0;
+          font-size: 10px;
+          line-height: 16px;
+          white-space: nowrap;
+        }
+        .spark-plot {
+          grid-column: 2;
+          grid-row: 1 / 4;
+          height: 72px;
+        }
+      }
+      html[data-embedded='1'] {
+        --bg: #fff;
+      }
+      html[data-embedded='1'][data-theme='dark'] {
+        --bg: #0a0a0a;
+      }
+      html[data-embedded='1'] .topbar,
+      html[data-embedded='1'] .intro,
+      html[data-embedded='1'] .skip {
+        display: none;
+      }
+      html[data-embedded='1'] main {
+        max-width: none;
+        padding: 0;
+      }
+      @media print {
+        .top-actions,
+        .toolbar,
+        .mode,
+        .bottom details {
+          display: none;
+        }
+        .grid {
+          display: block;
+        }
+        .card {
+          break-inside: avoid;
+          margin-bottom: 22px;
+        }
+        .plot {
+          height: 270px;
+        }
+        main {
+          padding: 20px;
+        }
+        .recommendation {
+          break-inside: avoid;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto !important;
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#collection">Skip to charts</a>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <ellipse
+              cx="16"
+              cy="16"
+              rx="14"
+              ry="9"
+              transform="rotate(-38 16 16)"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <path
+              d="M11 17h11c1-7-9-8-10-2-2 8 8 10 11 5"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            /></svg
+          >ng-echarts
+        </div>
+        <div class="top-actions">
+          <span class="offline">One file. Works offline.</span
+          ><button id="theme" type="button" aria-label="Switch to dark theme">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M20 14a8 8 0 0 1-10-10 8 8 0 1 0 10 10Z" /></svg
+            ><span>Dark theme</span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="intro">
+        <div>
+          <h1>More ways to see the data.</h1>
+          <p>
+            Twelve additions to the collection, in the same visual language.<br />Explore the
+            shapes, compare their uses, and find what belongs in your next dashboard.
+          </p>
+        </div>
+        <div class="collection-note">
+          <strong>Chart possibilities</strong>Interactive concepts · Illustrative data
+        </div>
+      </div>
+      <div class="toolbar">
+        <nav class="filters" aria-label="Filter chart examples">
+          <button type="button" data-filter="all" aria-pressed="true">All charts</button
+          ><button type="button" data-filter="compare" aria-pressed="false">Compare</button
+          ><button type="button" data-filter="patterns" aria-pressed="false">Find patterns</button
+          ><button type="button" data-filter="flows" aria-pressed="false">Explore flows</button
+          ><button type="button" data-filter="goals" aria-pressed="false">Track goals</button>
+        </nav>
+        <span id="count" role="status" aria-live="polite">12 chart ideas</span>
+      </div>
+      <noscript
+        >Enable JavaScript to explore the charts. The chart engine, font, and sample data are
+        embedded in this file; no internet connection is needed.</noscript
+      >
+      <div class="grid" id="collection"></div>
+      <aside class="recommendation">
+        <h2>Where I’d start</h2>
+        <p>
+          <a href="#calendar">Calendar heatmap</a> for a new visual rhythm,
+          <a href="#waterfall">waterfall</a> for a clear business story, and
+          <a href="#scatter">scatter / bubble</a> for relationships our existing charts don’t show.
+        </p>
+      </aside>
+      <footer class="bottom">
+        <p>
+          A concept gallery for ng-echarts. These examples use the embedded Apache ECharts engine
+          directly; they preview possible additions to the Angular library. Sample figures are
+          fictional. Hover or tap a chart for values, or open its data table.
+        </p>
+        <details>
+          <summary>About this file &amp; open-source notices</summary>
+          <p>
+            This self-contained file includes Apache ECharts 6.1.0 and Inter. Chart examples are
+            design proposals, not new library components.
+          </p>
+          <pre>
+Apache ECharts
+
+
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      &quot;License&quot; shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      &quot;Licensor&quot; shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      &quot;Legal Entity&quot; shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      &quot;control&quot; means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      &quot;You&quot; (or &quot;Your&quot;) shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      &quot;Source&quot; form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      &quot;Object&quot; form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      &quot;Work&quot; shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      &quot;Derivative Works&quot; shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      &quot;Contribution&quot; shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, &quot;submitted&quot;
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as &quot;Not a Contribution.&quot;
+
+      &quot;Contributor&quot; shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a &quot;NOTICE&quot; text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an &quot;AS IS&quot; BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets &quot;[]&quot;
+      replaced with your own identifying information. (Don&#x27;t include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same &quot;printed page&quot; as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright [yyyy] [name of copyright owner]
+
+   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+
+
+
+
+========================================================================
+Apache ECharts Subcomponents:
+
+The Apache ECharts project contains subcomponents with separate copyright
+notices and license terms. Your use of the source code for these
+subcomponents is also subject to the terms and conditions of the following
+licenses.
+
+BSD 3-Clause (d3.js):
+The following files embed [d3.js](https://github.com/d3/d3) BSD 3-Clause:
+    `/src/chart/treemap/treemapLayout.ts`,
+    `/src/chart/tree/layoutHelper.ts`,
+    `/src/chart/graph/forceHelper.ts`,
+    `/src/util/number.ts`
+See `/licenses/LICENSE-d3` for details of the license.
+
+
+Apache ECharts NOTICE
+
+Apache ECharts
+Copyright 2017-2026 The Apache Software Foundation
+
+This product includes software developed at
+The Apache Software Foundation (https://www.apache.org/).
+
+Inter font
+
+Copyright 2020 The Inter Project Authors (https://github.com/rsms/inter)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+https://scripts.sil.org/OFL
+
+
+-----------------------------------------------------------
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-----------------------------------------------------------
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded,
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+&quot;Font Software&quot; refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+&quot;Reserved Font Name&quot; refers to any names specified as such after the
+copyright statement(s).
+
+&quot;Original Version&quot; refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+&quot;Modified Version&quot; refers to any derivative made by adding to, deleting,
+or substituting -- in part or in whole -- any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+&quot;Author&quot; refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION &amp; CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE.
+</pre>
+        </details>
+      </footer>
+    </main>
+    <!-- Apache ECharts is embedded below for offline use. Full licenses and notices are retained above. -->
+    <script src="chart-gallery-engine-5514d89c1f79467b.js"></script>
+    <script>
+      (() => {
+        'use strict';
+        const embedded = document.documentElement.dataset.embedded === '1';
+        const reportHeight = () => {
+          if (embedded)
+            parent.postMessage(
+              {
+                type: 'chart-possibilities:resize',
+                height: document.body.getBoundingClientRect().height,
+                ready: firstPlotReady,
+              },
+              location.origin,
+            );
+        };
+        const $ = (s) => document.querySelector(s);
+        const esc = (s) =>
+          String(s).replace(
+            /[&<>"']/g,
+            (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c],
+          );
+        const models = [
+          {
+            id: 'calendar',
+            title: 'Calendar heatmap',
+            category: 'patterns',
+            metric: '4,768',
+            unit: 'events this quarter',
+            subtitle: 'Activity over time',
+            use: 'Daily activity, orders, usage, or uptime.',
+            note: 'Read intensity across the week; spot quiet days and recurring peaks.',
+          },
+          {
+            id: 'waterfall',
+            title: 'Waterfall',
+            category: 'compare',
+            metric: '$128k',
+            unit: 'ending revenue',
+            subtitle: 'What changed the total',
+            use: 'Revenue bridges, budget changes, or gains and losses.',
+            note: 'Separate increases, decreases, and totals to explain the movement.',
+          },
+          {
+            id: 'scatter',
+            title: 'Scatter / bubble',
+            category: 'patterns',
+            metric: '18',
+            unit: 'campaigns compared',
+            subtitle: 'Relationships and outliers',
+            use: 'Spend vs. revenue, price vs. demand, or performance vs. cost.',
+            note: 'Switch to bubbles to encode order volume with the area of each point.',
+          },
+          {
+            id: 'bullet',
+            title: 'Bullet / target bars',
+            category: 'goals',
+            metric: '86%',
+            unit: 'of overall target',
+            subtitle: 'Actual performance against a goal',
+            use: 'Sales quotas, team targets, or capacity planning.',
+            note: 'Green bars show actuals; ticks show targets; background bands show progress zones.',
+          },
+          {
+            id: 'dumbbell',
+            title: 'Dumbbell',
+            category: 'compare',
+            metric: '+14 pts',
+            unit: 'overall satisfaction',
+            subtitle: 'Before and after',
+            use: 'Comparing two periods, two cohorts, or before/after results.',
+            note: 'Paired endpoints make both direction and the size of the difference visible.',
+          },
+          {
+            id: 'sankey',
+            title: 'Sankey',
+            category: 'flows',
+            metric: '1,000',
+            unit: 'visits traced',
+            subtitle: 'Acquisition to conversion',
+            use: 'Customer journeys, traffic attribution, or resource flows.',
+            note: 'Ribbon width represents volume. Hover a node to trace its connected paths.',
+          },
+          {
+            id: 'treemap',
+            title: 'Treemap',
+            category: 'flows',
+            metric: '$240k',
+            unit: 'revenue by product',
+            subtitle: 'The shape of a portfolio',
+            use: 'Category contribution, storage usage, or product revenue.',
+            note: 'Tile area shows contribution; nested tiles reveal the product hierarchy.',
+          },
+          {
+            id: 'radial',
+            title: 'Radial progress',
+            category: 'goals',
+            metric: '',
+            unit: '',
+            subtitle: 'A single measure with a defined target',
+            use: 'Goal completion, project progress, or budget consumption.',
+            note: 'One quiet arc and a central value keep the focus on a single measure.',
+          },
+          {
+            id: 'radar',
+            title: 'Radar',
+            category: 'compare',
+            metric: '6',
+            unit: 'dimensions compared',
+            subtitle: 'Two products, one shared scale',
+            use: 'Comparing a few profiles across consistently scaled dimensions.',
+            note: 'All axes use a 0–100 score. Keep the dimension count small for readability.',
+          },
+          {
+            id: 'sparklines',
+            title: 'KPI sparklines',
+            category: 'goals',
+            metric: '',
+            unit: '',
+            subtitle: 'A headline number with a little context',
+            use: 'Dashboard summaries, list rows, or metric overviews.',
+            note: 'Small trend lines add direction to a KPI. Hover to inspect weekly values.',
+          },
+          {
+            id: 'stacked',
+            title: '100% stacked bars',
+            category: 'compare',
+            metric: '48%',
+            unit: 'desktop share in June',
+            subtitle: 'How the mix changes',
+            use: 'Device share, channel mix, or proportional comparisons.',
+            note: 'Every bar sums to 100%, so changing proportions are easy to compare.',
+          },
+          {
+            id: 'lollipop',
+            title: 'Ranked lollipop',
+            category: 'compare',
+            metric: '8',
+            unit: 'channels ranked',
+            subtitle: 'Traffic by acquisition channel',
+            use: 'Leaderboards, top acquisition channels, or category rankings.',
+            note: 'Thin stems and clear endpoints keep the ranking legible with less visual weight.',
+          },
+        ];
+        const legends = {
+          bullet: [
+            ['Actual', ''],
+            ['Target', 'target'],
+          ],
+          waterfall: [
+            ['Increase', ''],
+            ['Decrease', 'rose'],
+            ['Total', 'gray'],
+          ],
+          dumbbell: [
+            ['Before', 'rose'],
+            ['After', ''],
+          ],
+          radar: [
+            ['Product A', ''],
+            ['Product B', 'rose'],
+          ],
+          stacked: [
+            ['Desktop', ''],
+            ['Mobile', 'rose'],
+            ['Tablet', 'gray'],
+          ],
+        };
+        const sparkSummaries = [
+          { label: 'Revenue', value: '$48.2k', delta: '+12.4%' },
+          { label: 'Active users', value: '8,420', delta: '+8.1%' },
+          { label: 'Churn', value: '2.1%', delta: '+0.3 pts' },
+        ];
+        $('#collection').innerHTML = models
+          .map((m) => {
+            const legend = (legends[m.id] || [])
+              .map(
+                ([label, c]) => `<span><i class="dot ${c}" aria-hidden="true"></i>${label}</span>`,
+              )
+              .join('');
+            const mode =
+              '<div class="mode" role="group" aria-label="Point display"><button type="button" data-mode="scatter" aria-pressed="true">Scatter</button><button type="button" data-mode="bubble" aria-pressed="false">Bubble</button></div>';
+            const metricRow = m.metric
+              ? `<div class="metric-row"><div class="metric">${m.metric}<small>${m.unit}</small></div>${m.id === 'scatter' ? mode : legend ? `<div class="legend">${legend}</div>` : ''}</div>`
+              : '';
+            const plot =
+              m.id === 'sparklines'
+                ? `<div class="spark-grid">${sparkSummaries.map((s, i) => `<div class="spark-panel"><div class="spark-label">${s.label}</div><div class="spark-value">${s.value}</div><div class="delta ${i === 2 ? 'negative' : ''}">${s.delta} <span class="delta-context">vs. last week</span></div><div class="spark-plot" id="spark-${i}" role="img" aria-label="Weekly ${s.label.toLowerCase()} trend"></div></div>`).join('')}</div>`
+                : `<div class="plot" id="plot-${m.id}" role="img" aria-label="${m.title}: ${esc(m.note)} Values are available in the data table below."></div>`;
+            return `<article class="card card--${m.id}" id="${m.id}" data-category="${m.category}">
+            <header class="card-header"><div><h2>${m.title}</h2><p class="subtitle">${m.subtitle}</p></div></header>
+            ${metricRow}${m.id === 'bullet' ? '<div class="bullet-columns"><span>Metric</span><span>Actual / Target</span></div>' : ''}${m.id === 'lollipop' ? '<div class="lollipop-columns"><span>Channel</span><span>Visits</span></div>' : ''}${m.id === 'treemap' ? '<div class="treemap-key" aria-label="Product families"><span><i aria-hidden="true"></i>Analytics</span><span><i aria-hidden="true"></i>Commerce</span><span><i aria-hidden="true"></i>Platform</span><span><i aria-hidden="true"></i>Services</span></div>' : ''}${plot}
+            <footer class="card-footer"><p>${m.use}</p><details><summary>View sample data</summary><p class="data-note">${m.note}</p><div class="table-wrap" tabindex="0" role="region" aria-label="${m.title} sample data"><table id="data-${m.id}"></table></div></details></footer>
+          </article>`;
+          })
+          .join('');
+        const tables = {};
+        const setTable = (id, headers, rows) => {
+          tables[id] = { headers, rows };
+          $(`#data-${id}`).innerHTML =
+            `<thead><tr>${headers.map((h) => `<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.map((r) => `<tr>${r.map((v, i) => (i === 0 ? `<th scope="row">${esc(v)}</th>` : `<td>${esc(v)}</td>`)).join('')}</tr>`).join('')}</tbody>`;
+        };
+        const calendar = Array.from({ length: 91 }, (_, i) => {
+          const date = new Date(Date.UTC(2026, 6, 1 + i));
+          const day = date.getUTCDay();
+          const value = Math.round(
+            (day === 0 || day === 6 ? 12 : 42) + (Math.sin(i * 0.71) + 1) * 14 + (i % 11) * 2,
+          );
+          return [date.toISOString().slice(0, 10), value];
+        });
+        const calendarTotal = calendar.reduce((a, r) => a + r[1], 0);
+        $('#calendar .metric').innerHTML =
+          `${calendarTotal.toLocaleString('en-US')}<small>events this quarter</small>`;
+        setTable('calendar', ['Date', 'Events'], calendar);
+        const wf = [
+          ['Starting', 100],
+          ['New', 32],
+          ['Expansion', 18],
+          ['Churn', -14],
+          ['Discounts', -8],
+          ['Ending', 128],
+        ];
+        setTable('waterfall', ['Revenue component', 'Change / total ($k)'], wf);
+        const campaigns = Array.from({ length: 18 }, (_, i) => {
+          const x = 6 + i * 2.4;
+          return {
+            name: `Campaign ${String(i + 1).padStart(2, '0')}`,
+            value: [
+              +x.toFixed(1),
+              +(x * (1.1 + (i % 5) * 0.3) + 8 + (Math.sin(i * 2) + 1) * 10).toFixed(1),
+              120 + ((i * 97) % 700),
+            ],
+            itemStyle: { color: i % 3 === 0 ? 'rose' : 'green' },
+          };
+        });
+        setTable(
+          'scatter',
+          ['Campaign', 'Spend ($k)', 'Revenue ($k)', 'Orders'],
+          campaigns.map((p) => [p.name, ...p.value]),
+        );
+        const bullets = [
+          ['Acquisition', 78, 90],
+          ['Activation', 92, 100],
+          ['Retention', 86, 95],
+          ['Expansion', 88, 115],
+        ];
+        setTable('bullet', ['Metric', 'Actual score', 'Target score'], bullets);
+        const pairs = [
+          ['Onboarding', 58, 79],
+          ['Search', 67, 82],
+          ['Checkout', 71, 88],
+          ['Support', 76, 84],
+          ['Overall', 68, 82],
+        ];
+        setTable('dumbbell', ['Experience', 'Before (score / 100)', 'After (score / 100)'], pairs);
+        const links = [
+          { source: 'Organic', target: 'Product', value: 350 },
+          { source: 'Organic', target: 'Pricing', value: 100 },
+          { source: 'Paid', target: 'Product', value: 200 },
+          { source: 'Paid', target: 'Pricing', value: 150 },
+          { source: 'Referral', target: 'Product', value: 100 },
+          { source: 'Referral', target: 'Pricing', value: 100 },
+          { source: 'Product', target: 'Signup', value: 260 },
+          { source: 'Product', target: 'Exit', value: 390 },
+          { source: 'Pricing', target: 'Signup', value: 210 },
+          { source: 'Pricing', target: 'Exit', value: 140 },
+        ];
+        setTable(
+          'sankey',
+          ['From', 'To', 'Visits'],
+          links.map((l) => [l.source, l.target, l.value]),
+        );
+        const tree = [
+          {
+            name: 'Analytics',
+            children: [
+              { name: 'Reports', value: 60 },
+              { name: 'Insights', value: 36 },
+            ],
+          },
+          {
+            name: 'Commerce',
+            children: [
+              { name: 'Checkout', value: 48 },
+              { name: 'Catalog', value: 24 },
+            ],
+          },
+          {
+            name: 'Platform',
+            children: [
+              { name: 'API', value: 32 },
+              { name: 'Storage', value: 16 },
+            ],
+          },
+          {
+            name: 'Services',
+            children: [
+              { name: 'Support', value: 14 },
+              { name: 'Consulting', value: 10 },
+            ],
+          },
+        ];
+        setTable(
+          'treemap',
+          ['Product family', 'Product', 'Revenue ($k)'],
+          tree.flatMap((p) => p.children.map((c) => [p.name, c.name, c.value])),
+        );
+        setTable('radial', ['Goal', 'Completed', 'Target'], [['Quarterly onboarding', 74, 100]]);
+        const dimensions = [
+          'Usability',
+          'Reliability',
+          'Performance',
+          'Features',
+          'Support',
+          'Value',
+        ];
+        const radarA = [90, 86, 78, 83, 89, 75],
+          radarB = [72, 91, 88, 74, 70, 86];
+        setTable(
+          'radar',
+          ['Dimension', 'Product A (0–100)', 'Product B (0–100)'],
+          dimensions.map((d, i) => [d, radarA[i], radarB[i]]),
+        );
+        const sparks = [
+          [29, 33, 31, 37, 35, 39, 36, 41, 38, 43, 42.8826, 48.2],
+          [5.1, 5.4, 5.2, 6.3, 6.1, 6.8, 6.4, 7.2, 7.0, 7.5, 7.7891, 8.42],
+          [2.9, 2.7, 2.8, 2.6, 2.5, 2.7, 2.4, 2.3, 2.5, 2.2, 1.8, 2.1],
+        ];
+        setTable(
+          'sparklines',
+          ['Week', 'Revenue ($k)', 'Users (k)', 'Churn (%)'],
+          sparks[0].map((_, i) => [i + 1, ...sparks.map((s) => s[i])]),
+        );
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+        const shares = [
+          [61, 58, 55, 53, 51, 48],
+          [29, 32, 35, 38, 40, 43],
+          [10, 10, 10, 9, 9, 9],
+        ];
+        setTable(
+          'stacked',
+          ['Month', 'Desktop (%)', 'Mobile (%)', 'Tablet (%)'],
+          months.map((m, i) => [m, ...shares.map((s) => s[i])]),
+        );
+        const ranks = [
+          ['Organic search', 8420],
+          ['Direct', 6810],
+          ['Email', 5340],
+          ['Paid search', 4120],
+          ['Referral', 3260],
+          ['Social', 2780],
+          ['Partners', 1940],
+          ['Other', 1120],
+        ];
+        setTable('lollipop', ['Channel', 'Visits'], ranks);
+        const charts = new Map();
+        let bubble = false;
+        const palette = () => {
+          const d = document.documentElement.dataset.theme === 'dark';
+          return {
+            dark: d,
+            text: d ? '#f5f5f5' : '#262626',
+            muted: d ? '#a3a3a3' : '#737373',
+            line: d ? '#292929' : '#ebebeb',
+            panel: d ? '#101010' : '#fff',
+            green: d ? '#10b981' : '#059669',
+            rose: d ? '#fb7185' : '#e11d48',
+            track: d ? '#242424' : '#f0f0f0',
+          };
+        };
+        function options(id, p) {
+          const axis = {
+            axisLine: { show: false },
+            axisTick: { show: false },
+            axisLabel: { color: p.muted, fontFamily: 'Inter', fontSize: 11 },
+            splitLine: { lineStyle: { color: p.line, type: 'dashed' } },
+          };
+          const base = {
+            animation: false,
+            textStyle: { fontFamily: 'Inter', color: p.text },
+            color: [p.green, p.rose, '#999'],
+            tooltip: {
+              trigger: 'item',
+              confine: true,
+              backgroundColor: p.panel,
+              borderColor: p.line,
+              textStyle: { color: p.text, fontFamily: 'Inter', fontSize: 12 },
+              extraCssText: 'box-shadow:0 5px 18px #00000012;border-radius:7px;max-width:280px;',
+              padding: [9, 12],
+            },
+            grid: { left: 46, right: 24, top: 24, bottom: 38 },
+            xAxis: { ...axis, type: 'category' },
+            yAxis: { ...axis, type: 'value' },
+            aria: { enabled: false },
+          };
+          if (id === 'calendar')
+            return {
+              ...base,
+              xAxis: undefined,
+              yAxis: undefined,
+              grid: undefined,
+              visualMap: {
+                min: 0,
+                max: 95,
+                orient: 'horizontal',
+                left: 'center',
+                bottom: 12,
+                itemWidth: 11,
+                itemHeight: 90,
+                text: ['More', 'Less'],
+                textGap: 10,
+                textStyle: { color: p.muted, fontSize: 11 },
+                inRange: {
+                  color: p.dark
+                    ? ['#19241f', '#07573d', '#059669', '#34d399']
+                    : ['#edf5f1', '#b5e4cf', '#48b68c', '#047857'],
+                },
+                calculable: false,
+              },
+              calendar: {
+                range: ['2026-07-01', '2026-09-29'],
+                top: 45,
+                left: 43,
+                right: 25,
+                bottom: 75,
+                cellSize: ['auto', 22],
+                splitLine: { show: false },
+                itemStyle: { color: p.track, borderWidth: 3, borderColor: p.panel },
+                yearLabel: { show: false },
+                monthLabel: { color: p.muted, fontSize: 11, nameMap: 'en', margin: 14 },
+                dayLabel: {
+                  color: p.muted,
+                  fontSize: 11,
+                  nameMap: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+                  firstDay: 1,
+                },
+              },
+              tooltip: {
+                ...base.tooltip,
+                formatter: (r) => `${r.value[0]}<br><b>${r.value[1]} events</b>`,
+              },
+              series: [{ type: 'heatmap', coordinateSystem: 'calendar', data: calendar }],
+            };
+          if (id === 'waterfall') {
+            let current = 100;
+            const helper = [0],
+              values = [100];
+            for (let i = 1; i < 5; i++) {
+              helper.push(wf[i][1] >= 0 ? current : current + wf[i][1]);
+              values.push(Math.abs(wf[i][1]));
+              current += wf[i][1];
+            }
+            helper.push(0);
+            values.push(current);
+            let total = 0;
+            const connectors = wf.slice(0, -1).map(([, value], i) => [i, (total += value)]);
+            return {
+              ...base,
+              grid: { left: 40, right: 4, top: 24, bottom: 30 },
+              xAxis: {
+                ...base.xAxis,
+                data: ['Start', 'New', 'Expand', 'Churn', 'Disc.', 'End'],
+                axisLabel: { ...axis.axisLabel, interval: 0, fontSize: 10 },
+              },
+              yAxis: {
+                ...base.yAxis,
+                max: 160,
+                interval: 40,
+                splitLine: { lineStyle: { color: p.dark ? '#212121' : '#f0f0f0', width: 1 } },
+                axisLabel: { ...axis.axisLabel, formatter: '${value}k' },
+              },
+              tooltip: {
+                ...base.tooltip,
+                formatter: (r) => {
+                  const value = wf[r.dataIndex][1];
+                  const change = r.dataIndex > 0 && r.dataIndex < 5;
+                  return `${esc(wf[r.dataIndex][0])}<br><b>${change ? (value < 0 ? '−' : '+') : ''}$${Math.abs(value)}k</b>`;
+                },
+              },
+              series: [
+                {
+                  type: 'custom',
+                  silent: true,
+                  z: 1,
+                  data: connectors,
+                  encode: { x: 0, y: 1 },
+                  renderItem: (params, api) => {
+                    const i = api.value(0);
+                    const a = api.coord([i, api.value(1)]);
+                    const b = api.coord([i + 1, api.value(1)]);
+                    const halfBar = api.size([1, 0])[0] * 0.24;
+                    return {
+                      type: 'line',
+                      shape: { x1: a[0] + halfBar, y1: a[1], x2: b[0] - halfBar, y2: b[1] },
+                      style: { stroke: p.dark ? '#454545' : '#cfcfcf', lineWidth: 1 },
+                    };
+                  },
+                },
+                {
+                  type: 'bar',
+                  stack: 'bridge',
+                  silent: true,
+                  itemStyle: { color: 'transparent' },
+                  emphasis: { itemStyle: { color: 'transparent' } },
+                  data: helper,
+                },
+                {
+                  type: 'bar',
+                  stack: 'bridge',
+                  barWidth: '48%',
+                  data: values.map((v, i) => ({
+                    value: v,
+                    itemStyle: {
+                      color: i === 0 || i === 5 ? '#8b8b8b' : wf[i][1] > 0 ? p.green : p.rose,
+                      borderRadius: [4, 4, 0, 0],
+                    },
+                  })),
+                  label: {
+                    show: true,
+                    position: 'top',
+                    fontSize: 11,
+                    color: p.text,
+                    fontWeight: 500,
+                    formatter: (r) =>
+                      `${r.dataIndex > 0 && r.dataIndex < 5 ? (wf[r.dataIndex][1] < 0 ? '−' : '+') : ''}${Math.abs(wf[r.dataIndex][1])}`,
+                  },
+                },
+              ],
+            };
+          }
+          if (id === 'scatter')
+            return {
+              ...base,
+              xAxis: {
+                ...base.xAxis,
+                type: 'value',
+                name: 'Spend ($k)',
+                nameLocation: 'middle',
+                nameGap: 25,
+                nameTextStyle: { color: p.muted, fontSize: 11 },
+                max: 55,
+              },
+              yAxis: {
+                ...base.yAxis,
+                name: 'Revenue ($k)',
+                nameTextStyle: { color: p.muted, fontSize: 11 },
+                max: 150,
+              },
+              tooltip: {
+                ...base.tooltip,
+                formatter: (r) =>
+                  `${r.name}<br>Spend: <b>$${r.value[0]}k</b><br>Revenue: <b>$${r.value[1]}k</b><br>Orders: <b>${r.value[2]}</b>`,
+              },
+              series: [
+                {
+                  type: 'scatter',
+                  data: campaigns.map((c) => ({
+                    ...c,
+                    itemStyle: {
+                      color: c.itemStyle.color === 'rose' ? p.rose : p.green,
+                      opacity: 0.65,
+                      borderWidth: 1,
+                      borderColor: p.panel,
+                    },
+                  })),
+                  symbolSize: (v) => (bubble ? Math.sqrt(v[2]) * 1.25 : 10),
+                  emphasis: { itemStyle: { opacity: 1, borderWidth: 2, borderColor: p.text } },
+                },
+              ],
+            };
+          if (id === 'bullet')
+            return {
+              ...base,
+              grid: { left: 82, right: 66, top: 8, bottom: 26 },
+              xAxis: {
+                ...base.yAxis,
+                max: 120,
+                interval: 60,
+                splitLine: { show: false },
+                axisLabel: { ...axis.axisLabel, fontSize: 10 },
+              },
+              yAxis: {
+                ...base.xAxis,
+                data: bullets.map((r) => r[0]),
+                inverse: true,
+                axisLabel: {
+                  ...axis.axisLabel,
+                  align: 'left',
+                  margin: 82,
+                  width: 76,
+                  overflow: 'truncate',
+                },
+              },
+              tooltip: {
+                ...base.tooltip,
+                formatter: (r) =>
+                  `${bullets[r.dataIndex][0]}<br>Actual: <b>${bullets[r.dataIndex][1]}</b><br>Target: <b>${bullets[r.dataIndex][2]}</b>`,
+              },
+              series: [
+                {
+                  type: 'custom',
+                  data: bullets.map((r, i) => [i, r[1], r[2]]),
+                  renderItem: (params, api) => {
+                    const row = api.value(0);
+                    const origin = api.coord([0, row]);
+                    const target = api.coord([api.value(2), row]);
+                    const rect = (value, height, fill) => ({
+                      type: 'rect',
+                      shape: {
+                        x: origin[0],
+                        y: origin[1] - height / 2,
+                        width: api.coord([value, row])[0] - origin[0],
+                        height,
+                        r: 2,
+                      },
+                      style: { fill },
+                    });
+                    return {
+                      type: 'group',
+                      children: [
+                        rect(120, 18, p.dark ? '#181818' : '#f7f7f7'),
+                        rect(95, 18, p.dark ? '#202020' : '#efefef'),
+                        rect(65, 18, p.dark ? '#292929' : '#e6e6e6'),
+                        rect(api.value(1), 8, p.green),
+                        {
+                          type: 'line',
+                          shape: {
+                            x1: target[0],
+                            y1: target[1] - 12,
+                            x2: target[0],
+                            y2: target[1] + 12,
+                          },
+                          style: { stroke: p.text, lineWidth: 2 },
+                        },
+                      ],
+                    };
+                  },
+                },
+                {
+                  type: 'scatter',
+                  silent: true,
+                  symbolSize: 0,
+                  data: bullets.map((r, i) => [r[1], i]),
+                  label: {
+                    show: true,
+                    position: 'right',
+                    color: p.text,
+                    fontSize: 11,
+                    fontWeight: 500,
+                    formatter: (r) =>
+                      `${bullets[r.dataIndex][1]} {target|/ ${bullets[r.dataIndex][2]}}`,
+                    rich: { target: { color: p.muted, fontSize: 11, fontWeight: 400 } },
+                  },
+                  labelLayout: { x: '100%', align: 'right', verticalAlign: 'middle' },
+                },
+              ],
+            };
+          if (id === 'dumbbell')
+            return {
+              ...base,
+              grid: { left: 85, right: 35, top: 24, bottom: 34 },
+              xAxis: {
+                ...base.yAxis,
+                min: 40,
+                max: 100,
+                axisLabel: { ...axis.axisLabel, formatter: '{value}' },
+              },
+              yAxis: { ...base.xAxis, inverse: true, data: pairs.map((r) => r[0]) },
+              tooltip: {
+                ...base.tooltip,
+                formatter: (r) =>
+                  `${pairs[r.dataIndex][0]}<br>Before: <b>${pairs[r.dataIndex][1]}</b><br>After: <b>${pairs[r.dataIndex][2]}</b>`,
+              },
+              series: [
+                {
+                  type: 'custom',
+                  silent: true,
+                  renderItem: (params, api) => {
+                    const a = api.coord([api.value(1), api.value(0)]),
+                      b = api.coord([api.value(2), api.value(0)]);
+                    return {
+                      type: 'line',
+                      shape: { x1: a[0], y1: a[1], x2: b[0], y2: b[1] },
+                      style: { stroke: p.dark ? '#555' : '#cecece', lineWidth: 3 },
+                    };
+                  },
+                  data: pairs.map((r, i) => [i, r[1], r[2]]),
+                },
+                {
+                  type: 'scatter',
+                  symbolSize: 11,
+                  itemStyle: { color: p.rose, opacity: 1 },
+                  data: pairs.map((r, i) => [r[1], i]),
+                  label: {
+                    show: true,
+                    position: 'left',
+                    color: p.muted,
+                    fontSize: 11,
+                    formatter: (r) => r.value[0],
+                  },
+                },
+                {
+                  type: 'scatter',
+                  symbolSize: 11,
+                  itemStyle: { color: p.green, opacity: 1 },
+                  data: pairs.map((r, i) => [r[2], i]),
+                  label: {
+                    show: true,
+                    position: 'right',
+                    color: p.muted,
+                    fontSize: 11,
+                    formatter: (r) => r.value[0],
+                  },
+                },
+              ],
+            };
+          if (id === 'sankey')
+            return {
+              ...base,
+              xAxis: undefined,
+              yAxis: undefined,
+              grid: undefined,
+              tooltip: {
+                ...base.tooltip,
+                formatter: (r) =>
+                  r.dataType === 'edge'
+                    ? `${r.data.source} → ${r.data.target}<br><b>${r.value} visits</b>`
+                    : `${r.name}<br><b>${r.value} visits</b>`,
+              },
+              series: [
+                {
+                  type: 'sankey',
+                  left: 17,
+                  right: 55,
+                  top: 30,
+                  bottom: 30,
+                  nodeWidth: 9,
+                  nodeGap: 20,
+                  layoutIterations: 32,
+                  data: ['Organic', 'Paid', 'Referral', 'Product', 'Pricing', 'Signup', 'Exit'].map(
+                    (name, i) => ({
+                      name,
+                      itemStyle: { color: i === 6 ? '#858585' : i === 4 ? p.rose : p.green },
+                    }),
+                  ),
+                  links,
+                  lineStyle: { color: 'source', opacity: 0.19, curveness: 0.5 },
+                  emphasis: { focus: 'adjacency', lineStyle: { opacity: 0.5 } },
+                  label: { color: p.muted, fontSize: 11 },
+                  itemStyle: { borderWidth: 0 },
+                },
+              ],
+            };
+          if (id === 'treemap') {
+            const narrow = $('#plot-treemap').clientWidth <= 360;
+            const familyColors = p.dark
+              ? [
+                  ['#246c53', '#1b5743'],
+                  ['#276963', '#20564f'],
+                  ['#784457', '#623647'],
+                  ['#48515c', '#39424c'],
+                ]
+              : [
+                  ['#c3e5d5', '#a3d3bd'],
+                  ['#bfe0db', '#9bc9c2'],
+                  ['#e7cbd5', '#d7b1bf'],
+                  ['#d9dfe5', '#c0cad4'],
+                ];
+            return {
+              ...base,
+              xAxis: undefined,
+              yAxis: undefined,
+              grid: undefined,
+              tooltip: {
+                ...base.tooltip,
+                formatter: (r) => `${esc(r.name)}<br><b>$${r.value}k revenue</b>`,
+              },
+              series: [
+                {
+                  type: 'treemap',
+                  animation: false,
+                  left: 0,
+                  right: 0,
+                  top: 0,
+                  bottom: 0,
+                  squareRatio: narrow ? 1.3 : 1,
+                  roam: false,
+                  nodeClick: false,
+                  breadcrumb: { show: false },
+                  data: tree.map((family, i) => ({
+                    ...family,
+                    children: family.children.map((product, j) => ({
+                      ...product,
+                      itemStyle: { color: familyColors[i][j] },
+                    })),
+                  })),
+                  label: {
+                    show: true,
+                    position: 'insideTopLeft',
+                    padding: [4, 6],
+                    color: p.dark ? '#ecf5f1' : '#263e35',
+                    fontSize: 10,
+                    lineHeight: 14,
+                    formatter: (r) => `${r.name}\n{value|$${r.value}k}`,
+                    rich: {
+                      value: { fontSize: 12, fontWeight: 600, lineHeight: 15 },
+                    },
+                  },
+                  upperLabel: { show: false },
+                  itemStyle: { borderColor: p.panel, borderWidth: 0, gapWidth: 2 },
+                  emphasis: { itemStyle: { borderColor: p.panel, opacity: 0.88 } },
+                  levels: [
+                    { itemStyle: { borderWidth: 0, gapWidth: 6 }, upperLabel: { show: false } },
+                    { itemStyle: { borderWidth: 0, gapWidth: 2 } },
+                    { itemStyle: { borderWidth: 0, gapWidth: 2 } },
+                  ],
+                },
+              ],
+            };
+          }
+          if (id === 'radial')
+            return {
+              ...base,
+              xAxis: undefined,
+              yAxis: undefined,
+              grid: undefined,
+              tooltip: {
+                ...base.tooltip,
+                formatter: 'Quarterly onboarding<br><b>74 of 100 completed</b>',
+              },
+              series: [
+                {
+                  type: 'gauge',
+                  center: ['50%', '49%'],
+                  radius: '85%',
+                  startAngle: 90,
+                  endAngle: -270,
+                  min: 0,
+                  max: 100,
+                  progress: {
+                    show: true,
+                    roundCap: true,
+                    width: 13,
+                    itemStyle: { color: p.green },
+                  },
+                  axisLine: { lineStyle: { width: 13, color: [[1, p.track]] } },
+                  pointer: { show: false },
+                  axisTick: { show: false },
+                  splitLine: { show: false },
+                  axisLabel: { show: false },
+                  title: { show: true, offsetCenter: [0, '25%'], fontSize: 12, color: p.muted },
+                  detail: {
+                    valueAnimation: false,
+                    offsetCenter: [0, '-6%'],
+                    fontSize: 44,
+                    fontWeight: 550,
+                    color: p.text,
+                    formatter: '{value}%',
+                    fontFamily: 'Inter',
+                  },
+                  data: [{ value: 74, name: 'Quarterly onboarding' }],
+                },
+              ],
+            };
+          if (id === 'radar')
+            return {
+              ...base,
+              xAxis: undefined,
+              yAxis: undefined,
+              grid: undefined,
+              radar: {
+                indicator: dimensions.map((name) => ({ name, max: 100 })),
+                center: ['50%', '51%'],
+                radius: Math.max(40, Math.min(90, ($('#plot-radar').clientWidth - 168) / 2)),
+                axisName: { color: p.muted, fontSize: 11 },
+                splitNumber: 4,
+                splitArea: { show: false },
+                axisLine: { lineStyle: { color: p.line } },
+                splitLine: { lineStyle: { color: p.line } },
+              },
+              tooltip: {
+                ...base.tooltip,
+                formatter: (r) =>
+                  `<b>${r.name}</b><br>${dimensions.map((d, i) => `${d}: ${r.value[i]}`).join('<br>')}`,
+              },
+              series: [
+                {
+                  type: 'radar',
+                  data: [
+                    {
+                      name: 'Product A',
+                      value: radarA,
+                      itemStyle: { color: p.green },
+                      lineStyle: { color: p.green, width: 1.5 },
+                      areaStyle: { color: p.green, opacity: 0.1 },
+                    },
+                    {
+                      name: 'Product B',
+                      value: radarB,
+                      itemStyle: { color: p.rose },
+                      lineStyle: { color: p.rose, width: 1.5 },
+                      areaStyle: { color: p.rose, opacity: 0.07 },
+                    },
+                  ],
+                  symbol: 'circle',
+                  symbolSize: 4,
+                },
+              ],
+            };
+          if (id === 'stacked')
+            return {
+              ...base,
+              xAxis: { ...base.xAxis, data: months },
+              yAxis: {
+                ...base.yAxis,
+                max: 100,
+                interval: 25,
+                axisLabel: { ...axis.axisLabel, formatter: '{value}%' },
+              },
+              tooltip: {
+                ...base.tooltip,
+                trigger: 'axis',
+                axisPointer: { type: 'shadow' },
+                valueFormatter: (v) => `${v}%`,
+              },
+              series: ['Desktop', 'Mobile', 'Tablet'].map((name, i) => ({
+                name,
+                type: 'bar',
+                stack: 'share',
+                barWidth: '40%',
+                itemStyle: {
+                  color: [p.green, p.rose, p.dark ? '#555' : '#b8b8b8'][i],
+                  borderRadius: i === 2 ? [4, 4, 0, 0] : 0,
+                },
+                data: shares[i],
+              })),
+            };
+          if (id === 'lollipop')
+            return {
+              ...base,
+              grid: { left: 100, right: 54, top: 4, bottom: 26 },
+              xAxis: {
+                ...base.yAxis,
+                max: 10000,
+                interval: 5000,
+                splitLine: { lineStyle: { color: p.dark ? '#212121' : '#f0f0f0', width: 1 } },
+                axisLabel: {
+                  ...axis.axisLabel,
+                  fontSize: 10,
+                  formatter: (v) => (v === 0 ? '0' : `${v / 1000}k`),
+                },
+              },
+              yAxis: {
+                ...base.xAxis,
+                data: ranks.map((r) => r[0]),
+                inverse: true,
+                axisLabel: {
+                  ...axis.axisLabel,
+                  align: 'left',
+                  padding: 0,
+                  margin: 103,
+                  width: 94,
+                  overflow: 'truncate',
+                },
+              },
+              tooltip: {
+                ...base.tooltip,
+                formatter: (r) =>
+                  `${ranks[r.dataIndex][0]}<br><b>${ranks[r.dataIndex][1].toLocaleString('en-US')} visits</b>`,
+              },
+              series: [
+                {
+                  type: 'bar',
+                  barWidth: 2,
+                  itemStyle: { color: p.dark ? '#285846' : '#b6dace' },
+                  data: ranks.map((r) => r[1]),
+                  silent: true,
+                },
+                {
+                  type: 'scatter',
+                  data: ranks.map((r, i) => [r[1], i]),
+                  symbolSize: 7,
+                  itemStyle: { color: p.green, opacity: 1 },
+                  label: {
+                    show: true,
+                    position: 'right',
+                    distance: 8,
+                    color: p.text,
+                    fontSize: 11,
+                    fontWeight: 500,
+                    formatter: (r) => r.value[0].toLocaleString('en-US'),
+                  },
+                  labelLayout: { x: '100%', align: 'right', verticalAlign: 'middle' },
+                },
+              ],
+            };
+          if (id.startsWith('spark-')) {
+            const i = +id.slice(-1),
+              color = i === 2 ? p.rose : p.green;
+            return {
+              ...base,
+              grid: { left: 0, right: 2, top: 15, bottom: 5 },
+              xAxis: {
+                type: 'category',
+                show: false,
+                boundaryGap: false,
+                data: Array.from({ length: 12 }, (_, n) => `Week ${n + 1}`),
+              },
+              yAxis: { type: 'value', show: false, scale: true },
+              tooltip: {
+                ...base.tooltip,
+                trigger: 'axis',
+                formatter: (r) =>
+                  `${r[0].name}<br><b>${i === 0 ? '$' : ''}${Number(r[0].value.toFixed(2))}${i === 2 ? '%' : 'k'}</b>`,
+              },
+              series: [
+                {
+                  type: 'line',
+                  data: sparks[i],
+                  smooth: 0.22,
+                  symbol: 'circle',
+                  showSymbol: false,
+                  lineStyle: { color, width: 2 },
+                  itemStyle: { color },
+                  areaStyle: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                      { offset: 0, color: color + '25' },
+                      { offset: 1, color: color + '00' },
+                    ]),
+                  },
+                },
+              ],
+            };
+          }
+        }
+        const themeButton = $('#theme');
+        let fontsReady = false;
+        let renderFrame = 0;
+        let firstPlotReady = false;
+        const renderedThemes = new Map();
+        const renderedSizes = new Map();
+        const nearViewport = new Set();
+        const plotIds = models
+          .filter((m) => m.id !== 'sparklines')
+          .map((m) => m.id)
+          .concat(['spark-0', 'spark-1', 'spark-2']);
+        const plotElement = (id) =>
+          document.getElementById(id.startsWith('spark-') ? id : `plot-${id}`);
+        const size = (el) => `${el.clientWidth}x${el.clientHeight}`;
+        function visible(id, all = false) {
+          const el = plotElement(id);
+          if (el.closest('.card').hidden || !el.clientWidth) return false;
+          return all || nearViewport.has(el.id);
+        }
+        function renderPlot(id) {
+          const el = plotElement(id);
+          if (!charts.has(id)) {
+            charts.set(id, echarts.init(el, null, { renderer: 'svg' }));
+            renderedSizes.set(id, size(el));
+          }
+          const chart = charts.get(id);
+          if (renderedSizes.get(id) !== size(el)) {
+            chart.resize();
+            renderedSizes.set(id, size(el));
+            if (id === 'treemap' || id === 'radar') renderedThemes.delete(id);
+          }
+          const theme = document.documentElement.dataset.theme;
+          if (renderedThemes.get(id) !== theme) {
+            chart.setOption(options(id, palette()), true);
+            renderedThemes.set(id, theme);
+            el.dataset.renderCount = String(Number(el.dataset.renderCount || 0) + 1);
+          }
+          if (!firstPlotReady) {
+            firstPlotReady = true;
+            performance.mark('chart:first-visible-ready');
+          }
+          document.documentElement.dataset.renderedCharts = String(charts.size);
+          if (
+            charts.size === plotIds.length &&
+            !performance.getEntriesByName('chart:all-ready').length
+          )
+            performance.mark('chart:all-ready');
+        }
+        function requestRender() {
+          if (!fontsReady || renderFrame) return;
+          renderFrame = requestAnimationFrame(() => {
+            renderFrame = 0;
+            const next = plotIds.find(
+              (id) =>
+                visible(id) &&
+                (renderedThemes.get(id) !== document.documentElement.dataset.theme ||
+                  renderedSizes.get(id) !== size(plotElement(id))),
+            );
+            if (next) {
+              renderPlot(next);
+              requestRender();
+            }
+            reportHeight();
+          });
+        }
+        function setTheme(theme) {
+          document.documentElement.dataset.theme = theme;
+          themeButton.querySelector('span').textContent =
+            theme === 'dark' ? 'Light theme' : 'Dark theme';
+          themeButton.setAttribute(
+            'aria-label',
+            `Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`,
+          );
+          try {
+            if (!embedded) localStorage.setItem('chart-possibilities-theme', theme);
+          } catch {}
+          if (fontsReady) {
+            requestRender();
+          }
+        }
+        themeButton.addEventListener('click', () =>
+          setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'),
+        );
+        document.querySelectorAll('[data-mode]').forEach((b) =>
+          b.addEventListener('click', () => {
+            bubble = b.dataset.mode === 'bubble';
+            document
+              .querySelectorAll('[data-mode]')
+              .forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+            renderedThemes.delete('scatter');
+            requestRender();
+          }),
+        );
+        document.querySelectorAll('[data-filter]').forEach((b) =>
+          b.addEventListener('click', () => {
+            document
+              .querySelectorAll('[data-filter]')
+              .forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+            let count = 0;
+            document.querySelectorAll('.card').forEach((card) => {
+              card.hidden =
+                b.dataset.filter !== 'all' && card.dataset.category !== b.dataset.filter;
+              if (!card.hidden) count++;
+            });
+            $('#count').textContent = `${count} chart ${count === 1 ? 'idea' : 'ideas'}`;
+            requestRender();
+          }),
+        );
+        function resize() {
+          requestRender();
+        }
+        // The implicit root clips through ancestor frames, including the site's tall iframe.
+        // This also supports cached wrappers that only implement the original theme/size bridge.
+        const visibilityObserver = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) nearViewport.add(entry.target.id);
+              else nearViewport.delete(entry.target.id);
+            }
+            requestRender();
+          },
+          { rootMargin: '180px 0px' },
+        );
+        plotIds.forEach((id) => visibilityObserver.observe(plotElement(id)));
+        const observer = new ResizeObserver(() => resize());
+        observer.observe($('#collection'));
+        const heightObserver = new ResizeObserver(reportHeight);
+        if (embedded) heightObserver.observe(document.body);
+        document.querySelectorAll('.recommendation a').forEach((a) =>
+          a.addEventListener('click', (event) => {
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target.hidden) document.querySelector('[data-filter="all"]').click();
+            if (embedded) {
+              event.preventDefault();
+              requestAnimationFrame(() =>
+                parent.postMessage(
+                  {
+                    type: 'chart-possibilities:anchor',
+                    top: target.getBoundingClientRect().top + scrollY,
+                  },
+                  location.origin,
+                ),
+              );
+            }
+          }),
+        );
+        let initial = 'light';
+        try {
+          initial = embedded
+            ? document.documentElement.dataset.theme
+            : localStorage.getItem('chart-possibilities-theme') ||
+              (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        } catch {}
+        if (initial !== 'dark') initial = 'light';
+        if (embedded)
+          window.addEventListener('message', (event) => {
+            if (
+              event.origin !== location.origin ||
+              event.source !== parent ||
+              !event.data ||
+              typeof event.data !== 'object'
+            )
+              return;
+            if (
+              event.data.type === 'chart-possibilities:theme' &&
+              (event.data.theme === 'dark' || event.data.theme === 'light')
+            ) {
+              initial = event.data.theme;
+              setTheme(initial);
+              reportHeight();
+            }
+          });
+        document.fonts.ready.then(() => {
+          fontsReady = true;
+          setTheme(initial);
+        });
+        window.addEventListener('resize', resize);
+        window.addEventListener('beforeprint', () => {
+          if (fontsReady) plotIds.filter((id) => visible(id, true)).forEach(renderPlot);
+        });
+        window.addEventListener('afterprint', resize);
+      })();
+    </script>
+  </body>
+</html>
