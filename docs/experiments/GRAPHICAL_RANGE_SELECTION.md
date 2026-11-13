@@ -45,3 +45,9 @@ The Pages build prerenders **29 physical routes**. Local static checks pass in C
 ## Remaining scope
 
 One contiguous category range is supported. Shared zoom/hover, disjoint selection, editable drag handles, shared legends and bidirectional links remain later work. No new large-data/latency or broad mobile-device support claim is made. Human F09/R06/G2/G3/G4 remain pending, the package remains private and earlier rc.0–rc.3 artifacts/evidence remain preserved.
+
+## Live delivery
+
+Feature/evidence commit `58e0fde5c9bb61a288100630044ba73ac64c9b12` is pushed to main. The [live linked demo](https://phalla-doll.github.io/ng-echarts/linked/) is served from shared static commit `03c0a8cdb8ab6154cf853b7a10a199e06a39b5e8`; the [Pages deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43418949846) succeeds. Its marker identifies the committed range-feature source and records `includesWorkingTree: true` because the shared preview also includes separate, uncommitted chart-possibility work. Those edits remain unstaged and are not included in the range-feature commit.
+
+A fresh shared build prerenders **30 routes** and passes local and public checks in Chromium, Firefox and WebKit, preserving the separate preview additions. The live suite performs an actual graphical drag, proves the detail stays unchanged until release, verifies native bounds/Selected table rows and initiating-button focus, then checks Reset/reload, fonts, fragments, themes and mobile navigation. The independently retained rc.4 archive/checksum remains byte-identical to the verified candidate. Workspace CI runs separately; these statements identify executed local and live checks and do not close human release gates or publish to npm.
