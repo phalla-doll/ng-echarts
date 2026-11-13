@@ -4,9 +4,9 @@ import type {
   ɵPlotRendererFactory,
   ɵPlotEnvironment,
 } from '@ng-echarts/chart-library/core';
-import type { BarOption } from './bar-options';
+import type { BarRenderOptions } from './bar-render-options';
 export type { ɵPlotPoint as PlotPoint } from '@ng-echarts/chart-library/core';
-export type BarRenderer = ɵPlotRenderer<BarOption>;
-export type BarRendererFactory = ɵPlotRendererFactory<BarOption>;
-export type PlotEnvironment = ɵPlotEnvironment<BarOption>;
-export class PlotController extends ɵPlotController<BarOption> {}
+export type BarRenderer = ɵPlotRenderer<BarRenderOptions>;
+export type BarRendererFactory = ɵPlotRendererFactory<BarRenderOptions>;
+export type PlotEnvironment = ɵPlotEnvironment<BarRenderOptions>;
+export class PlotController extends ɵPlotController<BarRenderOptions> {}

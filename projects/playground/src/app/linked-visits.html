@@ -28,6 +28,16 @@
         <app-site-icon name="close" />Reset
       </button>
     }
+    <button
+      #rangeButton
+      class="select-range"
+      type="button"
+      [attr.aria-pressed]="rangeMode()"
+      [disabled]="!canSelectRange()"
+      (click)="toggleRange()"
+    >
+      Select range
+    </button>
   </div>
   <p class="linked-summary" aria-hidden="true">
     @if (summary().device) {
@@ -69,6 +79,11 @@
       ></label>
     </fieldset>
   }
+  @if (rangeMode()) {
+    <p class="range-instructions" role="status">
+      Drag across months, then release. Escape cancels. You can also use Custom range.
+    </p>
+  }
 </div>
 <p class="linked-status visually-hidden" role="status" aria-live="polite" aria-atomic="true">
   {{ status() }}
@@ -83,6 +98,11 @@
       categoryKey="month"
       [series]="series"
       [selectedRowIds]="selectedIds()"
+      [rangeSelection]="rangeMode()"
+      [layout]="layout()"
+      [stacked]="stacked()"
+      [gradient]="gradient()"
+      (rangeSelect)="selectRange($event)"
       [categoryTickFormatter]="monthTick"
       [theme]="theme()"
       [height]="250"

@@ -42,6 +42,7 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | [Hover and press refinement](docs/experiments/HOVER_REFINEMENT.md) | Role-specific button/link feedback, preserved selection cues, touch and reduced-motion checks |
 | [Linked UI refinement](docs/experiments/LINKED_UI_REFINEMENT.md) | Before/after control, spacing, card and mobile review for the linked demo |
 | [Linked charts guide](docs/LINKED_CHARTS.md) | Application-owned month/range selection, keyboard actions, resets, updates and a complete compiled example |
+| [Graphical range selection](docs/experiments/GRAPHICAL_RANGE_SELECTION.md) | Snapped pointer selection, native equivalence, cancellation, touch/focus review and rc.4 evidence |
 | [Native month ranges](docs/experiments/NG20_MONTH_RANGE.md) | Inclusive range contract, multi-row feedback, visual review and rc.3 verification |
 | [Composed API reference](docs/COMPOSED_CHART_API.md) | Shared-axis vertical bars and lines, typed descriptors and stable controls |
 | [Pie/donut API reference](docs/PIE_CHART_API.md) | Single-measure categories, responsive radii, labels, visibility, and raw events |
@@ -160,4 +161,4 @@ The `/linked` page connects a monthly visits overview to device share through st
 
 ## Library license
 
-Original chart-library code is [MIT licensed](projects/chart-library/LICENSE). See its [third-party notices](projects/chart-library/THIRD_PARTY_NOTICES.md) for preserved upstream/dependency terms. The current private local release candidate is `0.1.0-rc.3`; follow the [release checklist](docs/RELEASE_CHECKLIST.md) to prepare and verify it.
+Original chart-library code is [MIT licensed](projects/chart-library/LICENSE). See its [third-party notices](projects/chart-library/THIRD_PARTY_NOTICES.md) for preserved upstream/dependency terms. The current private local release candidate is `0.1.0-rc.4`; follow the [release checklist](docs/RELEASE_CHECKLIST.md) to prepare and verify it.

@@ -11,6 +11,8 @@ import {
 } from '@angular/core';
 import {
   BarChart,
+  type BarRangeSelection,
+  type BarLayout,
   type ChartSeries,
   type ChartTheme,
   type PointSelection,
@@ -53,12 +55,21 @@ export function deviceShare(rows: readonly VisitMonth[]): readonly DeviceVisits[
   templateUrl: './linked-visits.html',
   styleUrl: './linked-visits.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { '(document:keydown.escape)': 'cancelRange()' },
 })
 export class LinkedVisits {
   readonly data = input.required<readonly VisitMonth[]>();
   readonly theme = input<ChartTheme>('light');
+  readonly layout = input<BarLayout>('vertical');
+  readonly stacked = input(false);
+  readonly gradient = input(false);
   private readonly periodSelect = viewChild.required<ElementRef<HTMLSelectElement>>('period');
+  private readonly rangeButton = viewChild<ElementRef<HTMLButtonElement>>('rangeButton');
   private readonly rangeFields = viewChild<ElementRef<HTMLElement>>('rangeFields');
+  protected readonly rangeMode = linkedSignal({ source: this.data, computation: () => false });
+  protected readonly canSelectRange = computed(() =>
+    this.data().some((row) => row.desktop !== null || row.mobile !== null),
+  );
   protected readonly selection = linkedSignal<readonly VisitMonth[], VisitPeriod>({
     source: this.data,
     computation: (rows, previous) => reconcilePeriod(rows, previous?.value ?? null),
@@ -135,18 +146,35 @@ export class LinkedVisits {
   };
   protected readonly monthTick = (month: string) => month.slice(0, 3);
   constructor() {
-    // View effects run before the conditional fields disappear. Preserve focus only
-    // when the removed range fields contain it, never from another active control.
+    // Restore only focus owned by a control that is about to disappear or disable.
     effect(() => {
-      if (this.range() !== null) return;
+      const range = this.range();
+      const available = this.canSelectRange();
       untracked(() => {
         const fields = this.rangeFields()?.nativeElement;
-        if (fields?.contains(fields.ownerDocument.activeElement))
-          this.periodSelect().nativeElement.focus();
+        const button = this.rangeButton()?.nativeElement;
+        const rangeFocused = range === null && fields?.contains(fields.ownerDocument.activeElement);
+        const unavailableButtonFocused =
+          !available && button !== undefined && button.ownerDocument.activeElement === button;
+        if (rangeFocused || unavailableButtonFocused) this.periodSelect().nativeElement.focus();
       });
     });
   }
+  protected toggleRange(): void {
+    this.rangeMode.update((value) => !value);
+    this.rangeButton()?.nativeElement.focus();
+  }
+  protected cancelRange(): void {
+    this.rangeMode.set(false);
+  }
+  protected selectRange(event: BarRangeSelection<VisitMonth>): void {
+    if (!this.rangeMode()) return;
+    this.selection.set({ kind: 'range', from: event.fromRowId, to: event.toRowId });
+    this.selectedDevice.set('');
+    this.rangeMode.set(false);
+  }
   protected selectPeriod(id: string): void {
+    this.rangeMode.set(false);
     if (id !== '__range__') {
       this.selectMonth(id.startsWith('month:') ? id.slice(6) : '');
       return;
@@ -163,10 +191,12 @@ export class LinkedVisits {
     this.selectedDevice.set('');
   }
   protected selectBound(bound: 'from' | 'to', id: string): void {
+    this.rangeMode.set(false);
     this.selection.update((period) => changePeriodBound(this.data(), period, bound, id));
     this.selectedDevice.set('');
   }
   protected selectMonth(id: string): void {
+    this.rangeMode.set(false);
     this.selection.set(this.data().some((row) => row.id === id) ? { kind: 'month', id } : null);
     this.selectedDevice.set('');
   }

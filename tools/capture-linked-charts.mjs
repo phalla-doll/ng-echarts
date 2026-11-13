@@ -165,6 +165,38 @@ try {
           .getByRole('button', { name: 'Hide data table', exact: true })
           .click();
       }
+      // Capture a real draft over the previously committed February scope.
+      await page.getByRole('combobox', { name: 'Period', exact: true }).selectOption('month:feb');
+      await page.getByRole('button', { name: 'Select range', exact: true }).click();
+      const surface = page.locator('.nec-range-surface');
+      await expect(surface).toBeVisible();
+      await surface.scrollIntoViewIfNeeded();
+      const area = await surface.boundingBox();
+      assert(area);
+      await page.mouse.move(area.x + (area.width * 1.5) / 12, area.y + area.height / 2);
+      await page.mouse.down();
+      await page.mouse.move(area.x + (area.width * 3.5) / 12, area.y + area.height / 2, {
+        steps: 8,
+      });
+      await expect(page.locator('.nec-range-draft')).toBeVisible();
+      await expect(page.locator('.linked-status')).toContainText('February: 1,367 visits');
+      const draftImage = `linked-${theme}-${width}-drag-draft.png`;
+      captures.push({
+        name: draftImage,
+        sha256: hash(await page.screenshot({ path: resolve(output, draftImage) })),
+      });
+      await expect(page.locator('.nec-range-draft')).toBeVisible();
+      await page.mouse.up();
+      await expect(page.locator('.linked-status')).toContainText('February–April: 3,189 visits');
+      await expect(page.locator('.nec-range-surface')).toHaveCount(0);
+      await page.evaluate(() => window.scrollTo(0, 0));
+      const committedImage = `linked-${theme}-${width}-drag-committed.png`;
+      captures.push({
+        name: committedImage,
+        sha256: hash(
+          await page.screenshot({ path: resolve(output, committedImage), fullPage: true }),
+        ),
+      });
       measurements.push({
         theme,
         width,
@@ -203,6 +235,10 @@ try {
   for (const path of [
     'projects/chart-library/bar/src/lib/bar-chart.ts',
     'projects/chart-library/bar/src/lib/bar-options.ts',
+    'projects/chart-library/bar/src/lib/bar-renderer.ts',
+    'projects/chart-library/bar/src/lib/bar-render-options.ts',
+    'projects/chart-library/bar/src/lib/bar-range-browser.ts',
+    'projects/chart-library/core/src/lib/plot-controller.ts',
     'projects/chart-library/core/src/lib/cartesian-chart.ts',
     'projects/chart-library/core/src/lib/cartesian-chart.html',
     'projects/chart-library/core/src/lib/cartesian-chart.css',
@@ -214,6 +250,8 @@ try {
     'projects/playground/src/app/linked-charts.css',
     'projects/playground/src/app/linked-example-source.ts',
     'projects/playground/src/styles.css',
+    'projects/playground/src/site-focus.css',
+    'projects/playground/src/site-hover.css',
     'tools/capture-linked-charts.mjs',
   ])
     sources.push({ path, sha256: hash(await readFile(path)) });

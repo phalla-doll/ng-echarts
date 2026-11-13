@@ -4,7 +4,7 @@ import {
   type BarRendererFactory,
   type PlotEnvironment,
 } from './plot-controller';
-import type { BarOption } from './bar-options';
+import type { BarRenderOptions } from './bar-render-options';
 
 function harness() {
   let width = 768;
@@ -61,8 +61,8 @@ function harness() {
 describe('plot lifecycle coordination', () => {
   it('batches inputs, updates the latest option, and resizes without rebuilding options', async () => {
     const h = harness();
-    h.controller.update({ animation: true });
-    const latest: BarOption = { animation: false };
+    h.controller.update({ chart: { animation: true }, range: null });
+    const latest: BarRenderOptions = { chart: { animation: false }, range: null };
     h.controller.update(latest);
     expect(h.frames.size).toBe(1);
     await h.flush();
@@ -78,7 +78,7 @@ describe('plot lifecycle coordination', () => {
   it('waits for nonzero dimensions and recovers after a hidden container becomes visible', async () => {
     const h = harness();
     h.setWidth(0);
-    h.controller.update({});
+    h.controller.update({ chart: {}, range: null });
     await h.flush();
     expect(h.environment.load).not.toHaveBeenCalled();
     h.setWidth(320);
@@ -96,7 +96,7 @@ describe('plot lifecycle coordination', () => {
         new Promise((resolve) => {
           complete = resolve;
         });
-      h.controller.update({});
+      h.controller.update({ chart: {}, range: null });
       await h.flush();
       if (destroy) h.controller.destroy();
       else h.controller.update(null);
@@ -115,9 +115,9 @@ describe('plot lifecycle coordination', () => {
       new Promise((resolve) => {
         complete = resolve;
       });
-    h.controller.update({ animation: true });
+    h.controller.update({ chart: { animation: true }, range: null });
     await h.flush();
-    const latest = { animation: false };
+    const latest = { chart: { animation: false }, range: null };
     h.controller.update(latest);
     await h.flush();
     complete(h.factory);
@@ -132,11 +132,11 @@ describe('plot lifecycle coordination', () => {
       .fn()
       .mockRejectedValueOnce(new Error('Network'))
       .mockResolvedValue(h.factory);
-    h.controller.update({});
+    h.controller.update({ chart: {}, range: null });
     await h.flush();
     expect(h.onError).toHaveBeenCalledTimes(1);
     h.controller.update(null);
-    h.controller.update({ animation: false });
+    h.controller.update({ chart: { animation: false }, range: null });
     await h.flush();
     expect(h.factory).toHaveBeenCalledTimes(1);
     h.controller.destroy();
@@ -145,7 +145,7 @@ describe('plot lifecycle coordination', () => {
   it('disconnects observers and disposes exactly once across 100 mocked mount/destroy cycles', async () => {
     for (let index = 0; index < 100; index++) {
       const h = harness();
-      h.controller.update({});
+      h.controller.update({ chart: {}, range: null });
       await h.flush();
       h.resize();
       h.controller.destroy();
@@ -161,17 +161,20 @@ describe('plot lifecycle coordination', () => {
     vi.mocked(h.renderer.update).mockImplementationOnce(() => {
       throw new Error('Renderer failure');
     });
-    h.controller.update({});
+    h.controller.update({ chart: {}, range: null });
     await h.flush();
     expect(h.onError).toHaveBeenCalledTimes(1);
     expect(h.renderer.dispose).toHaveBeenCalledTimes(1);
     h.resize();
     await h.flush();
     expect(h.factory).toHaveBeenCalledTimes(1);
-    h.controller.update({ animation: false });
+    h.controller.update({ chart: { animation: false }, range: null });
     await h.flush();
     expect(h.factory).toHaveBeenCalledTimes(2);
-    expect(h.renderer.update).toHaveBeenLastCalledWith({ animation: false });
+    expect(h.renderer.update).toHaveBeenLastCalledWith({
+      chart: { animation: false },
+      range: null,
+    });
     h.controller.destroy();
   });
 });

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-rc.4 — 13 November 2026
+
+- Add opt-in `BarChart.rangeSelection` and typed `rangeSelect` with inclusive stable IDs and original rows; committed feedback stays application-owned.
+- Snap forward/reverse pointer drags in both layouts, preserve orthogonal touch scrolling, and cancel interrupted or stale drafts without emitting a point event.
+- Extend the linked demo and compiled standalone source with a compact selection toggle, native field synchronization and consistent focus recovery.
+
+This private candidate preserves rc.0–rc.3 artifacts and notices. Shared zoom/hover, disjoint/two-way selection and human release acceptance remain open.
+
 ## 0.1.0-rc.3 — 13 November 2026
 
 - Add controlled `BarChart.selectedRowIds` for multiple stable row IDs; a non-null array takes precedence over the existing scalar input, with an empty array clearing feedback.

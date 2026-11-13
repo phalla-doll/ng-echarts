@@ -144,26 +144,77 @@ select {
   overflow: hidden;
   background: var(--site-bg);
 }
+
+.select-range {
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 1px solid var(--site-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--site-muted);
+  font: inherit;
+  font-size: 12px;
+  line-height: 20px;
+  cursor: pointer;
+}
+.select-range[aria-pressed='true'] {
+  background: var(--site-active-soft);
+  color: var(--site-text);
+  border-color: var(--site-control-border);
+}
+.range-instructions {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--site-muted);
+  font-size: 12px;
+  line-height: 20px;
+}
 @media (max-width: 600px) {
   .linked-toolbar {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .linked-toolbar.has-range .linked-summary {
-    grid-row: 3;
-  }
-  .range-fields {
-    grid-row: 2;
-  }
-  .linked-summary {
-    flex-basis: 100%;
-  }
-  .linked-toolbar {
-    gap: 16px;
+    grid-template-columns: minmax(0, 1fr) 90px;
+    gap: 12px;
     padding-bottom: 16px;
     margin-bottom: 20px;
   }
-  select,
+  .linked-controls {
+    display: contents;
+  }
+  .linked-controls > label {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .linked-controls select {
+    width: 138px;
+  }
   .reset-month {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+  .select-range {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+  }
+  .linked-summary,
+  .linked-toolbar.has-range .linked-summary {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+    justify-content: end;
+  }
+  .range-fields {
+    grid-row: 3;
+  }
+  .range-instructions {
+    grid-row: 3;
+  }
+  .has-range .range-instructions {
+    grid-row: 4;
+  }
+  select,
+  .reset-month,
+  .select-range {
     min-height: 40px;
   }
 }

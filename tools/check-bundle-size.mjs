@@ -206,11 +206,11 @@ for (const scenario of scenarios) {
     }),
     { raw: 0, gzip: 0, brotli: 0 },
   );
-  // The combined root includes all engines plus rc.2 controlled row feedback.
-  // Its measured Brotli cap is 176 kB; focused entries and gzip limits stay unchanged.
+  // The combined root includes every engine plus the rc.4 optional range adapter.
+  // Its measured allowance is 212/178 kB; focused and core limits stay unchanged.
   const budget =
     scenario.name === 'root'
-      ? { gzip: 210_000, brotli: 176_000 }
+      ? { gzip: 212_000, brotli: 178_000 }
       : scenario.engine || scenario.allowOrphanChunks
         ? { gzip: 200_000, brotli: 175_000 }
         : { gzip: 10_000, brotli: 9_000 };

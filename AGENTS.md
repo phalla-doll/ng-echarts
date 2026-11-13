@@ -2,7 +2,7 @@
 
 ## Project Structure and Scope
 
-Angular 22 chart library using Apache ECharts. Bar, line, area, pie/donut and the first shared-axis composed increment are implemented. NG20 adds a linked-chart application example. NG14 automated acceptance and NG15 documentation are recorded; human interpretation and release gates remain open. The demo is deployed to GitHub Pages.
+Angular 22 chart library using Apache ECharts. Bar, line, area, pie/donut and the first shared-axis composed increment are implemented. NG20 adds linked charts with native and graphical month ranges. NG14 automated acceptance and NG15 documentation are recorded; human interpretation and release gates remain open. The demo is deployed to GitHub Pages.
 
 - `README.md`: overview and document index.
 - `docs/PRODUCT_SPEC.md`: MVP scope and required behavior.
@@ -17,7 +17,7 @@ Library source and colocated tests: `projects/chart-library/{core,bar,line,area,
 
 ## Implementation Workflow
 
-The product specification owns scope; research findings own compatibility ranges. Follow the implementation plan and upstream provenance ledger. G1 passes for bar. The user deferred R06 human listening to release acceptance and authorized continued development through NG17 composed charts and the first NG20 linked-chart integration; retain human F09 and G2/G3/G4 as pending until their evidence exists. NG16 records the private 0.1.0-rc.0 candidate; NG17 advances it to 0.1.0-rc.1 with the user-selected MIT license, preserved notices and exact-artifact checks; NG20 initially reused rc.1; its controlled bar selection-feedback extension advances the private candidate to rc.2, preserving both earlier artifacts. Human release gates remain pending. Demo deployment does not publish the library package or close release gates.
+The product specification owns scope; research findings own compatibility ranges. Follow the implementation plan and upstream provenance ledger. G1 passes for bar. The user deferred R06 human listening to release acceptance and authorized continued development through NG17 composed charts and the first NG20 linked-chart integration; retain human F09 and G2/G3/G4 as pending until their evidence exists. NG16 records the private 0.1.0-rc.0 candidate; NG17 advances it to 0.1.0-rc.1 with the user-selected MIT license, preserved notices and exact-artifact checks; NG20 initially reused rc.1; its controlled bar feedback and native/graphical ranges advance the private candidate through rc.2/rc.3 to rc.4, preserving earlier artifacts. Human release gates remain pending. Demo deployment does not publish the library package or close release gates.
 
 ## Build, Test, and Development Commands
 
@@ -34,6 +34,7 @@ Use Node from `.nvmrc` and npm 11.19.1; install with `npm ci`.
 - `npm run capture:visual`: capture the four MVP gallery families/themes at 320/390/768/1440 px, including tooltip bounds and narrow label/control evidence; first run `npm run build`.
 - `npm run capture:composed` / `npm run capture:linked`: capture post-MVP composed and linked examples using the same responsive themes.
 - `npm run format`: apply Prettier.
+- Set `PLAYWRIGHT_PORT` when parallel worktrees need separate browser-test servers; the default remains 4173.
 
 Verify documentation links, heading anchors, and `git diff --check` before committing.
 

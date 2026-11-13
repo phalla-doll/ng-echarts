@@ -221,6 +221,23 @@ async function exercise(engine, url, ssr) {
     await page.getByRole('combobox', { name: 'To', exact: true }).selectOption('mar');
     await expect(page.locator('.linked-status')).toContainText('February–March: 2,169 visits');
     await expect(page.locator('.overview .selected-row')).toHaveCount(2);
+    await page.getByRole('button', { name: 'Select range', exact: true }).click();
+    const surface = page.locator('.nec-range-surface');
+    await expect(surface).toBeVisible();
+    await surface.scrollIntoViewIfNeeded();
+    const bounds = await surface.boundingBox();
+    assert(bounds);
+    await page.mouse.move(bounds.x + (bounds.width * 1.5) / 12, bounds.y + bounds.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(bounds.x + (bounds.width * 3.5) / 12, bounds.y + bounds.height / 2, {
+      steps: 6,
+    });
+    await expect(page.locator('.nec-range-draft')).toBeVisible();
+    await expect(page.locator('.linked-status')).toContainText('February–March: 2,169 visits');
+    await page.mouse.up();
+    await expect(page.locator('.linked-status')).toContainText('February–April: 3,189 visits');
+    await expect(page.locator('.overview .selected-row')).toHaveCount(3);
+    await expect(page.getByRole('button', { name: 'Select range', exact: true })).toBeFocused();
     await expect(page.locator('.overview tr[aria-current]')).toHaveCount(0);
     await page.getByRole('button', { name: 'Reset period filter', exact: true }).click();
     await expect(page.locator('.overview .selected-row')).toHaveCount(0);

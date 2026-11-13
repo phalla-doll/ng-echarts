@@ -1,4 +1,4 @@
-export { BarChart } from './lib/bar-chart';
+export { BarChart, type BarRangeSelection } from './lib/bar-chart';
 export type {
   BarLayout,
   CategoryTickFormatter,

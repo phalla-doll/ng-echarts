@@ -54,20 +54,20 @@ describe('bar motion preferences at the renderer boundary', () => {
       fixture.componentRef.setInput(key, value);
     await fixture.whenStable();
     await vi.waitFor(() => expect(update).toHaveBeenCalled());
-    expect(update.mock.lastCall?.[0].animation).toBe(false);
+    expect(update.mock.lastCall?.[0].chart.animation).toBe(false);
     const changeMotion = async (matches: boolean) => {
       preference.matches = matches;
       events.dispatchEvent(Object.assign(new Event('change'), { matches }));
       await fixture.whenStable();
     };
     await changeMotion(false);
-    await vi.waitFor(() => expect(update.mock.lastCall?.[0].animation).toBe(true));
+    await vi.waitFor(() => expect(update.mock.lastCall?.[0].chart.animation).toBe(true));
     fixture.componentRef.setInput('animation', false);
     await fixture.whenStable();
-    await vi.waitFor(() => expect(update.mock.lastCall?.[0].animation).toBe(false));
+    await vi.waitFor(() => expect(update.mock.lastCall?.[0].chart.animation).toBe(false));
     await changeMotion(true);
     await changeMotion(false);
-    expect(update.mock.lastCall?.[0].animation).toBe(false);
+    expect(update.mock.lastCall?.[0].chart.animation).toBe(false);
     expect(factory).toHaveBeenCalledTimes(1);
     fixture.destroy();
     expect(dispose).toHaveBeenCalledTimes(1);

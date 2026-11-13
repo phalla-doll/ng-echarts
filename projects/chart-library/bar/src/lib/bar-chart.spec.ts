@@ -32,6 +32,48 @@ async function setup() {
 }
 
 describe('bar Angular controls', () => {
+  it('emits a controlled contiguous range with original rows and rejects disabled, stale or unavailable requests', async () => {
+    const { fixture, element } = await setup();
+    const ranges = vi.fn(),
+      points = vi.fn();
+    fixture.componentInstance.rangeSelect.subscribe(ranges);
+    fixture.componentInstance.pointSelect.subscribe(points);
+    const select = (ids: readonly string[]) =>
+      fixture.componentInstance['selectRange'](ids, fixture.componentInstance['model']());
+    select(['first', 'second']);
+    expect(ranges).not.toHaveBeenCalled();
+    fixture.componentRef.setInput('rangeSelection', true);
+    await fixture.whenStable();
+    select(['first', 'second']);
+    expect(ranges).toHaveBeenCalledExactlyOnceWith({
+      fromRowId: 'first',
+      toRowId: 'second',
+      rowIds: ['first', 'second'],
+      rows: data,
+      source: 'plot',
+    });
+    expect(ranges.mock.calls[0]![0].rows[0]).toBe(data[0]);
+    expect(fixture.componentInstance.selectedRowIds()).toBeNull();
+    expect(points).not.toHaveBeenCalled();
+    for (const ids of [[], ['unknown'], ['second', 'first'], ['first', 'first']]) select(ids);
+    const stale = fixture.componentInstance['model']();
+    fixture.componentRef.setInput('data', [...data]);
+    await fixture.whenStable();
+    fixture.componentInstance['selectRange'](['first', 'second'], stale);
+    fixture.componentRef.setInput('loading', true);
+    await fixture.whenStable();
+    select(['first']);
+    expect(ranges).toHaveBeenCalledTimes(1);
+    fixture.componentRef.setInput('loading', false);
+    fixture.componentRef.setInput('rangeSelection', 'yes');
+    await fixture.whenStable();
+    expect(element.querySelector('[role=alert]')?.textContent).toContain(
+      'Range selection must be a boolean',
+    );
+    fixture.componentRef.setInput('rangeSelection', false);
+    await fixture.whenStable();
+    expect(element.querySelector('[role=alert]')).toBeNull();
+  });
   it('supports controlled multi-row feedback, independent precedence, deduplication and explicit clearing', async () => {
     const { fixture, element } = await setup();
     fixture.componentRef.setInput('selectedRowId', 'first');

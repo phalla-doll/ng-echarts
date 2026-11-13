@@ -17,6 +17,19 @@ export const linkedValidationRows: readonly VisitMonth[] = [
       endpoint restores all months; removing an interior month shrinks the range.
     </p>
     <div class="controls">
+      <button
+        type="button"
+        [attr.aria-pressed]="horizontal()"
+        (click)="horizontal.set(!horizontal())"
+      >
+        Horizontal overview
+      </button>
+      <button type="button" [attr.aria-pressed]="stacked()" (click)="stacked.set(!stacked())">
+        Stack overview
+      </button>
+      <button type="button" [attr.aria-pressed]="gradient()" (click)="gradient.set(!gradient())">
+        Gradient overview
+      </button>
       <button type="button" (click)="refresh()">Update linked values</button>
       <button type="button" (click)="reverse()">Reverse months</button>
       <button type="button" (click)="remove()">Remove February</button>
@@ -24,11 +37,20 @@ export const linkedValidationRows: readonly VisitMonth[] = [
       <button type="button" (click)="rows.set(missing)">Missing linked data</button>
       <button type="button" (click)="rows.set(initial)">Restore linked data</button>
     </div>
-    <app-linked-visits [data]="rows()" [theme]="theme()" />
+    <app-linked-visits
+      [data]="rows()"
+      [theme]="theme()"
+      [layout]="horizontal() ? 'horizontal' : 'vertical'"
+      [stacked]="stacked()"
+      [gradient]="gradient()"
+    />
   </main>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LinkedValidation {
+  protected readonly horizontal = signal(false);
+  protected readonly stacked = signal(false);
+  protected readonly gradient = signal(false);
   protected readonly rows = signal(linkedValidationRows);
   protected readonly initial = linkedValidationRows;
   protected readonly missing: readonly VisitMonth[] = [

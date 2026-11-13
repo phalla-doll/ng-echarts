@@ -112,3 +112,25 @@ it('aggregates an inclusive range, reconciles bounds and returns focus before re
   await fixture.whenStable();
   expect(period.value).toBe('');
 });
+
+it('starts with unavailable range selection and recovers without losing focus when it becomes unavailable again', async () => {
+  TestBed.configureTestingModule({ providers: [{ provide: PLATFORM_ID, useValue: 'server' }] });
+  const fixture = TestBed.createComponent(LinkedVisits);
+  fixture.componentRef.setInput('data', []);
+  await fixture.whenStable();
+  const host = fixture.nativeElement as HTMLElement;
+  const period = host.querySelector('select')!;
+  const button = host.querySelector<HTMLButtonElement>('.select-range')!;
+  expect(button.disabled).toBe(true);
+  expect(host.querySelector('.linked-status')?.textContent).toContain('No months available');
+  fixture.componentRef.setInput('data', [{ id: 'zero', month: 'Zero', desktop: 0, mobile: null }]);
+  await fixture.whenStable();
+  expect(button.disabled).toBe(false);
+  button.click();
+  button.focus();
+  fixture.componentRef.setInput('data', []);
+  await fixture.whenStable();
+  expect(button.disabled).toBe(true);
+  expect(button.getAttribute('aria-pressed')).toBe('false');
+  expect(host.ownerDocument.activeElement).toBe(period);
+});

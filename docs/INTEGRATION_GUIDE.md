@@ -117,6 +117,7 @@ The declaration check compiles this exact block against the installed tarball; t
 | `NumericKey<T>` | Numeric fields, including nullable/optional numeric fields; excludes text, `any`, `unknown`, and exclusively nullish fields |
 | `ChartSeries<T>` | Cartesian measure with unique `id`, numeric `key`, `label`, optional CSS `color` |
 | `ChartMeasure<T>` | One pie/donut measure with `id`, numeric `key`, `label` |
+| `BarRangeSelection<T>` | From `/bar` or root: inclusive `fromRowId`, `toRowId`, `rowIds`, original `rows` and `source: 'plot'`; see [range integration](LINKED_CHARTS.md) |
 | `PointSelection<T>` | Original `row`, `rowId`, `seriesId`, raw numeric `value`, and `source: 'plot' \| 'table'`; pie uses its measure ID in `seriesId` |
 | `LegendVisibilityChange` | Cartesian `{ seriesId, visible }` |
 | `CategoryVisibilityChange` | Pie/donut `{ rowId, visible }` |

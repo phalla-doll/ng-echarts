@@ -57,6 +57,7 @@ export abstract class CartesianChart<
   protected rowIsSelected(id: string): boolean {
     return id === this.rowSelectionId();
   }
+  protected selectRange(_rowIds: readonly string[], _snapshot: unknown): void {}
   readonly title = input.required<string>();
   readonly description = input('');
   readonly data = input.required<readonly T[]>();
@@ -237,6 +238,7 @@ export abstract class CartesianChart<
             browserPlotEnvironment(() => this.renderer(), this.host.nativeElement),
             (point) => this.selectPoint(point, 'plot'),
             () => this.rendererError.set(true),
+            (ids, snapshot) => this.selectRange(ids, snapshot),
           );
           this.browserReady.set(true);
           this.focusKeeper = new ChartFocusKeeper(this.host.nativeElement);

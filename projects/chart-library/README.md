@@ -1,13 +1,13 @@
 # Angular chart library
 
-Experimental standalone Angular 22 components using Apache ECharts. The local identity `@ng-echarts/chart-library` is private and has not been published. Local candidate: `0.1.0-rc.3`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. Public naming and human release acceptance remain open.
+Experimental standalone Angular 22 components using Apache ECharts. The local identity `@ng-echarts/chart-library` is private and has not been published. Local candidate: `0.1.0-rc.4`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. Public naming and human release acceptance remain open.
 
 ## Installation
 
 In the source checkout, use Node 24.22.2 and npm 11.19.1, then run `npm ci` and `npm run pack:lib`. Install the resulting file into a separate Angular application:
 
 ```sh
-npm install /absolute/path/to/ng-echarts-chart-library-0.1.0-rc.3.tgz echarts@6.1.0
+npm install /absolute/path/to/ng-echarts-chart-library-0.1.0-rc.4.tgz echarts@6.1.0
 ```
 
 Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes.
@@ -91,7 +91,7 @@ Tested: Angular/CLI 22.2.6, TypeScript 6.0.3, ECharts 6.1.0, RxJS 7.8.2, Node 24
 
 The starting measured envelope is 200 categories × three Cartesian series or 12 radial categories on the recorded M2 Pro machine. Stress fixtures use 2,000 Cartesian or 100 radial categories; these are observations, not hard limits or portable latency guarantees. Outside labels may shorten/hide collisions; expanded tables have separate costs.
 
-Focused imports keep unrelated engines out. Line and area intentionally share ECharts' Line engine. Root imports preserve class identity but include combined registrations. Deep paths and core `ɵ` exports are unsupported implementation APIs. Size checks count all lazy chunks, excluding Angular/RxJS peers: gzip/Brotli caps are 200,000/175,000 bytes per family, 10,000/9,000 for core, 210,000/176,000 for root, and 200,000/175,000 for root-frame.
+Focused imports keep unrelated engines out. Line and area intentionally share ECharts' Line engine. Root imports preserve class identity but include combined registrations. Deep paths and core `ɵ` exports are unsupported implementation APIs. Size checks count all lazy chunks, excluding Angular/RxJS peers: gzip/Brotli caps are 200,000/175,000 bytes per family, 10,000/9,000 for core, 212,000/178,000 for root, and 200,000/175,000 for root-frame.
 
 Raw ECharts options, custom tooltip templates, time/logarithmic axes, server plot images/export, brushes, advanced decoration and additional chart families are outside the MVP. APIs remain experimental. Automated acceptance passes; human interpretation and final artifact/release gates remain pending.
 
@@ -111,4 +111,6 @@ The checkout contains complete [installation](https://github.com/phalla-doll/ng-
 
 Original library code is [MIT licensed](LICENSE). Adapted EvilCharts material and external dependencies retain their own notices; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). This private local candidate does not complete the deferred human screen-reader review or public release gates.
 
-`BarChart.selectedRowIds` (rc.3+) accepts `readonly string[] | null`. A non-null array overrides `selectedRowId`; `[]` clears feedback. Known IDs are deduplicated, and unknown/empty IDs are ignored. Multiple categories retain their palette and bands, with “Selected” labels on their native table rows; `aria-current` is used only for one effective row. The application defines range membership and reconciliation. The linked guide demonstrates inclusive From/To controls without graphical brushing.
+`BarChart.selectedRowIds` (rc.3+) accepts `readonly string[] | null`. A non-null array overrides `selectedRowId`; `[]` clears feedback. Known IDs are deduplicated, and unknown/empty IDs are ignored. Multiple categories retain their palette and bands, with “Selected” labels on their native table rows; `aria-current` is used only for one effective row. The application defines range membership and reconciliation. The linked guide demonstrates inclusive From/To controls and optional graphical selection.
+
+`BarChart.rangeSelection` (rc.4+, default false) enables a pointer range surface in the ready plot. A drag of at least four CSS pixels snaps to inclusive categories and emits one `rangeSelect: BarRangeSelection<T>` on release: `{ fromRowId, toRowId, rowIds, rows, source: 'plot' }`. `rows` retains original row references, and IDs follow supplied order for either layout. Feedback still belongs to `selectedRowIds`; the output never changes it. Pair the pointer mode with native keyboard range controls, as the complete linked example does. Drafts cancel on Escape, resize/options updates, pointer interruption, blur, scrolling and teardown; stale data snapshots cannot commit. The demo exits the mode after commit or Escape and retains normal touch scrolling along the value direction. This is one contiguous category range; zoom, disjoint selections and linked hover remain outside it.

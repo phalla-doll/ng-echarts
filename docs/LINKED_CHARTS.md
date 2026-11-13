@@ -1,6 +1,6 @@
 # Linked charts
 
-NG20 links a monthly visits overview to device share for one month or an inclusive range. Selection belongs to the application: `pointSelect` supplies a stable row ID, native period fields edit the bounds, and signals derive the companion chart's data. The bar chart's controlled `selectedRowIds` input reflects every included month. No ECharts instance connection or global selection bus is required. The range example requires private rc.3 or later; the scalar `selectedRowId` input remains supported from rc.2.
+NG20 links a monthly visits overview to device share for one month or an inclusive range. Selection belongs to the application: `pointSelect` supplies a stable row ID, native period fields or a graphical drag edit the bounds, and signals derive the companion chart's data. The bar chart's controlled `selectedRowIds` input reflects every included month. No ECharts instance connection or global selection bus is required. The complete graphical example requires private rc.4 or later; native ranges require rc.3; the scalar `selectedRowId` input remains supported from rc.2.
 
 ## Complete standalone example
 
@@ -18,7 +18,11 @@ import {
   untracked,
   viewChild,
 } from "@angular/core";
-import { BarChart, type ChartSeries } from "@ng-echarts/chart-library/bar";
+import {
+  BarChart,
+  type ChartSeries,
+  type BarRangeSelection,
+} from "@ng-echarts/chart-library/bar";
 import { PieChart, type ChartMeasure } from "@ng-echarts/chart-library/pie";
 interface Month {
   id: string;
@@ -88,6 +92,7 @@ export function changePeriodBound(
   selector: "app-root",
   imports: [BarChart, PieChart],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { "(document:keydown.escape)": "cancelRange()" },
   template: `<label
       >Period
       <select
@@ -106,6 +111,18 @@ export function changePeriodBound(
     </label>
     @if (selection() !== null) {
       <button type="button" (click)="reset()">Reset</button>
+    }
+    <button
+      #rangeButton
+      type="button"
+      [attr.aria-pressed]="rangeMode()"
+      [disabled]="!canSelectRange()"
+      (click)="toggleRange()"
+    >
+      Select range
+    </button>
+    @if (rangeMode()) {
+      <p role="status">Drag across months, then release. Escape cancels.</p>
     }
     @if (range(); as bounds) {
       <fieldset #rangeFields>
@@ -149,6 +166,8 @@ export function changePeriodBound(
       categoryKey="month"
       [series]="series"
       [selectedRowIds]="selectedIds()"
+      [rangeSelection]="rangeMode()"
+      (rangeSelect)="selectRange($event)"
       (pointSelect)="selectMonth($event.rowId)"
     />
     <nec-pie-chart
@@ -166,6 +185,13 @@ export class App {
     { id: "feb", month: "February", desktop: 200, mobile: 0 },
     { id: "mar", month: "March", desktop: null, mobile: 40 },
   ]);
+  readonly rangeMode = linkedSignal({
+    source: this.rows,
+    computation: () => false,
+  });
+  readonly canSelectRange = computed(() =>
+    this.rows().some((row) => row.desktop !== null || row.mobile !== null),
+  );
   readonly selection = linkedSignal<readonly Month[], VisitPeriod>({
     source: this.rows,
     computation: (rows, previous) =>
@@ -219,19 +245,45 @@ export class App {
   };
   private readonly periodSelect =
     viewChild.required<ElementRef<HTMLSelectElement>>("period");
+  private readonly rangeButton =
+    viewChild<ElementRef<HTMLButtonElement>>("rangeButton");
   private readonly rangeFields =
     viewChild<ElementRef<HTMLElement>>("rangeFields");
   constructor() {
     effect(() => {
-      if (this.range() !== null) return;
+      const range = this.range();
+      const available = this.canSelectRange();
       untracked(() => {
         const fields = this.rangeFields()?.nativeElement;
-        if (fields?.contains(fields.ownerDocument.activeElement))
+        const button = this.rangeButton()?.nativeElement;
+        const rangeFocused =
+          range === null &&
+          fields?.contains(fields.ownerDocument.activeElement);
+        const unavailableButtonFocused =
+          !available && button !== undefined && button.ownerDocument.activeElement === button;
+        if (rangeFocused || unavailableButtonFocused)
           this.periodSelect().nativeElement.focus();
       });
     });
   }
+  toggleRange(): void {
+    this.rangeMode.update((value) => !value);
+    this.rangeButton()?.nativeElement.focus();
+  }
+  cancelRange(): void {
+    this.rangeMode.set(false);
+  }
+  selectRange(event: BarRangeSelection<Month>): void {
+    if (!this.rangeMode()) return;
+    this.selection.set({
+      kind: "range",
+      from: event.fromRowId,
+      to: event.toRowId,
+    });
+    this.rangeMode.set(false);
+  }
   selectPeriod(value: string): void {
+    this.rangeMode.set(false);
     if (value !== "__range__") {
       this.selectMonth(value.startsWith("month:") ? value.slice(6) : "");
       return;
@@ -247,16 +299,19 @@ export class App {
     });
   }
   selectMonth(id: string): void {
+    this.rangeMode.set(false);
     this.selection.set(
       this.rows().some((row) => row.id === id) ? { kind: "month", id } : null,
     );
   }
   selectBound(bound: "from" | "to", id: string): void {
+    this.rangeMode.set(false);
     this.selection.update((period) =>
       changePeriodBound(this.rows(), period, bound, id),
     );
   }
   reset(): void {
+    this.rangeMode.set(false);
     this.selection.set(null);
     this.periodSelect().nativeElement.focus();
   }
@@ -266,6 +321,10 @@ export class App {
 Replace `rows` immutably to update observations. `linkedSignal` reconciles stable IDs against the current supplied order. Labels and indices are presentation, never authoritative keys. The source above is kept byte-identical to the demo's copied example and compiled against the installed package with strict templates and `skipLibCheck: false`.
 
 ## Interaction contract
+
+- **Select range** arms the overview without changing the committed period. Drag across months to preview an inclusive band, then release to commit once. Reverse dragging produces the same supplied-order range. The mode exits after commit and the stable button retains focus; a plain click while armed does not change selection.
+- **Escape** exits the mode and cancels its draft. Resizing, theme/layout/option changes, capture interruption, blur and page scrolling cancel the draft without changing committed bounds. Replacing data exits the demo mode, and the library also rejects stale model snapshots. Native Period/From/To changes cancel graphical mode; Reset clears both.
+- Vertical touch scrolling and pinch zoom remain available on this vertical overview. The same From/To controls provide the complete keyboard path; no keyboard interaction is assigned to the hidden canvas.
 
 - **All months** is an unfiltered overview without selection shading. A plot/table action or a month option selects exactly one month and closes any range fields.
 - **Custom range** reveals native From and To fields. It starts at the selected month, or first through last available row when unfiltered. Both endpoints are included. Equal bounds represent one month; moving a bound past the other moves both to the edited month.
@@ -281,6 +340,6 @@ The [live example](https://phalla-doll.github.io/ng-echarts/linked/) uses the ex
 
 ## Scope and evidence
 
-This is a one-way, application-owned context link with inclusive native range controls and controlled bar feedback. Graphical brushing, shared legends, linked zoom, cross-chart hover, bidirectional selection and an ECharts connection API remain later work. This public input advances the private candidate to rc.3; earlier candidate artifacts and notices remain preserved. Human F09/R06/G2/G3/G4 retain their deferred status.
+This is a one-way, application-owned context link with inclusive native range controls and controlled bar feedback. The opt-in bar drag selects one contiguous category range. Shared legends, linked zoom, cross-chart hover, disjoint/bidirectional selection and an ECharts connection API remain later work. The graphical input/output advance the private candidate to rc.4; earlier candidate artifacts and notices remain preserved. Human F09/R06/G2/G3/G4 retain their deferred status.
 
-The [initial NG20 report](experiments/NG20_LINKED_CHARTS.md), [scalar-feedback review](experiments/LINKED_SELECTION_FEEDBACK.md) and [month-range report](experiments/NG20_MONTH_RANGE.md) record their respective evidence. The [UI refinement](experiments/LINKED_UI_REFINEMENT.md), [focus](experiments/FOCUS_REFINEMENT.md) and [hover](experiments/HOVER_REFINEMENT.md) reviews cover the shared presentation. Range fields use the existing quiet gallery tokens, native dropdowns and thin focus treatment; From/To sit together beneath Period and remain usable at 320 px.
+The [initial NG20 report](experiments/NG20_LINKED_CHARTS.md), [scalar-feedback review](experiments/LINKED_SELECTION_FEEDBACK.md) and [month-range report](experiments/NG20_MONTH_RANGE.md) and [graphical-range review](experiments/GRAPHICAL_RANGE_SELECTION.md) record their respective evidence. The [UI refinement](experiments/LINKED_UI_REFINEMENT.md), [focus](experiments/FOCUS_REFINEMENT.md) and [hover](experiments/HOVER_REFINEMENT.md) reviews cover the shared presentation. Range fields use the existing quiet gallery tokens, native dropdowns and thin focus treatment; From/To sit together beneath Period and remain usable at 320 px.

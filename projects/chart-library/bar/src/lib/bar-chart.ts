@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
 import {
   ChartFrame,
   ɵCartesianChart,
@@ -6,7 +6,15 @@ import {
   type ɵCartesianContext,
 } from '@ng-echarts/chart-library/core';
 import { BAR_RENDERER_LOADER } from './bar-browser';
-import { buildBarOptions, type BarOption } from './bar-options';
+import { buildBarOptions } from './bar-options';
+import type { BarRenderOptions } from './bar-render-options';
+export interface BarRangeSelection<T> {
+  readonly fromRowId: string;
+  readonly toRowId: string;
+  readonly rowIds: readonly string[];
+  readonly rows: readonly T[];
+  readonly source: 'plot';
+}
 @Component({
   selector: 'nec-bar-chart',
   imports: [ChartFrame],
@@ -14,7 +22,9 @@ import { buildBarOptions, type BarOption } from './bar-options';
   styleUrl: '../../../core/src/lib/cartesian-chart.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BarChart<T extends object> extends ɵCartesianChart<T, BarOption> {
+export class BarChart<T extends object> extends ɵCartesianChart<T, BarRenderOptions> {
+  readonly rangeSelection = input(false);
+  readonly rangeSelect = output<BarRangeSelection<T>>();
   readonly layout = input<BarLayout>('vertical');
   readonly stacked = input(false);
   readonly gradient = input(false);
@@ -36,6 +46,7 @@ export class BarChart<T extends object> extends ɵCartesianChart<T, BarOption> {
   }
   protected override familyConfiguration() {
     return {
+      rangeSelection: this.rangeSelection(),
       layout: this.layout(),
       stacked: this.stacked(),
       gradient: this.gradient(),
@@ -51,6 +62,7 @@ export class BarChart<T extends object> extends ɵCartesianChart<T, BarOption> {
     return this.selectedIds().has(id);
   }
   protected override familyError() {
+    if (typeof this.rangeSelection() !== 'boolean') return 'Range selection must be a boolean.';
     if (!['vertical', 'horizontal'].includes(this.layout())) return 'Chart layout is invalid.';
     if (this.selectedRowId() !== null && typeof this.selectedRowId() !== 'string')
       return 'Selected row ID must be a string or null.';
@@ -59,18 +71,52 @@ export class BarChart<T extends object> extends ɵCartesianChart<T, BarOption> {
       ? null
       : 'Selected row IDs must be an array of strings or null.';
   }
-  protected override buildOptions(context: ɵCartesianContext<T>): BarOption {
-    return buildBarOptions(
-      context.model,
-      context.hiddenIds,
-      context.tokens,
-      this.layout(),
-      this.stacked(),
-      this.gradient(),
-      context.animation,
-      context.format,
-      context.categoryTicks,
-      this.selectedIds(),
-    );
+  protected override selectRange(ids: readonly string[], snapshot: unknown): void {
+    const model = this.model();
+    if (
+      snapshot !== model ||
+      !this.rangeSelection() ||
+      this.state().kind !== 'ready' ||
+      model.kind === 'error' ||
+      !ids.length
+    )
+      return;
+    const first = model.rows.findIndex((row) => row.id === ids[0]);
+    const last = model.rows.findIndex((row) => row.id === ids.at(-1));
+    if (first < 0 || last < first) return;
+    const rows = model.rows.slice(first, last + 1);
+    if (rows.length !== ids.length || rows.some((row, index) => row.id !== ids[index])) return;
+    this.rangeSelect.emit({
+      fromRowId: rows[0]!.id,
+      toRowId: rows.at(-1)!.id,
+      rowIds: rows.map((row) => row.id),
+      rows: this.data().slice(first, last + 1),
+      source: 'plot',
+    });
+  }
+  protected override buildOptions(context: ɵCartesianContext<T>): BarRenderOptions {
+    return {
+      chart: buildBarOptions(
+        context.model,
+        context.hiddenIds,
+        context.tokens,
+        this.layout(),
+        this.stacked(),
+        this.gradient(),
+        context.animation,
+        context.format,
+        context.categoryTicks,
+        this.selectedIds(),
+      ),
+      range: this.rangeSelection()
+        ? {
+            snapshot: context.model,
+            ids: context.model.rows.map((row) => row.id),
+            horizontal: this.layout() === 'horizontal',
+            color: context.tokens.muted,
+            fill: context.tokens.border,
+          }
+        : null,
+    };
   }
 }

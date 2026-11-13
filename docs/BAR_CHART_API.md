@@ -60,6 +60,7 @@ Bind booleans and numbers as Angular properties, for example `[stacked]="true"` 
 | `gradient` | `boolean`, `false` | Theme-colored linear fade along the value axis |
 | `selectedRowId` | `string \| null`, `null` | Controlled row feedback (rc.2+): retain this category's bar colors, fade others, draw a category band and mark the expanded table row as current. Unknown/empty IDs render normally. |
 | `selectedRowIds` | `readonly string[] \| null`, `null` | Controlled multiple-row feedback (rc.3+). A non-null array overrides `selectedRowId`; empty clears. Known IDs are deduplicated; unknown/empty IDs are ignored. All selected table rows have visible labels, with `aria-current` only for one effective row. |
+| `rangeSelection` | `boolean`, `false` | Opt-in pointer range mode (rc.4+), only active for a ready plot. Pair it with native keyboard range fields. |
 | `theme` | `'light' \| 'dark'`, `'light'` | Explicit palette defaults; no automatic system preference |
 | `themeRevision` | Finite `number`, `0` | Change to reread inherited font and CSS colors |
 | `locale` | `string`, `'en-US'` | Deterministic numeric locale |
@@ -80,6 +81,7 @@ Replace row, series, and options references to update them. Visibility survives 
 | Output | Payload |
 | --- | --- |
 | `pointSelect` | `PointSelection<T>`: `rowId`, `seriesId`, original `row`, raw numeric `value`, and `source: 'plot' \| 'table'` |
+| `rangeSelect` | `BarRangeSelection<T>`: inclusive `fromRowId`, `toRowId`, ordered `rowIds`, original `rows`, and `source: 'plot'` (rc.4+) |
 | `legendChange` | `LegendVisibilityChange`: `seriesId`, `visible` |
 
 Use `(pointSelect)="select($event)"` with a named handler. Plot selection ignores hidden series; table actions remain available for every nonmissing value, including hidden series and zero. Missing cells have text but no action. Legend buttons expose pressed state and work by keyboard. The native table preserves every row when a series is hidden.
@@ -105,3 +107,11 @@ Tested versions: Angular/CLI 22.2.6, TypeScript 6.0.3, ECharts 6.1.0, Node 24.22
 See [source comparison](experiments/R03_VISUAL_REVIEW.md), [provenance](UPSTREAM_PROVENANCE.md), [package boundaries](experiments/NG09_PACKAGE_BOUNDARIES.md), and [foundation/bar acceptance](experiments/NG09_NG10_ACCEPTANCE.md). The deferred human listening review remains a release requirement.
 
 For a range, derive `[selectedRowIds]="includedIds()"` in the application. Membership is by ID, independent of adjacency or array order; the library does not infer dates or reconcile endpoints. Set this input to `null` to resume scalar fallback, or `[]` to clear even when a scalar is bound. Both inputs retain runtime type validation; plural values must be an array of strings. The [range example](LINKED_CHARTS.md) defines inclusive supplied-order membership, crossing and removal policy.
+
+## Graphical category ranges
+
+Set `[rangeSelection]="selecting()"` and handle `(rangeSelect)="selectRange($event)"` to opt into a contiguous pointer range. A primary drag of at least four CSS pixels along the category axis shows a snapped draft; release emits once in supplied row order, including equal-month or reverse drags. Releases outside the grid clip to its first/last category. A plain click while armed emits neither a range nor a point. In normal mode, existing plot/table point actions are unchanged. Missing, zero and hidden series do not remove categories from the range.
+
+The output contains original row references and stable IDs, with no ECharts instance or pointer event. Bind the resulting IDs to `selectedRowIds` for persistent feedback. Binding the input alone emits nothing. Drafts cancel on Escape, resize, option/theme/layout changes, interrupted capture, blur, scrolling and disposal. Snapshot validation rejects stale data, including replacements that retain the same IDs. The application's committed selection is preserved during cancellation. Native From/To fields remain the keyboard equivalent; the plot remains hidden from the accessibility tree. The [complete linked source](LINKED_CHARTS.md) also exits selection mode on Escape/commit, preserves the initiating button focus and cancels the mode on data/native-field changes.
+
+On a vertical bar chart, horizontal touch movement can select while vertical page scrolling and pinch zoom stay available; a horizontal chart reserves vertical movement for categories and allows horizontal scrolling/pinch zoom. This bounded feature does not implement zoom, disjoint ranges, drag handles or cross-chart hover.

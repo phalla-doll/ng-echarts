@@ -1,4 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
+const port = process.env['PLAYWRIGHT_PORT'] ?? '4173';
+const baseURL = `http://localhost:${port}`;
 
 export default defineConfig({
   testDir: './tests/browser',
@@ -8,7 +10,7 @@ export default defineConfig({
   timeout: 30_000,
   reporter: 'list',
   use: {
-    baseURL: 'http://localhost:4173',
+    baseURL,
     reducedMotion: 'reduce',
     trace: 'retain-on-failure',
   },
@@ -19,8 +21,8 @@ export default defineConfig({
   ],
   webServer: {
     command: 'npm run serve:ssr',
-    url: 'http://localhost:4173',
-    env: { PORT: '4173' },
+    url: baseURL,
+    env: { PORT: port },
     reuseExistingServer: false,
     timeout: 30_000,
   },

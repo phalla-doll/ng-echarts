@@ -12,6 +12,7 @@ export interface PlotRenderer<Option> {
 export type PlotRendererFactory<Option> = (
   host: HTMLElement,
   onPoint: (point: PlotPoint) => void,
+  onRange?: (rowIds: readonly string[], snapshot: unknown) => void,
 ) => PlotRenderer<Option>;
 
 export interface PlotEnvironment<Option> {
@@ -37,6 +38,7 @@ export class PlotController<Option> {
     private readonly environment: PlotEnvironment<Option>,
     private readonly onPoint: (point: PlotPoint) => void,
     private readonly onError: () => void,
+    private readonly onRange: (rowIds: readonly string[], snapshot: unknown) => void = () => {},
   ) {
     this.disconnect = environment.observe(host, () => this.schedule());
   }
@@ -84,7 +86,7 @@ export class PlotController<Option> {
         if (this.destroyed || generation !== this.generation || !this.options) return;
         // Measure again after asynchronous loading; a formerly visible host may now be hidden.
         if (!this.host.clientWidth || !this.host.clientHeight) return;
-        this.renderer = factory(this.host, this.onPoint);
+        this.renderer = factory(this.host, this.onPoint, this.onRange);
         this.dirty = true;
       }
       this.renderer.resize();

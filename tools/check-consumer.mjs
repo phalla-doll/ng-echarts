@@ -240,6 +240,7 @@ try {
   for (const [component, binding] of [
     ['InvalidBarSelection', '[selectedRowId]="12"'],
     ['InvalidBarSelection', '[selectedRowIds]="[12]"'],
+    ['InvalidBarSelection', '[rangeSelection]="\'yes\'"'],
     ['InvalidSeriesConsumer', '[series]="badSeries"'],
     ['InvalidLine', '[series]="series"'],
     ['InvalidLine', '[smooth]="\'yes\'"'],
