@@ -145,3 +145,8 @@ Provide a meaningful `title` and `description`. Keep the default `showDataTable:
 `theme` is explicit; the library does not infer an application theme. CSS tokens are `--nec-background`, `--nec-text`, `--nec-muted`, `--nec-border`, `--nec-focus`, and numbered `--nec-series-N` colors. Explicit Cartesian series colors take precedence. After changing CSS or a loaded host font, increment `themeRevision` to reread them. Fonts are inherited; Inter is a playground choice, not a package dependency. Reduced-motion preference overrides decorative animation even when `animation` is true.
 
 See [compatibility and limits](COMPATIBILITY.md) for exact versions, measured data envelopes, browser coverage, exclusions and pending release work.
+
+
+## Link an overview and detail
+
+Use a stable row ID from `pointSelect` as application state and derive another chart’s rows with `computed`. The [linked-chart guide](LINKED_CHARTS.md) provides a complete standalone bar/pie example with keyboard table actions, a native month selector, an all-month reset and stable-ID reconciliation after data changes. The library components and their independent legend states remain unchanged.

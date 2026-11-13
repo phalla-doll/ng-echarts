@@ -2,7 +2,7 @@
 
 The user-requested [four-family visual audit and refinement](experiments/VISUAL_AUDIT.md) is recorded with official Apache ECharts/EvilCharts comparisons, mobile readability fixes, reproducible captures and three-engine checks. This demo presentation work remains separate from NG16 artifact/release acceptance.
 
-Updated 13 November 2026. NG01–NG05 are complete for the bar feasibility scope. NG06 awaits human listening review; NG07 implementation and NG08 measurement/package evidence pass, with their NG06/G2 dependencies still open. NG09/NG10 implementation is complete for the bar-proven baseline; NG11 line, NG12 area, and NG13 pie/donut implementations are complete; NG14 automated cross-family evidence is reconciled; NG15 documentation and fresh-consumer verification are complete; NG16 automated local-candidate checks pass; NG17 first-increment implementation is recorded below; complete human release acceptance and NG18–NG22 remain pending. Human release evidence remains separate. The user deferred R06 on 12 November 2026 so it no longer blocks development; it remains required before release acceptance. Priority P0 blocks the next milestone, P1 belongs to MVP, and P2 follows MVP. IDs are stable so experiment reports and changes can reference them.
+Updated 13 November 2026. NG01–NG05 are complete for the bar feasibility scope. NG06 awaits human listening review; NG07 implementation and NG08 measurement/package evidence pass, with their NG06/G2 dependencies still open. NG09/NG10 implementation is complete for the bar-proven baseline; NG11 line, NG12 area, and NG13 pie/donut implementations are complete; NG14 automated cross-family evidence is reconciled; NG15 documentation and fresh-consumer verification are complete; NG16 automated local-candidate checks pass; NG17 first-increment implementation is recorded below; NG20 first linked-chart integration is recorded below; range brushing, complete human release acceptance and NG18/NG19/NG21/NG22 remain pending. Human release evidence remains separate. The user deferred R06 on 12 November 2026 so it no longer blocks development; it remains required before release acceptance. Priority P0 blocks the next milestone, P1 belongs to MVP, and P2 follows MVP. IDs are stable so experiment reports and changes can reference them.
 
 NG01 evidence: [R01 toolchain report](experiments/R01_TOOLCHAIN.md). The [implementation plan](IMPLEMENTATION_PLAN.md) sequences the remaining work. G1 passes for bar; G2 awaits R06, and G3/G4 remain pending.
 
@@ -51,7 +51,7 @@ NG09 first increment: [shared numeric formatting](experiments/NG09_SHARED_FORMAT
 | NG17 | P2 | Composed Cartesian charts: first vertical bar/line increment implemented; dual-axis/stacked/area extensions deferred | [API and evidence](experiments/NG17_COMPOSED_CHART.md); user-authorized experimental continuation |
 | NG18 | P2 | Radar and radial charts | Separate geometry and accessibility requirements defined |
 | NG19 | P2 | Sankey and calendar heatmaps | Family-specific data models and fixtures agreed |
-| NG20 | P2 | Range brush and linked charts | Selection contract and keyboard interaction designed |
+| NG20 | P2 | First application-owned overview/detail link implemented; range brush, zoom/hover and two-way selection deferred | [Selection contract and evidence](experiments/NG20_LINKED_CHARTS.md); user prioritized linked charts after NG17 |
 | NG21 | P2 | Patterns, glow, advanced animations, and tooltip templates | Per-variant visual and performance targets agreed |
 | NG22 | P2 | Publication workflow and public package identity | Namespace availability checked and release destination chosen |
 
@@ -67,3 +67,6 @@ Current: [NG14 automated acceptance](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md
 
 
 NG17 adds the [shared-axis composed API](COMPOSED_CHART_API.md), a matching visits/trend gallery and a private rc.1 artifact. The [implementation report](experiments/NG17_COMPOSED_CHART.md) records strict declarations, actual plot/table actions, stable kind changes, lifecycle/SSR, bundle measurements and remaining scope. This user-authorized post-MVP increment does not close deferred human interpretation or release gates.
+
+
+The user selected NG20 linked charts as the next increment after NG17. The [linked-chart guide](LINKED_CHARTS.md) and [report](experiments/NG20_LINKED_CHARTS.md) document plot/table/select actions, stable IDs, reset/removal semantics, independent legends, SSR and installed consumers. The existing `pointSelect` event and Angular signals supply the integration; no library API or rc.1 artifact change is required. Broader NG20 range/zoom/hover/two-way behavior remains open.

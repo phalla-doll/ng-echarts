@@ -22,3 +22,6 @@ NG16 adds exact-candidate mode to all three consumer scripts. `CHART_LIBRARY_TAR
 
 
 NG17 adds focused/root composed class identity, inferred row events, numeric keys, a required bar/line discriminator and kind-specific option negatives. The installed strict compiler checks the actual composed API fence and both generated gallery themes. Client/SSR consumers render the composed gallery, activate raw zero table values, update inputs, preserve hidden IDs through kind changes, hydrate a deferred instance and clean up navigation in all three engines. Release records are now version-specific so rc.1 evidence retains the earlier NG16 rc.0 snapshot.
+
+
+NG20 compiles the exact standalone linking source displayed in the demo and requires it to match the guide fence byte-for-byte. Installed client/SSR consumers additionally select an overview value with the keyboard, observe updated device share, clear selection, navigate to the validation fixture, update the selected month, retain a zero device value, clear a removed ID and navigate away. These checks use the preserved rc.1 tarball; no new library API is required.

@@ -29,6 +29,8 @@ Composed charts, radar, radial charts, Sankey, calendar heatmaps, range brushing
 
 The user authorized NG17 development after the verified private candidate. Its first increment is vertical, unstacked bars plus straight/smooth lines on shared category/linear axes, with comparable units, stable series IDs, optional line points and the existing shared controls/events/states. The [composed API](COMPOSED_CHART_API.md) owns the exact contract; [NG17 evidence](experiments/NG17_COMPOSED_CHART.md) records implementation checks. Dual axes, horizontal/stacked/area composition and advanced tooltips remain subsequent work. The original four-family MVP and deferred human gates retain their scope.
 
+The user subsequently prioritized NG20 linked charts. The first [application-owned overview/detail integration](LINKED_CHARTS.md) selects one month from a visits overview and updates device share, with plot clicks, equivalent keyboard table actions and a native selector/reset. Stable IDs retain current selection through immutable updates and reordering; removing a selected month clears the filter. Legends remain local to each chart. Range brushing, cross-chart hover/zoom, persistent plot highlighting and two-way/multiple selection require separate contracts and remain later work.
+
 ### Excluded from the MVP
 
 - React embedding, Recharts integration, and automatic conversion of JSX.

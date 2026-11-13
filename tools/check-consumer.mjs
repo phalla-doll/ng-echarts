@@ -85,6 +85,24 @@ try {
       await writeFile(join(consumer, file), composedExampleSource(block, dark));
       config.files.push(file);
     }
+  const linkedBuild = await build({
+    entryPoints: [join(root, 'projects/playground/src/app/linked-example-source.ts')],
+    bundle: true,
+    write: false,
+    platform: 'node',
+    format: 'esm',
+  });
+  const { linkedExampleSource } = await import(
+    `data:text/javascript;base64,${Buffer.from(linkedBuild.outputFiles[0].contents).toString('base64')}`
+  );
+  const linkedGuide = await readFile(join(root, 'docs/LINKED_CHARTS.md'), 'utf8');
+  assert.equal(
+    linkedGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1],
+    linkedExampleSource,
+    'Linked guide and displayed example must stay identical',
+  );
+  await writeFile(join(consumer, 'linked-example.ts'), linkedExampleSource);
+  config.files.push('linked-example.ts');
   const documentation = await build({
     entryPoints: [join(root, 'projects/playground/src/app/documentation-content.ts')],
     bundle: true,

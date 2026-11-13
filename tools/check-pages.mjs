@@ -52,6 +52,8 @@ try {
     'area/',
     'pie/',
     'composed/',
+    'linked/',
+    'linked-validation/',
     'composed-validation/',
     'composed-benchmark/',
     'installation/',
@@ -97,6 +99,13 @@ try {
         await expect(page.locator('canvas')).toHaveCount(count);
         await expect(page.locator('.site-shell')).toHaveClass(/gallery-layout/);
       }
+      await page.goto(new URL('linked/', site).href);
+      await expect(page.locator('app-linked-visits canvas')).toHaveCount(2);
+      await page.getByLabel('Show device share for').selectOption('feb');
+      await expect(page.locator('.detail h2')).toHaveText('Device share · February');
+      await page.reload();
+      await expect(page.getByLabel('Show device share for')).toHaveValue('');
+      await expect(page.locator('app-linked-visits canvas')).toHaveCount(2);
       await page.goto(new URL('line/', site).href);
       await expect(page.locator('canvas')).toHaveCount(4);
       await page.locator('app-bar-block a').first().click();

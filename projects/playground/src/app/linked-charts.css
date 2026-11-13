@@ -1,0 +1,79 @@
+.linking-guide {
+  margin-top: 40px;
+}
+h2 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  margin: 0 0 12px;
+}
+.linking-guide p {
+  color: var(--site-muted);
+  font-size: 13px;
+  line-height: 22px;
+}
+details {
+  margin: 24px 0;
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-panel-radius);
+  min-width: 0;
+}
+summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 12px;
+}
+pre {
+  margin: 0;
+  padding: 16px;
+  max-height: 480px;
+  overflow: auto;
+  font-size: 12px;
+  line-height: 20px;
+  border-top: 1px solid var(--site-border);
+}
+a {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  color: var(--site-text);
+  font-size: 12px;
+  line-height: 20px;
+}
+a app-site-icon {
+  width: 12px;
+  height: 12px;
+}
+summary:focus-visible,
+pre:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--site-text);
+  outline-offset: 3px;
+}
+
+.code-tools {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 12px;
+  border-top: 1px solid var(--site-border);
+}
+.code-tools button {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: var(--site-text);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px;
+}
+.code-tools app-site-icon {
+  width: 12px;
+  height: 12px;
+}
+.code-tools button:focus-visible {
+  outline: 2px solid var(--site-text);
+  outline-offset: 3px;
+}

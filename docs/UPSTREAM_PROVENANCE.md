@@ -114,3 +114,8 @@ The pinned `ex-echarts-pie-chart.tsx` and `ex-donut-echarts-pie-chart.tsx` examp
 ## NG17 composed extension
 
 `composed/` is original Angular code built on the existing shared Cartesian implementation; no new upstream React component/helper was copied. `composed-blocks.ts` reuses the attributed Desktop monthly fixture and computes a local trailing three-observation mean, with early months using the available prefix. Synthetic API/validation/benchmark data remains local. The composed SVG glyph is original project geometry and is inventoried in [icon provenance](experiments/data/heroicons-provenance.json). Existing adapted palette/fixture attribution and all third-party notice bytes remain intact. The [NG17 report](experiments/NG17_COMPOSED_CHART.md) records this extension separately from upstream parity claims.
+
+
+## NG20 linked-chart integration
+
+The linked page reuses `fixtures/evilcharts-bar-fixture.ts` and its existing attribution for the twelve Desktop/Mobile months. It derives per-device totals locally without copying another upstream fixture or React helper. Selection/signals, native month controls, the nullable aggregation, validation rows and standalone three-month guide are original application code. The outline link glyph is original project SVG geometry, inventoried in [icon provenance](experiments/data/heroicons-provenance.json). No library implementation, original/dependency notice bytes or registry artifacts change. [NG20](experiments/NG20_LINKED_CHARTS.md) records this integration independently of upstream pixel/API parity.

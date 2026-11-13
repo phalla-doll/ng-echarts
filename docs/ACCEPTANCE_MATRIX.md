@@ -79,3 +79,8 @@ The [NG16 local candidate](experiments/NG16_LOCAL_RELEASE.md) adds final-artifac
 ## NG17 extension evidence
 
 The first [composed increment](experiments/NG17_COMPOSED_CHART.md) applies the existing F01–F10 automated behavior to a shared-axis bar/line chart: typed numeric descriptors, immutable updates and kind changes, stable IDs/visibility/focus, signed/zero/missing observations, native controls/events, states, responsive themes, motion, lifecycle and SSR/deferred hydration. The [API](COMPOSED_CHART_API.md) defines the bounded extension; dedicated tests and exact rc.1 consumers extend the four-family baseline. Human interpretation remains deferred and NG14/G2/G3/G4 remain pending.
+
+
+## NG20 linked integration evidence
+
+The [NG20 report](experiments/NG20_LINKED_CHARTS.md) extends the application evidence for immutable updates/identity, raw point events, equivalent keyboard actions, accessible context/status, theme/resizing, SSR and teardown. A source point or month selector updates current companion data without replacing either chart instance. Selection follows IDs through reordering and clears on removal; missing/zero observations retain their meaning. [The displayed standalone example](LINKED_CHARTS.md) compiles against the installed rc.1 artifact. This bounded integration does not complete range brushing or deferred human F09/R06/G2/G3/G4 evidence.

@@ -11,9 +11,9 @@ npm run build:pages
 npm run check:pages
 ```
 
-The `production,pages` build prerenders all 27 routes with base `/ng-echarts/`, retaining hydration metadata and lazy chart modules. Each route has a physical `index.html`, so direct links and refreshes work on static hosting. Router links/fragments preserve the repository prefix. The preparation step prefixes external font URLs in styles, inlined critical CSS and generated font preloads, and adds `.nojekyll`. The ordinary SSR build and measurement font paths remain available.
+The `production,pages` build prerenders all 29 routes with base `/ng-echarts/`, retaining hydration metadata and lazy chart modules. Each route has a physical `index.html`, so direct links and refreshes work on static hosting. Router links/fragments preserve the repository prefix. The preparation step prefixes external font URLs in styles, inlined critical CSS and generated font preloads, and adds `.nojekyll`. The ordinary SSR build and measurement font paths remain available.
 
-The checker serves the artifact under the real project prefix with no SPA fallback. Chromium, Firefox and WebKit verify direct routes, refreshes, the four MVP galleries and composed gallery, lazy assets/fonts, same-page fragments, skip-link focus, theme changes and mobile navigation.
+The checker serves the artifact under the real project prefix with no SPA fallback. Chromium, Firefox and WebKit verify direct routes, refreshes, the four MVP galleries, composed gallery and linked-chart flow, lazy assets/fonts, same-page fragments, skip-link focus, theme changes and mobile navigation.
 
 ## Publish an update
 

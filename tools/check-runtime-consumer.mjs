@@ -195,6 +195,44 @@ async function exercise(engine, url, ssr) {
     }
     await page.getByRole('link', { name: 'Navigate away', exact: true }).click();
     await expect(page.locator('canvas')).toHaveCount(0);
+    await navigation.getByRole('link', { name: 'Linked Charts', exact: true }).click();
+    await expect(page.locator('app-linked-visits canvas')).toHaveCount(2);
+    await page
+      .locator('.overview')
+      .getByRole('button', { name: 'Show data table', exact: true })
+      .click();
+    const linkedPoint = page
+      .locator('.overview')
+      .getByRole('button', { name: 'Select Mobile for February: 491', exact: true });
+    await linkedPoint.focus();
+    await page.keyboard.press('Enter');
+    await expect(linkedPoint).toBeFocused();
+    await expect(page.locator('.detail h2')).toHaveText('Device share · February');
+    await expect(page.locator('.linked-status')).toContainText('February: 1,367 visits');
+    await page.getByRole('button', { name: 'Show all months', exact: true }).click();
+    await expect(page.getByLabel('Show device share for')).toHaveValue('');
+    await navigation.getByRole('link', { name: 'Linked validation', exact: true }).click();
+    await expect(
+      page.getByRole('heading', { name: 'Linked selection validation', exact: true }),
+    ).toBeVisible();
+    await expect(page.locator('app-linked-visits canvas')).toHaveCount(2);
+    await page.getByLabel('Show device share for').selectOption('feb');
+    await expect(page.locator('.linked-status')).toContainText('February: 200 visits');
+    await page.getByRole('button', { name: 'Update linked values', exact: true }).click();
+    await expect(page.locator('.linked-status')).toContainText('February: 210 visits');
+    await page
+      .locator('.detail')
+      .getByRole('button', { name: 'Show data table', exact: true })
+      .click();
+    await expect(
+      page
+        .locator('.detail')
+        .getByRole('button', { name: 'Select Visits for Mobile: 0', exact: true }),
+    ).toBeVisible();
+    await page.getByRole('button', { name: 'Remove February', exact: true }).click();
+    await expect(page.getByLabel('Show device share for')).toHaveValue('');
+    await navigation.getByRole('link', { name: 'Navigate away', exact: true }).click();
+    await expect(page.locator('canvas')).toHaveCount(0);
     assert.deepEqual(errors, []);
     return {
       engine: browser.browserType().name(),

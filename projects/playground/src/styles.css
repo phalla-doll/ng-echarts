@@ -215,3 +215,23 @@ a:focus-visible {
     'Segoe UI',
     sans-serif;
 }
+
+/* Linked charts retain native titles and actions inside the established gallery shell. */
+.gallery app-linked-visits .chart-frame {
+  border-radius: 6px;
+  padding: 16px;
+  background: var(--site-bg);
+}
+.gallery app-linked-visits .chart-frame header h2 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+}
+.gallery app-linked-visits .chart-frame header p {
+  font-size: 12px;
+  line-height: 20px;
+}
+.gallery app-linked-visits .chart-frame button {
+  font-size: 12px;
+  line-height: 20px;
+}

@@ -34,6 +34,7 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | [UI spacing review](docs/experiments/UI_SPACING_REVIEW.md) | Shared gutters, aligned headings, consistent panels/controls, breakpoint checks, and before/after captures |
 | [Code presentation](docs/experiments/CODE_PRESENTATION_REVIEW.md) | Google Sans Code, theme-aware syntax colors, and corrected copy actions |
 | [Area-block reference audit](docs/experiments/AREA_BLOCKS_VISUAL_AUDIT.md) | User's visual target, current layout gaps, and gallery correction brief |
+| [Linked charts guide](docs/LINKED_CHARTS.md) | Application-owned month selection, keyboard actions, resets, updates and a complete compiled example |
 | [Composed API reference](docs/COMPOSED_CHART_API.md) | Shared-axis vertical bars and lines, typed descriptors and stable controls |
 | [Pie/donut API reference](docs/PIE_CHART_API.md) | Single-measure categories, responsive radii, labels, visibility, and raw events |
 | [NG13 pie/donut implementation](docs/experiments/NG13_PIE_CHART.md) | Pie/donut source comparisons, package isolation, browser behavior, and performance |
@@ -135,7 +136,7 @@ Focused families keep the 200,000 gzip / 175,000 Brotli byte cap; `/core` keeps 
 
 Build a standalone Angular bar chart with typed data, light and dark themes, responsive resizing, tooltip, selectable legend, reduced motion, and safe destruction. Prove that it works in both a client application and an application using server rendering and hydration. Use its measured results to decide the MVP architecture.
 
-NG09/NG10 implementation is complete for the current foundation/bar baseline; NG11 line charts are implemented; NG12 area charts are implemented; NG13 pie/donut is implemented; [NG14 automated cross-family acceptance](docs/experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md) is recorded, with human interpretation still pending. [NG15 installation/integration documentation](docs/experiments/NG15_DOCUMENTATION.md) and fresh-consumer verification are complete. NG16 local artifact verification is complete; [NG17 composed charts](docs/experiments/NG17_COMPOSED_CHART.md) add the first post-MVP extension. Human interpretation and release gates remain open.
+NG09/NG10 implementation is complete for the current foundation/bar baseline; NG11 line charts are implemented; NG12 area charts are implemented; NG13 pie/donut is implemented; [NG14 automated cross-family acceptance](docs/experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md) is recorded, with human interpretation still pending. [NG15 installation/integration documentation](docs/experiments/NG15_DOCUMENTATION.md) and fresh-consumer verification are complete. NG16 local artifact verification is complete; [NG17 composed charts](docs/experiments/NG17_COMPOSED_CHART.md) add the first post-MVP extension. [NG20 linked charts](docs/experiments/NG20_LINKED_CHARTS.md) add an application-owned overview/detail example using the existing events; range brushing remains deferred. Human interpretation and release gates remain open.
 
 The `/pie` page presents browser shares, donuts, and outside labels in the same gallery design. `/pie-validation` exercises single-measure category behavior and deferred hydration.
 
@@ -146,6 +147,8 @@ The `/line` page presents straight/smooth lines, optional points, and missing-va
 The home page presents the existing grouped, stacked, gradient, and horizontal bars in a neutral gallery with code/preview controls, calculated totals, copyable Angular examples, and light/dark themes. The `/playground` route retains the pinned Desktop/Mobile fixture and grouped settings. It retains layout, stack, gradient, state, update, and remount controls. `@ng-echarts/chart-library` is a private, experimental package identity. ECharts is a peer dependency; no package has been published. Adapted fixture data and colors are tracked in the provenance ledger with the upstream MIT notice.
 
 The `/composed` gallery combines monthly visits and a trailing three-month mean on one visits scale, with the same preview/code controls and themes. `/composed-validation` provides state, kind-change, keyboard and deferred-hydration checks. See the [composed API](docs/COMPOSED_CHART_API.md) for the typed bar/line contract and current limits.
+
+The `/linked` page connects a monthly visits overview to device share through stable month IDs. Plot clicks, keyboard table actions and a native selector update the companion chart; Show all months clears the filter. `/linked-validation` covers immutable updates, reordering, removal and missing/empty recovery. The [guide](docs/LINKED_CHARTS.md) supplies the displayed, strictly compiled standalone example. This application integration uses the existing rc.1 library without changing its API or artifact.
 
 ## Library license
 

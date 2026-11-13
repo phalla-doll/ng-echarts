@@ -129,6 +129,16 @@
       "origin": "Original project SVG geometry, styled to match the existing outline icons.",
       "paths": ["M3 3.75v16.5h18", "M6 18v-5h3v5m3 0v-8h3v8", "m5 10 5-5 5 3 6-5"],
       "pathsSha256": "0fdebf638824e35b089cd7d32d9b4f09ba68cf79b7cabab3e746f45fefda2ca4"
+    },
+    {
+      "alias": "link",
+      "origin": "Original project SVG geometry, styled to match the existing outline icons.",
+      "paths": [
+        "m9 15 6-6",
+        "M8 9 6 11a4.24 4.24 0 0 0 6 6l2-2",
+        "m10 9 2-2a4.24 4.24 0 0 1 6 6l-2 2"
+      ],
+      "pathsSha256": "4604dbcd9cbe9b3b78566b11e0f495539e3a4ffe45fc6d9f3f460ad95561cd85"
     }
   ]
 }

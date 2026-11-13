@@ -88,6 +88,13 @@
         ><app-site-icon name="composed" />Composed Blocks</a
       >
       <a
+        routerLink="/linked"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="link" />Linked Charts</a
+      >
+      <a
         routerLink="/playground"
         routerLinkActive="active"
         ariaCurrentWhenActive="page"
@@ -150,6 +157,13 @@
         ariaCurrentWhenActive="page"
         (click)="closeMenu()"
         ><app-site-icon name="layers" />Composed validation</a
+      >
+      <a
+        routerLink="/linked-validation"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="layers" />Linked validation</a
       >
       <a
         routerLink="/retention"

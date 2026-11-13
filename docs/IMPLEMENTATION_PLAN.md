@@ -107,3 +107,8 @@ NG16 prepares `0.1.0-rc.0` with user-selected MIT licensing for original library
 ## NG17 first composed increment
 
 The user authorized continuation after NG16. Start with vertical unstacked bars and lines on shared category/value axes, comparable units and a discriminated series contract. Reuse the existing Cartesian state/lifecycle/control policies; retain separate focused/lazy registration and unchanged bundle budgets. The [composed API](COMPOSED_CHART_API.md) and [NG17 report](experiments/NG17_COMPOSED_CHART.md) record this increment. Later dual-axis, stacked, horizontal and area composition require their own design/checklist. rc.1 distinguishes this new API from the preserved rc.0 artifact. Human F09/R06/G2/G3/G4 remain pending.
+
+
+## NG20 first linked-chart integration
+
+After NG17 the user prioritized linked charts. The first scope uses existing raw point events and application-owned signals to link a monthly overview to device share. It defines plot/table/select equivalence, explicit all-month reset, stable-ID reconciliation, local legends and focus preservation. The [guide](LINKED_CHARTS.md) and [report](experiments/NG20_LINKED_CHARTS.md) record the implementation and targeted verification. Range brushing and broader two-way/hover/zoom designs remain open. This increment reuses the exact rc.1 library without changing its public surface or dependency graph; human gates remain pending.

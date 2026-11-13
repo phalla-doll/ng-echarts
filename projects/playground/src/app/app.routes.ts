@@ -1,6 +1,11 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+  { path: 'linked', loadComponent: () => import('./linked-charts').then((m) => m.LinkedCharts) },
+  {
+    path: 'linked-validation',
+    loadComponent: () => import('./linked-validation').then((m) => m.LinkedValidation),
+  },
   {
     path: 'composed-benchmark',
     data: { family: 'composed' },

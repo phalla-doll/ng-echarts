@@ -1,0 +1,69 @@
+{
+  "recordedAt": "2026-11-13T06:42:13.855439+00:00",
+  "sourceBaseCommit": "db4378c6ea58c4fc0fe3ad75a23167cbf1ad1f3a",
+  "includesWorkingTree": true,
+  "scope": "NG20 application-owned one-way linked month context; no library/API/artifact change",
+  "strictConsumer": {
+    "guideMatchesDisplayedSource": true,
+    "skipLibCheck": false,
+    "strictTemplates": true,
+    "passed": true
+  },
+  "runtimeConsumer": {
+    "recordedAt": "2026-11-13T06:40:13.569Z",
+    "node": "v24.22.2",
+    "package": "@ng-echarts/chart-library",
+    "version": "0.1.0-rc.1",
+    "artifact": {
+      "sha256": "2009034295ffaa07955e0ec2a6370689b2d8922e6e06a527dc97c8beeeaaaacb",
+      "exactCandidate": true
+    },
+    "skipLibCheck": false,
+    "workspaceAliases": false,
+    "installedOutsideWorkspace": true,
+    "entryPoints": [".", "./core", "./bar", "./line", "./area", "./pie", "./composed"],
+    "compatibilityIdentity": true,
+    "privateImportsBlocked": true,
+    "reactRuntime": false,
+    "results": [
+      {
+        "engine": "chromium",
+        "version": "158.0.8127.18",
+        "mode": "client",
+        "passed": true
+      },
+      {
+        "engine": "chromium",
+        "version": "158.0.8127.18",
+        "mode": "ssr-hydration",
+        "passed": true
+      },
+      {
+        "engine": "firefox",
+        "version": "159.0",
+        "mode": "client",
+        "passed": true
+      },
+      {
+        "engine": "firefox",
+        "version": "159.0",
+        "mode": "ssr-hydration",
+        "passed": true
+      },
+      {
+        "engine": "webkit",
+        "version": "27.2",
+        "mode": "client",
+        "passed": true
+      },
+      {
+        "engine": "webkit",
+        "version": "27.2",
+        "mode": "ssr-hydration",
+        "passed": true
+      }
+    ]
+  },
+  "humanInterpretation": "pending",
+  "rangeBrush": "deferred"
+}

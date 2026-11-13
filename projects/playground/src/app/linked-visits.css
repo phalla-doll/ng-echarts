@@ -1,0 +1,71 @@
+:host {
+  display: block;
+  min-width: 0;
+  --nec-background: var(--site-bg);
+  --nec-text: var(--site-text);
+  --nec-muted: var(--site-muted);
+  --nec-border: var(--site-border);
+  --nec-focus: var(--site-text);
+}
+.linked-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+label,
+select,
+button {
+  font: inherit;
+  font-size: 12px;
+  line-height: 20px;
+}
+label {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--site-muted);
+}
+select,
+button {
+  min-height: 36px;
+  padding: 7px 10px;
+  border: 1px solid var(--site-control-border);
+  border-radius: 6px;
+  color: var(--site-text);
+  background: var(--site-surface);
+}
+select {
+  max-width: 100%;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+select:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--site-text);
+  outline-offset: 3px;
+}
+.linked-status {
+  min-height: 40px;
+  margin: 16px 0 24px;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--site-muted);
+}
+.linked-pair {
+  display: grid;
+  gap: 24px;
+}
+.linked-card {
+  min-width: 0;
+  padding: 4px;
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-panel-radius);
+  background: var(--site-surface);
+}

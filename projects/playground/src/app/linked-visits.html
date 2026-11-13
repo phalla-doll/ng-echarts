@@ -1,0 +1,45 @@
+<div class="linked-controls">
+  <label
+    >Show device share for
+    <select #month [value]="selectedId() ?? ''" (change)="selectMonth(month.value)">
+      <option value="">All months</option>
+      @for (row of data(); track row.id) {
+        <option [value]="row.id">{{ row.month }}</option>
+      }
+    </select></label
+  >
+  <button type="button" (click)="selectMonth('')" [disabled]="selectedId() === null">
+    Show all months
+  </button>
+</div>
+<p class="linked-status" role="status" aria-live="polite" aria-atomic="true">{{ status() }}</p>
+<div class="linked-pair">
+  <section class="linked-card overview" aria-label="Monthly visits overview">
+    <nec-bar-chart
+      title="Monthly visits"
+      description="Select a bar or a table value to show device share for that month. The month selector provides the same action."
+      [data]="data()"
+      rowIdKey="id"
+      categoryKey="month"
+      [series]="series"
+      [categoryTickFormatter]="monthTick"
+      [theme]="theme()"
+      [height]="280"
+      (pointSelect)="selectPoint($event)"
+    />
+  </section>
+  <section class="linked-card detail" aria-label="Linked device share">
+    <nec-pie-chart
+      [title]="detailTitle()"
+      [description]="detailDescription()"
+      [data]="share()"
+      rowIdKey="id"
+      categoryKey="device"
+      [measure]="measure"
+      [theme]="theme()"
+      [innerRadius]="0.6"
+      [height]="240"
+      (pointSelect)="selectDevice($event)"
+    />
+  </section>
+</div>
