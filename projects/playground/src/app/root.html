@@ -88,8 +88,8 @@
       >
       <a
         routerLink="/comparison"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
+        [class.active]="comparisonMode()"
+        [attr.aria-current]="comparisonMode() ? 'page' : null"
         (click)="closeMenu()"
         ><app-site-icon name="compare" />Visual comparison</a
       >

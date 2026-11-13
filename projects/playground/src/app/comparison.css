@@ -1,7 +1,62 @@
-/* Neutral tokens adapted from EvilCharts globals.css, revision
+:host {
+  display: block;
+  min-width: 0;
+}
+.comparison-page > header {
+  margin-bottom: 32px;
+}
+h1 {
+  margin: 0;
+  font-size: var(--site-title-size);
+  font-weight: 600;
+  line-height: var(--site-title-line);
+  letter-spacing: -1px;
+}
+header > p {
+  max-width: 70ch;
+  margin: 8px 0 24px;
+  color: var(--site-muted);
+  font-size: 14px;
+  line-height: 24px;
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.display-options {
+  margin-top: 12px;
+}
+.utility-page .controls > button {
+  min-height: 32px;
+  padding: 6px 10px;
+  border: 1px solid var(--site-border);
+  border-radius: 6px;
+  color: var(--site-muted);
+  background: var(--site-surface);
+  font: inherit;
+  font-size: 12px;
+  line-height: 20px;
+}
+.utility-page .controls > button:hover {
+  color: var(--site-text);
+  border-color: var(--site-control-border);
+}
+.utility-page .controls > button[aria-pressed='true'] {
+  color: var(--site-text);
+  border-color: var(--site-control-border);
+  background: var(--site-subtle);
+}
+.comparison-host {
+  min-width: 0;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+/* Neutral reference tokens adapted from EvilCharts globals.css, revision
  * 4c2dd7c9bae780703244265c9a4b509d40c055ad (2026 Gurbinder, MIT).
- * See docs/UPSTREAM_PROVENANCE.md and the preserved third-party notice. */
-main {
+ * See docs/UPSTREAM_PROVENANCE.md and the preserved third-party notice.
+ * Keep the historical capture surface isolated behind ?reference=1. */
+.reference-mode {
   --nec-background: oklch(1 0 0);
   --nec-text: oklch(0.145 0 0);
   --nec-muted: oklch(0.4 0 0);
@@ -11,35 +66,31 @@ main {
   color: var(--nec-text);
   background: var(--nec-background);
 }
-main.dark {
+.reference-mode.dark {
   --nec-background: oklch(14% 0 270);
   --nec-text: oklch(0.985 0 0);
   --nec-muted: oklch(0.708 0 0);
   --nec-border: oklch(100% 0 271.152 / 0.075);
   color-scheme: dark;
 }
-header {
-  margin-bottom: 2rem;
+.reference-mode header > p {
+  color: var(--nec-muted);
 }
-.controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-button {
+.reference-mode button {
   border: 1px solid var(--nec-border);
-  padding: 0.75rem;
-  border-radius: 0.375rem;
+  padding: 12px;
+  border-radius: 6px;
   color: inherit;
   background: var(--nec-background);
   font: inherit;
   cursor: pointer;
 }
-button:focus-visible {
+.reference-mode button:focus-visible {
   outline: 3px solid #648dff;
   outline-offset: 3px;
 }
-.comparison-host {
-  max-width: 1440px;
-  margin: 0 auto;
+@media (max-width: 600px) {
+  .utility-page .controls button {
+    min-height: 40px;
+  }
 }

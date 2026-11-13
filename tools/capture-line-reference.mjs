@@ -77,7 +77,7 @@ try {
               `${servers[1].url}/?width=${width}&theme=${theme}&variant=${variant.reference}`,
             );
           else {
-            await page.goto(`${servers[0].url}/line-comparison`);
+            await page.goto(`${servers[0].url}/line-comparison?reference=1`);
             await page.getByRole('button', { name: variant.button, exact: true }).click();
             if (theme === 'dark')
               await page

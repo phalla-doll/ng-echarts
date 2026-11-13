@@ -202,7 +202,7 @@ a:focus-visible {
 }
 
 /* Preserve historical measurement typography inside the plots only. */
-.comparison-host,
+.reference-mode .comparison-host,
 [data-benchmark-host] {
   font-size: 16px;
   line-height: normal;
@@ -212,38 +212,4 @@ a:focus-visible {
     BlinkMacSystemFont,
     'Segoe UI',
     sans-serif;
-}
-
-/* Documentation typography for reference controls; the comparison plot stays isolated. */
-.focus-layout app-comparison main > header {
-  /* Compensate for the fixture's 20 px inset without moving its plot host. */
-  margin-block: calc(var(--site-page-top) - 20px) 32px;
-  margin-inline: max(-20px, calc((100% - var(--site-page-width)) / 2));
-  padding: 0 var(--site-page-gutter);
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 12px;
-  line-height: 20px;
-}
-.focus-layout app-comparison main > header h1 {
-  margin: 0;
-  font-size: var(--site-title-size);
-  font-weight: 600;
-  line-height: var(--site-title-line);
-  letter-spacing: -1px;
-}
-.focus-layout app-comparison main > header p {
-  margin: 8px 0;
-  color: var(--nec-muted);
-  font-size: 14px;
-  line-height: 24px;
-}
-.focus-layout app-comparison main > header .controls {
-  margin-top: 24px;
-}
-.focus-layout app-comparison main > header .controls button {
-  min-height: 32px;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 11px;
-  line-height: 18px;
 }

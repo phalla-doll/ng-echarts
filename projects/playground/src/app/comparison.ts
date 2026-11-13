@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ComparisonAppearance } from './comparison-appearance';
 import { BarChart, type CategoryTickFormatter } from '@ng-echarts/chart-library/bar';
 import { deviceRows, deviceSeries } from './fixtures/evilcharts-bar-fixture';
 import { horizontalRows, horizontalSeries } from './fixtures/evilcharts-horizontal-fixture';
@@ -7,11 +8,14 @@ import { horizontalRows, horizontalSeries } from './fixtures/evilcharts-horizont
   selector: 'app-comparison',
   imports: [BarChart],
   templateUrl: './comparison.html',
+  providers: [ComparisonAppearance],
   styleUrl: './comparison.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Comparison {
-  protected readonly theme = signal<'light' | 'dark'>('light');
+  private readonly appearance = inject(ComparisonAppearance);
+  protected readonly referenceMode = this.appearance.referenceMode;
+  protected readonly theme = this.appearance.theme;
   protected readonly abbreviated = signal(true);
   protected readonly invalidFormatter = signal(false);
   protected readonly variant = signal<'grouped' | 'stacked' | 'horizontal' | 'gradient'>('grouped');
@@ -42,7 +46,7 @@ export class Comparison {
   );
 
   protected toggleTheme(): void {
-    this.theme.update((theme) => (theme === 'light' ? 'dark' : 'light'));
+    this.appearance.toggle();
   }
   protected showVariant(variant: 'grouped' | 'stacked' | 'horizontal' | 'gradient'): void {
     this.variant.set(variant);

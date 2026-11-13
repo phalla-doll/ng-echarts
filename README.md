@@ -24,6 +24,7 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | [Implementation plan](docs/IMPLEMENTATION_PLAN.md) | Delivery increments, scaffold boundaries, and developer workflow |
 | [Upstream provenance](docs/UPSTREAM_PROVENANCE.md) | Pinned fixtures, reuse decisions, and adapted-file notices |
 | [Bar prototype evidence](docs/experiments/BAR_PROTOTYPE.md) | Implemented behavior, test results, captures, and open research |
+| [Comparison page alignment](docs/experiments/COMPARISON_PAGE_ALIGNMENT.md) | Shared sidebar/theme/typography for comparisons, explicit measurement mode, and before/after evidence |
 | [Four-family visual audit](docs/experiments/VISUAL_AUDIT.md) | Official ECharts and EvilCharts review, mobile refinements, both-theme captures and browser evidence |
 | [Visual comparison](docs/experiments/R03_VISUAL_REVIEW.md) | Pinned upstream comparisons at three host widths and remaining alignment work |
 | [Playground layout review](docs/experiments/PLAYGROUND_LAYOUT_REVIEW.md) | Responsive site design, before/after captures, navigation, and interface checks |

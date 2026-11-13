@@ -92,6 +92,8 @@ The same neutral style now applies to setup documentation, the component catalog
 
 The [four-family visual audit](experiments/VISUAL_AUDIT.md) records the current gallery review against live Apache ECharts and EvilCharts references, with mobile axis/code/control refinements and both-theme evidence. Dated live observations complement the pinned-fixture comparisons below.
 
+Comparison pages must share the ordinary site navigation, gutters, typography and theme. Keep historical measurement conditions in explicit `?reference=1` views, as recorded in the [comparison alignment](experiments/COMPARISON_PAGE_ALIGNMENT.md).
+
 Capture reference images for the agreed upstream examples at the pinned revision. Match typography, spacing, axis treatments, color use, fills, tooltip hierarchy, and legend behavior. Compare the same fixture data at 320, 768, and 1440 px host widths in both themes.
 
 Require a reviewed visual baseline for each MVP chart. Canvas and SVG rasterization can differ, so evaluate measured differences and visible defects rather than promising pixel identity. Document intentional changes for readability or accessibility.

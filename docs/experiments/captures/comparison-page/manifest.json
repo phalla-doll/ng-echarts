@@ -1,0 +1,129 @@
+{
+  "recordedAt": "2026-11-13T04:17:08.247Z",
+  "base": "http://localhost:4178/",
+  "browser": "158.0.8127.18",
+  "node": "v24.22.2",
+  "deviceScaleFactor": 1,
+  "reducedMotion": "reduce",
+  "sources": [
+    {
+      "path": "projects/playground/src/app/comparison.css",
+      "sha256": "7768a6e86ae31f2df95511fbbc0073d90d49a63733e00b7fa2a93b2076523a83"
+    },
+    {
+      "path": "projects/playground/src/app/comparison.html",
+      "sha256": "8329f8329e719ed55750593b240abefe1f21c3faddd03ce4cb86e94b6cd65135"
+    },
+    {
+      "path": "projects/playground/src/app/comparison-appearance.ts",
+      "sha256": "215605975c7d95338dececc9fbb8dac33548798d5de05af70615c8b3489a0ab7"
+    },
+    {
+      "path": "projects/playground/src/app/root.ts",
+      "sha256": "0091f095c4bdd883d5febecd3335384be7120d8ef958275c4cfa42acb40b1840"
+    },
+    {
+      "path": "projects/playground/src/styles.css",
+      "sha256": "0b59338f6cd55cc037eb279481990508397153926db9da21990a975318f1ece2"
+    }
+  ],
+  "captures": [
+    {
+      "name": "before-desktop.png",
+      "sha256": "249effaabb0b2e80b07f1cb5fbcd72169394397e04e25692356b2b5422530184"
+    },
+    {
+      "name": "before-mobile.png",
+      "sha256": "7d38d7c586701441597045ee782b303eb5971b2256a44494b60152c8684b552b"
+    },
+    {
+      "name": "comparison-dark-1440.png",
+      "sha256": "7cb0ce76e62a722ed978880b0b8a6a28129f7e74fa43086054448db5f03c3b6a"
+    },
+    {
+      "name": "comparison-dark-768.png",
+      "sha256": "2cb4483c841b67c05550ab89b592487a5f8c0ced84dda7b886c5d34ea14ca125"
+    },
+    {
+      "name": "comparison-dark-390.png",
+      "sha256": "5251cc79c0ce4be1e618b9ba4a7ceac1fa1e87b845cda25ac639defa1109fba8"
+    },
+    {
+      "name": "comparison-dark-320.png",
+      "sha256": "087678cecf20249cbdb19975bce248c95006152fc4fa94325bf4ef65028a08fb"
+    },
+    {
+      "name": "comparison-light-1440.png",
+      "sha256": "0331cfed585b2335eb4d51304841cdfb4dad59927b7ec0a4398f4f28e60f2820"
+    },
+    {
+      "name": "comparison-light-768.png",
+      "sha256": "0775fda7b89672137de5c9e8432b206371180faf17d40c40d3701fe80a292aff"
+    },
+    {
+      "name": "comparison-light-390.png",
+      "sha256": "3dbfe572395bf324ea94960f14c2b2f4d2fc467028bbaa5cd2eb87cacda87a36"
+    },
+    {
+      "name": "comparison-light-320.png",
+      "sha256": "b8998955af675316d6fada9d334fc75b115dec8c979f9a206fe8892160cb0eb9"
+    },
+    {
+      "name": "line-comparison-dark-1440.png",
+      "sha256": "997dbf4a311c12adeca3b1f0dfb76270a95a12637352fe7e20576fcdb60974f2"
+    },
+    {
+      "name": "line-comparison-dark-390.png",
+      "sha256": "19214bc28c1fff1e62ebc28ea739610a80b041e1c9d2947c42108f44ef3170c1"
+    },
+    {
+      "name": "line-comparison-light-1440.png",
+      "sha256": "8988d70306154aae1f058a1d2033919fc54a6a38deea5bc55b349a195c3f07b2"
+    },
+    {
+      "name": "line-comparison-light-390.png",
+      "sha256": "1c442328db5a711ba90f6f3d1d3c2f9eb08dc52b7b01d52e17de900f0515f88d"
+    },
+    {
+      "name": "area-comparison-dark-1440.png",
+      "sha256": "380231d823630c08bd98be653557f708178dd0dea585c129b10e4a706f3f2909"
+    },
+    {
+      "name": "area-comparison-dark-390.png",
+      "sha256": "046efd2f2d24bf714077769987fe599a5611f104a93e7bc8fdc27fb07b50cf7d"
+    },
+    {
+      "name": "area-comparison-light-1440.png",
+      "sha256": "e5ffc820f812f0b8f36b0a092f08406959b300b6f4e5c9c00fcdea2e987d8f27"
+    },
+    {
+      "name": "area-comparison-light-390.png",
+      "sha256": "2a571610ee07854ba47374acee9791374f94a6197456229edec449ce59e4608b"
+    },
+    {
+      "name": "pie-comparison-dark-1440.png",
+      "sha256": "248cb369d269336fadbb8f80702afaa7f94c68c2c404ce8ad47431281dcfa231"
+    },
+    {
+      "name": "pie-comparison-dark-390.png",
+      "sha256": "5135e0b087746bb42dff2782782816b9760324b6d8da65244fcac5465696da5a"
+    },
+    {
+      "name": "pie-comparison-light-1440.png",
+      "sha256": "00fff0866f4261eed2064b1a993a5afad2fbf77ae31e4b2ec5e1ccfb1f77f213"
+    },
+    {
+      "name": "pie-comparison-light-390.png",
+      "sha256": "83d31350b27b5d63d896dc3678c7c46a2542340621fd2704e379b893f2324551"
+    },
+    {
+      "name": "reference-light-320.png",
+      "sha256": "bd1dfc55230c4a539196e1543fd25f678bf831537e881cc867e9d75ff40c9d3f"
+    },
+    {
+      "name": "reference-dark-1440.png",
+      "sha256": "fb6dc635722ee8d3b7d74db9986df77ed603cff82473134c6321ab6babe5ea7d"
+    }
+  ],
+  "errors": []
+}

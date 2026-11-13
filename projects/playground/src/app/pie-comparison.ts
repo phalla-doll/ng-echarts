@@ -1,23 +1,30 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ComparisonAppearance } from './comparison-appearance';
 import { PieChart } from '@ng-echarts/chart-library/pie';
 import { pieBlocks } from './pie-blocks';
 import { visitorMeasure, browserPalette } from './fixtures/evilcharts-pie-fixture';
 @Component({
   selector: 'app-pie-comparison',
   imports: [PieChart],
+  providers: [ComparisonAppearance],
   styleUrl: './comparison.css',
-  template: `<main [class.dark]="theme() === 'dark'">
+  template: `<main
+    class="comparison-page"
+    [class.utility-page]="!referenceMode"
+    [class.reference-mode]="referenceMode"
+    [class.dark]="theme() === 'dark'"
+  >
     <header>
       <h1>Pie visual comparison</h1>
-      <p>
-        Pinned browser observations and neutral reference tokens. Native controls remain available
-        below the plot.
-      </p>
-      <div class="controls">
-        <button type="button" (click)="variant.set(0)">Default pie reference</button
-        ><button type="button" (click)="variant.set(1)">Donut reference</button
-        ><button type="button" (click)="variant.set(2)">Labeled donut reference</button
-        ><button type="button" (click)="theme.set(theme() === 'light' ? 'dark' : 'light')">
+      <p>Compare browser shares as pies and donuts. Explore full values in the data table.</p>
+      <div class="controls" role="group" aria-label="Chart variants">
+        <button type="button" (click)="variant.set(0)" [attr.aria-pressed]="variant() === 0">
+          Default pie reference</button
+        ><button type="button" (click)="variant.set(1)" [attr.aria-pressed]="variant() === 1">
+          Donut reference</button
+        ><button type="button" (click)="variant.set(2)" [attr.aria-pressed]="variant() === 2">
+          Labeled donut reference</button
+        ><button type="button" (click)="toggleTheme()" [hidden]="!referenceMode">
           Toggle pie comparison theme
         </button>
       </div>
@@ -46,9 +53,14 @@ import { visitorMeasure, browserPalette } from './fixtures/evilcharts-pie-fixtur
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PieComparison {
-  protected readonly theme = signal<'light' | 'dark'>('light');
+  private readonly appearance = inject(ComparisonAppearance);
+  protected readonly referenceMode = this.appearance.referenceMode;
+  protected readonly theme = this.appearance.theme;
   protected readonly variant = signal(0);
   protected readonly block = computed(() => pieBlocks[this.variant()]!);
+  protected toggleTheme(): void {
+    this.appearance.toggle();
+  }
   protected readonly measure = visitorMeasure;
   protected readonly palette = computed(() => browserPalette[this.theme()]);
 }

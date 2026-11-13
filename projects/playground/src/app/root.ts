@@ -26,6 +26,9 @@ const pageTitles: Readonly<Record<string, string>> = {
   '/components': 'Components',
   '/playground': 'Bar playground',
   '/comparison': 'Visual comparison',
+  '/line-comparison': 'Line visual comparison',
+  '/area-comparison': 'Area visual comparison',
+  '/pie-comparison': 'Pie visual comparison',
   '/updates': 'Input updates',
   '/formatting': 'Value formatting',
   '/validation': 'Lifecycle validation',
@@ -64,17 +67,18 @@ export class Root {
     this.dark() ? 'Use light theme' : 'Use dark theme',
   );
   protected readonly themeIcon = computed(() => (this.dark() ? 'sun' : 'moon'));
-  protected readonly fullWidth = computed(() =>
-    [
-      '/comparison',
-      '/benchmark',
-      '/line-benchmark',
-      '/line-comparison',
-      '/area-comparison',
-      '/area-benchmark',
-      '/pie-benchmark',
-      '/pie-comparison',
-    ].includes(this.routePath()),
+  protected readonly comparisonMode = computed(() =>
+    ['/comparison', '/line-comparison', '/area-comparison', '/pie-comparison'].includes(
+      this.routePath(),
+    ),
+  );
+  protected readonly fullWidth = computed(
+    () =>
+      ['/benchmark', '/line-benchmark', '/area-benchmark', '/pie-benchmark'].includes(
+        this.routePath(),
+      ) ||
+      (this.comparisonMode() &&
+        new URLSearchParams(this.url().split('?')[1]?.split('#')[0]).get('reference') === '1'),
   );
   protected readonly pageTitle = computed(() => pageTitles[this.routePath()] ?? 'Playground');
   protected toggleMenu(): void {

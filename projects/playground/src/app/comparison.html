@@ -1,16 +1,49 @@
-<main [class.dark]="theme() === 'dark'">
+<main
+  class="comparison-page"
+  [class.utility-page]="!referenceMode"
+  [class.reference-mode]="referenceMode"
+  [class.dark]="theme() === 'dark'"
+>
   <header>
     <h1>Bar visual comparison</h1>
     <p>
-      Pinned monthly values and neutral theme tokens. Full labels remain in tooltips and tables. The
-      chart keeps its own reference theme; use “Toggle comparison theme” to review both baselines.
+      Compare bar variants using the same monthly data. Full labels remain in tooltips and the data
+      table.
     </p>
-    <div class="controls">
-      <button type="button" (click)="showVariant('grouped')">Grouped reference</button>
-      <button type="button" (click)="showVariant('stacked')">Stacked reference</button>
-      <button type="button" (click)="showVariant('horizontal')">Horizontal reference</button>
-      <button type="button" (click)="showVariant('gradient')">Gradient reference</button>
-      <button type="button" (click)="toggleTheme()">Toggle comparison theme</button>
+    <div class="controls" role="group" aria-label="Bar variants">
+      <button
+        type="button"
+        (click)="showVariant('grouped')"
+        [attr.aria-pressed]="variant() === 'grouped'"
+      >
+        Grouped reference
+      </button>
+      <button
+        type="button"
+        (click)="showVariant('stacked')"
+        [attr.aria-pressed]="variant() === 'stacked'"
+      >
+        Stacked reference
+      </button>
+      <button
+        type="button"
+        (click)="showVariant('horizontal')"
+        [attr.aria-pressed]="variant() === 'horizontal'"
+      >
+        Horizontal reference
+      </button>
+      <button
+        type="button"
+        (click)="showVariant('gradient')"
+        [attr.aria-pressed]="variant() === 'gradient'"
+      >
+        Gradient reference
+      </button>
+    </div>
+    <div class="controls display-options" role="group" aria-label="Display options">
+      <button type="button" (click)="toggleTheme()" [hidden]="!referenceMode">
+        Toggle comparison theme
+      </button>
       <button type="button" [attr.aria-pressed]="abbreviated()" (click)="toggleTicks()">
         Abbreviate category ticks
       </button>

@@ -1,22 +1,32 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ComparisonAppearance } from './comparison-appearance';
 import { AreaChart } from '@ng-echarts/chart-library/area';
 import { areaBlocks } from './area-blocks';
 @Component({
   selector: 'app-area-comparison',
   imports: [AreaChart],
+  providers: [ComparisonAppearance],
   styleUrl: './comparison.css',
-  template: `<main [class.dark]="theme() === 'dark'">
+  template: `<main
+    class="comparison-page"
+    [class.utility-page]="!referenceMode"
+    [class.reference-mode]="referenceMode"
+    [class.dark]="theme() === 'dark'"
+  >
     <header>
       <h1>Area visual comparison</h1>
       <p>
-        Pinned monthly observations and neutral reference tokens. Native controls remain available
-        below the plot.
+        Compare the same monthly observations across chart variants. Explore full values in the data
+        table.
       </p>
-      <div class="controls">
-        <button type="button" (click)="variant.set(0)">Default area reference</button
-        ><button type="button" (click)="variant.set(1)">Stacked area reference</button
-        ><button type="button" (click)="variant.set(2)">Solid area reference</button
-        ><button type="button" (click)="theme.set(theme() === 'light' ? 'dark' : 'light')">
+      <div class="controls" role="group" aria-label="Chart variants">
+        <button type="button" (click)="variant.set(0)" [attr.aria-pressed]="variant() === 0">
+          Default area reference</button
+        ><button type="button" (click)="variant.set(1)" [attr.aria-pressed]="variant() === 1">
+          Stacked area reference</button
+        ><button type="button" (click)="variant.set(2)" [attr.aria-pressed]="variant() === 2">
+          Solid area reference</button
+        ><button type="button" (click)="toggleTheme()" [hidden]="!referenceMode">
           Toggle area comparison theme
         </button>
       </div>
@@ -43,8 +53,13 @@ import { areaBlocks } from './area-blocks';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AreaComparison {
-  protected readonly theme = signal<'light' | 'dark'>('light');
+  private readonly appearance = inject(ComparisonAppearance);
+  protected readonly referenceMode = this.appearance.referenceMode;
+  protected readonly theme = this.appearance.theme;
   protected readonly variant = signal(0);
   protected readonly block = computed(() => areaBlocks[this.variant()]!);
+  protected toggleTheme(): void {
+    this.appearance.toggle();
+  }
   protected readonly monthTick = (month: string) => month.slice(0, 3);
 }

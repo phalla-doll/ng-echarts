@@ -79,7 +79,7 @@ try {
               `http://127.0.0.1:4174/?width=${width}&theme=${theme}&variant=${variant}`,
             );
           } else {
-            await page.goto('http://localhost:4175/comparison');
+            await page.goto('http://localhost:4175/comparison?reference=1');
             if (variant !== 'grouped')
               await page
                 .getByRole('button', {
@@ -210,7 +210,7 @@ try {
         browser: browser.version(),
         reducedMotion: 'reduce',
         sourceExampleUnmodified: true,
-        angularRoute: '/comparison',
+        angularRoute: '/comparison?reference=1',
         categoryTicks: 'first three characters; full tooltip/table labels',
         comparisonThemeSha256: createHash('sha256')
           .update(
