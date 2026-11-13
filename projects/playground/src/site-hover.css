@@ -1,0 +1,157 @@
+/* Interaction feedback follows the control's role, with stable geometry. */
+.site-shell :is(.reload-button, .integration-heading button, .code-tools button, .setting-toggle) {
+  border-radius: var(--site-inset-radius);
+}
+.site-shell :is(.block-views, .view-control) button {
+  border-radius: 4px 4px 0 0;
+}
+.site-shell summary {
+  border-radius: var(--site-inset-radius);
+}
+.site-shell details[open] summary {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.site-shell .chart-frame .legend button[aria-pressed='false'] {
+  color: var(--site-muted);
+  border-style: dashed;
+}
+.site-shell .chart-frame .legend button[aria-pressed='false'] .swatch {
+  opacity: 0.35;
+}
+.site-shell :is(button, select):disabled,
+.site-shell [aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Reference fixtures keep controls in their isolated light/dark palette. */
+.site-shell .reference-mode {
+  --site-hover-text: var(--nec-text);
+  --site-hover: color-mix(in srgb, var(--nec-text) 6%, var(--nec-background));
+  --site-pressed: color-mix(in srgb, var(--nec-text) 10%, var(--nec-background));
+  --site-hover-border: color-mix(in srgb, var(--nec-text) 30%, var(--nec-background));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .site-shell :is(button, select):enabled:not([aria-disabled='true']):hover,
+  .site-shell summary:not([aria-disabled='true']):hover {
+    color: var(--site-hover-text, var(--site-text));
+    background-color: var(--site-hover);
+  }
+
+  .site-shell
+    :is(
+      .ui-button,
+      .ui-icon-button,
+      .copy-page,
+      app-copy-button button,
+      .code-heading button,
+      .controls > button,
+      .state-controls button,
+      select
+    ):enabled:not([aria-disabled='true']):not([aria-pressed='true']):hover,
+  .site-shell .legend button:enabled:not([aria-disabled='true']):hover,
+  .site-shell td button:enabled:not([aria-disabled='true']):hover {
+    border-color: var(--site-hover-border);
+  }
+
+  .site-shell
+    :is(.gallery, .utility-page, .workbench)
+    :is(.block-views, .view-control, .controls, .state-controls)
+    button[aria-pressed='true']:enabled:not([aria-disabled='true']):hover {
+    background-color: var(--site-pressed);
+  }
+  .site-shell .legend button[aria-pressed='false']:enabled:not([aria-disabled='true']):hover {
+    color: var(--site-muted);
+  }
+
+  .site-shell
+    :is(.reset-button, app-linked-visits .table-toggle):enabled:not([aria-disabled='true']):hover {
+    background-color: transparent;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+
+  .site-shell nav a[href]:not([aria-disabled='true']):hover {
+    color: var(--site-text);
+    background-color: var(--site-hover);
+  }
+  .site-shell nav a[aria-current='page']:not([aria-disabled='true']):hover {
+    background-color: var(--site-pressed);
+  }
+  .site-shell :is(.page-outline, .documentation-outline) a[href]:not([aria-disabled='true']):hover {
+    color: var(--site-text);
+    border-left-color: var(--site-hover-border);
+  }
+  .site-shell a.component-card:not([aria-disabled='true']):hover {
+    border-color: var(--site-hover-border);
+    background-color: var(--site-hover);
+  }
+  .site-shell
+    a[href]:not(
+      .component-card,
+      .brand,
+      .mobile-brand,
+      .skip-link,
+      nav a,
+      .page-outline a,
+      .documentation-outline a,
+      .doc-pagination a
+    ):not([aria-disabled='true']):hover,
+  .site-shell .doc-pagination a:not([aria-disabled='true']):hover strong {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+
+/* A tap gets transient press feedback without a persistent touch hover. */
+.site-shell button:enabled:not([aria-disabled='true']):active,
+.site-shell summary:not([aria-disabled='true']):active,
+.site-shell nav a[href]:not([aria-disabled='true']):active,
+.site-shell a.component-card:not([aria-disabled='true']):active {
+  background-color: var(--site-pressed);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .site-shell :is(a, button, select, summary) {
+    transition:
+      background-color 120ms ease,
+      border-color 120ms ease,
+      color 120ms ease,
+      text-decoration-color 120ms ease;
+  }
+}
+
+@media (forced-colors: active) and (hover: hover) and (pointer: fine) {
+  .site-shell,
+  .site-shell .reference-mode {
+    --site-hover: Highlight;
+    --site-pressed: Highlight;
+    --site-hover-border: Highlight;
+    --site-hover-text: HighlightText;
+  }
+  .site-shell :is(button, select):enabled:not([aria-disabled='true']):hover,
+  .site-shell
+    :is(.gallery, .workbench, .utility-page)
+    :is(button, select):enabled:not([aria-disabled='true']):hover,
+  .site-shell .chart-frame .legend button:enabled:not([aria-disabled='true']):hover,
+  .site-shell summary:not([aria-disabled='true']):hover,
+  .site-shell nav a[href]:not([aria-disabled='true']):hover {
+    color: HighlightText;
+    background-color: Highlight;
+  }
+  .site-shell a.component-card:not([aria-disabled='true']):hover {
+    background-color: Canvas;
+    border-color: Highlight;
+  }
+}
+@media (forced-colors: active) {
+  .site-shell :is(button, select):disabled,
+  .site-shell [aria-disabled='true'] {
+    opacity: 1;
+    color: GrayText;
+  }
+}

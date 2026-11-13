@@ -3,6 +3,7 @@
 @import './documentation.css';
 @import './syntax-highlighting.css';
 @import './site-focus.css';
+@import './site-hover.css';
 
 @font-face {
   font-family: 'Inter';
@@ -67,11 +68,6 @@ a {
   line-height: 20px;
   text-decoration: none;
 }
-.ui-button:hover,
-.ui-icon-button:hover {
-  border-color: var(--site-control-border, #737373);
-  background: var(--site-subtle, #ededed);
-}
 .ui-icon-button {
   width: 40px;
   min-height: 40px;
@@ -127,10 +123,6 @@ a {
   background: var(--site-surface);
   font-size: 11px;
   line-height: 18px;
-}
-.utility-page > .controls > button:hover {
-  color: var(--site-text);
-  border-color: var(--site-control-border);
 }
 .utility-page > .controls > button[aria-pressed='true'] {
   border-color: var(--site-control-border);
@@ -245,9 +237,6 @@ a {
   height: 8px;
   margin-right: 3px;
 }
-.gallery app-linked-visits .chart-frame .legend button:hover {
-  background: var(--site-subtle);
-}
 .gallery app-linked-visits .chart-frame .table-toggle {
   border: 0;
   color: var(--site-muted);
@@ -255,9 +244,6 @@ a {
   margin: 0;
   text-decoration: underline;
   text-underline-offset: 4px;
-}
-.gallery app-linked-visits .chart-frame .table-toggle:hover {
-  color: var(--site-text);
 }
 @media (max-width: 600px) {
   .gallery app-linked-visits .chart-frame {

@@ -20,6 +20,9 @@
   --site-switch: #737373;
   --site-control-border: #9b9b9b;
   --site-focus: #737373;
+  --site-hover: #efefef;
+  --site-pressed: #e5e5e5;
+  --site-hover-border: #b8b8b8;
   --gallery-primary: #047857;
   --gallery-secondary: #be123c;
 }
@@ -53,6 +56,9 @@
   --site-active-soft: #1b1b1b;
   --site-switch: #b3b3b3;
   --site-control-border: #737373;
+  --site-hover: #191919;
+  --site-pressed: #262626;
+  --site-hover-border: #505050;
   --gallery-primary: #10b981;
   --gallery-secondary: #f43f5e;
   color-scheme: dark;

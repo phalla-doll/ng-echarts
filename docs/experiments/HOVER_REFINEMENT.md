@@ -1,0 +1,48 @@
+# Demo hover and press refinement
+
+Requested 13 November 2026 after the shared focus refinement. The audit covers the existing neutral gallery, linked example, documentation, workbench and comparison controls.
+
+## Findings and changes
+
+The [before audit](captures/hover-refinement/before/manifest.json) records 150 desktop hover cases in three browsers and both themes. Nine interactive control types lacked visible feedback: the theme button, current navigation row, footer link, linked disclosure/copy action, table value, settings switch/reset and selected comparison button. Other controls used unrelated border colors or square fills. Hover rules were unconditional, so they could also persist on touch devices.
+
+`site-hover.css` now owns role-specific feedback. Existing page-level hover rules are removed, and the comparison control selector is lowered with `:where` so its selected style can participate in the shared policy. The Inter typography and control geometry remain stable during interaction.
+
+| Role | Feedback |
+| --- | --- |
+| Outlined buttons, copy actions, selects and table values | Soft surface fill, primary text and a restrained border change |
+| Icon/ghost actions | Rounded inset-radius fill; the theme button drops its old side separators |
+| Tabs and current navigation | A stronger surface response while preserving the tab underline/current state |
+| Text actions and links | Underline or stronger ink without a large filled box |
+| Linked disclosure | Soft rounded header fill; native open/closed behavior retained |
+| Clickable component cards | Border/surface feedback; static chart cards retain ordinary presentation |
+| Hidden series | Muted text, dashed border and 35% swatch opacity throughout the demo, including linked/workbench charts; hover preserves those cues |
+| Disabled controls | Muted presentation and blocked cursor; no enabled hover response. Native/ARIA-disabled coverage uses temporary audit probes, not new product controls. |
+
+New light/dark tokens are hover `#efefef` / `#191919`, press `#e5e5e5` / `#262626`, and hover border `#b8b8b8` / `#505050`. Fine pointers receive hover styling. Coarse pointers receive transient press feedback, with no persistent hover fill. Color/border transitions last 120 ms only with ordinary motion preferences; reduced motion remains immediate. Forced-colors hover uses system Highlight/HighlightText in the element's color-scheme context. The isolated reference comparison derives its interaction tokens from its own palette.
+
+## Evidence
+
+The [after manifest](captures/hover-refinement/after/manifest.json) records **176 interaction checks**, 12 source hashes and 14 images at 2× density. Chromium, Firefox and WebKit cover both themes, plus 320 px Month-field captures. All 150 sampled enabled controls show feedback; six static-card samples and six disabled probes remain unchanged on hover. Checks preserve dimensions, pressed/current attributes, hidden-series opacity and border style. Additional cases verify press versus hover, focus while hovered, ordinary/reduced-motion transitions, forced-color hover and Chromium/WebKit coarse-pointer tap/reset behavior with Month focus retained.
+
+| View | Before | After |
+| --- | --- | --- |
+| Theme icon | [No feedback](captures/hover-refinement/before/header-theme-dark.png) | [Rounded response](captures/hover-refinement/after/header-theme-dark.png) |
+| Copy icon | [Square fill](captures/hover-refinement/before/copy-icon-dark.png) | [Quiet rounded fill](captures/hover-refinement/after/copy-icon-dark.png) |
+| Selected tab | [Original hover](captures/hover-refinement/before/view-selected-light.png) | [Persistent underline](captures/hover-refinement/after/view-selected-light.png) |
+| Hidden legend | [Original cue](captures/hover-refinement/before/legend-hidden-dark.png) | [Preserved hidden state](captures/hover-refinement/after/legend-hidden-dark.png) |
+| Disclosure | [No feedback](captures/hover-refinement/before/disclosure-light.png) | [Header feedback](captures/hover-refinement/after/disclosure-light.png) |
+| Narrow Month | Desktop-only before matrix | [Dark](captures/hover-refinement/after/month-mobile-dark.png), [light](captures/hover-refinement/after/month-mobile-light.png) |
+
+After a production playground build, reproduce the current audit with:
+
+```sh
+npm run build:playground
+node tools/capture-hover-refinement.mjs after
+```
+
+The before capture is preserved from the pre-refinement UI at source base `666f85a`; running `before` now would record the current UI rather than reconstructing that historical snapshot.
+
+The existing linked/gallery/visual-refinement/site/navigation/code/comparison suite passes **78 scenarios** across all three engines. Production build and strict templates pass. The Pages build prerenders **29 routes** and local static verification passes in all three engines. Formatting, 842 local documentation links/anchors, whitespace, 12 final source hashes and all 26 before/after image hashes pass. The rc.2 tarball remains SHA-256 `c41489c8880e41c62f11121599c9cecb1acfa2c5ab6c3b06ee2abf4d95b2d7fd`.
+
+This is demo presentation work; the private rc.2 package, public API and chart-renderer behavior are unchanged. Human F09/R06/G2/G3/G4 remain pending. Live delivery and final checks are recorded after deployment.

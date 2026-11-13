@@ -41,10 +41,6 @@ import { SiteIcon } from './site-icon';
       justify-content: center;
       padding: 0;
     }
-    button:hover {
-      color: var(--site-text);
-      border-color: var(--site-control-border);
-    }
     app-site-icon {
       width: 14px;
       height: 14px;

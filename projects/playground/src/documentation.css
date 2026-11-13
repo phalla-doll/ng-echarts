@@ -70,9 +70,6 @@
   background: var(--site-surface);
   text-decoration: none;
 }
-a.component-card:hover {
-  border-color: var(--site-control-border);
-}
 .component-art {
   border: 1px solid var(--site-border);
   border-radius: var(--site-inset-radius);
@@ -165,8 +162,7 @@ a.component-card:hover {
   font-size: 11px;
   line-height: 16px;
 }
-.documentation-outline a.active,
-.documentation-outline a:hover {
+.documentation-outline a.active {
   color: var(--site-text);
 }
 @media (max-width: 1250px) {

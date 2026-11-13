@@ -210,10 +210,6 @@ button {
   border-radius: 6px;
   white-space: nowrap;
 }
-.code-heading button:hover {
-  color: var(--site-text);
-  border-color: var(--site-control-border);
-}
 .code-heading app-site-icon {
   width: 14px;
   height: 14px;

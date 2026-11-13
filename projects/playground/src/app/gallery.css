@@ -80,9 +80,6 @@ h1 {
 .page-outline a.active {
   color: var(--site-text);
 }
-.page-outline a:hover {
-  color: var(--site-text);
-}
 .page-outline .outline-playground {
   display: flex;
   align-items: center;
@@ -140,9 +137,4 @@ h1 {
   .copy-page {
     margin-top: 0;
   }
-}
-
-.copy-page:hover {
-  color: var(--site-text);
-  border-color: var(--site-control-border);
 }
