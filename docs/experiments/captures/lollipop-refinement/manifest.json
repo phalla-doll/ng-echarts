@@ -1,0 +1,627 @@
+{
+  "sourceSha256": "b88f4c87d2267dc595dbba21eeab798d6e4a0b693b11a64ff471c559c97ebd25",
+  "keyboardSampleDataRows": 8,
+  "checks": [
+    {
+      "labelBoundsFit": true,
+      "labels": [
+        "Organic search",
+        "Direct",
+        "Email",
+        "Paid search",
+        "Referral",
+        "Social",
+        "Partners",
+        "Other",
+        "0",
+        "5k",
+        "10k",
+        "8,420",
+        "6,810",
+        "5,340",
+        "4,120",
+        "3,260",
+        "2,780",
+        "1,940",
+        "1,120"
+      ],
+      "overflow": false,
+      "rows": [
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 283
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 283
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 283
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 283
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 283
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 283
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 283
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 283
+        }
+      ],
+      "theme": "dark",
+      "width": 320
+    },
+    {
+      "labelBoundsFit": true,
+      "labels": [
+        "Organic search",
+        "Direct",
+        "Email",
+        "Paid search",
+        "Referral",
+        "Social",
+        "Partners",
+        "Other",
+        "0",
+        "5k",
+        "10k",
+        "8,420",
+        "6,810",
+        "5,340",
+        "4,120",
+        "3,260",
+        "2,780",
+        "1,940",
+        "1,120"
+      ],
+      "overflow": false,
+      "rows": [
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 353
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 353
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 353
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 353
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 353
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 353
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 353
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 353
+        }
+      ],
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "labelBoundsFit": true,
+      "labels": [
+        "Organic search",
+        "Direct",
+        "Email",
+        "Paid search",
+        "Referral",
+        "Social",
+        "Partners",
+        "Other",
+        "0",
+        "5k",
+        "10k",
+        "8,420",
+        "6,810",
+        "5,340",
+        "4,120",
+        "3,260",
+        "2,780",
+        "1,940",
+        "1,120"
+      ],
+      "overflow": false,
+      "rows": [
+        {
+          "centerDelta": 0,
+          "nameLeft": 418,
+          "pointDelta": 0,
+          "valueRight": 725
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 418,
+          "pointDelta": 0,
+          "valueRight": 725
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 418,
+          "pointDelta": 0,
+          "valueRight": 725
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 418,
+          "pointDelta": 0,
+          "valueRight": 725
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 418,
+          "pointDelta": 0,
+          "valueRight": 725
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 418,
+          "pointDelta": 0,
+          "valueRight": 725
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 418,
+          "pointDelta": 0,
+          "valueRight": 725
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 418,
+          "pointDelta": 0,
+          "valueRight": 725
+        }
+      ],
+      "theme": "dark",
+      "width": 768
+    },
+    {
+      "labelBoundsFit": true,
+      "labels": [
+        "Organic search",
+        "Direct",
+        "Email",
+        "Paid search",
+        "Referral",
+        "Social",
+        "Partners",
+        "Other",
+        "0",
+        "5k",
+        "10k",
+        "8,420",
+        "6,810",
+        "5,340",
+        "4,120",
+        "3,260",
+        "2,780",
+        "1,940",
+        "1,120"
+      ],
+      "overflow": false,
+      "rows": [
+        {
+          "centerDelta": 0,
+          "nameLeft": 760,
+          "pointDelta": 0,
+          "valueRight": 1327
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 760,
+          "pointDelta": 0,
+          "valueRight": 1327
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 760,
+          "pointDelta": 0,
+          "valueRight": 1327
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 760,
+          "pointDelta": 0,
+          "valueRight": 1327
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 760,
+          "pointDelta": 0,
+          "valueRight": 1327
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 760,
+          "pointDelta": 0,
+          "valueRight": 1327
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 760,
+          "pointDelta": 0,
+          "valueRight": 1327
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 760,
+          "pointDelta": 0,
+          "valueRight": 1327
+        }
+      ],
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "labelBoundsFit": true,
+      "labels": [
+        "Organic search",
+        "Direct",
+        "Email",
+        "Paid search",
+        "Referral",
+        "Social",
+        "Partners",
+        "Other",
+        "0",
+        "5k",
+        "10k",
+        "8,420",
+        "6,810",
+        "5,340",
+        "4,120",
+        "3,260",
+        "2,780",
+        "1,940",
+        "1,120"
+      ],
+      "overflow": false,
+      "rows": [
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 283
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 283
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 283
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 283
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 283
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 283
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 283
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 283
+        }
+      ],
+      "theme": "light",
+      "width": 320
+    },
+    {
+      "labelBoundsFit": true,
+      "labels": [
+        "Organic search",
+        "Direct",
+        "Email",
+        "Paid search",
+        "Referral",
+        "Social",
+        "Partners",
+        "Other",
+        "0",
+        "5k",
+        "10k",
+        "8,420",
+        "6,810",
+        "5,340",
+        "4,120",
+        "3,260",
+        "2,780",
+        "1,940",
+        "1,120"
+      ],
+      "overflow": false,
+      "rows": [
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 353
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 353
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 353
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 353
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 353
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 353
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 353
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 40,
+          "pointDelta": 0,
+          "valueRight": 353
+        }
+      ],
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "labelBoundsFit": true,
+      "labels": [
+        "Organic search",
+        "Direct",
+        "Email",
+        "Paid search",
+        "Referral",
+        "Social",
+        "Partners",
+        "Other",
+        "0",
+        "5k",
+        "10k",
+        "8,420",
+        "6,810",
+        "5,340",
+        "4,120",
+        "3,260",
+        "2,780",
+        "1,940",
+        "1,120"
+      ],
+      "overflow": false,
+      "rows": [
+        {
+          "centerDelta": 0,
+          "nameLeft": 418,
+          "pointDelta": 0,
+          "valueRight": 725
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 418,
+          "pointDelta": 0,
+          "valueRight": 725
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 418,
+          "pointDelta": 0,
+          "valueRight": 725
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 418,
+          "pointDelta": 0,
+          "valueRight": 725
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 418,
+          "pointDelta": 0,
+          "valueRight": 725
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 418,
+          "pointDelta": 0,
+          "valueRight": 725
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 418,
+          "pointDelta": 0,
+          "valueRight": 725
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 418,
+          "pointDelta": 0,
+          "valueRight": 725
+        }
+      ],
+      "theme": "light",
+      "width": 768
+    },
+    {
+      "labelBoundsFit": true,
+      "labels": [
+        "Organic search",
+        "Direct",
+        "Email",
+        "Paid search",
+        "Referral",
+        "Social",
+        "Partners",
+        "Other",
+        "0",
+        "5k",
+        "10k",
+        "8,420",
+        "6,810",
+        "5,340",
+        "4,120",
+        "3,260",
+        "2,780",
+        "1,940",
+        "1,120"
+      ],
+      "overflow": false,
+      "rows": [
+        {
+          "centerDelta": 0,
+          "nameLeft": 760,
+          "pointDelta": 0,
+          "valueRight": 1327
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 760,
+          "pointDelta": 0,
+          "valueRight": 1327
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 760,
+          "pointDelta": 0,
+          "valueRight": 1327
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 760,
+          "pointDelta": 0,
+          "valueRight": 1327
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 760,
+          "pointDelta": 0,
+          "valueRight": 1327
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 760,
+          "pointDelta": 0,
+          "valueRight": 1327
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 760,
+          "pointDelta": 0,
+          "valueRight": 1327
+        },
+        {
+          "centerDelta": 0,
+          "nameLeft": 760,
+          "pointDelta": 0,
+          "valueRight": 1327
+        }
+      ],
+      "theme": "light",
+      "width": 1440
+    }
+  ],
+  "pointerTooltip": {
+    "channel": "Organic search",
+    "visits": 8420,
+    "contained": true
+  }
+}

@@ -365,6 +365,18 @@
           min-height: 320px;
         }
       }
+      .lollipop-columns {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 24px 0;
+        color: var(--muted);
+        font-size: 10px;
+        line-height: 16px;
+      }
+      .card--lollipop .plot {
+        height: 304px;
+        margin: 8px 24px 20px;
+      }
       .card--radial .plot {
         height: 336px;
       }
@@ -622,6 +634,14 @@
           height: 260px;
           margin-left: 10px;
           margin-right: 10px;
+        }
+        .lollipop-columns {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .card--lollipop .plot {
+          margin-left: 20px;
+          margin-right: 20px;
         }
         .treemap-key {
           padding-left: 20px;
@@ -1375,7 +1395,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
             category: 'compare',
             metric: '8',
             unit: 'channels ranked',
-            subtitle: 'A quieter alternative to ranked bars',
+            subtitle: 'Traffic by acquisition channel',
             use: 'Leaderboards, top acquisition channels, or category rankings.',
             note: 'Thin stems and clear endpoints keep the ranking legible with less visual weight.',
           },
@@ -1423,7 +1443,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
                 : `<div class="plot" id="plot-${m.id}" role="img" aria-label="${m.title}: ${esc(m.note)} Values are available in the data table below."></div>`;
             return `<article class="card card--${m.id}" id="${m.id}" data-category="${m.category}">
             <header class="card-header"><div><h2>${m.title}</h2><p class="subtitle">${m.subtitle}</p></div></header>
-            ${metricRow}${m.id === 'treemap' ? '<div class="treemap-key" aria-label="Product families"><span><i aria-hidden="true"></i>Analytics</span><span><i aria-hidden="true"></i>Commerce</span><span><i aria-hidden="true"></i>Platform</span><span><i aria-hidden="true"></i>Services</span></div>' : ''}${plot}
+            ${metricRow}${m.id === 'lollipop' ? '<div class="lollipop-columns"><span>Channel</span><span>Visits</span></div>' : ''}${m.id === 'treemap' ? '<div class="treemap-key" aria-label="Product families"><span><i aria-hidden="true"></i>Analytics</span><span><i aria-hidden="true"></i>Commerce</span><span><i aria-hidden="true"></i>Platform</span><span><i aria-hidden="true"></i>Services</span></div>' : ''}${plot}
             <footer class="card-footer"><p>${m.use}</p><details><summary>View sample data</summary><p class="data-note">${m.note}</p><div class="table-wrap" tabindex="0" role="region" aria-label="${m.title} sample data"><table id="data-${m.id}"></table></div></details></footer>
           </article>`;
           })
@@ -2117,16 +2137,31 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
           if (id === 'lollipop')
             return {
               ...base,
-              grid: { left: 106, right: 47, top: 16, bottom: 30 },
+              grid: { left: 100, right: 54, top: 4, bottom: 26 },
               xAxis: {
                 ...base.yAxis,
                 max: 10000,
+                interval: 5000,
+                splitLine: { lineStyle: { color: p.dark ? '#212121' : '#f0f0f0', width: 1 } },
                 axisLabel: {
                   ...axis.axisLabel,
+                  fontSize: 10,
                   formatter: (v) => (v === 0 ? '0' : `${v / 1000}k`),
                 },
               },
-              yAxis: { ...base.xAxis, data: ranks.map((r) => r[0]), inverse: true },
+              yAxis: {
+                ...base.xAxis,
+                data: ranks.map((r) => r[0]),
+                inverse: true,
+                axisLabel: {
+                  ...axis.axisLabel,
+                  align: 'left',
+                  padding: 0,
+                  margin: 103,
+                  width: 94,
+                  overflow: 'truncate',
+                },
+              },
               tooltip: {
                 ...base.tooltip,
                 formatter: (r) =>
@@ -2143,16 +2178,18 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
                 {
                   type: 'scatter',
                   data: ranks.map((r, i) => [r[1], i]),
-                  symbolSize: 10,
+                  symbolSize: 7,
                   itemStyle: { color: p.green, opacity: 1 },
                   label: {
                     show: true,
                     position: 'right',
                     distance: 8,
-                    color: p.muted,
+                    color: p.text,
                     fontSize: 11,
+                    fontWeight: 500,
                     formatter: (r) => r.value[0].toLocaleString('en-US'),
                   },
+                  labelLayout: { x: '100%', align: 'right', verticalAlign: 'middle' },
                 },
               ],
             };
