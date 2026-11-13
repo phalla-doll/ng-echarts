@@ -28,11 +28,12 @@ Use Node from `.nvmrc` and npm 11.19.1; install with `npm ci`.
 - `npm run watch:lib`: rebuild library changes alongside the playground.
 - `npm test`: run Vitest once; `npm run test:watch` watches.
 - `npm run check`: formatting, builds, strict compilation, tests, isolated declarations/documentation/runtime consumers, SSR, three-browser scenarios, and package budgets. First install browsers with `npx playwright install chromium firefox webkit`.
-- `npm run build:pages` / `npm run check:pages`: prerender and verify the static preview under `/ng-echarts/`; retain direct-route HTML, subpath-safe links/fonts, hydration, and notices.
-- `npm run deploy:pages`: rebuild/check and push compiled assets to `gh-pages`; requires GitHub CLI access. Source commits are separate, and pushes to `main` do not automatically redeploy the preview.
+- `npm run build:pages` / `npm run check:pages`: build an isolated source snapshot and verify its sealed static output under `/ng-echarts/` in all three browsers. Dirty snapshots are local-only; inputs/outputs must remain unchanged.
+- `npm run deploy:pages`: requires clean source already pushed to current remote main; rebuilds/checks, validates its receipt and publishes immutable provenance with compiled assets to `gh-pages`. Never restamp or bypass stale-build guards. Pushes to main do not automatically redeploy.
 - `npm run release:local`: build/pack one private candidate, verify metadata/notices and pass byte-identical copies to strict/docs/client/SSR consumers. `release:prepare` and `release:check` run separate phases; keep human gates pending.
 - `npm run capture:visual`: capture the four MVP gallery families/themes at 320/390/768/1440 px, including tooltip bounds and narrow label/control evidence; first run `npm run build`.
 - `npm run capture:composed` / `npm run capture:linked`: capture post-MVP composed and linked examples using the same responsive themes.
+- `npm run test:pages-provenance`: test source/build integrity, receipts, stale/tampered artifact rejection and operation locks.
 - `npm run format`: apply Prettier.
 - Set `PLAYWRIGHT_PORT` when parallel worktrees need separate browser-test servers; the default remains 4173.
 

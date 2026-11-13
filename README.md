@@ -24,6 +24,7 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | [Integration guide](docs/INTEGRATION_GUIDE.md) | Complete four-chart application, API/type index, updates, events and accessibility |
 | [Compatibility and limits](docs/COMPATIBILITY.md) | Exact tested versions, peer contracts, browser coverage, measured envelopes and exclusions |
 | [Local release checklist](docs/RELEASE_CHECKLIST.md) | Candidate preparation, exact-tarball consumer checks, MIT/notices and remaining release gates |
+| [Preview deployment hardening](docs/experiments/PREVIEW_DEPLOYMENT_HARDENING.md) | Immutable build provenance, clean-commit publishing, verification receipts and stale-build rejection |
 | [GitHub Pages preview](docs/GITHUB_PAGES.md) | Live URL, static subpath build, local/live verification, notices and manual republishing |
 | [Implementation plan](docs/IMPLEMENTATION_PLAN.md) | Delivery increments, scaffold boundaries, and developer workflow |
 | [Upstream provenance](docs/UPSTREAM_PROVENANCE.md) | Pinned fixtures, reuse decisions, and adapted-file notices |

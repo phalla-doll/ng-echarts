@@ -69,3 +69,7 @@ The recorded dependency versions describe verified inputs, not every version adm
 | Public API stability/versioning promise | Experimental; no stable API freeze is declared by this candidate |
 
 Record the human results, resolve remaining release decisions, and update the acceptance matrix before marking the complete release gates passed. NG16's automated packaging work can be reviewed independently while the existing human deferral remains in effect.
+
+## Preview checkpoint
+
+The [deployment-hardening report](experiments/PREVIEW_DEPLOYMENT_HARDENING.md) reconciles the private rc.4 archive with the committed concept gallery and guarded preview workflow. Demo publication requires clean/current pushed source, sealed output and a three-browser receipt; the public marker/receipt preserve build-time identity. This does not repack rc.4, publish to a registry, resolve public naming or close human F09/R06/G2/G3/G4.

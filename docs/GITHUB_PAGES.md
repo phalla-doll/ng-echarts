@@ -1,41 +1,56 @@
 # GitHub Pages preview
 
-The demo is published from the root of the dedicated `gh-pages` branch at **https://phalla-doll.github.io/ng-echarts/**. The branch contains compiled static assets, fonts and notices. Deployment publishes the current working-tree demo snapshot without committing or pushing the source branch.
+The demo is published from the root of the dedicated `gh-pages` branch at **https://phalla-doll.github.io/ng-echarts/**. Source and deployment are separate commits. Publication requires a clean, pushed `main` source, an unchanged sealed artifact and successful local checks in all three browsers.
 
 ## Build and verify
 
-Use Node from `.nvmrc` and npm 11.19.1, with workspace dependencies installed through `npm ci`:
+Use Node from `.nvmrc` and npm 11.19.1 after `npm ci`:
 
 ```sh
 npm run build:pages
 npm run check:pages
 ```
 
-The `production,pages` build prerenders all 29 routes with base `/ng-echarts/`, retaining hydration metadata and lazy chart modules. Each route has a physical `index.html`, so direct links and refreshes work on static hosting. Router links/fragments preserve the repository prefix. The preparation step prefixes external font URLs in styles, inlined critical CSS and generated font preloads, and adds `.nojekyll`. The ordinary SSR build and measurement font paths remain available.
+The build captures its commit/tree/source digest before compilation, extracts a clean commit into an isolated directory (or copies an exact dirty snapshot for local development), and uses the pinned installed dependencies. It checks inputs before/after compilation, prefixes Pages font URLs, preserves notices and `.nojekyll`, and seals every emitted file with SHA-256. Source changes during the build fail instead of being mislabeled. Internal relative source aliases remain within the snapshot; output symlinks are rejected.
 
-The checker serves the artifact under the real project prefix with no SPA fallback. Chromium, Firefox and WebKit verify direct routes, refreshes, the four MVP galleries, composed gallery and linked-chart flow, lazy assets/fonts, same-page fragments, skip-link focus, theme changes and mobile navigation.
+The `production,pages` build prerenders **30 routes** with base `/ng-echarts/`, physical route HTML, hydration metadata and lazy modules. Chart possibilities uses the exact bundled standalone document; its URL revision must match the source hash prefix. Native and graphical linked ranges remain covered.
+
+Local verification serves the artifact without a SPA fallback and checks integrity before/after the Chromium, Firefox and WebKit flows. A successful run writes `dist/pages/pages-verification.json`, bound to the exact marker bytes. Failed or partial checks cannot authorize publication. Build/check/upload share an operation lock; dead-owner locks recover automatically. Build outputs and receipts remain ignored.
+
+Dirty builds are supported for local review, but cannot be published or promoted after committing them. Any source commit/change—including documentation-only commits—or artifact change requires a fresh build/check. The wrapper creates:
+
+- `dist/pages/browser/preview-build.json`: immutable build-time commit/tree/source hash, dirty flag, toolchain, timestamps and every asset's digest.
+- `dist/pages/pages-verification.json`: local three-browser receipt bound to that marker.
 
 ## Publish an update
 
-Authenticate GitHub CLI as a user with repository/Pages permissions, then run:
+Commit and push the intended source before publishing:
 
 ```sh
-gh auth status
+git push origin main
 npm run deploy:pages
 ```
 
-This builds and checks the demo before pushing a normal commit to `gh-pages`. Git history is preserved; the helper never force-pushes. Initial publication configures the Pages source to `gh-pages` at `/`; later deployments retain that setup. It refuses to replace a different existing Pages source. Credentials use normal Git/GitHub CLI authentication and are not written into the artifact.
+The command first checks clean/pushed source, then builds and verifies it. The upload helper rechecks source, output, receipt and current remote `main`, verifies its temporary copy, and publishes both the original marker and `preview-verification.json`. It never replaces build identity with deployment time. Missing/legacy markers, stale or edited assets, incomplete receipts and an outdated/unpushed commit fail before any GitHub publication.
 
-Wait for GitHub's Pages deployment to finish, then verify the live site:
+A normal commit updates `gh-pages` without force-pushing. Existing Pages settings remain `gh-pages` at `/`; a different source configuration is rejected. Git/GitHub CLI credentials retain their normal handling. Direct branch pushes and older helpers are outside this guarded workflow.
+
+Wait for GitHub's deployment, then verify the public bytes and browser flows:
 
 ```sh
-gh run list --workflow 'pages-build-deployment' --limit 3
+gh run list --branch gh-pages --limit 3
 node tools/check-pages.mjs https://phalla-doll.github.io/ng-echarts/
 ```
 
-`preview-build.json` identifies the source base commit, build time and whether the snapshot includes working-tree changes. Source changes still need their own review/commit; pushing source alone does not refresh this manual preview. A different repository name requires changing the Pages `baseHref` and deployment target in the local configuration/helpers.
+Public checks require the expected source commit (current HEAD by default), a clean marker and its receipt, and verify every inventoried asset before browser checks. They do not issue a local publication receipt. For an audit of an earlier known deployment, pin that exact source explicitly:
 
-This publishes the experimental demo, not the library package. Deferred human interpretation, artifact licensing/release acceptance and registry publication remain separate.
+```sh
+PAGES_EXPECTED_COMMIT=<full-source-commit> node tools/check-pages.mjs https://phalla-doll.github.io/ng-echarts/
+```
+
+Inspect [build provenance](https://phalla-doll.github.io/ng-echarts/preview-build.json) and [verification receipt](https://phalla-doll.github.io/ng-echarts/preview-verification.json) for the current deployment. A later documentation-only commit does not rewrite an already published identity. CI seals/checks its clean checkout before the full suite refreshes tracked evidence files; pushes to `main` still do not automatically publish.
+
+The [hardening report](experiments/PREVIEW_DEPLOYMENT_HARDENING.md) records the regression coverage and final checkpoint. This publishes the experimental demo, not the library package; human release gates remain pending.
 
 ## Initial deployment
 
