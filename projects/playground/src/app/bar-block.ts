@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
   BarChart,
@@ -12,15 +12,27 @@ import { chartExampleSource, type CartesianBlock } from './chart-blocks';
 import type { DeviceRow } from './fixtures/evilcharts-bar-fixture';
 import { SiteIcon } from './site-icon';
 import { HighlightCode } from './highlight-code';
+import { ChartImport } from './chart-import';
+import { DemoPrintMode } from './demo-print-mode';
 
 @Component({
   selector: 'app-bar-block',
-  imports: [BarChart, LineChart, AreaChart, ComposedChart, SiteIcon, HighlightCode, RouterLink],
+  imports: [
+    BarChart,
+    LineChart,
+    AreaChart,
+    ComposedChart,
+    SiteIcon,
+    HighlightCode,
+    ChartImport,
+    RouterLink,
+  ],
   templateUrl: './bar-block.html',
   styleUrl: './bar-block.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BarBlockExample {
+  protected readonly printMode = inject(DemoPrintMode);
   readonly block = input.required<CartesianBlock>();
   readonly dark = input.required<boolean>();
   protected readonly theme = computed(() => (this.dark() ? 'dark' : 'light'));
@@ -32,16 +44,6 @@ export class BarBlockExample {
   protected readonly instances = computed(() => [this.generation()]);
   private readonly copiedText = signal<string | null>(null);
   protected readonly copyFailed = signal(false);
-  protected readonly importSource = computed(() => {
-    const kind = this.block().kind;
-    const name = {
-      bar: 'BarChart',
-      line: 'LineChart',
-      area: 'AreaChart',
-      composed: 'ComposedChart',
-    }[kind];
-    return `import { ${name} } from '@ng-echarts/chart-library/${kind}';`;
-  });
   protected readonly source = computed(() => chartExampleSource(this.block(), this.dark()));
   protected readonly copied = computed(() => this.copiedText() === this.source());
   protected readonly selection = signal('');

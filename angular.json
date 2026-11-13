@@ -57,6 +57,11 @@
                 "glob": "chart-style-gallery.html",
                 "input": "docs/experiments",
                 "output": "concepts"
+              },
+              {
+                "glob": "**/*",
+                "input": "tmp/concept-assets",
+                "output": "concepts"
               }
             ],
             "styles": ["projects/playground/src/styles.css"],
@@ -83,7 +88,8 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "statsJson": true
             },
             "development": {
               "optimization": false,

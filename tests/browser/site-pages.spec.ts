@@ -1,3 +1,4 @@
+import { renderGallery } from '../../tools/browser-gallery.mjs';
 import { expect, test } from '@playwright/test';
 import { collectBrowserErrors } from './resource-audit';
 
@@ -60,6 +61,7 @@ test('renders honest component availability and navigates copyable setup documen
   await expect(page.getByRole('heading', { name: 'Components', exact: true })).toBeVisible();
   await page.locator('a.component-card').filter({ hasText: 'Bar Chart' }).click();
   await expect(page.getByRole('heading', { name: 'Bar Blocks', exact: true })).toBeVisible();
+  await renderGallery(page);
   await expect(page.locator('canvas')).toHaveCount(4);
   expect(errors).toEqual([]);
 });

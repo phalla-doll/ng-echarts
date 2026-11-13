@@ -1,3 +1,4 @@
+import { renderGallery, renderConcepts } from './browser-gallery.mjs';
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
 import { readFile, stat, rm as removeReceipt } from 'node:fs/promises';
@@ -126,8 +127,10 @@ async function checkPages() {
           ['radial/', 2],
         ]) {
           await page.goto(new URL(path, site).href);
+          if (!['radar/', 'radial/'].includes(path)) await renderGallery(page);
           await expect(page.locator('canvas')).toHaveCount(count);
           await page.reload();
+          if (!['radar/', 'radial/'].includes(path)) await renderGallery(page);
           await expect(page.locator('canvas')).toHaveCount(count);
           await expect(page.locator('.site-shell')).toHaveClass(/gallery-layout/);
           if (path === 'radial/') {
@@ -146,6 +149,7 @@ async function checkPages() {
         await page.goto(new URL('chart-possibilities/', site).href);
         const concepts = page.frameLocator('app-chart-possibilities iframe');
         await expect(concepts.locator('.card')).toHaveCount(12);
+        await renderConcepts(page);
         await expect(concepts.locator('.plot svg, .spark-plot svg')).toHaveCount(14);
         await expect(concepts.locator('html')).toHaveAttribute('data-theme', 'dark');
         await concepts.getByRole('button', { name: 'Find patterns', exact: true }).click();
@@ -201,6 +205,7 @@ async function checkPages() {
         await expect(page.getByRole('combobox', { name: 'Period', exact: true })).toHaveValue('');
         await expect(page.locator('app-linked-visits canvas')).toHaveCount(2);
         await page.goto(new URL('line/', site).href);
+        await renderGallery(page);
         await expect(page.locator('canvas')).toHaveCount(4);
         await page.locator('app-bar-block a').first().click();
         await expect(page.getByRole('heading', { name: 'Line Blocks', exact: true })).toBeVisible();
@@ -226,6 +231,7 @@ async function checkPages() {
           .getByRole('navigation', { name: 'Playground pages' })
           .getByRole('link', { name: 'Pie & Donut Blocks', exact: true })
           .click();
+        await renderGallery(page);
         await expect(page.locator('canvas')).toHaveCount(3);
         await expect
           .poll(() => page.evaluate(() => document.documentElement.scrollWidth))

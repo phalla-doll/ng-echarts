@@ -12,7 +12,7 @@
   <iframe
     #gallery
     title="Twelve interactive chart possibilities and their sample data"
-    [src]="browserReady() ? galleryUrl : null"
+    appConceptGallery
     [style.height.px]="height()"
     (load)="onGalleryLoad()"
   ></iframe>

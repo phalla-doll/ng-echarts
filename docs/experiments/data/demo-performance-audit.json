@@ -1,0 +1,3734 @@
+{
+  "date": "2026-11-13",
+  "sourceCommit": "e43bb9a8eb04e2b17a85021c43670f89b5c709e4",
+  "scope": "Audit only; no application changes or deployment",
+  "toolchain": {
+    "node": "24.22.2",
+    "npm": "11.19.1",
+    "lighthouse": "13.6.0",
+    "browser": "Chromium 158"
+  },
+  "method": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "reducedMotion": "reduce",
+      "deviceScaleFactor": 1,
+      "cache": "new browser context per route, then warm reload"
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "reduce",
+      "deviceScaleFactor": 1,
+      "cpuRate": 4,
+      "latencyMs": 150,
+      "downloadBytesPerSecond": 200000,
+      "uploadBytesPerSecond": 93750
+    },
+    "readyDefinition": "Navigation plus full load; concept gallery waits for 14 plot SVG elements and two animation frames; other chart routes wait for mounted canvases and two frames; docs use load plus two frames, not an interactivity assertion",
+    "limitation": "Single direct timing sample per route, no field INP. Three mobile Lighthouse runs for bar and possibilities; other Lighthouse entries are single runs. Live network measurements are variable and route timings cannot be ranked as controlled comparisons. Lighthouse metrics are simulated, not the directly throttled readiness results. The first four public timings were collected while a public Lighthouse probe was also in flight; that can increase contention. An independent final Chart possibilities probe, with no other audit load running, is recorded separately."
+  },
+  "localDesktop": [
+    {
+      "route": "/",
+      "status": 200,
+      "readyMs": 210.90000000596046,
+      "warmReadyMs": 131.90000000596046,
+      "encodedBodyBytes": 445970,
+      "ttfbMs": 6.4000000059604645,
+      "fcpMs": 32,
+      "lcpMs": 32,
+      "lcpElement": "<p _ngcontent-ng-c2346134669=\"\">Ready-made Angular bar chart blocks, powered by Apache ECharts</p>",
+      "iframes": [],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 8.800000011920929,
+          "durationMs": 3.5999999940395355,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/fonts/google-sans-code-latin.woff2",
+          "requestStartMs": 8.900000005960464,
+          "durationMs": 4.799999997019768,
+          "encodedBytes": 34948,
+          "transferBytes": 35248
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 9,
+          "durationMs": 5,
+          "encodedBytes": 2457,
+          "transferBytes": 2757
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 9,
+          "durationMs": 22.30000001192093,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 9,
+          "durationMs": 22.400000005960464,
+          "encodedBytes": 187,
+          "transferBytes": 487
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 9.100000008940697,
+          "durationMs": 5.200000002980232,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-M_rEfhKe.js",
+          "requestStartMs": 9.100000008940697,
+          "durationMs": 14.799999997019768,
+          "encodedBytes": 788,
+          "transferBytes": 1088
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 9.100000008940697,
+          "durationMs": 11.299999997019768,
+          "encodedBytes": 63947,
+          "transferBytes": 64247
+        },
+        {
+          "path": "/ng-echarts/chunk-DQ7QTUDX.js",
+          "requestStartMs": 9.100000008940697,
+          "durationMs": 16.599999994039536,
+          "encodedBytes": 1291,
+          "transferBytes": 1591
+        },
+        {
+          "path": "/ng-echarts/chunk-C1HMF-Sl.js",
+          "requestStartMs": 9.100000008940697,
+          "durationMs": 16,
+          "encodedBytes": 6865,
+          "transferBytes": 7165
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 9.100000008940697,
+          "durationMs": 14.599999994039536,
+          "encodedBytes": 37515,
+          "transferBytes": 37815
+        },
+        {
+          "path": "/ng-echarts/chunk-BVbA5hym.js",
+          "requestStartMs": 9.100000008940697,
+          "durationMs": 17.299999997019768,
+          "encodedBytes": 2903,
+          "transferBytes": 3203
+        },
+        {
+          "path": "/ng-echarts/chunk-wXrlFBNw.js",
+          "requestStartMs": 9.200000002980232,
+          "durationMs": 18.700000002980232,
+          "encodedBytes": 909,
+          "transferBytes": 1209
+        },
+        {
+          "path": "/ng-echarts/chunk-Hjc7fJnt.js",
+          "requestStartMs": 9.200000002980232,
+          "durationMs": 19,
+          "encodedBytes": 2957,
+          "transferBytes": 3257
+        },
+        {
+          "path": "/ng-echarts/chunk-CwJOcfMx.js",
+          "requestStartMs": 9.200000002980232,
+          "durationMs": 19.400000005960464,
+          "encodedBytes": 2431,
+          "transferBytes": 2731
+        },
+        {
+          "path": "/ng-echarts/chunk-B7Ng-UbO.js",
+          "requestStartMs": 9.300000011920929,
+          "durationMs": 20.19999998807907,
+          "encodedBytes": 312,
+          "transferBytes": 612
+        },
+        {
+          "path": "/ng-echarts/chunk-CTNPbrKb.js",
+          "requestStartMs": 9.300000011920929,
+          "durationMs": 21.69999998807907,
+          "encodedBytes": 3725,
+          "transferBytes": 4025
+        },
+        {
+          "path": "/ng-echarts/chunk-DMTYUkqy.js",
+          "requestStartMs": 9.300000011920929,
+          "durationMs": 21.399999991059303,
+          "encodedBytes": 13267,
+          "transferBytes": 13567
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 10.700000002980232,
+          "durationMs": 16.799999997019768,
+          "encodedBytes": 4447,
+          "transferBytes": 4747
+        },
+        {
+          "path": "/ng-echarts/chunk-BnCSafzK.js",
+          "requestStartMs": 55.5,
+          "durationMs": 2.2000000029802322,
+          "encodedBytes": 5005,
+          "transferBytes": 5305
+        },
+        {
+          "path": "/ng-echarts/chunk-N8_KeIBJ.js",
+          "requestStartMs": 55.5,
+          "durationMs": 3.1000000089406967,
+          "encodedBytes": 6447,
+          "transferBytes": 6747
+        },
+        {
+          "path": "/ng-echarts/chunk-B6S8MXp7.js",
+          "requestStartMs": 55.900000005960464,
+          "durationMs": 2,
+          "encodedBytes": 195,
+          "transferBytes": 495
+        },
+        {
+          "path": "/ng-echarts/chunk-ClAwvv7r.js",
+          "requestStartMs": 99.20000000298023,
+          "durationMs": 1.6000000089406967,
+          "encodedBytes": 1741,
+          "transferBytes": 2041
+        },
+        {
+          "path": "/ng-echarts/chunk-DlARtgX4.js",
+          "requestStartMs": 101.90000000596046,
+          "durationMs": 7.5999999940395355,
+          "encodedBytes": 78603,
+          "transferBytes": 78903
+        },
+        {
+          "path": "/ng-echarts/chunk-t3CChAgM.js",
+          "requestStartMs": 101.90000000596046,
+          "durationMs": 16.5,
+          "encodedBytes": 112717,
+          "transferBytes": 113017
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "line",
+      "status": 200,
+      "readyMs": 207.79999999701977,
+      "warmReadyMs": 146.09999999403954,
+      "encodedBodyBytes": 444548,
+      "ttfbMs": 3.4000000059604645,
+      "fcpMs": 32,
+      "lcpMs": 32,
+      "lcpElement": "<h1 _ngcontent-ng-c2346134669=\"\">Line Blocks</h1>",
+      "iframes": [],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 6,
+          "durationMs": 2.7999999970197678,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 5.799999997019768,
+          "encodedBytes": 2457,
+          "transferBytes": 2757
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 5.799999997019768,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/fonts/google-sans-code-latin.woff2",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 4.799999997019768,
+          "encodedBytes": 34948,
+          "transferBytes": 35248
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 12.700000002980232,
+          "encodedBytes": 63947,
+          "transferBytes": 64247
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 22.799999997019768,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 24.200000002980232,
+          "encodedBytes": 187,
+          "transferBytes": 487
+        },
+        {
+          "path": "/ng-echarts/chunk-C1HMF-Sl.js",
+          "requestStartMs": 6.299999997019768,
+          "durationMs": 18.299999997019768,
+          "encodedBytes": 6865,
+          "transferBytes": 7165
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 6.299999997019768,
+          "durationMs": 16.700000002980232,
+          "encodedBytes": 37515,
+          "transferBytes": 37815
+        },
+        {
+          "path": "/ng-echarts/chunk-M_rEfhKe.js",
+          "requestStartMs": 6.299999997019768,
+          "durationMs": 20,
+          "encodedBytes": 788,
+          "transferBytes": 1088
+        },
+        {
+          "path": "/ng-echarts/chunk-DQ7QTUDX.js",
+          "requestStartMs": 6.4000000059604645,
+          "durationMs": 19.399999991059303,
+          "encodedBytes": 1291,
+          "transferBytes": 1591
+        },
+        {
+          "path": "/ng-echarts/chunk-BVbA5hym.js",
+          "requestStartMs": 6.4000000059604645,
+          "durationMs": 20.69999998807907,
+          "encodedBytes": 2903,
+          "transferBytes": 3203
+        },
+        {
+          "path": "/ng-echarts/chunk-CwJOcfMx.js",
+          "requestStartMs": 6.4000000059604645,
+          "durationMs": 21.19999998807907,
+          "encodedBytes": 2431,
+          "transferBytes": 2731
+        },
+        {
+          "path": "/ng-echarts/chunk-Hjc7fJnt.js",
+          "requestStartMs": 6.4000000059604645,
+          "durationMs": 21.799999997019768,
+          "encodedBytes": 2957,
+          "transferBytes": 3257
+        },
+        {
+          "path": "/ng-echarts/chunk-wXrlFBNw.js",
+          "requestStartMs": 6.4000000059604645,
+          "durationMs": 22.399999991059303,
+          "encodedBytes": 909,
+          "transferBytes": 1209
+        },
+        {
+          "path": "/ng-echarts/chunk-B7Ng-UbO.js",
+          "requestStartMs": 6.4000000059604645,
+          "durationMs": 22.5,
+          "encodedBytes": 312,
+          "transferBytes": 612
+        },
+        {
+          "path": "/ng-echarts/chunk-CTNPbrKb.js",
+          "requestStartMs": 6.4000000059604645,
+          "durationMs": 23.899999991059303,
+          "encodedBytes": 3725,
+          "transferBytes": 4025
+        },
+        {
+          "path": "/ng-echarts/chunk-DMTYUkqy.js",
+          "requestStartMs": 6.4000000059604645,
+          "durationMs": 23.69999998807907,
+          "encodedBytes": 13267,
+          "transferBytes": 13567
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 8.099999994039536,
+          "durationMs": 17.30000001192093,
+          "encodedBytes": 4447,
+          "transferBytes": 4747
+        },
+        {
+          "path": "/ng-echarts/chunk-BnCSafzK.js",
+          "requestStartMs": 55.599999994039536,
+          "durationMs": 2.5,
+          "encodedBytes": 5005,
+          "transferBytes": 5305
+        },
+        {
+          "path": "/ng-echarts/chunk-N8_KeIBJ.js",
+          "requestStartMs": 55.70000000298023,
+          "durationMs": 2.7999999970197678,
+          "encodedBytes": 6447,
+          "transferBytes": 6747
+        },
+        {
+          "path": "/ng-echarts/chunk-B6S8MXp7.js",
+          "requestStartMs": 56,
+          "durationMs": 1.4000000059604645,
+          "encodedBytes": 195,
+          "transferBytes": 495
+        },
+        {
+          "path": "/ng-echarts/chunk-Q7abgiAQ.js",
+          "requestStartMs": 103.09999999403954,
+          "durationMs": 1.5,
+          "encodedBytes": 370,
+          "transferBytes": 670
+        },
+        {
+          "path": "/ng-echarts/chunk-DlARtgX4.js",
+          "requestStartMs": 105,
+          "durationMs": 7.5999999940395355,
+          "encodedBytes": 78603,
+          "transferBytes": 78903
+        },
+        {
+          "path": "/ng-echarts/chunk-t3CChAgM.js",
+          "requestStartMs": 105,
+          "durationMs": 16.5,
+          "encodedBytes": 112717,
+          "transferBytes": 113017
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "area",
+      "status": 200,
+      "readyMs": 206.69999998807907,
+      "warmReadyMs": 139.40000000596046,
+      "encodedBodyBytes": 444565,
+      "ttfbMs": 3,
+      "fcpMs": 28,
+      "lcpMs": 28,
+      "lcpElement": "<h1 _ngcontent-ng-c2346134669=\"\">Area Blocks</h1>",
+      "iframes": [],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 5.5,
+          "durationMs": 3.0999999940395355,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 5.5999999940395355,
+          "durationMs": 4.4000000059604645,
+          "encodedBytes": 2457,
+          "transferBytes": 2757
+        },
+        {
+          "path": "/ng-echarts/fonts/google-sans-code-latin.woff2",
+          "requestStartMs": 5.5999999940395355,
+          "durationMs": 3.9000000059604645,
+          "encodedBytes": 34948,
+          "transferBytes": 35248
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 5.5999999940395355,
+          "durationMs": 19.900000005960464,
+          "encodedBytes": 187,
+          "transferBytes": 487
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 5.5999999940395355,
+          "durationMs": 21.099999994039536,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 5.699999988079071,
+          "durationMs": 10.5,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 5.699999988079071,
+          "durationMs": 10.400000005960464,
+          "encodedBytes": 63947,
+          "transferBytes": 64247
+        },
+        {
+          "path": "/ng-echarts/chunk-C1HMF-Sl.js",
+          "requestStartMs": 5.799999997019768,
+          "durationMs": 15.700000002980232,
+          "encodedBytes": 6865,
+          "transferBytes": 7165
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 5.799999997019768,
+          "durationMs": 13.799999997019768,
+          "encodedBytes": 37515,
+          "transferBytes": 37815
+        },
+        {
+          "path": "/ng-echarts/chunk-M_rEfhKe.js",
+          "requestStartMs": 5.899999991059303,
+          "durationMs": 14.400000005960464,
+          "encodedBytes": 788,
+          "transferBytes": 1088
+        },
+        {
+          "path": "/ng-echarts/chunk-DQ7QTUDX.js",
+          "requestStartMs": 5.899999991059303,
+          "durationMs": 16.799999997019768,
+          "encodedBytes": 1291,
+          "transferBytes": 1591
+        },
+        {
+          "path": "/ng-echarts/chunk-BVbA5hym.js",
+          "requestStartMs": 5.899999991059303,
+          "durationMs": 17.799999997019768,
+          "encodedBytes": 2903,
+          "transferBytes": 3203
+        },
+        {
+          "path": "/ng-echarts/chunk-CwJOcfMx.js",
+          "requestStartMs": 5.899999991059303,
+          "durationMs": 18,
+          "encodedBytes": 2431,
+          "transferBytes": 2731
+        },
+        {
+          "path": "/ng-echarts/chunk-Hjc7fJnt.js",
+          "requestStartMs": 5.899999991059303,
+          "durationMs": 18.299999997019768,
+          "encodedBytes": 2957,
+          "transferBytes": 3257
+        },
+        {
+          "path": "/ng-echarts/chunk-wXrlFBNw.js",
+          "requestStartMs": 6,
+          "durationMs": 18.799999997019768,
+          "encodedBytes": 909,
+          "transferBytes": 1209
+        },
+        {
+          "path": "/ng-echarts/chunk-B7Ng-UbO.js",
+          "requestStartMs": 6,
+          "durationMs": 19,
+          "encodedBytes": 312,
+          "transferBytes": 612
+        },
+        {
+          "path": "/ng-echarts/chunk-DMTYUkqy.js",
+          "requestStartMs": 6,
+          "durationMs": 20.5,
+          "encodedBytes": 13267,
+          "transferBytes": 13567
+        },
+        {
+          "path": "/ng-echarts/chunk-CTNPbrKb.js",
+          "requestStartMs": 6.0999999940395355,
+          "durationMs": 19.299999997019768,
+          "encodedBytes": 3725,
+          "transferBytes": 4025
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 7.5999999940395355,
+          "durationMs": 16.099999994039536,
+          "encodedBytes": 4447,
+          "transferBytes": 4747
+        },
+        {
+          "path": "/ng-echarts/chunk-BnCSafzK.js",
+          "requestStartMs": 51.8999999910593,
+          "durationMs": 2,
+          "encodedBytes": 5005,
+          "transferBytes": 5305
+        },
+        {
+          "path": "/ng-echarts/chunk-N8_KeIBJ.js",
+          "requestStartMs": 52,
+          "durationMs": 2.8999999910593033,
+          "encodedBytes": 6447,
+          "transferBytes": 6747
+        },
+        {
+          "path": "/ng-echarts/chunk-B6S8MXp7.js",
+          "requestStartMs": 52.3999999910593,
+          "durationMs": 1.6000000089406967,
+          "encodedBytes": 195,
+          "transferBytes": 495
+        },
+        {
+          "path": "/ng-echarts/chunk-7lCwI81s.js",
+          "requestStartMs": 98,
+          "durationMs": 1.3999999910593033,
+          "encodedBytes": 369,
+          "transferBytes": 669
+        },
+        {
+          "path": "/ng-echarts/chunk-DlARtgX4.js",
+          "requestStartMs": 100.19999998807907,
+          "durationMs": 16,
+          "encodedBytes": 78603,
+          "transferBytes": 78903
+        },
+        {
+          "path": "/ng-echarts/chunk-t3CChAgM.js",
+          "requestStartMs": 100.29999999701977,
+          "durationMs": 9.899999991059303,
+          "encodedBytes": 112717,
+          "transferBytes": 113017
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "pie",
+      "status": 200,
+      "readyMs": 208.3999999910593,
+      "warmReadyMs": 117.29999999701977,
+      "encodedBodyBytes": 443859,
+      "ttfbMs": 3.3999999910593033,
+      "fcpMs": 32,
+      "lcpMs": 32,
+      "lcpElement": "<h1 _ngcontent-ng-c2346134669=\"\">Pie &amp; Donut Blocks</h1>",
+      "iframes": [],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 5.699999988079071,
+          "durationMs": 2.9000000059604645,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/fonts/google-sans-code-latin.woff2",
+          "requestStartMs": 5.799999997019768,
+          "durationMs": 5.5999999940395355,
+          "encodedBytes": 34948,
+          "transferBytes": 35248
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 5.799999997019768,
+          "durationMs": 27.5,
+          "encodedBytes": 187,
+          "transferBytes": 487
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 5.899999991059303,
+          "durationMs": 6,
+          "encodedBytes": 2457,
+          "transferBytes": 2757
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 5.899999991059303,
+          "durationMs": 27.700000002980232,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 6,
+          "durationMs": 12.299999997019768,
+          "encodedBytes": 63947,
+          "transferBytes": 64247
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 6,
+          "durationMs": 21.19999998807907,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-C1HMF-Sl.js",
+          "requestStartMs": 6,
+          "durationMs": 22.299999997019768,
+          "encodedBytes": 6865,
+          "transferBytes": 7165
+        },
+        {
+          "path": "/ng-echarts/chunk-M_rEfhKe.js",
+          "requestStartMs": 6,
+          "durationMs": 23.299999997019768,
+          "encodedBytes": 788,
+          "transferBytes": 1088
+        },
+        {
+          "path": "/ng-echarts/chunk-DQ7QTUDX.js",
+          "requestStartMs": 6,
+          "durationMs": 23.599999994039536,
+          "encodedBytes": 1291,
+          "transferBytes": 1591
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 6,
+          "durationMs": 21.5,
+          "encodedBytes": 37515,
+          "transferBytes": 37815
+        },
+        {
+          "path": "/ng-echarts/chunk-BVbA5hym.js",
+          "requestStartMs": 6,
+          "durationMs": 23.899999991059303,
+          "encodedBytes": 2903,
+          "transferBytes": 3203
+        },
+        {
+          "path": "/ng-echarts/chunk-CwJOcfMx.js",
+          "requestStartMs": 6.0999999940395355,
+          "durationMs": 24.400000005960464,
+          "encodedBytes": 2431,
+          "transferBytes": 2731
+        },
+        {
+          "path": "/ng-echarts/chunk-Hjc7fJnt.js",
+          "requestStartMs": 6.0999999940395355,
+          "durationMs": 26.5,
+          "encodedBytes": 2957,
+          "transferBytes": 3257
+        },
+        {
+          "path": "/ng-echarts/chunk-B7Ng-UbO.js",
+          "requestStartMs": 6.199999988079071,
+          "durationMs": 24.900000005960464,
+          "encodedBytes": 312,
+          "transferBytes": 612
+        },
+        {
+          "path": "/ng-echarts/chunk-wXrlFBNw.js",
+          "requestStartMs": 6.199999988079071,
+          "durationMs": 25.200000002980232,
+          "encodedBytes": 909,
+          "transferBytes": 1209
+        },
+        {
+          "path": "/ng-echarts/chunk-DMTYUkqy.js",
+          "requestStartMs": 6.199999988079071,
+          "durationMs": 26.100000008940697,
+          "encodedBytes": 13267,
+          "transferBytes": 13567
+        },
+        {
+          "path": "/ng-echarts/chunk-CTNPbrKb.js",
+          "requestStartMs": 6.199999988079071,
+          "durationMs": 26.80000001192093,
+          "encodedBytes": 3725,
+          "transferBytes": 4025
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 7.799999997019768,
+          "durationMs": 21.299999997019768,
+          "encodedBytes": 4447,
+          "transferBytes": 4747
+        },
+        {
+          "path": "/ng-echarts/chunk-BnCSafzK.js",
+          "requestStartMs": 59.29999999701977,
+          "durationMs": 3.0999999940395355,
+          "encodedBytes": 5005,
+          "transferBytes": 5305
+        },
+        {
+          "path": "/ng-echarts/chunk-N8_KeIBJ.js",
+          "requestStartMs": 59.5,
+          "durationMs": 3.5999999940395355,
+          "encodedBytes": 6447,
+          "transferBytes": 6747
+        },
+        {
+          "path": "/ng-echarts/chunk-B6S8MXp7.js",
+          "requestStartMs": 59.79999999701977,
+          "durationMs": 1.7999999970197678,
+          "encodedBytes": 195,
+          "transferBytes": 495
+        },
+        {
+          "path": "/ng-echarts/chunk-BfZLzD6-.js",
+          "requestStartMs": 98.09999999403954,
+          "durationMs": 2.4000000059604645,
+          "encodedBytes": 392,
+          "transferBytes": 692
+        },
+        {
+          "path": "/ng-echarts/chunk-DlARtgX4.js",
+          "requestStartMs": 101,
+          "durationMs": 9.399999991059303,
+          "encodedBytes": 78603,
+          "transferBytes": 78903
+        },
+        {
+          "path": "/ng-echarts/chunk-t3CChAgM.js",
+          "requestStartMs": 101,
+          "durationMs": 19,
+          "encodedBytes": 112717,
+          "transferBytes": 113017
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "composed",
+      "status": 200,
+      "readyMs": 209.5,
+      "warmReadyMs": 113.8999999910593,
+      "encodedBodyBytes": 443645,
+      "ttfbMs": 3.0999999940395355,
+      "fcpMs": 32,
+      "lcpMs": 32,
+      "lcpElement": "<h1 _ngcontent-ng-c2346134669=\"\">Composed Blocks</h1>",
+      "iframes": [],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 5.799999997019768,
+          "durationMs": 5,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/fonts/google-sans-code-latin.woff2",
+          "requestStartMs": 5.9000000059604645,
+          "durationMs": 6.5,
+          "encodedBytes": 34948,
+          "transferBytes": 35248
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 6,
+          "durationMs": 7,
+          "encodedBytes": 2457,
+          "transferBytes": 2757
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 6,
+          "durationMs": 29.099999994039536,
+          "encodedBytes": 187,
+          "transferBytes": 487
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 6,
+          "durationMs": 29.200000002980232,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 6.0999999940395355,
+          "durationMs": 6.9000000059604645,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 6.0999999940395355,
+          "durationMs": 14.200000002980232,
+          "encodedBytes": 63947,
+          "transferBytes": 64247
+        },
+        {
+          "path": "/ng-echarts/chunk-C1HMF-Sl.js",
+          "requestStartMs": 6.0999999940395355,
+          "durationMs": 23.80000001192093,
+          "encodedBytes": 6865,
+          "transferBytes": 7165
+        },
+        {
+          "path": "/ng-echarts/chunk-M_rEfhKe.js",
+          "requestStartMs": 6.0999999940395355,
+          "durationMs": 25.100000008940697,
+          "encodedBytes": 788,
+          "transferBytes": 1088
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 6.0999999940395355,
+          "durationMs": 22.5,
+          "encodedBytes": 37515,
+          "transferBytes": 37815
+        },
+        {
+          "path": "/ng-echarts/chunk-DQ7QTUDX.js",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 24.599999994039536,
+          "encodedBytes": 1291,
+          "transferBytes": 1591
+        },
+        {
+          "path": "/ng-echarts/chunk-BVbA5hym.js",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 25.599999994039536,
+          "encodedBytes": 2903,
+          "transferBytes": 3203
+        },
+        {
+          "path": "/ng-echarts/chunk-B7Ng-UbO.js",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 26.700000002980232,
+          "encodedBytes": 312,
+          "transferBytes": 612
+        },
+        {
+          "path": "/ng-echarts/chunk-CwJOcfMx.js",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 26.599999994039536,
+          "encodedBytes": 2431,
+          "transferBytes": 2731
+        },
+        {
+          "path": "/ng-echarts/chunk-Hjc7fJnt.js",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 27,
+          "encodedBytes": 2957,
+          "transferBytes": 3257
+        },
+        {
+          "path": "/ng-echarts/chunk-CTNPbrKb.js",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 27.299999997019768,
+          "encodedBytes": 3725,
+          "transferBytes": 4025
+        },
+        {
+          "path": "/ng-echarts/chunk-wXrlFBNw.js",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 27.599999994039536,
+          "encodedBytes": 909,
+          "transferBytes": 1209
+        },
+        {
+          "path": "/ng-echarts/chunk-DMTYUkqy.js",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 28.599999994039536,
+          "encodedBytes": 13267,
+          "transferBytes": 13567
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 7.799999997019768,
+          "durationMs": 22.400000005960464,
+          "encodedBytes": 4447,
+          "transferBytes": 4747
+        },
+        {
+          "path": "/ng-echarts/chunk-N8_KeIBJ.js",
+          "requestStartMs": 60.599999994039536,
+          "durationMs": 2.4000000059604645,
+          "encodedBytes": 6447,
+          "transferBytes": 6747
+        },
+        {
+          "path": "/ng-echarts/chunk-BnCSafzK.js",
+          "requestStartMs": 60.599999994039536,
+          "durationMs": 3.2000000029802322,
+          "encodedBytes": 5005,
+          "transferBytes": 5305
+        },
+        {
+          "path": "/ng-echarts/chunk-B6S8MXp7.js",
+          "requestStartMs": 60.900000005960464,
+          "durationMs": 3.0999999940395355,
+          "encodedBytes": 195,
+          "transferBytes": 495
+        },
+        {
+          "path": "/ng-echarts/chunk-DReZtEJq.js",
+          "requestStartMs": 97.70000000298023,
+          "durationMs": 1.7999999970197678,
+          "encodedBytes": 380,
+          "transferBytes": 680
+        },
+        {
+          "path": "/ng-echarts/chunk-DlARtgX4.js",
+          "requestStartMs": 99.70000000298023,
+          "durationMs": 7.899999991059303,
+          "encodedBytes": 78603,
+          "transferBytes": 78903
+        },
+        {
+          "path": "/ng-echarts/chunk-t3CChAgM.js",
+          "requestStartMs": 99.79999999701977,
+          "durationMs": 17.900000005960464,
+          "encodedBytes": 112717,
+          "transferBytes": 113017
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "radar",
+      "status": 200,
+      "readyMs": 190.6000000089407,
+      "warmReadyMs": 100.09999999403954,
+      "encodedBodyBytes": 424291,
+      "ttfbMs": 2.7000000029802322,
+      "fcpMs": 28,
+      "lcpMs": 28,
+      "lcpElement": "<p _ngcontent-ng-c3947249498=\"\" class=\"radar-note\"> Illustrative scores on a 0–100 scale. Compare each spoke; polygon area is not an overall score. Open the data table for exact va",
+      "iframes": [],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 5,
+          "durationMs": 3.6000000089406967,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/fonts/google-sans-code-latin.woff2",
+          "requestStartMs": 5.200000002980232,
+          "durationMs": 4.4000000059604645,
+          "encodedBytes": 34948,
+          "transferBytes": 35248
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 5.200000002980232,
+          "durationMs": 5.0999999940395355,
+          "encodedBytes": 2457,
+          "transferBytes": 2757
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 5.200000002980232,
+          "durationMs": 22.200000002980232,
+          "encodedBytes": 187,
+          "transferBytes": 487
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 5.200000002980232,
+          "durationMs": 22.599999994039536,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 5.299999997019768,
+          "durationMs": 5.300000011920929,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-N8_KeIBJ.js",
+          "requestStartMs": 5.299999997019768,
+          "durationMs": 12.100000008940697,
+          "encodedBytes": 6447,
+          "transferBytes": 6747
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 5.299999997019768,
+          "durationMs": 11.800000011920929,
+          "encodedBytes": 63947,
+          "transferBytes": 64247
+        },
+        {
+          "path": "/ng-echarts/chunk-DzGkbPMn.js",
+          "requestStartMs": 5.299999997019768,
+          "durationMs": 19,
+          "encodedBytes": 7986,
+          "transferBytes": 8286
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 5.299999997019768,
+          "durationMs": 18.600000008940697,
+          "encodedBytes": 37515,
+          "transferBytes": 37815
+        },
+        {
+          "path": "/ng-echarts/chunk-DMTYUkqy.js",
+          "requestStartMs": 5.4000000059604645,
+          "durationMs": 21.399999991059303,
+          "encodedBytes": 13267,
+          "transferBytes": 13567
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 6.799999997019768,
+          "durationMs": 20.5,
+          "encodedBytes": 4447,
+          "transferBytes": 4747
+        },
+        {
+          "path": "/ng-echarts/chunk-B2tSrWPp.js",
+          "requestStartMs": 89.6000000089407,
+          "durationMs": 1.3999999910593033,
+          "encodedBytes": 882,
+          "transferBytes": 1182
+        },
+        {
+          "path": "/ng-echarts/chunk-DlARtgX4.js",
+          "requestStartMs": 91.29999999701977,
+          "durationMs": 7.9000000059604645,
+          "encodedBytes": 78603,
+          "transferBytes": 78903
+        },
+        {
+          "path": "/ng-echarts/chunk-t3CChAgM.js",
+          "requestStartMs": 91.40000000596046,
+          "durationMs": 16.899999991059303,
+          "encodedBytes": 112717,
+          "transferBytes": 113017
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "linked",
+      "status": 200,
+      "readyMs": 207.1000000089407,
+      "warmReadyMs": 113.30000001192093,
+      "encodedBodyBytes": 440019,
+      "ttfbMs": 2.7000000029802322,
+      "fcpMs": 24,
+      "lcpMs": 24,
+      "lcpElement": "<h1 _ngcontent-ng-c2202014267=\"\">Linked Charts</h1>",
+      "iframes": [],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 5,
+          "durationMs": 3.1000000089406967,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/fonts/google-sans-code-latin.woff2",
+          "requestStartMs": 5.100000008940697,
+          "durationMs": 3.699999988079071,
+          "encodedBytes": 34948,
+          "transferBytes": 35248
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 5.200000002980232,
+          "durationMs": 3.7999999970197678,
+          "encodedBytes": 2457,
+          "transferBytes": 2757
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 5.200000002980232,
+          "durationMs": 5.4000000059604645,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 5.200000002980232,
+          "durationMs": 11.200000002980232,
+          "encodedBytes": 63947,
+          "transferBytes": 64247
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 5.200000002980232,
+          "durationMs": 17.099999994039536,
+          "encodedBytes": 37515,
+          "transferBytes": 37815
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 5.200000002980232,
+          "durationMs": 20.700000002980232,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 5.200000002980232,
+          "durationMs": 20.900000005960464,
+          "encodedBytes": 187,
+          "transferBytes": 487
+        },
+        {
+          "path": "/ng-echarts/chunk-B7Ng-UbO.js",
+          "requestStartMs": 5.299999997019768,
+          "durationMs": 11.600000008940697,
+          "encodedBytes": 312,
+          "transferBytes": 612
+        },
+        {
+          "path": "/ng-echarts/chunk-C8rMVEc4.js",
+          "requestStartMs": 5.299999997019768,
+          "durationMs": 11.700000002980232,
+          "encodedBytes": 5162,
+          "transferBytes": 5462
+        },
+        {
+          "path": "/ng-echarts/chunk-DMTYUkqy.js",
+          "requestStartMs": 5.299999997019768,
+          "durationMs": 17.900000005960464,
+          "encodedBytes": 13267,
+          "transferBytes": 13567
+        },
+        {
+          "path": "/ng-echarts/chunk-CTNPbrKb.js",
+          "requestStartMs": 5.299999997019768,
+          "durationMs": 19.200000002980232,
+          "encodedBytes": 3725,
+          "transferBytes": 4025
+        },
+        {
+          "path": "/ng-echarts/chunk-Dx2IKNWG.js",
+          "requestStartMs": 5.299999997019768,
+          "durationMs": 20.600000008940697,
+          "encodedBytes": 4682,
+          "transferBytes": 4982
+        },
+        {
+          "path": "/ng-echarts/chunk-BnCSafzK.js",
+          "requestStartMs": 5.4000000059604645,
+          "durationMs": 18.599999994039536,
+          "encodedBytes": 5005,
+          "transferBytes": 5305
+        },
+        {
+          "path": "/ng-echarts/chunk-N8_KeIBJ.js",
+          "requestStartMs": 5.5,
+          "durationMs": 19.799999997019768,
+          "encodedBytes": 6447,
+          "transferBytes": 6747
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 6.799999997019768,
+          "durationMs": 18,
+          "encodedBytes": 4447,
+          "transferBytes": 4747
+        },
+        {
+          "path": "/ng-echarts/chunk-ClAwvv7r.js",
+          "requestStartMs": 89.40000000596046,
+          "durationMs": 2.0999999940395355,
+          "encodedBytes": 1741,
+          "transferBytes": 2041
+        },
+        {
+          "path": "/ng-echarts/chunk-BfZLzD6-.js",
+          "requestStartMs": 89.70000000298023,
+          "durationMs": 1.9000000059604645,
+          "encodedBytes": 392,
+          "transferBytes": 692
+        },
+        {
+          "path": "/ng-echarts/chunk-DlARtgX4.js",
+          "requestStartMs": 92.20000000298023,
+          "durationMs": 7.5999999940395355,
+          "encodedBytes": 78603,
+          "transferBytes": 78903
+        },
+        {
+          "path": "/ng-echarts/chunk-t3CChAgM.js",
+          "requestStartMs": 92.20000000298023,
+          "durationMs": 16.5,
+          "encodedBytes": 112717,
+          "transferBytes": 113017
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "chart-possibilities",
+      "status": 200,
+      "readyMs": 292.79999999701977,
+      "warmReadyMs": 156.5,
+      "encodedBodyBytes": 607390,
+      "ttfbMs": 4.799999997019768,
+      "fcpMs": 36,
+      "lcpMs": 36,
+      "lcpElement": "<h1 _ngcontent-ng-c2608206714=\"\" id=\"possibilities-title\">Chart possibilities</h1>",
+      "iframeRequestStartMs": 54.099999994039536,
+      "iframeDurationMs": 38.80000001192093,
+      "iframes": [
+        {
+          "url": "http://localhost:4176/ng-echarts/concepts/chart-style-gallery.html?v=8169ba21b4c5&embedded=1&theme=dark",
+          "svgPlots": 14,
+          "nodes": 1862,
+          "longTasks": [
+            {
+              "startMs": 99.20000000298023,
+              "durationMs": 103
+            }
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 7.0999999940395355,
+          "durationMs": 3,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 7.200000002980232,
+          "durationMs": 10.399999991059303,
+          "encodedBytes": 187,
+          "transferBytes": 487
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 7.299999997019768,
+          "durationMs": 3.7999999970197678,
+          "encodedBytes": 2457,
+          "transferBytes": 2757
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 7.299999997019768,
+          "durationMs": 14.799999997019768,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 7.299999997019768,
+          "durationMs": 10.600000008940697,
+          "encodedBytes": 63947,
+          "transferBytes": 64247
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 7.4000000059604645,
+          "durationMs": 4.399999991059303,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-Cd6Q71og.js",
+          "requestStartMs": 7.4000000059604645,
+          "durationMs": 14.599999994039536,
+          "encodedBytes": 1854,
+          "transferBytes": 2154
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 7.4000000059604645,
+          "durationMs": 14,
+          "encodedBytes": 37515,
+          "transferBytes": 37815
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 9,
+          "durationMs": 13.900000005960464,
+          "encodedBytes": 4447,
+          "transferBytes": 4747
+        },
+        {
+          "path": "/ng-echarts/concepts/chart-style-gallery.html",
+          "requestStartMs": 54.099999994039536,
+          "durationMs": 38.80000001192093,
+          "encodedBytes": 439969,
+          "transferBytes": 440269
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "get-started",
+      "status": 200,
+      "readyMs": 93.09999999403954,
+      "warmReadyMs": 75.8999999910593,
+      "encodedBodyBytes": 223954,
+      "ttfbMs": 3.7000000029802322,
+      "fcpMs": 32,
+      "lcpMs": 32,
+      "lcpElement": "<pre _ngcontent-ng-c3867195151=\"\" tabindex=\"0\" aria-label=\"TypeScript example\"><code _ngcontent-ng-c3867195151=\"\" class=\"syntax-code\"><span class=\"hljs-keyword\">import</span> { <sp",
+      "iframes": [],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 7,
+          "durationMs": 3.5999999940395355,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/fonts/google-sans-code-latin.woff2",
+          "requestStartMs": 7.200000002980232,
+          "durationMs": 3.8999999910593033,
+          "encodedBytes": 34948,
+          "transferBytes": 35248
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 7.299999997019768,
+          "durationMs": 5.200000002980232,
+          "encodedBytes": 2457,
+          "transferBytes": 2757
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 7.299999997019768,
+          "durationMs": 11.299999997019768,
+          "encodedBytes": 63947,
+          "transferBytes": 64247
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 7.299999997019768,
+          "durationMs": 16.600000008940697,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 7.299999997019768,
+          "durationMs": 16.900000005960464,
+          "encodedBytes": 187,
+          "transferBytes": 487
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 7.4000000059604645,
+          "durationMs": 10.799999997019768,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-CNRP3jfj.js",
+          "requestStartMs": 7.4000000059604645,
+          "durationMs": 14.399999991059303,
+          "encodedBytes": 7602,
+          "transferBytes": 7902
+        },
+        {
+          "path": "/ng-echarts/chunk-DMTYUkqy.js",
+          "requestStartMs": 7.4000000059604645,
+          "durationMs": 15.399999991059303,
+          "encodedBytes": 13267,
+          "transferBytes": 13567
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 7.4000000059604645,
+          "durationMs": 14,
+          "encodedBytes": 37515,
+          "transferBytes": 37815
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 9.400000005960464,
+          "durationMs": 14.399999991059303,
+          "encodedBytes": 4447,
+          "transferBytes": 4747
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "installation",
+      "status": 200,
+      "readyMs": 93.5,
+      "warmReadyMs": 89.40000000596046,
+      "encodedBodyBytes": 224717,
+      "ttfbMs": 3.2000000029802322,
+      "fcpMs": 32,
+      "lcpMs": 32,
+      "lcpElement": "<p>Create a production tarball from the workspace root. Install that file and the tested ECharts peer in a separate Angular 22 application. Replace the example path with the locati",
+      "iframes": [],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 5.899999991059303,
+          "durationMs": 3.5,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/fonts/google-sans-code-latin.woff2",
+          "requestStartMs": 6,
+          "durationMs": 5.200000002980232,
+          "encodedBytes": 34948,
+          "transferBytes": 35248
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 6,
+          "durationMs": 16.299999997019768,
+          "encodedBytes": 187,
+          "transferBytes": 487
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 6,
+          "durationMs": 18.5,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 6.0999999940395355,
+          "durationMs": 4.9000000059604645,
+          "encodedBytes": 2457,
+          "transferBytes": 2757
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 6.0999999940395355,
+          "durationMs": 11.400000005960464,
+          "encodedBytes": 63947,
+          "transferBytes": 64247
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 4.899999991059303,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-CNRP3jfj.js",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 14.799999997019768,
+          "encodedBytes": 7602,
+          "transferBytes": 7902
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 14.199999988079071,
+          "encodedBytes": 37515,
+          "transferBytes": 37815
+        },
+        {
+          "path": "/ng-echarts/chunk-DMTYUkqy.js",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 17.5,
+          "encodedBytes": 13267,
+          "transferBytes": 13567
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 7.899999991059303,
+          "durationMs": 16.400000005960464,
+          "encodedBytes": 4447,
+          "transferBytes": 4747
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "components",
+      "status": 200,
+      "readyMs": 90.8999999910593,
+      "warmReadyMs": 66.20000000298023,
+      "encodedBodyBytes": 189024,
+      "ttfbMs": 3,
+      "fcpMs": 28,
+      "lcpMs": 28,
+      "lcpElement": "<h1>Components</h1>",
+      "iframes": [],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 5.200000002980232,
+          "durationMs": 3.2999999970197678,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 5.299999997019768,
+          "durationMs": 4.0999999940395355,
+          "encodedBytes": 2457,
+          "transferBytes": 2757
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 5.299999997019768,
+          "durationMs": 11.400000005960464,
+          "encodedBytes": 187,
+          "transferBytes": 487
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 5.299999997019768,
+          "durationMs": 17.299999997019768,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 5.399999991059303,
+          "durationMs": 11,
+          "encodedBytes": 63947,
+          "transferBytes": 64247
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 5.5,
+          "durationMs": 4.700000002980232,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-DMTYUkqy.js",
+          "requestStartMs": 5.5,
+          "durationMs": 11.700000002980232,
+          "encodedBytes": 13267,
+          "transferBytes": 13567
+        },
+        {
+          "path": "/ng-echarts/chunk-CNRP3jfj.js",
+          "requestStartMs": 5.5,
+          "durationMs": 16,
+          "encodedBytes": 7602,
+          "transferBytes": 7902
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 5.5,
+          "durationMs": 15.700000002980232,
+          "encodedBytes": 37515,
+          "transferBytes": 37815
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 7,
+          "durationMs": 15.5,
+          "encodedBytes": 4447,
+          "transferBytes": 4747
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "formatting",
+      "status": 200,
+      "readyMs": 174.8999999910593,
+      "warmReadyMs": 100.90000000596046,
+      "encodedBodyBytes": 371337,
+      "ttfbMs": 2.8999999910593033,
+      "fcpMs": 24,
+      "lcpMs": 24,
+      "lcpElement": "<h1>Value formatting</h1>",
+      "iframes": [],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 5.0999999940395355,
+          "durationMs": 3,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 5.299999997019768,
+          "durationMs": 3.8999999910593033,
+          "encodedBytes": 2457,
+          "transferBytes": 2757
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 5.299999997019768,
+          "durationMs": 10.399999991059303,
+          "encodedBytes": 187,
+          "transferBytes": 487
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 5.299999997019768,
+          "durationMs": 10.200000002980232,
+          "encodedBytes": 63947,
+          "transferBytes": 64247
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 5.299999997019768,
+          "durationMs": 15.799999997019768,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 5.399999991059303,
+          "durationMs": 9.799999997019768,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-733twlId.js",
+          "requestStartMs": 5.399999991059303,
+          "durationMs": 15.200000002980232,
+          "encodedBytes": 1599,
+          "transferBytes": 1899
+        },
+        {
+          "path": "/ng-echarts/chunk-CTNPbrKb.js",
+          "requestStartMs": 5.399999991059303,
+          "durationMs": 16.700000002980232,
+          "encodedBytes": 3725,
+          "transferBytes": 4025
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 5.399999991059303,
+          "durationMs": 14.600000008940697,
+          "encodedBytes": 37515,
+          "transferBytes": 37815
+        },
+        {
+          "path": "/ng-echarts/chunk-N8_KeIBJ.js",
+          "requestStartMs": 5.5,
+          "durationMs": 16.399999991059303,
+          "encodedBytes": 6447,
+          "transferBytes": 6747
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 7,
+          "durationMs": 13.199999988079071,
+          "encodedBytes": 4447,
+          "transferBytes": 4747
+        },
+        {
+          "path": "/ng-echarts/chunk-ClAwvv7r.js",
+          "requestStartMs": 66.09999999403954,
+          "durationMs": 1.2000000029802322,
+          "encodedBytes": 1741,
+          "transferBytes": 2041
+        },
+        {
+          "path": "/ng-echarts/chunk-DlARtgX4.js",
+          "requestStartMs": 68.19999998807907,
+          "durationMs": 7.4000000059604645,
+          "encodedBytes": 78603,
+          "transferBytes": 78903
+        },
+        {
+          "path": "/ng-echarts/chunk-t3CChAgM.js",
+          "requestStartMs": 68.29999999701977,
+          "durationMs": 16,
+          "encodedBytes": 112717,
+          "transferBytes": 113017
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "playground",
+      "status": 200,
+      "readyMs": 191.1000000089407,
+      "warmReadyMs": 98.80000001192093,
+      "encodedBodyBytes": 425900,
+      "ttfbMs": 3.4000000059604645,
+      "fcpMs": 32,
+      "lcpMs": 32,
+      "lcpElement": "<p _ngcontent-ng-c3977183604=\"\" class=\"intro\"> Compare categories, combine series, and explore the values behind each bar. </p>",
+      "iframes": [],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 6,
+          "durationMs": 3.6000000089406967,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/fonts/google-sans-code-latin.woff2",
+          "requestStartMs": 6.200000002980232,
+          "durationMs": 4.200000002980232,
+          "encodedBytes": 34948,
+          "transferBytes": 35248
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 6.300000011920929,
+          "durationMs": 4.699999988079071,
+          "encodedBytes": 2457,
+          "transferBytes": 2757
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 6.300000011920929,
+          "durationMs": 10.599999994039536,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 6.300000011920929,
+          "durationMs": 11.099999994039536,
+          "encodedBytes": 63947,
+          "transferBytes": 64247
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 6.300000011920929,
+          "durationMs": 19.299999997019768,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 6.300000011920929,
+          "durationMs": 19.399999991059303,
+          "encodedBytes": 187,
+          "transferBytes": 487
+        },
+        {
+          "path": "/ng-echarts/chunk-B7Ng-UbO.js",
+          "requestStartMs": 6.4000000059604645,
+          "durationMs": 15.400000005960464,
+          "encodedBytes": 312,
+          "transferBytes": 612
+        },
+        {
+          "path": "/ng-echarts/chunk-CTXzbcqt.js",
+          "requestStartMs": 6.4000000059604645,
+          "durationMs": 16,
+          "encodedBytes": 4695,
+          "transferBytes": 4995
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 6.4000000059604645,
+          "durationMs": 14.200000002980232,
+          "encodedBytes": 37515,
+          "transferBytes": 37815
+        },
+        {
+          "path": "/ng-echarts/chunk-DMTYUkqy.js",
+          "requestStartMs": 6.5,
+          "durationMs": 17.5,
+          "encodedBytes": 13267,
+          "transferBytes": 13567
+        },
+        {
+          "path": "/ng-echarts/chunk-CTNPbrKb.js",
+          "requestStartMs": 6.600000008940697,
+          "durationMs": 17.799999997019768,
+          "encodedBytes": 3725,
+          "transferBytes": 4025
+        },
+        {
+          "path": "/ng-echarts/chunk-N8_KeIBJ.js",
+          "requestStartMs": 6.600000008940697,
+          "durationMs": 19.099999994039536,
+          "encodedBytes": 6447,
+          "transferBytes": 6747
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 8.5,
+          "durationMs": 13.200000002980232,
+          "encodedBytes": 4447,
+          "transferBytes": 4747
+        },
+        {
+          "path": "/ng-echarts/chunk-ClAwvv7r.js",
+          "requestStartMs": 90.90000000596046,
+          "durationMs": 1.2000000029802322,
+          "encodedBytes": 1741,
+          "transferBytes": 2041
+        },
+        {
+          "path": "/ng-echarts/chunk-DlARtgX4.js",
+          "requestStartMs": 92.5,
+          "durationMs": 7.300000011920929,
+          "encodedBytes": 78603,
+          "transferBytes": 78903
+        },
+        {
+          "path": "/ng-echarts/chunk-t3CChAgM.js",
+          "requestStartMs": 92.5,
+          "durationMs": 16.30000001192093,
+          "encodedBytes": 112717,
+          "transferBytes": 113017
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "localMobile": [
+    {
+      "route": "chart-possibilities",
+      "status": 200,
+      "readyMs": 4525.9000000059605,
+      "warmReadyMs": 833.8999999910593,
+      "encodedBodyBytes": 607390,
+      "ttfbMs": 151.29999999701977,
+      "fcpMs": 300,
+      "lcpMs": 300,
+      "lcpElement": "<p _ngcontent-ng-c2608206714=\"\">Twelve proposed additions to the library, with interactive examples and sample data.</p>",
+      "iframeRequestStartMs": 1282,
+      "iframeDurationMs": 2355.2000000029802,
+      "iframes": [
+        {
+          "url": "http://localhost:4176/ng-echarts/concepts/chart-style-gallery.html?v=8169ba21b4c5&embedded=1&theme=dark",
+          "svgPlots": 14,
+          "nodes": 1862,
+          "longTasks": [
+            {
+              "startMs": 2302.2999999970198,
+              "durationMs": 113
+            },
+            {
+              "startMs": 2417.7999999970198,
+              "durationMs": 480
+            },
+            {
+              "startMs": 2898.5,
+              "durationMs": 123
+            },
+            {
+              "startMs": 3071.7999999970198,
+              "durationMs": 123
+            }
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 175.5,
+          "durationMs": 874.4000000059605,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 183.6000000089407,
+          "durationMs": 257.79999999701977,
+          "encodedBytes": 4447,
+          "transferBytes": 4747
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 189.79999999701977,
+          "durationMs": 169.90000000596046,
+          "encodedBytes": 187,
+          "transferBytes": 487
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 195.5,
+          "durationMs": 179.29999999701977,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 210.6000000089407,
+          "durationMs": 208,
+          "encodedBytes": 2457,
+          "transferBytes": 2757
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 211,
+          "durationMs": 320.79999999701977,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 211,
+          "durationMs": 965.2000000029802,
+          "encodedBytes": 63947,
+          "transferBytes": 64247
+        },
+        {
+          "path": "/ng-echarts/chunk-Cd6Q71og.js",
+          "requestStartMs": 211.5,
+          "durationMs": 411.20000000298023,
+          "encodedBytes": 1854,
+          "transferBytes": 2154
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 211.5,
+          "durationMs": 898.2000000029802,
+          "encodedBytes": 37515,
+          "transferBytes": 37815
+        },
+        {
+          "path": "/ng-echarts/concepts/chart-style-gallery.html",
+          "requestStartMs": 1282,
+          "durationMs": 2355.2000000029802,
+          "encodedBytes": 439969,
+          "transferBytes": 440269
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "/",
+      "status": 200,
+      "readyMs": 3600.7000000029802,
+      "warmReadyMs": 576.5,
+      "encodedBodyBytes": 445970,
+      "ttfbMs": 150.79999999701977,
+      "fcpMs": 368,
+      "lcpMs": 368,
+      "lcpElement": "<p _ngcontent-ng-c2346134669=\"\">Ready-made Angular bar chart blocks, powered by Apache ECharts</p>",
+      "iframes": [],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 166.6000000089407,
+          "durationMs": 1093.5999999940395,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/fonts/google-sans-code-latin.woff2",
+          "requestStartMs": 167.70000000298023,
+          "durationMs": 829.5,
+          "encodedBytes": 34948,
+          "transferBytes": 35248
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 176.20000000298023,
+          "durationMs": 282.09999999403954,
+          "encodedBytes": 4447,
+          "transferBytes": 4747
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 193.1000000089407,
+          "durationMs": 174.69999998807907,
+          "encodedBytes": 187,
+          "transferBytes": 487
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 204.1000000089407,
+          "durationMs": 185.59999999403954,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 219.70000000298023,
+          "durationMs": 215.90000000596046,
+          "encodedBytes": 2457,
+          "transferBytes": 2757
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 219.79999999701977,
+          "durationMs": 1332.9000000059605,
+          "encodedBytes": 63947,
+          "transferBytes": 64247
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 219.90000000596046,
+          "durationMs": 343.20000000298023,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-C1HMF-Sl.js",
+          "requestStartMs": 219.90000000596046,
+          "durationMs": 582.3999999910593,
+          "encodedBytes": 6865,
+          "transferBytes": 7165
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 219.90000000596046,
+          "durationMs": 1130.3999999910593,
+          "encodedBytes": 37515,
+          "transferBytes": 37815
+        },
+        {
+          "path": "/ng-echarts/chunk-M_rEfhKe.js",
+          "requestStartMs": 220.5,
+          "durationMs": 537.9000000059605,
+          "encodedBytes": 788,
+          "transferBytes": 1088
+        },
+        {
+          "path": "/ng-echarts/chunk-DQ7QTUDX.js",
+          "requestStartMs": 220.6000000089407,
+          "durationMs": 724.1999999880791,
+          "encodedBytes": 1291,
+          "transferBytes": 1591
+        },
+        {
+          "path": "/ng-echarts/chunk-BVbA5hym.js",
+          "requestStartMs": 220.6000000089407,
+          "durationMs": 837.3999999910593,
+          "encodedBytes": 2903,
+          "transferBytes": 3203
+        },
+        {
+          "path": "/ng-echarts/chunk-CwJOcfMx.js",
+          "requestStartMs": 220.6000000089407,
+          "durationMs": 934.3999999910593,
+          "encodedBytes": 2431,
+          "transferBytes": 2731
+        },
+        {
+          "path": "/ng-echarts/chunk-Hjc7fJnt.js",
+          "requestStartMs": 220.6000000089407,
+          "durationMs": 1031.5999999940395,
+          "encodedBytes": 2957,
+          "transferBytes": 3257
+        },
+        {
+          "path": "/ng-echarts/chunk-wXrlFBNw.js",
+          "requestStartMs": 220.70000000298023,
+          "durationMs": 1017.2999999970198,
+          "encodedBytes": 909,
+          "transferBytes": 1209
+        },
+        {
+          "path": "/ng-echarts/chunk-B7Ng-UbO.js",
+          "requestStartMs": 221.40000000596046,
+          "durationMs": 1106.5999999940395,
+          "encodedBytes": 312,
+          "transferBytes": 612
+        },
+        {
+          "path": "/ng-echarts/chunk-CTNPbrKb.js",
+          "requestStartMs": 221.5,
+          "durationMs": 1249.2999999970198,
+          "encodedBytes": 3725,
+          "transferBytes": 4025
+        },
+        {
+          "path": "/ng-echarts/chunk-DMTYUkqy.js",
+          "requestStartMs": 221.5,
+          "durationMs": 1323,
+          "encodedBytes": 13267,
+          "transferBytes": 13567
+        },
+        {
+          "path": "/ng-echarts/chunk-BnCSafzK.js",
+          "requestStartMs": 1648.1000000089407,
+          "durationMs": 220.09999999403954,
+          "encodedBytes": 5005,
+          "transferBytes": 5305
+        },
+        {
+          "path": "/ng-echarts/chunk-N8_KeIBJ.js",
+          "requestStartMs": 1648.2000000029802,
+          "durationMs": 226.70000000298023,
+          "encodedBytes": 6447,
+          "transferBytes": 6747
+        },
+        {
+          "path": "/ng-echarts/chunk-B6S8MXp7.js",
+          "requestStartMs": 1648.7999999970198,
+          "durationMs": 173.6000000089407,
+          "encodedBytes": 195,
+          "transferBytes": 495
+        },
+        {
+          "path": "/ng-echarts/chunk-ClAwvv7r.js",
+          "requestStartMs": 2042.1000000089407,
+          "durationMs": 162.5,
+          "encodedBytes": 1741,
+          "transferBytes": 2041
+        },
+        {
+          "path": "/ng-echarts/chunk-DlARtgX4.js",
+          "requestStartMs": 2206.2000000029802,
+          "durationMs": 935.5,
+          "encodedBytes": 78603,
+          "transferBytes": 78903
+        },
+        {
+          "path": "/ng-echarts/chunk-t3CChAgM.js",
+          "requestStartMs": 2206.2999999970198,
+          "durationMs": 1115.7000000029802,
+          "encodedBytes": 112717,
+          "transferBytes": 113017
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "linked",
+      "status": 200,
+      "readyMs": 3367,
+      "warmReadyMs": 535,
+      "encodedBodyBytes": 440019,
+      "ttfbMs": 150.8999999910593,
+      "fcpMs": 348,
+      "lcpMs": 348,
+      "lcpElement": "<h1 _ngcontent-ng-c2202014267=\"\">Linked Charts</h1>",
+      "iframes": [],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 165.8999999910593,
+          "durationMs": 1117.4000000059605,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/fonts/google-sans-code-latin.woff2",
+          "requestStartMs": 166.3999999910593,
+          "durationMs": 785.6000000089407,
+          "encodedBytes": 34948,
+          "transferBytes": 35248
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 173.5,
+          "durationMs": 283.79999999701977,
+          "encodedBytes": 4447,
+          "transferBytes": 4747
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 196.59999999403954,
+          "durationMs": 179.20000000298023,
+          "encodedBytes": 187,
+          "transferBytes": 487
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 203.19999998807907,
+          "durationMs": 187,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 233.69999998807907,
+          "durationMs": 216.30000001192093,
+          "encodedBytes": 2457,
+          "transferBytes": 2757
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 234.3999999910593,
+          "durationMs": 328.70000000298023,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 234.3999999910593,
+          "durationMs": 1317.5,
+          "encodedBytes": 63947,
+          "transferBytes": 64247
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 234.8999999910593,
+          "durationMs": 1198.4000000059605,
+          "encodedBytes": 37515,
+          "transferBytes": 37815
+        },
+        {
+          "path": "/ng-echarts/chunk-C8rMVEc4.js",
+          "requestStartMs": 235.29999999701977,
+          "durationMs": 529.7999999970198,
+          "encodedBytes": 5162,
+          "transferBytes": 5462
+        },
+        {
+          "path": "/ng-echarts/chunk-B7Ng-UbO.js",
+          "requestStartMs": 235.3999999910593,
+          "durationMs": 523,
+          "encodedBytes": 312,
+          "transferBytes": 612
+        },
+        {
+          "path": "/ng-echarts/chunk-Dx2IKNWG.js",
+          "requestStartMs": 235.3999999910593,
+          "durationMs": 836.4000000059605,
+          "encodedBytes": 4682,
+          "transferBytes": 4982
+        },
+        {
+          "path": "/ng-echarts/chunk-CTNPbrKb.js",
+          "requestStartMs": 235.3999999910593,
+          "durationMs": 972.9000000059605,
+          "encodedBytes": 3725,
+          "transferBytes": 4025
+        },
+        {
+          "path": "/ng-echarts/chunk-DMTYUkqy.js",
+          "requestStartMs": 235.3999999910593,
+          "durationMs": 1009.9000000059605,
+          "encodedBytes": 13267,
+          "transferBytes": 13567
+        },
+        {
+          "path": "/ng-echarts/chunk-BnCSafzK.js",
+          "requestStartMs": 235.5,
+          "durationMs": 1099.7999999970198,
+          "encodedBytes": 5005,
+          "transferBytes": 5305
+        },
+        {
+          "path": "/ng-echarts/chunk-N8_KeIBJ.js",
+          "requestStartMs": 236.19999998807907,
+          "durationMs": 1226.800000011921,
+          "encodedBytes": 6447,
+          "transferBytes": 6747
+        },
+        {
+          "path": "/ng-echarts/chunk-ClAwvv7r.js",
+          "requestStartMs": 1862.2999999970198,
+          "durationMs": 170.3999999910593,
+          "encodedBytes": 1741,
+          "transferBytes": 2041
+        },
+        {
+          "path": "/ng-echarts/chunk-BfZLzD6-.js",
+          "requestStartMs": 1864.2999999970198,
+          "durationMs": 162,
+          "encodedBytes": 392,
+          "transferBytes": 692
+        },
+        {
+          "path": "/ng-echarts/chunk-DlARtgX4.js",
+          "requestStartMs": 2027.8999999910593,
+          "durationMs": 941.6000000089407,
+          "encodedBytes": 78603,
+          "transferBytes": 78903
+        },
+        {
+          "path": "/ng-echarts/chunk-t3CChAgM.js",
+          "requestStartMs": 2027.8999999910593,
+          "durationMs": 1122.6000000089407,
+          "encodedBytes": 112717,
+          "transferBytes": 113017
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "installation",
+      "status": 200,
+      "readyMs": 1594,
+      "warmReadyMs": 321.1000000089407,
+      "encodedBodyBytes": 224717,
+      "ttfbMs": 150.79999999701977,
+      "fcpMs": 352,
+      "lcpMs": 352,
+      "lcpElement": "<pre _ngcontent-ng-c3867195151=\"\" tabindex=\"0\" aria-label=\"Terminal example\"><code _ngcontent-ng-c3867195151=\"\" class=\"syntax-code\">git <span class=\"hljs-built_in\">clone</span> htt",
+      "iframes": [],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 166.5,
+          "durationMs": 1064.2000000029802,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/fonts/google-sans-code-latin.woff2",
+          "requestStartMs": 167.20000000298023,
+          "durationMs": 861,
+          "encodedBytes": 34948,
+          "transferBytes": 35248
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 174.79999999701977,
+          "durationMs": 276,
+          "encodedBytes": 4447,
+          "transferBytes": 4747
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 188.70000000298023,
+          "durationMs": 178.90000000596046,
+          "encodedBytes": 187,
+          "transferBytes": 487
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 196.6000000089407,
+          "durationMs": 185.59999999403954,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 211.70000000298023,
+          "durationMs": 222.5,
+          "encodedBytes": 2457,
+          "transferBytes": 2757
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 211.70000000298023,
+          "durationMs": 1227.9000000059605,
+          "encodedBytes": 63947,
+          "transferBytes": 64247
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 211.79999999701977,
+          "durationMs": 350.80000001192093,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 211.79999999701977,
+          "durationMs": 1115.6000000089407,
+          "encodedBytes": 37515,
+          "transferBytes": 37815
+        },
+        {
+          "path": "/ng-echarts/chunk-CNRP3jfj.js",
+          "requestStartMs": 212.29999999701977,
+          "durationMs": 627.3000000119209,
+          "encodedBytes": 7602,
+          "transferBytes": 7902
+        },
+        {
+          "path": "/ng-echarts/chunk-DMTYUkqy.js",
+          "requestStartMs": 212.40000000596046,
+          "durationMs": 853.7000000029802,
+          "encodedBytes": 13267,
+          "transferBytes": 13567
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "liveDesktop": [
+    {
+      "route": "chart-possibilities",
+      "status": 200,
+      "readyMs": 17324.5,
+      "warmReadyMs": 728.2000000029802,
+      "encodedBodyBytes": 612909,
+      "ttfbMs": 889.9000000059605,
+      "fcpMs": 1108,
+      "lcpMs": 1228,
+      "lcpElement": "<h1 _ngcontent-ng-c2608206714=\"\" id=\"possibilities-title\">Chart possibilities</h1>",
+      "iframeRequestStartMs": 5435.5,
+      "iframeDurationMs": 11630.29999999702,
+      "iframes": [
+        {
+          "url": "https://phalla-doll.github.io/ng-echarts/concepts/chart-style-gallery.html?v=8169ba21b4c5&embedded=1&theme=dark",
+          "svgPlots": 14,
+          "nodes": 1862,
+          "longTasks": [
+            {
+              "startMs": 11630.60000000894,
+              "durationMs": 130
+            }
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 906.1000000089407,
+          "durationMs": 1905.699999988079,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 967.2000000029802,
+          "durationMs": 1994.5,
+          "encodedBytes": 4520,
+          "transferBytes": 4820
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 973.7000000029802,
+          "durationMs": 1988.2000000029802,
+          "encodedBytes": 251,
+          "transferBytes": 551
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 1212.6000000089407,
+          "durationMs": 4224.699999988079,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 1214.6000000089407,
+          "durationMs": 1821,
+          "encodedBytes": 2462,
+          "transferBytes": 2762
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 1214.6000000089407,
+          "durationMs": 2336.8999999910593,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 1214.6000000089407,
+          "durationMs": 3411.5,
+          "encodedBytes": 64543,
+          "transferBytes": 64843
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 1214.6000000089407,
+          "durationMs": 4167.399999991059,
+          "encodedBytes": 37823,
+          "transferBytes": 38123
+        },
+        {
+          "path": "/ng-echarts/chunk-Cd6Q71og.js",
+          "requestStartMs": 1214.7000000029802,
+          "durationMs": 4213.5,
+          "encodedBytes": 1857,
+          "transferBytes": 2157
+        },
+        {
+          "path": "/ng-echarts/concepts/chart-style-gallery.html",
+          "requestStartMs": 5435.5,
+          "durationMs": 11630.29999999702,
+          "encodedBytes": 444342,
+          "transferBytes": 444642
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "/",
+      "status": 200,
+      "readyMs": 10467.10000000894,
+      "warmReadyMs": 214.79999999701977,
+      "encodedBodyBytes": 449125,
+      "ttfbMs": 829.1000000089407,
+      "fcpMs": 960,
+      "lcpMs": 988,
+      "lcpElement": "<p _ngcontent-ng-c2346134669=\"\">Ready-made Angular bar chart blocks, powered by Apache ECharts</p>",
+      "iframes": [],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 832.9000000059605,
+          "durationMs": 577.0999999940395,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/fonts/google-sans-code-latin.woff2",
+          "requestStartMs": 833,
+          "durationMs": 896.3000000119209,
+          "encodedBytes": 34948,
+          "transferBytes": 35248
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 834.9000000059605,
+          "durationMs": 1053.5,
+          "encodedBytes": 4520,
+          "transferBytes": 4820
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 841.3000000119209,
+          "durationMs": 1047.3999999910593,
+          "encodedBytes": 251,
+          "transferBytes": 551
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 952.6000000089407,
+          "durationMs": 936.2000000029802,
+          "encodedBytes": 2462,
+          "transferBytes": 2762
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 952.7000000029802,
+          "durationMs": 1310.2000000029802,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 952.7000000029802,
+          "durationMs": 3279.7000000029802,
+          "encodedBytes": 64543,
+          "transferBytes": 64843
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 952.7000000029802,
+          "durationMs": 3970.7999999970198,
+          "encodedBytes": 37823,
+          "transferBytes": 38123
+        },
+        {
+          "path": "/ng-echarts/chunk-M_rEfhKe.js",
+          "requestStartMs": 952.7000000029802,
+          "durationMs": 4131.20000000298,
+          "encodedBytes": 788,
+          "transferBytes": 1088
+        },
+        {
+          "path": "/ng-echarts/chunk-C1HMF-Sl.js",
+          "requestStartMs": 952.7000000029802,
+          "durationMs": 4130.79999999702,
+          "encodedBytes": 6947,
+          "transferBytes": 7247
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 952.7000000029802,
+          "durationMs": 4675.100000008941,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/chunk-DQ7QTUDX.js",
+          "requestStartMs": 952.8000000119209,
+          "durationMs": 4135.79999999702,
+          "encodedBytes": 1293,
+          "transferBytes": 1593
+        },
+        {
+          "path": "/ng-echarts/chunk-BVbA5hym.js",
+          "requestStartMs": 952.8000000119209,
+          "durationMs": 4171.0999999940395,
+          "encodedBytes": 2908,
+          "transferBytes": 3208
+        },
+        {
+          "path": "/ng-echarts/chunk-CwJOcfMx.js",
+          "requestStartMs": 952.8000000119209,
+          "durationMs": 4209.5,
+          "encodedBytes": 2436,
+          "transferBytes": 2736
+        },
+        {
+          "path": "/ng-echarts/chunk-Hjc7fJnt.js",
+          "requestStartMs": 952.9000000059605,
+          "durationMs": 4253.29999999702,
+          "encodedBytes": 2962,
+          "transferBytes": 3262
+        },
+        {
+          "path": "/ng-echarts/chunk-wXrlFBNw.js",
+          "requestStartMs": 952.9000000059605,
+          "durationMs": 4254.0999999940395,
+          "encodedBytes": 909,
+          "transferBytes": 1209
+        },
+        {
+          "path": "/ng-echarts/chunk-B7Ng-UbO.js",
+          "requestStartMs": 952.9000000059605,
+          "durationMs": 4254.5999999940395,
+          "encodedBytes": 312,
+          "transferBytes": 612
+        },
+        {
+          "path": "/ng-echarts/chunk-DMTYUkqy.js",
+          "requestStartMs": 952.9000000059605,
+          "durationMs": 4493,
+          "encodedBytes": 13296,
+          "transferBytes": 13596
+        },
+        {
+          "path": "/ng-echarts/chunk-CTNPbrKb.js",
+          "requestStartMs": 952.9000000059605,
+          "durationMs": 4674.79999999702,
+          "encodedBytes": 3730,
+          "transferBytes": 4030
+        },
+        {
+          "path": "/ng-echarts/chunk-BnCSafzK.js",
+          "requestStartMs": 5084.800000011921,
+          "durationMs": 543.0999999940395,
+          "encodedBytes": 5021,
+          "transferBytes": 5321
+        },
+        {
+          "path": "/ng-echarts/chunk-N8_KeIBJ.js",
+          "requestStartMs": 5084.9000000059605,
+          "durationMs": 782,
+          "encodedBytes": 6461,
+          "transferBytes": 6761
+        },
+        {
+          "path": "/ng-echarts/chunk-B6S8MXp7.js",
+          "requestStartMs": 5089.300000011921,
+          "durationMs": 777.7999999970198,
+          "encodedBytes": 195,
+          "transferBytes": 495
+        },
+        {
+          "path": "/ng-echarts/chunk-ClAwvv7r.js",
+          "requestStartMs": 5915,
+          "durationMs": 344.90000000596046,
+          "encodedBytes": 1741,
+          "transferBytes": 2041
+        },
+        {
+          "path": "/ng-echarts/chunk-DlARtgX4.js",
+          "requestStartMs": 6260.70000000298,
+          "durationMs": 1342,
+          "encodedBytes": 79379,
+          "transferBytes": 79679
+        },
+        {
+          "path": "/ng-echarts/chunk-t3CChAgM.js",
+          "requestStartMs": 6260.9000000059605,
+          "durationMs": 3869.5999999940395,
+          "encodedBytes": 113502,
+          "transferBytes": 113802
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "linked",
+      "status": 200,
+      "readyMs": 1731.8999999910593,
+      "warmReadyMs": 521.0999999940395,
+      "encodedBodyBytes": 442982,
+      "ttfbMs": 492,
+      "fcpMs": 628,
+      "lcpMs": 628,
+      "lcpElement": "<h1 _ngcontent-ng-c2202014267=\"\">Linked Charts</h1>",
+      "iframes": [],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/google-sans-code-latin.woff2",
+          "requestStartMs": 495.8999999910593,
+          "durationMs": 126.5,
+          "encodedBytes": 34948,
+          "transferBytes": 35248
+        },
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 495.8999999910593,
+          "durationMs": 218,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 497.59999999403954,
+          "durationMs": 208.90000000596046,
+          "encodedBytes": 4520,
+          "transferBytes": 4820
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 498.79999999701977,
+          "durationMs": 268.40000000596046,
+          "encodedBytes": 251,
+          "transferBytes": 551
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 502.8999999910593,
+          "durationMs": 370.40000000596046,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 503.5,
+          "durationMs": 210.59999999403954,
+          "encodedBytes": 2462,
+          "transferBytes": 2762
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 503.5,
+          "durationMs": 219.09999999403954,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 503.5,
+          "durationMs": 284.29999999701977,
+          "encodedBytes": 64543,
+          "transferBytes": 64843
+        },
+        {
+          "path": "/ng-echarts/chunk-B7Ng-UbO.js",
+          "requestStartMs": 503.59999999403954,
+          "durationMs": 254,
+          "encodedBytes": 312,
+          "transferBytes": 612
+        },
+        {
+          "path": "/ng-echarts/chunk-DMTYUkqy.js",
+          "requestStartMs": 503.59999999403954,
+          "durationMs": 262.29999999701977,
+          "encodedBytes": 13296,
+          "transferBytes": 13596
+        },
+        {
+          "path": "/ng-echarts/chunk-C8rMVEc4.js",
+          "requestStartMs": 503.59999999403954,
+          "durationMs": 370,
+          "encodedBytes": 5173,
+          "transferBytes": 5473
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 503.59999999403954,
+          "durationMs": 370.1000000089407,
+          "encodedBytes": 37823,
+          "transferBytes": 38123
+        },
+        {
+          "path": "/ng-echarts/chunk-CTNPbrKb.js",
+          "requestStartMs": 503.70000000298023,
+          "durationMs": 262.3999999910593,
+          "encodedBytes": 3730,
+          "transferBytes": 4030
+        },
+        {
+          "path": "/ng-echarts/chunk-BnCSafzK.js",
+          "requestStartMs": 503.70000000298023,
+          "durationMs": 262.5,
+          "encodedBytes": 5021,
+          "transferBytes": 5321
+        },
+        {
+          "path": "/ng-echarts/chunk-Dx2IKNWG.js",
+          "requestStartMs": 503.70000000298023,
+          "durationMs": 514,
+          "encodedBytes": 4692,
+          "transferBytes": 4992
+        },
+        {
+          "path": "/ng-echarts/chunk-N8_KeIBJ.js",
+          "requestStartMs": 503.79999999701977,
+          "durationMs": 263.29999999701977,
+          "encodedBytes": 6461,
+          "transferBytes": 6761
+        },
+        {
+          "path": "/ng-echarts/chunk-ClAwvv7r.js",
+          "requestStartMs": 1057.2000000029802,
+          "durationMs": 83.59999999403954,
+          "encodedBytes": 1741,
+          "transferBytes": 2041
+        },
+        {
+          "path": "/ng-echarts/chunk-BfZLzD6-.js",
+          "requestStartMs": 1057.2999999970198,
+          "durationMs": 402,
+          "encodedBytes": 392,
+          "transferBytes": 692
+        },
+        {
+          "path": "/ng-echarts/chunk-DlARtgX4.js",
+          "requestStartMs": 1141.3999999910593,
+          "durationMs": 119.80000001192093,
+          "encodedBytes": 79379,
+          "transferBytes": 79679
+        },
+        {
+          "path": "/ng-echarts/chunk-t3CChAgM.js",
+          "requestStartMs": 1141.3999999910593,
+          "durationMs": 185,
+          "encodedBytes": 113502,
+          "transferBytes": 113802
+        }
+      ],
+      "errors": []
+    },
+    {
+      "route": "installation",
+      "status": 200,
+      "readyMs": 4014,
+      "warmReadyMs": 1051.3999999910593,
+      "encodedBodyBytes": 225915,
+      "ttfbMs": 724.5,
+      "fcpMs": 864,
+      "lcpMs": 864,
+      "lcpElement": "<p>Create a production tarball from the workspace root. Install that file and the tested ECharts peer in a separate Angular 22 application. Replace the example path with the locati",
+      "iframes": [],
+      "resources": [
+        {
+          "path": "/ng-echarts/fonts/inter-latin.woff2",
+          "requestStartMs": 728.4000000059605,
+          "durationMs": 471.70000000298023,
+          "encodedBytes": 48432,
+          "transferBytes": 48732
+        },
+        {
+          "path": "/ng-echarts/fonts/google-sans-code-latin.woff2",
+          "requestStartMs": 728.6000000089407,
+          "durationMs": 782.2000000029802,
+          "encodedBytes": 34948,
+          "transferBytes": 35248
+        },
+        {
+          "path": "/ng-echarts/chunk-BcD9w5Kk.js",
+          "requestStartMs": 728.6000000089407,
+          "durationMs": 922,
+          "encodedBytes": 2462,
+          "transferBytes": 2762
+        },
+        {
+          "path": "/ng-echarts/brand/orbit-e-light.svg",
+          "requestStartMs": 728.6000000089407,
+          "durationMs": 3226.0999999940395,
+          "encodedBytes": 251,
+          "transferBytes": 551
+        },
+        {
+          "path": "/ng-echarts/third-party/github-dark.svg",
+          "requestStartMs": 728.6000000089407,
+          "durationMs": 3254.2000000029802,
+          "encodedBytes": 499,
+          "transferBytes": 799
+        },
+        {
+          "path": "/ng-echarts/chunk-B6Fy8hbW.js",
+          "requestStartMs": 728.7000000029802,
+          "durationMs": 1089.7999999970198,
+          "encodedBytes": 506,
+          "transferBytes": 806
+        },
+        {
+          "path": "/ng-echarts/chunk-BVyfDG-_.js",
+          "requestStartMs": 728.7000000029802,
+          "durationMs": 1742.2999999970198,
+          "encodedBytes": 64543,
+          "transferBytes": 64843
+        },
+        {
+          "path": "/ng-echarts/main-26TRVMEJ.js",
+          "requestStartMs": 728.7000000029802,
+          "durationMs": 2920.7999999970198,
+          "encodedBytes": 37823,
+          "transferBytes": 38123
+        },
+        {
+          "path": "/ng-echarts/chunk-CNRP3jfj.js",
+          "requestStartMs": 728.8000000119209,
+          "durationMs": 3029.3999999910593,
+          "encodedBytes": 7609,
+          "transferBytes": 7909
+        },
+        {
+          "path": "/ng-echarts/chunk-DMTYUkqy.js",
+          "requestStartMs": 728.8000000119209,
+          "durationMs": 3225.699999988079,
+          "encodedBytes": 13296,
+          "transferBytes": 13596
+        },
+        {
+          "path": "/ng-echarts/styles-53LAG56E.css",
+          "requestStartMs": 730.6000000089407,
+          "durationMs": 322.5,
+          "encodedBytes": 4520,
+          "transferBytes": 4820
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "lighthouse": [
+    {
+      "route": "bar",
+      "mode": "mobile",
+      "run": 1,
+      "where": "local",
+      "url": "http://localhost:4176/ng-echarts/",
+      "version": "13.6.0",
+      "score": 0.79,
+      "metrics": {
+        "first-contentful-paint": 633.4857,
+        "largest-contentful-paint": 633.4857,
+        "speed-index": 1707.2226919201366,
+        "total-blocking-time": 953,
+        "cumulative-layout-shift": 0,
+        "interactive": 4244.442800000001
+      },
+      "warnings": [],
+      "settings": {
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        }
+      },
+      "longTasks": [
+        {
+          "url": "http://localhost:4176/ng-echarts/chunk-BVyfDG-_.js",
+          "duration": 776,
+          "startTime": 3163.9713999999994
+        },
+        {
+          "url": "http://localhost:4176/ng-echarts/chunk-BVyfDG-_.js",
+          "duration": 163,
+          "startTime": 3000.9713999999994
+        },
+        {
+          "url": "http://localhost:4176/ng-echarts/chunk-BVyfDG-_.js",
+          "duration": 142,
+          "startTime": 2858.9713999999994
+        },
+        {
+          "url": "http://localhost:4176/ng-echarts/chunk-N8_KeIBJ.js",
+          "duration": 94,
+          "startTime": 4217.9428
+        }
+      ],
+      "totalBytes": 454990
+    },
+    {
+      "route": "bar",
+      "mode": "mobile",
+      "run": 2,
+      "where": "local",
+      "url": "http://localhost:4176/ng-echarts/",
+      "version": "13.6.0",
+      "score": 0.96,
+      "metrics": {
+        "first-contentful-paint": 648.0085,
+        "largest-contentful-paint": 648.0085,
+        "speed-index": 1311.322193337699,
+        "total-blocking-time": 241,
+        "cumulative-layout-shift": 0,
+        "interactive": 4104.9886750000005
+      },
+      "warnings": [],
+      "settings": {
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        }
+      },
+      "longTasks": [
+        {
+          "url": "http://localhost:4176/ng-echarts/chunk-BVyfDG-_.js",
+          "duration": 171,
+          "startTime": 2895.0254999999993
+        },
+        {
+          "url": "http://localhost:4176/ng-echarts/chunk-BVyfDG-_.js",
+          "duration": 148,
+          "startTime": 2706.0254999999993
+        },
+        {
+          "url": "http://localhost:4176/ng-echarts/chunk-N8_KeIBJ.js",
+          "duration": 94,
+          "startTime": 4060.0424999999996
+        }
+      ],
+      "totalBytes": 454990
+    },
+    {
+      "route": "bar",
+      "mode": "mobile",
+      "run": 3,
+      "where": "local",
+      "url": "http://localhost:4176/ng-echarts/",
+      "version": "13.6.0",
+      "score": 0.99,
+      "metrics": {
+        "first-contentful-paint": 630.28485,
+        "largest-contentful-paint": 630.28485,
+        "speed-index": 1330.2873304089696,
+        "total-blocking-time": 123,
+        "cumulative-layout-shift": 0,
+        "interactive": 4229.6394
+      },
+      "warnings": [],
+      "settings": {
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        }
+      },
+      "longTasks": [
+        {
+          "url": "http://localhost:4176/ng-echarts/chunk-BVyfDG-_.js",
+          "duration": 134,
+          "startTime": 2854.5697
+        },
+        {
+          "url": "http://localhost:4176/ng-echarts/chunk-N8_KeIBJ.js",
+          "duration": 88,
+          "startTime": 4209.1394
+        },
+        {
+          "url": "http://localhost:4176/ng-echarts/chunk-BVyfDG-_.js",
+          "duration": 70,
+          "startTime": 2988.5697
+        }
+      ],
+      "totalBytes": 454990
+    },
+    {
+      "route": "chart-possibilities",
+      "mode": "mobile",
+      "run": 1,
+      "where": "local",
+      "url": "http://localhost:4176/ng-echarts/chart-possibilities",
+      "version": "13.6.0",
+      "score": 0.93,
+      "metrics": {
+        "first-contentful-paint": 661.2923,
+        "largest-contentful-paint": 661.2923,
+        "speed-index": 1737.4655592951399,
+        "total-blocking-time": 325,
+        "cumulative-layout-shift": 0.03906603726649457,
+        "interactive": 4716.876900000001
+      },
+      "warnings": [],
+      "settings": {
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        }
+      },
+      "longTasks": [
+        {
+          "url": "http://localhost:4176/ng-echarts/concepts/chart-style-gallery.html?v=8169ba21b4c5&embedded=1&theme=dark",
+          "duration": 227,
+          "startTime": 4624.8769
+        },
+        {
+          "url": "http://localhost:4176/ng-echarts/concepts/chart-style-gallery.html?v=8169ba21b4c5&embedded=1&theme=dark",
+          "duration": 226,
+          "startTime": 4398.8769
+        },
+        {
+          "url": "http://localhost:4176/ng-echarts/chunk-BVyfDG-_.js",
+          "duration": 147,
+          "startTime": 2132.5846
+        }
+      ],
+      "totalBytes": 613313
+    },
+    {
+      "route": "chart-possibilities",
+      "mode": "mobile",
+      "run": 2,
+      "where": "local",
+      "url": "http://localhost:4176/ng-echarts/chart-possibilities",
+      "version": "13.6.0",
+      "score": 0.92,
+      "metrics": {
+        "first-contentful-paint": 630.22045,
+        "largest-contentful-paint": 630.22045,
+        "speed-index": 1862.6943114494832,
+        "total-blocking-time": 344,
+        "cumulative-layout-shift": 0.03906603726649457,
+        "interactive": 4748.16135
+      },
+      "warnings": [],
+      "settings": {
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        }
+      },
+      "longTasks": [
+        {
+          "url": "http://localhost:4176/ng-echarts/concepts/chart-style-gallery.html?v=8169ba21b4c5&embedded=1&theme=dark",
+          "duration": 222,
+          "startTime": 4371.66135
+        },
+        {
+          "url": "http://localhost:4176/ng-echarts/concepts/chart-style-gallery.html?v=8169ba21b4c5&embedded=1&theme=dark",
+          "duration": 222,
+          "startTime": 4593.66135
+        },
+        {
+          "url": "http://localhost:4176/ng-echarts/chunk-BVyfDG-_.js",
+          "duration": 125,
+          "startTime": 2114.4409
+        }
+      ],
+      "totalBytes": 613313
+    },
+    {
+      "route": "chart-possibilities",
+      "mode": "mobile",
+      "run": 3,
+      "where": "local",
+      "url": "http://localhost:4176/ng-echarts/chart-possibilities",
+      "version": "13.6.0",
+      "score": 0.93,
+      "metrics": {
+        "first-contentful-paint": 645.11255,
+        "largest-contentful-paint": 645.11255,
+        "speed-index": 1677.6794042521883,
+        "total-blocking-time": 319,
+        "cumulative-layout-shift": 0.037823895805683155,
+        "interactive": 4733.3376499999995
+      },
+      "warnings": [],
+      "settings": {
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        }
+      },
+      "longTasks": [
+        {
+          "url": "http://localhost:4176/ng-echarts/concepts/chart-style-gallery.html?v=8169ba21b4c5&embedded=1&theme=dark",
+          "duration": 213,
+          "startTime": 4371.3376499999995
+        },
+        {
+          "url": "http://localhost:4176/ng-echarts/concepts/chart-style-gallery.html?v=8169ba21b4c5&embedded=1&theme=dark",
+          "duration": 210,
+          "startTime": 4584.3376499999995
+        },
+        {
+          "url": "http://localhost:4176/ng-echarts/chunk-BVyfDG-_.js",
+          "duration": 122,
+          "startTime": 2114.2251
+        },
+        {
+          "url": "http://localhost:4176/ng-echarts/concepts/chart-style-gallery.html?v=8169ba21b4c5&embedded=1&theme=dark",
+          "duration": 74,
+          "startTime": 4794.3376499999995
+        }
+      ],
+      "totalBytes": 613313
+    },
+    {
+      "route": "chart-possibilities",
+      "mode": "desktop",
+      "run": 1,
+      "where": "local",
+      "url": "http://localhost:4176/ng-echarts/chart-possibilities",
+      "version": "13.6.0",
+      "score": 1,
+      "metrics": {
+        "first-contentful-paint": 191.96015,
+        "largest-contentful-paint": 191.96015,
+        "speed-index": 474.77714046280676,
+        "total-blocking-time": 17,
+        "cumulative-layout-shift": 0.03989136900842121,
+        "interactive": 1007.8804500000001
+      },
+      "warnings": [],
+      "settings": {
+        "throttling": {
+          "rttMs": 40,
+          "throughputKbps": 10240,
+          "requestLatencyMs": 0,
+          "downloadThroughputKbps": 0,
+          "uploadThroughputKbps": 0,
+          "cpuSlowdownMultiplier": 1
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": false,
+          "width": 1350,
+          "height": 940,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        }
+      },
+      "longTasks": [
+        {
+          "url": "http://localhost:4176/ng-echarts/concepts/chart-style-gallery.html?v=8169ba21b4c5&embedded=1&theme=dark",
+          "duration": 59,
+          "startTime": 948.88045
+        },
+        {
+          "url": "http://localhost:4176/ng-echarts/concepts/chart-style-gallery.html?v=8169ba21b4c5&embedded=1&theme=dark",
+          "duration": 58,
+          "startTime": 890.88045
+        }
+      ],
+      "totalBytes": 613313
+    },
+    {
+      "route": "linked",
+      "mode": "mobile",
+      "run": 1,
+      "where": "local",
+      "url": "http://localhost:4176/ng-echarts/linked",
+      "version": "13.6.0",
+      "score": 1,
+      "metrics": {
+        "first-contentful-paint": 786.82505,
+        "largest-contentful-paint": 786.82505,
+        "speed-index": 1405.4094623957365,
+        "total-blocking-time": 62.5,
+        "cumulative-layout-shift": 0,
+        "interactive": 4210.800200000001
+      },
+      "warnings": [],
+      "settings": {
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        }
+      },
+      "longTasks": [
+        {
+          "url": "http://localhost:4176/ng-echarts/chunk-BVyfDG-_.js",
+          "duration": 97,
+          "startTime": 2928.6501000000003
+        },
+        {
+          "url": "http://localhost:4176/ng-echarts/chunk-BVyfDG-_.js",
+          "duration": 65,
+          "startTime": 2863.6501000000003
+        },
+        {
+          "url": "http://localhost:4176/ng-echarts/chunk-N8_KeIBJ.js",
+          "duration": 51,
+          "startTime": 4227.300200000001
+        }
+      ],
+      "totalBytes": 448001
+    },
+    {
+      "route": "installation",
+      "mode": "mobile",
+      "run": 1,
+      "where": "local",
+      "url": "http://localhost:4176/ng-echarts/installation",
+      "version": "13.6.0",
+      "score": 1,
+      "metrics": {
+        "first-contentful-paint": 629.6364,
+        "largest-contentful-paint": 629.6364,
+        "speed-index": 629.6364,
+        "total-blocking-time": 84.49999999999977,
+        "cumulative-layout-shift": 0,
+        "interactive": 2573.4228000000003
+      },
+      "warnings": [],
+      "settings": {
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        }
+      },
+      "longTasks": [
+        {
+          "url": "http://localhost:4176/ng-echarts/chunk-BVyfDG-_.js",
+          "duration": 133,
+          "startTime": 2411.2728
+        },
+        {
+          "url": "http://localhost:4176/ng-echarts/chunk-BVyfDG-_.js",
+          "duration": 53,
+          "startTime": 2544.2728
+        }
+      ],
+      "totalBytes": 230826
+    },
+    {
+      "route": "possibilities",
+      "mode": "mobile",
+      "run": 1,
+      "where": "live",
+      "url": "https://phalla-doll.github.io/ng-echarts/chart-possibilities",
+      "version": "13.6.0",
+      "score": 0.87,
+      "metrics": {
+        "first-contentful-paint": 826.57,
+        "largest-contentful-paint": 826.57,
+        "speed-index": 2514.545308441928,
+        "total-blocking-time": 491.99999999999955,
+        "cumulative-layout-shift": 0.05359257324939491,
+        "interactive": 4405.57
+      },
+      "warnings": [],
+      "settings": {
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        }
+      },
+      "longTasks": [
+        {
+          "url": "https://phalla-doll.github.io/ng-echarts/concepts/chart-style-gallery.html?v=8169ba21b4c5&embedded=1&theme=dark",
+          "duration": 270.99999999999955,
+          "startTime": 4005.57
+        },
+        {
+          "url": "https://phalla-doll.github.io/ng-echarts/concepts/chart-style-gallery.html?v=8169ba21b4c5&embedded=1&theme=dark",
+          "duration": 217,
+          "startTime": 3788.57
+        },
+        {
+          "url": "https://phalla-doll.github.io/ng-echarts/chunk-BVyfDG-_.js",
+          "duration": 125,
+          "startTime": 1538.5700000000002
+        },
+        {
+          "url": "https://phalla-doll.github.io/ng-echarts/concepts/chart-style-gallery.html?v=8169ba21b4c5&embedded=1&theme=dark",
+          "duration": 69,
+          "startTime": 4276.57
+        },
+        {
+          "url": "https://phalla-doll.github.io/ng-echarts/concepts/chart-style-gallery.html?v=8169ba21b4c5&embedded=1&theme=dark",
+          "duration": 60,
+          "startTime": 4345.57
+        }
+      ],
+      "totalBytes": 619650
+    }
+  ],
+  "payload": {
+    "html": {
+      "raw": 1273377,
+      "gzip": 439969,
+      "brotli": 365016
+    },
+    "scripts": [
+      {
+        "bytes": 328,
+        "gzip": 194
+      },
+      {
+        "bytes": 1121883,
+        "gzip": 369255
+      },
+      {
+        "bytes": 45876,
+        "gzip": 10620
+      }
+    ],
+    "font": {
+      "base64Bytes": 64576,
+      "decodedBytes": 48432
+    },
+    "subsetProofOfConcept": {
+      "engineRaw": 702751,
+      "engineGzip": 239113,
+      "documentRaw": 854245,
+      "documentGzip": 310221,
+      "savedGzip": 129748,
+      "verification": [
+        {
+          "subset": false,
+          "plots": 14,
+          "bubble": "true",
+          "theme": "light",
+          "errors": []
+        },
+        {
+          "subset": true,
+          "plots": 14,
+          "bubble": "true",
+          "theme": "light",
+          "errors": []
+        }
+      ],
+      "identicalDesktopScreenshot": true,
+      "identicalMobileScreenshot": true
+    },
+    "chartFamilies": [
+      "helper",
+      "custom",
+      "line",
+      "bar",
+      "scatter",
+      "radar",
+      "treemap",
+      "gauge",
+      "sankey",
+      "heatmap"
+    ]
+  },
+  "interaction": {
+    "cpuRate": 4,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "initial": {
+      "init": {
+        "count": 14,
+        "totalMs": 55.599999979138374,
+        "maxMs": 7.199999988079071
+      },
+      "setOption": {
+        "count": 28,
+        "totalMs": 584.7999999821186,
+        "maxMs": 106.09999999403954
+      },
+      "resize": {
+        "count": 0,
+        "totalMs": 0,
+        "maxMs": 0
+      },
+      "dispose": {
+        "count": 0,
+        "totalMs": 0,
+        "maxMs": 0
+      }
+    },
+    "theme": {
+      "init": {
+        "count": 14,
+        "totalMs": 55.599999979138374,
+        "maxMs": 7.199999988079071
+      },
+      "setOption": {
+        "count": 42,
+        "totalMs": 756.899999961257,
+        "maxMs": 106.09999999403954
+      },
+      "resize": {
+        "count": 0,
+        "totalMs": 0,
+        "maxMs": 0
+      },
+      "dispose": {
+        "count": 0,
+        "totalMs": 0,
+        "maxMs": 0
+      }
+    },
+    "filter": {
+      "init": {
+        "count": 14,
+        "totalMs": 55.599999979138374,
+        "maxMs": 7.199999988079071
+      },
+      "setOption": {
+        "count": 42,
+        "totalMs": 756.899999961257,
+        "maxMs": 106.09999999403954
+      },
+      "resize": {
+        "count": 4,
+        "totalMs": 37.599999994039536,
+        "maxMs": 13.200000002980232
+      },
+      "dispose": {
+        "count": 0,
+        "totalMs": 0,
+        "maxMs": 0
+      }
+    },
+    "bubble": {
+      "init": {
+        "count": 14,
+        "totalMs": 55.599999979138374,
+        "maxMs": 7.199999988079071
+      },
+      "setOption": {
+        "count": 43,
+        "totalMs": 768.1999999731779,
+        "maxMs": 106.09999999403954
+      },
+      "resize": {
+        "count": 4,
+        "totalMs": 37.599999994039536,
+        "maxMs": 13.200000002980232
+      },
+      "dispose": {
+        "count": 0,
+        "totalMs": 0,
+        "maxMs": 0
+      }
+    },
+    "navigation": [
+      {
+        "barMs": 487.39649999999983,
+        "possibilitiesMs": 965.9648750000001,
+        "heapBytes": 17064128,
+        "frames": 2,
+        "theme": "light"
+      },
+      {
+        "barMs": 208.68570799999998,
+        "possibilitiesMs": 1324.3572920000006,
+        "heapBytes": 17870004,
+        "frames": 2,
+        "theme": "light"
+      },
+      {
+        "barMs": 232.55887499999972,
+        "possibilitiesMs": 1303.4617500000004,
+        "heapBytes": 18370688,
+        "frames": 2,
+        "theme": "light"
+      },
+      {
+        "barMs": 230.51466600000003,
+        "possibilitiesMs": 1291.7262499999997,
+        "heapBytes": 18689768,
+        "frames": 2,
+        "theme": "light"
+      },
+      {
+        "barMs": 229.87283399999978,
+        "possibilitiesMs": 1279.892582999999,
+        "heapBytes": 18813432,
+        "frames": 2,
+        "theme": "light"
+      }
+    ],
+    "errors": []
+  },
+  "validation": {
+    "build": "npm run build passed on Node 24.22.2 / npm 11.19.1",
+    "pagesBuild": "npm run build:pages passed; 31 prerendered routes",
+    "browser": {
+      "command": "PLAYWRIGHT_PORT=4177 playwright test tests/browser/chart-possibilities.spec.ts tests/browser/gallery.spec.ts tests/browser/site-pages.spec.ts",
+      "passed": 27,
+      "failed": 0,
+      "engines": ["chromium", "firefox", "webkit"]
+    },
+    "applicationChanges": false,
+    "deployed": false
+  },
+  "liveIndependentFollowUp": {
+    "route": "chart-possibilities",
+    "readyMs": 1667.5999999940395,
+    "warmReadyMs": 431,
+    "ttfbMs": 462.5,
+    "iframeRequestStartMs": 837.4000000059605,
+    "iframeDurationMs": 367.09999999403954,
+    "errors": []
+  }
+}

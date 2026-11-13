@@ -24,6 +24,7 @@ jobs:
       # Seal/check the clean checkout before benchmark evidence files are refreshed.
       - run: npm run build:pages
       - run: npm run check:pages
+      - run: npm run check:demo-performance
       - run: npm run check
       - name: Retain browser failure evidence
         if: failure()

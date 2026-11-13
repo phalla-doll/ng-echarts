@@ -6,11 +6,22 @@ import {
 } from '@angular/ssr/node';
 import express from 'express';
 import { join } from 'node:path';
+import { readFileSync } from 'node:fs';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
 const angularApp = new AngularNodeAppEngine();
+const preloadsPath = join(browserDistFolder, 'demo-preloads.json');
+let preloads: {
+  base: string;
+  routes: Record<string, { href: string; rel: string }[]>;
+} | null = null;
+try {
+  preloads = JSON.parse(readFileSync(preloadsPath, 'utf8'));
+} catch (error) {
+  if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+}
 
 /**
  * Example Express Rest API endpoints can be defined here.
@@ -29,9 +40,14 @@ const angularApp = new AngularNodeAppEngine();
  */
 app.use(
   express.static(browserDistFolder, {
-    maxAge: '1y',
+    maxAge: '10m',
     index: false,
     redirect: false,
+    setHeaders: (res, path) => {
+      if (/-[\w-]{8,16}\.(?:js|css)$/u.test(path)) {
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      }
+    },
   }),
 );
 
@@ -41,7 +57,27 @@ app.use(
 app.use((req, res, next) => {
   angularApp
     .handle(req)
-    .then((response) => (response ? writeResponseToNodeResponse(response, res) : next()))
+    .then(async (response) => {
+      if (!response) return next();
+      if (preloads && response.headers.get('content-type')?.includes('text/html')) {
+        const route = req.path.replace(/^\/+|\/+$/gu, '');
+        const hints = (preloads.routes[route] ?? [])
+          .map(
+            ({ href, rel }) =>
+              `<link rel="${rel}"${rel === 'preload' ? ' as="script"' : ''} href="${preloads.base}${href}">`,
+          )
+          .join('');
+        const manifest = JSON.stringify(preloads).replaceAll('<', '\\u003c');
+        const html = (await response.text()).replace(
+          '<head>',
+          `<head>${hints}<script id="demo-preloads" type="application/json">${manifest}</script>`,
+        );
+        const headers = new Headers(response.headers);
+        headers.delete('content-length');
+        response = new Response(html, { status: response.status, headers });
+      }
+      return writeResponseToNodeResponse(response, res);
+    })
     .catch(next);
 });
 

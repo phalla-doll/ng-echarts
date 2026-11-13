@@ -1,3 +1,4 @@
+import { renderGallery } from './browser-gallery.mjs';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -68,6 +69,7 @@ try {
     const family = route || 'bar';
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto(new URL(route, base).href);
+    await renderGallery(page);
     await expect(page.locator('.gallery canvas')).toHaveCount(
       route === 'composed' ? 1 : route === 'pie' ? 3 : 4,
     );

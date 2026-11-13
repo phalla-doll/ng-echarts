@@ -26,6 +26,7 @@ test('keeps narrow horizontal-axis numbers readable in the rendered canvas', asy
     };
   });
   await page.goto('/');
+  await page.locator('#horizontal-comparison').scrollIntoViewIfNeeded();
   await expect(page.locator('#horizontal-comparison canvas')).toBeVisible();
   await expect
     .poll(() => page.evaluate(() => new Set(window.visualAxisPaints.map((p) => p.text)).size))

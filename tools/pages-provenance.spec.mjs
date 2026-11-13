@@ -32,6 +32,7 @@ import {
   verifyPublicBuild,
 } from './pages-provenance.mjs';
 import { withPagesLock } from './pages-lock.mjs';
+import { conceptAssets } from './concept-assets.mjs';
 const roots = [];
 afterEach(async () => {
   for (const root of roots.splice(0)) await rm(root, { recursive: true, force: true });
@@ -357,6 +358,36 @@ test('concept asset validation catches stale URL revisions and mismatched bundle
   await validateConceptAsset(root, directory(root));
   await writeFile(asset, 'wrong document');
   await assert.rejects(validateConceptAsset(root, directory(root)), /differs from its source/);
+});
+
+test('concept validation also rejects tampered generated engines and embedded documents', async () => {
+  const root = await fixture();
+  const source =
+    '<style>src:url(data:font/woff2;base64,YWJj)</style><!-- concept-engine:start --><script>const engine = "$&";</script><!-- concept-engine:end --><script>application()</script>';
+  await mkdir(join(root, 'docs/experiments'), { recursive: true });
+  await mkdir(join(root, 'projects/playground/src/app'), { recursive: true });
+  await mkdir(join(directory(root), 'concepts'), { recursive: true });
+  await writeFile(join(root, 'docs/experiments/chart-style-gallery.html'), source);
+  await writeFile(
+    join(root, 'projects/playground/src/app/chart-possibilities.ts'),
+    `const url='concepts/chart-style-gallery.html?v=${digest(source).slice(0, 12)}';`,
+  );
+  const assets = conceptAssets(source);
+  for (const [name, value] of Object.entries(assets.files))
+    await writeFile(join(directory(root), 'concepts', name), value);
+  await validateConceptAsset(root, directory(root));
+  const engine = join(directory(root), 'concepts', assets.engineName);
+  await writeFile(engine, 'tampered');
+  await assert.rejects(
+    validateConceptAsset(root, directory(root)),
+    /Generated concept asset differs/,
+  );
+  await writeFile(engine, assets.files[assets.engineName]);
+  await writeFile(join(directory(root), 'concepts/chart-style-gallery-embedded.html'), 'tampered');
+  await assert.rejects(
+    validateConceptAsset(root, directory(root)),
+    /Generated concept asset differs/,
+  );
 });
 
 test('relative source aliases stay inside the isolated copy and external aliases are refused', async () => {

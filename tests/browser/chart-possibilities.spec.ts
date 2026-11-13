@@ -1,3 +1,4 @@
+import { renderGallery, renderConcepts } from '../../tools/browser-gallery.mjs';
 import { expect, test } from '@playwright/test';
 import { collectBrowserErrors } from './resource-audit';
 
@@ -11,6 +12,7 @@ test('serves the concept gallery with filters, keyboard data access, theme sync,
   expect(html).toContain('Twelve proposed additions to the library');
   const frame = page.frameLocator('app-chart-possibilities iframe');
   await expect(frame.locator('.card')).toHaveCount(12);
+  await renderConcepts(page);
   await expect(frame.locator('.plot svg, .spark-plot svg')).toHaveCount(14);
   await expect(page.getByRole('status')).toBeHidden();
   await expect(frame.locator('html')).toHaveAttribute('data-theme', 'dark');
@@ -50,6 +52,7 @@ test('serves the concept gallery with filters, keyboard data access, theme sync,
     page.getByRole('link', { name: 'Chart possibilities', exact: true }),
   ).toHaveAttribute('aria-current', 'page');
   await page.reload();
+  await renderConcepts(page);
   await expect(frame.locator('.plot svg, .spark-plot svg')).toHaveCount(14);
   expect(errors).toEqual([]);
 });
@@ -60,6 +63,7 @@ test('fits mobile layouts and leaves the embedded gallery when navigating away',
   const errors = collectBrowserErrors(page);
   await page.goto('/chart-possibilities');
   const frame = page.frameLocator('app-chart-possibilities iframe');
+  await renderConcepts(page);
   await expect(frame.locator('.plot svg, .spark-plot svg')).toHaveCount(14);
   for (const light of [false, true]) {
     if (light) await page.getByRole('button', { name: 'Use light theme', exact: true }).click();
@@ -87,10 +91,12 @@ test('fits mobile layouts and leaves the embedded gallery when navigating away',
   await page.getByRole('button', { name: 'Open navigation', exact: true }).click();
   await page.getByRole('link', { name: 'Bar Blocks', exact: true }).click();
   await expect(page.locator('iframe')).toHaveCount(0);
+  await renderGallery(page);
   await expect(page.locator('app-bar-block canvas')).toHaveCount(4);
   await page.getByRole('button', { name: 'Open navigation', exact: true }).click();
   await page.getByRole('link', { name: 'Chart possibilities', exact: true }).click();
   await expect(page.getByRole('navigation', { name: 'Playground pages' })).toBeHidden();
+  await renderConcepts(page);
   await expect(frame.locator('.plot svg, .spark-plot svg')).toHaveCount(14);
   await expect(frame.locator('html')).toHaveAttribute('data-theme', 'light');
   expect(errors).toEqual([]);
@@ -106,6 +112,7 @@ test('keeps the standalone document usable without a network connection', async 
     .getByRole('link', { name: 'Open standalone gallery', exact: true })
     .getAttribute('href');
   await page.goto(`/${target!}`);
+  await renderConcepts(page);
   await expect(page.locator('.plot svg, .spark-plot svg')).toHaveCount(14);
   await context.setOffline(true);
   await page.getByRole('button', { name: /theme$/ }).click();

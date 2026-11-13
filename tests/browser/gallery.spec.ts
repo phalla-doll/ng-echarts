@@ -1,3 +1,4 @@
+import { renderGallery } from '../../tools/browser-gallery.mjs';
 import { expect, test } from '@playwright/test';
 import { firstGreenBarPoint } from './canvas-point';
 import { collectBrowserErrors, installResourceAudit } from './resource-audit';
@@ -29,6 +30,7 @@ test('hydrates bar blocks without table controls and keeps code, copying, previe
   expect(html).toContain('Horizontal Comparison');
   expect(html).not.toContain('<canvas');
   expect(html).not.toContain('Show data table');
+  await renderGallery(page);
   await expect(page.locator('app-bar-block canvas')).toHaveCount(4);
   await expect(page.locator('app-bar-block .table-toggle')).toHaveCount(0);
   await expect(page.locator('app-bar-block table')).toHaveCount(0);
@@ -55,6 +57,7 @@ test('hydrates bar blocks without table controls and keeps code, copying, previe
   await first.getByRole('button', { name: 'Reload Device Visits preview', exact: true }).click();
   await expect(first.locator('canvas')).toBeVisible();
   await expect(first.locator('.legend button').first()).toHaveAttribute('aria-pressed', 'true');
+  await renderGallery(page);
   await expect(page.locator('app-bar-block canvas')).toHaveCount(4);
   await page.getByRole('button', { name: 'Use light theme', exact: true }).click();
   await expect(page.locator('.site-shell')).not.toHaveClass(/\bdark\b/);
@@ -83,6 +86,7 @@ test('fits the gallery in both themes and supports mobile navigation and denied 
     }),
   );
   await page.goto('/');
+  await renderGallery(page);
   await expect(page.locator('app-bar-block canvas')).toHaveCount(4);
   for (const light of [false, true]) {
     if (light) await page.getByRole('button', { name: 'Use light theme', exact: true }).click();
@@ -132,6 +136,7 @@ test('disposes gallery resources when navigating between the gallery, playground
   const errors = collectBrowserErrors(page);
   await installResourceAudit(page);
   await page.goto('/');
+  await renderGallery(page);
   await expect(page.locator('canvas')).toHaveCount(4);
   await expect.poll(() => page.evaluate(() => window.chartAudit.observedTargets)).toBe(4);
   await page.getByRole('link', { name: 'Playground', exact: true }).click();
@@ -144,6 +149,7 @@ test('disposes gallery resources when navigating between the gallery, playground
     .poll(() => page.evaluate(() => window.chartAudit))
     .toEqual({ resizeObservers: 0, observedTargets: 0, motionListeners: 0, frames: 0 });
   await page.getByRole('link', { name: 'Bar Blocks', exact: true }).click();
+  await renderGallery(page);
   await expect(page.locator('canvas')).toHaveCount(4);
   await expect.poll(() => page.evaluate(() => window.chartAudit.observedTargets)).toBe(4);
   expect(errors).toEqual([]);

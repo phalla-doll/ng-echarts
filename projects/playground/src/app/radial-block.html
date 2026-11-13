@@ -40,20 +40,22 @@
         />
       }
     </div>
-    <div class="block-code" [hidden]="view() !== 'code'">
-      <div class="code-heading">
-        <span>Standalone Angular component</span
-        ><button type="button" (click)="copy()">
-          <app-site-icon [name]="copied() ? 'check' : 'copy'" />{{
-            copied() ? 'Copied' : 'Copy code'
-          }}
-        </button>
+    @if (view() === 'code') {
+      <div class="block-code">
+        <div class="code-heading">
+          <span>Standalone Angular component</span
+          ><button type="button" (click)="copy()">
+            <app-site-icon [name]="copied() ? 'check' : 'copy'" />{{
+              copied() ? 'Copied' : 'Copy code'
+            }}
+          </button>
+        </div>
+        <pre
+          tabindex="0"
+          [attr.aria-label]="block().title + ' Angular source'"
+        >@defer (on immediate) {<code [appHighlight]="source()"></code>} @placeholder {<code>{{ source() }}</code>} @error {<code>{{ source() }}</code>}</pre>
       </div>
-      <pre
-        tabindex="0"
-        [attr.aria-label]="block().title + ' Angular source'"
-      ><code [appHighlight]="source()"></code></pre>
-    </div>
+    }
   </div>
   @if (copyFailed()) {
     <p class="copy-notice" role="status">Select the source in Code to copy it manually.</p>

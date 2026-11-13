@@ -9,11 +9,16 @@ Use Node from `.nvmrc` and npm 11.19.1 after `npm ci`:
 ```sh
 npm run build:pages
 npm run check:pages
+npm run check:demo-performance
 ```
 
 The build captures its commit/tree/source digest before compilation, extracts a clean commit into an isolated directory (or copies an exact dirty snapshot for local development), and uses the pinned installed dependencies. It checks inputs before/after compilation, prefixes Pages font URLs, preserves notices and `.nojekyll`, and seals every emitted file with SHA-256. Source changes during the build fail instead of being mislabeled. Internal relative source aliases remain within the snapshot; output symlinks are rejected.
 
-The `production,pages` build prerenders **32 routes** with base `/ng-echarts/`, physical route HTML, hydration metadata and lazy modules. Chart possibilities uses the exact bundled standalone document; its URL revision must match the source hash prefix. Native and graphical linked ranges and the focused radar/radial galleries remain covered.
+The `production,pages` build prerenders **32 routes** with base `/ng-echarts/`, physical route HTML, hydration metadata and lazy modules. Chart possibilities retains the byte-identical standalone document for offline use and derives an embedded edition with a shared font and a hashed modular engine. Both editions and the engine are validated against their source before sealing; the URL revision must match the standalone source hash prefix. Native and graphical linked ranges and the focused radar/radial galleries remain covered.
+
+Browser build statistics supply route-specific renderer preload hints for prerendered HTML, normal SSR and later client navigation. Documentation routes do not warm chart engines. `check:demo-performance` uses the same operation lock and verifies the sealed source/artifact before and after checking route bytes and controlled first-visible-chart readiness. It writes ignored evidence to `dist/demo-performance.json`; it does not issue a deployment verification receipt. CI and `deploy:pages` run this additional gate. See the [performance implementation record](experiments/DEMO_PERFORMANCE_FIXES.md).
+
+After editing the standalone gallery or its engine entry, run `npm run concepts:generate` after formatting. `npm start` and normal/Pages builds prepare the derived assets automatically in ignored `tmp/concept-assets/`; builds reject stale engine bytes or revisions instead of rewriting captured source. GitHub Pages controls its own HTTP cache lifetime. Hashed engine assets can be reused independently of document/style revisions; this workflow does not change hosting providers or claim to override Pages headers.
 
 Local verification serves the artifact without a SPA fallback and checks integrity before/after the Chromium, Firefox and WebKit flows. A successful run writes `dist/pages/pages-verification.json`, bound to the exact marker bytes. Failed or partial checks cannot authorize publication. Build/check/upload share an operation lock; dead-owner locks recover automatically. Build outputs and receipts remain ignored.
 

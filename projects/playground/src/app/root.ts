@@ -12,6 +12,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map } from 'rxjs';
 import { SiteIcon } from './site-icon';
 import { SiteAppearance } from './site-appearance';
+import { DemoRendererPreloads } from './demo-preloads';
 
 const pageTitles: Readonly<Record<string, string>> = {
   '/': 'Bar Blocks',
@@ -53,6 +54,7 @@ const pageTitles: Readonly<Record<string, string>> = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Root {
+  private readonly rendererPreloads = inject(DemoRendererPreloads);
   private readonly router = inject(Router);
   private readonly menuToggle = viewChild.required<ElementRef<HTMLButtonElement>>('menuToggle');
   private readonly appearance = inject(SiteAppearance);

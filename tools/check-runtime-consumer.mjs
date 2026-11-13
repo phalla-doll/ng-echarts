@@ -1,4 +1,6 @@
 import { consumerArtifact } from './consumer-artifact.mjs';
+import { renderConcepts, renderGallery } from './browser-gallery.mjs';
+import { prepareDemo } from './prepare-demo.mjs';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { createServer } from 'node:http';
@@ -113,6 +115,7 @@ async function exercise(engine, url, ssr) {
     await page.getByRole('button', { name: 'Make one value missing', exact: true }).click();
     await expect(radar.getByRole('status')).toContainText('Missing values: Current');
     await navigation.getByRole('link', { name: 'Pie & Donut Blocks', exact: true }).click();
+    await renderGallery(page);
     await expect(page.locator('nec-pie-chart canvas')).toHaveCount(3);
     await navigation.getByRole('link', { name: 'Pie validation', exact: true }).click();
     const pie = page.locator('.primary-pie nec-pie-chart');
@@ -155,6 +158,7 @@ async function exercise(engine, url, ssr) {
       .getByRole('navigation', { name: 'Playground pages' })
       .getByRole('link', { name: 'Line Blocks', exact: true })
       .click();
+    await renderGallery(page);
     await expect(page.locator('nec-line-chart canvas')).toHaveCount(4);
     await page
       .getByRole('navigation', { name: 'Playground pages' })
@@ -179,6 +183,7 @@ async function exercise(engine, url, ssr) {
       .getByRole('navigation', { name: 'Playground pages' })
       .getByRole('link', { name: 'Area Blocks', exact: true })
       .click();
+    await renderGallery(page);
     await expect(page.locator('nec-area-chart canvas')).toHaveCount(4);
     await page
       .getByRole('navigation', { name: 'Playground pages' })
@@ -303,6 +308,7 @@ async function exercise(engine, url, ssr) {
     await navigation.getByRole('link', { name: 'Chart possibilities', exact: true }).click();
     const concepts = page.frameLocator('app-chart-possibilities iframe');
     await expect(concepts.locator('.card')).toHaveCount(12);
+    await renderConcepts(page);
     await expect(concepts.locator('.plot svg, .spark-plot svg')).toHaveCount(14);
     await concepts.getByRole('button', { name: 'Find patterns', exact: true }).click();
     await expect(concepts.locator('.card:visible')).toHaveCount(2);
@@ -412,6 +418,7 @@ try {
       '--configuration',
       'production',
     ]);
+    await prepareDemo(join(consumer, project === 'client' ? 'dist/client' : 'dist/ssr'));
   }
   const directory = join(consumer, 'dist/client/browser');
   staticServer = createServer(async (request, response) => {

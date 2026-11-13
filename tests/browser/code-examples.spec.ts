@@ -1,3 +1,4 @@
+import { renderGallery } from '../../tools/browser-gallery.mjs';
 import { expect, test } from '@playwright/test';
 import { collectBrowserErrors } from './resource-audit';
 
@@ -20,6 +21,7 @@ test('keeps syntax-colored examples copyable and text copy buttons on one line',
   });
   const response = await page.goto('/');
   expect(await response!.text()).toContain('hljs-keyword');
+  await renderGallery(page);
   await expect(page.locator('canvas')).toHaveCount(4);
   for (const light of [false, true]) {
     if (light) await page.getByRole('button', { name: 'Use light theme', exact: true }).click();

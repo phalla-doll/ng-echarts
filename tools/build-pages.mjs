@@ -14,6 +14,7 @@ import {
   sourceFingerprint,
 } from './pages-provenance.mjs';
 import { withPagesLock } from './pages-lock.mjs';
+import { conceptAssets } from './concept-assets.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 export async function copySource(root, source, destination) {
@@ -78,11 +79,21 @@ export async function validateConceptAsset(root, browser) {
     expected,
     'Bundled concept gallery differs from its source.',
   );
+  if (source.includes('concept-engine:start')) {
+    for (const [name, value] of Object.entries(conceptAssets(source.toString()).files)) {
+      assert.equal(
+        digest(await readFile(join(browser, 'concepts', name))),
+        digest(value),
+        `Generated concept asset differs from its source: ${name}`,
+      );
+    }
+  }
 }
 function compile(directory) {
   const run = (args) =>
     execFileSync('npm', args, { cwd: directory, env: process.env, stdio: 'inherit' });
   run(['run', 'build:lib']);
+  run(['run', 'concepts:prepare']);
   run(['exec', '--', 'ng', 'build', 'playground', '--configuration', 'production,pages']);
   execFileSync(process.execPath, ['tools/prepare-pages.mjs'], {
     cwd: directory,

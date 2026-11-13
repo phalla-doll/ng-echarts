@@ -71,31 +71,33 @@
             <p class="selection" role="status">{{ selectedPoint() }}</p>
           </div>
         </div>
-        <div class="source-panel" [hidden]="view() !== 'code'">
-          <div class="source-heading">
-            <span>Angular template</span
-            ><button class="ui-button" type="button" (click)="copySource()">
-              <app-site-icon [name]="copied() ? 'check' : 'copy'" />{{
-                copied() ? 'Copied' : 'Copy code'
-              }}
-            </button>
-          </div>
-          <pre
-            tabindex="0"
-            aria-label="Angular template"
-          ><code [appHighlight]="source()" language="html"></code></pre>
-          <p class="source-note">
-            Import <code>BarChart</code> in your standalone component. Bind your rows to
-            <code>visits</code> and your series configuration to <code>series</code>. For short
-            month labels, define
-            <code>categoryTickFormatter = (label: string) =&gt; label.slice(0, 3)</code>.
-          </p>
-          @if (copyFailed()) {
-            <p role="status" class="source-note">
-              Clipboard access is unavailable. Select the template to copy it manually.
+        @if (view() === 'code') {
+          <div class="source-panel">
+            <div class="source-heading">
+              <span>Angular template</span
+              ><button class="ui-button" type="button" (click)="copySource()">
+                <app-site-icon [name]="copied() ? 'check' : 'copy'" />{{
+                  copied() ? 'Copied' : 'Copy code'
+                }}
+              </button>
+            </div>
+            <pre
+              tabindex="0"
+              aria-label="Angular template"
+            >@defer (on immediate) {<code [appHighlight]="source()" language="html"></code>} @placeholder {<code>{{ source() }}</code>} @error {<code>{{ source() }}</code>}</pre>
+            <p class="source-note">
+              Import <code>BarChart</code> in your standalone component. Bind your rows to
+              <code>visits</code> and your series configuration to <code>series</code>. For short
+              month labels, define
+              <code>categoryTickFormatter = (label: string) =&gt; label.slice(0, 3)</code>.
             </p>
-          }
-        </div>
+            @if (copyFailed()) {
+              <p role="status" class="source-note">
+                Clipboard access is unavailable. Select the template to copy it manually.
+              </p>
+            }
+          </div>
+        }
         <footer class="example-footer">
           <span>Sample data for exploring the component.</span
           ><a
