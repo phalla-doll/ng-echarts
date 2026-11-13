@@ -1,0 +1,1 @@
+import{P as Xa,_ as Iv,b as Kv}from"./chunk-COJJiHWk.js";import{ui as pN}from"./chunk-t3CChAgM.js";Xa([Iv,Kv]);var m=i=>{let e=pN(i,void 0,{renderer:`canvas`});return{update:s=>e.setOption(s,{notMerge:!0,lazyUpdate:!1}),resize:()=>e.resize(),dispose:()=>e.dispose()}};export{m as createRadialRenderer};
