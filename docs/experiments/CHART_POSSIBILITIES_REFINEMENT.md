@@ -29,7 +29,7 @@ The [capture manifest](captures/chart-possibilities-refinement/manifest.json) re
 
 Production playground and 30-route static builds, strict TypeScript/template compilation and all nine concept-gallery browser scenarios pass in Chromium, Firefox and WebKit. The scenarios retain keyboard table access, filters, scatter/bubble mode, theme synchronization, SSR/hydration/reloads, standalone offline interaction and mobile navigation. Local Pages verification passes all three engines, including the versioned gallery asset under `/ng-echarts/`. Formatting, local evidence links and `git diff --check` pass. Historical 173-unit-test and 18-scenario evidence in the [initial integration](CHART_POSSIBILITIES.md) retains its original scope.
 
-No Angular library API, package artifact or release gate changes. Source changes remain uncommitted.
+No Angular library API, package artifact or release gate changes. Source was uncommitted when this validation was recorded.
 
 ## Deployment
 
@@ -44,3 +44,13 @@ The broader live retry advanced through the gallery checks but timed out on the 
 Removed the three static “Start here” badges after user feedback that their meaning was unclear. Removed unused badge metadata and styles, and refreshed the gallery asset revision. The deployment and screenshots above record the earlier version; this follow-up is local.
 
 The [final checkpoint](CHART_POSSIBILITIES.md#final-source-checkpoint) preserves this visual work, synchronizes the formatted asset revision and includes it in committed-source deployment hardening. The working-tree status above is historical.
+
+## Treemap refinement follow-up
+
+The user requested another refinement of the treemap's gaps and presentation. The mosaic now aligns with the card text gutters, uses 6 px family dividers and 2 px product dividers, and moves family names to a compact color key. Muted emerald, teal, rose and slate shades adapt to the shared theme; product labels align to the upper left with a stronger revenue value. Narrow cards use a taller chart aspect ratio so small products retain their full names and values. The illustrative data, totals, tooltips and sample table are preserved.
+
+Treemap animation is explicitly disabled at series level: its upstream default overrides the document's global animation setting and otherwise causes shifting tile positions during theme/resize updates.
+
+Compare the earlier [dark desktop treemap](captures/chart-possibilities-refinement/treemap-dark-1440.png) with the refined [dark desktop](captures/treemap-refinement/dark-1440.png), [light desktop](captures/treemap-refinement/light-1440.png), [dark mobile](captures/treemap-refinement/dark-320.png) and [light mobile](captures/treemap-refinement/light-320.png). The [capture manifest](captures/treemap-refinement/manifest.json) records both themes at 320/390/768/1440 px. Every capture contains all eight full product names and revenue values, with labels inside the plot and no horizontal page overflow. Browser error collection is empty. These follow-up changes have not been deployed.
+
+Follow-up validation passes on Node 24.22.3 and npm 11.19.1: production playground build, repository formatting, all nine concept-gallery browser scenarios across Chromium/Firefox/WebKit, 21 affected local documentation links/anchors, and `git diff --check`. The built gallery is byte-identical to its source, capture manifest hash and refreshed asset revision. Strict compilation passed earlier in this session; the subsequent source changes affect the gallery document and revision string. The existing bar stylesheet budget warning remains.

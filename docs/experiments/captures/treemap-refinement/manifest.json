@@ -1,0 +1,277 @@
+{
+  "sourceSha256": "c778d041a39eddeac62ce2e38a1ee9dd7b4d4789a08466f82ff8d8d46982123d",
+  "checks": [
+    {
+      "card": {
+        "height": 665,
+        "width": 288,
+        "x": 16,
+        "y": 20.3125
+      },
+      "labelBoundsFit": true,
+      "labels": [
+        "Reports",
+        "$60k",
+        "Insights",
+        "$36k",
+        "Checkout",
+        "$48k",
+        "Catalog",
+        "$24k",
+        "API",
+        "$32k",
+        "Storage",
+        "$16k",
+        "Support",
+        "$14k",
+        "Consulting",
+        "$10k"
+      ],
+      "overflow": false,
+      "plot": {
+        "height": 320,
+        "width": 246
+      },
+      "theme": "dark",
+      "width": 320
+    },
+    {
+      "card": {
+        "height": 731.375,
+        "width": 358,
+        "x": 16,
+        "y": 19.921875
+      },
+      "labelBoundsFit": true,
+      "labels": [
+        "Reports",
+        "$60k",
+        "Insights",
+        "$36k",
+        "Checkout",
+        "$48k",
+        "Catalog",
+        "$24k",
+        "API",
+        "$32k",
+        "Storage",
+        "$16k",
+        "Support",
+        "$14k",
+        "Consulting",
+        "$10k"
+      ],
+      "overflow": false,
+      "plot": {
+        "height": 410.375,
+        "width": 316
+      },
+      "theme": "dark",
+      "width": 390
+    },
+    {
+      "card": {
+        "height": 723.59375,
+        "width": 352,
+        "x": 22,
+        "y": 20.390625
+      },
+      "labelBoundsFit": true,
+      "labels": [
+        "Reports",
+        "$60k",
+        "Insights",
+        "$36k",
+        "Checkout",
+        "$48k",
+        "Catalog",
+        "$24k",
+        "API",
+        "$32k",
+        "Storage",
+        "$16k",
+        "Support",
+        "$14k",
+        "Consulting",
+        "$10k"
+      ],
+      "overflow": false,
+      "plot": {
+        "height": 402.59375,
+        "width": 310
+      },
+      "theme": "dark",
+      "width": 768
+    },
+    {
+      "card": {
+        "height": 641,
+        "width": 620,
+        "x": 88,
+        "y": 20.390625
+      },
+      "labelBoundsFit": true,
+      "labels": [
+        "Reports",
+        "$60k",
+        "Insights",
+        "$36k",
+        "Checkout",
+        "$48k",
+        "Catalog",
+        "$24k",
+        "API",
+        "$32k",
+        "Storage",
+        "$16k",
+        "Support",
+        "$14k",
+        "Consulting",
+        "$10k"
+      ],
+      "overflow": false,
+      "plot": {
+        "height": 320,
+        "width": 570
+      },
+      "theme": "dark",
+      "width": 1440
+    },
+    {
+      "card": {
+        "height": 665,
+        "width": 288,
+        "x": 16,
+        "y": 20.3125
+      },
+      "labelBoundsFit": true,
+      "labels": [
+        "Reports",
+        "$60k",
+        "Insights",
+        "$36k",
+        "Checkout",
+        "$48k",
+        "Catalog",
+        "$24k",
+        "API",
+        "$32k",
+        "Storage",
+        "$16k",
+        "Support",
+        "$14k",
+        "Consulting",
+        "$10k"
+      ],
+      "overflow": false,
+      "plot": {
+        "height": 320,
+        "width": 246
+      },
+      "theme": "light",
+      "width": 320
+    },
+    {
+      "card": {
+        "height": 731.375,
+        "width": 358,
+        "x": 16,
+        "y": 19.921875
+      },
+      "labelBoundsFit": true,
+      "labels": [
+        "Reports",
+        "$60k",
+        "Insights",
+        "$36k",
+        "Checkout",
+        "$48k",
+        "Catalog",
+        "$24k",
+        "API",
+        "$32k",
+        "Storage",
+        "$16k",
+        "Support",
+        "$14k",
+        "Consulting",
+        "$10k"
+      ],
+      "overflow": false,
+      "plot": {
+        "height": 410.375,
+        "width": 316
+      },
+      "theme": "light",
+      "width": 390
+    },
+    {
+      "card": {
+        "height": 723.59375,
+        "width": 352,
+        "x": 22,
+        "y": 20.390625
+      },
+      "labelBoundsFit": true,
+      "labels": [
+        "Reports",
+        "$60k",
+        "Insights",
+        "$36k",
+        "Checkout",
+        "$48k",
+        "Catalog",
+        "$24k",
+        "API",
+        "$32k",
+        "Storage",
+        "$16k",
+        "Support",
+        "$14k",
+        "Consulting",
+        "$10k"
+      ],
+      "overflow": false,
+      "plot": {
+        "height": 402.59375,
+        "width": 310
+      },
+      "theme": "light",
+      "width": 768
+    },
+    {
+      "card": {
+        "height": 641,
+        "width": 620,
+        "x": 88,
+        "y": 20.390625
+      },
+      "labelBoundsFit": true,
+      "labels": [
+        "Reports",
+        "$60k",
+        "Insights",
+        "$36k",
+        "Checkout",
+        "$48k",
+        "Catalog",
+        "$24k",
+        "API",
+        "$32k",
+        "Storage",
+        "$16k",
+        "Support",
+        "$14k",
+        "Consulting",
+        "$10k"
+      ],
+      "overflow": false,
+      "plot": {
+        "height": 320,
+        "width": 570
+      },
+      "theme": "light",
+      "width": 1440
+    }
+  ]
+}
