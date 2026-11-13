@@ -31,7 +31,7 @@ export class ChartPossibilities {
   protected readonly ready = signal(false);
   protected readonly height = signal(4600);
   // Refresh the document in browsers that cached the first gallery deployment.
-  protected readonly standaloneUrl = 'concepts/chart-style-gallery.html?v=b88f4c87d226';
+  protected readonly standaloneUrl = 'concepts/chart-style-gallery.html?v=8169ba21b4c5';
   // A fixed, bundled document; no external URL or user input enters this trust boundary.
   protected readonly galleryUrl = inject(DomSanitizer).bypassSecurityTrustResourceUrl(
     `${this.standaloneUrl}&embedded=1&theme=dark`,

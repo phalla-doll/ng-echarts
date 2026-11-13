@@ -307,6 +307,33 @@
         flex: none;
         margin: 20px 12px 12px;
       }
+      .card--waterfall .plot {
+        height: 288px;
+        margin: 20px 12px;
+      }
+      .bullet-columns {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 24px 0;
+        color: var(--muted);
+        font-size: 10px;
+        line-height: 16px;
+      }
+      .card--bullet .plot {
+        height: 252px;
+        margin: 8px 24px 20px;
+      }
+      .card--bullet .dot {
+        width: 12px;
+        height: 3px;
+        border-radius: 1px;
+      }
+      .card--bullet .dot.target {
+        width: 2px;
+        height: 12px;
+        border-radius: 0;
+        background: var(--text);
+      }
       .treemap-key {
         display: flex;
         flex-wrap: wrap;
@@ -506,6 +533,9 @@
       .mode button[aria-pressed='true'] {
         background: var(--hover);
       }
+      .card--sparklines {
+        container-type: inline-size;
+      }
       .spark-grid {
         height: 356px;
         display: grid;
@@ -538,6 +568,9 @@
         line-height: 18px;
         min-height: 36px;
         color: var(--green);
+      }
+      .delta-context {
+        color: var(--muted);
       }
       .delta.negative {
         color: var(--rose);
@@ -634,6 +667,14 @@
           height: 260px;
           margin-left: 10px;
           margin-right: 10px;
+        }
+        .bullet-columns {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .card--bullet .plot {
+          margin-left: 20px;
+          margin-right: 20px;
         }
         .lollipop-columns {
           padding-left: 20px;
@@ -739,6 +780,53 @@
         }
         .intro {
           margin-bottom: 18px;
+        }
+      }
+      @container (max-width: 460px) {
+        .spark-grid {
+          height: auto;
+          grid-template-columns: 1fr;
+          gap: 0;
+          padding: 16px 20px 20px;
+        }
+        .spark-panel {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) minmax(88px, 42%);
+          column-gap: 16px;
+          row-gap: 3px;
+          padding: 16px 0;
+          align-items: center;
+          align-self: stretch;
+        }
+        .spark-panel + .spark-panel {
+          border-left: 0;
+          border-top: 1px solid var(--line);
+          padding-left: 0;
+        }
+        .spark-label {
+          grid-column: 1;
+          grid-row: 1;
+          line-height: 16px;
+        }
+        .spark-value {
+          grid-column: 1;
+          grid-row: 2;
+          margin: 0;
+          font-size: 24px;
+          line-height: 32px;
+        }
+        .delta {
+          grid-column: 1;
+          grid-row: 3;
+          min-height: 0;
+          font-size: 10px;
+          line-height: 16px;
+          white-space: nowrap;
+        }
+        .spark-plot {
+          grid-column: 2;
+          grid-row: 1 / 4;
+          height: 72px;
         }
       }
       html[data-embedded='1'] {
@@ -1401,6 +1489,10 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
           },
         ];
         const legends = {
+          bullet: [
+            ['Actual', ''],
+            ['Target', 'target'],
+          ],
           waterfall: [
             ['Increase', ''],
             ['Decrease', 'rose'],
@@ -1421,9 +1513,9 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
           ],
         };
         const sparkSummaries = [
-          { label: 'Revenue', value: '$48.2k', delta: '+12.4% vs. last week' },
-          { label: 'Active users', value: '8,420', delta: '+8.1% vs. last week' },
-          { label: 'Churn', value: '2.1%', delta: '+0.3 pts vs. last week' },
+          { label: 'Revenue', value: '$48.2k', delta: '+12.4%' },
+          { label: 'Active users', value: '8,420', delta: '+8.1%' },
+          { label: 'Churn', value: '2.1%', delta: '+0.3 pts' },
         ];
         $('#collection').innerHTML = models
           .map((m) => {
@@ -1439,11 +1531,11 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
               : '';
             const plot =
               m.id === 'sparklines'
-                ? `<div class="spark-grid">${sparkSummaries.map((s, i) => `<div class="spark-panel"><div class="spark-label">${s.label}</div><div class="spark-value">${s.value}</div><div class="delta ${i === 2 ? 'negative' : ''}">${s.delta}</div><div class="spark-plot" id="spark-${i}" role="img" aria-label="Weekly ${s.label.toLowerCase()} trend"></div></div>`).join('')}</div>`
+                ? `<div class="spark-grid">${sparkSummaries.map((s, i) => `<div class="spark-panel"><div class="spark-label">${s.label}</div><div class="spark-value">${s.value}</div><div class="delta ${i === 2 ? 'negative' : ''}">${s.delta} <span class="delta-context">vs. last week</span></div><div class="spark-plot" id="spark-${i}" role="img" aria-label="Weekly ${s.label.toLowerCase()} trend"></div></div>`).join('')}</div>`
                 : `<div class="plot" id="plot-${m.id}" role="img" aria-label="${m.title}: ${esc(m.note)} Values are available in the data table below."></div>`;
             return `<article class="card card--${m.id}" id="${m.id}" data-category="${m.category}">
             <header class="card-header"><div><h2>${m.title}</h2><p class="subtitle">${m.subtitle}</p></div></header>
-            ${metricRow}${m.id === 'lollipop' ? '<div class="lollipop-columns"><span>Channel</span><span>Visits</span></div>' : ''}${m.id === 'treemap' ? '<div class="treemap-key" aria-label="Product families"><span><i aria-hidden="true"></i>Analytics</span><span><i aria-hidden="true"></i>Commerce</span><span><i aria-hidden="true"></i>Platform</span><span><i aria-hidden="true"></i>Services</span></div>' : ''}${plot}
+            ${metricRow}${m.id === 'bullet' ? '<div class="bullet-columns"><span>Metric</span><span>Actual / Target</span></div>' : ''}${m.id === 'lollipop' ? '<div class="lollipop-columns"><span>Channel</span><span>Visits</span></div>' : ''}${m.id === 'treemap' ? '<div class="treemap-key" aria-label="Product families"><span><i aria-hidden="true"></i>Analytics</span><span><i aria-hidden="true"></i>Commerce</span><span><i aria-hidden="true"></i>Platform</span><span><i aria-hidden="true"></i>Services</span></div>' : ''}${plot}
             <footer class="card-footer"><p>${m.use}</p><details><summary>View sample data</summary><p class="data-note">${m.note}</p><div class="table-wrap" tabindex="0" role="region" aria-label="${m.title} sample data"><table id="data-${m.id}"></table></div></details></footer>
           </article>`;
           })
@@ -1498,7 +1590,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
           ['Retention', 86, 95],
           ['Expansion', 88, 115],
         ];
-        setTable('bullet', ['Team', 'Actual score', 'Target score'], bullets);
+        setTable('bullet', ['Metric', 'Actual score', 'Target score'], bullets);
         const pairs = [
           ['Onboarding', 58, 79],
           ['Search', 67, 82],
@@ -1706,8 +1798,11 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
             }
             helper.push(0);
             values.push(current);
+            let total = 0;
+            const connectors = wf.slice(0, -1).map(([, value], i) => [i, (total += value)]);
             return {
               ...base,
+              grid: { left: 40, right: 4, top: 24, bottom: 30 },
               xAxis: {
                 ...base.xAxis,
                 data: ['Start', 'New', 'Expand', 'Churn', 'Disc.', 'End'],
@@ -1715,16 +1810,38 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
               },
               yAxis: {
                 ...base.yAxis,
-                max: 180,
-                interval: 30,
+                max: 160,
+                interval: 40,
+                splitLine: { lineStyle: { color: p.dark ? '#212121' : '#f0f0f0', width: 1 } },
                 axisLabel: { ...axis.axisLabel, formatter: '${value}k' },
               },
               tooltip: {
                 ...base.tooltip,
-                formatter: (r) =>
-                  `${wf[r.dataIndex][0]}<br><b>${wf[r.dataIndex][1] > 0 && r.dataIndex > 0 && r.dataIndex < 5 ? '+' : ''}$${wf[r.dataIndex][1]}k</b>`,
+                formatter: (r) => {
+                  const value = wf[r.dataIndex][1];
+                  const change = r.dataIndex > 0 && r.dataIndex < 5;
+                  return `${esc(wf[r.dataIndex][0])}<br><b>${change ? (value < 0 ? '−' : '+') : ''}$${Math.abs(value)}k</b>`;
+                },
               },
               series: [
+                {
+                  type: 'custom',
+                  silent: true,
+                  z: 1,
+                  data: connectors,
+                  encode: { x: 0, y: 1 },
+                  renderItem: (params, api) => {
+                    const i = api.value(0);
+                    const a = api.coord([i, api.value(1)]);
+                    const b = api.coord([i + 1, api.value(1)]);
+                    const halfBar = api.size([1, 0])[0] * 0.24;
+                    return {
+                      type: 'line',
+                      shape: { x1: a[0] + halfBar, y1: a[1], x2: b[0] - halfBar, y2: b[1] },
+                      style: { stroke: p.dark ? '#454545' : '#cfcfcf', lineWidth: 1 },
+                    };
+                  },
+                },
                 {
                   type: 'bar',
                   stack: 'bridge',
@@ -1748,9 +1865,10 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
                     show: true,
                     position: 'top',
                     fontSize: 11,
-                    color: p.muted,
+                    color: p.text,
+                    fontWeight: 500,
                     formatter: (r) =>
-                      `${r.dataIndex > 0 && r.dataIndex < 5 && wf[r.dataIndex][1] > 0 ? '+' : ''}${wf[r.dataIndex][1]}`,
+                      `${r.dataIndex > 0 && r.dataIndex < 5 ? (wf[r.dataIndex][1] < 0 ? '−' : '+') : ''}${Math.abs(wf[r.dataIndex][1])}`,
                   },
                 },
               ],
@@ -1799,13 +1917,25 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
           if (id === 'bullet')
             return {
               ...base,
-              grid: { left: 92, right: 28, top: 20, bottom: 32 },
-              xAxis: { ...base.yAxis, max: 120, interval: 30 },
+              grid: { left: 82, right: 66, top: 8, bottom: 26 },
+              xAxis: {
+                ...base.yAxis,
+                max: 120,
+                interval: 60,
+                splitLine: { show: false },
+                axisLabel: { ...axis.axisLabel, fontSize: 10 },
+              },
               yAxis: {
                 ...base.xAxis,
                 data: bullets.map((r) => r[0]),
                 inverse: true,
-                axisLabel: { ...axis.axisLabel, fontSize: 11 },
+                axisLabel: {
+                  ...axis.axisLabel,
+                  align: 'left',
+                  margin: 82,
+                  width: 76,
+                  overflow: 'truncate',
+                },
               },
               tooltip: {
                 ...base.tooltip,
@@ -1834,23 +1964,40 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
                     return {
                       type: 'group',
                       children: [
-                        rect(120, 27, p.dark ? '#202020' : '#f3f3f3'),
-                        rect(95, 27, p.dark ? '#292929' : '#eaeaea'),
-                        rect(65, 27, p.dark ? '#333' : '#dfdfdf'),
-                        rect(api.value(1), 12, p.green),
+                        rect(120, 18, p.dark ? '#181818' : '#f7f7f7'),
+                        rect(95, 18, p.dark ? '#202020' : '#efefef'),
+                        rect(65, 18, p.dark ? '#292929' : '#e6e6e6'),
+                        rect(api.value(1), 8, p.green),
                         {
                           type: 'line',
                           shape: {
                             x1: target[0],
-                            y1: target[1] - 16,
+                            y1: target[1] - 12,
                             x2: target[0],
-                            y2: target[1] + 16,
+                            y2: target[1] + 12,
                           },
-                          style: { stroke: p.text, lineWidth: 3 },
+                          style: { stroke: p.text, lineWidth: 2 },
                         },
                       ],
                     };
                   },
+                },
+                {
+                  type: 'scatter',
+                  silent: true,
+                  symbolSize: 0,
+                  data: bullets.map((r, i) => [r[1], i]),
+                  label: {
+                    show: true,
+                    position: 'right',
+                    color: p.text,
+                    fontSize: 11,
+                    fontWeight: 500,
+                    formatter: (r) =>
+                      `${bullets[r.dataIndex][1]} {target|/ ${bullets[r.dataIndex][2]}}`,
+                    rich: { target: { color: p.muted, fontSize: 11, fontWeight: 400 } },
+                  },
+                  labelLayout: { x: '100%', align: 'right', verticalAlign: 'middle' },
                 },
               ],
             };
