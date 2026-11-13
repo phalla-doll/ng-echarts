@@ -6,16 +6,12 @@
   color: var(--site-text);
   background: var(--site-subtle);
 }
-.gallery :is(.integration-card pre, .block-code pre):focus-visible {
-  outline: 2px solid var(--site-text);
-  outline-offset: -3px;
-}
 .gallery .gallery-chart {
   --nec-background: var(--site-bg);
   --nec-text: var(--site-text);
   --nec-muted: var(--site-muted);
   --nec-border: var(--site-border);
-  --nec-focus: #9b9b9b;
+  --nec-focus: var(--site-focus);
 }
 .gallery .gallery-chart .chart-frame {
   padding: 0 16px 12px;
@@ -78,13 +74,6 @@
 .gallery .gallery-chart caption {
   font-size: 12px;
   line-height: 20px;
-}
-.gallery button:focus-visible,
-.gallery a:focus-visible,
-.site-shell button:focus-visible,
-.site-shell a:focus-visible {
-  outline: 2px solid var(--site-text);
-  outline-offset: 3px;
 }
 @media (max-width: 600px) {
   .gallery .integration-card pre {

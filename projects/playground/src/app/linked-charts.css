@@ -47,12 +47,6 @@ a app-site-icon {
   width: 12px;
   height: 12px;
 }
-summary:focus-visible,
-pre:focus-visible,
-a:focus-visible {
-  outline: 2px solid var(--site-text);
-  outline-offset: 3px;
-}
 
 .code-tools {
   display: flex;
@@ -75,8 +69,4 @@ a:focus-visible {
 .code-tools app-site-icon {
   width: 12px;
   height: 12px;
-}
-.code-tools button:focus-visible {
-  outline: 2px solid var(--site-text);
-  outline-offset: 3px;
 }

@@ -5,7 +5,7 @@
   --nec-text: var(--site-text);
   --nec-muted: var(--site-muted);
   --nec-border: var(--site-border);
-  --nec-focus: var(--site-text);
+  --nec-focus: var(--site-focus);
 }
 .linked-toolbar {
   display: flex;
@@ -84,11 +84,6 @@ select:hover {
 .reset-month:hover {
   color: var(--site-text);
   background: var(--site-subtle);
-}
-select:focus-visible,
-.reset-month:focus-visible {
-  outline: 2px solid var(--site-text);
-  outline-offset: 3px;
 }
 .linked-summary {
   display: flex;

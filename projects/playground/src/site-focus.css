@@ -1,0 +1,52 @@
+/* One quiet focus treatment for every demo page and embedded chart control. */
+.site-shell
+  :is(
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    summary,
+    [tabindex]:where(:not([tabindex='-1']))
+  ):focus-visible {
+  outline: 1px solid var(--site-focus);
+  outline-offset: 2px;
+}
+
+/* Keep the indicator inside scrollable surfaces so card clipping cannot cut it off.
+   The chart-frame selector also overrides the library's independent default ring. */
+.site-shell :is(pre, .measurement-scroll):focus-visible,
+.site-shell .chart-frame .table-scroll:focus-visible {
+  outline: 1px solid var(--site-focus);
+  outline-offset: -2px;
+}
+
+/* Pointer interaction follows the browser's focus-visible heuristic. */
+.site-shell
+  :is(
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    summary,
+    [tabindex]:where(:not([tabindex='-1']))
+  ):focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (forced-colors: active) {
+  .site-shell
+    :is(
+      a,
+      button,
+      input,
+      select,
+      textarea,
+      summary,
+      [tabindex]:where(:not([tabindex='-1']))
+    ):focus-visible,
+  .site-shell .chart-frame .table-scroll:focus-visible {
+    outline: 2px solid Highlight;
+  }
+}

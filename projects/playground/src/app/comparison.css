@@ -85,10 +85,6 @@ header > p {
   font: inherit;
   cursor: pointer;
 }
-.reference-mode button:focus-visible {
-  outline: 3px solid #648dff;
-  outline-offset: 3px;
-}
 @media (max-width: 600px) {
   .utility-page .controls button {
     min-height: 40px;

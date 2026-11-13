@@ -2,6 +2,7 @@
 @import './gallery-shell.css';
 @import './documentation.css';
 @import './syntax-highlighting.css';
+@import './site-focus.css';
 
 @font-face {
   font-family: 'Inter';
@@ -47,11 +48,6 @@ button,
 a {
   -webkit-tap-highlight-color: transparent;
 }
-button:focus-visible,
-a:focus-visible {
-  outline: 2px solid var(--site-text, #737373);
-  outline-offset: 4px;
-}
 [hidden] {
   display: none !important;
 }
@@ -93,7 +89,7 @@ a:focus-visible {
   --nec-text: var(--site-text);
   --nec-muted: var(--site-muted);
   --nec-border: var(--site-border);
-  --nec-focus: var(--site-text);
+  --nec-focus: var(--site-focus);
 }
 .utility-page > h1,
 .measurement-page > h1 {
@@ -197,10 +193,6 @@ a:focus-visible {
   :has(nec-bar-chart, nec-line-chart, nec-area-chart, nec-pie-chart, nec-composed-chart)
 ) {
   display: none;
-}
-.measurement-scroll:focus-visible {
-  outline: 2px solid var(--site-text);
-  outline-offset: 3px;
 }
 
 /* Preserve historical measurement typography inside the plots only. */

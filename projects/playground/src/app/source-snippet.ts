@@ -52,10 +52,6 @@ import { HighlightCode } from './highlight-code';
       font-size: 12px;
       line-height: 22px;
     }
-    pre:focus-visible {
-      outline: 2px solid var(--site-text);
-      outline-offset: 3px;
-    }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
