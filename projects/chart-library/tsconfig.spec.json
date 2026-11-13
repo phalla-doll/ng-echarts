@@ -15,6 +15,7 @@
     "pie/src/**/*.spec.ts",
     "composed/src/**/*.spec.ts",
     "radar/src/**/*.spec.ts",
-    "radial/src/**/*.spec.ts"
+    "radial/src/**/*.spec.ts",
+    "calendar/src/**/*.spec.ts"
   ]
 }

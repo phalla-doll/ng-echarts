@@ -76,6 +76,7 @@ async function checkPages() {
       'composed/',
       'radar/',
       'radial/',
+      'calendar/',
       'linked/',
       'chart-possibilities/',
       'linked-validation/',
@@ -146,6 +147,19 @@ async function checkPages() {
             await expect(progress).toHaveAttribute('value', '10000');
           }
         }
+        await page.goto(new URL('calendar/', site).href);
+        const calendar = page.locator('nec-calendar-heatmap');
+        await expect(calendar.locator('canvas').first()).toBeVisible();
+        const calendarResponse = await page.reload();
+        assert(
+          (await calendarResponse.text()).includes('2024-02-29'),
+          'Calendar native leap day must be prerendered',
+        );
+        await expect(calendar.locator('canvas').first()).toBeVisible();
+        await calendar.locator('.calendar-data > summary').click();
+        await calendar.locator('.calendar-month').first().locator('summary').click();
+        await calendar.getByRole('button', { name: 'Select 2024-01-01: 0', exact: true }).click();
+        await expect(page.locator('.calendar-selection')).toHaveText('2024-01-01: 0 contributions');
         await page.goto(new URL('chart-possibilities/', site).href);
         const concepts = page.frameLocator('app-chart-possibilities iframe');
         await expect(concepts.locator('.card')).toHaveCount(12);

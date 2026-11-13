@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 @Component({
   selector: 'app-chart-illustration',
   template: `<svg viewBox="0 0 260 140" fill="none" aria-hidden="true">
-    @if (kind() !== 'radar' && kind() !== 'radial') {
+    @if (kind() !== 'radar' && kind() !== 'radial' && kind() !== 'calendar') {
       <path
         d="M20 30H240M20 65H240M20 100H240M55 15V125M100 15V125M145 15V125M190 15V125M235 15V125"
         stroke="var(--site-border)"
@@ -11,6 +11,21 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
       />
     }
     @switch (kind()) {
+      @case ('calendar') {
+        @for (row of [0, 1, 2, 3, 4, 5, 6]; track row) {
+          @for (column of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; track column) {
+            <rect
+              [attr.x]="36 + column * 18"
+              [attr.y]="24 + row * 14"
+              width="13"
+              height="10"
+              rx="2"
+              fill="currentColor"
+              [attr.opacity]="0.15 + ((row * 3 + column * 7) % 5) * 0.17"
+            />
+          }
+        }
+      }
       @case ('radial') {
         <circle cx="130" cy="70" r="43" stroke="var(--site-border)" stroke-width="10" />
         <circle
@@ -125,6 +140,6 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 })
 export class ChartIllustration {
   readonly kind = input.required<
-    'bar' | 'line' | 'area' | 'pie' | 'composed' | 'radar' | 'radial'
+    'bar' | 'line' | 'area' | 'pie' | 'composed' | 'radar' | 'radial' | 'calendar'
   >();
 }

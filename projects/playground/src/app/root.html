@@ -135,6 +135,15 @@
           </li>
           <li>
             <a
+              routerLink="/calendar"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="calendar" />Calendar Heatmap</a
+            >
+          </li>
+          <li>
+            <a
               routerLink="/linked"
               routerLinkActive="active"
               ariaCurrentWhenActive="page"

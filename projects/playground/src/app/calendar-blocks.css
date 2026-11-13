@@ -1,0 +1,26 @@
+.calendar-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 16px 16px 0;
+  color: var(--site-muted);
+  font-size: 13px;
+  line-height: 20px;
+}
+.calendar-toolbar input {
+  width: 104px;
+  padding: 6px 10px;
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-inset-radius);
+  background-color: var(--site-bg);
+  color: var(--site-text);
+  font: inherit;
+}
+.calendar-selection {
+  margin: 12px 0 0;
+  padding: 0 16px 16px;
+  color: var(--site-muted);
+  font-size: 12px;
+  line-height: 20px;
+}

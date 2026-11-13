@@ -135,3 +135,7 @@ The user-approved [radar increment](experiments/NG18_RADAR_CHART.md) adds the fo
 ## NG18 radial progress increment
 
 The user-approved [radial progress increment](experiments/NG18_RADIAL_PROGRESS.md) adds the focused `/radial` Angular entry and two demo examples. Required scalar value and explicit positive maximum supply native progress semantics, visible formatted values and a noninteractive ring. The [API](RADIAL_PROGRESS_API.md) defines zero/null/invalid states, formatting, motion and SSR behavior. This advances the private candidate to rc.6 while preserving rc.5 and earlier artifacts and the existing compatibility root. Native progress provides the scalar alternative; legends, point actions and a data table are inapplicable. Human interpretation and public release gates remain pending.
+
+## Experimental calendar heatmaps
+
+User-authorized NG19 continuation adds a bounded single-year calendar heatmap outside the four-family MVP. Strict date-only observations, an explicit maximum, zero/missing separation and native daily-value actions follow the [calendar API](CALENDAR_HEATMAP_API.md). Sankey, arbitrary date windows and human release acceptance remain pending.

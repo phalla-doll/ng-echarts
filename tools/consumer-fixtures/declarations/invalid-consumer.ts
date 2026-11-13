@@ -1,3 +1,4 @@
+import { CalendarHeatmap } from '@ng-echarts/chart-library/calendar';
 import { RadialProgress } from '@ng-echarts/chart-library/radial';
 import { RadarChart } from '@ng-echarts/chart-library/radar';
 import { Component } from '@angular/core';
@@ -247,4 +248,52 @@ export class InvalidRadialValue {
 })
 export class InvalidRadialMax {
   readonly wrong = '100';
+}
+
+@Component({
+  imports: [CalendarHeatmap],
+  template: `<nec-calendar-heatmap
+    title="Invalid calendar"
+    [data]="rows"
+    dateKey="count"
+    valueKey="count"
+    [year]="2024"
+    [max]="40"
+  />`,
+})
+export class InvalidCalendarDate {
+  readonly rows = [{ date: '2024-01-01', count: 1 }];
+  readonly wrong = '2024';
+}
+
+@Component({
+  imports: [CalendarHeatmap],
+  template: `<nec-calendar-heatmap
+    title="Invalid calendar"
+    [data]="rows"
+    dateKey="date"
+    valueKey="date"
+    [year]="2024"
+    [max]="40"
+  />`,
+})
+export class InvalidCalendarValue {
+  readonly rows = [{ date: '2024-01-01', count: 1 }];
+  readonly wrong = '2024';
+}
+
+@Component({
+  imports: [CalendarHeatmap],
+  template: `<nec-calendar-heatmap
+    title="Invalid calendar"
+    [data]="rows"
+    dateKey="date"
+    valueKey="count"
+    [year]="wrong"
+    [max]="40"
+  />`,
+})
+export class InvalidCalendarYear {
+  readonly rows = [{ date: '2024-01-01', count: 1 }];
+  readonly wrong = '2024';
 }

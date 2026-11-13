@@ -1,0 +1,135 @@
+<div class="gallery">
+  <div class="gallery-content">
+    <header class="gallery-heading">
+      <div>
+        <h1>Calendar Heatmap</h1>
+        <p>Daily patterns across a year, with missing days kept distinct from zero.</p>
+      </div>
+    </header>
+    <div class="gallery-examples">
+      <section class="block-section" id="daily-contributions" aria-labelledby="calendar-heading">
+        <h2 id="calendar-heading">
+          <a [routerLink]="[]" fragment="daily-contributions">Daily contributions</a>
+        </h2>
+        <div class="block-card">
+          <header class="block-header">
+            <button
+              type="button"
+              class="reload-button"
+              aria-label="Reset Daily contributions"
+              (click)="reset()"
+            >
+              <app-site-icon name="update" />
+            </button>
+            <span class="block-label">Calendar</span>
+            <div class="block-views" role="group" aria-label="Daily contributions view">
+              <button
+                type="button"
+                [attr.aria-pressed]="view() === 'code'"
+                (click)="view.set('code')"
+              >
+                Code
+              </button>
+              <button
+                type="button"
+                [attr.aria-pressed]="view() === 'preview'"
+                (click)="view.set('preview')"
+              >
+                Preview
+              </button>
+            </div>
+          </header>
+          <div class="block-surface" [hidden]="view() !== 'preview'">
+            <div class="calendar-toolbar">
+              <label for="activity-year">Year</label>
+              <input
+                id="activity-year"
+                type="number"
+                min="100"
+                max="9999"
+                step="1"
+                [value]="year()"
+                (change)="changeYear($event)"
+              />
+            </div>
+            @if (mounted()) {
+              <nec-calendar-heatmap
+                class="gallery-chart"
+                title="Daily contributions"
+                description="Illustrative daily activity. Each color interval spans ten contributions."
+                [data]="data()"
+                dateKey="date"
+                valueKey="count"
+                [year]="year()"
+                [max]="40"
+                [theme]="theme()"
+                [loading]="loading()"
+                [error]="error()"
+                (pointSelect)="selection.set($event)"
+              />
+            }
+            <p class="calendar-selection" role="status">
+              @if (selection(); as selected) {
+                {{ selected.date }}: {{ selected.value }} contributions
+              } @else {
+                Select a recorded day or explore its value in the data table.
+              }
+            </p>
+          </div>
+          @if (view() === 'code') {
+            <div class="block-code">
+              <div class="code-heading">
+                <span>Standalone Angular component</span
+                ><button type="button" (click)="copy()">
+                  <app-site-icon [name]="copied() ? 'check' : 'copy'" />{{
+                    copied() ? 'Copied' : 'Copy code'
+                  }}
+                </button>
+              </div>
+              <pre
+                tabindex="0"
+                aria-label="Daily contributions Angular source"
+              >@defer (on immediate) {<code [appHighlight]="source()"></code>} @placeholder {<code>{{ source() }}</code>} @error {<code>{{ source() }}</code>}</pre>
+            </div>
+          }
+        </div>
+        @if (copyFailed()) {
+          <p class="copy-notice" role="status">Select the source in Code to copy it manually.</p>
+        }
+        <p class="radial-caption">
+          A fixed scale from 0 to 40 keeps both years comparable. On narrow screens, the year flows
+          into four quarter rows.
+        </p>
+        <details class="radial-controls">
+          <summary>Try data and states</summary>
+          <div class="radial-actions">
+            <button type="button" (click)="setMode('zero')">Show recorded zeros</button>
+            <button type="button" (click)="setMode('missing')">Missing values</button>
+            <button type="button" (click)="setMode('invalid')">Invalid date</button>
+            <button type="button" [attr.aria-pressed]="loading()" (click)="loading.set(!loading())">
+              Loading state
+            </button>
+            <button
+              type="button"
+              [attr.aria-pressed]="!!error()"
+              (click)="error.set(error() ? null : 'Daily activity is temporarily unavailable.')"
+            >
+              Error state
+            </button>
+            <button type="button" [attr.aria-pressed]="mounted()" (click)="mounted.set(!mounted())">
+              Mount calendar
+            </button>
+            <button type="button" (click)="reset()">Restore sample</button>
+          </div>
+        </details>
+      </section>
+    </div>
+    <footer class="gallery-footer">
+      Exact daily values stay available before the chart loads.
+    </footer>
+  </div>
+  <aside class="page-outline" aria-label="On this page">
+    <p>On this page</p>
+    <a [routerLink]="[]" fragment="daily-contributions">Daily contributions</a>
+  </aside>
+</div>

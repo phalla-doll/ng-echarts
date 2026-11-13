@@ -76,7 +76,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'status',
         title: 'Project status',
         paragraphs: [
-          'The library is experimental and the package is private. Use the workspace or a packed local build; a public npm installation is not available yet. Automated acceptance covers the four MVP families, the first shared-axis composed increment, experimental radar and radial progress. Human screen-reader interpretation and final artifact/release acceptance remain pending.',
+          'The library is experimental and the package is private. Use the workspace or a packed local build; a public npm installation is not available yet. Automated acceptance covers the four MVP families, the first shared-axis composed increment, experimental radar, radial progress and calendar heatmaps. Human screen-reader interpretation and final artifact/release acceptance remain pending.',
         ],
       },
     ],
@@ -169,7 +169,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'charts',
         title: 'Charts',
         paragraphs: [
-          'Explore working bar, line, area, pie/donut, composed, radar and radial progress components.',
+          'Explore working bar, line, area, pie/donut, composed, radar, radial progress and calendar heatmap components.',
         ],
       },
       {
@@ -247,5 +247,13 @@ export const chartCatalog = [
     kind: 'radial',
     route: '/radial',
     status: 'Experimental',
+  },
+  {
+    kind: 'calendar',
+    route: '/calendar',
+    title: 'Calendar Heatmap',
+    status: 'Experimental',
+    description:
+      'Daily values, a fixed scale and a clear distinction between zero and missing days.',
   },
 ] as const;

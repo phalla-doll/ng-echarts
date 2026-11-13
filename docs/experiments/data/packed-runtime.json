@@ -1,11 +1,11 @@
 {
-  "recordedAt": "2026-11-13T15:36:58.748Z",
+  "recordedAt": "2026-11-13T16:18:34.643Z",
   "node": "v24.22.2",
   "package": "@ng-echarts/chart-library",
-  "version": "0.1.0-rc.6",
+  "version": "0.1.0-rc.8",
   "artifact": {
-    "sha256": "cca463bbf1daa4126227578864c24af8d437438b117f3492b998199b331fd2c5",
-    "exactCandidate": false
+    "sha256": "589b7273d26a4cbd112067b5a492205122db8ebe4835cac2801ae881da133371",
+    "exactCandidate": true
   },
   "skipLibCheck": false,
   "workspaceAliases": false,
@@ -17,6 +17,7 @@
     "./line",
     "./area",
     "./pie",
+    "./calendar",
     "./composed",
     "./radar",
     "./radial"

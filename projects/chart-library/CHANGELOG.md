@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.0-rc.8 — 13 November 2026
+
+- Retain exact daily tables and omit the calendar drawing when a browser timezone skips a civil date in the selected year, rather than mapping two observations into one cell.
+- Preserve the verified private rc.7 archive. Update the packaged calendar contract index; human release acceptance remains pending.
+
+## 0.1.0-rc.7 — 13 November 2026
+
+- Add focused `/calendar` entry with strict Gregorian date-only values, an explicit year and maximum, stable raw-row point events and distinct zero/missing states.
+- Fit the year into one strip or four quarter rows; retain native monthly daily tables before hydration and equivalent keyboard actions.
+- Reuse shared formatting, themes, state, motion and lifecycle behavior. Preserve the compatibility root, rc.6 and all earlier candidates. Human release acceptance remains pending.
+
 ## 0.1.0-rc.6 — 13 November 2026
 
 - Add focused `/radial` entry and `RadialProgress` for scalar goal completion with explicit value/max validation and no silent clamping.

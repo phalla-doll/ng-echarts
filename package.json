@@ -50,7 +50,8 @@
     "test:demo-assets": "node --test tools/demo-assets.spec.mjs",
     "capture:radial": "node tools/capture-radial.mjs",
     "check:demo-performance": "node tools/check-demo-performance.mjs",
-    "concepts:prepare": "node tools/concept-assets.mjs --prepare"
+    "concepts:prepare": "node tools/concept-assets.mjs --prepare",
+    "capture:calendar": "node tools/capture-calendar.mjs"
   },
   "private": true,
   "packageManager": "npm@11.19.1",

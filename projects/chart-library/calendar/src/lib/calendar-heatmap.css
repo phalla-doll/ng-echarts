@@ -1,0 +1,124 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+.calendar-viewport {
+  container: nec-calendar / inline-size;
+}
+.calendar-viewport[hidden] {
+  display: none;
+}
+.plot {
+  width: 100%;
+  height: 566px;
+}
+@container nec-calendar (min-width: 560px) {
+  .plot {
+    height: 152px;
+  }
+}
+.calendar-scale {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  align-items: center;
+  margin: 8px 0 16px;
+  color: var(--nec-muted);
+  font-size: 12px;
+  line-height: 20px;
+}
+.scale-item,
+.scale-ramp {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.scale-ramp {
+  gap: 3px;
+}
+.scale-ramp span:first-child {
+  margin-right: 3px;
+}
+.scale-ramp span:last-child {
+  margin-left: 3px;
+}
+i {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+i.missing {
+  border: 1px solid var(--nec-border);
+  box-sizing: border-box;
+}
+.calendar-data {
+  font-size: 13px;
+  line-height: 22px;
+}
+summary {
+  cursor: pointer;
+  width: fit-content;
+  padding: 6px 0;
+}
+.calendar-month {
+  border-top: 1px solid var(--nec-border);
+}
+.table-help {
+  color: var(--nec-muted);
+  margin: 12px 0;
+  max-width: 70ch;
+}
+.table-scroll {
+  overflow-x: auto;
+  margin-bottom: 12px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+}
+caption {
+  text-align: left;
+  padding: 8px 0;
+  font-weight: 600;
+}
+th,
+td {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--nec-border);
+}
+button {
+  padding: 4px 8px;
+  color: inherit;
+  background: transparent;
+  border: 1px solid var(--nec-border);
+  border-radius: 4px;
+  font: inherit;
+  cursor: pointer;
+}
+button:hover {
+  background: color-mix(in srgb, var(--nec-text) 6%, transparent);
+}
+button:focus-visible,
+summary:focus-visible,
+.table-scroll:focus-visible {
+  outline: 2px solid var(--nec-focus, #648dff);
+  outline-offset: 2px;
+}
+
+.scale-ramp {
+  min-width: 0;
+}
+.scale-ramp span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.table-scroll button {
+  overflow-wrap: anywhere;
+}
+
+.calendar-scale[hidden] {
+  display: none;
+}

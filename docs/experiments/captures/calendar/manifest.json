@@ -1,0 +1,84 @@
+{
+  "capturedAt": "2026-11-13T16:17:26.527Z",
+  "source": {
+    "projects/chart-library/calendar/src/lib/calendar-heatmap.ts": "086ab356a066073e26ffa4d56af9a6f5356d327f7544faec91bd4ffc9eba8359",
+    "projects/chart-library/calendar/src/lib/calendar-heatmap.html": "254a4fc3159a4d7aac61fd934a9687f1fcc1115f3175b02ed12020fb0cfff67a",
+    "projects/chart-library/calendar/src/lib/calendar-heatmap.css": "f0a93be26b9e64fc6acbbe54a879428d6dcde5a09102b01b45a78ebe13da0529",
+    "projects/chart-library/calendar/src/lib/calendar-options.ts": "41a9b9029a3125ee1397de05a07b5d55dfd331a67f16a43b97e10d6c28e56f3e",
+    "projects/chart-library/calendar/src/lib/calendar-browser.ts": "315901702131d502eed23671f5d1c28dfc36656b5c6a8efc5466ad33a25bdd2a",
+    "projects/chart-library/calendar/src/lib/calendar-renderer.ts": "d388530ed5bbdab9debb85a44bc3ebbc02d1f3691f9274ee0c8602a8f037e81f",
+    "projects/chart-library/calendar/src/lib/calendar-model.ts": "33b6017755298034ef3eea1af58587a4b81f7b0c9bcb50c94a8adfca253c5233",
+    "projects/playground/src/app/calendar-blocks.ts": "4fe9b2ccabbb0c9c07aeb8a49067a0be9784d53cac2b21a13390e47b8784e04c",
+    "projects/playground/src/app/calendar-blocks.html": "f22bc67c8790226ad3ef8d8663db3f124f045acc20e12a682ef328b5a8bb4abe",
+    "projects/playground/src/app/calendar-blocks.css": "a0ba7e57b01c807621fd4cfa1fc7b8bcb330c0a7b13c5145ae44fe0fdee54c3b",
+    "projects/playground/src/app/calendar-examples.ts": "96f46b2fab1ace8368add429db651f17d15a4ecc4c3599aacd34fcb14b15d8be"
+  },
+  "captures": [
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "docs/experiments/captures/calendar/dark-1440.png",
+      "geometry": { "width": 598, "height": 152 },
+      "sha256": "9fc87989d0deab26bb6215164bc3f8aef7ddec9b04b05787173a75b8055b6d25"
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "docs/experiments/captures/calendar/dark-768.png",
+      "geometry": { "width": 654, "height": 152 },
+      "sha256": "b5029335919dcbfc87d3783588a01119992135b4fd15756b656ac341f0a8ae1e"
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "docs/experiments/captures/calendar/dark-390.png",
+      "geometry": { "width": 332, "height": 566 },
+      "sha256": "3a64b3eafe7d41ee8ec3797be353de11f3b600e5c9f884a6c7ecb78f6932afac"
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "docs/experiments/captures/calendar/dark-320.png",
+      "geometry": { "width": 262, "height": 566 },
+      "sha256": "d48f24e84d5f476a7056c3b0c82a7a5334a95a5791b21c44bf0421ce8b289a21"
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "docs/experiments/captures/calendar/light-1440.png",
+      "geometry": { "width": 598, "height": 152 },
+      "sha256": "2cbdde56fc962d545437b7ad4cab49fd98e5c9512316eb0e03d597b26fd3f87c"
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "docs/experiments/captures/calendar/light-768.png",
+      "geometry": { "width": 654, "height": 152 },
+      "sha256": "5d6faba9525894f2864a33173172d1a37510af3c1e8f220fa1631de834b32947"
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "docs/experiments/captures/calendar/light-390.png",
+      "geometry": { "width": 332, "height": 566 },
+      "sha256": "5bf8a7366ff970f16c03a483dd198910884ab94ca0a113469dfd879b1d22cba0"
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "docs/experiments/captures/calendar/light-320.png",
+      "geometry": { "width": 262, "height": 566 },
+      "sha256": "4feb6a2c705cd4974fbbd407d0afc776397549306ad87c1aceb22bad03ed243c"
+    }
+  ],
+  "additional": [
+    {
+      "case": "skipped-date native fallback",
+      "timezone": "Pacific/Apia",
+      "year": 2011,
+      "path": "docs/experiments/captures/calendar/dark-320-skipped-date.png",
+      "sha256": "9878a810b80d61202d64970d0176ddc8dca8fcdf9f6cdff017dc372e0d4d548d"
+    }
+  ],
+  "errors": []
+}

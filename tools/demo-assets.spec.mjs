@@ -35,7 +35,7 @@ test('rejects missing engine boundaries and verifies the pinned modular engine',
 
 test('warms only the requested renderer graph and preserves the Pages prefix', () => {
   const outputs = { 'shared.js': { imports: [] }, 'unused.js': { imports: [] } };
-  for (const family of ['bar', 'line', 'area', 'pie', 'composed', 'radar', 'radial']) {
+  for (const family of ['bar', 'line', 'area', 'pie', 'composed', 'radar', 'radial', 'calendar']) {
     outputs[`${family}.js`] = {
       entryPoint: `ng-echarts-chart-library-${family}-${family}-renderer-hash.mjs`,
       imports: [
@@ -52,6 +52,10 @@ test('warms only the requested renderer graph and preserves the Pages prefix', (
   assert.deepEqual(
     routes.linked.map((link) => link.href),
     ['bar.js', 'shared.js', 'pie.js'],
+  );
+  assert.deepEqual(
+    routes.calendar.map((link) => link.href),
+    ['calendar.js', 'shared.js'],
   );
   assert.equal(routes.installation, undefined);
   const manifest = { base: '/ng-echarts/', routes };

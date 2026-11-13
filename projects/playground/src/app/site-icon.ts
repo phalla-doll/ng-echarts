@@ -1,10 +1,14 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
-// Heroicons v2.2.0 (MIT, Tailwind Labs, Inc.), plus original line/area/composed/link/radar/radial glyphs.
+// Heroicons v2.2.0 (MIT, Tailwind Labs, Inc.), plus original line/area/composed/link/radar/radial/calendar glyphs.
 // All icons share a 24 px view box, 1.5 stroke, and currentColor.
 // Source revision and icon mapping: docs/UPSTREAM_PROVENANCE.md.
 // Full notice: projects/playground/public/third-party/heroicons-LICENSE.txt.
 const paths = {
+  calendar: [
+    'M7 3v4m10-4v4M3 9h18M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z',
+    'M7 13h2v2H7Zm4 0h2v2h-2Zm4 4h2v2h-2Z',
+  ],
   radial: ['M12 3a9 9 0 1 1-9 9', 'm8 12 3 3 5-6'],
   radar: [
     'M12 3 21 9.5 17.5 20h-11L3 9.5Z',

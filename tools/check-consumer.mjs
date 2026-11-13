@@ -74,6 +74,30 @@ try {
   );
   const configPath = join(consumer, 'tsconfig.json');
   const config = JSON.parse(await readFile(configPath, 'utf8'));
+  const calendarGuide = await readFile(join(root, 'docs/CALENDAR_HEATMAP_API.md'), 'utf8');
+  const calendarExample = calendarGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
+  assert(calendarExample, 'Calendar guide must contain its standalone example');
+  const calendarBuild = await build({
+    entryPoints: [join(root, 'projects/playground/src/app/calendar-examples.ts')],
+    bundle: true,
+    write: false,
+    platform: 'node',
+    format: 'esm',
+  });
+  const { calendarExampleSource, calendarSample } = await import(
+    `data:text/javascript;base64,${Buffer.from(calendarBuild.outputFiles[0].contents).toString('base64')}`
+  );
+  assert.equal(
+    calendarExample.trim(),
+    calendarExampleSource(false).trim(),
+    'Guide and copied calendar source must agree',
+  );
+  assert.equal(calendarSample(2024).find((day) => day.date === '2024-01-01').count, 0);
+  for (const dark of [false, true]) {
+    const file = `calendar-${dark ? 'dark' : 'light'}.ts`;
+    await writeFile(join(consumer, file), calendarExampleSource(dark));
+    config.files.push(file);
+  }
   const radialGuide = await readFile(join(root, 'docs/RADIAL_PROGRESS_API.md'), 'utf8');
   const radialExample = radialGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
   assert(radialExample, 'Radial guide must contain its standalone example');
@@ -236,6 +260,7 @@ try {
     '.',
     './area',
     './bar',
+    './calendar',
     './composed',
     './core',
     './line',
@@ -252,6 +277,7 @@ try {
     './line',
     './area',
     './pie',
+    './calendar',
     './composed',
     './radar',
     './radial',
@@ -281,6 +307,9 @@ try {
   const diagnostics = `${invalid.stdout}${invalid.stderr}`.replace(/\x1b\[[0-9;]*m/g, '');
   const invalidSource = await readFile(join(consumer, 'invalid-consumer.ts'), 'utf8');
   for (const [component, binding] of [
+    ['InvalidCalendarDate', 'dateKey="count"'],
+    ['InvalidCalendarValue', 'valueKey="date"'],
+    ['InvalidCalendarYear', '[year]="wrong"'],
     ['InvalidRadialValue', '[value]="wrong"'],
     ['InvalidRadialMax', '[max]="wrong"'],
     ['InvalidRadarScale', 'maxKey="name"'],

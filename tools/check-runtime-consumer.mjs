@@ -78,6 +78,27 @@ async function exercise(engine, url, ssr) {
       await page.getByTestId('deferred').locator('table').waitFor();
     }
     const navigation = page.getByRole('navigation', { name: 'Playground pages' });
+    await navigation.getByRole('link', { name: 'Calendar Heatmap', exact: true }).click();
+    const calendar = page.locator('nec-calendar-heatmap');
+    await expect(calendar.locator('canvas').first()).toBeVisible();
+    const calendarResponse = await page.reload();
+    const calendarHtml = await calendarResponse.text();
+    assert(!calendarHtml.includes('<canvas'), 'Calendar engine must remain browser-only');
+    if (ssr)
+      assert(
+        calendarHtml.includes('2024-02-29') && calendarHtml.includes('Explore daily data'),
+        'SSR must retain native leap-year data',
+      );
+    else assert(!calendarHtml.includes('Explore daily data'), 'CSR starts with a client shell');
+    await expect(calendar.locator('canvas').first()).toBeVisible();
+    await calendar.locator('.calendar-data > summary').click();
+    await calendar.locator('.calendar-month').first().locator('summary').click();
+    await calendar.getByRole('button', { name: 'Select 2024-01-01: 0', exact: true }).focus();
+    await page.keyboard.press('Enter');
+    await expect(page.locator('.calendar-selection')).toHaveText('2024-01-01: 0 contributions');
+    await page.getByRole('spinbutton', { name: 'Year', exact: true }).fill('2025');
+    await page.getByRole('spinbutton', { name: 'Year', exact: true }).dispatchEvent('change');
+    await expect(calendar.locator('tbody tr')).toHaveCount(365);
     await navigation.getByRole('link', { name: 'Radial Progress', exact: true }).click();
     const radial = page.locator('#monthly-goal nec-radial-progress');
     await expect(page.locator('nec-radial-progress canvas')).toHaveCount(2);
@@ -386,6 +407,9 @@ try {
      assert.equal(root.LineChart, line.LineChart);
      const composed = await import('@ng-echarts/chart-library/composed');
      assert.equal(root.ComposedChart, composed.ComposedChart);
+     const calendar = await import('@ng-echarts/chart-library/calendar');
+     assert.equal(typeof calendar.CalendarHeatmap, 'function');
+     assert.equal(root.CalendarHeatmap, undefined);
      const radial = await import('@ng-echarts/chart-library/radial');
      assert.equal(typeof radial.RadialProgress, 'function');
      assert.equal(root.RadialProgress, undefined);
@@ -399,7 +423,7 @@ try {
      assert.equal(root.ChartFrame, core.ChartFrame);
      assert.deepEqual(Object.keys(core).filter(name => !name.startsWith('ɵ')), ['ChartFrame']);
      const require = createRequire(process.cwd() + '/package.json');
-     for (const path of ['src/lib/bar-chart', 'bar/src/lib/bar-chart', 'radar/src/lib/radar-chart', 'radial/src/lib/radial-progress', 'fesm2022/ng-echarts-chart-library-bar.mjs', 'fesm2022/ng-echarts-chart-library-radar.mjs']) {
+     for (const path of ['src/lib/bar-chart', 'bar/src/lib/bar-chart', 'radar/src/lib/radar-chart', 'radial/src/lib/radial-progress', 'calendar/src/lib/calendar-heatmap', 'fesm2022/ng-echarts-chart-library-bar.mjs', 'fesm2022/ng-echarts-chart-library-radar.mjs']) {
        assert.throws(() => require.resolve('@ng-echarts/chart-library/' + path), { code: 'ERR_PACKAGE_PATH_NOT_EXPORTED' });
      }`,
   ]);
@@ -492,6 +516,7 @@ try {
       './line',
       './area',
       './pie',
+      './calendar',
       './composed',
       './radar',
       './radial',

@@ -15,6 +15,7 @@
   },
   "files": [
     "consumer.ts",
+    "calendar-consumer.ts",
     "legacy-consumer.ts",
     "line-consumer.ts",
     "area-consumer.ts",

@@ -305,3 +305,7 @@ The user-approved [radar increment](experiments/NG18_RADAR_CHART.md) adds the fo
 ## NG18 radial progress increment
 
 The user-approved [radial progress increment](experiments/NG18_RADIAL_PROGRESS.md) adds the focused `/radial` Angular entry and two demo examples. Required scalar value and explicit positive maximum supply native progress semantics, visible formatted values and a noninteractive ring. The [API](RADIAL_PROGRESS_API.md) defines zero/null/invalid states, formatting, motion and SSR behavior. This advances the private candidate to rc.6 while preserving rc.5 and earlier artifacts and the existing compatibility root. Native progress provides the scalar alternative; legends, point actions and a data table are inapplicable. Human interpretation and public release gates remain pending.
+
+## Focused calendar heatmap
+
+`/calendar` exports `CalendarHeatmap<T>` and its raw-date selection contract without expanding compatibility-root exports. Pure Gregorian normalization owns validation and complete year enumeration. The browser adapter alone registers Heatmap/Calendar/piecewise VisualMap/Tooltip/Canvas, applies responsive year/quarter options and maps observed dates back to original rows. Native monthly disclosures/tables render during SSR. Shared plot lifecycle, formatting, themes, state and focus behavior remain in use; [the API](CALENDAR_HEATMAP_API.md) defines the bounded semantics.

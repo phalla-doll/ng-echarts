@@ -1,6 +1,6 @@
 # ng-echarts research sources
 
-Checked 12 November 2026. Primary sources support the observations below; the product scope, architecture preferences, effort ranges, and performance targets are project proposals.
+Initial research checked 12 November 2026; calendar/timezone sources checked 13 November 2026. Primary sources support the observations below; the product scope, architecture preferences, effort ranges, and performance targets are project proposals.
 
 ## Upstream sources
 
@@ -36,6 +36,8 @@ The registry count includes every entry in `items`. The ECharts example count fi
 | S16 | [Angular incremental hydration](https://angular.dev/guide/incremental-hydration) | Server-rendered deferred content, hydration triggers, and event replay |
 | S17 | [ECharts basic pie](https://echarts.apache.org/handbook/en/how-to/chart-types/pie/basic-pie/) | Proportional numeric values, radius configuration, and disabling equal sectors for zero totals |
 | S18 | [ECharts donut](https://echarts.apache.org/handbook/en/how-to/chart-types/pie/doughnut/) | Inner/outer radii and label-overlap behavior |
+| S22 | [ECharts calendar options](https://github.com/apache/echarts-doc/blob/master/en/option/component/calendar.md) and [6.1.0 calendar implementation](https://github.com/apache/echarts/blob/6.1.0/src/coord/calendar/Calendar.ts) | Date ranges, calendar sizing/first-day semantics and local date arithmetic; NG19 retains pure date identity and native-table fallback |
+| S23 | [IANA timezone source, Australasia](https://github.com/eggert/tz/blob/main/australasia) | Pacific/Apia's skipped civil date; verified native fallback in the calendar browser scenarios |
 
 Recheck platform documentation when development begins and when compatibility ranges change. Preserve the pinned upstream revision for reproducible comparisons, even if a later revision is evaluated separately.
 

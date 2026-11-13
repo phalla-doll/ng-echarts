@@ -12,6 +12,7 @@ export const rendererRoutes = {
   composed: ['composed'],
   radar: ['radar'],
   radial: ['radial'],
+  calendar: ['calendar'],
   linked: ['bar', 'pie'],
   playground: ['bar'],
   formatting: ['bar'],
