@@ -26,7 +26,7 @@ h2 a {
 .block-header {
   display: flex;
   align-items: center;
-  height: 36px;
+  height: 40px;
   padding: 0 8px;
   gap: 8px;
   color: var(--site-muted);
@@ -59,21 +59,35 @@ button {
 }
 .block-views {
   display: flex;
+  align-items: center;
   align-self: stretch;
   margin-left: auto;
-  gap: 16px;
+  gap: 4px;
 }
 .block-views button {
+  position: relative;
   display: inline-flex;
+  justify-content: center;
   align-items: center;
-  padding: 0 4px;
+  flex: 0 0 64px;
+  width: 64px;
+  height: 32px;
+  padding: 0 8px;
   font-size: 12px;
   line-height: 20px;
-  border-bottom: 1px solid transparent;
+  border-radius: var(--site-inset-radius);
 }
 .block-views button[aria-pressed='true'] {
-  border-color: var(--site-text);
   color: var(--site-text);
+}
+.block-views button[aria-pressed='true']::after {
+  content: '';
+  position: absolute;
+  inset-inline: 8px;
+  bottom: -4px;
+  height: 1px;
+  background: var(--site-text);
+  pointer-events: none;
 }
 .block-surface,
 .block-code {
@@ -228,12 +242,15 @@ button {
   line-height: 20px;
 }
 @media (max-width: 600px) {
+  .block-header {
+    height: 48px;
+  }
   .block-label {
     font-size: 11px;
     line-height: 18px;
   }
-  .block-views {
-    gap: 12px;
+  .block-views button {
+    height: 40px;
   }
   .block-metrics {
     padding: 16px 4px 12px;

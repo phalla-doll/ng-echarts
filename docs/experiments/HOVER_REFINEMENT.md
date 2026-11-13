@@ -58,3 +58,13 @@ HOVER_CAPTURE_IMAGES=0 node tools/capture-hover-refinement.mjs after https://pha
 ```
 
 Workspace CI for the new source runs independently; the local/live outcomes above are executed results, not a claim that the new remote run has finished.
+
+## Code/Preview tab spacing correction
+
+The follow-up [reported spacing](captures/gallery-tabs/before/reported-spacing.png) exposed a gap in the original hover audit: it checked geometry stability during hover, but not sibling tab proportions or vertical insets. The old tabs stretched through the header, had content-dependent widths and used a large gap. Their new fill made that uneven layout visible.
+
+Gallery tabs now have equal **64 px widths**, centered labels and a **4 px gap**. Buttons are 32 px high in a 40 px desktop header and 40 px high in a 48 px narrow header, providing a 4 px inset above and below the hover shape. A separate 1 px indicator stays at the header edge, inset 8 px within the selected tab. Shared gallery CSS no longer supplies conflicting tab sizes/gaps; workbench tabs retain their separate layout. The compact width also preserves the complete “Device Visits” label at 320 px.
+
+The [geometry manifest](captures/gallery-tabs/manifest.json) records **120** route/theme/width/browser cases across all five galleries, both themes, 1440/768/390/320 px and Chromium/Firefox/WebKit. It verifies equal widths/heights, centered labels, 4 px gaps/insets, the active indicator position and no page overflow. All **30 keyboard Code→Preview pairs** retain selection/focus and the matching code/preview panel. Source hashes identify the three changed stylesheets. Reviewed captures: [desktop dark](captures/gallery-tabs/tabs-dark-1440.png), [narrow dark](captures/gallery-tabs/tabs-dark-320.png), [narrow light](captures/gallery-tabs/tabs-light-320.png).
+
+The final layout passes all 30 existing gallery/visual-refinement/code scenarios across the three engines. The 29-route Pages build and local static checks pass in Chromium, Firefox and WebKit. This remains demo-only presentation work. The previous hover capture matrices remain historical snapshots; the new geometry record supplements them. Live delivery is recorded below after deployment.

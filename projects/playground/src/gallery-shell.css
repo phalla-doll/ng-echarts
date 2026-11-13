@@ -67,7 +67,6 @@
     overflow-wrap: anywhere;
   }
   .gallery .block-header {
-    height: 44px;
     padding: 0 4px;
     gap: 4px;
   }
@@ -75,13 +74,6 @@
     width: 40px;
     height: 40px;
     flex: none;
-  }
-  .gallery .block-views {
-    gap: 4px;
-  }
-  .gallery .block-views button {
-    min-width: 52px;
-    justify-content: center;
   }
   .gallery .gallery-chart .chart-frame {
     padding-right: 8px;
