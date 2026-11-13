@@ -41,3 +41,9 @@ Header details: [dark desktop](captures/sidebar-refinement/header-dark-1440.png)
 Catalog palette: [dark](captures/sidebar-refinement/catalog-dark.png), [light](captures/sidebar-refinement/catalog-light.png).
 
 This increment changes demo navigation and catalog presentation. Human release gates remain pending.
+
+## Live delivery
+
+Committed on `main` as `e48a6a9d9d828b9b3304b9c8a077ce4fcb827757` and published as static commit `bbbf500ea83221edeb69cd9ef24a3f624d681fcb`. The [Pages deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43404894383) succeeds; the [live preview](https://phalla-doll.github.io/ng-echarts/) reports that clean source snapshot.
+
+The standard live Pages checker passes in all three engines. The [additional live audit](data/sidebar-refinement-live.json) passes 18 header/navigation/layout and catalog cases across Chromium, Firefox, and WebKit in both themes, including 320 px layouts, keyboard focus, Escape/focus restoration from navigation links, theme-specific icon loading, and five colored catalog illustrations. Both GitHub SVGs and the SVGL license match their committed source hashes; no browser or HTTP errors were recorded.

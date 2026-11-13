@@ -1,0 +1,221 @@
+{
+  "recordedAt": "2026-11-13T09:58:05.673Z",
+  "url": "https://phalla-doll.github.io/ng-echarts/",
+  "marker": {
+    "builtAt": "2026-11-13T09:53:15.157Z",
+    "sourceBaseCommit": "e48a6a9d9d828b9b3304b9c8a077ce4fcb827757",
+    "includesWorkingTree": false
+  },
+  "assets": [
+    {
+      "filename": "github-light.svg",
+      "sha256": "64568845c83d5e840e6a1fb7af1939fed14709636427ce9be2fbcdc14ac5e021",
+      "matchesSource": true
+    },
+    {
+      "filename": "github-dark.svg",
+      "sha256": "83adf1cacb564250654ccf60caadd8aaf852d9de47936befb7cb61b674ace7e8",
+      "matchesSource": true
+    },
+    {
+      "filename": "svgl-LICENSE.txt",
+      "sha256": "8140f413cb8bf477735c35b7b1c1e0a5731a5b41406c042304a98c39e6b8ba47",
+      "matchesSource": true
+    }
+  ],
+  "observations": [
+    {
+      "browser": "chromium",
+      "theme": "dark",
+      "width": 320,
+      "headerHasTwoControls": true,
+      "noVersionBadge": true,
+      "githubVisible": true,
+      "githubLoaded": true,
+      "githubTheme": "third-party/github-dark.svg",
+      "githubFocused": true,
+      "groupNames": ["Documentation", "Chart blocks", "Tools", "Validation"],
+      "fits": true
+    },
+    {
+      "browser": "chromium",
+      "theme": "dark",
+      "width": 1440,
+      "headerHasTwoControls": true,
+      "noVersionBadge": true,
+      "githubVisible": true,
+      "githubLoaded": true,
+      "githubTheme": "third-party/github-dark.svg",
+      "githubFocused": true,
+      "groupNames": ["Documentation", "Chart blocks", "Tools", "Validation"],
+      "fits": true
+    },
+    {
+      "browser": "chromium",
+      "theme": "light",
+      "width": 320,
+      "headerHasTwoControls": true,
+      "noVersionBadge": true,
+      "githubVisible": true,
+      "githubLoaded": true,
+      "githubTheme": "third-party/github-light.svg",
+      "githubFocused": true,
+      "groupNames": ["Documentation", "Chart blocks", "Tools", "Validation"],
+      "fits": true
+    },
+    {
+      "browser": "chromium",
+      "theme": "light",
+      "width": 1440,
+      "headerHasTwoControls": true,
+      "noVersionBadge": true,
+      "githubVisible": true,
+      "githubLoaded": true,
+      "githubTheme": "third-party/github-light.svg",
+      "githubFocused": true,
+      "groupNames": ["Documentation", "Chart blocks", "Tools", "Validation"],
+      "fits": true
+    },
+    {
+      "browser": "chromium",
+      "theme": "dark",
+      "route": "components/",
+      "coloredFamilies": 5
+    },
+    {
+      "browser": "chromium",
+      "theme": "light",
+      "route": "components/",
+      "coloredFamilies": 5
+    },
+    {
+      "browser": "firefox",
+      "theme": "dark",
+      "width": 320,
+      "headerHasTwoControls": true,
+      "noVersionBadge": true,
+      "githubVisible": true,
+      "githubLoaded": true,
+      "githubTheme": "third-party/github-dark.svg",
+      "githubFocused": true,
+      "groupNames": ["Documentation", "Chart blocks", "Tools", "Validation"],
+      "fits": true
+    },
+    {
+      "browser": "firefox",
+      "theme": "dark",
+      "width": 1440,
+      "headerHasTwoControls": true,
+      "noVersionBadge": true,
+      "githubVisible": true,
+      "githubLoaded": true,
+      "githubTheme": "third-party/github-dark.svg",
+      "githubFocused": true,
+      "groupNames": ["Documentation", "Chart blocks", "Tools", "Validation"],
+      "fits": true
+    },
+    {
+      "browser": "firefox",
+      "theme": "light",
+      "width": 320,
+      "headerHasTwoControls": true,
+      "noVersionBadge": true,
+      "githubVisible": true,
+      "githubLoaded": true,
+      "githubTheme": "third-party/github-light.svg",
+      "githubFocused": true,
+      "groupNames": ["Documentation", "Chart blocks", "Tools", "Validation"],
+      "fits": true
+    },
+    {
+      "browser": "firefox",
+      "theme": "light",
+      "width": 1440,
+      "headerHasTwoControls": true,
+      "noVersionBadge": true,
+      "githubVisible": true,
+      "githubLoaded": true,
+      "githubTheme": "third-party/github-light.svg",
+      "githubFocused": true,
+      "groupNames": ["Documentation", "Chart blocks", "Tools", "Validation"],
+      "fits": true
+    },
+    {
+      "browser": "firefox",
+      "theme": "dark",
+      "route": "components/",
+      "coloredFamilies": 5
+    },
+    {
+      "browser": "firefox",
+      "theme": "light",
+      "route": "components/",
+      "coloredFamilies": 5
+    },
+    {
+      "browser": "webkit",
+      "theme": "dark",
+      "width": 320,
+      "headerHasTwoControls": true,
+      "noVersionBadge": true,
+      "githubVisible": true,
+      "githubLoaded": true,
+      "githubTheme": "third-party/github-dark.svg",
+      "githubFocused": true,
+      "groupNames": ["Documentation", "Chart blocks", "Tools", "Validation"],
+      "fits": true
+    },
+    {
+      "browser": "webkit",
+      "theme": "dark",
+      "width": 1440,
+      "headerHasTwoControls": true,
+      "noVersionBadge": true,
+      "githubVisible": true,
+      "githubLoaded": true,
+      "githubTheme": "third-party/github-dark.svg",
+      "githubFocused": true,
+      "groupNames": ["Documentation", "Chart blocks", "Tools", "Validation"],
+      "fits": true
+    },
+    {
+      "browser": "webkit",
+      "theme": "light",
+      "width": 320,
+      "headerHasTwoControls": true,
+      "noVersionBadge": true,
+      "githubVisible": true,
+      "githubLoaded": true,
+      "githubTheme": "third-party/github-light.svg",
+      "githubFocused": true,
+      "groupNames": ["Documentation", "Chart blocks", "Tools", "Validation"],
+      "fits": true
+    },
+    {
+      "browser": "webkit",
+      "theme": "light",
+      "width": 1440,
+      "headerHasTwoControls": true,
+      "noVersionBadge": true,
+      "githubVisible": true,
+      "githubLoaded": true,
+      "githubTheme": "third-party/github-light.svg",
+      "githubFocused": true,
+      "groupNames": ["Documentation", "Chart blocks", "Tools", "Validation"],
+      "fits": true
+    },
+    {
+      "browser": "webkit",
+      "theme": "dark",
+      "route": "components/",
+      "coloredFamilies": 5
+    },
+    {
+      "browser": "webkit",
+      "theme": "light",
+      "route": "components/",
+      "coloredFamilies": 5
+    }
+  ],
+  "passed": true
+}

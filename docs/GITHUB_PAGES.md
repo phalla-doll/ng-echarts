@@ -102,3 +102,11 @@ All 29 routes are prerendered; local/live Pages checks pass in Chromium, Firefox
 ## Native month-range preview
 
 The [linked demo](https://phalla-doll.github.io/ng-echarts/linked/) now supports inclusive native From/To ranges, derived device-share totals and controlled multi-row bar/table feedback. Source commit: `a85c80efea57dc019abed690c505eb8a73445af9`; static commit: `195ff7801fd7ae4dca5690b96c6b2244e31b23d5`. The [deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43404190342) succeeds and the preview marker identifies that clean source. All 29 routes remain prerendered. Local/live checks pass in Chromium, Firefox and WebKit, including range initialization/totals/table feedback, Reset focus, reloads, fonts, themes and mobile navigation. The [range report](experiments/NG20_MONTH_RANGE.md) records visual comparisons, full regression, the exact private rc.3 artifact and remaining graphical-brush/human scope. Earlier artifacts and branding remain preserved.
+
+## Navigation and catalog refinement delivery
+
+The [demo](https://phalla-doll.github.io/ng-echarts/) now groups sidebar navigation into Documentation, Chart blocks, Tools, and Validation, with clearer hierarchy, spacing, active-page feedback, and an independently scrolling link area. The header uses a locally hosted, theme-aware GitHub SVG and theme toggle; the Angular version badge is removed. All five catalog illustrations share the green/rose palette.
+
+Source commit: `e48a6a9d9d828b9b3304b9c8a077ce4fcb827757`; static commit: `bbbf500ea83221edeb69cd9ef24a3f624d681fcb`. The [Pages deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43404894383) succeeds and `preview-build.json` identifies that clean source snapshot. All 29 routes remain prerendered; local/live Pages checks pass in Chromium, Firefox, and WebKit.
+
+The [review](experiments/SIDEBAR_REFINEMENT.md) records responsive screenshots, source hashes, final code review, and regression evidence. The [live record](experiments/data/sidebar-refinement-live.json) confirms 18 browser/theme/layout or catalog cases, visible keyboard focus, navigation close/focus restoration, all five colored families, and byte-identical GitHub SVG/license assets, with no browser/HTTP errors. This deploys demo presentation and preserves private library artifacts and pending human release gates.
