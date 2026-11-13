@@ -1,0 +1,52 @@
+.radial-caption {
+  margin: 16px 0 0;
+  color: var(--site-muted);
+  font-size: 13px;
+  line-height: 22px;
+}
+.radial-controls {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--site-border);
+  color: var(--site-muted);
+  font-size: 13px;
+  line-height: 22px;
+}
+.radial-controls summary {
+  cursor: pointer;
+  width: fit-content;
+}
+.value-field {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+.value-field input {
+  width: 128px;
+  max-width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-inset-radius);
+  font: inherit;
+  color: var(--site-text);
+  background: var(--site-bg);
+}
+.radial-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.radial-actions button {
+  padding: 6px 10px;
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-inset-radius);
+  font-size: 12px;
+  line-height: 20px;
+}
+.radial-actions button[aria-pressed='true'] {
+  color: var(--site-text);
+  background: var(--site-hover);
+}

@@ -25,6 +25,7 @@ const scenarios = [
   },
   { name: 'pie', entry: '/pie', symbol: 'PieChart', engine: true, families: ['pie'] },
   { name: 'radar', entry: '/radar', symbol: 'RadarChart', engine: true, families: ['radar'] },
+  { name: 'radial', entry: '/radial', symbol: 'RadialProgress', engine: true, families: ['pie'] },
   { name: 'core', entry: '/core', symbol: 'ChartFrame', engine: false },
   {
     name: 'root',
@@ -117,8 +118,8 @@ for (const scenario of scenarios) {
   const reachableEngineInputs = reachableInputs.filter((name) =>
     /node_modules\/(echarts|zrender)\//.test(name),
   );
-  if (['bar', 'line', 'area', 'pie', 'composed', 'radar'].includes(scenario.name)) {
-    const other = ['bar', 'line', 'area', 'pie', 'composed', 'radar'].filter(
+  if (['bar', 'line', 'area', 'pie', 'composed', 'radar', 'radial'].includes(scenario.name)) {
+    const other = ['bar', 'line', 'area', 'pie', 'composed', 'radar', 'radial'].filter(
       (name) => name !== scenario.name,
     );
     assert(
@@ -128,7 +129,7 @@ for (const scenario of scenarios) {
       `${scenario.name} includes another component entry`,
     );
   }
-  if (['pie', 'radar'].includes(scenario.name))
+  if (['pie', 'radar', 'radial'].includes(scenario.name))
     assert(
       !inputs.some(
         (name) =>
@@ -179,7 +180,7 @@ for (const scenario of scenarios) {
     );
     assert(
       !reachableInputs.some((name) =>
-        /chart-library-(?:bar|line|area|pie|composed|radar)/.test(name),
+        /chart-library-(?:bar|line|area|pie|composed|radar|radial)/.test(name),
       ),
       `${scenario.name} must exclude bar implementation`,
     );

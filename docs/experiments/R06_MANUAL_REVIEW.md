@@ -38,3 +38,8 @@ NG20 also adds `/linked` to the deferred listening checklist. Check that the sel
 ## Experimental radar follow-up
 
 The NG18 radar extension also requires human interpretation before release acceptance. Use `/radar` to review reading order, comparison visibility, zero and missing observations, per-dimension scale announcements and keyboard table selection. Confirm that missing comparisons are understood as absent from the plot rather than zero, and that polygon area is not interpreted as a total score. No human result is recorded by the automated checks; this session remains deferred. [Radar contract](../RADAR_CHART_API.md).
+
+
+## Experimental radial progress follow-up
+
+Review `/radial` with a screen reader before release acceptance: names and raw maxima, zero versus missing/loading/error values, percentage/value text, updates and multiple instances. The Canvas and duplicate center labels are decorative; the native progress element must expose the same raw value/maximum before and after hydration. This is a noninteractive scalar indicator; no keyboard selection action is required. No human result has been recorded. [Radial contract](../RADIAL_PROGRESS_API.md).

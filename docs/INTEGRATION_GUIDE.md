@@ -1,6 +1,6 @@
 # Integrate Angular charts
 
-Follow [installation](INSTALLATION.md) first. Every component is standalone. Prefer focused imports; `/core` supplies shared public types and `ChartFrame` without ECharts runtime. Root imports remain compatible; `ɵ` exports and deep source paths are unsupported implementation APIs.
+Follow [installation](INSTALLATION.md) first. Every component is standalone. Prefer focused imports; `/core` supplies shared public types and `ChartFrame` without ECharts runtime. Root imports remain compatible for existing exports; radar and radial progress use their focused entries only; `ɵ` exports and deep source paths are unsupported implementation APIs.
 
 ## API index
 
@@ -10,6 +10,9 @@ Follow [installation](INSTALLATION.md) first. Every component is standalone. Pre
 | `LineChart<T>` / `nec-line-chart` | `@ng-echarts/chart-library/line` | [Line](LINE_CHART_API.md) |
 | `AreaChart<T>` / `nec-area-chart` | `@ng-echarts/chart-library/area` | [Area](AREA_CHART_API.md) |
 | `PieChart<T>` / `nec-pie-chart` | `@ng-echarts/chart-library/pie` | [Pie/donut](PIE_CHART_API.md) |
+| `ComposedChart<T>` / `nec-composed-chart` | `@ng-echarts/chart-library/composed` | [Composed](COMPOSED_CHART_API.md) |
+| `RadarChart<T>` / `nec-radar-chart` | `@ng-echarts/chart-library/radar` | [Radar](RADAR_CHART_API.md) |
+| `RadialProgress` / `nec-radial-progress` | `@ng-echarts/chart-library/radial` | [Radial progress](RADIAL_PROGRESS_API.md) |
 | `ChartFrame` / `nec-chart-frame` | `@ng-echarts/chart-library/core` | Required `title`, optional `description`, projected content |
 
 ## Complete four-chart application
@@ -151,3 +154,8 @@ See [compatibility and limits](COMPATIBILITY.md) for exact versions, measured da
 ## Link an overview and detail
 
 Use a stable row ID from `pointSelect` as application state and derive another chart’s rows with `computed`. The [linked-chart guide](LINKED_CHARTS.md) provides a complete standalone bar/pie example with keyboard table actions, a native month selector, an all-month reset and stable-ID reconciliation after data changes. The library components and their independent legend states remain unchanged.
+
+
+## Scalar goal completion
+
+`RadialProgress` accepts `title`, `value: number | null` and a positive `max` (100 by default), with the existing theme/formatting/state policies. It exposes a named native progress value before hydration, then adds a decorative ring. Scalar completion has no row/series model, point event, legend or data table. Null means missing, zero means not started, and values outside 0..max are errors rather than silently clamped. The [radial API](RADIAL_PROGRESS_API.md) supplies the compiled standalone example and complete limits.

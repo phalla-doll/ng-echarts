@@ -1,0 +1,25 @@
+<div class="gallery">
+  <div class="gallery-content">
+    <header class="gallery-heading">
+      <div>
+        <h1>Radial Progress</h1>
+        <p>Progress toward a defined goal, with the value and target always in view.</p>
+      </div>
+    </header>
+    <div class="gallery-examples">
+      @for (block of blocks; track block.id; let first = $first) {
+        <app-radial-block [block]="block" [dark]="dark()" [controls]="first" />
+      }
+    </div>
+    <footer class="gallery-footer">
+      The native progress value stays available before the chart loads. Examples use illustrative
+      visit totals and task counts.
+    </footer>
+  </div>
+  <aside class="page-outline" aria-label="On this page">
+    <p>On this page</p>
+    @for (block of blocks; track block.id) {
+      <a [routerLink]="[]" [fragment]="block.id">{{ block.title }}</a>
+    }
+  </aside>
+</div>

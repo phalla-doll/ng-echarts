@@ -1,13 +1,13 @@
 # Angular chart library
 
-Experimental standalone Angular 22 components using Apache ECharts. The local identity `@ng-echarts/chart-library` is private and has not been published. Local candidate: `0.1.0-rc.5`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. Public naming and human release acceptance remain open.
+Experimental standalone Angular 22 components using Apache ECharts. The local identity `@ng-echarts/chart-library` is private and has not been published. Local candidate: `0.1.0-rc.6`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. Public naming and human release acceptance remain open.
 
 ## Installation
 
 In the source checkout, use Node 24.22.2 and npm 11.19.1, then run `npm ci` and `npm run pack:lib`. Install the resulting file into a separate Angular application:
 
 ```sh
-npm install /absolute/path/to/ng-echarts-chart-library-0.1.0-rc.5.tgz echarts@6.1.0
+npm install /absolute/path/to/ng-echarts-chart-library-0.1.0-rc.6.tgz echarts@6.1.0
 ```
 
 Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes.
@@ -60,11 +60,12 @@ The installed-declaration check compiles this exact packaged example, each API g
 | `LineChart<T>` | `@ng-echarts/chart-library/line` | Straight/smooth, optional points, missing-value gaps |
 | `AreaChart<T>` | `@ng-echarts/chart-library/area` | Independent gradient/solid fills, same-sign stacks |
 | `PieChart<T>` | `@ng-echarts/chart-library/pie` | One measure across categories; innerRadius 0 for pie, 0.6 for donut; optional outside labels |
+| `RadialProgress` | `@ng-echarts/chart-library/radial` | Scalar completion with a positive maximum, native progress semantics and a decorative ring |
 | `RadarChart<T>` | `@ng-echarts/chart-library/radar` | 3–12 dimensions, 1–4 comparison series, explicit zero-to-maximum scales and native table controls |
 | `ComposedChart<T>` | `@ng-echarts/chart-library/composed` | Vertical unstacked bars and lines on one shared scale; typed per-series kind |
 | `ChartFrame` and shared types | `@ng-echarts/chart-library/core` | Presentation shell with required title, optional description and projected content; no engine runtime |
 
-All charts require `title`, immutable `data`, `rowIdKey`, `categoryKey`, and either Cartesian `series: readonly ChartSeries<T>[]` (composed uses `ComposedSeries<T>[]`) or one pie `measure: ChartMeasure<T>`. Measures have `id`, numeric `key` and `label`; Cartesian series also accept `color`. IDs must be unique nonempty strings; labels may repeat. Numeric keys exclude text, `any`, `unknown` and exclusively nullish fields.
+Data-driven charts require `title`, immutable `data`, `rowIdKey`, `categoryKey`, and either Cartesian `series: readonly ChartSeries<T>[]` (composed uses `ComposedSeries<T>[]`) or one pie `measure: ChartMeasure<T>`. Measures have `id`, numeric `key` and `label`; Cartesian series also accept `color`. IDs must be unique nonempty strings; labels may repeat. Numeric keys exclude text, `any`, `unknown` and exclusively nullish fields.
 
 Replace row, series and configuration references to update them. Visibility follows stable IDs; new IDs start visible and removed IDs are discarded. Null/undefined stay missing, zero stays numeric, and Cartesian negatives are valid. Pie rejects negative/nonfinite values and overflowing totals; zero totals are empty. Line/area gaps never become zero. Area events return raw observations rather than stack totals.
 
@@ -90,7 +91,7 @@ SSR emits native Angular headings, controls and fallback surfaces. Keep the appl
 
 Tested: Angular/CLI 22.2.6, TypeScript 6.0.3, ECharts 6.1.0, RxJS 7.8.2, Node 24.22.2, npm 11.19.1; Chromium 158.0.8127.18, Firefox 159.0, WebKit 27.2. Manifest peers are Angular common/core `^22.2.6` and ECharts `^6.1.0`; tslib is a dependency `^2.3.0`. Exact tests do not establish every allowed version combination or another Angular major.
 
-The starting measured envelope is 200 categories × three Cartesian series or 12 radial categories on the recorded M2 Pro machine. Stress fixtures use 2,000 Cartesian or 100 radial categories; these are observations, not hard limits or portable latency guarantees. Outside labels may shorten/hide collisions; expanded tables have separate costs.
+The starting measured envelope is 200 categories × three Cartesian series or 12 pie/donut categories on the recorded M2 Pro machine. Stress fixtures use 2,000 Cartesian or 100 pie/donut categories; these are observations, not hard limits or portable latency guarantees. Outside labels may shorten/hide collisions; expanded tables have separate costs.
 
 Focused imports keep unrelated engines out. Line and area intentionally share ECharts' Line engine. Root imports preserve class identity but include combined registrations. Deep paths and core `ɵ` exports are unsupported implementation APIs. Size checks count all lazy chunks, excluding Angular/RxJS peers: gzip/Brotli caps are 200,000/175,000 bytes per family, 10,000/9,000 for core, 212,000/178,000 for root, and 200,000/175,000 for root-frame.
 
@@ -121,3 +122,9 @@ Original library code is [MIT licensed](LICENSE). Adapted EvilCharts material an
 Import `RadarChart` from `/radar` (focused entry only; the compatibility root is unchanged). Each data row is a dimension, each `ChartSeries<T>` is a comparison, and required `maxKey: NumericKey<T>` names the dimension's explicit positive maximum. Values must be finite and between zero and their maximum. Use immutable rows and stable IDs. Three to twelve dimensions and one to four comparisons are supported by this experimental increment. `filled` defaults to true.
 
 A comparison containing any missing value is omitted from the plot, with an explicit notice; every observed value and scale remains in the native data table. Zero is valid. Legend toggles retain fixed scales. Only an unambiguous vertex activates a plotted dimension; filled interiors and coincident vertices have no invented point identity. Use table actions for exact selection, including zero values. Polygon area is not an aggregate score. The full [radar API](https://github.com/phalla-doll/ng-echarts/blob/main/docs/RADAR_CHART_API.md) describes the contract and limits.
+
+## Radial progress
+
+Import `RadialProgress` from `/radial` (focused entry only). Required `title` is nonempty text and `value: number | null` is completed work. `max` defaults to 100 and must be positive and finite; a supplied value must be finite within 0..max. Invalid ranges are errors, never silently clamped. Null is empty; zero and full completion are ready. This represents task/goal completion rather than a general measurement gauge.
+
+A native HTML progress element exposes the raw value/maximum before hydration. The decorative, noninteractive ECharts Pie ring is lazy, respects reduced motion, resizes and disposes with the component. Formatted values and a percentage remain visible. `height` defaults to 240; theme/revision, locale, numberFormatOptions, valueFormatter, loading/error and animation follow the shared policies. There are no point events, legend, table or artificial keyboard controls for a scalar indicator. The [radial API](https://github.com/phalla-doll/ng-echarts/blob/main/docs/RADIAL_PROGRESS_API.md) contains the complete contract and copied examples.

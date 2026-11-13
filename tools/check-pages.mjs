@@ -74,6 +74,7 @@ async function checkPages() {
       'pie/',
       'composed/',
       'radar/',
+      'radial/',
       'linked/',
       'chart-possibilities/',
       'linked-validation/',
@@ -90,7 +91,13 @@ async function checkPages() {
     ]) {
       const response = await fetch(new URL(path, site));
       assert.equal(response.status, 200, `Direct route ${path} must exist without a SPA fallback`);
-      assert((await response.text()).includes(`<base href="${base}">`));
+      const html = await response.text();
+      assert(html.includes(`<base href="${base}">`));
+      if (path === 'radial/')
+        assert(
+          html.includes('<progress') && html.includes('value="6800"'),
+          'Prerendered progress must retain its native raw value',
+        );
     }
     for (const engine of [chromium, firefox, webkit]) {
       const browser = await engine.launch();
@@ -116,12 +123,25 @@ async function checkPages() {
           ['pie/', 3],
           ['composed/', 1],
           ['radar/', 1],
+          ['radial/', 2],
         ]) {
           await page.goto(new URL(path, site).href);
           await expect(page.locator('canvas')).toHaveCount(count);
           await page.reload();
           await expect(page.locator('canvas')).toHaveCount(count);
           await expect(page.locator('.site-shell')).toHaveClass(/gallery-layout/);
+          if (path === 'radial/') {
+            const example = page.locator('#monthly-goal');
+            const progress = example.getByRole('progressbar', {
+              name: 'Monthly visit goal',
+              exact: true,
+            });
+            await expect(progress).toHaveAttribute('value', '6800');
+            await expect(progress).toHaveAttribute('max', '10000');
+            await example.locator('summary').click();
+            await example.getByRole('button', { name: 'Complete goal', exact: true }).click();
+            await expect(progress).toHaveAttribute('value', '10000');
+          }
         }
         await page.goto(new URL('chart-possibilities/', site).href);
         const concepts = page.frameLocator('app-chart-possibilities iframe');

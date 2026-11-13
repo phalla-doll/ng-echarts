@@ -33,7 +33,8 @@ export class ChartFocusKeeper {
     const fallback =
       this.host.querySelector<HTMLElement>('.table-toggle') ??
       this.host.querySelector<HTMLElement>('.legend button') ??
-      this.host.querySelector<HTMLElement>('[role="alert"], [role="status"]');
+      this.host.querySelector<HTMLElement>('[role="alert"], [role="status"]') ??
+      this.host.querySelector<HTMLElement>('.chart-frame');
     this.remembered = null;
     if (fallback) {
       if (fallback.tagName !== 'BUTTON') fallback.tabIndex = -1;

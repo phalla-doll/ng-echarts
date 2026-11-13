@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 @Component({
   selector: 'app-chart-illustration',
   template: `<svg viewBox="0 0 260 140" fill="none" aria-hidden="true">
-    @if (kind() !== 'radar') {
+    @if (kind() !== 'radar' && kind() !== 'radial') {
       <path
         d="M20 30H240M20 65H240M20 100H240M55 15V125M100 15V125M145 15V125M190 15V125M235 15V125"
         stroke="var(--site-border)"
@@ -11,6 +11,28 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
       />
     }
     @switch (kind()) {
+      @case ('radial') {
+        <circle cx="130" cy="70" r="43" stroke="var(--site-border)" stroke-width="10" />
+        <circle
+          cx="130"
+          cy="70"
+          r="43"
+          stroke="var(--gallery-primary)"
+          stroke-width="10"
+          stroke-dasharray="184 271"
+          transform="rotate(-90 130 70)"
+        />
+        <text
+          x="130"
+          y="76"
+          fill="var(--site-text)"
+          text-anchor="middle"
+          font-size="20"
+          font-family="Inter, sans-serif"
+        >
+          68%
+        </text>
+      }
       @case ('radar') {
         <path
           d="m130 14 49 28v56l-49 28-49-28V42Z M130 14v112M81 42l98 56M81 98l98-56m-49-56 25 14v28l-25 14-25-14V56Z"
@@ -102,5 +124,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChartIllustration {
-  readonly kind = input.required<'bar' | 'line' | 'area' | 'pie' | 'composed' | 'radar'>();
+  readonly kind = input.required<
+    'bar' | 'line' | 'area' | 'pie' | 'composed' | 'radar' | 'radial'
+  >();
 }

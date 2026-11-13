@@ -66,6 +66,7 @@ export async function inspectRelease(path) {
     './package.json',
     './pie',
     './radar',
+    './radial',
   ]);
   for (const entry of [
     '.',
@@ -76,6 +77,7 @@ export async function inspectRelease(path) {
     './pie',
     './composed',
     './radar',
+    './radial',
   ]) {
     for (const condition of ['types', 'default']) {
       assert(

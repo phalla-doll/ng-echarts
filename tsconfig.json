@@ -9,7 +9,8 @@
       "@ng-echarts/chart-library/area": ["./dist/chart-library/area"],
       "@ng-echarts/chart-library/pie": ["./dist/chart-library/pie"],
       "@ng-echarts/chart-library/composed": ["./dist/chart-library/composed"],
-      "@ng-echarts/chart-library/radar": ["./dist/chart-library/radar"]
+      "@ng-echarts/chart-library/radar": ["./dist/chart-library/radar"],
+      "@ng-echarts/chart-library/radial": ["./dist/chart-library/radial"]
     },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

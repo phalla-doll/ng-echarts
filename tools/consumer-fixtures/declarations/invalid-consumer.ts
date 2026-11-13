@@ -1,3 +1,4 @@
+import { RadialProgress } from '@ng-echarts/chart-library/radial';
 import { RadarChart } from '@ng-echarts/chart-library/radar';
 import { Component } from '@angular/core';
 import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';
@@ -231,4 +232,19 @@ export class InvalidRadarScale {
 export class InvalidRadarFill {
   readonly rows = [{ id: 'a', name: 'A', max: 100, value: 20 }];
   readonly series = [{ id: 'value', key: 'value', label: 'Value' }] as const;
+}
+
+@Component({
+  imports: [RadialProgress],
+  template: `<nec-radial-progress title="Invalid value" [value]="wrong" />`,
+})
+export class InvalidRadialValue {
+  readonly wrong = '68';
+}
+@Component({
+  imports: [RadialProgress],
+  template: `<nec-radial-progress title="Invalid maximum" [value]="68" [max]="wrong" />`,
+})
+export class InvalidRadialMax {
+  readonly wrong = '100';
 }

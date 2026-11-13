@@ -1,0 +1,101 @@
+{
+  "capturedAt": "2026-11-13T14:52:47.119Z",
+  "source": {
+    "projects/chart-library/radial/src/lib/radial-progress.ts": "9641c2458991b7ae87ba852175e0f825c2b4eaff097ca92c7bdbf3e9b426a61e",
+    "projects/chart-library/radial/src/lib/radial-options.ts": "7bf9755b3f50960483006b681f1576763aca4e22dd0f9f1e2e5ebf3a06a6f8d7",
+    "projects/playground/src/app/radial-block.html": "10e2863da12e4faab57502fe6bd3d15d4d9ef16e2847f6c102ab48ef5e306406",
+    "projects/playground/src/app/radial-blocks.html": "81ca976a11765fd6da31f40d153d336465c9e1e4939c62eaf5dccc5e03fe10dd",
+    "projects/playground/src/app/radial-examples.ts": "3caa8b9a889387f7be8c88f0887b54c052db06795d3551a5b9009738af5b3819"
+  },
+  "captures": [
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "docs/experiments/captures/radial/dark-1440.png",
+      "overflow": false,
+      "geometry": [
+        { "labelFits": true, "percent": "68%", "values": "6,800 of 10,000" },
+        { "labelFits": true, "percent": "75%", "values": "9 of 12" }
+      ],
+      "sha256": "8576277d7ce79f300e1916870bd1fe942812deb14003dc1117c6af3f3170f2c2"
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "docs/experiments/captures/radial/dark-768.png",
+      "overflow": false,
+      "geometry": [
+        { "labelFits": true, "percent": "68%", "values": "6,800 of 10,000" },
+        { "labelFits": true, "percent": "75%", "values": "9 of 12" }
+      ],
+      "sha256": "0f04f20e30b1549a9819d7415cbef5013e9818b892608619c2231ceaae036b13"
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "docs/experiments/captures/radial/dark-390.png",
+      "overflow": false,
+      "geometry": [
+        { "labelFits": true, "percent": "68%", "values": "6,800 of 10,000" },
+        { "labelFits": true, "percent": "75%", "values": "9 of 12" }
+      ],
+      "sha256": "909d35e41e02d10ebbf7acff64a10f603f317daf46f47c7d4b1c51974527dbc1"
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "docs/experiments/captures/radial/dark-320.png",
+      "overflow": false,
+      "geometry": [
+        { "labelFits": true, "percent": "68%", "values": "6,800 of 10,000" },
+        { "labelFits": true, "percent": "75%", "values": "9 of 12" }
+      ],
+      "sha256": "603c452834e5b56ae7d324787cbeacb089c269e8910e8af9584435972fc2b2ed"
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "docs/experiments/captures/radial/light-1440.png",
+      "overflow": false,
+      "geometry": [
+        { "labelFits": true, "percent": "68%", "values": "6,800 of 10,000" },
+        { "labelFits": true, "percent": "75%", "values": "9 of 12" }
+      ],
+      "sha256": "b9f043e66108f6a8815d31efc4dd2780f337fd92b3b983efaef7b728b4f5f84c"
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "docs/experiments/captures/radial/light-768.png",
+      "overflow": false,
+      "geometry": [
+        { "labelFits": true, "percent": "68%", "values": "6,800 of 10,000" },
+        { "labelFits": true, "percent": "75%", "values": "9 of 12" }
+      ],
+      "sha256": "327b9670bd410588c842a63f2ff2e9c3fc17098f0ee453168c385fd3e1fdc750"
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "docs/experiments/captures/radial/light-390.png",
+      "overflow": false,
+      "geometry": [
+        { "labelFits": true, "percent": "68%", "values": "6,800 of 10,000" },
+        { "labelFits": true, "percent": "75%", "values": "9 of 12" }
+      ],
+      "sha256": "d0384200c469a9e8c1bef0d5e9bdbc0d867c8de2cca3d98ff4f1a64e2d87d938"
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "docs/experiments/captures/radial/light-320.png",
+      "overflow": false,
+      "geometry": [
+        { "labelFits": true, "percent": "68%", "values": "6,800 of 10,000" },
+        { "labelFits": true, "percent": "75%", "values": "9 of 12" }
+      ],
+      "sha256": "b20930ae99e5a878e8edfae69b3d878d4f470ecd9566d459566b2ca6a9431103"
+    }
+  ],
+  "errors": []
+}

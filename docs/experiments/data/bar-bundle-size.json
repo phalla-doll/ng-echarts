@@ -1,8 +1,8 @@
 {
-  "recordedAt": "2026-11-13T13:49:09.432Z",
+  "recordedAt": "2026-11-13T14:52:43.657Z",
   "method": "Resolve public package imports, Angular-link, bundle/minify/split with Angular/RxJS peers external; count only modules contributing bytes to output; traverse static imports separately from lazy chunks; sum independently compressed JavaScript chunks",
   "files": [
-    { "name": "stdin.js", "raw": 38146, "gzip": 10757, "brotli": 9470 },
+    { "name": "stdin.js", "raw": 38187, "gzip": 10765, "brotli": 9479 },
     {
       "name": "ng-echarts-chart-library-bar-bar-renderer-W7ZJeHne-MAZ4J6IC.js",
       "raw": 500848,
@@ -11,7 +11,7 @@
     },
     { "name": "chunk-WOT6VMZA.js", "raw": 106, "gzip": 120, "brotli": 91 }
   ],
-  "total": { "raw": 539100, "gzip": 181855, "brotli": 155118 },
+  "total": { "raw": 539141, "gzip": 181863, "brotli": 155127 },
   "budget": { "gzip": 200000, "brotli": 175000 },
   "passed": true
 }

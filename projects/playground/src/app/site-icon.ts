@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
-// Heroicons v2.2.0 (MIT, Tailwind Labs, Inc.), plus original line/area/composed/link/radar glyphs.
+// Heroicons v2.2.0 (MIT, Tailwind Labs, Inc.), plus original line/area/composed/link/radar/radial glyphs.
 // All icons share a 24 px view box, 1.5 stroke, and currentColor.
 // Source revision and icon mapping: docs/UPSTREAM_PROVENANCE.md.
 // Full notice: projects/playground/public/third-party/heroicons-LICENSE.txt.
 const paths = {
+  radial: ['M12 3a9 9 0 1 1-9 9', 'm8 12 3 3 5-6'],
   radar: [
     'M12 3 21 9.5 17.5 20h-11L3 9.5Z',
     'M12 3v9m9-2.5L12 12m5.5 8L12 12m-5.5 8L12 12M3 9.5l9 2.5',

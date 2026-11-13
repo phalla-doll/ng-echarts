@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-rc.6 — 13 November 2026
+
+- Add focused `/radial` entry and `RadialProgress` for scalar goal completion with explicit value/max validation and no silent clamping.
+- Render native progress semantics before hydration, with visible percent/raw-value labels, shared states/formatting/themes/motion and a lazy noninteractive Pie ring.
+- Preserve the compatibility root, existing engine boundaries, rc.5 and earlier candidate archives. Human release acceptance remains pending.
+
 ## 0.1.0-rc.5 — 13 November 2026
 
 - Add focused `/radar` entry with explicit per-dimension maxima, bounded comparisons, stable IDs and native scale/value table actions.

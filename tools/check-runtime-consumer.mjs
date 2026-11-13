@@ -76,6 +76,33 @@ async function exercise(engine, url, ssr) {
       await page.getByTestId('deferred').locator('table').waitFor();
     }
     const navigation = page.getByRole('navigation', { name: 'Playground pages' });
+    await navigation.getByRole('link', { name: 'Radial Progress', exact: true }).click();
+    const radial = page.locator('#monthly-goal nec-radial-progress');
+    await expect(page.locator('nec-radial-progress canvas')).toHaveCount(2);
+    const radialResponse = await page.reload();
+    const radialHtml = await radialResponse.text();
+    assert(!radialHtml.includes('<canvas'), 'Installed progress renderer must remain browser-only');
+    if (ssr)
+      assert(
+        radialHtml.includes('<progress') && radialHtml.includes('6800'),
+        'SSR must emit native progress before hydration',
+      );
+    else assert(!radialHtml.includes('<progress'), 'CSR starts with its ordinary shell');
+    await expect(radial.locator('canvas')).toHaveCount(1);
+    await expect(
+      radial.getByRole('progressbar', { name: 'Monthly visit goal', exact: true }),
+    ).toHaveAttribute('value', '6800');
+    await page.locator('#monthly-goal summary').click();
+    await page
+      .locator('#monthly-goal')
+      .getByRole('button', { name: 'Complete goal', exact: true })
+      .click();
+    await expect(radial.getByRole('progressbar')).toHaveAttribute('value', '10000');
+    await page
+      .locator('#monthly-goal')
+      .getByRole('button', { name: 'Missing value', exact: true })
+      .click();
+    await expect(radial.getByRole('status')).toHaveText('No progress data available.');
     await navigation.getByRole('link', { name: 'Radar Blocks', exact: true }).click();
     const radar = page.locator('nec-radar-chart');
     await expect(radar.locator('canvas')).toHaveCount(1);
@@ -353,6 +380,9 @@ try {
      assert.equal(root.LineChart, line.LineChart);
      const composed = await import('@ng-echarts/chart-library/composed');
      assert.equal(root.ComposedChart, composed.ComposedChart);
+     const radial = await import('@ng-echarts/chart-library/radial');
+     assert.equal(typeof radial.RadialProgress, 'function');
+     assert.equal(root.RadialProgress, undefined);
      const radar = await import('@ng-echarts/chart-library/radar');
      assert.equal(typeof radar.RadarChart, 'function');
      assert.equal(root.RadarChart, undefined);
@@ -363,7 +393,7 @@ try {
      assert.equal(root.ChartFrame, core.ChartFrame);
      assert.deepEqual(Object.keys(core).filter(name => !name.startsWith('ɵ')), ['ChartFrame']);
      const require = createRequire(process.cwd() + '/package.json');
-     for (const path of ['src/lib/bar-chart', 'bar/src/lib/bar-chart', 'radar/src/lib/radar-chart', 'fesm2022/ng-echarts-chart-library-bar.mjs', 'fesm2022/ng-echarts-chart-library-radar.mjs']) {
+     for (const path of ['src/lib/bar-chart', 'bar/src/lib/bar-chart', 'radar/src/lib/radar-chart', 'radial/src/lib/radial-progress', 'fesm2022/ng-echarts-chart-library-bar.mjs', 'fesm2022/ng-echarts-chart-library-radar.mjs']) {
        assert.throws(() => require.resolve('@ng-echarts/chart-library/' + path), { code: 'ERR_PACKAGE_PATH_NOT_EXPORTED' });
      }`,
   ]);
@@ -448,7 +478,17 @@ try {
     skipLibCheck: tsconfig.compilerOptions.skipLibCheck,
     workspaceAliases: false,
     installedOutsideWorkspace: true,
-    entryPoints: ['.', './core', './bar', './line', './area', './pie', './composed', './radar'],
+    entryPoints: [
+      '.',
+      './core',
+      './bar',
+      './line',
+      './area',
+      './pie',
+      './composed',
+      './radar',
+      './radial',
+    ],
     compatibilityIdentity: true,
     privateImportsBlocked: true,
     reactRuntime: false,

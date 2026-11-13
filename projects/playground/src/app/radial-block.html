@@ -1,0 +1,94 @@
+<section class="block-section" [id]="block().id" [attr.aria-labelledby]="block().id + '-heading'">
+  <h2 [id]="block().id + '-heading'">
+    <a [routerLink]="[]" [fragment]="block().id">{{ block().title }}</a>
+  </h2>
+  <div class="block-card">
+    <header class="block-header">
+      <button
+        type="button"
+        class="reload-button"
+        [attr.aria-label]="'Reset ' + block().title"
+        (click)="reset()"
+      >
+        <app-site-icon name="update" />
+      </button>
+      <span class="block-label">Progress</span>
+      <div class="block-views" role="group" [attr.aria-label]="block().title + ' view'">
+        <button type="button" [attr.aria-pressed]="view() === 'code'" (click)="view.set('code')">
+          Code
+        </button>
+        <button
+          type="button"
+          [attr.aria-pressed]="view() === 'preview'"
+          (click)="view.set('preview')"
+        >
+          Preview
+        </button>
+      </div>
+    </header>
+    <div class="block-surface" [hidden]="view() !== 'preview'">
+      @if (mounted()) {
+        <nec-radial-progress
+          class="gallery-chart"
+          [title]="block().title"
+          [description]="block().description"
+          [value]="value()"
+          [max]="block().max"
+          [theme]="theme()"
+          [loading]="loading()"
+          [error]="error()"
+        />
+      }
+    </div>
+    <div class="block-code" [hidden]="view() !== 'code'">
+      <div class="code-heading">
+        <span>Standalone Angular component</span
+        ><button type="button" (click)="copy()">
+          <app-site-icon [name]="copied() ? 'check' : 'copy'" />{{
+            copied() ? 'Copied' : 'Copy code'
+          }}
+        </button>
+      </div>
+      <pre
+        tabindex="0"
+        [attr.aria-label]="block().title + ' Angular source'"
+      ><code [appHighlight]="source()"></code></pre>
+    </div>
+  </div>
+  @if (copyFailed()) {
+    <p class="copy-notice" role="status">Select the source in Code to copy it manually.</p>
+  }
+  <p class="radial-caption">{{ block().description }}</p>
+  @if (controls()) {
+    <details class="radial-controls">
+      <summary>Try value and states</summary>
+      <label class="value-field"
+        >Completed visits<input
+          type="number"
+          min="0"
+          [max]="block().max"
+          [value]="value() ?? ''"
+          (input)="inputValue($event)"
+      /></label>
+      <div class="radial-actions">
+        <button type="button" (click)="setValue(0)">Show zero</button>
+        <button type="button" (click)="setValue(block().max)">Complete goal</button>
+        <button type="button" (click)="setValue(null)">Missing value</button>
+        <button type="button" (click)="loading.set(!loading())" [attr.aria-pressed]="loading()">
+          Loading state
+        </button>
+        <button
+          type="button"
+          (click)="error.set(error() ? null : 'Visit totals are temporarily unavailable.')"
+          [attr.aria-pressed]="!!error()"
+        >
+          Error state
+        </button>
+        <button type="button" (click)="mounted.set(!mounted())" [attr.aria-pressed]="mounted()">
+          Mount progress
+        </button>
+        <button type="button" (click)="reset()">Restore sample</button>
+      </div>
+    </details>
+  }
+</section>

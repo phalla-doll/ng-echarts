@@ -1,0 +1,49 @@
+<nec-chart-frame
+  [title]="title()"
+  [description]="description()"
+  [style.--nec-background]="tokens().background"
+  [style.--nec-text]="tokens().text"
+  [style.--nec-muted]="tokens().muted"
+  [style.--nec-border]="tokens().border"
+>
+  @let currentState = state();
+  @switch (currentState.kind) {
+    @case ('loading') {
+      <p role="status">{{ currentState.message }}</p>
+    }
+    @case ('empty') {
+      <p role="status">{{ currentState.message }}</p>
+    }
+    @case ('error') {
+      <p role="alert">{{ currentState.message }}</p>
+      @if (rendererError()) {
+        <button type="button" (click)="retryRenderer()">Retry progress</button>
+      }
+    }
+  }
+  @let current = model();
+  @if (currentState.kind === 'ready' && current.kind === 'ready') {
+    <progress
+      class="native-progress"
+      [attr.aria-label]="title()"
+      [attr.value]="current.value"
+      [attr.max]="current.max"
+      [attr.aria-valuetext]="labels().accessible"
+    >
+      {{ labels().accessible }}
+    </progress>
+  }
+  <div
+    class="progress-surface"
+    [hidden]="currentState.kind !== 'ready'"
+    [style.height.px]="plotHeight()"
+    [style.--nec-progress-height]="plotHeight() + 'px'"
+  >
+    <div #plot class="plot" aria-hidden="true"></div>
+    @if (currentState.kind === 'ready') {
+      <div class="progress-label" aria-hidden="true">
+        <strong>{{ labels().percent }}</strong><span>{{ labels().values }}</span>
+      </div>
+    }
+  </div>
+</nec-chart-frame>

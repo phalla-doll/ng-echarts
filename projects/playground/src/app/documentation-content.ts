@@ -76,7 +76,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'status',
         title: 'Project status',
         paragraphs: [
-          'The library is experimental and the package is private. Use the workspace or a packed local build; a public npm installation is not available yet. Automated acceptance covers the four MVP families, the first shared-axis composed increment, and experimental radar. Human screen-reader interpretation and final artifact/release acceptance remain pending.',
+          'The library is experimental and the package is private. Use the workspace or a packed local build; a public npm installation is not available yet. Automated acceptance covers the four MVP families, the first shared-axis composed increment, experimental radar and radial progress. Human screen-reader interpretation and final artifact/release acceptance remain pending.',
         ],
       },
     ],
@@ -168,7 +168,9 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
       {
         id: 'charts',
         title: 'Charts',
-        paragraphs: ['Explore working bar, line, area, pie/donut, composed and radar components.'],
+        paragraphs: [
+          'Explore working bar, line, area, pie/donut, composed, radar and radial progress components.',
+        ],
       },
       {
         id: 'data-contracts',
@@ -236,6 +238,14 @@ export const chartCatalog = [
       'Compare profiles using explicit dimension scales, stable comparisons and native table controls.',
     kind: 'radar',
     route: '/radar',
+    status: 'Experimental',
+  },
+  {
+    title: 'Radial Progress',
+    description:
+      'Show task completion with an explicit target, exact value and native progress semantics.',
+    kind: 'radial',
+    route: '/radial',
     status: 'Experimental',
   },
 ] as const;

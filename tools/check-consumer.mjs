@@ -74,6 +74,32 @@ try {
   );
   const configPath = join(consumer, 'tsconfig.json');
   const config = JSON.parse(await readFile(configPath, 'utf8'));
+  const radialGuide = await readFile(join(root, 'docs/RADIAL_PROGRESS_API.md'), 'utf8');
+  const radialExample = radialGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
+  assert(radialExample, 'Radial guide must contain its standalone example');
+  await writeFile(join(consumer, 'radial-api-example.ts'), radialExample);
+  config.files.push('radial-api-example.ts');
+  const radialBuild = await build({
+    entryPoints: [join(root, 'projects/playground/src/app/radial-examples.ts')],
+    bundle: true,
+    write: false,
+    platform: 'node',
+    format: 'esm',
+  });
+  const { radialBlocks, radialExampleSource } = await import(
+    `data:text/javascript;base64,${Buffer.from(radialBuild.outputFiles[0].contents).toString('base64')}`
+  );
+  assert.equal(
+    radialExample,
+    radialExampleSource(radialBlocks[0], false),
+    'Radial guide and copied example must agree',
+  );
+  for (const dark of [false, true])
+    for (const block of radialBlocks) {
+      const file = `radial-${block.id}-${dark ? 'dark' : 'light'}.ts`;
+      await writeFile(join(consumer, file), radialExampleSource(block, dark));
+      config.files.push(file);
+    }
   const radarGuide = await readFile(join(root, 'docs/RADAR_CHART_API.md'), 'utf8');
   const radarExample = radarGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
   assert(radarExample, 'Radar guide must contain its integration example');
@@ -216,6 +242,7 @@ try {
     './package.json',
     './pie',
     './radar',
+    './radial',
   ]);
   assert.equal(manifest.sideEffects, false);
   for (const entry of [
@@ -227,6 +254,7 @@ try {
     './pie',
     './composed',
     './radar',
+    './radial',
   ]) {
     for (const field of ['types', 'default']) {
       assert(
@@ -253,6 +281,8 @@ try {
   const diagnostics = `${invalid.stdout}${invalid.stderr}`.replace(/\x1b\[[0-9;]*m/g, '');
   const invalidSource = await readFile(join(consumer, 'invalid-consumer.ts'), 'utf8');
   for (const [component, binding] of [
+    ['InvalidRadialValue', '[value]="wrong"'],
+    ['InvalidRadialMax', '[max]="wrong"'],
     ['InvalidRadarScale', 'maxKey="name"'],
     ['InvalidRadarFill', '[filled]="12"'],
     ['InvalidBarSelection', '[selectedRowId]="12"'],

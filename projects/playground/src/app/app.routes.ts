@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+  { path: 'radial', loadComponent: () => import('./radial-blocks').then((m) => m.RadialBlocks) },
   { path: 'radar', loadComponent: () => import('./radar-blocks').then((m) => m.RadarBlocks) },
   {
     path: 'chart-possibilities',

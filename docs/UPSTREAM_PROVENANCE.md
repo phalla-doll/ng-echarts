@@ -138,3 +138,8 @@ The self-contained `docs/experiments/chart-style-gallery.html` embeds the byte-i
 ## Radar extension
 
 NG18 radar geometry, options, validation, fixture, hit testing and radar navigation glyph are original project code (MIT). ECharts RadarChart/RadarComponent and Canvas are registered lazily from the existing Apache-licensed peer; no upstream source was copied. [Implementation and sources](experiments/NG18_RADAR_CHART.md).
+
+
+## Radial progress extension
+
+The radial component, validation, normalized ring options, native-progress presentation, demo fixtures and radial navigation/catalog glyphs are original project code (MIT). Existing ECharts Pie/Canvas modules remain lazy peer imports with preserved Apache notices. Native semantics follow the [HTML progress standard](https://html.spec.whatwg.org/multipage/form-elements.html#the-progress-element); the [implementation record](experiments/NG18_RADIAL_PROGRESS.md) distinguishes progress from a meter. No additional upstream source was copied.
