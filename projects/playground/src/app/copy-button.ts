@@ -40,6 +40,8 @@ import { SiteIcon } from './site-icon';
       width: 32px;
       justify-content: center;
       padding: 0;
+      border-color: transparent;
+      background: transparent;
     }
     app-site-icon {
       width: 14px;

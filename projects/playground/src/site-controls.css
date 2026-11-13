@@ -7,8 +7,9 @@
   --site-title-size: 36px;
   --site-title-line: 40px;
   --site-header-height: 48px;
-  --site-panel-radius: 8px;
+  --site-panel-radius: 10px;
   --site-inset-radius: 6px;
+  --site-panel-shadow: 0 1px 2px rgb(0 0 0 / 3%);
   --site-bg: #fff;
   --site-surface: #f7f7f7;
   --site-subtle: #ededed;
@@ -46,6 +47,7 @@
   }
 }
 .site-shell.dark {
+  --site-panel-shadow: 0 1px 2px rgb(0 0 0 / 12%);
   --site-bg: #0a0a0a;
   --site-surface: #111;
   --site-subtle: #1b1b1b;
@@ -251,7 +253,7 @@
   font-size: 18px;
   line-height: 24px;
   font-weight: 650;
-  letter-spacing: -1px;
+  letter-spacing: -0.4px;
 }
 .site-shell :where(.brand-caption) {
   display: block;
@@ -263,18 +265,19 @@
   color: var(--site-muted);
 }
 .workbench :where(.source-panel) {
-  padding: 4px;
+  padding: 3px;
   border: 1px solid var(--site-border);
   border-radius: var(--site-panel-radius);
   background: var(--site-surface);
+  box-shadow: var(--site-panel-shadow);
   overflow: hidden;
 }
 .workbench :where(.source-heading) {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 40px;
-  padding: 4px 8px;
+  min-height: 36px;
+  padding: 0 9px;
   font-size: 12px;
   line-height: 20px;
 }

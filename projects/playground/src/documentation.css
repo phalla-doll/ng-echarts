@@ -14,7 +14,7 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 16px;
-  margin-bottom: 64px;
+  margin-bottom: 48px;
 }
 .documentation-heading h1 {
   margin: 0;
@@ -35,14 +35,14 @@
 }
 .doc-section {
   scroll-margin-top: 76px;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 .doc-section h2 {
-  margin: 0 0 16px;
+  margin: 0 0 14px;
   font-size: 20px;
   font-weight: 500;
   line-height: 28px;
-  letter-spacing: 0;
+  letter-spacing: -0.3px;
 }
 .doc-section h2 a {
   color: inherit;
@@ -63,11 +63,12 @@
 .component-card {
   display: block;
   min-width: 0;
-  padding: 4px;
+  padding: 3px;
   border: 1px solid var(--site-border);
   border-radius: var(--site-panel-radius);
   color: var(--site-text);
   background: var(--site-surface);
+  box-shadow: var(--site-panel-shadow);
   text-decoration: none;
 }
 .component-art {
@@ -85,7 +86,7 @@
 }
 .component-caption h3 {
   margin: 0;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 20px;
   font-weight: 500;
 }
@@ -98,8 +99,8 @@
   grid-column: 1/-1;
   margin: 0;
   color: var(--site-muted);
-  font-size: 11px;
-  line-height: 18px;
+  font-size: 12px;
+  line-height: 20px;
 }
 .planned .component-art {
   opacity: 0.5;
@@ -177,7 +178,7 @@
   .documentation-heading {
     flex-direction: column;
     gap: 16px;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
   .component-grid {
     gap: 16px;
@@ -186,7 +187,7 @@
     margin-top: 0;
   }
   .doc-section {
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
 }
 @media (max-width: 420px) {

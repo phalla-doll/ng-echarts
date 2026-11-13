@@ -26,17 +26,18 @@ import { HighlightCode } from './highlight-code';
     }
     .snippet {
       border: 1px solid var(--site-border);
-      padding: 4px;
+      padding: 3px;
       border-radius: var(--site-panel-radius);
       background: var(--site-surface);
+      box-shadow: var(--site-panel-shadow);
     }
     .snippet-heading {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      min-height: 40px;
-      padding: 4px 8px;
+      min-height: 36px;
+      padding: 0 9px;
       color: var(--site-muted);
       font-size: 12px;
       line-height: 20px;

@@ -21,7 +21,7 @@
 nav {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 24px;
   min-height: 0;
   flex: 1;
   overflow-y: auto;
@@ -58,7 +58,7 @@ nav a {
   border-radius: 6px;
   color: var(--site-muted);
   text-decoration: none;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 20px;
   font-weight: 400;
 }

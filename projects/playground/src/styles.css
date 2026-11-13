@@ -134,7 +134,7 @@ a {
   background: var(--site-bg);
   color: var(--site-text);
   border-color: var(--site-border);
-  border-radius: 8px;
+  border-radius: var(--site-panel-radius);
 }
 .utility-page .chart-frame header p,
 .workbench .chart-frame header p {
@@ -220,8 +220,8 @@ a {
 .gallery app-linked-visits .chart-frame button {
   min-height: 32px;
   padding: 6px 8px;
-  font-size: 11px;
-  line-height: 18px;
+  font-size: 12px;
+  line-height: 20px;
 }
 .gallery app-linked-visits .chart-frame .legend {
   margin: 12px 0 8px;

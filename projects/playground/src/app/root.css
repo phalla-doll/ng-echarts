@@ -30,7 +30,7 @@
 .site-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
   margin-left: auto;
   font-size: 11px;
   line-height: 18px;
