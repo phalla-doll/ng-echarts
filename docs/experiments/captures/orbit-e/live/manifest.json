@@ -1,0 +1,162 @@
+{
+  "base": "https://phalla-doll.github.io/ng-echarts/",
+  "cases": [
+    {
+      "engine": "chromium",
+      "theme": "dark",
+      "width": 1440,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "chromium",
+      "theme": "dark",
+      "width": 390,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "chromium",
+      "theme": "dark",
+      "width": 320,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "chromium",
+      "theme": "light",
+      "width": 1440,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "chromium",
+      "theme": "light",
+      "width": 390,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "chromium",
+      "theme": "light",
+      "width": 320,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "firefox",
+      "theme": "dark",
+      "width": 1440,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "firefox",
+      "theme": "dark",
+      "width": 390,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "firefox",
+      "theme": "dark",
+      "width": 320,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "firefox",
+      "theme": "light",
+      "width": 1440,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "firefox",
+      "theme": "light",
+      "width": 390,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "firefox",
+      "theme": "light",
+      "width": 320,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "webkit",
+      "theme": "dark",
+      "width": 1440,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "webkit",
+      "theme": "dark",
+      "width": 390,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "webkit",
+      "theme": "dark",
+      "width": 320,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "webkit",
+      "theme": "light",
+      "width": 1440,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "webkit",
+      "theme": "light",
+      "width": 390,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "webkit",
+      "theme": "light",
+      "width": 320,
+      "logoLoaded": true,
+      "overflow": false
+    }
+  ],
+  "assets": [
+    {
+      "path": "og-image.png",
+      "width": 1200,
+      "height": 630,
+      "status": 200
+    },
+    {
+      "path": "apple-touch-icon.png",
+      "width": 180,
+      "height": 180,
+      "status": 200
+    },
+    {
+      "path": "favicon-32x32.png",
+      "width": 32,
+      "height": 32,
+      "status": 200
+    }
+  ],
+  "deployment": {
+    "sourceCommit": "d389fd48e50f9b4e69ce94dda1d23affb5b14df4",
+    "staticCommit": "220415deeeab0f21095654cb06c0bedad5c4b3c0",
+    "workflowUrl": "https://github.com/phalla-doll/ng-echarts/actions/runs/43401356607",
+    "previewBuild": {
+      "builtAt": "2026-11-13T09:26:29.979Z",
+      "sourceBaseCommit": "d389fd48e50f9b4e69ce94dda1d23affb5b14df4",
+      "includesWorkingTree": false
+    },
+    "allEightBrandAssetsMatchSource": true
+  }
+}

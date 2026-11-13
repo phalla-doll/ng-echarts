@@ -92,3 +92,9 @@ The [demo](https://phalla-doll.github.io/ng-echarts/) now uses role-specific hov
 ## Gallery tab spacing correction
 
 The gallery Code/Preview controls now have equal widths, centered labels, compact gaps and vertically inset hover fills, with the selected indicator aligned to the header edge. Source commit: `3b5849de232878bd43b083443af6063cadcb7a1a`; static commit: `0d7ac355b932856b2630888782a0a79a29869ab2`. The [deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43398183808) succeeds and the marker identifies that clean source. All 29 routes are prerendered. Local/live static checks pass in all three engines, along with 120 gallery/theme/width geometry cases and 30 keyboard view-switch pairs. The [spacing review](experiments/HOVER_REFINEMENT.md#codepreview-tab-spacing-correction) preserves the user's report and reviewed desktop/mobile captures; the library artifact remains unchanged.
+
+## Orbit e branding delivery
+
+The demo now uses the selected Orbit e identity in its desktop/mobile headers, browser icons and Open Graph/Twitter previews. The repository README uses the same cover. Source commit: `d389fd48e50f9b4e69ce94dda1d23affb5b14df4`; static commit: `220415deeeab0f21095654cb06c0bedad5c4b3c0`. The [Pages deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43401356607) succeeds and `preview-build.json` identifies that clean source snapshot.
+
+All 29 routes are prerendered; local/live Pages checks pass in Chromium, Firefox and WebKit. All eight live brand assets match the source bytes. The [branding guide and evidence](BRANDING.md) include reproducible asset generation, 18 local and 18 live browser/theme/width cases, reviewed captures and the opaque Apple touch-icon correction. The 1200 × 630 social image is available at `https://phalla-doll.github.io/ng-echarts/og-image.png`. This demo deployment does not publish the library package or close human release gates.

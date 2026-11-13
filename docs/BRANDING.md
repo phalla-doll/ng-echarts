@@ -58,10 +58,18 @@ The [audit manifest](experiments/captures/orbit-e/manifest.json) records asset d
 | Desktop, dark | [Previous mark](experiments/captures/orbit-e/before/dark-1440.png) | [New mark](experiments/captures/orbit-e/dark-1440.png) |
 | Mobile, light | [Previous header](experiments/captures/orbit-e/before/light-390.png) | [New header](experiments/captures/orbit-e/light-390.png) |
 
-These are local verification results. The public Pages demo still requires deployment of the updated source snapshot.
+These results describe local verification. Live delivery is recorded below.
 
 ### Final review
 
 The final asset review corrects the Apple touch icon to an opaque square, leaving corner masking to the device. A second generator run produces byte-identical files; the touch icon is verified as 180 × 180 RGB without an alpha channel. Previously audited UI sources, the master mark and the social image retain their original hashes. The manifest preserves the original audit hashes and records final generator/asset hashes separately. Formatting, documentation links/anchors and whitespace checks pass.
 
 Both production playground and Pages artifacts are rebuilt after that correction. All eight served branding assets in both outputs match the source bytes, including the corrected touch icon.
+
+## Live delivery
+
+The [public demo](https://phalla-doll.github.io/ng-echarts/) now serves Orbit e from source commit `d389fd48e50f9b4e69ce94dda1d23affb5b14df4`. The same commit adds the social cover at the top of the repository README. Static commit: `220415deeeab0f21095654cb06c0bedad5c4b3c0`; the [Pages deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43401356607) succeeds and Pages reports `built`.
+
+The public `preview-build.json` identifies that source commit with `includesWorkingTree: false`. All eight live branding assets match the committed source bytes, including the [1200 × 630 cover](https://phalla-doll.github.io/ng-echarts/og-image.png) and opaque touch icon. Live Pages checks pass in Chromium, Firefox and WebKit. The [live branding manifest](experiments/captures/orbit-e/live/manifest.json) records another 18 passing browser/theme/width cases, icon dimensions, deployment identity and exact-asset verification, with no overflow, failed local requests or hydration errors. Live captures include [desktop dark](experiments/captures/orbit-e/live/dark-1440.png) and [mobile light](experiments/captures/orbit-e/live/light-390.png).
+
+This deploys the demo identity; the library package and pending human release gates remain unchanged. The separate [workspace CI run](https://github.com/phalla-doll/ng-echarts/actions/runs/43401298230) proceeds independently of these completed local/live deployment checks.
