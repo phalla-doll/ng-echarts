@@ -1,0 +1,1 @@
+var e=[{id:`jan`,month:`January`,desktop:186,mobile:null},{id:`feb`,month:`February`,desktop:305,mobile:null},{id:`mar`,month:`March`,desktop:237,mobile:null},{id:`apr`,month:`April`,desktop:173,mobile:null},{id:`may`,month:`May`,desktop:209,mobile:null},{id:`jun`,month:`June`,desktop:214,mobile:null}];var o=[{id:`desktop`,key:`desktop`,label:`Desktop`}];export{o as n,e as t};
