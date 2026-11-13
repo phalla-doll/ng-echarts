@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "brand:generate": "node tools/generate-brand-assets.mjs",
     "start": "ng serve playground",
     "build": "npm run build:lib && npm run build:playground",
     "build:lib": "ng build chart-library --configuration production",

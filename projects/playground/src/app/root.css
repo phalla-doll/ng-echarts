@@ -193,6 +193,13 @@ nav a.active {
   font-weight: 650;
   letter-spacing: 0;
   text-decoration: none;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+.brand-logo {
+  display: block;
+  flex: none;
 }
 @media (max-width: 800px) {
   .site-shell {
@@ -244,7 +251,7 @@ nav a.active {
     border-bottom: 1px solid var(--site-border);
   }
   .mobile-brand {
-    display: block;
+    display: inline-flex;
   }
   .header-title,
   .site-actions > span {

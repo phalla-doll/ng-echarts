@@ -20,7 +20,13 @@
   </button>
   <aside class="sidebar" id="site-navigation">
     <a class="brand" routerLink="/" aria-label="ng-echarts home" (click)="closeMenu()">
-      <span class="brand-mark"><app-site-icon name="chart" /></span>
+      <img
+        class="brand-logo"
+        [src]="dark() ? 'brand/orbit-e-light.svg' : 'brand/orbit-e.svg'"
+        width="32"
+        height="32"
+        alt=""
+      />
       <span>ng-echarts<span class="brand-caption">Charts for Angular</span></span>
     </a>
     <nav aria-label="Playground pages">
@@ -204,9 +210,16 @@
   </aside>
   <div class="site-body">
     <header class="site-header">
-      <a class="mobile-brand" routerLink="/" aria-label="ng-echarts home" (click)="closeMenu()"
-        >ng-echarts</a
-      >
+      <a class="mobile-brand" routerLink="/" aria-label="ng-echarts home" (click)="closeMenu()">
+        <img
+          class="brand-logo"
+          [src]="dark() ? 'brand/orbit-e-light.svg' : 'brand/orbit-e.svg'"
+          width="24"
+          height="24"
+          alt=""
+        />
+        <span>ng-echarts</span>
+      </a>
       <span class="header-title" [hidden]="galleryMode()">{{ pageTitle() }}</span>
       <div class="site-actions">
         <a

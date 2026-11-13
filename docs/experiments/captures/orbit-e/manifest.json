@@ -1,0 +1,178 @@
+{
+  "base": "http://localhost:4175/",
+  "cases": [
+    {
+      "engine": "chromium",
+      "theme": "dark",
+      "width": 1440,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "chromium",
+      "theme": "dark",
+      "width": 390,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "chromium",
+      "theme": "dark",
+      "width": 320,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "chromium",
+      "theme": "light",
+      "width": 1440,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "chromium",
+      "theme": "light",
+      "width": 390,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "chromium",
+      "theme": "light",
+      "width": 320,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "firefox",
+      "theme": "dark",
+      "width": 1440,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "firefox",
+      "theme": "dark",
+      "width": 390,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "firefox",
+      "theme": "dark",
+      "width": 320,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "firefox",
+      "theme": "light",
+      "width": 1440,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "firefox",
+      "theme": "light",
+      "width": 390,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "firefox",
+      "theme": "light",
+      "width": 320,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "webkit",
+      "theme": "dark",
+      "width": 1440,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "webkit",
+      "theme": "dark",
+      "width": 390,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "webkit",
+      "theme": "dark",
+      "width": 320,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "webkit",
+      "theme": "light",
+      "width": 1440,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "webkit",
+      "theme": "light",
+      "width": 390,
+      "logoLoaded": true,
+      "overflow": false
+    },
+    {
+      "engine": "webkit",
+      "theme": "light",
+      "width": 320,
+      "logoLoaded": true,
+      "overflow": false
+    }
+  ],
+  "assets": [
+    {
+      "path": "og-image.png",
+      "width": 1200,
+      "height": 630,
+      "status": 200
+    },
+    {
+      "path": "apple-touch-icon.png",
+      "width": 180,
+      "height": 180,
+      "status": 200
+    },
+    {
+      "path": "favicon-32x32.png",
+      "width": 32,
+      "height": 32,
+      "status": 200
+    }
+  ],
+  "staticRoutesChecked": 29,
+  "sourceHashes": {
+    "projects/playground/src/index.html": "e5ba63bea0a95e37f0911bf7f2437c48134022f1d1b2e70670401244f8ca8ba9",
+    "projects/playground/src/app/root.html": "021e80ab7e38561ba8cae2cad99e722856b012202ef8d777c00826e4fbf2b72c",
+    "projects/playground/src/app/root.css": "dae9b2d23096aaad3797752a90a2aaf3a722d8abd0b036bd1a593549d77c028c",
+    "projects/playground/src/site-controls.css": "9dad888522f4dcfd1107520a722f2a001349c3518ce03a185931e0a05d003657",
+    "projects/playground/public/brand/orbit-e.svg": "1ad00e2ed1b8683999715a3968f332acc5afda272c931f509fdcb4d978ee7f84",
+    "projects/playground/public/og-image.png": "91c04b3065f532fddfa63b9aaa22bf25c427e1849ce16ef2261cf420c3dbcb6f",
+    "tools/generate-brand-assets.mjs": "477967945386f2b227579c0da2440cabd94c9d90b159ad639e0a24d05cea2f06"
+  },
+  "finalReview": {
+    "date": "2026-11-13",
+    "change": "Apple touch icon uses an opaque square background; previously audited UI sources and OG image are unchanged.",
+    "regenerationByteIdentical": true,
+    "appleIconOpaque": true,
+    "generatorSha256": "be635752736d9ad75b70821081e3f18f7f56ebade4bc4d81fa5579043b9ecb93",
+    "assetHashes": {
+      "brand/orbit-e-light.svg": "3d0b3326c82a4a2938825e9b2f203e4c3927eb3a6aa06ff138f66fad8da2387c",
+      "brand/og-image.svg": "644642ca1a9e59a2bc31db3f62fb7a07a36902eecbb361088a93b2446645d791",
+      "favicon.svg": "cf8a9b27fae68d4a244d44d851567a044192e12e0778cd220f6fafcd0ee9ec43",
+      "favicon.ico": "457b729c8e5cc92dda0a609582132536f5816aab4ff77d684180788a0daa3682",
+      "favicon-32x32.png": "65e668744e546ef6b188f20d94cea16ba1564e223d8571260767fe990608a980",
+      "apple-touch-icon.png": "41a10a9a3cd14db6e9d211f6a0259e41cc4b6cff0dfc072f2c14b61752c65d31",
+      "og-image.png": "91c04b3065f532fddfa63b9aaa22bf25c427e1849ce16ef2261cf420c3dbcb6f"
+    },
+    "buildArtifactsVerified": ["dist/playground/browser", "dist/pages/browser"]
+  }
+}

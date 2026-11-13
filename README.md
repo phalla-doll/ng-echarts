@@ -1,3 +1,5 @@
+![ng-echarts — Charts for Angular, beautifully composed.](projects/playground/public/og-image.png)
+
 # ng-echarts
 
 An Angular 22 chart component library inspired by EvilCharts, using Apache ECharts for rendering and TypeScript for its public API.
@@ -16,6 +18,7 @@ Build native Angular components, beginning with the upstream ECharts implementat
 
 | Document | Purpose |
 | --- | --- |
+| [Brand identity](docs/BRANDING.md) | Orbit e logo, icons, social preview and asset regeneration |
 | [Product specification](docs/PRODUCT_SPEC.md) | Users, scope, behavior, requirements, and acceptance criteria |
 | [Local installation](docs/INSTALLATION.md) | Pack/install workflow, pinned fresh CLI application, bootstrap and SSR configuration |
 | [Integration guide](docs/INTEGRATION_GUIDE.md) | Complete four-chart application, API/type index, updates, events and accessibility |
