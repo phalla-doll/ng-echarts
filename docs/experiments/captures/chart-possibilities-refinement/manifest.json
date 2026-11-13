@@ -1,0 +1,95 @@
+{
+  "sourceSha256": "138b56e91084c8679b46a8c9b88105b7e7e95d729b4724ac95da3dc1723ef95f",
+  "beforeDirectory": "../chart-possibilities",
+  "cases": [
+    {
+      "theme": "dark",
+      "width": 320,
+      "file": "dark-320.png",
+      "documentWidth": 320,
+      "innerWidth": 288,
+      "frameWidth": 288,
+      "clippedFilters": [],
+      "pairedFooterOffsets": [],
+      "clippedRadarLabels": []
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "file": "dark-390.png",
+      "documentWidth": 390,
+      "innerWidth": 358,
+      "frameWidth": 358,
+      "clippedFilters": [],
+      "pairedFooterOffsets": [],
+      "clippedRadarLabels": []
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "file": "dark-768.png",
+      "documentWidth": 768,
+      "innerWidth": 704,
+      "frameWidth": 704,
+      "clippedFilters": [],
+      "pairedFooterOffsets": [0, 0, 0, 0, 0, 0],
+      "clippedRadarLabels": []
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "file": "dark-1440.png",
+      "documentWidth": 1440,
+      "innerWidth": 1096,
+      "frameWidth": 1096,
+      "clippedFilters": [],
+      "pairedFooterOffsets": [0, 0, 0, 0, 0, 0],
+      "clippedRadarLabels": []
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "file": "light-320.png",
+      "documentWidth": 320,
+      "innerWidth": 288,
+      "frameWidth": 288,
+      "clippedFilters": [],
+      "pairedFooterOffsets": [],
+      "clippedRadarLabels": []
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "file": "light-390.png",
+      "documentWidth": 390,
+      "innerWidth": 358,
+      "frameWidth": 358,
+      "clippedFilters": [],
+      "pairedFooterOffsets": [],
+      "clippedRadarLabels": []
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "file": "light-768.png",
+      "documentWidth": 768,
+      "innerWidth": 704,
+      "frameWidth": 704,
+      "clippedFilters": [],
+      "pairedFooterOffsets": [0, 0, 0, 0, 0, 0],
+      "clippedRadarLabels": []
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "file": "light-1440.png",
+      "documentWidth": 1440,
+      "innerWidth": 1096,
+      "frameWidth": 1096,
+      "clippedFilters": [],
+      "pairedFooterOffsets": [0, 0, 0, 0, 0, 0],
+      "clippedRadarLabels": []
+    }
+  ],
+  "errors": []
+}

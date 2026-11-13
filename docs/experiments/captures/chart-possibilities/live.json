@@ -1,0 +1,12 @@
+{
+  "url": "https://phalla-doll.github.io/ng-echarts/chart-possibilities/",
+  "staticCommit": "f115e3b5aa1b5bf8c76dde8d276bb7aa3ea81b61",
+  "deployment": "https://github.com/phalla-doll/ng-echarts/actions/runs/43408541801",
+  "marker": {
+    "builtAt": "2026-11-13T10:21:49.275Z",
+    "sourceBaseCommit": "bee17763b4e434762a0d63975f751e65143f4c51",
+    "includesWorkingTree": true
+  },
+  "sourceSha256": "2d12744cc8917fadd36d83de56342397dde55c878b506c46394b14bd3a508bb3",
+  "publishedAssetMatches": true
+}

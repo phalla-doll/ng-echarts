@@ -19,6 +19,7 @@ const pageTitles: Readonly<Record<string, string>> = {
   '/pie': 'Pie & Donut Blocks',
   '/composed': 'Composed Blocks',
   '/linked': 'Linked Charts',
+  '/chart-possibilities': 'Chart possibilities',
   '/linked-validation': 'Linked validation',
   '/composed-benchmark': 'Composed benchmark',
   '/composed-validation': 'Composed validation',
@@ -66,7 +67,9 @@ export class Root {
     () => (this.url().split(/[?#]/, 1)[0] ?? '/').replace(/\/+$/, '') || '/',
   );
   protected readonly galleryMode = computed(() =>
-    ['/', '/line', '/area', '/pie', '/composed', '/linked'].includes(this.routePath()),
+    ['/', '/line', '/area', '/pie', '/composed', '/linked', '/chart-possibilities'].includes(
+      this.routePath(),
+    ),
   );
   protected readonly themeLabel = computed(() =>
     this.dark() ? 'Use light theme' : 'Use dark theme',

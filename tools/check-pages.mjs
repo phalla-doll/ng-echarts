@@ -4,7 +4,11 @@ import { readFile, stat } from 'node:fs/promises';
 import { resolve, join, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium, firefox, webkit } from 'playwright';
-import { expect } from '@playwright/test';
+import { expect as playwrightExpect } from '@playwright/test';
+
+// This verifier also runs against public Pages, where a cold chart document
+// can exceed the default five-second local assertion window.
+const expect = playwrightExpect.configure({ timeout: 15000 });
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const directory = join(root, 'dist/pages/browser');
@@ -53,6 +57,7 @@ try {
     'pie/',
     'composed/',
     'linked/',
+    'chart-possibilities/',
     'linked-validation/',
     'composed-validation/',
     'composed-benchmark/',
@@ -99,6 +104,21 @@ try {
         await expect(page.locator('canvas')).toHaveCount(count);
         await expect(page.locator('.site-shell')).toHaveClass(/gallery-layout/);
       }
+      await page.goto(new URL('chart-possibilities/', site).href);
+      const concepts = page.frameLocator('app-chart-possibilities iframe');
+      await expect(concepts.locator('.card')).toHaveCount(12);
+      await expect(concepts.locator('.plot svg, .spark-plot svg')).toHaveCount(14);
+      await expect(concepts.locator('html')).toHaveAttribute('data-theme', 'dark');
+      await concepts.getByRole('button', { name: 'Find patterns', exact: true }).click();
+      await expect(concepts.locator('.card:visible')).toHaveCount(2);
+      await page.reload();
+      await expect(concepts.locator('.card:visible')).toHaveCount(12);
+      const standalone = page.getByRole('link', { name: 'Open standalone gallery', exact: true });
+      assert(
+        new URL(await standalone.getAttribute('href'), page.url()).pathname.startsWith(
+          base + 'concepts/',
+        ),
+      );
       await page.goto(new URL('linked/', site).href);
       await expect(page.locator('app-linked-visits canvas')).toHaveCount(2);
       await page.getByRole('combobox', { name: 'Period', exact: true }).selectOption('month:feb');

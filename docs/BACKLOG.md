@@ -46,6 +46,8 @@ NG09 first increment: [shared numeric formatting](experiments/NG09_SHARED_FORMAT
 
 ## Subsequent collection
 
+The [Chart possibilities gallery](experiments/CHART_POSSIBILITIES.md) previews twelve user-approved chart styles in the demo. These are interactive design proposals; NG18/NG19 and family-specific implementation/acceptance remain subsequent work.
+
 | ID | Priority | Work | Start condition |
 | --- | --- | --- | --- |
 | NG17 | P2 | Composed Cartesian charts: first vertical bar/line increment implemented; dual-axis/stacked/area extensions deferred | [API and evidence](experiments/NG17_COMPOSED_CHART.md); user-authorized experimental continuation |

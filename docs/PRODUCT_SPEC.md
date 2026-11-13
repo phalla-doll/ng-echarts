@@ -25,6 +25,8 @@ Shared features include tooltips, legends, theme tokens, loading and empty state
 
 ### Subsequent scope
 
+The demo's `/chart-possibilities` route presents twelve interactive design proposals using the approved [standalone gallery](experiments/chart-style-gallery.html). The existing site owns navigation and theme selection. Calendar heatmap, waterfall, scatter/bubble, bullet, dumbbell, Sankey, treemap, radial progress, radar, KPI sparklines, 100% stacked bars and ranked lollipop examples use illustrative data. This preview does not add public Angular chart APIs or establish family acceptance. See the [integration record](experiments/CHART_POSSIBILITIES.md).
+
 Composed charts, radar, radial charts, Sankey, calendar heatmaps, advanced patterns, glow effects, custom tooltip templates, and additional animation variants follow after the shared architecture is stable. Each receives a separate parity checklist before implementation.
 
 The user authorized NG17 development after the verified private candidate. Its first increment is vertical, unstacked bars plus straight/smooth lines on shared category/linear axes, with comparable units, stable series IDs, optional line points and the existing shared controls/events/states. The [composed API](COMPOSED_CHART_API.md) owns the exact contract; [NG17 evidence](experiments/NG17_COMPOSED_CHART.md) records implementation checks. Dual axes, horizontal/stacked/area composition and advanced tooltips remain subsequent work. The original four-family MVP and deferred human gates retain their scope.

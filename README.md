@@ -78,6 +78,8 @@ Before coding, read the [template and derived-state conventions](docs/TECHNICAL_
 
 ## Development
 
+The demo also includes **Chart possibilities** at `/chart-possibilities`: twelve interactive proposals matching the collection's visual style, with filters, sample tables and the shared theme. The [standalone HTML gallery](docs/experiments/chart-style-gallery.html) works offline. See its [integration record](docs/experiments/CHART_POSSIBILITIES.md); these concepts do not add public library APIs.
+
 Use Node 24.22.2 (`.nvmrc`) and npm 11.19.1. Angular/CLI 22.2.6, TypeScript 6.0.3, RxJS 7.8.2, and ECharts 6.1.0 are locked for the initial experiments.
 
 ```sh

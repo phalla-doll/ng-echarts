@@ -52,6 +52,11 @@
               {
                 "glob": "**/*",
                 "input": "projects/playground/public"
+              },
+              {
+                "glob": "chart-style-gallery.html",
+                "input": "docs/experiments",
+                "output": "concepts"
               }
             ],
             "styles": ["projects/playground/src/styles.css"],

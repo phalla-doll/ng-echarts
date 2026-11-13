@@ -1,6 +1,10 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+  {
+    path: 'chart-possibilities',
+    loadComponent: () => import('./chart-possibilities').then((m) => m.ChartPossibilities),
+  },
   { path: 'linked', loadComponent: () => import('./linked-charts').then((m) => m.LinkedCharts) },
   {
     path: 'linked-validation',

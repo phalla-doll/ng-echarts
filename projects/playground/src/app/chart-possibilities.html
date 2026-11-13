@@ -1,0 +1,19 @@
+<section class="possibilities" aria-labelledby="possibilities-title">
+  <header class="possibilities-heading">
+    <div>
+      <h1 id="possibilities-title">Chart possibilities</h1>
+      <p>Twelve proposed additions to the library, with interactive examples and sample data.</p>
+    </div>
+    <a [href]="standaloneUrl" target="_blank" rel="noopener">
+      Open standalone gallery<app-site-icon name="arrow" />
+    </a>
+  </header>
+  <p class="loading-note" role="status" [hidden]="ready()">Loading interactive examples…</p>
+  <iframe
+    #gallery
+    title="Twelve interactive chart possibilities and their sample data"
+    [src]="browserReady() ? galleryUrl : null"
+    [style.height.px]="height()"
+    (load)="onGalleryLoad()"
+  ></iframe>
+</section>

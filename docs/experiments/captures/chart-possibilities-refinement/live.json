@@ -1,0 +1,47 @@
+{
+  "url": "https://phalla-doll.github.io/ng-echarts/chart-possibilities/",
+  "staticCommit": "7013ef14ca934713172cbf6db8895cc817f3771e",
+  "deployment": "https://github.com/phalla-doll/ng-echarts/actions/runs/43418431739",
+  "marker": {
+    "builtAt": "2026-11-13T11:36:24.606Z",
+    "sourceBaseCommit": "58e0fde5c9bb61a288100630044ba73ac64c9b12",
+    "includesWorkingTree": true
+  },
+  "sourceSha256": "138b56e91084c8679b46a8c9b88105b7e7e95d729b4724ac95da3dc1723ef95f",
+  "publishedAssetMatches": true,
+  "browserChecks": [
+    {
+      "browser": "chromium",
+      "width": 320,
+      "charts": 14,
+      "clippedRadarLabels": [],
+      "themeSync": true,
+      "filters": true,
+      "errors": []
+    },
+    {
+      "browser": "firefox",
+      "width": 320,
+      "charts": 14,
+      "clippedRadarLabels": [],
+      "themeSync": true,
+      "filters": true,
+      "errors": []
+    },
+    {
+      "browser": "webkit",
+      "width": 320,
+      "charts": 14,
+      "clippedRadarLabels": [],
+      "themeSync": true,
+      "filters": true,
+      "errors": []
+    }
+  ],
+  "broaderLiveVerification": {
+    "status": "incomplete",
+    "stage": "Existing Installation documentation outline navigation",
+    "reason": "Bootstrap your chart link click exceeded 30 seconds",
+    "focusedGalleryChecks": "Passed Chromium, Firefox and WebKit"
+  }
+}
