@@ -72,3 +72,7 @@ The [Composed Blocks page](https://phalla-doll.github.io/ng-echarts/composed/) a
 ## NG20 linked preview update
 
 The [Linked Charts page](https://phalla-doll.github.io/ng-echarts/linked/) connects monthly visits to device share with plot/table/select actions, reset and a copyable integration example. The build prerenders 29 routes, including `/linked-validation`. Source commit: `ff4f555`; static commit: `b06fd5bb20c2ec780198606ae2c36d4047a0e6ec`. The [deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43380959584) succeeds and the preview marker identifies that clean source. Local/live checks pass in all three engines, including the new selection/detail/reload flow. [NG20 evidence](experiments/NG20_LINKED_CHARTS.md) preserves the targeted checks, screenshots, exact installed rc.1 consumer snapshot and deferred scope/human gates.
+
+## Linked UI refinement preview
+
+The [linked demo](https://phalla-doll.github.io/ng-echarts/linked/) now uses the compact Month filter, contextual Reset, concise totals and refined chart cards. The [before/after review](experiments/LINKED_UI_REFINEMENT.md) records visual and keyboard evidence. Source commit: `13d4e75`; static commit: `c948b4b1b4eea8f87fcd32ca274f48ece60ae353`. The [deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43382936023) succeeds; the preview marker identifies that clean source. Local/live checks pass in all three engines. This updates playground presentation; the private rc.1 library remains unchanged.

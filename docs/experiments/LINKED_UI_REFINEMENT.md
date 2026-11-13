@@ -43,3 +43,7 @@ The output override preserves the initial NG20 capture record. Desktop fields re
 The retained rc.1 SHA-256 is still `2009034295ffaa07955e0ec2a6370689b2d8922e6e06a527dc97c8beeeaaaacb`. Library bundles and the standalone linking example source are unchanged, so this round does not claim new bundle, performance or public API results. Human interpretation remains deferred; this visual refinement does not close F09/R06/G2/G3/G4.
 
 Formatting, 779 local documentation links/anchors, whitespace checks, all 22 capture/source hashes and the unchanged rc.1 checksum pass. Keyboard Reset activation is additionally confirmed in all three engines. Live delivery is recorded below.
+
+## Live delivery
+
+The refinement and evidence are committed in `13d4e75`. The [refined linked demo](https://phalla-doll.github.io/ng-echarts/linked/) is live from static commit `c948b4b1b4eea8f87fcd32ca274f48ece60ae353`; the [Pages deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43382936023) succeeds. `preview-build.json` identifies clean source `13d4e753e72198bd2ed2a4221282a49267bd891a`. Live static checks pass in Chromium, Firefox and WebKit, including the new Month combobox, linked updates, reload reset, themes and mobile navigation. Final delivery-note links and whitespace are checked before committing this record.
