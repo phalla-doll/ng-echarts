@@ -133,3 +133,8 @@ The [graphical-range increment](experiments/GRAPHICAL_RANGE_SELECTION.md) adds o
 ## Chart possibilities concept document
 
 The self-contained `docs/experiments/chart-style-gallery.html` embeds the byte-identical installed ECharts 6.1.0 minified distribution and the existing Inter font, retaining their embedded license/notices. The twelve illustrative datasets, page composition, same-origin embedding bridge and Angular wrapper are local demo implementation. The full standalone engine stays outside the Angular library artifact and focused renderer chunks. This is a design-proposal gallery; no additional public chart-family acceptance is claimed. Historical and final source hashes are recorded in the [gallery review](experiments/CHART_POSSIBILITIES.md).
+
+
+## Radar extension
+
+NG18 radar geometry, options, validation, fixture, hit testing and radar navigation glyph are original project code (MIT). ECharts RadarChart/RadarComponent and Canvas are registered lazily from the existing Apache-licensed peer; no upstream source was copied. [Implementation and sources](experiments/NG18_RADAR_CHART.md).

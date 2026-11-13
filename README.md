@@ -6,7 +6,7 @@ An Angular 22 chart component library inspired by EvilCharts, using Apache EChar
 
 Preview: **[Live demo on GitHub Pages](https://phalla-doll.github.io/ng-echarts/)**. See [deployment instructions](docs/GITHUB_PAGES.md) to rebuild and publish the current demo snapshot.
 
-Status: experimental bar, line, area, and pie/donut components. Updated 13 November 2026. The Angular library and SSR playground now render bars, lines, areas, and pies/donuts with native controls; G1 technical feasibility passes for bar; the user has deferred the human screen-reader review to release acceptance, allowing development to continue while G2 remains pending.
+Status: experimental bar, line, area, pie/donut, composed and focused radar components. Updated 13 November 2026. The Angular library and SSR playground now render bars, lines, areas, and pies/donuts with native controls; G1 technical feasibility passes for bar; the user has deferred the human screen-reader review to release acceptance, allowing development to continue while G2 remains pending.
 
 ## Project direction
 
@@ -22,6 +22,7 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | [Product specification](docs/PRODUCT_SPEC.md) | Users, scope, behavior, requirements, and acceptance criteria |
 | [Local installation](docs/INSTALLATION.md) | Pack/install workflow, pinned fresh CLI application, bootstrap and SSR configuration |
 | [Integration guide](docs/INTEGRATION_GUIDE.md) | Complete four-chart application, API/type index, updates, events and accessibility |
+| [Radar API](docs/RADAR_CHART_API.md) | Explicit dimension scales, comparison profiles, native table and experimental limits |
 | [Compatibility and limits](docs/COMPATIBILITY.md) | Exact tested versions, peer contracts, browser coverage, measured envelopes and exclusions |
 | [Local release checklist](docs/RELEASE_CHECKLIST.md) | Candidate preparation, exact-tarball consumer checks, MIT/notices and remaining release gates |
 | [Preview deployment hardening](docs/experiments/PREVIEW_DEPLOYMENT_HARDENING.md) | Immutable build provenance, clean-commit publishing, verification receipts and stale-build rejection |
@@ -165,3 +166,8 @@ The `/linked` page connects a monthly visits overview to device share through st
 ## Library license
 
 Original chart-library code is [MIT licensed](projects/chart-library/LICENSE). See its [third-party notices](projects/chart-library/THIRD_PARTY_NOTICES.md) for preserved upstream/dependency terms. The current private local release candidate is `0.1.0-rc.4`; follow the [release checklist](docs/RELEASE_CHECKLIST.md) to prepare and verify it.
+
+
+## NG18 radar first increment
+
+The user-approved [radar increment](docs/experiments/NG18_RADAR_CHART.md) adds the focused `/radar` Angular entry and a site-aligned demo with explicit dimension maxima, stable comparisons, missing-data policy, native scale/value table and vertex/table actions. The [API](docs/RADAR_CHART_API.md) defines the bounded contract. Radial progress remains subsequent work. The compatibility root and four-family MVP retain their scope; private rc.5 is separate from the preserved rc.4 artifact. Human F09/R06/G2/G3/G4 and public publication remain pending.

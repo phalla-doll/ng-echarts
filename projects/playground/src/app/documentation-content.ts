@@ -76,7 +76,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'status',
         title: 'Project status',
         paragraphs: [
-          'The library is experimental and the package is private. Use the workspace or a packed local build; a public npm installation is not available yet. Automated acceptance covers the four MVP families and the first shared-axis composed increment. Human screen-reader interpretation and final artifact/release acceptance remain pending.',
+          'The library is experimental and the package is private. Use the workspace or a packed local build; a public npm installation is not available yet. Automated acceptance covers the four MVP families, the first shared-axis composed increment, and experimental radar. Human screen-reader interpretation and final artifact/release acceptance remain pending.',
         ],
       },
     ],
@@ -168,13 +168,13 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
       {
         id: 'charts',
         title: 'Charts',
-        paragraphs: ['Explore working bar, line, area, pie/donut, and composed components.'],
+        paragraphs: ['Explore working bar, line, area, pie/donut, composed and radar components.'],
       },
       {
         id: 'data-contracts',
         title: 'Choose the data contract',
         paragraphs: [
-          'ComposedChart accepts ComposedSeries<T> with a bar/line kind per measure on one shared axis pair. Bar, line, and area charts accept a typed array of ChartSeries<T> measures. PieChart accepts one ChartMeasure<T> and turns category rows into slices. Import each component from its focused @ng-echarts/chart-library/bar, /line, /area, /pie, or /composed entry.',
+          'ComposedChart accepts ComposedSeries<T> with a bar/line kind per measure on one shared axis pair. Bar, line, and area charts accept a typed array of ChartSeries<T> measures. PieChart accepts one ChartMeasure<T> and turns category rows into slices. Import each component from its focused @ng-echarts/chart-library/bar, /line, /area, /pie, /composed, or /radar entry. RadarChart uses comparison series and an explicit maxKey for each dimension.',
           'Use innerRadius 0 for a pie or 0.6 for a donut. Optional outside labels may shorten or hide collisions, while category controls retain full labels. Pie measures must be nonnegative; all-zero totals show an empty state.',
           'Pie legend changes emit rowId and visible; Cartesian legend changes emit seriesId and visible. Point selection in every family includes the original row and raw value. The data table remains the keyboard point-action alternative; gallery examples opt out of it.',
         ],
@@ -229,5 +229,13 @@ export const chartCatalog = [
     kind: 'composed',
     route: '/composed',
     status: 'Available',
+  },
+  {
+    title: 'Radar Chart',
+    description:
+      'Compare profiles using explicit dimension scales, stable comparisons and native table controls.',
+    kind: 'radar',
+    route: '/radar',
+    status: 'Experimental',
   },
 ] as const;

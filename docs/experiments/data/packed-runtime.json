@@ -1,16 +1,16 @@
 {
-  "recordedAt": "2026-11-13T12:37:29.425Z",
+  "recordedAt": "2026-11-13T13:50:31.067Z",
   "node": "v24.22.2",
   "package": "@ng-echarts/chart-library",
-  "version": "0.1.0-rc.4",
+  "version": "0.1.0-rc.5",
   "artifact": {
-    "sha256": "fba7223700cbcd849cd9b3015cf1152e625c8652a7305d8ba85ffd0208b92df0",
+    "sha256": "014d36dfc88eb9efbc2a302b61ab0f80cbaf2fa99e1b8fd9ca1576bc60d3a60b",
     "exactCandidate": true
   },
   "skipLibCheck": false,
   "workspaceAliases": false,
   "installedOutsideWorkspace": true,
-  "entryPoints": [".", "./core", "./bar", "./line", "./area", "./pie", "./composed"],
+  "entryPoints": [".", "./core", "./bar", "./line", "./area", "./pie", "./composed", "./radar"],
   "compatibilityIdentity": true,
   "privateImportsBlocked": true,
   "reactRuntime": false,

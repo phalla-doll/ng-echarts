@@ -74,6 +74,11 @@ try {
   );
   const configPath = join(consumer, 'tsconfig.json');
   const config = JSON.parse(await readFile(configPath, 'utf8'));
+  const radarGuide = await readFile(join(root, 'docs/RADAR_CHART_API.md'), 'utf8');
+  const radarExample = radarGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
+  assert(radarExample, 'Radar guide must contain its integration example');
+  await writeFile(join(consumer, 'radar-api-example.ts'), radarExample);
+  config.files.push('radar-api-example.ts');
   const composedGuide = await readFile(join(root, 'docs/COMPOSED_CHART_API.md'), 'utf8');
   const composedExample = composedGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
   assert(composedExample, 'Composed guide must contain its integration example');
@@ -210,9 +215,19 @@ try {
     './line',
     './package.json',
     './pie',
+    './radar',
   ]);
   assert.equal(manifest.sideEffects, false);
-  for (const entry of ['.', './core', './bar', './line', './area', './pie', './composed']) {
+  for (const entry of [
+    '.',
+    './core',
+    './bar',
+    './line',
+    './area',
+    './pie',
+    './composed',
+    './radar',
+  ]) {
     for (const field of ['types', 'default']) {
       assert(
         await readFile(join(installed, manifest.exports[entry][field])),
@@ -238,6 +253,8 @@ try {
   const diagnostics = `${invalid.stdout}${invalid.stderr}`.replace(/\x1b\[[0-9;]*m/g, '');
   const invalidSource = await readFile(join(consumer, 'invalid-consumer.ts'), 'utf8');
   for (const [component, binding] of [
+    ['InvalidRadarScale', 'maxKey="name"'],
+    ['InvalidRadarFill', '[filled]="12"'],
     ['InvalidBarSelection', '[selectedRowId]="12"'],
     ['InvalidBarSelection', '[selectedRowIds]="[12]"'],
     ['InvalidBarSelection', '[rangeSelection]="\'yes\'"'],

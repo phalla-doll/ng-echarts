@@ -1,0 +1,35 @@
+.radar-note {
+  margin: 20px 0 0;
+  color: var(--site-muted);
+  font-size: 13px;
+  line-height: 22px;
+}
+.radar-controls {
+  margin-top: 32px;
+  border-top: 1px solid var(--site-border);
+  padding-top: 20px;
+  color: var(--site-muted);
+  font-size: 13px;
+  line-height: 22px;
+}
+.radar-controls summary {
+  cursor: pointer;
+  width: fit-content;
+}
+.radar-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.radar-actions button {
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-inset-radius);
+  padding: 6px 10px;
+  font-size: 12px;
+  line-height: 20px;
+}
+.radar-actions button[aria-pressed='true'] {
+  background: var(--site-hover);
+  color: var(--site-text);
+}

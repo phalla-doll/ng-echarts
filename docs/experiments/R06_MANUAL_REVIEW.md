@@ -33,3 +33,8 @@ NG17 extends the pending human review to `/composed-validation` and the visits/t
 
 
 NG20 also adds `/linked` to the deferred listening checklist. Check that the selected month, reset and updated device-share context are understandable, plot and table actions have equivalent meaning, focus stays on the initiating control, and independent legend visibility is clear. Verify no-month/all-missing/zero announcements and selection clearing after removal on `/linked-validation`. These are pending human checks, not listening results.
+
+
+## Experimental radar follow-up
+
+The NG18 radar extension also requires human interpretation before release acceptance. Use `/radar` to review reading order, comparison visibility, zero and missing observations, per-dimension scale announcements and keyboard table selection. Confirm that missing comparisons are understood as absent from the plot rather than zero, and that polygon area is not interpreted as a total score. No human result is recorded by the automated checks; this session remains deferred. [Radar contract](../RADAR_CHART_API.md).

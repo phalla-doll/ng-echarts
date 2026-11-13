@@ -125,3 +125,8 @@ Deliver installation instructions, typed examples, an API reference, data limits
 Use the [acceptance matrix](ACCEPTANCE_MATRIX.md) to track F01 through F10, visual parity, and quality targets. Every required check must pass against its current criterion. A revised target needs a recorded rationale, an aligned specification, and a successful rerun before its gate can pass.
 
 The local project name is fixed by the user. Original library code is MIT licensed under the user’s 13 November 2026 decision; upstream/dependency notices remain separate. Public package naming and registry publication remain future decisions. The current work produces an experimental private `0.1.0-rc.4` candidate and playground; the [release checklist](RELEASE_CHECKLIST.md) records final-artifact checks and open human acceptance.
+
+
+## NG18 radar first increment
+
+The user-approved [radar increment](experiments/NG18_RADAR_CHART.md) adds the focused `/radar` Angular entry and a site-aligned demo with explicit dimension maxima, stable comparisons, missing-data policy, native scale/value table and vertex/table actions. The [API](RADAR_CHART_API.md) defines the bounded contract. Radial progress remains subsequent work. The compatibility root and four-family MVP retain their scope; private rc.5 is separate from the preserved rc.4 artifact. Human F09/R06/G2/G3/G4 and public publication remain pending.

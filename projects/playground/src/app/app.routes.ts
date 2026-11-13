@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+  { path: 'radar', loadComponent: () => import('./radar-blocks').then((m) => m.RadarBlocks) },
   {
     path: 'chart-possibilities',
     loadComponent: () => import('./chart-possibilities').then((m) => m.ChartPossibilities),

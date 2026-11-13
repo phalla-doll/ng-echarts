@@ -1,0 +1,76 @@
+{
+  "capturedAt": "2026-11-13T13:48:30.680Z",
+  "source": {
+    "projects/chart-library/radar/src/lib/radar-chart.ts": "0a9364e949b5026c72503b285e20efa038262415fe65bbd13e9af0b43a0296ad",
+    "projects/chart-library/radar/src/lib/radar-options.ts": "fad28e6d6a50886dad0c9f57a432d6f568efccbbfdb637d6f330e70f67aaa466",
+    "projects/chart-library/radar/src/lib/radar-renderer.ts": "f5b7c2853b92167c7d52ef1cb00b4c90527088983539fe04fe1043bee252412a",
+    "projects/playground/src/app/radar-blocks.html": "c9283fe26dbe901febe62dc368c2168332433e7e3bab5f8ed842508a4ca0d0ed"
+  },
+  "captures": [
+    {
+      "theme": "dark",
+      "width": 1440,
+      "plotWidth": 596,
+      "overflow": false,
+      "path": "docs/experiments/captures/radar/dark-1440.png",
+      "sha256": "b572a2d55bcd30e83e2552844a774ebfbb42197ecca09a9d478e87511e876bd4"
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "plotWidth": 652,
+      "overflow": false,
+      "path": "docs/experiments/captures/radar/dark-768.png",
+      "sha256": "f88b5c1fd5495f5406281f1fe92f1d37600622f044db6bdb5bacbcfbf9a09b29"
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "plotWidth": 330,
+      "overflow": false,
+      "path": "docs/experiments/captures/radar/dark-390.png",
+      "sha256": "a4955e1a7b1c54950ad9c4c157606e99d29ef2c0eb278e8cc7c7a2e3710b4df6"
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "plotWidth": 260,
+      "overflow": false,
+      "path": "docs/experiments/captures/radar/dark-320.png",
+      "sha256": "3be2431fec28fd182613bc02bb894c2b368322a4deb7df75d9a9aca5535fc7e5"
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "plotWidth": 596,
+      "overflow": false,
+      "path": "docs/experiments/captures/radar/light-1440.png",
+      "sha256": "2d5996f530f5b15082c1e0cd2d732007e5a3f4638c096cc23e77688fe601e828"
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "plotWidth": 652,
+      "overflow": false,
+      "path": "docs/experiments/captures/radar/light-768.png",
+      "sha256": "e9380c67779b0ca3f3b50897a74141b9ad7ba54f0df7c44cc7393c84c7b643f1"
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "plotWidth": 330,
+      "overflow": false,
+      "path": "docs/experiments/captures/radar/light-390.png",
+      "sha256": "86b579f7c10fa602cb23887c9528a6dd96c985f4b31e62ec9adf4121179a7d06"
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "plotWidth": 260,
+      "overflow": false,
+      "path": "docs/experiments/captures/radar/light-320.png",
+      "sha256": "c32785292f2e6b8dc5366deb1c089089aa5b6e91e180bfb0b475ca0109875921"
+    }
+  ],
+  "errors": []
+}

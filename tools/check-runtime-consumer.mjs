@@ -76,6 +76,15 @@ async function exercise(engine, url, ssr) {
       await page.getByTestId('deferred').locator('table').waitFor();
     }
     const navigation = page.getByRole('navigation', { name: 'Playground pages' });
+    await navigation.getByRole('link', { name: 'Radar Blocks', exact: true }).click();
+    const radar = page.locator('nec-radar-chart');
+    await expect(radar.locator('canvas')).toHaveCount(1);
+    await radar.getByRole('button', { name: 'Show data table', exact: true }).click();
+    await radar.getByRole('button', { name: 'Select Current for Speed: 78', exact: true }).click();
+    await expect(page.locator('.block-selection')).toHaveText('Speed: current = 78 (table)');
+    await page.locator('.radar-controls summary').click();
+    await page.getByRole('button', { name: 'Make one value missing', exact: true }).click();
+    await expect(radar.getByRole('status')).toContainText('Missing values: Current');
     await navigation.getByRole('link', { name: 'Pie & Donut Blocks', exact: true }).click();
     await expect(page.locator('nec-pie-chart canvas')).toHaveCount(3);
     await navigation.getByRole('link', { name: 'Pie validation', exact: true }).click();
@@ -344,6 +353,9 @@ try {
      assert.equal(root.LineChart, line.LineChart);
      const composed = await import('@ng-echarts/chart-library/composed');
      assert.equal(root.ComposedChart, composed.ComposedChart);
+     const radar = await import('@ng-echarts/chart-library/radar');
+     assert.equal(typeof radar.RadarChart, 'function');
+     assert.equal(root.RadarChart, undefined);
      const pie = await import('@ng-echarts/chart-library/pie');
      assert.equal(root.PieChart, pie.PieChart);
      const core = await import('@ng-echarts/chart-library/core');
@@ -351,7 +363,7 @@ try {
      assert.equal(root.ChartFrame, core.ChartFrame);
      assert.deepEqual(Object.keys(core).filter(name => !name.startsWith('ɵ')), ['ChartFrame']);
      const require = createRequire(process.cwd() + '/package.json');
-     for (const path of ['src/lib/bar-chart', 'bar/src/lib/bar-chart', 'fesm2022/ng-echarts-chart-library-bar.mjs']) {
+     for (const path of ['src/lib/bar-chart', 'bar/src/lib/bar-chart', 'radar/src/lib/radar-chart', 'fesm2022/ng-echarts-chart-library-bar.mjs', 'fesm2022/ng-echarts-chart-library-radar.mjs']) {
        assert.throws(() => require.resolve('@ng-echarts/chart-library/' + path), { code: 'ERR_PACKAGE_PATH_NOT_EXPORTED' });
      }`,
   ]);
@@ -436,7 +448,7 @@ try {
     skipLibCheck: tsconfig.compilerOptions.skipLibCheck,
     workspaceAliases: false,
     installedOutsideWorkspace: true,
-    entryPoints: ['.', './core', './bar', './line', './area', './pie', './composed'],
+    entryPoints: ['.', './core', './bar', './line', './area', './pie', './composed', './radar'],
     compatibilityIdentity: true,
     privateImportsBlocked: true,
     reactRuntime: false,

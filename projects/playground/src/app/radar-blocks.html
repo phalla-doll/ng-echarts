@@ -1,0 +1,122 @@
+<div class="gallery">
+  <div class="gallery-content">
+    <header class="gallery-heading">
+      <div>
+        <h1>Radar Blocks</h1>
+        <p>Compare profiles across dimensions on explicit, stable scales.</p>
+      </div>
+    </header>
+    <section class="block-section" id="capability-profile" aria-labelledby="capability-heading">
+      <h2 id="capability-heading">
+        <a routerLink="." fragment="capability-profile">Capability profile</a>
+      </h2>
+      <div class="block-card">
+        <header class="block-header">
+          <button
+            type="button"
+            class="reload-button"
+            aria-label="Reset capability profile"
+            (click)="reset()"
+          >
+            <app-site-icon name="update" />
+          </button>
+          <span class="block-label">Scores</span>
+          <div class="block-views" role="group" aria-label="Capability profile view">
+            <button
+              type="button"
+              [attr.aria-pressed]="view() === 'code'"
+              (click)="view.set('code')"
+            >
+              Code
+            </button>
+            <button
+              type="button"
+              [attr.aria-pressed]="view() === 'preview'"
+              (click)="view.set('preview')"
+            >
+              Preview
+            </button>
+          </div>
+        </header>
+        <div class="block-surface" [hidden]="view() !== 'preview'">
+          @if (mounted()) {
+            <nec-radar-chart
+              class="gallery-chart"
+              title="Capability profile"
+              description="Current and target scores, each out of 100. Solid current, dashed target."
+              [data]="rows()"
+              rowIdKey="id"
+              categoryKey="dimension"
+              maxKey="max"
+              [series]="series"
+              [height]="320"
+              [theme]="theme()"
+              [filled]="filled()"
+              [loading]="loading()"
+              [error]="error()"
+              (pointSelect)="select($event)"
+            />
+          }
+          <p class="block-selection" role="status" [class.has-selection]="selection()">
+            {{ selection() }}
+          </p>
+        </div>
+        <div class="block-code" [hidden]="view() !== 'code'">
+          <div class="code-heading">
+            <span>Standalone Angular component</span
+            ><button type="button" (click)="copy()">
+              <app-site-icon [name]="copied() ? 'check' : 'copy'" />{{
+                copied() ? 'Copied' : 'Copy code'
+              }}
+            </button>
+          </div>
+          <pre
+            tabindex="0"
+            aria-label="Capability profile Angular source"
+          ><code [appHighlight]="source"></code></pre>
+        </div>
+      </div>
+      @if (copyFailed()) {
+        <p role="status">Select the source in Code to copy it manually.</p>
+      }
+      <p class="radar-note">
+        Illustrative scores on a 0–100 scale. Compare each spoke; polygon area is not an overall
+        score. Open the data table for exact values and keyboard selection.
+      </p>
+    </section>
+    <details class="radar-controls" id="try-data">
+      <summary>Try data and states</summary>
+      <div class="radar-actions">
+        <button type="button" (click)="updateScores()">Update scores</button>
+        <button type="button" (click)="makeMissing()">Make one value missing</button>
+        <button type="button" (click)="reverseDimensions()">Reverse dimensions</button>
+        <button type="button" (click)="filled.set(!filled())" [attr.aria-pressed]="filled()">
+          Fill polygons
+        </button>
+        <button type="button" (click)="loading.set(!loading())" [attr.aria-pressed]="loading()">
+          Loading state
+        </button>
+        <button
+          type="button"
+          (click)="error.set(error() ? null : 'Scores are temporarily unavailable.')"
+          [attr.aria-pressed]="!!error()"
+        >
+          Error state
+        </button>
+        <button type="button" (click)="mounted.set(!mounted())" [attr.aria-pressed]="mounted()">
+          Mount chart
+        </button>
+        <button type="button" (click)="reset()">Restore sample</button>
+      </div>
+    </details>
+    <footer class="gallery-footer">
+      Experimental Angular radar component. Radial progress remains in the
+      <a routerLink="/chart-possibilities">concept gallery</a>.
+    </footer>
+  </div>
+  <aside class="page-outline" aria-label="On this page">
+    <p>On this page</p>
+    <a routerLink="." fragment="capability-profile">Capability profile</a
+    ><a routerLink="." fragment="try-data">Try data and states</a>
+  </aside>
+</div>

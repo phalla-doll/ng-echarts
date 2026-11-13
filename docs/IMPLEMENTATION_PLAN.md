@@ -120,3 +120,8 @@ The next approved increment implements [inclusive native month ranges](experimen
 The following [graphical-range increment](experiments/GRAPHICAL_RANGE_SELECTION.md) builds on the native contract: explicit arming, snapped local draft, inclusive release-only output, cancellation/stale-data guards and one application-owned commit path. Use public engine coordinate APIs in the browser adapter and retain native keyboard fields. Verify both orientations/stack/fill themes, touch scrolling, focus and cleanup; compile the displayed guide against a distinct rc.4 artifact, update the preview and preserve earlier candidates. Shared zoom/hover and disjoint/two-way selection remain deferred.
 
 The user next approved [preview deployment hardening](experiments/PREVIEW_DEPLOYMENT_HARDENING.md). Finalize the pending concept gallery, capture immutable build-time source and output identities, require complete local browser verification and clean/current pushed source for publishing, then verify the clean public deployment. Preserve the exact rc.4 artifact and reconcile CI evidence without closing human release gates.
+
+
+## NG18 radar first increment
+
+The user-approved [radar increment](experiments/NG18_RADAR_CHART.md) adds the focused `/radar` Angular entry and a site-aligned demo with explicit dimension maxima, stable comparisons, missing-data policy, native scale/value table and vertex/table actions. The [API](RADAR_CHART_API.md) defines the bounded contract. Radial progress remains subsequent work. The compatibility root and four-family MVP retain their scope; private rc.5 is separate from the preserved rc.4 artifact. Human F09/R06/G2/G3/G4 and public publication remain pending.

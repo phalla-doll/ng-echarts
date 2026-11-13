@@ -24,6 +24,7 @@ const scenarios = [
     families: ['bar', 'line'],
   },
   { name: 'pie', entry: '/pie', symbol: 'PieChart', engine: true, families: ['pie'] },
+  { name: 'radar', entry: '/radar', symbol: 'RadarChart', engine: true, families: ['radar'] },
   { name: 'core', entry: '/core', symbol: 'ChartFrame', engine: false },
   {
     name: 'root',
@@ -116,8 +117,8 @@ for (const scenario of scenarios) {
   const reachableEngineInputs = reachableInputs.filter((name) =>
     /node_modules\/(echarts|zrender)\//.test(name),
   );
-  if (['bar', 'line', 'area', 'pie', 'composed'].includes(scenario.name)) {
-    const other = ['bar', 'line', 'area', 'pie', 'composed'].filter(
+  if (['bar', 'line', 'area', 'pie', 'composed', 'radar'].includes(scenario.name)) {
+    const other = ['bar', 'line', 'area', 'pie', 'composed', 'radar'].filter(
       (name) => name !== scenario.name,
     );
     assert(
@@ -127,7 +128,7 @@ for (const scenario of scenarios) {
       `${scenario.name} includes another component entry`,
     );
   }
-  if (scenario.name === 'pie')
+  if (['pie', 'radar'].includes(scenario.name))
     assert(
       !inputs.some(
         (name) =>
@@ -177,7 +178,9 @@ for (const scenario of scenarios) {
       `${scenario.name} must exclude ECharts and ZRender entirely`,
     );
     assert(
-      !reachableInputs.some((name) => /chart-library-(?:bar|line|area|pie|composed)/.test(name)),
+      !reachableInputs.some((name) =>
+        /chart-library-(?:bar|line|area|pie|composed|radar)/.test(name),
+      ),
       `${scenario.name} must exclude bar implementation`,
     );
   }
@@ -206,7 +209,7 @@ for (const scenario of scenarios) {
     }),
     { raw: 0, gzip: 0, brotli: 0 },
   );
-  // The combined root includes every engine plus the rc.4 optional range adapter.
+  // The compatibility root retains its existing families; radar is a focused opt-in entry.
   // Its measured allowance is 212/178 kB; focused and core limits stay unchanged.
   const budget =
     scenario.name === 'root'

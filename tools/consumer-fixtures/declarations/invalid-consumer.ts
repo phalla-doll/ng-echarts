@@ -1,3 +1,4 @@
+import { RadarChart } from '@ng-echarts/chart-library/radar';
 import { Component } from '@angular/core';
 import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';
 
@@ -198,4 +199,36 @@ export class InvalidComposedMeasure {
 export class InvalidComposedMissingKind {
   readonly rows = [{ id: 'a', category: 'A', count: 1 }];
   readonly series = [{ id: 'v', key: 'count', label: 'V' }] as const;
+}
+
+@Component({
+  imports: [RadarChart],
+  template: `<nec-radar-chart
+    title="Invalid radar scale"
+    [data]="rows"
+    rowIdKey="id"
+    categoryKey="name"
+    maxKey="name"
+    [series]="series"
+  />`,
+})
+export class InvalidRadarScale {
+  readonly rows = [{ id: 'a', name: 'A', max: 100, value: 20 }];
+  readonly series = [{ id: 'value', key: 'value', label: 'Value' }] as const;
+}
+@Component({
+  imports: [RadarChart],
+  template: `<nec-radar-chart
+    title="Invalid radar fill"
+    [data]="rows"
+    rowIdKey="id"
+    categoryKey="name"
+    maxKey="max"
+    [series]="series"
+    [filled]="12"
+  />`,
+})
+export class InvalidRadarFill {
+  readonly rows = [{ id: 'a', name: 'A', max: 100, value: 20 }];
+  readonly series = [{ id: 'value', key: 'value', label: 'Value' }] as const;
 }

@@ -16,7 +16,7 @@ import { withPagesLock } from './pages-lock.mjs';
 
 // This verifier also runs against public Pages, where a cold chart document
 // can exceed the default five-second local assertion window.
-const expect = playwrightExpect.configure({ timeout: 15000 });
+const expect = playwrightExpect.configure({ timeout: process.argv[2] ? 60000 : 15000 });
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const directory = join(root, 'dist/pages/browser');
@@ -73,6 +73,7 @@ async function checkPages() {
       'area/',
       'pie/',
       'composed/',
+      'radar/',
       'linked/',
       'chart-possibilities/',
       'linked-validation/',
@@ -114,6 +115,7 @@ async function checkPages() {
           ['area/', 4],
           ['pie/', 3],
           ['composed/', 1],
+          ['radar/', 1],
         ]) {
           await page.goto(new URL(path, site).href);
           await expect(page.locator('canvas')).toHaveCount(count);

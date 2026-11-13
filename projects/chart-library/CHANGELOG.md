@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-rc.5 — 13 November 2026
+
+- Add focused `/radar` entry with explicit per-dimension maxima, bounded comparisons, stable IDs and native scale/value table actions.
+- Reuse theme, formatting, motion, state, hydration and disposal behavior. Omit incomplete polygons with an explicit missing-data notice; preserve observed values in the table.
+- Keep the compatibility root and its chart engines unchanged. Preserve rc.4 and earlier archives; human interpretation and release acceptance remain pending.
+
 ## 0.1.0-rc.4 — 13 November 2026
 
 - Add opt-in `BarChart.rangeSelection` and typed `rangeSelect` with inclusive stable IDs and original rows; committed feedback stays application-owned.

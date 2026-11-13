@@ -1,13 +1,13 @@
 # Angular chart library
 
-Experimental standalone Angular 22 components using Apache ECharts. The local identity `@ng-echarts/chart-library` is private and has not been published. Local candidate: `0.1.0-rc.4`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. Public naming and human release acceptance remain open.
+Experimental standalone Angular 22 components using Apache ECharts. The local identity `@ng-echarts/chart-library` is private and has not been published. Local candidate: `0.1.0-rc.5`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. Public naming and human release acceptance remain open.
 
 ## Installation
 
 In the source checkout, use Node 24.22.2 and npm 11.19.1, then run `npm ci` and `npm run pack:lib`. Install the resulting file into a separate Angular application:
 
 ```sh
-npm install /absolute/path/to/ng-echarts-chart-library-0.1.0-rc.4.tgz echarts@6.1.0
+npm install /absolute/path/to/ng-echarts-chart-library-0.1.0-rc.5.tgz echarts@6.1.0
 ```
 
 Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes.
@@ -60,6 +60,7 @@ The installed-declaration check compiles this exact packaged example, each API g
 | `LineChart<T>` | `@ng-echarts/chart-library/line` | Straight/smooth, optional points, missing-value gaps |
 | `AreaChart<T>` | `@ng-echarts/chart-library/area` | Independent gradient/solid fills, same-sign stacks |
 | `PieChart<T>` | `@ng-echarts/chart-library/pie` | One measure across categories; innerRadius 0 for pie, 0.6 for donut; optional outside labels |
+| `RadarChart<T>` | `@ng-echarts/chart-library/radar` | 3–12 dimensions, 1–4 comparison series, explicit zero-to-maximum scales and native table controls |
 | `ComposedChart<T>` | `@ng-echarts/chart-library/composed` | Vertical unstacked bars and lines on one shared scale; typed per-series kind |
 | `ChartFrame` and shared types | `@ng-echarts/chart-library/core` | Presentation shell with required title, optional description and projected content; no engine runtime |
 
@@ -114,3 +115,9 @@ Original library code is [MIT licensed](LICENSE). Adapted EvilCharts material an
 `BarChart.selectedRowIds` (rc.3+) accepts `readonly string[] | null`. A non-null array overrides `selectedRowId`; `[]` clears feedback. Known IDs are deduplicated, and unknown/empty IDs are ignored. Multiple categories retain their palette and bands, with “Selected” labels on their native table rows; `aria-current` is used only for one effective row. The application defines range membership and reconciliation. The linked guide demonstrates inclusive From/To controls and optional graphical selection.
 
 `BarChart.rangeSelection` (rc.4+, default false) enables a pointer range surface in the ready plot. A drag of at least four CSS pixels snaps to inclusive categories and emits one `rangeSelect: BarRangeSelection<T>` on release: `{ fromRowId, toRowId, rowIds, rows, source: 'plot' }`. `rows` retains original row references, and IDs follow supplied order for either layout. Feedback still belongs to `selectedRowIds`; the output never changes it. Pair the pointer mode with native keyboard range controls, as the complete linked example does. Drafts cancel on Escape, resize/options updates, pointer interruption, blur, scrolling and teardown; stale data snapshots cannot commit. The demo exits the mode after commit or Escape and retains normal touch scrolling along the value direction. This is one contiguous category range; zoom, disjoint selections and linked hover remain outside it.
+
+## Radar charts
+
+Import `RadarChart` from `/radar` (focused entry only; the compatibility root is unchanged). Each data row is a dimension, each `ChartSeries<T>` is a comparison, and required `maxKey: NumericKey<T>` names the dimension's explicit positive maximum. Values must be finite and between zero and their maximum. Use immutable rows and stable IDs. Three to twelve dimensions and one to four comparisons are supported by this experimental increment. `filled` defaults to true.
+
+A comparison containing any missing value is omitted from the plot, with an explicit notice; every observed value and scale remains in the native data table. Zero is valid. Legend toggles retain fixed scales. Only an unambiguous vertex activates a plotted dimension; filled interiors and coincident vertices have no invented point identity. Use table actions for exact selection, including zero values. Polygon area is not an aggregate score. The full [radar API](https://github.com/phalla-doll/ng-echarts/blob/main/docs/RADAR_CHART_API.md) describes the contract and limits.

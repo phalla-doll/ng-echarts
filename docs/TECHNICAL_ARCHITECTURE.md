@@ -287,3 +287,8 @@ The combined-root allowance advances to **212,000 gzip / 178,000 Brotli bytes** 
 ## Preview build provenance
 
 The [Pages hardening workflow](experiments/PREVIEW_DEPLOYMENT_HARDENING.md) captures commit/tree/source identity before compilation. Clean builds extract that Git tree into an isolated workspace; dirty snapshots are exact local-only copies. Internal relative aliases are preserved, installed pinned dependencies are shared, and pre/post source hashes detect changes. A final output inventory binds route HTML, chunks, fonts, standalone concepts and notices. Local checks issue a three-browser receipt for the immutable marker; publication requires clean/current pushed source, unchanged output and that receipt. The helper verifies its copied artifact and never restamps build metadata. Shared operation locks prevent overlapping output mutations. Public checks validate source, receipt and every file; they never certify a local candidate. CI checks Pages before evidence-generating tests. This is source/output provenance for the supported workflow, not a change to library APIs, candidate bytes or human release acceptance.
+
+
+## NG18 radar first increment
+
+The user-approved [radar increment](experiments/NG18_RADAR_CHART.md) adds the focused `/radar` Angular entry and a site-aligned demo with explicit dimension maxima, stable comparisons, missing-data policy, native scale/value table and vertex/table actions. The [API](RADAR_CHART_API.md) defines the bounded contract. Radial progress remains subsequent work. The compatibility root and four-family MVP retain their scope; private rc.5 is separate from the preserved rc.4 artifact. Human F09/R06/G2/G3/G4 and public publication remain pending.
