@@ -182,24 +182,35 @@
         justify-content: space-between;
         align-items: center;
         gap: 20px;
-        padding: 19px 0 24px;
+        padding: 0 0 20px;
+        margin-bottom: 28px;
+        border-bottom: 1px solid var(--line);
       }
       .filters {
         display: flex;
-        gap: 6px;
-        overflow: auto;
-        padding: 5px 3px;
-        scrollbar-width: thin;
+        flex-wrap: wrap;
+        gap: 4px;
+        padding: 2px;
       }
       .filters button {
-        border-color: transparent;
+        border: 0;
+        border-radius: 6px;
         white-space: nowrap;
         background: transparent;
-        padding: 6px 12px;
+        padding: 8px 12px;
+        min-height: 36px;
+        font-size: 12px;
+        line-height: 20px;
+        color: var(--muted);
+      }
+      .filters button:hover {
+        background: var(--hover);
+        color: var(--text);
       }
       .filters button[aria-pressed='true'] {
-        background: var(--text);
-        color: var(--panel);
+        background: var(--hover);
+        color: var(--text);
+        font-weight: 550;
       }
       #count {
         white-space: nowrap;
@@ -209,12 +220,14 @@
       .grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 24px;
+        gap: 28px 24px;
       }
       .card {
+        display: flex;
+        flex-direction: column;
         min-width: 0;
         border: 1px solid var(--line);
-        border-radius: 12px;
+        border-radius: 10px;
         background: var(--panel);
         overflow: hidden;
         scroll-margin-top: 20px;
@@ -224,26 +237,29 @@
         align-items: flex-start;
         justify-content: space-between;
         gap: 16px;
-        padding: 22px 24px 0;
+        padding: 24px 24px 0;
+        min-height: 76px;
       }
       .card h2 {
-        font-size: 17px;
+        font-size: 16px;
         letter-spacing: -0.4px;
-        line-height: 1.4;
+        line-height: 24px;
         font-weight: 600;
-        margin: 0 0 5px;
+        margin: 0 0 4px;
       }
       .subtitle {
         font-size: 12px;
+        line-height: 20px;
         color: var(--muted);
         margin: 0;
       }
       .badge {
         border: 1px solid var(--line);
-        border-radius: 5px;
+        border-radius: 4px;
         white-space: nowrap;
         font-size: 10px;
-        padding: 3px 7px;
+        padding: 2px 7px;
+        line-height: 18px;
         color: var(--muted);
       }
       .badge.recommended {
@@ -253,16 +269,17 @@
       }
       .metric-row {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
-        gap: 10px;
+        gap: 12px;
         align-items: center;
-        padding: 18px 24px 0;
-        min-height: 61px;
+        padding: 20px 24px 0;
+        min-height: 64px;
       }
       .metric {
-        font-size: 26px;
+        font-size: 28px;
         font-weight: 550;
-        line-height: 1.2;
+        line-height: 32px;
         letter-spacing: -1px;
       }
       .metric small {
@@ -271,13 +288,16 @@
         font-weight: 400;
         letter-spacing: 0;
         margin-left: 6px;
+        display: inline-block;
+        line-height: 20px;
       }
       .legend {
         display: flex;
-        gap: 13px;
+        gap: 12px;
         flex-wrap: wrap;
         font-size: 11px;
         color: var(--muted);
+        line-height: 20px;
       }
       .legend span {
         display: inline-flex;
@@ -297,22 +317,31 @@
         background: #8b8b8b;
       }
       .plot {
-        height: 270px;
-        margin: 9px 12px 0;
+        height: 272px;
+        flex: none;
+        margin: 20px 12px 12px;
+      }
+      .card--radial .plot {
+        height: 336px;
       }
       .card-footer {
         border-top: 1px solid var(--line);
-        padding: 15px 24px 16px;
+        padding: 16px 24px;
+        margin-top: auto;
       }
       .card-footer p {
         font-size: 12px;
         color: var(--muted);
-        margin: 0 0 9px;
+        margin: 0 0 12px;
+        line-height: 20px;
         max-width: 68ch;
       }
       .card-footer p strong {
         font-weight: 500;
         color: var(--text);
+      }
+      .card-footer > p {
+        min-height: 40px;
       }
       details {
         font-size: 12px;
@@ -322,6 +351,46 @@
         cursor: pointer;
         width: fit-content;
         user-select: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        min-height: 28px;
+        list-style: none;
+        line-height: 20px;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary::before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-right: 1px solid currentColor;
+        border-bottom: 1px solid currentColor;
+        transform: rotate(-45deg);
+        margin-right: 2px;
+      }
+      details[open] > summary::before {
+        transform: rotate(45deg);
+      }
+      .card-footer .data-note {
+        margin: 12px 0;
+      }
+      .card-footer details {
+        font-size: 11px;
+      }
+      .card-footer details[open] {
+        padding-bottom: 4px;
+      }
+      .card-footer .table-wrap {
+        margin-top: 12px;
+      }
+      .card-footer details > summary {
+        color: var(--text);
+      }
+      .card-footer details > summary:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
       }
       summary:hover {
         color: var(--text);
@@ -349,9 +418,16 @@
       th {
         font-weight: 500;
         color: var(--text);
+        background: var(--panel);
+      }
+      thead th {
         position: sticky;
         top: 0;
-        background: var(--panel);
+        z-index: 1;
+      }
+      tbody th {
+        font-weight: 400;
+        color: var(--muted);
       }
       td {
         color: var(--muted);
@@ -366,18 +442,20 @@
       .mode button {
         border: 0;
         font-size: 11px;
-        padding: 3px 8px;
+        padding: 4px 10px;
+        min-height: 28px;
+        line-height: 20px;
         background: transparent;
       }
       .mode button[aria-pressed='true'] {
         background: var(--hover);
       }
       .spark-grid {
-        height: 279px;
+        height: 356px;
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 14px;
-        padding: 31px 24px 21px;
+        padding: 32px 24px;
       }
       .spark-panel {
         min-width: 0;
@@ -397,10 +475,12 @@
         margin: 5px 0;
       }
       .spark-plot {
-        height: 89px;
+        height: 120px;
       }
       .delta {
         font-size: 11px;
+        line-height: 18px;
+        min-height: 36px;
         color: var(--green);
       }
       .delta.negative {
@@ -432,10 +512,9 @@
         overflow: auto;
       }
       .recommendation {
-        padding: 25px 28px;
-        margin-top: 28px;
-        border: 1px solid var(--line);
-        border-radius: 10px;
+        padding: 28px 0 0;
+        margin-top: 36px;
+        border-top: 1px solid var(--line);
         display: flex;
         gap: 24px;
         align-items: center;
@@ -484,28 +563,28 @@
           padding: 15px 22px;
         }
         .grid {
-          gap: 18px;
+          gap: 24px 20px;
         }
         .card-header {
-          padding: 20px 18px 0;
+          padding: 22px 20px 0;
         }
         .metric-row {
-          padding: 16px 18px 0;
+          padding: 20px 20px 0;
         }
         .card-footer {
-          padding: 14px 18px;
+          padding: 16px 20px;
         }
         .plot {
-          height: 250px;
-          margin-left: 5px;
-          margin-right: 5px;
+          height: 260px;
+          margin-left: 10px;
+          margin-right: 10px;
         }
         .collection-note {
           display: none;
         }
         .spark-grid {
-          padding-left: 18px;
-          padding-right: 18px;
+          padding-left: 20px;
+          padding-right: 20px;
           gap: 8px;
         }
         .spark-panel + .spark-panel {
@@ -516,6 +595,9 @@
         }
       }
       @media (max-width: 680px) {
+        .card-footer > p {
+          min-height: 0;
+        }
         h1 {
           font-size: 31px;
           letter-spacing: -1px;
@@ -531,11 +613,16 @@
         }
         .toolbar {
           display: block;
-          padding: 10px 0 20px;
+          padding: 0 0 20px;
+          margin-bottom: 24px;
         }
         #count {
           display: block;
-          padding: 9px 3px 0;
+          padding: 12px 2px 0;
+          font-size: 11px;
+        }
+        .filters button {
+          padding: 8px 10px;
         }
         .topbar-inner {
           padding: 13px 18px;
@@ -544,7 +631,7 @@
           padding: 31px 16px;
         }
         .plot {
-          height: 275px;
+          height: 256px;
         }
         .metric-row {
           flex-wrap: wrap;
@@ -553,11 +640,11 @@
           gap: 8px;
         }
         .badge {
-          font-size: 9px;
+          font-size: 10px;
         }
         .recommendation {
           display: block;
-          padding: 20px;
+          padding: 24px 0 0;
         }
         .recommendation h2 {
           margin-bottom: 8px;
@@ -569,10 +656,14 @@
           margin-top: 18px;
         }
         .spark-grid {
-          height: 279px;
+          height: 320px;
+        }
+        .card--radial .plot {
+          height: 300px;
         }
         .spark-value {
           font-size: 22px;
+          line-height: 28px;
         }
         .brand {
           font-size: 16px;
@@ -1272,11 +1363,35 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
             ['Tablet', 'gray'],
           ],
         };
+        const sparkSummaries = [
+          { label: 'Revenue', value: '$48.2k', delta: '+12.4% vs. last week' },
+          { label: 'Active users', value: '8,420', delta: '+8.1% vs. last week' },
+          { label: 'Churn', value: '2.1%', delta: '+0.3 pts vs. last week' },
+        ];
         $('#collection').innerHTML = models
-          .map(
-            (m) =>
-              `<article class="card" id="${m.id}" data-category="${m.category}"><header class="card-header"><div><h2>${m.title}</h2><p class="subtitle">${m.subtitle}</p></div><span class="badge ${m.badge === 'Start here' ? 'recommended' : ''}">${m.badge}</span></header><div class="metric-row"><div class="metric">${m.metric}<small>${m.unit}</small></div>${m.id === 'scatter' ? '<div class="mode" role="group" aria-label="Point display"><button type="button" data-mode="scatter" aria-pressed="true">Scatter</button><button type="button" data-mode="bubble" aria-pressed="false">Bubble</button></div>' : `<div class="legend">${(legends[m.id] || []).map(([label, c]) => `<span><i class="dot ${c}" aria-hidden="true"></i>${label}</span>`).join('')}</div>`}</div>${m.id === 'sparklines' ? '<div class="spark-grid"><div class="spark-panel"><div class="spark-label">Revenue</div><div class="spark-value">$48.2k</div><div class="delta">+12.4% vs. last week</div><div class="spark-plot" id="spark-0" role="img" aria-label="Weekly revenue trend"></div></div><div class="spark-panel"><div class="spark-label">Active users</div><div class="spark-value">8,420</div><div class="delta">+8.1% vs. last week</div><div class="spark-plot" id="spark-1" role="img" aria-label="Weekly active user trend"></div></div><div class="spark-panel"><div class="spark-label">Churn</div><div class="spark-value">2.1%</div><div class="delta negative">+0.3 pts vs. last week</div><div class="spark-plot" id="spark-2" role="img" aria-label="Weekly churn trend"></div></div></div>' : `<div class="plot" id="plot-${m.id}" role="img" aria-label="${m.title}: ${esc(m.note)} Values are available in the data table below."></div>`}<footer class="card-footer"><p><strong>Useful for:</strong> ${m.use} ${m.note}</p><details><summary>View sample data</summary><div class="table-wrap" tabindex="0" role="region" aria-label="${m.title} sample data"><table id="data-${m.id}"></table></div></details></footer></article>`,
-          )
+          .map((m) => {
+            const badge =
+              m.badge === 'Start here' ? '<span class="badge recommended">Start here</span>' : '';
+            const legend = (legends[m.id] || [])
+              .map(
+                ([label, c]) => `<span><i class="dot ${c}" aria-hidden="true"></i>${label}</span>`,
+              )
+              .join('');
+            const mode =
+              '<div class="mode" role="group" aria-label="Point display"><button type="button" data-mode="scatter" aria-pressed="true">Scatter</button><button type="button" data-mode="bubble" aria-pressed="false">Bubble</button></div>';
+            const metricRow = m.metric
+              ? `<div class="metric-row"><div class="metric">${m.metric}<small>${m.unit}</small></div>${m.id === 'scatter' ? mode : legend ? `<div class="legend">${legend}</div>` : ''}</div>`
+              : '';
+            const plot =
+              m.id === 'sparklines'
+                ? `<div class="spark-grid">${sparkSummaries.map((s, i) => `<div class="spark-panel"><div class="spark-label">${s.label}</div><div class="spark-value">${s.value}</div><div class="delta ${i === 2 ? 'negative' : ''}">${s.delta}</div><div class="spark-plot" id="spark-${i}" role="img" aria-label="Weekly ${s.label.toLowerCase()} trend"></div></div>`).join('')}</div>`
+                : `<div class="plot" id="plot-${m.id}" role="img" aria-label="${m.title}: ${esc(m.note)} Values are available in the data table below."></div>`;
+            return `<article class="card card--${m.id}" id="${m.id}" data-category="${m.category}">
+            <header class="card-header"><div><h2>${m.title}</h2><p class="subtitle">${m.subtitle}</p></div>${badge}</header>
+            ${metricRow}${plot}
+            <footer class="card-footer"><p>${m.use}</p><details><summary>View sample data</summary><p class="data-note">${m.note}</p><div class="table-wrap" tabindex="0" role="region" aria-label="${m.title} sample data"><table id="data-${m.id}"></table></div></details></footer>
+          </article>`;
+          })
           .join('');
         const tables = {};
         const setTable = (id, headers, rows) => {
@@ -1460,7 +1575,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
           const axis = {
             axisLine: { show: false },
             axisTick: { show: false },
-            axisLabel: { color: p.muted, fontFamily: 'Inter', fontSize: 10 },
+            axisLabel: { color: p.muted, fontFamily: 'Inter', fontSize: 11 },
             splitLine: { lineStyle: { color: p.line, type: 'dashed' } },
           };
           const base = {
@@ -1497,7 +1612,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
                 itemHeight: 90,
                 text: ['More', 'Less'],
                 textGap: 10,
-                textStyle: { color: p.muted, fontSize: 10 },
+                textStyle: { color: p.muted, fontSize: 11 },
                 inRange: {
                   color: p.dark
                     ? ['#19241f', '#07573d', '#059669', '#34d399']
@@ -1518,7 +1633,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
                 monthLabel: { color: p.muted, fontSize: 11, nameMap: 'en', margin: 14 },
                 dayLabel: {
                   color: p.muted,
-                  fontSize: 10,
+                  fontSize: 11,
                   nameMap: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
                   firstDay: 1,
                 },
@@ -1544,8 +1659,8 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
               ...base,
               xAxis: {
                 ...base.xAxis,
-                data: wf.map((r) => r[0]),
-                axisLabel: { ...axis.axisLabel, interval: 0, fontSize: 9 },
+                data: ['Start', 'New', 'Expand', 'Churn', 'Disc.', 'End'],
+                axisLabel: { ...axis.axisLabel, interval: 0, fontSize: 10 },
               },
               yAxis: {
                 ...base.yAxis,
@@ -1581,7 +1696,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
                   label: {
                     show: true,
                     position: 'top',
-                    fontSize: 10,
+                    fontSize: 11,
                     color: p.muted,
                     formatter: (r) =>
                       `${r.dataIndex > 0 && r.dataIndex < 5 && wf[r.dataIndex][1] > 0 ? '+' : ''}${wf[r.dataIndex][1]}`,
@@ -1599,13 +1714,13 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
                 name: 'Spend ($k)',
                 nameLocation: 'middle',
                 nameGap: 25,
-                nameTextStyle: { color: p.muted, fontSize: 10 },
+                nameTextStyle: { color: p.muted, fontSize: 11 },
                 max: 55,
               },
               yAxis: {
                 ...base.yAxis,
                 name: 'Revenue ($k)',
-                nameTextStyle: { color: p.muted, fontSize: 10 },
+                nameTextStyle: { color: p.muted, fontSize: 11 },
                 max: 150,
               },
               tooltip: {
@@ -1639,7 +1754,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
                 ...base.xAxis,
                 data: bullets.map((r) => r[0]),
                 inverse: true,
-                axisLabel: { ...axis.axisLabel, fontSize: 10 },
+                axisLabel: { ...axis.axisLabel, fontSize: 11 },
               },
               tooltip: {
                 ...base.tooltip,
@@ -1728,7 +1843,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
                     show: true,
                     position: 'left',
                     color: p.muted,
-                    fontSize: 10,
+                    fontSize: 11,
                     formatter: (r) => r.value[0],
                   },
                 },
@@ -1741,7 +1856,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
                     show: true,
                     position: 'right',
                     color: p.muted,
-                    fontSize: 10,
+                    fontSize: 11,
                     formatter: (r) => r.value[0],
                   },
                 },
@@ -1779,7 +1894,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
                   links,
                   lineStyle: { color: 'source', opacity: 0.19, curveness: 0.5 },
                   emphasis: { focus: 'adjacency', lineStyle: { opacity: 0.5 } },
-                  label: { color: p.muted, fontSize: 10 },
+                  label: { color: p.muted, fontSize: 11 },
                   itemStyle: { borderWidth: 0 },
                 },
               ],
@@ -1812,10 +1927,16 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
                     fontSize: 11,
                     formatter: (r) => `${r.name}\n$${r.value}k`,
                   },
-                  upperLabel: { show: true, height: 24, color: '#fff', fontSize: 10 },
+                  upperLabel: {
+                    show: true,
+                    height: 28,
+                    color: '#fff',
+                    fontSize: 11,
+                    formatter: '{b}',
+                  },
                   itemStyle: { borderColor: p.panel, borderWidth: 3, gapWidth: 3 },
                   levels: [
-                    { itemStyle: { borderWidth: 0, gapWidth: 5 } },
+                    { itemStyle: { borderWidth: 0, gapWidth: 5 }, upperLabel: { show: false } },
                     { itemStyle: { borderWidth: 0, gapWidth: 3 }, colorSaturation: [0.35, 0.65] },
                     { itemStyle: { gapWidth: 2 }, colorSaturation: [0.45, 0.7] },
                   ],
@@ -1876,7 +1997,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
                 indicator: dimensions.map((name) => ({ name, max: 100 })),
                 center: ['50%', '51%'],
                 radius: '66%',
-                axisName: { color: p.muted, fontSize: 10 },
+                axisName: { color: p.muted, fontSize: 11 },
                 splitNumber: 4,
                 splitArea: { show: false },
                 axisLine: { lineStyle: { color: p.line } },
@@ -1975,7 +2096,7 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
                     position: 'right',
                     distance: 8,
                     color: p.muted,
-                    fontSize: 10,
+                    fontSize: 11,
                     formatter: (r) => r.value[0].toLocaleString('en-US'),
                   },
                 },
