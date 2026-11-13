@@ -216,22 +216,59 @@ a:focus-visible {
     sans-serif;
 }
 
-/* Linked charts retain native titles and actions inside the established gallery shell. */
+/* Linked examples share the gallery's quiet cards and compact native controls. */
 .gallery app-linked-visits .chart-frame {
-  border-radius: 6px;
-  padding: 16px;
+  border: 0;
+  border-radius: 0;
+  padding: 20px;
   background: var(--site-bg);
 }
 .gallery app-linked-visits .chart-frame header h2 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 28px;
+  line-height: 24px;
 }
 .gallery app-linked-visits .chart-frame header p {
+  margin: 6px 0 16px;
   font-size: 12px;
   line-height: 20px;
 }
 .gallery app-linked-visits .chart-frame button {
-  font-size: 12px;
-  line-height: 20px;
+  min-height: 32px;
+  padding: 6px 8px;
+  font-size: 11px;
+  line-height: 18px;
+}
+.gallery app-linked-visits .chart-frame .legend {
+  margin: 12px 0 8px;
+  gap: 8px;
+}
+.gallery app-linked-visits .chart-frame .visibility {
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--site-muted);
+}
+.gallery app-linked-visits .chart-frame .swatch {
+  width: 8px;
+  height: 8px;
+  margin-right: 3px;
+}
+.gallery app-linked-visits .chart-frame .legend button:hover {
+  background: var(--site-subtle);
+}
+.gallery app-linked-visits .chart-frame .table-toggle {
+  border: 0;
+  color: var(--site-muted);
+  padding: 6px 0;
+  margin: 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.gallery app-linked-visits .chart-frame .table-toggle:hover {
+  color: var(--site-text);
+}
+@media (max-width: 600px) {
+  .gallery app-linked-visits .chart-frame {
+    padding: 16px;
+  }
 }

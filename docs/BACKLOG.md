@@ -70,3 +70,6 @@ NG17 adds the [shared-axis composed API](COMPOSED_CHART_API.md), a matching visi
 
 
 The user selected NG20 linked charts as the next increment after NG17. The [linked-chart guide](LINKED_CHARTS.md) and [report](experiments/NG20_LINKED_CHARTS.md) document plot/table/select actions, stable IDs, reset/removal semantics, independent legends, SSR and installed consumers. The existing `pointSelect` event and Angular signals supply the integration; no library API or rc.1 artifact change is required. Broader NG20 range/zoom/hover/two-way behavior remains open.
+
+
+The requested [linked-demo UI refinement](experiments/LINKED_UI_REFINEMENT.md) replaces the heavy filter row with a compact native Month field, conditional Reset and concise totals, and aligns chart cards/controls with the gallery. Reset returns focus to the month field; linking/state semantics and the rc.1 artifact remain unchanged.

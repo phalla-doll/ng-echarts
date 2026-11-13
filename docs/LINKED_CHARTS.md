@@ -112,9 +112,9 @@ Replace `rows` immutably to update observations. `linkedSignal` keeps an existin
 ## Interaction contract
 
 - A point in either overview series selects its **month**, not a device filter. The companion chart updates to that month's desktop/mobile observations.
-- The month selector provides the same month action without opening a table. All months clears selection. Focus stays on the initiating control; an update does not move focus to the detail chart.
+- The month selector provides the same month action without opening a table. All months clears selection. The live demo also shows a compact Reset action only while a month is selected; it returns focus to the month field after clearing. Focus stays on the initiating control; an update does not move focus to the detail chart.
 - Legends retain independent visibility. Hiding a series/category does not change the linked month, and native tables retain complete values.
-- The live demo announces the current context and total; detail actions announce the selected device's current value. Updating a context never writes back into the source event, so no feedback loop is created.
+- The live demo displays a compact total and announces its full context through a polite status region; detail actions display and announce the selected device's current value. Updating a context never writes back into the source event, so no feedback loop is created.
 - Zero remains numeric. A missing observation stays null; aggregate totals exclude missing cells, and an entirely missing device remains null. Supply finite, nonnegative visit counts suitable for the pie chart. This example does not reinterpret arbitrary signed measures as shares.
 - Empty data clears an unavailable selection. The demo labels no-month and all-missing states separately from a real zero total. Both chart components keep their documented empty/error behavior.
 
@@ -123,3 +123,8 @@ The [live example](https://phalla-doll.github.io/ng-echarts/linked/) uses the ex
 ## Scope
 
 This is a one-way, application-owned context link. It does not add persistent plot highlighting, shared legend visibility, linked zoom, brushing, range selection, cross-chart hover or an ECharts connection API. Range brushing and two-way/multiple-selection designs remain later NG20 work. The private rc.1 library artifact is unchanged. Human interpretation and release gates retain their deferred status; the [NG20 report](experiments/NG20_LINKED_CHARTS.md) records executed evidence.
+
+
+## Demo presentation
+
+The [UI refinement review](experiments/LINKED_UI_REFINEMENT.md) records the shorter Month field, consistent native select styling, contextual Reset, compact totals, single card borders and responsive control layout. The form remains a native combobox; numeric zeros and no-observation states keep their original meaning. The standalone example above focuses on the linking contract, while the demo applies the site's existing presentation tokens.

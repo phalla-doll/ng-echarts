@@ -101,10 +101,10 @@ try {
       }
       await page.goto(new URL('linked/', site).href);
       await expect(page.locator('app-linked-visits canvas')).toHaveCount(2);
-      await page.getByLabel('Show device share for').selectOption('feb');
+      await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('feb');
       await expect(page.locator('.detail h2')).toHaveText('Device share · February');
       await page.reload();
-      await expect(page.getByLabel('Show device share for')).toHaveValue('');
+      await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('');
       await expect(page.locator('app-linked-visits canvas')).toHaveCount(2);
       await page.goto(new URL('line/', site).href);
       await expect(page.locator('canvas')).toHaveCount(4);

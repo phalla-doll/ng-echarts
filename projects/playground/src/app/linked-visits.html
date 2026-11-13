@@ -1,30 +1,58 @@
-<div class="linked-controls">
-  <label
-    >Show device share for
-    <select #month [value]="selectedId() ?? ''" (change)="selectMonth(month.value)">
-      <option value="">All months</option>
-      @for (row of data(); track row.id) {
-        <option [value]="row.id">{{ row.month }}</option>
-      }
-    </select></label
-  >
-  <button type="button" (click)="selectMonth('')" [disabled]="selectedId() === null">
-    Show all months
-  </button>
+<div class="linked-toolbar">
+  <div class="linked-controls">
+    <label
+      >Month
+      <span class="month-field">
+        <select
+          #month
+          [value]="selectedId() ?? ''"
+          [style.color-scheme]="theme()"
+          (change)="selectMonth(month.value)"
+        >
+          <option value="">All months</option>
+          @for (row of data(); track row.id) {
+            <option [value]="row.id">{{ row.month }}</option>
+          }
+        </select>
+        <app-site-icon name="chevron" />
+      </span>
+    </label>
+    @if (selectedId() !== null) {
+      <button
+        class="reset-month"
+        type="button"
+        aria-label="Reset month filter"
+        (click)="resetMonth()"
+      >
+        <app-site-icon name="close" />Reset
+      </button>
+    }
+  </div>
+  <p class="linked-summary" aria-hidden="true">
+    @if (summary().device) {
+      <span class="summary-device">{{ summary().device }}</span>
+    }
+    <span class="summary-value" [class.numeric]="summary().unit">{{ summary().value }}</span>
+    @if (summary().unit) {
+      <span class="summary-unit">{{ summary().unit }}</span>
+    }
+  </p>
 </div>
-<p class="linked-status" role="status" aria-live="polite" aria-atomic="true">{{ status() }}</p>
+<p class="linked-status visually-hidden" role="status" aria-live="polite" aria-atomic="true">
+  {{ status() }}
+</p>
 <div class="linked-pair">
   <section class="linked-card overview" aria-label="Monthly visits overview">
     <nec-bar-chart
       title="Monthly visits"
-      description="Select a bar or a table value to show device share for that month. The month selector provides the same action."
+      description="Choose a month from a bar or the data table."
       [data]="data()"
       rowIdKey="id"
       categoryKey="month"
       [series]="series"
       [categoryTickFormatter]="monthTick"
       [theme]="theme()"
-      [height]="280"
+      [height]="250"
       (pointSelect)="selectPoint($event)"
     />
   </section>

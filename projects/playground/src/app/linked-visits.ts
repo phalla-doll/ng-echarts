@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, computed, input, linkedSignal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  ElementRef,
+  input,
+  linkedSignal,
+  viewChild,
+} from '@angular/core';
 import {
   BarChart,
   type ChartSeries,
@@ -6,6 +14,7 @@ import {
   type PointSelection,
 } from '@ng-echarts/chart-library/bar';
 import { PieChart, type ChartMeasure } from '@ng-echarts/chart-library/pie';
+import { SiteIcon } from './site-icon';
 
 export interface VisitMonth {
   readonly id: string;
@@ -37,7 +46,7 @@ export function deviceShare(rows: readonly VisitMonth[]): readonly DeviceVisits[
 
 @Component({
   selector: 'app-linked-visits',
-  imports: [BarChart, PieChart],
+  imports: [BarChart, PieChart, SiteIcon],
   templateUrl: './linked-visits.html',
   styleUrl: './linked-visits.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -45,6 +54,7 @@ export function deviceShare(rows: readonly VisitMonth[]): readonly DeviceVisits[
 export class LinkedVisits {
   readonly data = input.required<readonly VisitMonth[]>();
   readonly theme = input<ChartTheme>('light');
+  private readonly monthSelect = viewChild.required<ElementRef<HTMLSelectElement>>('month');
   protected readonly selectedId = linkedSignal<readonly VisitMonth[], string | null>({
     source: this.data,
     computation: (rows, previous) =>
@@ -59,14 +69,21 @@ export class LinkedVisits {
   );
   protected readonly detailTitle = computed(() => 'Device share · ' + this.context());
   protected readonly detailDescription = computed(
-    () =>
-      'Desktop and mobile visits for ' +
-      (this.selectedMonth()?.month ?? 'all months') +
-      '. Missing observations are excluded from totals.',
+    () => 'Desktop and mobile visits for ' + (this.selectedMonth()?.month ?? 'all months') + '.',
   );
   protected readonly selectedDevice = linkedSignal({
     source: this.selectedId,
     computation: () => '',
+  });
+  protected readonly summary = computed(() => {
+    if (!this.data().length) return { value: 'No months available', unit: '', device: '' };
+    if (this.share().every((row) => row.visits === null))
+      return { value: 'No recorded visits', unit: '', device: '' };
+    const detail = this.share().find(
+      (row) => row.id === this.selectedDevice() && row.visits !== null,
+    );
+    const value = detail?.visits ?? this.share().reduce((sum, row) => sum + (row.visits ?? 0), 0);
+    return { value: this.number(value), unit: 'visits', device: detail?.device ?? '' };
   });
   protected readonly status = computed(() => {
     if (!this.data().length) return 'No months available. Device share is empty.';
@@ -91,6 +108,11 @@ export class LinkedVisits {
   protected selectMonth(id: string): void {
     this.selectedId.set(this.data().some((row) => row.id === id) ? id : null);
     this.selectedDevice.set('');
+  }
+  protected resetMonth(): void {
+    this.selectMonth('');
+    // The conditional reset action disappears; retain keyboard focus on the month field.
+    this.monthSelect().nativeElement.focus();
   }
   protected selectPoint(point: PointSelection<VisitMonth>): void {
     this.selectMonth(point.rowId);

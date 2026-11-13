@@ -8,7 +8,9 @@ import { chromium } from 'playwright';
 import { expect } from '@playwright/test';
 import { format, resolveConfig } from 'prettier';
 const base = process.argv[2] ?? 'http://localhost:4182/';
-const output = resolve(process.argv[3] ?? 'docs/experiments/captures/linked');
+const output = resolve(
+  process.argv[3] ?? process.env.LINKED_CAPTURE_OUTPUT ?? 'docs/experiments/captures/linked',
+);
 const server = process.argv[2]
   ? null
   : spawn(process.execPath, ['dist/playground/server/server.mjs'], {
@@ -54,11 +56,46 @@ try {
     await page.evaluate(() => document.fonts.ready);
     for (const width of [1440, 768, 390, 320]) {
       await page.setViewportSize({ width, height: 1000 });
-      await page.getByLabel('Show device share for').selectOption('feb');
+      await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('');
+      await expect(
+        page.getByRole('button', { name: 'Reset month filter', exact: true }),
+      ).toHaveCount(0);
+      await expect
+        .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
+        .toBeLessThanOrEqual(width);
+      if (width === 1440 || width === 320) {
+        await page.evaluate(() => window.scrollTo(0, 0));
+        const initial = `linked-${theme}-${width}-all-months-filter.png`;
+        captures.push({
+          name: initial,
+          sha256: hash(
+            await page.locator('.linked-toolbar').screenshot({ path: resolve(output, initial) }),
+          ),
+        });
+        if (width === 1440) {
+          const initialPage = `linked-${theme}-${width}-all-months.png`;
+          captures.push({
+            name: initialPage,
+            sha256: hash(
+              await page.screenshot({ path: resolve(output, initialPage), fullPage: true }),
+            ),
+          });
+        }
+      }
+      await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('feb');
       await expect(page.locator('.detail h2')).toHaveText('Device share · February');
       await expect
         .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
         .toBeLessThanOrEqual(width);
+      if (width === 1440 || width === 320) {
+        const selected = `linked-${theme}-${width}-selected-filter.png`;
+        captures.push({
+          name: selected,
+          sha256: hash(
+            await page.locator('.linked-toolbar').screenshot({ path: resolve(output, selected) }),
+          ),
+        });
+      }
       await page.waitForTimeout(400);
       await page.evaluate(() => window.scrollTo(0, 0));
       const name = `linked-${theme}-${width}.png`;

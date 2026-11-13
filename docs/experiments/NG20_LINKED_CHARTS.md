@@ -36,3 +36,6 @@ The Pages production build prerenders **29 physical routes** under `/ng-echarts/
 ## Preview delivery
 
 Implementation, documentation, captures and evidence are committed in `ff4f555`. The [linked example](https://phalla-doll.github.io/ng-echarts/linked/) is live from static commit `b06fd5bb20c2ec780198606ae2c36d4047a0e6ec`. The [Pages deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43380959584) succeeds; `preview-build.json` identifies clean source `ff4f55593f0d8c5656094c8f9d77566085451b5a`. Local/live Pages checks pass in Chromium, Firefox and WebKit, including month selection, detail updates and reload reset. All 760 local documentation links/anchors, capture/source/icon hashes, unchanged rc.1 checksum, formatting and whitespace checks pass before the implementation commit. The final delivery-note links are checked separately.
+
+
+The subsequent user-requested [UI refinement](LINKED_UI_REFINEMENT.md) records updated controls, visible totals and card styling separately. Initial captures and this original implementation record are retained; the live page now uses the refined Month/Reset presentation.

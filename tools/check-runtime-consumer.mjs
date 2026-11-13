@@ -209,14 +209,14 @@ async function exercise(engine, url, ssr) {
     await expect(linkedPoint).toBeFocused();
     await expect(page.locator('.detail h2')).toHaveText('Device share · February');
     await expect(page.locator('.linked-status')).toContainText('February: 1,367 visits');
-    await page.getByRole('button', { name: 'Show all months', exact: true }).click();
-    await expect(page.getByLabel('Show device share for')).toHaveValue('');
+    await page.getByRole('button', { name: 'Reset month filter', exact: true }).click();
+    await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('');
     await navigation.getByRole('link', { name: 'Linked validation', exact: true }).click();
     await expect(
       page.getByRole('heading', { name: 'Linked selection validation', exact: true }),
     ).toBeVisible();
     await expect(page.locator('app-linked-visits canvas')).toHaveCount(2);
-    await page.getByLabel('Show device share for').selectOption('feb');
+    await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('feb');
     await expect(page.locator('.linked-status')).toContainText('February: 200 visits');
     await page.getByRole('button', { name: 'Update linked values', exact: true }).click();
     await expect(page.locator('.linked-status')).toContainText('February: 210 visits');
@@ -230,7 +230,7 @@ async function exercise(engine, url, ssr) {
         .getByRole('button', { name: 'Select Visits for Mobile: 0', exact: true }),
     ).toBeVisible();
     await page.getByRole('button', { name: 'Remove February', exact: true }).click();
-    await expect(page.getByLabel('Show device share for')).toHaveValue('');
+    await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('');
     await navigation.getByRole('link', { name: 'Navigate away', exact: true }).click();
     await expect(page.locator('canvas')).toHaveCount(0);
     assert.deepEqual(errors, []);

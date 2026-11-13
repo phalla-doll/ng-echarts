@@ -53,3 +53,23 @@ it('derives current detail from stable IDs and clears removed IDs without resurr
   await fixture.whenStable();
   expect(host.querySelector('.linked-status')?.textContent).toContain('No months available');
 });
+
+it('keeps the visible summary aligned with current values when a previously selected device becomes missing', async () => {
+  TestBed.configureTestingModule({ providers: [{ provide: PLATFORM_ID, useValue: 'server' }] });
+  const fixture = TestBed.createComponent(LinkedVisits);
+  fixture.componentRef.setInput('data', [{ id: 'jan', month: 'January', desktop: 12, mobile: 8 }]);
+  await fixture.whenStable();
+  const host = fixture.nativeElement as HTMLElement;
+  host.querySelector<HTMLButtonElement>('.detail .table-toggle')!.click();
+  await fixture.whenStable();
+  host.querySelector<HTMLButtonElement>('.detail tbody button')!.click();
+  await fixture.whenStable();
+  expect(host.querySelector('.linked-summary')?.textContent).toContain('Desktop');
+  fixture.componentRef.setInput('data', [
+    { id: 'jan', month: 'January', desktop: null, mobile: 8 },
+  ]);
+  await fixture.whenStable();
+  expect(host.querySelector('.linked-summary')?.textContent).not.toContain('Desktop');
+  expect(host.querySelector('.summary-value')?.textContent).toBe('8');
+  expect(host.querySelector('.linked-status')?.textContent).toContain('All months: 8 visits.');
+});

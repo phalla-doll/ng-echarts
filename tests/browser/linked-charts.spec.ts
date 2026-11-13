@@ -11,6 +11,9 @@ test('hydrates linked charts and connects real plot clicks, keyboard values and 
   expect(html).toContain('Linked Charts');
   expect(html).toContain('All months');
   expect(html).not.toContain('<canvas');
+  await expect(page.getByRole('button', { name: 'Reset month filter', exact: true })).toHaveCount(
+    0,
+  );
   const overview = page.locator('.overview nec-bar-chart');
   const detail = page.locator('.detail nec-pie-chart');
   await expect(page.locator('canvas')).toHaveCount(2);
@@ -19,7 +22,7 @@ test('hydrates linked charts and connects real plot clicks, keyboard values and 
     .evaluateAll((plots) => plots.map((plot) => plot.getAttribute('_echarts_instance_')));
   const point = await firstGreenBarPoint(overview.locator('canvas'));
   await page.mouse.click(point.x, point.y);
-  await expect(page.getByLabel('Show device share for')).toHaveValue('jan');
+  await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('jan');
   await expect(detail.getByRole('heading')).toHaveText('Device share · January');
   await expect(page.locator('.linked-status')).toContainText('January: 526 visits');
   await overview.getByRole('button', { name: 'Show data table', exact: true }).click();
@@ -38,15 +41,20 @@ test('hydrates linked charts and connects real plot clicks, keyboard values and 
   await expect(
     detail.getByRole('button', { name: 'Select Visits for Mobile: 491', exact: true }),
   ).toBeVisible();
-  await page.getByLabel('Show device share for').selectOption('mar');
+  await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('mar');
   await expect(
     detail.getByRole('button', { name: 'Select Visits for Desktop: 512', exact: true }),
   ).toBeVisible();
   await detail.getByRole('button', { name: 'Select Visits for Mobile: 290', exact: true }).focus();
   await page.keyboard.press('Enter');
   await expect(page.locator('.linked-status')).toHaveText('March: Mobile, 290 visits.');
-  await page.getByRole('button', { name: 'Show all months', exact: true }).click();
-  await expect(page.getByLabel('Show device share for')).toHaveValue('');
+  await page.getByRole('button', { name: 'Reset month filter', exact: true }).focus();
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('');
+  await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toBeFocused();
+  await expect(page.getByRole('button', { name: 'Reset month filter', exact: true })).toHaveCount(
+    0,
+  );
   await expect(detail.getByRole('heading')).toHaveText('Device share · All months');
   await expect(
     detail.getByRole('button', { name: 'Select Visits for Desktop: 7,170', exact: true }),
@@ -63,7 +71,7 @@ test('hydrates linked charts and connects real plot clicks, keyboard values and 
   await expect(
     page.getByRole('heading', { name: 'Linked selection validation', exact: true }),
   ).toBeVisible();
-  await page.getByLabel('Show device share for').selectOption('feb');
+  await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('feb');
   await expect(page.locator('.linked-status')).toContainText('February: 200 visits');
   expect(errors).toEqual([]);
 });
@@ -91,26 +99,26 @@ test('retains month identity, source focus and independent legends through chang
     .getByRole('button', { name: 'Reverse months', exact: true })
     .evaluate((button: HTMLButtonElement) => button.click());
   await expect(february).toBeFocused();
-  await expect(page.getByLabel('Show device share for')).toHaveValue('feb');
+  await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('feb');
   await page.getByRole('button', { name: 'Update linked values', exact: true }).click();
   await expect(
     detail.getByRole('button', { name: 'Select Visits for Desktop: 210', exact: true }),
   ).toBeVisible();
   await detail.locator('.legend button').first().click();
-  await page.getByLabel('Show device share for').selectOption('jan');
+  await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('jan');
   await expect(detail.locator('.legend button').first()).toHaveAttribute('aria-pressed', 'false');
   await expect(overview.locator('.legend button').first()).toHaveAttribute('aria-pressed', 'true');
-  await page.getByLabel('Show device share for').selectOption('mar');
+  await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('mar');
   await expect(detail.locator('tbody')).toContainText('Missing');
   await expect(
     detail.getByRole('button', { name: 'Select Visits for Desktop: 0', exact: true }),
   ).toHaveCount(0);
-  await page.getByLabel('Show device share for').selectOption('feb');
+  await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('feb');
   await page.getByRole('button', { name: 'Remove February', exact: true }).click();
-  await expect(page.getByLabel('Show device share for')).toHaveValue('');
+  await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('');
   await expect(detail.getByRole('heading')).toHaveText('Device share · All months');
   await page.getByRole('button', { name: 'Restore linked data', exact: true }).click();
-  await expect(page.getByLabel('Show device share for')).toHaveValue('');
+  await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('');
   await page.getByRole('button', { name: 'Missing linked data', exact: true }).click();
   await expect(page.locator('.linked-status')).toHaveText('All months: No recorded device visits.');
   await page.getByRole('button', { name: 'Empty linked data', exact: true }).click();
@@ -141,7 +149,7 @@ test('keeps linked layouts usable in both themes and releases both charts on nav
       await expect
         .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
         .toBeLessThanOrEqual(width);
-      await page.getByLabel('Show device share for').selectOption('feb');
+      await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('feb');
       await expect(page.locator('.detail h2')).toHaveText('Device share · February');
     }
   }
@@ -167,7 +175,7 @@ test('keeps linked layouts usable in both themes and releases both charts on nav
     .getByRole('link', { name: 'Linked Charts', exact: true })
     .click();
   await expect(page.locator('canvas')).toHaveCount(2);
-  await expect(page.getByLabel('Show device share for')).toHaveValue('');
+  await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('');
   expect(errors).toEqual([]);
 });
 
