@@ -37,7 +37,8 @@ async function checkPages() {
     let url = process.argv[2];
     if (!url) {
       server = createServer(async (request, response) => {
-        const path = new URL(request.url, 'http://localhost').pathname;
+        const requestUrl = new URL(request.url, 'http://localhost');
+        const path = requestUrl.pathname;
         if (!path.startsWith(base)) return response.writeHead(404).end();
         let file = resolve(directory, decodeURIComponent(path.slice(base.length)));
         if (file !== directory && !file.startsWith(directory + '/'))
@@ -95,6 +96,11 @@ async function checkPages() {
       assert.equal(response.status, 200, `Direct route ${path} must exist without a SPA fallback`);
       const html = await response.text();
       assert(html.includes(`<base href="${base}">`));
+      if (path === 'calendar/')
+        assert(
+          html.includes('2024-02-29') && html.includes('Explore daily data'),
+          'Prerendered calendar must retain native leap-day data',
+        );
       if (path === 'radial/')
         assert(
           html.includes('<progress') && html.includes('value="6800"'),
@@ -150,11 +156,9 @@ async function checkPages() {
         await page.goto(new URL('calendar/', site).href);
         const calendar = page.locator('nec-calendar-heatmap');
         await expect(calendar.locator('canvas').first()).toBeVisible();
-        const calendarResponse = await page.reload();
-        assert(
-          (await calendarResponse.text()).includes('2024-02-29'),
-          'Calendar native leap day must be prerendered',
-        );
+        // Firefox can expose the intermediate directory redirect as reload's response.
+        // Initial HTML is checked above through fetch; here prove the page rehydrates.
+        await page.reload();
         await expect(calendar.locator('canvas').first()).toBeVisible();
         await calendar.locator('.calendar-data > summary').click();
         await calendar.locator('.calendar-month').first().locator('summary').click();
