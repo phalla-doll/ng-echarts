@@ -20,7 +20,7 @@ The complete `npm run check` passes in ordinary packing mode: production builds,
 
 A negative checksum experiment passes: supplying an all-zero expected digest fails before creating any consumer copy or running installation. The candidate remains unchanged. No benchmark rerun is needed for metadata/notices/tooling changes; the full bundle checks retain all seven budgets.
 
-The candidate was prepared from base commit `edd2e8f` plus the NG16 working changes, as recorded by `includesWorkingTree: true`; per-file hashes identify its packaged content. The artifact/checksum remain under ignored `dist/releases/`. Source/documentation commits are separate from this local artifact. Final formatting, local documentation links/anchors, and whitespace checks accompany the handoff.
+The candidate was prepared from base commit `edd2e8f` plus the NG16 working changes, as recorded by `includesWorkingTree: true`; per-file hashes identify its packaged content. The artifact/checksum remain under ignored `dist/releases/`. Source/documentation commits are separate from this local artifact. Formatting, 686 local documentation links/anchors and whitespace checks pass. NG16 source/metadata/notices are committed in `6297f85`. The updated [installation preview](https://phalla-doll.github.io/ng-echarts/installation/) returns HTTP 200 and includes the candidate filename and MIT status. The [Pages deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43368528003) succeeds; `preview-build.json` identifies clean source commit `6297f85`. Local/live Pages checks pass in Chromium, Firefox and WebKit.
 
 ## Release status
 

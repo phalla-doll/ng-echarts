@@ -60,3 +60,7 @@ The [comparison alignment](experiments/COMPARISON_PAGE_ALIGNMENT.md) is deployed
 ## Navigation icon deployment
 
 The [navigation icon correction](experiments/VISUAL_AUDIT.md#navigation-icon-correction) is live from clean source commit `3f39bee`. Static commit: `412a63d916ed68f601824228f5386b74d0ceab52`; the [Pages deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43366032389) succeeds. Build/strict compilation, nine gallery/navigation browser scenarios, all 24 static routes and local/live Pages checks pass in Chromium, Firefox and WebKit. Four additional live desktop/mobile icon captures have no page errors.
+
+## Local-candidate documentation deployment
+
+The demo now documents the private `0.1.0-rc.0` candidate and MIT license for original library code, alongside preserved third-party notices. Source commit: `6297f85`; static commit: `45e809b5d3dc018b505540b0d1fb3faeff853d6f`. The [Pages deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43368528003) succeeds. The live installation page returns HTTP 200 with the new tarball filename/MIT statement, and local/live Pages checks pass in all three engines. This deploys documentation; the verified candidate remains local under `dist/releases/`, with [artifact evidence](experiments/NG16_LOCAL_RELEASE.md) and the [release checklist](RELEASE_CHECKLIST.md).
