@@ -295,8 +295,14 @@ test('supports a real horizontal touch drag while leaving vertical touch scrolli
     await phone.goto(new URL('/linked', baseURL!).href);
     await expect(phone.locator('canvas')).toHaveCount(2);
     const arm = async () => {
-      await phone.getByRole('button', { name: 'Select range', exact: true }).tap();
+      const button = phone.getByRole('button', { name: 'Select range', exact: true });
       const surface = phone.locator('.nec-range-surface');
+      // A committed label can render before the previous adapter surface is removed
+      // on the next animation frame. Finish that transition before a new gesture.
+      await expect(button).toHaveAttribute('aria-pressed', 'false');
+      await expect(surface).toHaveCount(0);
+      await button.tap();
+      await expect(button).toHaveAttribute('aria-pressed', 'true');
       await expect(surface).toBeVisible();
       await surface.scrollIntoViewIfNeeded();
       return (await surface.boundingBox())!;
