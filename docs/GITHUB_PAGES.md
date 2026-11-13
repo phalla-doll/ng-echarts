@@ -1,0 +1,46 @@
+# GitHub Pages preview
+
+The demo is published from the root of the dedicated `gh-pages` branch at **https://phalla-doll.github.io/ng-echarts/**. The branch contains compiled static assets, fonts and notices. Deployment publishes the current working-tree demo snapshot without committing or pushing the source branch.
+
+## Build and verify
+
+Use Node from `.nvmrc` and npm 11.19.1, with workspace dependencies installed through `npm ci`:
+
+```sh
+npm run build:pages
+npm run check:pages
+```
+
+The `production,pages` build prerenders all 24 routes with base `/ng-echarts/`, retaining hydration metadata and lazy chart modules. Each route has a physical `index.html`, so direct links and refreshes work on static hosting. Router links/fragments preserve the repository prefix. The preparation step prefixes external font URLs in styles, inlined critical CSS and generated font preloads, and adds `.nojekyll`. The ordinary SSR build and measurement font paths remain available.
+
+The checker serves the artifact under the real project prefix with no SPA fallback. Chromium, Firefox and WebKit verify direct routes, refreshes, all four chart galleries, lazy assets/fonts, same-page fragments, skip-link focus, theme changes and mobile navigation.
+
+## Publish an update
+
+Authenticate GitHub CLI as a user with repository/Pages permissions, then run:
+
+```sh
+gh auth status
+npm run deploy:pages
+```
+
+This builds and checks the demo before pushing a normal commit to `gh-pages`. Git history is preserved; the helper never force-pushes. Initial publication configures the Pages source to `gh-pages` at `/`; later deployments retain that setup. It refuses to replace a different existing Pages source. Credentials use normal Git/GitHub CLI authentication and are not written into the artifact.
+
+Wait for GitHub's Pages deployment to finish, then verify the live site:
+
+```sh
+gh run list --workflow 'pages-build-deployment' --limit 3
+node tools/check-pages.mjs https://phalla-doll.github.io/ng-echarts/
+```
+
+`preview-build.json` identifies the source base commit, build time and whether the snapshot includes working-tree changes. Source changes still need their own review/commit; pushing source alone does not refresh this manual preview. A different repository name requires changing the Pages `baseHref` and deployment target in the local configuration/helpers.
+
+This publishes the experimental demo, not the library package. Deferred human interpretation, artifact licensing/release acceptance and registry publication remain separate.
+
+## Recorded deployment
+
+Published 13 November 2026 from the current working-tree demo snapshot. Static commit: `9930a004ddf0f06f093d8e73d5a59127437a977c`. GitHub's [Pages deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43355274308) completed successfully; Pages reports `built`.
+
+Verification passes locally and against the public URL in Chromium, Firefox and WebKit, including deep links/reloads, all galleries, lazy assets/fonts, fragments/focus, themes and mobile navigation. Related normal-SSR regression checks pass 30 browser scenarios and all 119 unit/integration tests, plus production build, strict compilation, formatting and `git diff --check`. The deployment bundle includes the adapted upstream MIT notice, generated third-party licenses and existing public font notices.
+
+The subsequent source handoff passes the complete `npm run check`: 119 unit/integration tests, 145 browser scenarios plus two expected CDP-only skips, isolated declaration/documentation/client/SSR consumers, server markup and all seven bundle scenarios. The source review also resolves 576 local documentation links/anchors. CI now runs the static build/check after this regression, with a 25-minute job budget for the expanded lifecycle/consumer checks. The pie visibility test uses stable button locators and waits for each state update, removing the filtered-locator race observed in the previous `main` CI run.

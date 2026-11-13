@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { PieChart, type PointSelection } from '@ng-echarts/chart-library/pie';
 import { pieExampleSource, type PieBlock } from './pie-blocks';
 import { visitorMeasure, browserPalette, type BrowserRow } from './fixtures/evilcharts-pie-fixture';
@@ -7,7 +8,7 @@ import { HighlightCode } from './highlight-code';
 
 @Component({
   selector: 'app-pie-block',
-  imports: [PieChart, SiteIcon, HighlightCode],
+  imports: [PieChart, SiteIcon, HighlightCode, RouterLink],
   templateUrl: './pie-block.html',
   styleUrl: './bar-block.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

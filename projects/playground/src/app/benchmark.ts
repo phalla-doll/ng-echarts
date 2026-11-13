@@ -36,6 +36,7 @@ declare global {
   interface Window {
     angularBarBenchmark?: {
       run(mode: 'mount' | 'update', count: number): Promise<number[]>;
+      profile(mode: 'legend' | 'resize', count: number): Promise<number[]>;
       table(count: number): Promise<number[]>;
       clear(): void;
     };
@@ -91,6 +92,7 @@ export class Benchmark {
     afterNextRender(() => {
       window.angularBarBenchmark = {
         run: (mode, count) => this.run(mode, count),
+        profile: (mode, count) => this.profile(mode, count),
         table: (count) => this.table(count),
         clear: () => this.clear(),
       };
@@ -181,6 +183,60 @@ export class Benchmark {
   }
   private rendered(): Promise<void> {
     return new Promise((resolve) => afterNextRender(() => resolve(), { injector: this.injector }));
+  }
+  private async profile(mode: 'legend' | 'resize', count: number): Promise<number[]> {
+    this.clear();
+    await this.sample('mount', count, 1);
+    const component = this.reference!.location.nativeElement as HTMLElement;
+    const host = component.closest<HTMLElement>('[data-benchmark-host]')!;
+    const plot = component.querySelector<HTMLElement>('.plot')!;
+    const legend = component.querySelector<HTMLButtonElement>('.legend button')!;
+    const samples: number[] = [];
+    try {
+      // Finish the initial ResizeObserver delivery before timing a new operation.
+      await new Promise<void>((resolve) =>
+        requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+      );
+      for (let index = 0; index < 31; index++) {
+        const visible = index % 2 === 1;
+        const width = index % 2 === 0 ? 640 : 768;
+        const duration = await new Promise<number>((resolve, reject) => {
+          const timeout = setTimeout(() => {
+            onFinished = undefined;
+            reject(new Error(`Angular ${mode} benchmark timed out`));
+          }, 10_000);
+          const start = performance.now();
+          onFinished = (chart) => {
+            const end = performance.now();
+            if (chart.getDom() !== plot) return;
+            if (mode === 'resize') {
+              if (host.clientWidth !== width || chart.getWidth() !== plot.clientWidth) return;
+            } else {
+              const rendered = chart.getOption()['series'] as {
+                id?: string;
+                data?: { id?: string }[];
+              }[];
+              const hasFirst =
+                this.family === 'pie'
+                  ? rendered[0]?.data?.some((row) => row.id === 'row-0')
+                  : rendered.some((item) => item.id === 'first');
+              if (hasFirst !== visible || legend.getAttribute('aria-pressed') !== String(visible))
+                return;
+            }
+            clearTimeout(timeout);
+            onFinished = undefined;
+            resolve(end - start);
+          };
+          if (mode === 'resize') host.style.width = `${width}px`;
+          else legend.click();
+        });
+        if (index > 0) samples.push(duration);
+      }
+      return samples;
+    } finally {
+      this.clear();
+      host.style.removeProperty('width');
+    }
   }
   private async table(count: number): Promise<number[]> {
     this.clear();

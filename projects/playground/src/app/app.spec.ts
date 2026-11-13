@@ -1,11 +1,14 @@
 import { PLATFORM_ID } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { App } from './app';
 import { SiteAppearance } from './site-appearance';
 
 describe('Playground', () => {
   it('integrates the built library and follows the shared site theme', async () => {
-    TestBed.configureTestingModule({ providers: [{ provide: PLATFORM_ID, useValue: 'server' }] });
+    TestBed.configureTestingModule({
+      providers: [provideRouter([]), { provide: PLATFORM_ID, useValue: 'server' }],
+    });
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const element = fixture.nativeElement as HTMLElement;

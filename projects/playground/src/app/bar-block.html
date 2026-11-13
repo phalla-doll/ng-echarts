@@ -1,6 +1,6 @@
 <section class="block-section" [id]="block().id" [attr.aria-labelledby]="block().id + '-heading'">
   <h2 [id]="block().id + '-heading'">
-    <a [href]="'#' + block().id">{{ block().title }}</a>
+    <a [routerLink]="[]" [fragment]="block().id">{{ block().title }}</a>
   </h2>
   <div class="block-card">
     <header class="block-header">

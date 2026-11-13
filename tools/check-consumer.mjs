@@ -77,6 +77,11 @@ try {
   );
   await writeFile(join(consumer, 'quick-start-example.ts'), quickStartExample);
   config.files.push('quick-start-example.ts');
+  const integrationGuide = await readFile(join(root, 'docs/INTEGRATION_GUIDE.md'), 'utf8');
+  const integrationExample = integrationGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
+  assert(integrationExample, 'Integration guide must contain its full application');
+  await writeFile(join(consumer, 'integration-example.ts'), integrationExample);
+  config.files.push('integration-example.ts');
   const barGuide = await readFile(join(root, 'docs/BAR_CHART_API.md'), 'utf8');
   const barApiExample = barGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
   assert(barApiExample, 'Bar API guide must contain its compilable integration example');
@@ -152,6 +157,12 @@ try {
     'Installed package must stay inside isolated consumer',
   );
   const manifest = JSON.parse(await readFile(join(installed, 'package.json'), 'utf8'));
+  const packagedReadme = await readFile(join(installed, 'README.md'), 'utf8');
+  const packagedExample = packagedReadme.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
+  assert(packagedExample, 'Packaged README must contain a complete first-chart example');
+  await writeFile(join(consumer, 'packaged-readme-example.ts'), packagedExample);
+  config.files.push('packaged-readme-example.ts');
+  await writeFile(configPath, JSON.stringify(config));
   assert.deepEqual(Object.keys(manifest.exports).sort(), [
     '.',
     './area',
@@ -185,6 +196,28 @@ try {
     'Line smooth must reject nonboolean template inputs',
   );
   assert(invalid.status !== 0, 'Invalid category keys must fail Angular template compilation');
+  const diagnostics = `${invalid.stdout}${invalid.stderr}`.replace(/\x1b\[[0-9;]*m/g, '');
+  const invalidSource = await readFile(join(consumer, 'invalid-consumer.ts'), 'utf8');
+  for (const [component, binding] of [
+    ['InvalidSeriesConsumer', '[series]="badSeries"'],
+    ['InvalidLine', '[series]="series"'],
+    ['InvalidLine', '[smooth]="\'yes\'"'],
+    ['InvalidArea', '[series]="series"'],
+    ['InvalidArea', '[stacked]="\'yes\'"'],
+    ['InvalidPie', '[measure]="{'],
+    ['InvalidPie', '[innerRadius]="\'wrong\'"'],
+  ]) {
+    const classAt = invalidSource.indexOf(`export class ${component} `);
+    assert(classAt >= 0, `Missing negative fixture ${component}`);
+    const templateAt = invalidSource.lastIndexOf('@Component', classAt);
+    const bindingAt = invalidSource.indexOf(binding, templateAt);
+    assert(bindingAt >= templateAt && bindingAt < classAt, `Missing ${component} ${binding}`);
+    const line = invalidSource.slice(0, bindingAt).split('\n').length;
+    assert(
+      new RegExp(`invalid-consumer\\.ts:${line}:\\d+ - error TS2322`).test(diagnostics),
+      `Expected a type error for ${component} ${binding} at line ${line}:\n${diagnostics}`,
+    );
+  }
   assert(
     /Type '"count"' is not assignable/.test(`${invalid.stdout}${invalid.stderr}`),
     `Expected the invalid category-key diagnostic:\n${invalid.stdout}\n${invalid.stderr}`,

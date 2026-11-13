@@ -84,6 +84,18 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "pages": {
+              "outputMode": "static",
+              "prerender": true,
+              "baseHref": "/ng-echarts/",
+              "outputPath": "dist/pages",
+              "fileReplacements": [
+                {
+                  "replace": "projects/playground/src/app/app.routes.server.ts",
+                  "with": "projects/playground/src/app/app.routes.pages.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"

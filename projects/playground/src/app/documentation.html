@@ -14,7 +14,7 @@
         [attr.aria-labelledby]="section.id + '-heading'"
       >
         <h2 [id]="section.id + '-heading'">
-          <a [href]="page.path + '#' + section.id" (click)="selectSection(section.id)">{{
+          <a [routerLink]="page.path" [fragment]="section.id" (click)="selectSection(section.id)">{{
             section.title
           }}</a>
         </h2>
@@ -58,7 +58,8 @@
     <p>On this page</p>
     @for (section of page.sections; track section.id) {
       <a
-        [href]="page.path + '#' + section.id"
+        [routerLink]="page.path"
+        [fragment]="section.id"
         (click)="selectSection(section.id)"
         [class.active]="activeSection() === section.id"
         >{{ section.title }}</a

@@ -1,5 +1,7 @@
 # Pie and donut API
 
+Use [installation](INSTALLATION.md), the [complete application example](INTEGRATION_GUIDE.md), and the [tested compatibility/limits table](COMPATIBILITY.md) with this API.
+
 Experimental Angular 22 `PieChart<T>` from `@ng-echarts/chart-library/pie`. Use the local workspace or packed artifact; public npm installation is not available yet. One component renders both pie and donut layouts.
 
 ```ts
@@ -55,4 +57,6 @@ Use shared `--nec-background`, `--nec-text`, `--nec-muted`, `--nec-border`, and 
 
 Focused `/pie` lazily registers only Pie, Tooltip, and Canvas. It configures no axes and excludes Grid/Cartesian coordinate systems, Bar/Line, SVG, and other Angular chart components. ECharts Tooltip retains shared axis-pointer support, counted in measured bytes. Root imports reexport `PieChart` for compatibility; use focused entries for smallest output. Core has no ECharts/ZRender runtime. Rendering waits for browser hydration, stable layout and fonts; observers, pending frames, motion listeners and instances are disposed on teardown. Renderer failures offer Retry chart.
 
-NG13 covers solid sectors, pie/donut radii, outside labels, missing/zero handling, native category visibility, formatting, and events. It excludes decorative gradients/patterns, padding/rounded/overlapping sectors, exploded persistent selection, multi-ring/progress compositions, custom tooltip templates, and raw ECharts options. Tested versions: Angular/CLI 22.2.6, TypeScript 6.0.3, ECharts 6.1.0, Node 24.22.2, npm 11.19.1. See [NG13 evidence](experiments/NG13_PIE_CHART.md).
+This API covers solid sectors, pie/donut radii, outside labels, missing/zero handling, native category visibility, formatting, and events. It excludes decorative gradients/patterns, padding/rounded/overlapping sectors, exploded persistent selection, multi-ring/progress compositions, custom tooltip templates, and raw ECharts options. Tested versions: Angular/CLI 22.2.6, TypeScript 6.0.3, ECharts 6.1.0, Node 24.22.2, npm 11.19.1. See [NG13 evidence](experiments/NG13_PIE_CHART.md).
+
+The starting measured envelope is 12 categories; 100 categories is stress evidence, measured on a donut with labels off. Crowded outside labels have separate layout costs. [NG14](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md) records current automated acceptance; human interpretation and final release gates remain pending.

@@ -1,6 +1,8 @@
 # Bar chart API
 
-Implemented Angular bar API, reviewed 12 November 2026. Package/API names remain experimental. Import from `@ng-echarts/chart-library/bar`; build or install the local tarball using the [installation instructions](../README.md#development). No public npm package is available.
+Use [installation](INSTALLATION.md), the [complete application example](INTEGRATION_GUIDE.md), and the [tested compatibility/limits table](COMPATIBILITY.md) with this API.
+
+Implemented Angular bar API, reviewed 13 November 2026. Package/API names remain experimental. Import from `@ng-echarts/chart-library/bar`; build or install the local tarball using the [installation instructions](INSTALLATION.md). No public npm package is available.
 
 ## Minimal integration
 
@@ -94,6 +96,6 @@ Error precedence is application error, loading, data/configuration or renderer e
 
 Grouped/stacked, vertical/horizontal, rounded, and solid/gradient combinations are implemented. Bar corners are 2 px, widths are capped at 48 px, and the gradient holds its color through 20% before becoming clear at 90%. Brush selection, arbitrary ECharts options, custom tooltip templates, and pixel identity with upstream are outside this API.
 
-Tested versions: Angular/CLI 22.2.6, TypeScript 6.0.3, ECharts 6.1.0, Node 24.22.2, npm 11.19.1. Current package peers require Angular common/core `^22.2.6` and ECharts `^6.1.0`; the full ranges have not been tested. The [recorded performance envelope](experiments/R07_RENDERER_COST.md) is up to 200 categories × three series on the reference machine; 2,000 × three is stress evidence rather than a hard API limit or latency guarantee.
+Tested versions: Angular/CLI 22.2.6, TypeScript 6.0.3, ECharts 6.1.0, Node 24.22.2, npm 11.19.1. Current package peers require Angular common/core `^22.2.6` and ECharts `^6.1.0`; the full ranges have not been tested. The [recorded performance envelope](COMPATIBILITY.md#data-and-measured-envelope) is up to 200 categories × three series on the reference machine; 2,000 × three is stress evidence rather than a hard API limit or latency guarantee.
 
 See [source comparison](experiments/R03_VISUAL_REVIEW.md), [provenance](UPSTREAM_PROVENANCE.md), [package boundaries](experiments/NG09_PACKAGE_BOUNDARIES.md), and [foundation/bar acceptance](experiments/NG09_NG10_ACCEPTANCE.md). The deferred human listening review remains a release requirement.

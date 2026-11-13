@@ -1,53 +1,99 @@
-# Chart library
+# Angular chart library
 
-Experimental Angular 22 library. The local package identity is `@ng-echarts/chart-library`; it is private and is not a selected public npm name.
+Experimental standalone Angular 22 components using Apache ECharts. The local identity `@ng-echarts/chart-library` is private and has not been published. Public naming, final artifact licensing/notices and release acceptance remain open. Preserve `third-party/evilcharts-LICENSE.txt` with the package.
 
-`PieChart<T>` renders pie and donut layouts from one `ChartMeasure<T>`; see the [pie/donut API](https://github.com/phalla-doll/ng-echarts/blob/main/docs/PIE_CHART_API.md). Category legend events identify rows, and negative values are rejected.
+## Installation
 
-`LineChart<T>` is now available from `/line`; see the [line API reference](https://github.com/phalla-doll/ng-echarts/blob/main/docs/LINE_CHART_API.md) for smooth/straight interpolation, optional points, gaps, and shared input/event behavior.
+In the source checkout, use Node 24.22.2 and npm 11.19.1, then run `npm ci` and `npm run pack:lib`. Install the resulting file into a separate Angular application:
 
-`BarChart<T>` is an experimental native Angular bar component. ECharts `^6.1.0` is a required peer; 6.1.0 is tested. Inputs include `title`, `description`, readonly `data` and `series`, string identity/category keys, `height`, `layout`, `stacked`, `gradient`, `theme`, `themeRevision`, `locale`, `numberFormatOptions`, `valueFormatter`, `categoryTickFormatter`, `showDataTable`, `loading`, `error`, and `animation`. `pointSelect` and `legendChange` emit stable identifiers. Replace input references when data changes.
-
-`ChartSeries<T>` restricts measure keys to numeric/nullish numeric fields. `PointSelection<T>` includes the original row, numeric value, row/series IDs, and `plot` or `table` source. Null/missing values stay missing. The table is initially collapsed, and legend filtering preserves its full dataset. Set `[showDataTable]="false"` to omit both its toggle and contents, as the gallery does; the default is `true`. Keep it enabled or provide equivalent controls when users need keyboard point selection. Reenabling preserves the previous expansion state.
-
-The [bar API reference](https://github.com/phalla-doll/ng-echarts/blob/main/docs/BAR_CHART_API.md) lists every input/default, event payload, behavior, tested version, and current limit.
-
-`AreaChart<T>` is available from `/area`; see the [area API reference](https://github.com/phalla-doll/ng-echarts/blob/main/docs/AREA_CHART_API.md) for independent fills, same-sign stacks, raw events, and gap semantics.
-
-## Imports and package boundaries
-
-```ts
-import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';
-import { LineChart } from '@ng-echarts/chart-library/line';
-import { AreaChart } from '@ng-echarts/chart-library/area';
-import { PieChart, type ChartMeasure } from '@ng-echarts/chart-library/pie';
-import { ChartFrame } from '@ng-echarts/chart-library/core';
+```sh
+npm install /absolute/path/to/ng-echarts-chart-library-0.0.0.tgz echarts@6.1.0
 ```
 
-`/bar` owns the component and lazy modular Canvas renderer. `/line` owns the line component and its lazy Canvas renderer. `/core` owns `ChartFrame`, shared types, and internal Cartesian behavior and includes no ECharts/ZRender runtime bytes. Root imports remain compatible and refer to the same classes; use focused subpaths for new code. Internal source paths are not public exports. All entries ship in one tarball with the existing required Angular/ECharts peers.
+Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes.
 
-`npm run check:bundle` measures focused and compatibility imports and rejects unrelated chart families, SVG, or eagerly included engine code. Focused family gzip/Brotli budgets remain 200,000/175,000 bytes; core is limited to 10,000/9,000 bytes, excluding Angular/RxJS peers. The combined four-family root uses 210,000/175,000; root-frame retains 200,000/175,000. [NG13](https://github.com/phalla-doll/ng-echarts/blob/main/docs/experiments/NG13_PIE_CHART.md#performance-and-packaging) records the additional Pie-engine budget and measured totals. See [package evidence](https://github.com/phalla-doll/ng-echarts/blob/main/docs/experiments/NG09_PACKAGE_BOUNDARIES.md).
+No global ECharts registration, library stylesheet, Angular provider or React runtime is required. The package supplies scoped styles and a lazy Canvas renderer. Give its containing card a nonzero width. Plot height defaults to 320 px, with native controls adding to total height.
+
+## First chart
+
+This complete `App` can replace `src/app/app.ts` in the CLI's standalone application; keep the generated bootstrap and app configuration. Explicitly set `strict: true`, `strictTemplates: true` and `skipLibCheck: false` in the corresponding TypeScript/Angular compiler options.
+
+```ts
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';
+
+interface Visit {
+  readonly id: string;
+  readonly month: string;
+  readonly desktop: number;
+  readonly mobile: number | null;
+}
+
+@Component({
+  selector: 'app-root',
+  imports: [BarChart],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `<nec-bar-chart
+    title="Monthly visits" description="Desktop and mobile visits by month."
+    [data]="rows" rowIdKey="id" categoryKey="month" [series]="series"
+  />`,
+})
+export class App {
+  protected readonly rows: readonly Visit[] = [
+    { id: 'jan', month: 'January', desktop: 342, mobile: 184 },
+    { id: 'feb', month: 'February', desktop: 0, mobile: null },
+  ];
+  protected readonly series: readonly ChartSeries<Visit>[] = [
+    { id: 'desktop', key: 'desktop', label: 'Desktop' },
+    { id: 'mobile', key: 'mobile', label: 'Mobile' },
+  ];
+}
+```
+
+The installed-declaration check compiles this exact packaged example, each API guide, copied gallery variants, and the complete four-chart integration example.
+
+## Components and contracts
+
+| Component | Focused import | Behavior |
+| --- | --- | --- |
+| `BarChart<T>` | `@ng-echarts/chart-library/bar` | Grouped/stacked, vertical/horizontal, solid/gradient |
+| `LineChart<T>` | `@ng-echarts/chart-library/line` | Straight/smooth, optional points, missing-value gaps |
+| `AreaChart<T>` | `@ng-echarts/chart-library/area` | Independent gradient/solid fills, same-sign stacks |
+| `PieChart<T>` | `@ng-echarts/chart-library/pie` | One measure across categories; innerRadius 0 for pie, 0.6 for donut; optional outside labels |
+| `ChartFrame` and shared types | `@ng-echarts/chart-library/core` | Presentation shell with required title, optional description and projected content; no engine runtime |
+
+All charts require `title`, immutable `data`, `rowIdKey`, `categoryKey`, and either Cartesian `series: readonly ChartSeries<T>[]` or one pie `measure: ChartMeasure<T>`. Measures have `id`, numeric `key` and `label`; Cartesian series also accept `color`. IDs must be unique nonempty strings; labels may repeat. Numeric keys exclude text, `any`, `unknown` and exclusively nullish fields.
+
+Replace row, series and configuration references to update them. Visibility follows stable IDs; new IDs start visible and removed IDs are discarded. Null/undefined stay missing, zero stays numeric, and Cartesian negatives are valid. Pie rejects negative/nonfinite values and overflowing totals; zero totals are empty. Line/area gaps never become zero. Area events return raw observations rather than stack totals.
+
+`pointSelect` emits the original row, `rowId`, `seriesId`, raw `value`, and `source: 'plot' | 'table'`. Pie uses the measure ID as `seriesId`. Cartesian `legendChange` emits `{ seriesId, visible }`; pie emits `{ rowId, visible }`. Filtering keeps the complete table.
 
 ## Numeric formatting
 
-Locale defaults to the explicit `en-US`. Bind immutable `Intl.NumberFormatOptions` for currency, percent, precision, or units, for example `readonly money: Intl.NumberFormatOptions = { style: 'currency', currency: 'USD' }` and `[numberFormatOptions]="money"`.
+Locale defaults to explicit `en-US`. Supply immutable `Intl.NumberFormatOptions` through `numberFormatOptions`, or a pure synchronous `ValueFormatter = (value: number) => string` through `valueFormatter`. Custom text appears on numeric axes, tooltips, tables and action names. Handle generated finite axis ticks as well as supplied observations. Missing values bypass callbacks; events keep raw numbers and tooltip text is escaped. Pie has no axes. Cartesian `categoryTickFormatter` changes axis text only.
 
-For custom text, bind a pure, synchronous `ValueFormatter = (value: number) => string` through `[valueFormatter]="formatValue"`. It overrides the generated numeric text everywhere: value-axis ticks, tooltip values, table cells, and action labels. It must handle any finite axis tick, including values absent from the dataset. Keep the locale, options, formatter, and data deterministic on server and client. Locale/options are validated even when a custom callback is supplied.
+Keep initial data, locale, options and formatter behavior deterministic on server and client. Invalid formatting enters the configuration-error state and recovers with valid replacement inputs.
 
-Known observation labels are cached for custom formatters; missing values never reach the callback and remain `Missing`. Zero values stay numeric. Cartesian charts accept negatives; pie/donut rejects negatives and treats zero totals as empty. Selection events retain the original number. Callback output is plain text and escaped in HTML tooltips. Invalid options or observation callbacks show a generic configuration error; failures on generated axis ticks are contained by the renderer and recover when valid inputs replace them.
+## States, themes and accessibility
 
-`categoryTickFormatter` changes only category-axis text. Full categories remain in tooltips, table headings, and point-action labels.
+Common optional inputs include `description`, `height` (320), `theme` (`light`), `themeRevision` (0), `locale` (`en-US`), `numberFormatOptions`, `valueFormatter`, `showDataTable` (true), `loading` (false), `error` (null), and `animation` (true). Family guides specify additional settings. State precedence is application error, loading, validation/configuration/renderer error, empty, then ready. Nonready states remove stale plot actions. Renderer failures also offer Retry chart.
 
-Use `--nec-background`, `--nec-text`, `--nec-muted`, `--nec-border`, `--nec-focus`, and `--nec-series-1` onward for CSS tokens. Change `theme` or increment `themeRevision` to request new color reads. Reduced motion overrides decorative animation. The renderer initializes only in the browser.
+Use meaningful titles/descriptions. Tables are initially collapsed and supply complete values and keyboard point actions. Keep them enabled or provide equivalent actions. Gallery previews disable them at the user's request; Code tabs do not replace keyboard controls. Native legends expose pressed states and retain focus. Human screen-reader interpretation remains deferred to release acceptance.
 
-Chart axes and tooltips inherit the host element's CSS `font-family`. Initial browser rendering waits for that font to load; failed font requests use the normal fallback stack. The package does not bundle or require Inter. When changing fonts after initialization, load the new face first and increment `themeRevision` to reread the host style.
+CSS tokens are `--nec-background`, `--nec-text`, `--nec-muted`, `--nec-border`, `--nec-focus`, and numbered `--nec-series-N` colors. Explicit Cartesian series colors take precedence. Change `theme` or increment `themeRevision` after CSS/font changes. Load a replacement font before requesting the refresh. Fonts are inherited; no font assets or Inter dependency ship in the package. Reduced motion overrides decorative animation.
 
-`ChartFrame` remains a presentation shell with required `title`, optional `description`, and projected content. All APIs remain provisional through cross-family and release acceptance; bar technical feasibility passes, while the human quality review remains deferred. Preserve the packaged upstream notice in `third-party/`.
+SSR emits native Angular headings, controls and fallback surfaces. Keep the application's hydration configuration. The browser adapter starts the plot after stability, dimensions and fonts are ready; hidden hosts recover when shown. Angular destruction removes observers/listeners, pending frames and the renderer. No consumer initialization or hydration bypass is needed.
 
-Build with `npm run build:lib` from the workspace root. See the root README and `docs/IMPLEMENTATION_PLAN.md` for the implementation sequence and validation commands.
+## Compatibility and limits
 
-`ɵ`-prefixed core exports support implementation across entry points and are not stable consumer APIs. Focused `/bar` excludes line rendering, focused `/line` excludes bar rendering, and core excludes engine runtime modules.
+Tested: Angular/CLI 22.2.6, TypeScript 6.0.3, ECharts 6.1.0, RxJS 7.8.2, Node 24.22.2, npm 11.19.1; Chromium 158.0.8127.18, Firefox 159.0, WebKit 27.2. Manifest peers are Angular common/core `^22.2.6` and ECharts `^6.1.0`; tslib is a dependency `^2.3.0`. Exact tests do not establish every allowed version combination or another Angular major.
 
-`/area` owns its component, independent fills/stacks, and lazy Line/Grid/Tooltip/Canvas registration. It shares pure curve policy with line through core, excludes Bar/SVG and other component entries, and follows the unchanged 200,000 gzip / 175,000 Brotli family budget. The root compatibility entry reexports all three Cartesian components and PieChart.
+The starting measured envelope is 200 categories × three Cartesian series or 12 radial categories on the recorded M2 Pro machine. Stress fixtures use 2,000 Cartesian or 100 radial categories; these are observations, not hard limits or portable latency guarantees. Outside labels may shorten/hide collisions; expanded tables have separate costs.
 
-Pie and donut: import `PieChart` and `ChartMeasure<T>` from `@ng-echarts/chart-library/pie`. Supply one measure; use `[innerRadius]="0.6"` for a donut. Category legend changes emit row IDs. See the [pie/donut API](https://github.com/phalla-doll/ng-echarts/blob/main/docs/PIE_CHART_API.md) and [NG13 evidence](https://github.com/phalla-doll/ng-echarts/blob/main/docs/experiments/NG13_PIE_CHART.md).
+Focused imports keep unrelated engines out. Line and area intentionally share ECharts' Line engine. Root imports preserve class identity but include combined registrations. Deep paths and core `ɵ` exports are unsupported implementation APIs. Size checks count all lazy chunks, excluding Angular/RxJS peers: gzip/Brotli caps are 200,000/175,000 bytes per family, 10,000/9,000 for core, 210,000/175,000 for root, and 200,000/175,000 for root-frame.
+
+Raw ECharts options, custom tooltip templates, time/logarithmic axes, server plot images/export, brushes, advanced decoration and additional chart families are outside the MVP. APIs remain experimental. Automated acceptance passes; human interpretation and final artifact/release gates remain pending.
+
+## Repository guides
+
+The checkout contains complete [installation](https://github.com/phalla-doll/ng-echarts/blob/main/docs/INSTALLATION.md), [integration](https://github.com/phalla-doll/ng-echarts/blob/main/docs/INTEGRATION_GUIDE.md), and [compatibility](https://github.com/phalla-doll/ng-echarts/blob/main/docs/COMPATIBILITY.md) guides, plus [bar](https://github.com/phalla-doll/ng-echarts/blob/main/docs/BAR_CHART_API.md), [line](https://github.com/phalla-doll/ng-echarts/blob/main/docs/LINE_CHART_API.md), [area](https://github.com/phalla-doll/ng-echarts/blob/main/docs/AREA_CHART_API.md) and [pie/donut](https://github.com/phalla-doll/ng-echarts/blob/main/docs/PIE_CHART_API.md) references. In the source workspace, run `npm run build:lib`, `npm run check:consumer` and `npm run check:docs` to reproduce documentation checks; these scripts are not commands inside the installed package.

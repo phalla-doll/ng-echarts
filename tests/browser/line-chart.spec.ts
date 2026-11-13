@@ -137,7 +137,8 @@ test('paints real missing-value gaps and emits updated pointer/keyboard values w
 
 test('recovers line states, replays deferred hydration, and disposes chart-owned resources', async ({
   page,
-}) => {
+}, testInfo) => {
+  test.setTimeout(180_000);
   const errors = collectBrowserErrors(page);
   await installResourceAudit(page);
   const response = await page.goto('/line-validation');
@@ -162,13 +163,32 @@ test('recovers line states, replays deferred hydration, and disposes chart-owned
   await expect(chart.locator('canvas')).toHaveCount(1);
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  for (let index = 0; index < 10; index++) {
+  for (let index = 0; index < 100; index++) {
+    const previousPlot = await chart.locator('.plot').elementHandle();
     await page.getByRole('button', { name: 'Mount line', exact: true }).click();
     await expect(chart.locator('canvas')).toHaveCount(0);
-    await expect.poll(() => page.evaluate(() => window.chartAudit.observedTargets)).toBe(0);
+    expect(await previousPlot!.getAttribute('_echarts_instance_')).toBe('');
+    await previousPlot!.dispose();
+    await expect
+      .poll(() => page.evaluate(() => window.chartAudit))
+      .toEqual({ resizeObservers: 0, observedTargets: 0, motionListeners: 0, frames: 0 });
+    await expect(page.locator('[data-nec-tooltip]')).toHaveCount(0);
+    await expect.poll(() => page.evaluate(() => window.chartFocusListeners)).toBe(0);
     await page.getByRole('button', { name: 'Mount line', exact: true }).click();
     await expect(chart.locator('canvas')).toHaveCount(1);
+    await expect.poll(() => page.evaluate(() => window.chartFocusListeners)).toBe(2);
   }
+  await testInfo.attach('line-100-cycles.json', {
+    body: JSON.stringify({
+      family: 'line',
+      browser: testInfo.project.name,
+      cycles: 100,
+      zeroResourcesAfterEveryDestroy: true,
+      zeroFocusListenersAfterEveryDestroy: true,
+      disposedInstanceAfterEveryDestroy: true,
+    }),
+    contentType: 'application/json',
+  });
   const deferred = page.locator('.deferred-line');
   await expect(deferred.locator('canvas')).toHaveCount(0);
   await deferred.getByRole('button', { name: 'Show data table', exact: true }).click();

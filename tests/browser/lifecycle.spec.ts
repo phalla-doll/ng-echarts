@@ -115,15 +115,20 @@ test('releases native resources across repeated real chart mount/destroy cycles'
   await installResourceAudit(page);
   await page.goto('/playground');
   await expect(page.locator('canvas')).toHaveCount(1);
-  const cycles = browserName === 'chromium' ? 100 : 10;
+  const cycles = 100;
   const samples: unknown[] = [];
   const client = browserName === 'chromium' ? await page.context().newCDPSession(page) : null;
   for (let index = 0; index < cycles; index++) {
+    const previousPlot = await page.locator('nec-bar-chart .plot').elementHandle();
     await page.getByRole('button', { name: 'Show chart', exact: true }).click();
     await expect(page.locator('canvas')).toHaveCount(0);
+    expect(await previousPlot!.getAttribute('_echarts_instance_')).toBe('');
+    await previousPlot!.dispose();
     await expect
       .poll(() => page.evaluate(() => window.chartAudit))
       .toEqual({ resizeObservers: 0, observedTargets: 0, motionListeners: 0, frames: 0 });
+    await expect.poll(() => page.evaluate(() => window.chartFocusListeners)).toBe(0);
+    await expect(page.locator('[data-nec-tooltip]')).toHaveCount(0);
     if (client && [0, 9, 49, 99].includes(index)) {
       await client.send('HeapProfiler.collectGarbage');
       samples.push({
@@ -136,7 +141,20 @@ test('releases native resources across repeated real chart mount/destroy cycles'
     await expect(page.locator('canvas')).toHaveCount(1);
   }
   const evidence = testInfo.outputPath('resource-audit.json');
-  await writeFile(evidence, JSON.stringify({ browserName, cycles, samples }, null, 2));
+  await writeFile(
+    evidence,
+    JSON.stringify(
+      {
+        browserName,
+        cycles,
+        zeroFocusListenersAfterEveryDestroy: true,
+        disposedInstanceAfterEveryDestroy: true,
+        samples,
+      },
+      null,
+      2,
+    ),
+  );
   await testInfo.attach('resource-audit.json', { path: evidence, contentType: 'application/json' });
   expect(errors).toEqual([]);
 });

@@ -2,19 +2,21 @@
 
 ## Project Structure and Scope
 
-Angular 22 chart library using Apache ECharts. A bar prototype is implemented; feasibility gates remain open.
+Angular 22 chart library using Apache ECharts. Bar, line, area, and pie/donut are implemented. NG14 automated acceptance and NG15 documentation are recorded; human interpretation and release gates remain open. The demo is deployed to GitHub Pages.
 
 - `README.md`: overview and document index.
 - `docs/PRODUCT_SPEC.md`: MVP scope and required behavior.
-- `docs/TECHNICAL_ARCHITECTURE.md`: proposed API, rendering lifecycle, and implementation conventions.
+- `docs/TECHNICAL_ARCHITECTURE.md`: implemented API, rendering lifecycle, and implementation conventions.
+- `docs/INSTALLATION.md`, `docs/INTEGRATION_GUIDE.md`, and `docs/COMPATIBILITY.md`: verified installation/examples, exact tested versions, and limits.
+- `docs/GITHUB_PAGES.md`: live preview, static build, verification, and manual deployment.
 - `docs/IMPLEMENTATION_PLAN.md`, `docs/RND_PLAN.md`, `docs/BACKLOG.md`, and `docs/ACCEPTANCE_MATRIX.md`: delivery sequence, experiments, tasks, and evidence.
 - `docs/RESEARCH_FINDINGS.md` and `docs/SOURCES.md`: compatibility facts and upstream references.
 
-Library source and colocated tests: `projects/chart-library/src/`. Playground source: `projects/playground/src/`; assets: `projects/playground/public/`. Isolated consumers: `tools/consumer-fixtures/`; evidence: `docs/experiments/`.
+Library source and colocated tests: `projects/chart-library/{core,bar,line,area,pie}/src/`; root compatibility exports: `projects/chart-library/src/`. Playground source: `projects/playground/src/`; assets: `projects/playground/public/`. Isolated consumers: `tools/consumer-fixtures/`; evidence: `docs/experiments/`.
 
 ## Implementation Workflow
 
-The product specification owns scope; research findings own compatibility ranges. Follow the implementation plan and upstream provenance ledger. Prove the bar prototype through G1/G2 before expanding to line, area, and pie/donut.
+The product specification owns scope; research findings own compatibility ranges. Follow the implementation plan and upstream provenance ledger. G1 passes for bar. The user deferred R06 human listening to release acceptance and authorized continued development through NG14/NG15; retain human F09 and G2/G3/G4 as pending until their evidence exists. NG16 final artifact/license/notices is next. Demo deployment does not publish the library package or close release gates.
 
 ## Build, Test, and Development Commands
 
@@ -24,7 +26,9 @@ Use Node from `.nvmrc` and npm 11.19.1; install with `npm ci`.
 - `npm start`: serve playground; first run `npm run build:lib`.
 - `npm run watch:lib`: rebuild library changes alongside the playground.
 - `npm test`: run Vitest once; `npm run test:watch` watches.
-- `npm run check`: formatting, builds, strict compilation, tests, isolated declarations, SSR, and three-browser scenarios. First install browsers with `npx playwright install chromium firefox webkit`.
+- `npm run check`: formatting, builds, strict compilation, tests, isolated declarations/documentation/runtime consumers, SSR, three-browser scenarios, and package budgets. First install browsers with `npx playwright install chromium firefox webkit`.
+- `npm run build:pages` / `npm run check:pages`: prerender and verify the static preview under `/ng-echarts/`; retain direct-route HTML, subpath-safe links/fonts, hydration, and notices.
+- `npm run deploy:pages`: rebuild/check and push compiled assets to `gh-pages`; requires GitHub CLI access. Source commits are separate, and pushes to `main` do not automatically redeploy the preview.
 - `npm run format`: apply Prettier.
 
 Verify documentation links, heading anchors, and `git diff --check` before committing.

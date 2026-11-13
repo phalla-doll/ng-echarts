@@ -1,5 +1,7 @@
 # Area chart API
 
+Use [installation](INSTALLATION.md), the [complete application example](INTEGRATION_GUIDE.md), and the [tested compatibility/limits table](COMPATIBILITY.md) with this API.
+
 Experimental native Angular 22 area charts. Import from `@ng-echarts/chart-library/area` using the local workspace or packed artifact; no public npm installer is available.
 
 ```ts
@@ -62,6 +64,8 @@ Area uses 2 px outlines, theme-aware independent fills, the same host-font loadi
 
 `/area` lazily registers ECharts Line, Grid, Tooltip, and Canvas: ECharts implements area fill through its line engine. Focused area imports exclude Bar/SVG and other component entries. Focused line imports exclude the AreaChart component; both intentionally use the line engine. The package root reexports AreaChart alongside existing components. Core's `ɵ` exports are unsupported implementation APIs.
 
-Area covers multi-series gradient/solid fills, grouping/stacking, straight/smooth curves, optional points, and gaps. Latency/portfolio compositions, dotted/hatched textures, brush, normalized/expanded stacks, step/bump curves, decorative strokes, custom tooltip templates, and raw ECharts option overrides remain outside NG12.
+Area covers multi-series gradient/solid fills, grouping/stacking, straight/smooth curves, optional points, and gaps. Latency/portfolio compositions, dotted/hatched textures, brush, normalized/expanded stacks, step/bump curves, decorative strokes, custom tooltip templates, and raw ECharts option overrides remain outside this API.
 
 Use `/area` for the gallery, `/area-validation` for behavior checks, and `/area-comparison` for pinned reference conditions. `npm run benchmark:area` measures the actual Angular component; `npm run capture:area` reproduces the source comparisons after preparing the reference harness. Tested toolchain versions remain Angular/CLI 22.2.6, TypeScript 6.0.3, ECharts 6.1.0, Node 24.22.2, and npm 11.19.1. See the [NG12 report](experiments/NG12_AREA_CHART.md) for validation, measurements, supported envelope, and release limitations.
+
+The starting measured envelope is 200 categories and three series; 2,000 categories is stress evidence. [NG14](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md) records current automated acceptance; human interpretation and final release gates remain pending.

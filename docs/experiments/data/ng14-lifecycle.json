@@ -1,0 +1,269 @@
+{
+  "recordedAt": "2026-11-13T02:14:46.864092+00:00",
+  "baseline": "8a110af plus NG14 working changes",
+  "node": "v24.22.2",
+  "machine": {
+    "platform": "darwin",
+    "release": "27.2.0",
+    "cpu": "Apple M2 Pro",
+    "logicalCpus": 10,
+    "memoryBytes": 34359738368
+  },
+  "playwright": "1.65.0",
+  "command": "npx playwright test tests/browser/lifecycle.spec.ts tests/browser/line-chart.spec.ts tests/browser/area-chart.spec.ts tests/browser/pie-chart.spec.ts --grep 'recovers (line|area|pie) states|releases native resources' --reporter=json",
+  "method": "100 real Angular mount/destroy cycles per family/engine; after every destruction assert zero canvas/tooltip content, active ResizeObservers/targets, motion listeners, animation frames and document focus listeners; retained detached plot has an empty ECharts instance marker and its test handle is then disposed. Each new-family remount has one canvas and two focus listeners. Chromium bar includes CDP post-GC observations, not a portable heap threshold.",
+  "stats": {
+    "startTime": "2026-11-13T02:10:55.443Z",
+    "duration": 197526.304,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "totalMountDestroyCycles": 1200,
+  "results": [
+    {
+      "family": "area",
+      "browser": "chromium",
+      "browserVersion": "158.0.8127.18",
+      "source": "tests/browser/area-chart.spec.ts:165",
+      "title": "recovers area states, hydrates deferred controls, and disposes observers and instances",
+      "status": "passed",
+      "durationMs": 25923,
+      "audit": {
+        "family": "area",
+        "browser": "chromium",
+        "cycles": 100,
+        "zeroResourcesAfterEveryDestroy": true,
+        "zeroFocusListenersAfterEveryDestroy": true,
+        "disposedInstanceAfterEveryDestroy": true
+      }
+    },
+    {
+      "family": "area",
+      "browser": "firefox",
+      "browserVersion": "159.0",
+      "source": "tests/browser/area-chart.spec.ts:165",
+      "title": "recovers area states, hydrates deferred controls, and disposes observers and instances",
+      "status": "passed",
+      "durationMs": 10357,
+      "audit": {
+        "family": "area",
+        "browser": "firefox",
+        "cycles": 100,
+        "zeroResourcesAfterEveryDestroy": true,
+        "zeroFocusListenersAfterEveryDestroy": true,
+        "disposedInstanceAfterEveryDestroy": true
+      }
+    },
+    {
+      "family": "area",
+      "browser": "webkit",
+      "browserVersion": "27.2",
+      "source": "tests/browser/area-chart.spec.ts:165",
+      "title": "recovers area states, hydrates deferred controls, and disposes observers and instances",
+      "status": "passed",
+      "durationMs": 16300,
+      "audit": {
+        "family": "area",
+        "browser": "webkit",
+        "cycles": 100,
+        "zeroResourcesAfterEveryDestroy": true,
+        "zeroFocusListenersAfterEveryDestroy": true,
+        "disposedInstanceAfterEveryDestroy": true
+      }
+    },
+    {
+      "family": "bar",
+      "browser": "chromium",
+      "browserVersion": "158.0.8127.18",
+      "source": "tests/browser/lifecycle.spec.ts:109",
+      "title": "releases native resources across repeated real chart mount/destroy cycles",
+      "status": "passed",
+      "durationMs": 22883,
+      "audit": {
+        "browserName": "chromium",
+        "cycles": 100,
+        "zeroFocusListenersAfterEveryDestroy": true,
+        "disposedInstanceAfterEveryDestroy": true,
+        "samples": [
+          {
+            "cycle": 1,
+            "documents": 2,
+            "nodes": 1441,
+            "jsEventListeners": 71,
+            "usedSize": 7245672,
+            "totalSize": 8028160,
+            "embedderHeapUsedSize": 1438168,
+            "backingStorageSize": 971599
+          },
+          {
+            "cycle": 10,
+            "documents": 2,
+            "nodes": 1448,
+            "jsEventListeners": 72,
+            "usedSize": 8816588,
+            "totalSize": 9601024,
+            "embedderHeapUsedSize": 1532216,
+            "backingStorageSize": 971737
+          },
+          {
+            "cycle": 50,
+            "documents": 2,
+            "nodes": 1448,
+            "jsEventListeners": 72,
+            "usedSize": 9311396,
+            "totalSize": 10125312,
+            "embedderHeapUsedSize": 1568360,
+            "backingStorageSize": 971721
+          },
+          {
+            "cycle": 100,
+            "documents": 2,
+            "nodes": 1448,
+            "jsEventListeners": 72,
+            "usedSize": 9598984,
+            "totalSize": 10911744,
+            "embedderHeapUsedSize": 1603808,
+            "backingStorageSize": 971721
+          }
+        ]
+      }
+    },
+    {
+      "family": "bar",
+      "browser": "firefox",
+      "browserVersion": "159.0",
+      "source": "tests/browser/lifecycle.spec.ts:109",
+      "title": "releases native resources across repeated real chart mount/destroy cycles",
+      "status": "passed",
+      "durationMs": 8197,
+      "audit": {
+        "browserName": "firefox",
+        "cycles": 100,
+        "zeroFocusListenersAfterEveryDestroy": true,
+        "disposedInstanceAfterEveryDestroy": true,
+        "samples": []
+      }
+    },
+    {
+      "family": "bar",
+      "browser": "webkit",
+      "browserVersion": "27.2",
+      "source": "tests/browser/lifecycle.spec.ts:109",
+      "title": "releases native resources across repeated real chart mount/destroy cycles",
+      "status": "passed",
+      "durationMs": 14896,
+      "audit": {
+        "browserName": "webkit",
+        "cycles": 100,
+        "zeroFocusListenersAfterEveryDestroy": true,
+        "disposedInstanceAfterEveryDestroy": true,
+        "samples": []
+      }
+    },
+    {
+      "family": "line",
+      "browser": "chromium",
+      "browserVersion": "158.0.8127.18",
+      "source": "tests/browser/line-chart.spec.ts:138",
+      "title": "recovers line states, replays deferred hydration, and disposes chart-owned resources",
+      "status": "passed",
+      "durationMs": 24707,
+      "audit": {
+        "family": "line",
+        "browser": "chromium",
+        "cycles": 100,
+        "zeroResourcesAfterEveryDestroy": true,
+        "zeroFocusListenersAfterEveryDestroy": true,
+        "disposedInstanceAfterEveryDestroy": true
+      }
+    },
+    {
+      "family": "line",
+      "browser": "firefox",
+      "browserVersion": "159.0",
+      "source": "tests/browser/line-chart.spec.ts:138",
+      "title": "recovers line states, replays deferred hydration, and disposes chart-owned resources",
+      "status": "passed",
+      "durationMs": 9230,
+      "audit": {
+        "family": "line",
+        "browser": "firefox",
+        "cycles": 100,
+        "zeroResourcesAfterEveryDestroy": true,
+        "zeroFocusListenersAfterEveryDestroy": true,
+        "disposedInstanceAfterEveryDestroy": true
+      }
+    },
+    {
+      "family": "line",
+      "browser": "webkit",
+      "browserVersion": "27.2",
+      "source": "tests/browser/line-chart.spec.ts:138",
+      "title": "recovers line states, replays deferred hydration, and disposes chart-owned resources",
+      "status": "passed",
+      "durationMs": 14852,
+      "audit": {
+        "family": "line",
+        "browser": "webkit",
+        "cycles": 100,
+        "zeroResourcesAfterEveryDestroy": true,
+        "zeroFocusListenersAfterEveryDestroy": true,
+        "disposedInstanceAfterEveryDestroy": true
+      }
+    },
+    {
+      "family": "pie",
+      "browser": "chromium",
+      "browserVersion": "158.0.8127.18",
+      "source": "tests/browser/pie-chart.spec.ts:115",
+      "title": "recovers pie states, hydrates deferred controls, and disposes observers and instances",
+      "status": "passed",
+      "durationMs": 24199,
+      "audit": {
+        "family": "pie",
+        "browser": "chromium",
+        "cycles": 100,
+        "zeroResourcesAfterEveryDestroy": true,
+        "zeroFocusListenersAfterEveryDestroy": true,
+        "disposedInstanceAfterEveryDestroy": true
+      }
+    },
+    {
+      "family": "pie",
+      "browser": "firefox",
+      "browserVersion": "159.0",
+      "source": "tests/browser/pie-chart.spec.ts:115",
+      "title": "recovers pie states, hydrates deferred controls, and disposes observers and instances",
+      "status": "passed",
+      "durationMs": 9085,
+      "audit": {
+        "family": "pie",
+        "browser": "firefox",
+        "cycles": 100,
+        "zeroResourcesAfterEveryDestroy": true,
+        "zeroFocusListenersAfterEveryDestroy": true,
+        "disposedInstanceAfterEveryDestroy": true
+      }
+    },
+    {
+      "family": "pie",
+      "browser": "webkit",
+      "browserVersion": "27.2",
+      "source": "tests/browser/pie-chart.spec.ts:115",
+      "title": "recovers pie states, hydrates deferred controls, and disposes observers and instances",
+      "status": "passed",
+      "durationMs": 14078,
+      "audit": {
+        "family": "pie",
+        "browser": "webkit",
+        "cycles": 100,
+        "zeroResourcesAfterEveryDestroy": true,
+        "zeroFocusListenersAfterEveryDestroy": true,
+        "disposedInstanceAfterEveryDestroy": true
+      }
+    }
+  ],
+  "passed": true
+}

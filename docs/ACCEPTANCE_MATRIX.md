@@ -1,12 +1,12 @@
 # ng-echarts acceptance matrix
 
-Updated 12 November 2026. Bar feasibility evidence is available; full-MVP product acceptance remains pending. This matrix connects the [product specification](PRODUCT_SPEC.md) to experiments and delivery tasks; the specification owns the detailed criteria and numeric targets.
+Updated 13 November 2026. The [NG14 cross-family review](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md) reconciles automated evidence across all four families. Full-MVP product acceptance remains pending for human interpretation. This matrix connects the [product specification](PRODUCT_SPEC.md) to experiments and delivery tasks; the specification owns the detailed criteria and numeric targets.
 
 The [R01 report](experiments/R01_TOOLCHAIN.md) records passing builds, strict compilation, isolated declarations, unit integration tests, and an SSR response check. Those initial scaffold results alone contribute to F01/package research without completing chart inputs, browser hydration, R08, or a gate.
 
 The [initial bar report](experiments/BAR_PROTOTYPE.md) adds valid/invalid packed-template checks, data/state/control tests, and a passing single-chart Chromium SSR/hydration path. At that initial snapshot it contributed evidence to F01–F10 for bar only, leaving broader checks open. The current reports below record their later completion; the snapshot alone closed no requirement or gate.
 
-Current bar evidence: [R03](experiments/R03_VISUAL_REVIEW.md) accepts four reference variants and tooltip hierarchy; [R04/R05](experiments/R04_R05_VALIDATION.md) pass update/focus, resource/retention, and hydration/navigation scenarios. [R07](experiments/R07_RENDERER_COST.md) passes normal Angular timing targets and selects Canvas with a measured size budget. [R08](experiments/R08_PACKED_RUNTIME.md) builds and runs installed tarballs in isolated client and SSR applications across all three engines. R02 is confirmed and G1 passes. R06 automated checks pass, but its [human listening result](experiments/R06_MANUAL_REVIEW.md) and G2 remain pending. Family-wide acceptance remains open until NG14 reconciles the implementation evidence for every applicable requirement. The user deferred human listening on 12 November 2026: it no longer blocks NG09–NG13 development, but remains required before G3/G4 release acceptance.
+Current bar evidence: [R03](experiments/R03_VISUAL_REVIEW.md) accepts four reference variants and tooltip hierarchy; [R04/R05](experiments/R04_R05_VALIDATION.md) pass update/focus, resource/retention, and hydration/navigation scenarios. [R07](experiments/R07_RENDERER_COST.md) passes normal Angular timing targets and selects Canvas with a measured size budget. [R08](experiments/R08_PACKED_RUNTIME.md) builds and runs installed tarballs in isolated client and SSR applications across all three engines. R02 is confirmed and G1 passes. R06 automated checks pass, but its [human listening result](experiments/R06_MANUAL_REVIEW.md) and G2 remain pending. NG14 records the family-by-family reconciliation below; human F09 interpretation still prevents full acceptance. The user deferred human listening on 12 November 2026: it no longer blocks development, but remains required before G3/G4 release acceptance.
 
 The [NG09 package increment](experiments/NG09_PACKAGE_BOUNDARIES.md) adds public `/core` and `/bar` entries, root compatibility, strict exported declarations, installed client/SSR checks, and module-level size/isolation assertions. This strengthens F01/F10 and package evidence without completing family-wide acceptance or deferred release review.
 
@@ -16,11 +16,11 @@ The [NG11 line report](experiments/NG11_LINE_CHART.md) adds line evidence for F0
 
 The [NG12 area report](experiments/NG12_AREA_CHART.md) adds F01–F10 automated evidence for independent fills, same-sign stacks, raw events, gaps, inherited state/formatting/motion controls, SSR/deferred hydration, and installed consumers. At that snapshot, three-family package budgets and area performance targets passed, while pie/donut was still unimplemented. NG13 now supplies its evidence; human interpretation and full-MVP acceptance remain open.
 
-The [NG13 pie/donut report](experiments/NG13_PIE_CHART.md) adds automated F01–F10 evidence for one-measure categories, labels, zero-total and negative rules, raw events, category visibility/focus, states/motion, SSR/deferred hydration and installed consumers. Pie-specific source, timing and bundle evidence is recorded there. NG14 still needs to reconcile all applicable requirements across all families; this does not close human R06/G2 or G3/G4.
+The [NG13 pie/donut report](experiments/NG13_PIE_CHART.md) adds automated F01–F10 evidence for one-measure categories, labels, zero-total and negative rules, raw events, category visibility/focus, states/motion, SSR/deferred hydration and installed consumers. Pie-specific source, timing and bundle evidence is recorded there. The subsequent NG14 review reconciles these results across all families without closing human R06/G2 or G3/G4.
 
 ## Implemented family evidence
 
-This index records implementation evidence, not completed NG14/G3 acceptance. The latest regression has 107 unit/integration tests, 136 browser scenarios (two CDP-only skips), and six installed-package client/SSR modes. [Package evidence](experiments/data/package-boundaries.json) covers seven import scenarios.
+This index records automated implementation acceptance, not completed human NG14/G3 acceptance. The latest regression has 119 unit/integration tests, 145 passing browser scenarios (plus two CDP-only skips), and six installed-package client/SSR modes. [Package evidence](experiments/data/package-boundaries.json) covers seven import scenarios.
 
 | Family | Contract and automated behavior | Visual/performance evidence |
 | --- | --- | --- |
@@ -29,7 +29,7 @@ This index records implementation evidence, not completed NG14/G3 acceptance. Th
 | Area | [API](AREA_CHART_API.md), [browser scenarios](../tests/browser/area-chart.spec.ts) | [NG12](experiments/NG12_AREA_CHART.md) |
 | Pie/donut | [API](PIE_CHART_API.md), [browser scenarios](../tests/browser/pie-chart.spec.ts) | [NG13](experiments/NG13_PIE_CHART.md) |
 
-Remaining reconciliation includes the 100-cycle cleanup target for every family (new line/area/pie browser fixtures currently use ten cycles), interaction/resize measurements, and the deferred human interpretation review. Radial charts have no axes, so axis-specific checks are inapplicable; numeric tooltip/table formatting, category labels, and keyboard actions still apply. Keep each pending criterion visible until evidence closes it.
+The [NG14 report](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md#requirement-reconciliation) maps every requirement to each family's checks. It adds 100-cycle cleanup in all three engines for every family, explicit mounted palette-refresh checks, per-binding negative consumer assertions, and actual Angular normal/stress legend/resize measurements. Its verification section records current outcomes. Human F09 interpretation remains pending in all four families, so NG14/G3 remain open. Radial charts have no axes, so axis-specific checks are inapplicable; numeric tooltip/table formatting, category labels, and keyboard actions still apply.
 
 ## Requirement coverage
 
@@ -60,6 +60,10 @@ Ranges such as NG10–NG14 refer to every task in that inclusive range. Prototyp
 | Implementation conventions | R03, R07; NG04, NG09–NG14 | Template-boundary review follows the architecture; derived state is separate from browser side effects; recomputation cost is included in performance evidence |
 | Package isolation | R01, R08; NG08, NG16 | Production tarball installed outside workspace, strict declaration checks, client and SSR build/runtime results, package contents, dependency ranges, and no React runtime |
 | Documentation and notices | NG02, NG15, NG16 | Integration example, public API, exact tested versions, limits, provenance ledger, artifact license, and third-party notices |
+
+The [NG15 documentation review](experiments/NG15_DOCUMENTATION.md) completes the current API/integration/compatibility documentation criterion: a fresh CLI application installs the packed library, repeats from its lockfile, compiles the exact guide with strict declarations/templates, builds and hydrates four charts in all three engines. This does not close human F09 or NG16 final-artifact license/notices/G4.
+
+The separate [GitHub Pages preview](GITHUB_PAGES.md) has deployed static-route HTML, hydration, repository-prefix links/fonts and three-engine live verification. It supplements demo-distribution evidence; it does not substitute for request-time SSR tests, human interpretation or the final library artifact/release checks. CI also builds/checks the static preview without publishing it.
 
 ## Gate completion
 

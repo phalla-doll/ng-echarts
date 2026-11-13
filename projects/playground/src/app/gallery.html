@@ -36,7 +36,8 @@
     <p>On this page</p>
     @for (block of blocks; track block.id) {
       <a
-        [href]="'#' + block.id"
+        [routerLink]="[]"
+        [fragment]="block.id"
         (click)="selectBlock(block.id)"
         [class.active]="activeBlock() === block.id"
         >{{ block.title }}</a

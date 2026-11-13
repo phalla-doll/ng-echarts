@@ -1,6 +1,6 @@
 # ng-echarts technical architecture
 
-Status: implemented experimental architecture for bar, line, area, and pie/donut. Cross-family acceptance and [release gates](RND_PLAN.md#decision-gates) remain open. Updated 12 November 2026.
+Status: implemented experimental architecture for bar, line, area, and pie/donut. Automated cross-family evidence is reconciled in [NG14](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md); human interpretation and [release gates](RND_PLAN.md#decision-gates) remain open. Updated 13 November 2026.
 
 ## Architecture direction
 
@@ -204,6 +204,12 @@ The function must be pure, synchronous, and deterministic on server and client. 
 Thrown exceptions, nonfunction JavaScript inputs, and nontext results produce a generic configuration error without leaking exception details. Application error and loading retain precedence; replacing the input permits recovery. TypeScript and packed Angular template checks reject incorrect signatures. The `/comparison` route exercises valid/invalid inputs and documents the neutral theme mapping in the [R03 review](experiments/R03_VISUAL_REVIEW.md).
 
 Axes retain explicit 12 px labels and value ticks for readability. The plot keeps insets of left 12, right 16, top 12, bottom 8 px, using ECharts 6 `outerBoundsMode: 'same'` and `outerBoundsContain: 'axisLabel'` instead of deprecated `containLabel`. The title and native controls occupy separate space from the plot; the upstream brush is excluded. These are reviewed prototype design choices, not a claim of completed visual parity.
+
+### Static demo hosting
+
+The [GitHub Pages preview](GITHUB_PAGES.md) uses the separate `production,pages` build configuration. It prerenders all 24 routes with base `/ng-echarts/`, while the normal production configuration retains request-time SSR. Every static route has its own `index.html` and hydration metadata. Angular router links/fragments preserve the project prefix; route labels/layouts normalize directory trailing slashes, and anchor scrolling preserves same-page navigation and keyboard skip focus.
+
+The preparation helper prefixes font URLs in emitted CSS, inlined critical CSS and generated preload links, adds `.nojekyll`, and copies upstream/dependency notices. These transformations apply only to the static artifact; normal SSR/measurement font paths remain unchanged. The three-engine Pages check uses a project-subpath server without an SPA fallback and also supports the deployed URL. Publishing pushes compiled output to `gh-pages` through Git/GitHub CLI authentication; source pushes and experimental library release acceptance remain separate.
 
 ### Validation fixtures
 

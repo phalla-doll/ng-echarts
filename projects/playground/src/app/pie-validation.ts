@@ -53,6 +53,7 @@ export class DeferredPie {
       <button type="button" (click)="zero()">Zero pie data</button>
       <button type="button" (click)="negative()">Negative pie data</button>
       <button type="button" (click)="update()">Update pie values</button>
+      <button type="button" (click)="refreshPalette()">Refresh palette</button>
       <button type="button" (click)="reorder()">Reorder pie inputs</button>
       <button type="button" [attr.aria-pressed]="currency()" (click)="currency.set(!currency())">
         Currency values
@@ -83,6 +84,8 @@ export class DeferredPie {
           categoryKey="month"
           [measure]="measure"
           [theme]="theme()"
+          [themeRevision]="themeRevision()"
+          [style.--nec-series-1]="palette()"
           [innerRadius]="donut() ? 0.6 : 0"
           [showLabels]="labels()"
           [loading]="loading()"
@@ -108,6 +111,12 @@ export class DeferredPie {
 })
 export class PieValidation {
   protected readonly theme = inject(SiteAppearance).theme;
+  protected readonly themeRevision = signal(0);
+  protected readonly palette = signal('');
+  protected refreshPalette() {
+    this.palette.set('#2563eb');
+    this.themeRevision.update((revision) => revision + 1);
+  }
   protected readonly rows = signal<readonly Row[]>(pieValidationRows);
   protected readonly measure = measure;
   protected readonly donut = signal(false);

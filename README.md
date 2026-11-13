@@ -2,7 +2,9 @@
 
 An Angular 22 chart component library inspired by EvilCharts, using Apache ECharts for rendering and TypeScript for its public API.
 
-Status: experimental bar, line, area, and pie/donut components. Updated 12 November 2026. The Angular library and SSR playground now render bars, lines, areas, and pies/donuts with native controls; G1 technical feasibility passes for bar; the user has deferred the human screen-reader review to release acceptance, allowing development to continue while G2 remains pending.
+Preview: **[Live demo on GitHub Pages](https://phalla-doll.github.io/ng-echarts/)**. See [deployment instructions](docs/GITHUB_PAGES.md) to rebuild and publish the current demo snapshot.
+
+Status: experimental bar, line, area, and pie/donut components. Updated 13 November 2026. The Angular library and SSR playground now render bars, lines, areas, and pies/donuts with native controls; G1 technical feasibility passes for bar; the user has deferred the human screen-reader review to release acceptance, allowing development to continue while G2 remains pending.
 
 ## Project direction
 
@@ -15,6 +17,10 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | Document | Purpose |
 | --- | --- |
 | [Product specification](docs/PRODUCT_SPEC.md) | Users, scope, behavior, requirements, and acceptance criteria |
+| [Local installation](docs/INSTALLATION.md) | Pack/install workflow, pinned fresh CLI application, bootstrap and SSR configuration |
+| [Integration guide](docs/INTEGRATION_GUIDE.md) | Complete four-chart application, API/type index, updates, events and accessibility |
+| [Compatibility and limits](docs/COMPATIBILITY.md) | Exact tested versions, peer contracts, browser coverage, measured envelopes and exclusions |
+| [GitHub Pages preview](docs/GITHUB_PAGES.md) | Live URL, static subpath build, local/live verification, notices and manual republishing |
 | [Implementation plan](docs/IMPLEMENTATION_PLAN.md) | Delivery increments, scaffold boundaries, and developer workflow |
 | [Upstream provenance](docs/UPSTREAM_PROVENANCE.md) | Pinned fixtures, reuse decisions, and adapted-file notices |
 | [Bar prototype evidence](docs/experiments/BAR_PROTOTYPE.md) | Implemented behavior, test results, captures, and open research |
@@ -33,6 +39,8 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | [NG11 line implementation](docs/experiments/NG11_LINE_CHART.md) | Line source comparisons, gallery, package isolation, browser behavior, and performance |
 | [Bar API reference](docs/BAR_CHART_API.md) | Implemented inputs/defaults, events, integration, formatting, versions, and limits |
 | [Foundation/bar acceptance](docs/experiments/NG09_NG10_ACCEPTANCE.md) | NG09/NG10 implementation checklist, bar requirement evidence, and remaining release checks |
+| [Cross-family acceptance](docs/experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md) | F01–F10 reconciliation, 100-cycle cleanup, actual Angular interaction/resize measurements, and deferred human evidence |
+| [Documentation acceptance](docs/experiments/NG15_DOCUMENTATION.md) | Reproducible first-install/bootstrap path, complete examples, compatibility review and fresh-consumer evidence |
 | [Package boundaries](docs/experiments/NG09_PACKAGE_BOUNDARIES.md) | Focused core/bar imports, compatible root API, strict packed consumers, and module/size checks |
 | [Shared value formatting](docs/experiments/NG09_SHARED_FORMATTING.md) | Currency/percentage options, custom numeric text, and consistent axis/tooltip/table behavior |
 | [Lifecycle and hydration validation](docs/experiments/R04_R05_VALIDATION.md) | Three-browser results, input/focus/retention, teardown, and hydration |
@@ -72,6 +80,8 @@ The site includes [Get Started](http://localhost:4310/get-started), [Installatio
 | Command | Purpose |
 | --- | --- |
 | `npm run build` | Build the library and production browser/server playground |
+| `npm run build:pages` / `npm run check:pages` | Build and verify the static demo under its GitHub project path |
+| `npm run deploy:pages` | Rebuild, verify and publish the current demo to the dedicated `gh-pages` branch |
 | `npm test` | Run library and playground Vitest tests once |
 | `npm run test:browser` | Run Chromium, Firefox, and WebKit scenarios against the production SSR build |
 | `npm run reference:prepare` | Prepare the isolated pinned React reference source and build its harness |
@@ -84,16 +94,18 @@ The site includes [Get Started](http://localhost:4310/get-started), [Installatio
 | `npm run capture:bar` | Capture all four reference variants at three widths/two themes, plus narrow tooltips |
 | `npm run typecheck` | Strict Angular/TypeScript compilation with `skipLibCheck: false` |
 | `npm run check:consumer` | Check a built tarball's declarations in an isolated Angular consumer |
+| `npm run check:docs` | Execute the installation guide in a fresh CLI app, compile its exact example and verify three-engine hydration/actions |
 | `npm run check:runtime` | Build/run isolated client and SSR consumers in all three browser engines |
 | `npm run benchmark:bar` | Measure actual Angular mount/update and compare production Canvas/SVG harnesses |
+| `npm run benchmark:acceptance` | Measure all four Angular families: normal/stress mount, update, legend interaction, resize, cold loading, and tables |
 | `npm run check:bundle` | Check core/bar/root module boundaries and size budgets, excluding Angular/RxJS peers |
 | `npm run check:ssr` | Check production server markup and hydration metadata after a build |
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
 | `npm run check` | Run formatting, builds, compilation, unit, declaration/runtime consumers, SSR, browser, and size checks |
 
-The latest full check passes 107 unit/integration tests and 136 browser scenarios (plus two skipped CDP-only cases), including three-engine [site/theme](docs/experiments/SITE_THEME_ALIGNMENT.md), [gallery](docs/experiments/BAR_GALLERY_VISUAL_REVIEW.md), layout, and [numeric-formatting checks](docs/experiments/NG09_SHARED_FORMATTING.md). The [lifecycle validation report](docs/experiments/R04_R05_VALIDATION.md) retains the earlier resource baseline. `/validation` provides lifecycle scenarios; `/comparison` provides four reference variants and neutral theme tokens; `/formatting` checks locale/options/custom text and recovery; `/updates` checks immutable inputs/focus; `/retention` checks obsolete-model collection; `/away` verifies route cleanup. CI is configured for all three engines. No lint rules or coverage threshold are configured yet.
+The latest full check passes 119 unit/integration tests and 145 browser scenarios (plus two skipped CDP-only cases), including three-engine [site/theme](docs/experiments/SITE_THEME_ALIGNMENT.md), [gallery](docs/experiments/BAR_GALLERY_VISUAL_REVIEW.md), layout, and [numeric-formatting checks](docs/experiments/NG09_SHARED_FORMATTING.md). The [lifecycle validation report](docs/experiments/R04_R05_VALIDATION.md) retains the earlier resource baseline. `/validation` provides lifecycle scenarios; `/comparison` provides four reference variants and neutral theme tokens; `/formatting` checks locale/options/custom text and recovery; `/updates` checks immutable inputs/focus; `/retention` checks obsolete-model collection; `/away` verifies route cleanup. CI is configured for all three engines. No lint rules or coverage threshold are configured yet.
 
-The [visual review](docs/experiments/R03_VISUAL_REVIEW.md) records 80 current captures and accepted bar differences. R01–R05, [R07 renderer/cost](docs/experiments/R07_RENDERER_COST.md), and [R08 packed consumption](docs/experiments/R08_PACKED_RUNTIME.md) pass for bar. Canvas meets the normal 200×3 benchmark target and the measured size budget. G1 passes; G2 requires the [R06 listening result](docs/experiments/R06_MANUAL_REVIEW.md). The user has deferred that human review to release acceptance; it no longer blocks development. Cross-family acceptance and release evidence remain pending.
+The [visual review](docs/experiments/R03_VISUAL_REVIEW.md) records 80 current captures and accepted bar differences. R01–R05, [R07 renderer/cost](docs/experiments/R07_RENDERER_COST.md), and [R08 packed consumption](docs/experiments/R08_PACKED_RUNTIME.md) pass for bar. Canvas meets the normal 200×3 benchmark target and the measured size budget. G1 passes; G2 requires the [R06 listening result](docs/experiments/R06_MANUAL_REVIEW.md). The user has deferred that human review to release acceptance; it no longer blocks development. Automated cross-family evidence is reconciled in [NG14](docs/experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md); human interpretation and final release evidence remain pending.
 
 ## Target environment
 
@@ -118,7 +130,7 @@ Focused families keep the 200,000 gzip / 175,000 Brotli byte cap; `/core` keeps 
 
 Build a standalone Angular bar chart with typed data, light and dark themes, responsive resizing, tooltip, selectable legend, reduced motion, and safe destruction. Prove that it works in both a client application and an application using server rendering and hydration. Use its measured results to decide the MVP architecture.
 
-NG09/NG10 implementation is complete for the current foundation/bar baseline; NG11 line charts are implemented; NG12 area charts are implemented; NG13 pie/donut is implemented; NG14 cross-family acceptance is next. Deferred release evidence and family-wide acceptance remain open.
+NG09/NG10 implementation is complete for the current foundation/bar baseline; NG11 line charts are implemented; NG12 area charts are implemented; NG13 pie/donut is implemented; [NG14 automated cross-family acceptance](docs/experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md) is recorded, with human interpretation still pending. [NG15 installation/integration documentation](docs/experiments/NG15_DOCUMENTATION.md) and fresh-consumer verification are complete. NG16 local artifact preparation is next; human interpretation and release gates remain open.
 
 The `/pie` page presents browser shares, donuts, and outside labels in the same gallery design. `/pie-validation` exercises single-measure category behavior and deferred hydration.
 

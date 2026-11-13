@@ -21,7 +21,7 @@ export const quickStartExample = [
   'interface Visit { id: string; month: string; desktop: number; mobile: number | null; }',
   '',
   '@Component({',
-  "  selector: 'app-visits',",
+  "  selector: 'app-root',",
   '  imports: [BarChart],',
   '  template: `<nec-bar-chart',
   '    title="Device visits" description="Monthly desktop and mobile visits."',
@@ -29,7 +29,7 @@ export const quickStartExample = [
   '    theme="dark" [height]="320"',
   '  />`,',
   '})',
-  'export class Visits {',
+  'export class App {',
   '  readonly visits: readonly Visit[] = [',
   "    { id: 'jan', month: 'January', desktop: 342, mobile: 184 },",
   "    { id: 'feb', month: 'February', desktop: 876, mobile: 491 },",
@@ -59,7 +59,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'first-chart',
         title: 'Your first chart',
         paragraphs: [
-          'After building the local package, import BarChart from @ng-echarts/chart-library/bar in a standalone component. Supply stable row and series identifiers, then replace input references when data changes.',
+          'After installing the local package, replace src/app/app.ts in a CLI standalone application with this entire App example. Keep the generated bootstrap and app configuration. Supply stable row and series identifiers, then replace input references when data changes.',
         ],
         source: quickStartExample,
         language: 'TypeScript',
@@ -76,7 +76,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'status',
         title: 'Project status',
         paragraphs: [
-          'The library is experimental and the package is private. Use the workspace or a packed local build; a public npm installation is not available yet. Automated browser and packaging checks cover all four chart families. Release acceptance remains in development.',
+          'The library is experimental and the package is private. Use the workspace or a packed local build; a public npm installation is not available yet. Automated acceptance covers all four chart families. Human screen-reader interpretation and final artifact/release acceptance remain pending.',
         ],
       },
     ],
@@ -109,11 +109,41 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'local-package',
         title: 'Use a packed local build',
         paragraphs: [
-          'Create a production tarball from the workspace root. Install that file and the tested ECharts peer in a separate Angular 22 application. Replace the example path with the location of your checkout.',
+          'Create a production tarball from the workspace root. Install that file and the tested ECharts peer in a separate Angular 22 application. Replace the example path with the location of your checkout. Keep the file at the lockfile’s recorded path, or copy it into the consumer’s vendor directory first; commit the lockfile and use npm ci for repeat installs.',
         ],
         source:
           'npm run pack:lib\n\n# In your Angular 22 application:\nnpm install /path/to/ng-echarts/dist/ng-echarts-chart-library-0.0.0.tgz echarts@6.1.0',
         language: 'Terminal',
+      },
+      {
+        id: 'bootstrap',
+        title: 'Bootstrap your chart',
+        paragraphs: [
+          'Copy the complete App example from Get Started into src/app/app.ts in a CLI standalone application. Keep its generated main.ts and app configuration; they already bootstrap the App export and app-root selector. Import the chart in the component’s imports array. No library-specific providers, global ECharts registration or library stylesheet is required.',
+          'Merge these explicit settings into tsconfig.json while retaining its other options. A chart needs a visible, nonzero-width parent; height controls its plot, while titles and native controls add to the total height.',
+        ],
+        source:
+          '{\n  "compilerOptions": { "strict": true, "skipLibCheck": false },\n  "angularCompilerOptions": { "strictTemplates": true }\n}',
+        language: 'JSON',
+      },
+      {
+        id: 'server-rendering',
+        title: 'Server rendering',
+        paragraphs: [
+          'Keep the generated hydration configuration and identical initial data/formatting on server and client. Server output provides titles, controls and fallback surfaces; Canvas rendering begins in the browser. Consumer code should not initialize ECharts or disable hydration for the chart.',
+          'For a local production SSR build, merge this security setting into the application build options in angular.json. Angular’s SSR host check otherwise rejects localhost. Use the actual serving hostnames for an existing application.',
+        ],
+        source: '{\n  "security": { "allowedHosts": ["localhost", "127.0.0.1"] }\n}',
+        language: 'JSON',
+      },
+      {
+        id: 'compatibility',
+        title: 'Compatibility and limits',
+        paragraphs: [
+          'Exact tests use Angular/CLI 22.2.6, TypeScript 6.0.3, RxJS 7.8.2 and ECharts 6.1.0 with Node 24.22.2/npm 11.19.1. Library peers declare Angular common/core ^22.2.6 and ECharts ^6.1.0; wider allowed ranges are not a test of every version. Chromium 158.0.8127.18, Firefox 159.0 and WebKit 27.2 cover client and SSR/hydration paths.',
+          'The measured starting envelope is 200 categories and three Cartesian series, or 12 pie/donut categories, on the recorded M2 Pro reference machine. Stress fixtures use 2,000 and 100 categories respectively. These are measured inputs rather than hard API limits or portable latency promises. Crowded outside labels may be shortened or hidden; native controls retain complete text.',
+          'The APIs remain experimental. Automated tests pass; human screen-reader interpretation is deferred to release acceptance. Final artifact licensing/notices and registry publication are separate work.',
+        ],
       },
       {
         id: 'development',

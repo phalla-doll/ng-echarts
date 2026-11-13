@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import {
   BarChart,
   type CategoryTickFormatter,
@@ -11,7 +12,7 @@ import { HighlightCode } from './highlight-code';
 
 @Component({
   selector: 'app-playground',
-  imports: [BarChart, SiteIcon, HighlightCode],
+  imports: [BarChart, SiteIcon, HighlightCode, RouterLink],
   templateUrl: './app.html',
   styleUrl: './app.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

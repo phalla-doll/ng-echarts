@@ -57,6 +57,7 @@ export class DeferredArea {
         Show points
       </button>
       <button type="button" (click)="update()">Update area values</button>
+      <button type="button" (click)="refreshPalette()">Refresh palette</button>
       <button type="button" (click)="reorder()">Reorder area inputs</button>
       <button type="button" [attr.aria-pressed]="currency()" (click)="currency.set(!currency())">
         Currency values
@@ -87,6 +88,8 @@ export class DeferredArea {
           categoryKey="month"
           [series]="series()"
           [theme]="theme()"
+          [themeRevision]="themeRevision()"
+          [style.--nec-series-1]="palette()"
           [smooth]="smooth()"
           [showPoints]="points()"
           [stacked]="stacked()"
@@ -114,6 +117,12 @@ export class DeferredArea {
 })
 export class AreaValidation {
   protected readonly theme = inject(SiteAppearance).theme;
+  protected readonly themeRevision = signal(0);
+  protected readonly palette = signal('');
+  protected refreshPalette() {
+    this.palette.set('#2563eb');
+    this.themeRevision.update((revision) => revision + 1);
+  }
   protected readonly rows = signal<readonly Row[]>(areaValidationRows);
   protected readonly series = signal(series);
   protected readonly smooth = signal(false);

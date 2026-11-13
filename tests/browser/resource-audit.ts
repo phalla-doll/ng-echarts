@@ -9,6 +9,7 @@ export interface ResourceCounts {
 declare global {
   interface Window {
     chartAudit: ResourceCounts;
+    chartFocusListeners: number;
   }
 }
 
@@ -17,6 +18,35 @@ export async function installResourceAudit(page: Page): Promise<void> {
   await page.addInitScript(() => {
     const counts = { resizeObservers: 0, observedTargets: 0, motionListeners: 0, frames: 0 };
     window.chartAudit = counts;
+    window.chartFocusListeners = 0;
+    // ChartFocusKeeper owns two document listeners per mounted chart. Track these
+    // separately to preserve the established observer/motion/frame evidence shape.
+    const focusListeners = new Map<string, Set<EventListenerOrEventListenerObject>>();
+    const addDocument = document.addEventListener.bind(document);
+    const removeDocument = document.removeEventListener.bind(document);
+    document.addEventListener = (
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions,
+    ) => {
+      if ((type === 'focusin' || type === 'pointerdown') && listener) {
+        const listeners = focusListeners.get(type) ?? new Set();
+        focusListeners.set(type, listeners);
+        if (!listeners.has(listener)) {
+          listeners.add(listener);
+          window.chartFocusListeners++;
+        }
+      }
+      addDocument(type, listener, options);
+    };
+    document.removeEventListener = (
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions,
+    ) => {
+      if (listener && focusListeners.get(type)?.delete(listener)) window.chartFocusListeners--;
+      removeDocument(type, listener, options);
+    };
     const NativeObserver = window.ResizeObserver;
     window.ResizeObserver = class extends NativeObserver {
       private readonly targets = new Set<Element>();
@@ -49,14 +79,22 @@ export async function installResourceAudit(page: Page): Promise<void> {
       const add = result.addEventListener.bind(result);
       const remove = result.removeEventListener.bind(result);
       const listeners = new Set<EventListenerOrEventListenerObject>();
-      result.addEventListener = (type, listener, options) => {
+      result.addEventListener = (
+        type: string,
+        listener: EventListenerOrEventListenerObject,
+        options?: boolean | AddEventListenerOptions,
+      ) => {
         if (type === 'change' && listener && !listeners.has(listener)) {
           listeners.add(listener);
           counts.motionListeners++;
         }
         add(type, listener, options);
       };
-      result.removeEventListener = (type, listener, options) => {
+      result.removeEventListener = (
+        type: string,
+        listener: EventListenerOrEventListenerObject,
+        options?: boolean | EventListenerOptions,
+      ) => {
         if (type === 'change' && listener && listeners.delete(listener)) counts.motionListeners--;
         remove(type, listener, options);
       };

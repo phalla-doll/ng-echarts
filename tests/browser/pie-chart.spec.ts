@@ -104,8 +104,13 @@ test('renders a real donut hole and emits raw stable category events through upd
   await expect(
     chart.getByRole('button', { name: 'Select Visits for January: $110.00', exact: true }),
   ).toBeVisible();
-  const visibleCategories = chart.locator('.legend button[aria-pressed=true]');
-  while (await visibleCategories.count()) await visibleCategories.first().click();
+  // Keep each locator stable while Angular updates aria-pressed after a click.
+  // Re-querying a filtered first() can race its final removal on slower CI hosts.
+  for (const category of await chart.locator('.legend button').all()) {
+    if ((await category.getAttribute('aria-pressed')) !== 'true') continue;
+    await category.click();
+    await expect(category).toHaveAttribute('aria-pressed', 'false');
+  }
   await expect(chart.getByRole('status')).toContainText('No visible positive');
   await january.click();
   await expect(chart.getByRole('status')).toHaveCount(0);
@@ -114,7 +119,8 @@ test('renders a real donut hole and emits raw stable category events through upd
 });
 test('recovers pie states, hydrates deferred controls, and disposes observers and instances', async ({
   page,
-}) => {
+}, testInfo) => {
+  test.setTimeout(180_000);
   const errors = collectBrowserErrors(page);
   await installResourceAudit(page);
   const response = await page.goto('/pie-validation');
@@ -144,13 +150,32 @@ test('recovers pie states, hydrates deferred controls, and disposes observers an
   await page.getByRole('button', { name: 'Hide pie host', exact: true }).click();
   await page.getByRole('button', { name: 'Hide pie host', exact: true }).click();
   await expect(chart.locator('canvas')).toHaveCount(1);
-  for (let index = 0; index < 10; index++) {
+  for (let index = 0; index < 100; index++) {
+    const previousPlot = await chart.locator('.plot').elementHandle();
     await page.getByRole('button', { name: 'Mount pie', exact: true }).click();
     await expect(chart.locator('canvas')).toHaveCount(0);
-    await expect.poll(() => page.evaluate(() => window.chartAudit.observedTargets)).toBe(0);
+    expect(await previousPlot!.getAttribute('_echarts_instance_')).toBe('');
+    await previousPlot!.dispose();
+    await expect
+      .poll(() => page.evaluate(() => window.chartAudit))
+      .toEqual({ resizeObservers: 0, observedTargets: 0, motionListeners: 0, frames: 0 });
+    await expect(page.locator('[data-nec-tooltip]')).toHaveCount(0);
+    await expect.poll(() => page.evaluate(() => window.chartFocusListeners)).toBe(0);
     await page.getByRole('button', { name: 'Mount pie', exact: true }).click();
     await expect(chart.locator('canvas')).toHaveCount(1);
+    await expect.poll(() => page.evaluate(() => window.chartFocusListeners)).toBe(2);
   }
+  await testInfo.attach('pie-100-cycles.json', {
+    body: JSON.stringify({
+      family: 'pie',
+      browser: testInfo.project.name,
+      cycles: 100,
+      zeroResourcesAfterEveryDestroy: true,
+      zeroFocusListenersAfterEveryDestroy: true,
+      disposedInstanceAfterEveryDestroy: true,
+    }),
+    contentType: 'application/json',
+  });
   const deferred = page.locator('.deferred-pie');
   await deferred.getByRole('button', { name: 'Show data table', exact: true }).click();
   await expect(deferred.locator('canvas')).toHaveCount(1);

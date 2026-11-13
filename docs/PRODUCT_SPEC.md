@@ -1,6 +1,6 @@
 # ng-echarts product specification
 
-Status: implementation baseline; all four selected chart families are present. Cross-family and release acceptance remain pending. Updated 12 November 2026. See the [current evidence index](ACCEPTANCE_MATRIX.md#implemented-family-evidence).
+Status: implementation baseline; all four selected chart families are present and automated cross-family evidence is reconciled. Human interpretation and release acceptance remain pending. Updated 13 November 2026. See the [current evidence index](ACCEPTANCE_MATRIX.md#implemented-family-evidence).
 
 ## Purpose and users
 
@@ -86,7 +86,7 @@ Use Heroicons 24 px outline icons for demo navigation and controls, keeping visi
 
 Use the locally hosted Inter font for site prose, navigation, controls, metrics, and chart labels. Define whole-number CSS pixel font sizes, line heights, and tracking for the site, keeping normal browser zoom and text antialiasing. Code examples and inline code use locally hosted Google Sans Code with monospace fallbacks; historical measurement plots retain their explicit reference typography.
 
-The user's 12 November 2026 [area-block reference review](experiments/AREA_BLOCKS_VISUAL_AUDIT.md) establishes a neutral chart-block gallery as the site direction: reference-led typography, subdued chrome, compact code/preview headers, and complete chart compositions. Keep engineering settings and validation fixtures separate from the gallery. The user selected existing bar charts for the first [gallery correction](experiments/BAR_GALLERY_VISUAL_REVIEW.md). The settings workspace remains an engineering fixture; area examples and advanced dotted-fill behavior remain later work.
+The user's 12 November 2026 [area-block reference review](experiments/AREA_BLOCKS_VISUAL_AUDIT.md) establishes a neutral chart-block gallery as the site direction: reference-led typography, subdued chrome, compact code/preview headers, and complete chart compositions. Keep engineering settings and validation fixtures separate from the gallery. The user selected existing bar charts for the first [gallery correction](experiments/BAR_GALLERY_VISUAL_REVIEW.md). The settings workspace remains an engineering fixture. Area examples are implemented following NG12; advanced dotted-fill behavior remains outside the MVP.
 
 The same neutral style now applies to setup documentation, the component catalog, and engineering pages through the [site alignment](experiments/SITE_THEME_ALIGNMENT.md). Keep theme selection consistent across navigation, distinguish working components from planned ones, and preserve explicit conditions for measurement fixtures. Setup guidance must use the actual local package workflow until registry publication exists.
 
@@ -96,7 +96,7 @@ Require a reviewed visual baseline for each MVP chart. Canvas and SVG rasterizat
 
 ## Quality and performance targets
 
-These engineering targets apply to the full MVP. [R07](experiments/R07_RENDERER_COST.md) records the original bar results; [NG11](experiments/NG11_LINE_CHART.md), [NG12](experiments/NG12_AREA_CHART.md), and [NG13](experiments/NG13_PIE_CHART.md) add family-specific measurements. NG14 must still reconcile the full criteria, including lifecycle repetitions and unmeasured interaction/resize profiles; passing warm timings alone does not close acceptance.
+These engineering targets apply to the full MVP. [R07](experiments/R07_RENDERER_COST.md) records the original bar results; [NG11](experiments/NG11_LINE_CHART.md), [NG12](experiments/NG12_AREA_CHART.md), and [NG13](experiments/NG13_PIE_CHART.md) add family-specific measurements. The [NG14 review](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md) reconciles the automated criteria, including 100-cycle lifecycle repetitions and actual Angular interaction/resize profiles across the four families. Human F09 interpretation remains pending; passing automated checks does not close that evidence.
 
 - Normal Cartesian fixture: 200 categories and three series; stress fixture: 2,000 categories and three series. Pie/donut fixtures use 12 and 100 categories respectively. These are benchmark inputs, not promised data limits.
 - On a recorded reference machine using a production build, each normal fixture's warm mount and input update should complete within 200 ms at p95 over 30 measured runs after one warm-up. Disable animation, preload modules, use a visible 768 px host, and keep the table collapsed. Start before validation and option building; end when the render triggered by that operation finishes. Use the 29th sorted sample as p95. Record the completion signal and raw timings in R07.

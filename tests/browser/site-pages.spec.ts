@@ -37,12 +37,21 @@ test('renders honest component availability and navigates copyable setup documen
   await nav.getByRole('link', { name: 'Get Started', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Get Started', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Copy TypeScript example', exact: true }).click();
-  expect(await page.evaluate(() => window.documentationClipboard)).toContain('export class Visits');
+  expect(await page.evaluate(() => window.documentationClipboard)).toContain('export class App');
+  expect(await page.evaluate(() => window.documentationClipboard)).toContain(
+    "selector: 'app-root'",
+  );
   await page.getByRole('button', { name: 'Copy Page', exact: true }).click();
   expect(await page.evaluate(() => window.documentationClipboard)).toContain('# Get Started');
   await nav.getByRole('link', { name: 'Installation', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Installation', exact: true })).toBeVisible();
   await expect(page.locator('article')).toContainText('The package has not been published');
+  await expect(page.locator('#bootstrap')).toContainText('src/app/app.ts');
+  await expect(page.locator('#bootstrap')).toContainText('strictTemplates');
+  await expect(page.locator('#server-rendering')).toContainText('allowedHosts');
+  await expect(page.locator('#compatibility')).toContainText(
+    'wider allowed ranges are not a test of every version',
+  );
   await page.getByRole('button', { name: 'Copy Terminal example', exact: true }).first().click();
   expect(await page.evaluate(() => window.documentationClipboard)).toContain(
     'npm start -- --port 4310',

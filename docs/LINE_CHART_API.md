@@ -1,5 +1,7 @@
 # Line chart API
 
+Use [installation](INSTALLATION.md), the [complete application example](INTEGRATION_GUIDE.md), and the [tested compatibility/limits table](COMPATIBILITY.md) with this API.
+
 Experimental native Angular 22 line charts. Use the local workspace or packed artifact; the package has not been published to npm.
 
 ```ts
@@ -54,12 +56,12 @@ Null/undefined values remain gaps with `connectNulls: false` under both interpol
 
 Lines use 2 px strokes with theme-colored, 2 px bordered circular markers. Category axes have no boundary gap. CSS tokens and host-font loading match bars. The gallery uses Inter for the interface/plot and Google Sans Code for highlighted examples, with native Heroicons controls. Gallery previews opt out of table controls and include the same option in their copied Angular source.
 
-Import `/line` for a line-only consumer. It lazily registers Line, Grid, Tooltip, and Canvas modules and excludes Bar/SVG implementations. `/bar` continues to exclude Line. The root entry reexports both components for compatibility. Shared `ɵ`-prefixed exports exist only for package implementation; they are unsupported consumer APIs. Do not import renderer classes or package source internals.
+Import `/line` for a line-only consumer. It lazily registers Line, Grid, Tooltip, and Canvas modules and excludes Bar/SVG implementations. `/bar` continues to exclude Line. The root entry reexports all four chart components for compatibility. Shared `ɵ`-prefixed exports exist only for package implementation; they are unsupported consumer APIs. Do not import renderer classes or package source internals.
 
-Line supports category/linear-value axes, multiple series, straight/smooth interpolation, optional markers, gaps, numeric formatting, and shared controls. Area fills, line stacks, step/bump/monotone-specific interpolation controls, brushes, animated/decorative strokes, custom tooltips, and raw ECharts options are outside this increment.
+Line supports category/linear-value axes, multiple series, straight/smooth interpolation, optional markers, gaps, numeric formatting, and shared controls. Area fills, line stacks, step/bump/monotone-specific interpolation controls, brushes, animated/decorative strokes, custom tooltips, and raw ECharts options are outside this API.
 
 ## Validation and limits
 
-Tested versions remain Angular/CLI 22.2.6, TypeScript 6.0.3, ECharts 6.1.0, Node 24.22.2, and npm 11.19.1. Peer ranges remain provisional. The [NG11 report](experiments/NG11_LINE_CHART.md) records source comparisons, browser/packed-consumer checks, measured performance, and bundle budgets. Full family-wide release acceptance and human listening remain open.
+Tested versions remain Angular/CLI 22.2.6, TypeScript 6.0.3, ECharts 6.1.0, Node 24.22.2, and npm 11.19.1. Peer ranges remain provisional. The [NG11 report](experiments/NG11_LINE_CHART.md) records source comparisons, browser/packed-consumer checks, measured performance, and bundle budgets. NG14 automated acceptance is recorded. Human listening and release acceptance remain open. The starting measured envelope is 200 categories and three series; 2,000 categories is stress evidence.
 
 Use `/line` for the gallery, `/line-validation` for engineering behavior checks, and `/line-comparison` for pinned-reference conditions. `npm run benchmark:line` measures the actual Angular component on a fixed visible 768 px host; `npm run capture:line` reproduces the comparison captures after preparing the reference harness.

@@ -1,12 +1,12 @@
 # ng-echarts research and development plan
 
-Status: R01–R05, R07, and R08 pass for the bar prototype. R02 confirms the direct adapter and G1 passes. R06 human listening is deferred by the user; G2 remains pending without blocking development. G3/G4 require the full MVP and outstanding quality evidence. Updated 12 November 2026. See the [R01 evidence](experiments/R01_TOOLCHAIN.md) and [implementation plan](IMPLEMENTATION_PLAN.md).
+Status: R01–R05, R07, and R08 pass for the bar prototype. R02 confirms the direct adapter and G1 passes. R06 human listening is deferred by the user; G2 remains pending without blocking development. G3/G4 require the full MVP and outstanding quality evidence. Updated 13 November 2026. See the [R01 evidence](experiments/R01_TOOLCHAIN.md) and [implementation plan](IMPLEMENTATION_PLAN.md).
 
 The [provenance ledger](UPSTREAM_PROVENANCE.md), [R02 initial adapter choice](experiments/R02_ADAPTER.md), and [bar prototype report](experiments/BAR_PROTOTYPE.md) record the first development slice. Initial passing checks do not close the remaining experiments.
 
 Current evidence: [R03](experiments/R03_VISUAL_REVIEW.md) accepts 80 selected-variant and tooltip captures with documented Angular differences. [R04/R05](experiments/R04_R05_VALIDATION.md) pass immutable input/focus, native-resource cleanup, obsolete-model collection, multiple/deferred hydration, and navigation checks. [R07](experiments/R07_RENDERER_COST.md) selects Canvas, records normal/stress timings and a size budget, and [R08](experiments/R08_PACKED_RUNTIME.md) passes isolated client/SSR builds and runtime scenarios. The [R06 human listening checklist](experiments/R06_MANUAL_REVIEW.md) is the only remaining bar quality experiment evidence. These bar experiment results do not independently accept the other families or the release artifact.
 
-The selected four-family implementation is now present: [NG11 line](experiments/NG11_LINE_CHART.md), [NG12 area](experiments/NG12_AREA_CHART.md), and [NG13 pie/donut](experiments/NG13_PIE_CHART.md) record API, source comparison, timing, and installed-consumer evidence. Use the [family evidence index](ACCEPTANCE_MATRIX.md#implemented-family-evidence) for current coverage. NG14/G3 still require criterion-by-criterion reconciliation; NG15/NG16 own final documentation and artifact acceptance. This preserves the user's deferral of R06/G2 to release acceptance.
+The selected four-family implementation is now present: [NG11 line](experiments/NG11_LINE_CHART.md), [NG12 area](experiments/NG12_AREA_CHART.md), and [NG13 pie/donut](experiments/NG13_PIE_CHART.md) record API, source comparison, timing, and installed-consumer evidence. The [NG14 review](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md), recorded 13 November 2026, adds criterion-by-criterion automated reconciliation, 100-cycle scenarios in every engine, and actual Angular interaction/resize profiles. Use the [family evidence index](ACCEPTANCE_MATRIX.md#implemented-family-evidence) for current coverage. NG14/G3 still require human interpretation. [NG15 documentation](experiments/NG15_DOCUMENTATION.md) and fresh-consumer verification are complete for the experimental package; NG16 owns final artifact acceptance. This preserves the user's deferral of R06/G2 to release acceptance.
 
 ## Objective
 
@@ -69,7 +69,7 @@ Total planning estimate: 19 to 30 engineering days for one experienced engineer 
 | --- | --- | --- | --- |
 | G1 Feasible Angular integration | R01, R04, R05, and R08 pass; R02 choice confirmed using their evidence | Select integration and lifecycle strategy before adding chart families | Pass for bar |
 | G2 Product quality | R03, R06, and R07 pass against the current specification | Accept the bar baseline, renderer, numeric size budget, supported data envelope, and revised effort | Pending R06 human review; deferred to release, development may continue |
-| G3 MVP complete | Every applicable row of the acceptance matrix passes across four chart families | Freeze public API and produce release candidate | Pending |
+| G3 MVP complete | Every applicable row of the acceptance matrix passes across four chart families | Freeze public API and produce release candidate | Pending human F09 interpretation; NG14 automated evidence reconciled |
 | G4 Distribution ready | Isolated packed-consumer install, documentation, artifact license, notices, and compatibility matrix pass | Produce a local release package; publication remains a separate action | Pending |
 
 The team can perform research and routine implementation decisions without repeatedly asking for approval. A material change to product scope, such as introducing React or dropping Angular 22, should be raised as a concrete decision with the experiment evidence.

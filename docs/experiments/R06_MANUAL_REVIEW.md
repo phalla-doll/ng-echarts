@@ -24,3 +24,7 @@ Record the tested commit, OS, browser/version, screen-reader/version, pass/fail 
 ## Development sequencing decision
 
 The user asked to skip this review for now after clarifying that VoiceOver is a quality check rather than a technical build prerequisite. This supersedes the earlier G2-before-expansion sequencing in the contributor guide and historical reports. It does not mark R06 passed or remove keyboard, table, focus, motion, or SSR checks.
+
+## Cross-family release review
+
+The [NG14 review](NG14_CROSS_FAMILY_ACCEPTANCE.md) records automated coverage across the four implemented families. Human F09 interpretation remains pending for every family. Apply the title/summary, legend, complete values/missing text, keyboard actions, focus, state and motion checklist to `/line-validation`, `/area-validation`, and `/pie-validation` as well as the bar routes above. For pie/donut, check category names/visibility and the one-measure table; there are no axes or series-visibility controls. For line/area, verify that missing observations are announced as missing rather than zero and that negative values remain readable. Record a family-specific result, tested commit and environment before resolving NG14/G3. No human listening result is supplied by the automated lifecycle or performance runs.

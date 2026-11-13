@@ -164,7 +164,8 @@ test('paints positive/negative stacks and actual fill gaps while emitting raw va
 });
 test('recovers area states, hydrates deferred controls, and disposes observers and instances', async ({
   page,
-}) => {
+}, testInfo) => {
+  test.setTimeout(180_000);
   const errors = collectBrowserErrors(page);
   await installResourceAudit(page);
   const response = await page.goto('/area-validation');
@@ -189,13 +190,32 @@ test('recovers area states, hydrates deferred controls, and disposes observers a
   await page.getByRole('button', { name: 'Hide area host', exact: true }).click();
   await page.getByRole('button', { name: 'Hide area host', exact: true }).click();
   await expect(chart.locator('canvas')).toHaveCount(1);
-  for (let index = 0; index < 10; index++) {
+  for (let index = 0; index < 100; index++) {
+    const previousPlot = await chart.locator('.plot').elementHandle();
     await page.getByRole('button', { name: 'Mount area', exact: true }).click();
     await expect(chart.locator('canvas')).toHaveCount(0);
-    await expect.poll(() => page.evaluate(() => window.chartAudit.observedTargets)).toBe(0);
+    expect(await previousPlot!.getAttribute('_echarts_instance_')).toBe('');
+    await previousPlot!.dispose();
+    await expect
+      .poll(() => page.evaluate(() => window.chartAudit))
+      .toEqual({ resizeObservers: 0, observedTargets: 0, motionListeners: 0, frames: 0 });
+    await expect(page.locator('[data-nec-tooltip]')).toHaveCount(0);
+    await expect.poll(() => page.evaluate(() => window.chartFocusListeners)).toBe(0);
     await page.getByRole('button', { name: 'Mount area', exact: true }).click();
     await expect(chart.locator('canvas')).toHaveCount(1);
+    await expect.poll(() => page.evaluate(() => window.chartFocusListeners)).toBe(2);
   }
+  await testInfo.attach('area-100-cycles.json', {
+    body: JSON.stringify({
+      family: 'area',
+      browser: testInfo.project.name,
+      cycles: 100,
+      zeroResourcesAfterEveryDestroy: true,
+      zeroFocusListenersAfterEveryDestroy: true,
+      disposedInstanceAfterEveryDestroy: true,
+    }),
+    contentType: 'application/json',
+  });
   const deferred = page.locator('.deferred-area');
   await deferred.getByRole('button', { name: 'Show data table', exact: true }).click();
   await expect(deferred.locator('canvas')).toHaveCount(1);

@@ -6,7 +6,7 @@
   [class.focus-layout]="fullWidth()"
   [class.menu-open]="menuOpen()"
 >
-  <a class="skip-link" [href]="skipTarget()">Skip to content</a>
+  <a class="skip-link" [routerLink]="[]" fragment="page-content">Skip to content</a>
   <button
     #menuToggle
     class="menu-button ui-icon-button"

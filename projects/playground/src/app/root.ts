@@ -54,8 +54,9 @@ export class Root {
     ),
     { initialValue: this.router.url },
   );
-  private readonly routePath = computed(() => this.url().split(/[?#]/, 1)[0] ?? '/');
-  protected readonly skipTarget = computed(() => this.routePath() + '#page-content');
+  private readonly routePath = computed(
+    () => (this.url().split(/[?#]/, 1)[0] ?? '/').replace(/\/+$/, '') || '/',
+  );
   protected readonly galleryMode = computed(() =>
     ['/', '/line', '/area', '/pie'].includes(this.routePath()),
   );
