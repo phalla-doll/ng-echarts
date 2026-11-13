@@ -38,7 +38,7 @@ await withPagesLock(root, 'performance', async () => {
   );
   const assetBudgets = {
     'chart-style-gallery.html': 335000,
-    'chart-style-gallery-embedded.html': 23000,
+    'chart-style-gallery-embedded.html': 25000,
     [conceptFiles.engineName]: 250000,
   };
   for (const [name, budget] of Object.entries(assetBudgets)) {

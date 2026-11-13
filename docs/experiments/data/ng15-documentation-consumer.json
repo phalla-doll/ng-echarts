@@ -1,10 +1,10 @@
 {
-  "recordedAt": "2026-11-13T14:56:16.812Z",
+  "recordedAt": "2026-11-13T15:18:31.722Z",
   "artifact": {
     "name": "@ng-echarts/chart-library",
     "version": "0.1.0-rc.6",
-    "sha256": "2e4219f1bf7083a21f2bb9e9cb8386b7ab042bec55b675c0e45ec219c751ebbb",
-    "exactCandidate": true
+    "sha256": "cca463bbf1daa4126227578864c24af8d437438b117f3492b998199b331fd2c5",
+    "exactCandidate": false
   },
   "node": "v24.22.2",
   "npm": "11.19.1",
