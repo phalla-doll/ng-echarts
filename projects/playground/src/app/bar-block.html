@@ -26,7 +26,7 @@
         </button>
       </div>
     </header>
-    <div class="block-surface" [hidden]="view() !== 'preview'">
+    <div #surface class="block-surface" [hidden]="view() !== 'preview'">
       <div class="block-metrics" aria-label="Total visits in this sample">
         @for (metric of metrics(); track metric.id; let index = $index) {
           <div class="block-metric">
@@ -46,97 +46,120 @@
         }
       </div>
       @let example = block();
-      @for (instance of instances(); track instance) {
-        @if (example.kind === 'composed') {
-          <nec-composed-chart
-            class="gallery-chart"
-            [title]="example.title"
-            [description]="example.description"
-            [data]="example.rows"
-            rowIdKey="id"
-            categoryKey="month"
-            [series]="example.series"
-            [theme]="theme()"
-            [categoryTickFormatter]="monthTick"
-            [showDataTable]="false"
-            [height]="230"
-            (pointSelect)="select($event)"
-          />
-        } @else if (example.kind === 'line') {
-          <nec-line-chart
-            class="gallery-chart"
-            [title]="example.title"
-            [description]="example.description"
-            [data]="example.rows"
-            rowIdKey="id"
-            categoryKey="month"
-            [series]="example.series"
-            [smooth]="example.smooth"
-            [showPoints]="example.showPoints"
-            [theme]="theme()"
-            [categoryTickFormatter]="monthTick"
-            [showDataTable]="false"
-            [height]="230"
-            (pointSelect)="select($event)"
-          />
-        } @else if (example.kind === 'area') {
-          <nec-area-chart
-            class="gallery-chart"
-            [title]="example.title"
-            [description]="example.description"
-            [data]="example.rows"
-            rowIdKey="id"
-            categoryKey="month"
-            [series]="example.series"
-            [smooth]="example.smooth"
-            [showPoints]="example.showPoints"
-            [stacked]="example.stacked"
-            [gradient]="example.gradient"
-            [theme]="theme()"
-            [categoryTickFormatter]="monthTick"
-            [showDataTable]="false"
-            [height]="230"
-            (pointSelect)="select($event)"
-          />
-        } @else {
-          <nec-bar-chart
-            class="gallery-chart"
-            [title]="block().title"
-            [description]="block().description"
-            [data]="block().rows"
-            rowIdKey="id"
-            categoryKey="month"
-            [series]="block().series"
-            [layout]="example.layout"
-            [stacked]="example.stacked"
-            [gradient]="example.gradient"
-            [theme]="theme()"
-            [categoryTickFormatter]="monthTick"
-            [showDataTable]="false"
-            [style.--nec-series-1]="color()"
-            [height]="230"
-            (pointSelect)="select($event)"
-          />
+      @defer (
+        on viewport(surface);
+        when printMode.active();
+        hydrate on viewport;
+        hydrate when printMode.active()
+      ) {
+        @for (instance of instances(); track instance) {
+          @if (example.kind === 'composed') {
+            <nec-composed-chart
+              class="gallery-chart"
+              [title]="example.title"
+              [description]="example.description"
+              [data]="example.rows"
+              rowIdKey="id"
+              categoryKey="month"
+              [series]="example.series"
+              [theme]="theme()"
+              [categoryTickFormatter]="monthTick"
+              [showDataTable]="false"
+              [height]="230"
+              (pointSelect)="select($event)"
+            />
+          } @else if (example.kind === 'line') {
+            <nec-line-chart
+              class="gallery-chart"
+              [title]="example.title"
+              [description]="example.description"
+              [data]="example.rows"
+              rowIdKey="id"
+              categoryKey="month"
+              [series]="example.series"
+              [smooth]="example.smooth"
+              [showPoints]="example.showPoints"
+              [theme]="theme()"
+              [categoryTickFormatter]="monthTick"
+              [showDataTable]="false"
+              [height]="230"
+              (pointSelect)="select($event)"
+            />
+          } @else if (example.kind === 'area') {
+            <nec-area-chart
+              class="gallery-chart"
+              [title]="example.title"
+              [description]="example.description"
+              [data]="example.rows"
+              rowIdKey="id"
+              categoryKey="month"
+              [series]="example.series"
+              [smooth]="example.smooth"
+              [showPoints]="example.showPoints"
+              [stacked]="example.stacked"
+              [gradient]="example.gradient"
+              [theme]="theme()"
+              [categoryTickFormatter]="monthTick"
+              [showDataTable]="false"
+              [height]="230"
+              (pointSelect)="select($event)"
+            />
+          } @else {
+            <nec-bar-chart
+              class="gallery-chart"
+              [title]="block().title"
+              [description]="block().description"
+              [data]="block().rows"
+              rowIdKey="id"
+              categoryKey="month"
+              [series]="block().series"
+              [layout]="example.layout"
+              [stacked]="example.stacked"
+              [gradient]="example.gradient"
+              [theme]="theme()"
+              [categoryTickFormatter]="monthTick"
+              [showDataTable]="false"
+              [style.--nec-series-1]="color()"
+              [height]="230"
+              (pointSelect)="select($event)"
+            />
+          }
         }
+      } @placeholder {
+        <div class="gallery-chart" aria-hidden="true">
+          <div class="chart-frame">
+            <div [style.height.px]="230"></div>
+            <div class="legend">
+              @for (series of block().series; track series.id) {
+                <button type="button" disabled>
+                  <span class="swatch"></span>{{ series.label }}
+                  <span class="visibility">Visible</span>
+                </button>
+              }
+            </div>
+          </div>
+        </div>
       }
       <p class="block-selection" role="status" [class.has-selection]="selection()">
         {{ selection() }}
       </p>
     </div>
-    <div class="block-code" [hidden]="view() !== 'code'">
-      <div class="code-heading">
-        <span>Standalone Angular component</span
-        ><button type="button" (click)="copySource()">
-          <app-site-icon [name]="copied() ? 'check' : 'copy'" />{{
-            copied() ? 'Copied' : 'Copy code'
-          }}
-        </button>
+    @if (view() === 'code') {
+      <div class="block-code">
+        <div class="code-heading">
+          <span>Standalone Angular component</span
+          ><button type="button" (click)="copySource()">
+            <app-site-icon [name]="copied() ? 'check' : 'copy'" />{{
+              copied() ? 'Copied' : 'Copy code'
+            }}
+          </button>
+        </div>
+        <pre
+          tabindex="0"
+          [attr.aria-label]="block().title + ' Angular source'"
+        >@defer (on immediate) {<code [appHighlight]="source()"></code>} @placeholder {<code>{{ source() }}</code>} @error {<code>{{ source() }}</code>}</pre>
       </div>
-      <pre
-        tabindex="0"
-        [attr.aria-label]="block().title + ' Angular source'"
-      ><code [appHighlight]="source()"></code></pre>
-    </div>
+    }
   </div>
   <div class="integration-card">
     <div class="integration-heading">
@@ -152,7 +175,7 @@
     <pre
       tabindex="0"
       [attr.aria-label]="block().title + ' Angular import'"
-    ><code [appHighlight]="importSource()"></code></pre>
+    ><app-chart-import [family]="block().kind" /></pre>
   </div>
   @if (copyFailed()) {
     <p class="copy-notice" role="status">

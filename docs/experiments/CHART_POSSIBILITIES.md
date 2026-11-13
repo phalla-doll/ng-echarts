@@ -1,5 +1,7 @@
 # Chart possibilities gallery
 
+This records the initial integration and its historical asset identities. The current modular web/offline asset pipeline and progressive rendering are documented in the [performance implementation](DEMO_PERFORMANCE_FIXES.md).
+
 The subsequent [visual refinement](CHART_POSSIBILITIES_REFINEMENT.md) records the user's requested spacing/UI polish and new screenshots; the original evidence below retains its initial scope.
 
 The user approved the standalone HTML gallery and requested adding it to the demo. The `/chart-possibilities` route makes all twelve examples available under **Tools → Chart possibilities**, with the site's navigation, shared theme and an **Open standalone gallery** link.

@@ -1,3 +1,4 @@
+import { renderGallery } from '../../tools/browser-gallery.mjs';
 import { expect, test, type Locator } from '@playwright/test';
 import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -21,6 +22,7 @@ test('renders copyable pie blocks with the pinned pie data and clean responsive 
   expect(html).toContain('Donut Blocks');
   expect(html).not.toContain('<canvas');
   expect(html).not.toContain('Show data table');
+  await renderGallery(page);
   await expect(page.locator('nec-pie-chart canvas')).toHaveCount(3);
   const first = page.locator('#browser-share');
   await first.getByRole('button', { name: 'Code', exact: true }).click();
@@ -47,6 +49,7 @@ test('renders copyable pie blocks with the pinned pie data and clean responsive 
     }
   }
   await first.getByRole('button', { name: 'Reload Browser Share preview', exact: true }).click();
+  await renderGallery(page);
   await expect(page.locator('nec-pie-chart canvas')).toHaveCount(3);
   expect(errors).toEqual([]);
 });

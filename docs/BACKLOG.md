@@ -8,6 +8,8 @@ NG01 evidence: [R01 toolchain report](experiments/R01_TOOLCHAIN.md). The [implem
 
 Demo delivery: the [GitHub Pages preview](GITHUB_PAGES.md) is deployed and verified in Chromium, Firefox and WebKit. Rebuild/publish with `npm run deploy:pages`; source pushes alone do not update the manual preview. This completes the user's demo-hosting request, not NG16 final artifact acceptance or NG22 public package publication.
 
+Demo performance: the [audit](experiments/DEMO_PERFORMANCE_AUDIT.md) and [implementation record](experiments/DEMO_PERFORMANCE_FIXES.md) cover modular concept assets, earlier renderer delivery, viewport rendering, deferred full-source highlighting and route performance guards. These are demo/build changes; library candidates and human release gates retain their existing status. GitHub Pages' platform-controlled cache lifetime remains a hosting constraint.
+
 NG02 evidence: [reference fixtures and provenance](UPSTREAM_PROVENANCE.md). NG03 initial choice: [direct adapter review](experiments/R02_ADAPTER.md). [Initial bar prototype results](experiments/BAR_PROTOTYPE.md) and the reports below contribute to NG04–NG07 without closing their full task criteria.
 
 Development update: [R03](experiments/R03_VISUAL_REVIEW.md) passes the four agreed bar references and tooltip review. [R04/R05](experiments/R04_R05_VALIDATION.md) pass input/focus, lifecycle/retention, and hydration paths. [R07](experiments/R07_RENDERER_COST.md) selects Canvas with actual Angular timings and a measured size budget; [R08](experiments/R08_PACKED_RUNTIME.md) passes external packed client/SSR consumption. Record the [R06 human result](experiments/R06_MANUAL_REVIEW.md) before resolving G2 and release acceptance. Development may continue under the user’s explicit deferral.

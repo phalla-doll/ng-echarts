@@ -24,7 +24,7 @@ import { linkedExampleSource } from './linked-example-source';
           Choose a month or an inclusive range to connect the overview and detail. Chart legends
           stay independent. Use the period fields or the overview’s data table with a keyboard.
         </p>
-        <details>
+        <details #sourceDetails>
           <summary>Standalone Angular example</summary>
           <div class="code-tools">
             <button type="button" (click)="copySource()">
@@ -36,7 +36,7 @@ import { linkedExampleSource } from './linked-example-source';
           <pre
             tabindex="0"
             aria-label="Linked charts Angular source"
-          ><code [appHighlight]="source"></code></pre>
+          >@defer (on interaction(sourceDetails)) {<code [appHighlight]="source"></code>} @placeholder {<code>{{ source }}</code>} @error {<code>{{ source }}</code>}</pre>
         </details>
         @if (copyFailed()) {
           <p role="status">

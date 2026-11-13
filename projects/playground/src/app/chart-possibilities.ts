@@ -4,20 +4,38 @@ import {
   ChangeDetectionStrategy,
   Component,
   DestroyRef,
+  Directive,
+  Renderer2,
   effect,
   ElementRef,
   inject,
   signal,
   viewChild,
 } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { SiteAppearance } from './site-appearance';
 import { SiteIcon } from './site-icon';
+
+const standaloneUrl = 'concepts/chart-style-gallery.html?v=afaee21ece15';
+
+/** Keep a server-started iframe navigation alive during hydration. Angular reapplies
+ * static attributes too, so src is assigned once here rather than in the template. */
+@Directive({ selector: 'iframe[appConceptGallery]' })
+class ConceptGallerySource {
+  constructor() {
+    const frame = inject<ElementRef<HTMLIFrameElement>>(ElementRef).nativeElement;
+    if (!frame.hasAttribute('src'))
+      inject(Renderer2).setAttribute(
+        frame,
+        'src',
+        `${standaloneUrl.replace('.html?', '-embedded.html?')}&embedded=1&theme=${inject(SiteAppearance).theme()}`,
+      );
+  }
+}
 
 /** The approved standalone document is also the deployed concept gallery's source. */
 @Component({
   selector: 'app-chart-possibilities',
-  imports: [SiteIcon],
+  imports: [SiteIcon, ConceptGallerySource],
   templateUrl: './chart-possibilities.html',
   styleUrl: './chart-possibilities.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -31,11 +49,8 @@ export class ChartPossibilities {
   protected readonly ready = signal(false);
   protected readonly height = signal(4600);
   // Refresh the document in browsers that cached the first gallery deployment.
-  protected readonly standaloneUrl = 'concepts/chart-style-gallery.html?v=8169ba21b4c5';
-  // A fixed, bundled document; no external URL or user input enters this trust boundary.
-  protected readonly galleryUrl = inject(DomSanitizer).bypassSecurityTrustResourceUrl(
-    `${this.standaloneUrl}&embedded=1&theme=dark`,
-  );
+  protected readonly standaloneUrl = standaloneUrl;
+  // The source directive preserves the server-started frame document during hydration.
 
   constructor() {
     afterNextRender(() => {
@@ -52,8 +67,9 @@ export class ChartPossibilities {
         if (data['type'] === 'chart-possibilities:resize') {
           const height = data['height'];
           if (typeof height === 'number' && Number.isFinite(height) && height > 0) {
-            this.height.set(Math.min(30000, Math.ceil(height)));
-            this.ready.set(true);
+            const next = Math.min(30000, Math.ceil(height));
+            this.height.set(next);
+            if (data['ready'] === true) this.ready.set(true);
           }
         } else if (data['type'] === 'chart-possibilities:anchor') {
           const top = data['top'];
@@ -64,8 +80,12 @@ export class ChartPossibilities {
         }
       };
       hostWindow.addEventListener('message', receive);
-      this.destroyRef.onDestroy(() => hostWindow.removeEventListener('message', receive));
+      this.destroyRef.onDestroy(() => {
+        hostWindow.removeEventListener('message', receive);
+      });
       this.browserReady.set(true);
+      // Also synchronizes a child that finished before the hydration listener existed.
+      this.onGalleryLoad();
     });
     effect(() => {
       const theme = this.appearance.theme();

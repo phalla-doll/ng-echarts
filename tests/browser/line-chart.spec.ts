@@ -1,3 +1,4 @@
+import { renderGallery } from '../../tools/browser-gallery.mjs';
 import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { expect, test, type Locator } from '@playwright/test';
@@ -54,6 +55,7 @@ test('hydrates a line gallery with copyable examples, matching themes, and narro
   expect(html).toContain('Line Blocks');
   expect(html).not.toContain('<canvas');
   expect(html).not.toContain('Show data table');
+  await renderGallery(page);
   await expect(page.locator('nec-line-chart canvas')).toHaveCount(4);
   const first = page.locator('#straight-lines');
   await first.getByRole('button', { name: 'Code', exact: true }).click();
@@ -78,6 +80,7 @@ test('hydrates a line gallery with copyable examples, matching themes, and narro
     }
   }
   await first.getByRole('button', { name: 'Reload Device Trends preview', exact: true }).click();
+  await renderGallery(page);
   await expect(page.locator('nec-line-chart canvas')).toHaveCount(4);
   expect(errors).toEqual([]);
 });

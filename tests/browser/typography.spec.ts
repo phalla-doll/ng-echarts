@@ -1,3 +1,4 @@
+import { renderGallery } from '../../tools/browser-gallery.mjs';
 import { expect, test } from '@playwright/test';
 import { firstGreenBarPoint } from './canvas-point';
 import { collectBrowserErrors } from './resource-audit';
@@ -47,9 +48,10 @@ for (const deviceScaleFactor of [1, 2]) {
     });
     try {
       await page.goto('/', { waitUntil: 'domcontentloaded' });
-      await expect.poll(() => page.evaluate(() => window.chartFontRequests)).toBe(4);
+      await expect.poll(() => page.evaluate(() => window.chartFontRequests)).toBeGreaterThan(0);
       await expect(page.locator('nec-bar-chart canvas')).toHaveCount(0);
       releaseFont();
+      await renderGallery(page);
       await expect(page.locator('nec-bar-chart canvas')).toHaveCount(4);
       const paints = await page.evaluate(() => window.chartTextPaints);
       expect(paints.some((paint) => paint.text === 'Jan')).toBe(true);

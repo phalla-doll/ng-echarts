@@ -26,7 +26,7 @@
         </button>
       </div>
     </header>
-    <div class="block-surface" [hidden]="view() !== 'preview'">
+    <div #surface class="block-surface" [hidden]="view() !== 'preview'">
       <div class="block-metrics" aria-label="Browser distribution in this sample">
         @for (metric of metrics(); track metric.id) {
           <div class="block-metric">
@@ -35,46 +35,69 @@
           </div>
         }
       </div>
-      @for (instance of instances(); track instance) {
-        <nec-pie-chart
-          class="gallery-chart"
-          [title]="block().title"
-          [description]="block().description"
-          [data]="block().rows"
-          rowIdKey="id"
-          categoryKey="browser"
-          [measure]="measure"
-          [innerRadius]="block().innerRadius"
-          [showLabels]="block().showLabels"
-          [theme]="theme()"
-          [showDataTable]="false"
-          [height]="300"
-          [style.--nec-series-1]="palette()[0]"
-          [style.--nec-series-2]="palette()[1]"
-          [style.--nec-series-3]="palette()[2]"
-          [style.--nec-series-4]="palette()[3]"
-          [style.--nec-series-5]="palette()[4]"
-          (pointSelect)="select($event)"
-        />
+      @defer (
+        on viewport(surface);
+        when printMode.active();
+        hydrate on viewport;
+        hydrate when printMode.active()
+      ) {
+        @for (instance of instances(); track instance) {
+          <nec-pie-chart
+            class="gallery-chart"
+            [title]="block().title"
+            [description]="block().description"
+            [data]="block().rows"
+            rowIdKey="id"
+            categoryKey="browser"
+            [measure]="measure"
+            [innerRadius]="block().innerRadius"
+            [showLabels]="block().showLabels"
+            [theme]="theme()"
+            [showDataTable]="false"
+            [height]="300"
+            [style.--nec-series-1]="palette()[0]"
+            [style.--nec-series-2]="palette()[1]"
+            [style.--nec-series-3]="palette()[2]"
+            [style.--nec-series-4]="palette()[3]"
+            [style.--nec-series-5]="palette()[4]"
+            (pointSelect)="select($event)"
+          />
+        }
+      } @placeholder {
+        <div class="gallery-chart" aria-hidden="true">
+          <div class="chart-frame">
+            <div [style.height.px]="300"></div>
+            <div class="legend">
+              @for (row of block().rows; track row.id) {
+                <button type="button" disabled>
+                  <span class="swatch"></span>{{ row.browser }}
+                  <span class="visibility">Visible</span>
+                </button>
+              }
+            </div>
+          </div>
+        </div>
       }
       <p class="block-selection" role="status" [class.has-selection]="selection()">
         {{ selection() }}
       </p>
     </div>
-    <div class="block-code" [hidden]="view() !== 'code'">
-      <div class="code-heading">
-        <span>Standalone Angular component</span
-        ><button type="button" (click)="copySource()">
-          <app-site-icon [name]="copied() ? 'check' : 'copy'" />{{
-            copied() ? 'Copied' : 'Copy code'
-          }}
-        </button>
+    @if (view() === 'code') {
+      <div class="block-code">
+        <div class="code-heading">
+          <span>Standalone Angular component</span
+          ><button type="button" (click)="copySource()">
+            <app-site-icon [name]="copied() ? 'check' : 'copy'" />{{
+              copied() ? 'Copied' : 'Copy code'
+            }}
+          </button>
+        </div>
+        <pre
+          tabindex="0"
+          [attr.aria-label]="block().title + ' Angular source'"
+        >@defer (on immediate) {<code [appHighlight]="source()"></code>} @placeholder {<code>{{ source() }}</code>} @error {<code>{{ source() }}</code>}</pre>
       </div>
-      <pre
-        tabindex="0"
-        [attr.aria-label]="block().title + ' Angular source'"
-      ><code [appHighlight]="source()"></code></pre>
-    </div>
+    }
   </div>
   <div class="integration-card">
     <div class="integration-heading">
@@ -90,7 +113,7 @@
     <pre
       tabindex="0"
       [attr.aria-label]="block().title + ' Angular import'"
-    ><code [appHighlight]="importSource()"></code></pre>
+    ><app-chart-import [family]="block().kind" /></pre>
   </div>
   @if (copyFailed()) {
     <p class="copy-notice" role="status">

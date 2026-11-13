@@ -2,9 +2,11 @@ import assert from 'node:assert/strict';
 import { cp, readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { prepareDemo } from './prepare-demo.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const directory = join(root, 'dist/pages/browser');
+await prepareDemo(join(root, 'dist/pages'));
 const config = JSON.parse(await readFile(join(root, 'angular.json'), 'utf8'));
 const base = config.projects.playground.architect.build.configurations.pages.baseHref;
 assert(base.startsWith('/') && base.endsWith('/'));

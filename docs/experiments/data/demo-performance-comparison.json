@@ -1,0 +1,264 @@
+{
+  "method": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "cpuRate": 4,
+    "latencyMs": 150,
+    "downloadBytesPerSecond": 200000,
+    "reducedMotion": "reduce",
+    "samplesPerRoute": 3,
+    "readiness": "First chart SVG/canvas followed by two animation frames, after DOMContentLoaded; documentation records DOMContentLoaded plus two frames."
+  },
+  "results": [
+    {
+      "version": "before",
+      "sourceCommit": "e7bd5b43b556a3414fda3ab9cc8e8d57db8814ad",
+      "sourceSha256": "775a57049444c3579e6c7c737fc033484e87389b487f8efa8f246710aa5ed225",
+      "artifactSha256": "284d0b37f1120f5828e53d18787fba9eb755e3c3a26434677d1a4f6e0246216d",
+      "route": "chart-possibilities",
+      "medianFirstVisibleMs": 4465.399999991059,
+      "samples": [
+        {
+          "firstMs": 4465.0999999940395,
+          "bytes": 607918,
+          "canvases": 0,
+          "svg": 14,
+          "errors": []
+        },
+        {
+          "firstMs": 4465.399999991059,
+          "bytes": 607918,
+          "canvases": 0,
+          "svg": 14,
+          "errors": []
+        },
+        {
+          "firstMs": 4567.70000000298,
+          "bytes": 607918,
+          "canvases": 0,
+          "svg": 14,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "version": "before",
+      "sourceCommit": "e7bd5b43b556a3414fda3ab9cc8e8d57db8814ad",
+      "sourceSha256": "775a57049444c3579e6c7c737fc033484e87389b487f8efa8f246710aa5ed225",
+      "artifactSha256": "284d0b37f1120f5828e53d18787fba9eb755e3c3a26434677d1a4f6e0246216d",
+      "route": "/",
+      "medianFirstVisibleMs": 3600.699999988079,
+      "samples": [
+        {
+          "firstMs": 3617.5,
+          "bytes": 447248,
+          "canvases": 4,
+          "svg": 0,
+          "errors": []
+        },
+        {
+          "firstMs": 3600.699999988079,
+          "bytes": 447248,
+          "canvases": 4,
+          "svg": 0,
+          "errors": []
+        },
+        {
+          "firstMs": 3533.2000000029802,
+          "bytes": 447248,
+          "canvases": 4,
+          "svg": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "version": "before",
+      "sourceCommit": "e7bd5b43b556a3414fda3ab9cc8e8d57db8814ad",
+      "sourceSha256": "775a57049444c3579e6c7c737fc033484e87389b487f8efa8f246710aa5ed225",
+      "artifactSha256": "284d0b37f1120f5828e53d18787fba9eb755e3c3a26434677d1a4f6e0246216d",
+      "route": "linked",
+      "medianFirstVisibleMs": 3600.0999999940395,
+      "samples": [
+        {
+          "firstMs": 3600.0999999940395,
+          "bytes": 441296,
+          "canvases": 2,
+          "svg": 0,
+          "errors": []
+        },
+        {
+          "firstMs": 3616.4000000059605,
+          "bytes": 441296,
+          "canvases": 2,
+          "svg": 0,
+          "errors": []
+        },
+        {
+          "firstMs": 3598.7000000029802,
+          "bytes": 441296,
+          "canvases": 2,
+          "svg": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "version": "before",
+      "sourceCommit": "e7bd5b43b556a3414fda3ab9cc8e8d57db8814ad",
+      "sourceSha256": "775a57049444c3579e6c7c737fc033484e87389b487f8efa8f246710aa5ed225",
+      "artifactSha256": "284d0b37f1120f5828e53d18787fba9eb755e3c3a26434677d1a4f6e0246216d",
+      "route": "installation",
+      "medianFirstVisibleMs": 1581.7000000029802,
+      "samples": [
+        {
+          "firstMs": 1579.0999999940395,
+          "bytes": 225173,
+          "canvases": 0,
+          "svg": 0,
+          "errors": []
+        },
+        {
+          "firstMs": 1582.7000000029802,
+          "bytes": 225173,
+          "canvases": 0,
+          "svg": 0,
+          "errors": []
+        },
+        {
+          "firstMs": 1581.7000000029802,
+          "bytes": 225173,
+          "canvases": 0,
+          "svg": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "sourceCommit": "9db45664eec45eb43f03e7c1be752c1e42655cfe",
+      "sourceSha256": "97b5548c565269088ef38ae5a65c9cb68aa795940ecd6e8b3f25afa8c9ee7255",
+      "artifactSha256": "fac9394836af15d659a96f8a1ec8019e710644f33de782d3a6a776a5a08f42ee",
+      "route": "chart-possibilities",
+      "medianFirstVisibleMs": 2733.0999999940395,
+      "samples": [
+        {
+          "firstMs": 2733.0999999940395,
+          "bytes": 434462,
+          "canvases": 0,
+          "svg": 1,
+          "errors": []
+        },
+        {
+          "firstMs": 2733.0999999940395,
+          "bytes": 434462,
+          "canvases": 0,
+          "svg": 1,
+          "errors": []
+        },
+        {
+          "firstMs": 2748.5,
+          "bytes": 434462,
+          "canvases": 0,
+          "svg": 1,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "sourceCommit": "9db45664eec45eb43f03e7c1be752c1e42655cfe",
+      "sourceSha256": "97b5548c565269088ef38ae5a65c9cb68aa795940ecd6e8b3f25afa8c9ee7255",
+      "artifactSha256": "fac9394836af15d659a96f8a1ec8019e710644f33de782d3a6a776a5a08f42ee",
+      "route": "/",
+      "medianFirstVisibleMs": 3216.199999988079,
+      "samples": [
+        {
+          "firstMs": 3216.199999988079,
+          "bytes": 430622,
+          "canvases": 1,
+          "svg": 0,
+          "errors": []
+        },
+        {
+          "firstMs": 3233,
+          "bytes": 430622,
+          "canvases": 1,
+          "svg": 0,
+          "errors": []
+        },
+        {
+          "firstMs": 3199.0999999940395,
+          "bytes": 430622,
+          "canvases": 1,
+          "svg": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "sourceCommit": "9db45664eec45eb43f03e7c1be752c1e42655cfe",
+      "sourceSha256": "97b5548c565269088ef38ae5a65c9cb68aa795940ecd6e8b3f25afa8c9ee7255",
+      "artifactSha256": "fac9394836af15d659a96f8a1ec8019e710644f33de782d3a6a776a5a08f42ee",
+      "route": "linked",
+      "medianFirstVisibleMs": 2700.3999999910593,
+      "samples": [
+        {
+          "firstMs": 2700.3999999910593,
+          "bytes": 428909,
+          "canvases": 2,
+          "svg": 0,
+          "errors": []
+        },
+        {
+          "firstMs": 2715.5999999940395,
+          "bytes": 428909,
+          "canvases": 2,
+          "svg": 0,
+          "errors": []
+        },
+        {
+          "firstMs": 2698.6000000089407,
+          "bytes": 428909,
+          "canvases": 2,
+          "svg": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "version": "after",
+      "sourceCommit": "9db45664eec45eb43f03e7c1be752c1e42655cfe",
+      "sourceSha256": "97b5548c565269088ef38ae5a65c9cb68aa795940ecd6e8b3f25afa8c9ee7255",
+      "artifactSha256": "fac9394836af15d659a96f8a1ec8019e710644f33de782d3a6a776a5a08f42ee",
+      "route": "installation",
+      "medianFirstVisibleMs": 1581.300000011921,
+      "samples": [
+        {
+          "firstMs": 1582.2999999970198,
+          "bytes": 225475,
+          "canvases": 0,
+          "svg": 0,
+          "errors": []
+        },
+        {
+          "firstMs": 1581.300000011921,
+          "bytes": 225475,
+          "canvases": 0,
+          "svg": 0,
+          "errors": []
+        },
+        {
+          "firstMs": 1581,
+          "bytes": 225475,
+          "canvases": 0,
+          "svg": 0,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

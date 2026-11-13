@@ -1,3 +1,4 @@
+import { renderGallery } from '../../tools/browser-gallery.mjs';
 import { expect, test, type Locator } from '@playwright/test';
 import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -73,6 +74,7 @@ test('renders copyable area blocks with the pinned area data and clean responsiv
   expect(html).toContain('Area Blocks');
   expect(html).not.toContain('<canvas');
   expect(html).not.toContain('Show data table');
+  await renderGallery(page);
   await expect(page.locator('nec-area-chart canvas')).toHaveCount(4);
   const first = page.locator('#gradient-areas');
   await first.getByRole('button', { name: 'Code', exact: true }).click();
@@ -99,6 +101,7 @@ test('renders copyable area blocks with the pinned area data and clean responsiv
     }
   }
   await first.getByRole('button', { name: 'Reload Gradient Areas preview', exact: true }).click();
+  await renderGallery(page);
   await expect(page.locator('nec-area-chart canvas')).toHaveCount(4);
   expect(errors).toEqual([]);
 });

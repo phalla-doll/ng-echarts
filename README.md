@@ -39,6 +39,8 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | [Site-wide theme alignment](docs/experiments/SITE_THEME_ALIGNMENT.md) | Consistent documentation/tools, setup and component pages, and a shared theme across navigation |
 | [UI spacing review](docs/experiments/UI_SPACING_REVIEW.md) | Shared gutters, aligned headings, consistent panels/controls, breakpoint checks, and before/after captures |
 | [Code presentation](docs/experiments/CODE_PRESENTATION_REVIEW.md) | Google Sans Code, theme-aware syntax colors, and corrected copy actions |
+| [Demo performance audit](docs/experiments/DEMO_PERFORMANCE_AUDIT.md) | Cold/cached loading, mobile CPU work and ranked findings |
+| [Demo performance improvements](docs/experiments/DEMO_PERFORMANCE_FIXES.md) | Modular concept delivery, viewport rendering and route performance checks |
 | [Area-block reference audit](docs/experiments/AREA_BLOCKS_VISUAL_AUDIT.md) | User's visual target, current layout gaps, and gallery correction brief |
 | [Linked selection feedback](docs/experiments/LINKED_SELECTION_FEEDBACK.md) | Persistent month feedback, current table row, reset and rc.2 evidence |
 | [Shared focus refinement](docs/experiments/FOCUS_REFINEMENT.md) | Consistent thin focus rings across demo controls, keyboard scroll regions and both themes |
