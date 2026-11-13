@@ -64,3 +64,7 @@ The [navigation icon correction](experiments/VISUAL_AUDIT.md#navigation-icon-cor
 ## Local-candidate documentation deployment
 
 The demo now documents the private `0.1.0-rc.0` candidate and MIT license for original library code, alongside preserved third-party notices. Source commit: `6297f85`; static commit: `45e809b5d3dc018b505540b0d1fb3faeff853d6f`. The [Pages deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43368528003) succeeds. The live installation page returns HTTP 200 with the new tarball filename/MIT statement, and local/live Pages checks pass in all three engines. This deploys documentation; the verified candidate remains local under `dist/releases/`, with [artifact evidence](experiments/NG16_LOCAL_RELEASE.md) and the [release checklist](RELEASE_CHECKLIST.md).
+
+## NG17 composed preview update
+
+The [Composed Blocks page](https://phalla-doll.github.io/ng-echarts/composed/) adds the shared-axis visits/trend demo and rc.1 installation guidance. All 27 routes are prerendered, including composed validation and benchmark fixtures. Source commit: `d5b8c49`; static commit: `9db1e7ddc36bf031d6fa22e3b354f2faf29f93ea`. The [deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43378390284) succeeds and `preview-build.json` identifies that clean source snapshot. Local/live Pages checks pass in all three engines. [NG17 evidence](experiments/NG17_COMPOSED_CHART.md) records the API, captures, timings, exact private rc.1 candidate and remaining human release gates.
