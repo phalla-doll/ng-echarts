@@ -46,3 +46,15 @@ The before capture is preserved from the pre-refinement UI at source base `666f8
 The existing linked/gallery/visual-refinement/site/navigation/code/comparison suite passes **78 scenarios** across all three engines. Production build and strict templates pass. The Pages build prerenders **29 routes** and local static verification passes in all three engines. Formatting, 842 local documentation links/anchors, whitespace, 12 final source hashes and all 26 before/after image hashes pass. The rc.2 tarball remains SHA-256 `c41489c8880e41c62f11121599c9cecb1acfa2c5ab6c3b06ee2abf4d95b2d7fd`.
 
 This is demo presentation work; the private rc.2 package, public API and chart-renderer behavior are unchanged. Human F09/R06/G2/G3/G4 remain pending. Live delivery and final checks are recorded after deployment.
+
+## Live delivery
+
+Source commit `67dc83e87c6fc348c1ee3f052c50ba045b4dda18` is pushed to main. The [live demo](https://phalla-doll.github.io/ng-echarts/linked/) is served from static commit `5cae0054ebac6fb6909fdeb6ecedfa6cdc72b5d4`; the [Pages deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43395464823) succeeds. The marker identifies the clean source (`includesWorkingTree: false`). Live Pages checks pass in Chromium, Firefox and WebKit. [The live interaction audit](data/hover-live.json) passes all 176 cases, including preserved selection/visibility, disabled probes, keyboard focus while hovered, motion preferences, system-color hover and coarse-pointer tap/reset behavior. It records no overflow, geometry/state changes or browser/HTTP errors. Final source/image hashes, documentation links/anchors and whitespace pass before committing this delivery record.
+
+Reproduce live verification without another image set:
+
+```sh
+HOVER_CAPTURE_IMAGES=0 node tools/capture-hover-refinement.mjs after https://phalla-doll.github.io/ng-echarts/ /tmp/ng-echarts-hover-live
+```
+
+Workspace CI for the new source runs independently; the local/live outcomes above are executed results, not a claim that the new remote run has finished.
