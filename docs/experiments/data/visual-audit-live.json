@@ -1,0 +1,47 @@
+{
+  "recordedAt": "2026-11-13T03:41:42.958Z",
+  "url": "https://phalla-doll.github.io/ng-echarts/",
+  "deploymentCommit": "8c8e410c5c1767d7fcb6e60827d1f90aa80c63af",
+  "deploymentRun": "https://github.com/phalla-doll/ng-echarts/actions/runs/43360520301",
+  "previewBuild": {
+    "builtAt": "2026-11-13T03:40:19.951Z",
+    "sourceBaseCommit": "cba873043f3cb27f88512bc202a465818ecd73bc",
+    "includesWorkingTree": false
+  },
+  "browser": "158.0.8127.18",
+  "node": "v24.22.2",
+  "reducedMotion": "reduce",
+  "deviceScaleFactor": 1,
+  "familyThemeWidthCombinations": 32,
+  "capturedImages": 70,
+  "tooltipBoundsChecks": 16,
+  "staticLiveEngines": ["chromium", "firefox", "webkit"],
+  "errors": [],
+  "sourceHashes": [
+    {
+      "path": "projects/playground/src/gallery-shell.css",
+      "sha256": "c78f4b9c39e5a162d8d564b1fa979b7ff9462648859738436f179d1503946bd8"
+    },
+    {
+      "path": "projects/playground/src/app/bar-block.css",
+      "sha256": "77cd983ec2bb326966a4b526fb557ae03eb6d71f738405d9818df7c5e7799cd4"
+    },
+    {
+      "path": "projects/playground/src/app/bar-block.html",
+      "sha256": "dec066287cdfb8bd5b7dcad5f27752b9561fd60ba6b200571b7bcab4085b57f4"
+    },
+    {
+      "path": "projects/playground/src/app/pie-block.html",
+      "sha256": "0205e324e63bb3bc0ad95218f8b5fcd3d4d4db9415f198972bad18925214cbf8"
+    },
+    {
+      "path": "projects/chart-library/core/src/lib/cartesian-options.ts",
+      "sha256": "763fdd71006b5a6d08912cbc256c6399e5311bb95e2b9f5fadfefe8f69b8fa83"
+    },
+    {
+      "path": "tools/capture-visual-audit.mjs",
+      "sha256": "c28757147f1b051de3d25f1d80c69b87ef7609b6f2bf233b23a6fd3d0889c2d7"
+    }
+  ],
+  "note": "Live matrix and real pointer checks passed. The corresponding local visual evidence is retained in docs/experiments/captures/visual-audit/after; transient live images were saved outside the workspace."
+}

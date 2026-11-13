@@ -37,10 +37,16 @@ node tools/check-pages.mjs https://phalla-doll.github.io/ng-echarts/
 
 This publishes the experimental demo, not the library package. Deferred human interpretation, artifact licensing/release acceptance and registry publication remain separate.
 
-## Recorded deployment
+## Initial deployment
 
 Published 13 November 2026 from the current working-tree demo snapshot. Static commit: `9930a004ddf0f06f093d8e73d5a59127437a977c`. GitHub's [Pages deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43355274308) completed successfully; Pages reports `built`.
 
 Verification passes locally and against the public URL in Chromium, Firefox and WebKit, including deep links/reloads, all galleries, lazy assets/fonts, fragments/focus, themes and mobile navigation. Related normal-SSR regression checks pass 30 browser scenarios and all 119 unit/integration tests, plus production build, strict compilation, formatting and `git diff --check`. The deployment bundle includes the adapted upstream MIT notice, generated third-party licenses and existing public font notices.
 
 The subsequent source handoff passes the complete `npm run check`: 119 unit/integration tests, 145 browser scenarios plus two expected CDP-only skips, isolated declaration/documentation/client/SSR consumers, server markup and all seven bundle scenarios. The source review also resolves 576 local documentation links/anchors. CI now runs the static build/check after this regression, with a 25-minute job budget for the expanded lifecycle/consumer checks. The pie visibility test uses stable button locators and waits for each state update, removing the filtered-locator race observed in the previous `main` CI run.
+
+## Visual refinement deployment
+
+The [four-family visual audit](experiments/VISUAL_AUDIT.md) is live from source commit `cba873043f3cb27f88512bc202a465818ecd73bc`, with no working-tree changes in the published snapshot. Static commit: `8c8e410c5c1767d7fcb6e60827d1f90aa80c63af`. The [Pages deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43360520301) succeeds and Pages reports `built`.
+
+The full workspace regression passes 119 unit/integration tests and 160 browser scenarios plus two expected skips, installed consumers, SSR and seven bundle scenarios. All 24 static routes build, and local/live Pages checks pass in Chromium, Firefox and WebKit. The [live visual record](experiments/data/visual-audit-live.json) adds 32 family/theme/width combinations, 70 captures and 16 real-pointer tooltip-containment checks with no browser/HTTP errors. `preview-build.json` confirms the published source commit. The manual preview workflow remains unchanged.
