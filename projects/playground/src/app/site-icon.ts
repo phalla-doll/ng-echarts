@@ -1,15 +1,20 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
-// Heroicons v2.2.0, 24 px outline (MIT, Tailwind Labs, Inc.).
+// Heroicons v2.2.0 (MIT, Tailwind Labs, Inc.), plus original line/area glyphs.
+// All icons share a 24 px view box, 1.5 stroke, and currentColor.
 // Source revision and icon mapping: docs/UPSTREAM_PROVENANCE.md.
 // Full notice: projects/playground/public/third-party/heroicons-LICENSE.txt.
 const paths = {
+  line: ['M3 3.75v16.5h18', 'm6 15 4-5 4 3 7-7'],
+  area: ['M3 3.75v16.5h18', 'm6 15 4-5 4 3 7-7v12H6Z'],
+  sliders: [
+    'M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75',
+  ],
+  pie: ['M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z', 'M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z'],
   chart: [
     'M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z',
   ],
-  compare: [
-    'M9 4.5v15m6-15v15m-10.875 0h15.75c.621 0 1.125-.504 1.125-1.125V5.625c0-.621-.504-1.125-1.125-1.125H4.125C3.504 4.5 3 5.004 3 5.625v12.75c0 .621.504 1.125 1.125 1.125Z',
-  ],
+  compare: ['M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5'],
   update: [
     'M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99',
   ],
@@ -51,7 +56,11 @@ const paths = {
     stroke-linejoin="round"
   >
     @for (path of iconPaths(); track $index) {
-      <path [attr.d]="path" />
+      <path
+        [attr.d]="path"
+        [attr.fill]="name() === 'area' && $index === 1 ? 'currentColor' : 'none'"
+        [attr.fill-opacity]="name() === 'area' && $index === 1 ? 0.18 : null"
+      />
     }
   </svg>`,
   styles: `

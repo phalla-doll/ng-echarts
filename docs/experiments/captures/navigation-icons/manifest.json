@@ -1,0 +1,41 @@
+{
+  "recordedAt": "2026-11-13T04:29:32.599Z",
+  "base": "http://localhost:4178/",
+  "browser": "158.0.8127.18",
+  "node": "v24.22.2",
+  "deviceScaleFactor": 2,
+  "reducedMotion": "reduce",
+  "sources": [
+    {
+      "path": "projects/playground/src/app/site-icon.ts",
+      "sha256": "b31c6c327ffa9300691e745a061ecdaf15ce9fbc29739a89a5d5059e3e1d93e8"
+    },
+    {
+      "path": "projects/playground/src/app/root.html",
+      "sha256": "f6387fd34cecfbcf515b038dbbe7d36bf565148e80196e8b0856eb7492b9a32d"
+    }
+  ],
+  "captures": [
+    {
+      "name": "before-dark.png",
+      "sha256": "a5b991a63e9804c7702c9a1582d5b6bcb6e18f166dae832e117ef41bfd437c54"
+    },
+    {
+      "name": "dark.png",
+      "sha256": "2c479a96ea988a8e682bc8431914f2ca7a419eede24af95ef0ec358ff88e9b22"
+    },
+    {
+      "name": "light.png",
+      "sha256": "78be0d9c3706b5c9f9e4e0a82c7e0824d9b792b5331456e768686fdc46042742"
+    },
+    {
+      "name": "mobile-light.png",
+      "sha256": "4e431855056e387bbfd9f51c0e1a03758dad3cff2bed0538a152d26f09d8fffd"
+    },
+    {
+      "name": "mobile-dark.png",
+      "sha256": "8843b9303663530419bf0c7066695a4ac31a715f3fe02b7b00bb4949af94abd4"
+    }
+  ],
+  "errors": []
+}

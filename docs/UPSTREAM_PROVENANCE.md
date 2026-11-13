@@ -38,16 +38,21 @@ The later [gallery correction](experiments/BAR_GALLERY_VISUAL_REVIEW.md) compose
 
 ## Demo-site icons: Heroicons
 
-The demo uses [Heroicons](https://heroicons.com/) **v2.2.0**, pinned to [`0435d4ca364a608cc75e2f8683d374e55abbae26`](https://github.com/tailwindlabs/heroicons/tree/0435d4ca364a608cc75e2f8683d374e55abbae26). Only the selected `optimized/24/outline/*.svg` paths are embedded in `projects/playground/src/app/site-icon.ts`. Paths are copied verbatim; shared SVG attributes retain the upstream 24×24 view box, 1.5 stroke, rounded caps/joins, and `currentColor`. Multiple paths render through Angular's native template control flow.
+The demo uses [Heroicons](https://heroicons.com/) **v2.2.0**, pinned to [`0435d4ca364a608cc75e2f8683d374e55abbae26`](https://github.com/tailwindlabs/heroicons/tree/0435d4ca364a608cc75e2f8683d374e55abbae26). Selected `optimized/24/outline/*.svg` paths are embedded in `projects/playground/src/app/site-icon.ts`. Heroicons paths are copied verbatim; shared SVG attributes retain the upstream 24×24 view box, 1.5 stroke, rounded caps/joins, and `currentColor`. Multiple paths render through Angular's native template control flow.
 
-The existing local aliases, icon dimensions, accessible button/link labels, and decorative `aria-hidden` treatment are preserved; SVGs are explicitly nonfocusable. There is no React/Vue wrapper, icon font, runtime CDN, or extra package dependency. This is demo presentation code outside the chart-library package. The catalog chart illustrations remain original SVG artwork.
+Line and area navigation glyphs are original project SVG geometry using the same outline dimensions and stroke; the area has a subtle `currentColor` fill. They are recorded separately from upstream icons in the manifest.
+
+The existing icon dimensions, accessible button/link labels, and decorative `aria-hidden` treatment are preserved; SVGs are explicitly nonfocusable. There is no React/Vue wrapper, icon font, runtime CDN, or extra package dependency. This is demo presentation code outside the chart-library package. The catalog chart illustrations remain original SVG artwork.
 
 The complete [MIT notice](../projects/playground/public/third-party/heroicons-LICENSE.txt), copyright Tailwind Labs, Inc., ships with the demo's public assets. The [provenance manifest](experiments/data/heroicons-provenance.json) records each exact upstream filename and SHA-256 hash, plus the license hash.
 
 | Local alias | Heroicons outline name |
 | --- | --- |
 | `chart` | `chart-bar` |
-| `compare` | `view-columns` |
+| `compare` | `arrows-right-left` |
+| `pie` | `chart-pie` |
+| `sliders` | `adjustments-horizontal` |
+| `line`, `area` | Original project glyphs; matching outline style |
 | `update` | `arrow-path` |
 | `layers` | `square-3-stack-3d` |
 | `leave` | `arrow-right-start-on-rectangle` |

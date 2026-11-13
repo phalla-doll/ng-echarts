@@ -16,9 +16,9 @@
     },
     {
       "alias": "compare",
-      "name": "view-columns",
-      "source": "optimized/24/outline/view-columns.svg",
-      "sha256": "010ac4106175f2feb31952ff68a5492fcff4828165947c393369adcd04067206"
+      "name": "arrows-right-left",
+      "source": "optimized/24/outline/arrows-right-left.svg",
+      "sha256": "eab48554986c319d64191af3375fad9f9c638ee564320e9d306ae5f9be3b1873"
     },
     {
       "alias": "update",
@@ -97,6 +97,32 @@
       "name": "book-open",
       "source": "optimized/24/outline/book-open.svg",
       "sha256": "dc4fab6a62dcebe7c1c31096a7062151363b803b62919ba47ef32ba37ad127df"
+    },
+    {
+      "alias": "pie",
+      "name": "chart-pie",
+      "source": "optimized/24/outline/chart-pie.svg",
+      "sha256": "7355ac513024b41e84e861629b217910481e9408f7c4c887f567d9a7d895accd"
+    },
+    {
+      "alias": "sliders",
+      "name": "adjustments-horizontal",
+      "source": "optimized/24/outline/adjustments-horizontal.svg",
+      "sha256": "33ccc1e3273217f72e3436f535000036e069935618877e6636124b2b930bbf5e"
+    }
+  ],
+  "localIcons": [
+    {
+      "alias": "line",
+      "origin": "Original project SVG geometry, styled to match the existing outline icons.",
+      "paths": ["M3 3.75v16.5h18", "m6 15 4-5 4 3 7-7"],
+      "pathsSha256": "9552b94abd466c6a591d4f542e6c4e303328eb36c6bde36da174122a2950b505"
+    },
+    {
+      "alias": "area",
+      "origin": "Original project SVG geometry, styled to match the existing outline icons.",
+      "paths": ["M3 3.75v16.5h18", "m6 15 4-5 4 3 7-7v12H6Z"],
+      "pathsSha256": "d1f3c63633fc1faecf97d562934cae39382c3af127b3c5dbf2ef4b29759a3937"
     }
   ]
 }
