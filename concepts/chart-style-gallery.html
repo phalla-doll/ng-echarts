@@ -253,20 +253,6 @@
         color: var(--muted);
         margin: 0;
       }
-      .badge {
-        border: 1px solid var(--line);
-        border-radius: 4px;
-        white-space: nowrap;
-        font-size: 10px;
-        padding: 2px 7px;
-        line-height: 18px;
-        color: var(--muted);
-      }
-      .badge.recommended {
-        color: var(--green);
-        background: color-mix(in srgb, var(--green) 7%, var(--panel));
-        border-color: color-mix(in srgb, var(--green) 23%, var(--line));
-      }
       .metric-row {
         display: flex;
         flex-wrap: wrap;
@@ -320,6 +306,64 @@
         height: 272px;
         flex: none;
         margin: 20px 12px 12px;
+      }
+      .treemap-key {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        padding: 14px 24px 0;
+        color: var(--muted);
+        font-size: 10px;
+        line-height: 16px;
+      }
+      .treemap-key span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .treemap-key i {
+        width: 6px;
+        height: 6px;
+        border-radius: 1px;
+        background: var(--family-color);
+      }
+      .treemap-key span:nth-child(1) {
+        --family-color: #246c53;
+      }
+      .treemap-key span:nth-child(2) {
+        --family-color: #276963;
+      }
+      .treemap-key span:nth-child(3) {
+        --family-color: #784457;
+      }
+      .treemap-key span:nth-child(4) {
+        --family-color: #48515c;
+      }
+      html[data-theme='light'] .treemap-key span:nth-child(1) {
+        --family-color: #a3d3bd;
+      }
+      html[data-theme='light'] .treemap-key span:nth-child(2) {
+        --family-color: #9bc9c2;
+      }
+      html[data-theme='light'] .treemap-key span:nth-child(3) {
+        --family-color: #d7b1bf;
+      }
+      html[data-theme='light'] .treemap-key span:nth-child(4) {
+        --family-color: #c0cad4;
+      }
+      .card--treemap {
+        container-type: inline-size;
+      }
+      .card--treemap .plot {
+        height: 320px;
+        margin: 16px 24px 20px;
+      }
+      @container (max-width: 408px) {
+        .card--treemap .plot {
+          height: auto;
+          aspect-ratio: 0.77;
+          min-height: 320px;
+        }
       }
       .card--radial .plot {
         height: 336px;
@@ -579,6 +623,14 @@
           margin-left: 10px;
           margin-right: 10px;
         }
+        .treemap-key {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .card--treemap .plot {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
         .collection-note {
           display: none;
         }
@@ -638,9 +690,6 @@
         }
         .card-header {
           gap: 8px;
-        }
-        .badge {
-          font-size: 10px;
         }
         .recommendation {
           display: block;
@@ -1214,7 +1263,6 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
             id: 'calendar',
             title: 'Calendar heatmap',
             category: 'patterns',
-            badge: 'Start here',
             metric: '4,768',
             unit: 'events this quarter',
             subtitle: 'Activity over time',
@@ -1225,7 +1273,6 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
             id: 'waterfall',
             title: 'Waterfall',
             category: 'compare',
-            badge: 'Start here',
             metric: '$128k',
             unit: 'ending revenue',
             subtitle: 'What changed the total',
@@ -1236,7 +1283,6 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
             id: 'scatter',
             title: 'Scatter / bubble',
             category: 'patterns',
-            badge: 'Start here',
             metric: '18',
             unit: 'campaigns compared',
             subtitle: 'Relationships and outliers',
@@ -1247,7 +1293,6 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
             id: 'bullet',
             title: 'Bullet / target bars',
             category: 'goals',
-            badge: 'Compact KPI',
             metric: '86%',
             unit: 'of overall target',
             subtitle: 'Actual performance against a goal',
@@ -1258,7 +1303,6 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
             id: 'dumbbell',
             title: 'Dumbbell',
             category: 'compare',
-            badge: 'Two snapshots',
             metric: '+14 pts',
             unit: 'overall satisfaction',
             subtitle: 'Before and after',
@@ -1269,7 +1313,6 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
             id: 'sankey',
             title: 'Sankey',
             category: 'flows',
-            badge: 'Follow the flow',
             metric: '1,000',
             unit: 'visits traced',
             subtitle: 'Acquisition to conversion',
@@ -1280,7 +1323,6 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
             id: 'treemap',
             title: 'Treemap',
             category: 'flows',
-            badge: 'Part to whole',
             metric: '$240k',
             unit: 'revenue by product',
             subtitle: 'The shape of a portfolio',
@@ -1291,7 +1333,6 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
             id: 'radial',
             title: 'Radial progress',
             category: 'goals',
-            badge: 'One clear goal',
             metric: '',
             unit: '',
             subtitle: 'A single measure with a defined target',
@@ -1302,7 +1343,6 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
             id: 'radar',
             title: 'Radar',
             category: 'compare',
-            badge: 'Profile comparison',
             metric: '6',
             unit: 'dimensions compared',
             subtitle: 'Two products, one shared scale',
@@ -1313,7 +1353,6 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
             id: 'sparklines',
             title: 'KPI sparklines',
             category: 'goals',
-            badge: 'Small footprint',
             metric: '',
             unit: '',
             subtitle: 'A headline number with a little context',
@@ -1324,7 +1363,6 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
             id: 'stacked',
             title: '100% stacked bars',
             category: 'compare',
-            badge: 'Share over time',
             metric: '48%',
             unit: 'desktop share in June',
             subtitle: 'How the mix changes',
@@ -1335,7 +1373,6 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
             id: 'lollipop',
             title: 'Ranked lollipop',
             category: 'compare',
-            badge: 'Lighter ranking',
             metric: '8',
             unit: 'channels ranked',
             subtitle: 'A quieter alternative to ranked bars',
@@ -1370,8 +1407,6 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
         ];
         $('#collection').innerHTML = models
           .map((m) => {
-            const badge =
-              m.badge === 'Start here' ? '<span class="badge recommended">Start here</span>' : '';
             const legend = (legends[m.id] || [])
               .map(
                 ([label, c]) => `<span><i class="dot ${c}" aria-hidden="true"></i>${label}</span>`,
@@ -1387,8 +1422,8 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
                 ? `<div class="spark-grid">${sparkSummaries.map((s, i) => `<div class="spark-panel"><div class="spark-label">${s.label}</div><div class="spark-value">${s.value}</div><div class="delta ${i === 2 ? 'negative' : ''}">${s.delta}</div><div class="spark-plot" id="spark-${i}" role="img" aria-label="Weekly ${s.label.toLowerCase()} trend"></div></div>`).join('')}</div>`
                 : `<div class="plot" id="plot-${m.id}" role="img" aria-label="${m.title}: ${esc(m.note)} Values are available in the data table below."></div>`;
             return `<article class="card card--${m.id}" id="${m.id}" data-category="${m.category}">
-            <header class="card-header"><div><h2>${m.title}</h2><p class="subtitle">${m.subtitle}</p></div>${badge}</header>
-            ${metricRow}${plot}
+            <header class="card-header"><div><h2>${m.title}</h2><p class="subtitle">${m.subtitle}</p></div></header>
+            ${metricRow}${m.id === 'treemap' ? '<div class="treemap-key" aria-label="Product families"><span><i aria-hidden="true"></i>Analytics</span><span><i aria-hidden="true"></i>Commerce</span><span><i aria-hidden="true"></i>Platform</span><span><i aria-hidden="true"></i>Services</span></div>' : ''}${plot}
             <footer class="card-footer"><p>${m.use}</p><details><summary>View sample data</summary><p class="data-note">${m.note}</p><div class="table-wrap" tabindex="0" role="region" aria-label="${m.title} sample data"><table id="data-${m.id}"></table></div></details></footer>
           </article>`;
           })
@@ -1476,7 +1511,6 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
               { name: 'Reports', value: 60 },
               { name: 'Insights', value: 36 },
             ],
-            itemStyle: { color: '#10b981' },
           },
           {
             name: 'Commerce',
@@ -1484,7 +1518,6 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
               { name: 'Checkout', value: 48 },
               { name: 'Catalog', value: 24 },
             ],
-            itemStyle: { color: '#34b99a' },
           },
           {
             name: 'Platform',
@@ -1492,7 +1525,6 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
               { name: 'API', value: 32 },
               { name: 'Storage', value: 16 },
             ],
-            itemStyle: { color: '#d77689' },
           },
           {
             name: 'Services',
@@ -1500,7 +1532,6 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
               { name: 'Support', value: 14 },
               { name: 'Consulting', value: 10 },
             ],
-            itemStyle: { color: '#9b9b9b' },
           },
         ];
         setTable(
@@ -1899,7 +1930,21 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
                 },
               ],
             };
-          if (id === 'treemap')
+          if (id === 'treemap') {
+            const narrow = $('#plot-treemap').clientWidth <= 360;
+            const familyColors = p.dark
+              ? [
+                  ['#246c53', '#1b5743'],
+                  ['#276963', '#20564f'],
+                  ['#784457', '#623647'],
+                  ['#48515c', '#39424c'],
+                ]
+              : [
+                  ['#c3e5d5', '#a3d3bd'],
+                  ['#bfe0db', '#9bc9c2'],
+                  ['#e7cbd5', '#d7b1bf'],
+                  ['#d9dfe5', '#c0cad4'],
+                ];
             return {
               ...base,
               xAxis: undefined,
@@ -1912,37 +1957,46 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
               series: [
                 {
                   type: 'treemap',
-                  left: 10,
-                  right: 10,
-                  top: 15,
-                  bottom: 20,
+                  animation: false,
+                  left: 0,
+                  right: 0,
+                  top: 0,
+                  bottom: 0,
+                  squareRatio: narrow ? 1.3 : 1,
                   roam: false,
                   nodeClick: false,
                   breadcrumb: { show: false },
-                  data: tree,
-                  leafDepth: 2,
+                  data: tree.map((family, i) => ({
+                    ...family,
+                    children: family.children.map((product, j) => ({
+                      ...product,
+                      itemStyle: { color: familyColors[i][j] },
+                    })),
+                  })),
                   label: {
                     show: true,
-                    color: '#fff',
-                    fontSize: 11,
-                    formatter: (r) => `${r.name}\n$${r.value}k`,
+                    position: 'insideTopLeft',
+                    padding: [4, 6],
+                    color: p.dark ? '#ecf5f1' : '#263e35',
+                    fontSize: 10,
+                    lineHeight: 14,
+                    formatter: (r) => `${r.name}\n{value|$${r.value}k}`,
+                    rich: {
+                      value: { fontSize: 12, fontWeight: 600, lineHeight: 15 },
+                    },
                   },
-                  upperLabel: {
-                    show: true,
-                    height: 28,
-                    color: '#fff',
-                    fontSize: 11,
-                    formatter: '{b}',
-                  },
-                  itemStyle: { borderColor: p.panel, borderWidth: 3, gapWidth: 3 },
+                  upperLabel: { show: false },
+                  itemStyle: { borderColor: p.panel, borderWidth: 0, gapWidth: 2 },
+                  emphasis: { itemStyle: { borderColor: p.panel, opacity: 0.88 } },
                   levels: [
-                    { itemStyle: { borderWidth: 0, gapWidth: 5 }, upperLabel: { show: false } },
-                    { itemStyle: { borderWidth: 0, gapWidth: 3 }, colorSaturation: [0.35, 0.65] },
-                    { itemStyle: { gapWidth: 2 }, colorSaturation: [0.45, 0.7] },
+                    { itemStyle: { borderWidth: 0, gapWidth: 6 }, upperLabel: { show: false } },
+                    { itemStyle: { borderWidth: 0, gapWidth: 2 } },
+                    { itemStyle: { borderWidth: 0, gapWidth: 2 } },
                   ],
                 },
               ],
             };
+          }
           if (id === 'radial')
             return {
               ...base,
@@ -2202,6 +2256,10 @@ var yo={},mo={};var xo,_o=function(){function t(t,e,n){var i=this;this._sleepAft
           charts.forEach((chart) => {
             if (chart.getDom().clientWidth > 0) chart.resize();
           });
+          const treemap = charts.get('treemap');
+          if (treemap && treemap.getDom().clientWidth > 0) {
+            treemap.setOption(options('treemap', palette()), true);
+          }
           const radar = charts.get('radar');
           if (radar && radar.getDom().clientWidth > 0) {
             radar.setOption({
