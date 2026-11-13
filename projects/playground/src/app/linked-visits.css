@@ -8,14 +8,35 @@
   --nec-focus: var(--site-focus);
 }
 .linked-toolbar {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   gap: 12px 24px;
   padding-bottom: 20px;
   margin-bottom: 24px;
   border-bottom: 1px solid var(--site-border);
+}
+.range-fields {
+  min-width: 0;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  max-width: 360px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.range-fields label {
+  min-width: 0;
+  display: grid;
+  gap: 6px;
+}
+.range-fields select {
+  min-width: 0;
+  width: 100%;
 }
 .linked-controls {
   display: flex;
@@ -124,6 +145,15 @@ select {
   background: var(--site-bg);
 }
 @media (max-width: 600px) {
+  .linked-toolbar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .linked-toolbar.has-range .linked-summary {
+    grid-row: 3;
+  }
+  .range-fields {
+    grid-row: 2;
+  }
   .linked-summary {
     flex-basis: 100%;
   }

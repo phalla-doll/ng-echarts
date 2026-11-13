@@ -1,18 +1,22 @@
 # Linked charts
 
-NG20 links a monthly visits overview to a device-share detail. Selection belongs to the application: `pointSelect` supplies a stable row ID, a signal stores it, and `computed` derives the companion chart's data. The bar chart's controlled `selectedRowId` input reflects that context in the overview. No ECharts instance connection or global selection bus is required. Use private rc.2 or later for this feedback input; rc.1 supports the original link without persistent highlighting.
+NG20 links a monthly visits overview to device share for one month or an inclusive range. Selection belongs to the application: `pointSelect` supplies a stable row ID, native period fields edit the bounds, and signals derive the companion chart's data. The bar chart's controlled `selectedRowIds` input reflects every included month. No ECharts instance connection or global selection bus is required. The range example requires private rc.3 or later; the scalar `selectedRowId` input remains supported from rc.2.
 
 ## Complete standalone example
 
-Paste this `App` into a standalone Angular application using the [installation guide](INSTALLATION.md). These visits are synthetic. Both charts retain their native legends and data-table actions. The month selector and overview table provide keyboard equivalents to plot clicks.
+Paste this `App` into a standalone Angular application using the [installation guide](INSTALLATION.md). These visits are synthetic. Both charts retain their native legends and data-table actions. The native Period, From and To fields and the overview table work with a keyboard.
 
 ```ts
 import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  effect,
+  ElementRef,
   linkedSignal,
   signal,
+  untracked,
+  viewChild,
 } from "@angular/core";
 import { BarChart, type ChartSeries } from "@ng-echarts/chart-library/bar";
 import { PieChart, type ChartMeasure } from "@ng-echarts/chart-library/pie";
@@ -27,28 +31,124 @@ interface Device {
   device: string;
   visits: number | null;
 }
+export type VisitPeriod =
+  | { readonly kind: "month"; readonly id: string }
+  | { readonly kind: "range"; readonly from: string; readonly to: string }
+  | null;
+
+/** Bounds are stable row IDs. Display order, never label parsing, defines a range. */
+export function reconcilePeriod(
+  rows: readonly { readonly id: string }[],
+  period: VisitPeriod,
+): VisitPeriod {
+  if (period === null) return null;
+  if (period.kind === "month")
+    return rows.some((row) => row.id === period.id) ? period : null;
+  const from = rows.findIndex((row) => row.id === period.from);
+  const to = rows.findIndex((row) => row.id === period.to);
+  if (from < 0 || to < 0) return null;
+  return from <= to
+    ? period
+    : { kind: "range", from: period.to, to: period.from };
+}
+
+export function periodRows<T extends { readonly id: string }>(
+  rows: readonly T[],
+  period: VisitPeriod,
+): readonly T[] {
+  const current = reconcilePeriod(rows, period);
+  if (current === null) return rows;
+  if (current.kind === "month")
+    return rows.filter((row) => row.id === current.id);
+  return rows.slice(
+    rows.findIndex((row) => row.id === current.from),
+    rows.findIndex((row) => row.id === current.to) + 1,
+  );
+}
+
+/** Moving a bound across its counterpart moves the other bound with it. */
+export function changePeriodBound(
+  rows: readonly { readonly id: string }[],
+  period: VisitPeriod,
+  bound: "from" | "to",
+  id: string,
+): VisitPeriod {
+  if (period?.kind !== "range" || !rows.some((row) => row.id === id))
+    return period;
+  const next = { ...period, [bound]: id };
+  if (
+    rows.findIndex((row) => row.id === next.from) >
+    rows.findIndex((row) => row.id === next.to)
+  ) {
+    return { kind: "range", from: id, to: id };
+  }
+  return next;
+}
 @Component({
   selector: "app-root",
   imports: [BarChart, PieChart],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `<label
-      >Month
-      <select #month [value]="selectedId()" (change)="selectMonth(month.value)">
+      >Period
+      <select
+        #period
+        [value]="periodValue()"
+        (change)="selectPeriod(period.value)"
+      >
         <option value="">All months</option>
+        <option value="__range__" [disabled]="!rows().length">
+          Custom range
+        </option>
         @for (row of rows(); track row.id) {
-          <option [value]="row.id">{{ row.month }}</option>
+          <option [value]="'month:' + row.id">{{ row.month }}</option>
         }
       </select>
     </label>
+    @if (selection() !== null) {
+      <button type="button" (click)="reset()">Reset</button>
+    }
+    @if (range(); as bounds) {
+      <fieldset #rangeFields>
+        <legend>Custom month range</legend>
+        <label
+          >From
+          <select
+            #from
+            [value]="bounds.from"
+            (change)="selectBound('from', from.value)"
+          >
+            @for (row of rows(); track row.id) {
+              <option [value]="row.id" [selected]="row.id === bounds.from">
+                {{ row.month }}
+              </option>
+            }
+          </select>
+        </label>
+        <label
+          >To
+          <select
+            #to
+            [value]="bounds.to"
+            (change)="selectBound('to', to.value)"
+          >
+            @for (row of rows(); track row.id) {
+              <option [value]="row.id" [selected]="row.id === bounds.to">
+                {{ row.month }}
+              </option>
+            }
+          </select>
+        </label>
+      </fieldset>
+    }
     <p role="status">Device share for {{ context() }}</p>
     <nec-bar-chart
       title="Monthly visits"
-      description="Select a bar or a table value to update device share."
+      description="Choose a month from a bar, table value or period field."
       [data]="rows()"
       rowIdKey="id"
       categoryKey="month"
       [series]="series"
-      [selectedRowId]="selectedId() || null"
+      [selectedRowIds]="selectedIds()"
       (pointSelect)="selectMonth($event.rowId)"
     />
     <nec-pie-chart
@@ -66,22 +166,37 @@ export class App {
     { id: "feb", month: "February", desktop: 200, mobile: 0 },
     { id: "mar", month: "March", desktop: null, mobile: 40 },
   ]);
-  readonly selectedId = linkedSignal<readonly Month[], string>({
+  readonly selection = linkedSignal<readonly Month[], VisitPeriod>({
     source: this.rows,
     computation: (rows, previous) =>
-      rows.some((row) => row.id === previous?.value) ? previous!.value : "",
+      reconcilePeriod(rows, previous?.value ?? null),
   });
-  readonly context = computed(
-    () =>
-      this.rows().find((row) => row.id === this.selectedId())?.month ??
-      "All months",
+  readonly range = computed(() => {
+    const value = this.selection();
+    return value?.kind === "range" ? value : null;
+  });
+  readonly periodValue = computed(() => {
+    const value = this.selection();
+    return value?.kind === "range"
+      ? "__range__"
+      : value
+        ? `month:${value.id}`
+        : "";
+  });
+  readonly scope = computed(() => periodRows(this.rows(), this.selection()));
+  readonly selectedIds = computed(() =>
+    this.selection() === null ? [] : this.scope().map((row) => row.id),
   );
-  readonly share = computed<readonly Device[]>(() => {
-    const scope = this.selectedId()
-      ? this.rows().filter((row) => row.id === this.selectedId())
-      : this.rows();
-    return (["desktop", "mobile"] as const).map((key) => {
-      const values = scope.flatMap((row) =>
+  readonly context = computed(() => {
+    if (this.selection() === null) return "All months";
+    const scope = this.scope();
+    return scope.length === 1
+      ? scope[0]!.month
+      : `${scope[0]!.month}–${scope.at(-1)!.month}`;
+  });
+  readonly share = computed<readonly Device[]>(() =>
+    (["desktop", "mobile"] as const).map((key) => {
+      const values = this.scope().flatMap((row) =>
         row[key] === null ? [] : [row[key]],
       );
       return {
@@ -91,8 +206,8 @@ export class App {
           ? values.reduce((sum, value) => sum + value, 0)
           : null,
       };
-    });
-  });
+    }),
+  );
   readonly series: readonly ChartSeries<Month>[] = [
     { id: "desktop", key: "desktop", label: "Desktop" },
     { id: "mobile", key: "mobile", label: "Mobile" },
@@ -102,31 +217,70 @@ export class App {
     key: "visits",
     label: "Visits",
   };
+  private readonly periodSelect =
+    viewChild.required<ElementRef<HTMLSelectElement>>("period");
+  private readonly rangeFields =
+    viewChild<ElementRef<HTMLElement>>("rangeFields");
+  constructor() {
+    effect(() => {
+      if (this.range() !== null) return;
+      untracked(() => {
+        const fields = this.rangeFields()?.nativeElement;
+        if (fields?.contains(fields.ownerDocument.activeElement))
+          this.periodSelect().nativeElement.focus();
+      });
+    });
+  }
+  selectPeriod(value: string): void {
+    if (value !== "__range__") {
+      this.selectMonth(value.startsWith("month:") ? value.slice(6) : "");
+      return;
+    }
+    const rows = this.rows();
+    if (!rows.length) return;
+    const current = this.selection();
+    const anchor = current?.kind === "month" ? current.id : null;
+    this.selection.set({
+      kind: "range",
+      from: anchor ?? rows[0]!.id,
+      to: anchor ?? rows.at(-1)!.id,
+    });
+  }
   selectMonth(id: string): void {
-    this.selectedId.set(this.rows().some((row) => row.id === id) ? id : "");
+    this.selection.set(
+      this.rows().some((row) => row.id === id) ? { kind: "month", id } : null,
+    );
+  }
+  selectBound(bound: "from" | "to", id: string): void {
+    this.selection.update((period) =>
+      changePeriodBound(this.rows(), period, bound, id),
+    );
+  }
+  reset(): void {
+    this.selection.set(null);
+    this.periodSelect().nativeElement.focus();
   }
 }
 ```
 
-Replace `rows` immutably to update observations. `linkedSignal` keeps an existing selected ID through updates, reordering and renaming. Removing the ID clears selection; restoring that row later does not restore an obsolete filter. An empty selection means all currently available months. Never use the displayed label, row index or a cached event row as the authoritative selection key.
+Replace `rows` immutably to update observations. `linkedSignal` reconciles stable IDs against the current supplied order. Labels and indices are presentation, never authoritative keys. The source above is kept byte-identical to the demo's copied example and compiled against the installed package with strict templates and `skipLibCheck: false`.
 
 ## Interaction contract
 
-- A point in either overview series selects its **month**, not a device filter. The companion chart updates to that month's desktop/mobile observations.
-- `selectedRowId` highlights the full month category: its bars retain their palette, other months fade, and a subtle band remains even for zero/missing values or hidden series. The expanded table marks the same row as current and displays “Selected.” Binding the input alone emits no point event; chart clicks do not mutate it. The application owns reconciliation and reset.
-- The month selector provides the same month action without opening a table. All months clears selection. The live demo also shows a compact Reset action only while a month is selected; it returns focus to the month field after clearing. Focus stays on the initiating control; an update does not move focus to the detail chart.
-- Legends retain independent visibility. Hiding a series/category does not change the linked month, and native tables retain complete values.
-- The live demo displays a compact total and announces its full context through a polite status region; detail actions display and announce the selected device's current value. Updating a context never writes back into the source event, so no feedback loop is created.
-- Zero remains numeric. A missing observation stays null; aggregate totals exclude missing cells, and an entirely missing device remains null. Supply finite, nonnegative visit counts suitable for the pie chart. This example does not reinterpret arbitrary signed measures as shares.
-- Empty data clears an unavailable selection. The demo labels no-month and all-missing states separately from a real zero total. Both chart components keep their documented empty/error behavior.
+- **All months** is an unfiltered overview without selection shading. A plot/table action or a month option selects exactly one month and closes any range fields.
+- **Custom range** reveals native From and To fields. It starts at the selected month, or first through last available row when unfiltered. Both endpoints are included. Equal bounds represent one month; moving a bound past the other moves both to the edited month.
+- Ranges follow **current supplied/displayed order**. Reordering preserves endpoint IDs and includes the rows between them in that order; reversing swaps their displayed orientation. Interior insertion/removal changes the included rows. Removing either endpoint clears the filter; restoring it later does not resurrect selection. The demo deliberately does not parse month labels as dates.
+- `selectedRowIds` accepts a readonly string array or null. A non-null array takes precedence over `selectedRowId`, including `[]` to clear feedback. Unknown/empty IDs are ignored and duplicates are deduplicated. Each included category retains its colors and a quiet band; surrounding bars fade. Zero/missing values and hidden series retain bands. The expanded table visibly labels each selected row; `aria-current` appears only when exactly one effective row is selected. These are native data rows, not an ARIA multi-select widget.
+- Binding selection inputs never emits a point event or mutates the application state. The app owns range ordering, reconciliation and reset. Other chart families have no new selection inputs.
+- **Reset** clears the period and returns focus to Period. Native field changes preserve focus; removing focused range fields after an endpoint disappears returns focus to Period. Source table actions retain their own focus. Context updates do not move focus into the detail chart.
+- Legends retain independent visibility. Hiding a series/device does not change the period or aggregate. Native tables keep complete raw values.
+- The demo shows a compact total and announces context/count through a polite status region. Detail actions display and announce the selected device's current value without propagating back to the source.
+- Zero remains numeric; missing observations remain null. Aggregates exclude missing cells and an entirely missing device remains null. Supply finite, nonnegative visits suitable for a pie chart. No months, no observations and a genuine zero total remain distinct states. Custom range is unavailable with empty data.
 
-The [live example](https://phalla-doll.github.io/ng-echarts/linked/) uses the existing attributed monthly Desktop/Mobile fixture. `/linked-validation` exercises data updates, reordering, removal, empty/missing observations and recovery. The supplied example source uses local synthetic values and is compiled against the installed package with strict templates and `skipLibCheck: false`.
+The [live example](https://phalla-doll.github.io/ng-echarts/linked/) uses the existing attributed Desktop/Mobile fixture. `/linked-validation` exercises reordering, updates, endpoint/interior removal, crossing bounds, empty/missing observations and recovery. The standalone source uses synthetic values.
 
-## Scope
+## Scope and evidence
 
-This is a one-way, application-owned context link with persistent overview feedback. Shared legend visibility, linked zoom, brushing, range selection, cross-chart hover and an ECharts connection API remain outside this increment. Range brushing and two-way/multiple-selection designs remain later NG20 work. The new bar input advances the private candidate to rc.2; earlier candidate artifacts remain preserved. Human interpretation and release gates retain their deferred status; the [initial NG20 report](experiments/NG20_LINKED_CHARTS.md) and [selection-feedback review](experiments/LINKED_SELECTION_FEEDBACK.md) record their respective evidence.
+This is a one-way, application-owned context link with inclusive native range controls and controlled bar feedback. Graphical brushing, shared legends, linked zoom, cross-chart hover, bidirectional selection and an ECharts connection API remain later work. This public input advances the private candidate to rc.3; earlier candidate artifacts and notices remain preserved. Human F09/R06/G2/G3/G4 retain their deferred status.
 
-
-## Demo presentation
-
-The [UI refinement review](experiments/LINKED_UI_REFINEMENT.md) records the shorter Month field, consistent native select styling, contextual Reset, compact totals, single card borders and responsive control layout. The form remains a native combobox; numeric zeros and no-observation states keep their original meaning. The standalone example above focuses on the linking contract, while the demo applies the site's existing presentation tokens.
+The [initial NG20 report](experiments/NG20_LINKED_CHARTS.md), [scalar-feedback review](experiments/LINKED_SELECTION_FEEDBACK.md) and [month-range report](experiments/NG20_MONTH_RANGE.md) record their respective evidence. The [UI refinement](experiments/LINKED_UI_REFINEMENT.md), [focus](experiments/FOCUS_REFINEMENT.md) and [hover](experiments/HOVER_REFINEMENT.md) reviews cover the shared presentation. Range fields use the existing quiet gallery tokens, native dropdowns and thin focus treatment; From/To sit together beneath Period and remain usable at 320 px.

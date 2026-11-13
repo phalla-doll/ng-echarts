@@ -32,6 +32,32 @@ async function setup() {
 }
 
 describe('bar Angular controls', () => {
+  it('supports controlled multi-row feedback, independent precedence, deduplication and explicit clearing', async () => {
+    const { fixture, element } = await setup();
+    fixture.componentRef.setInput('selectedRowId', 'first');
+    fixture.componentRef.setInput('selectedRowIds', ['second', 'first', 'second', 'unknown']);
+    element.querySelector<HTMLButtonElement>('.table-toggle')!.click();
+    await fixture.whenStable();
+    expect(element.querySelectorAll('.selected-row')).toHaveLength(2);
+    expect(element.querySelectorAll('tr[aria-current]')).toHaveLength(0);
+    expect(element.querySelectorAll('.selection-label')).toHaveLength(2);
+    const events = vi.fn();
+    fixture.componentInstance.pointSelect.subscribe(events);
+    fixture.componentRef.setInput('selectedRowIds', []);
+    await fixture.whenStable();
+    expect(element.querySelectorAll('.selected-row')).toHaveLength(0);
+    fixture.componentRef.setInput('selectedRowIds', null);
+    await fixture.whenStable();
+    expect(element.querySelector('tr[aria-current]')?.textContent).toContain('A Selected');
+    expect(events).not.toHaveBeenCalled();
+    fixture.componentRef.setInput('selectedRowIds', [12]);
+    await fixture.whenStable();
+    expect(element.querySelector('[role=alert]')?.textContent).toContain('Selected row IDs');
+    fixture.componentRef.setInput('selectedRowIds', ['unknown', 'second']);
+    await fixture.whenStable();
+    expect(element.querySelector('[role=alert]')).toBeNull();
+    expect(element.querySelector('tr[aria-current]')?.textContent).toContain('B Selected');
+  });
   it('reflects controlled row identity in the table without changing selection on point events', async () => {
     const { fixture, element } = await setup();
     const events = vi.fn();

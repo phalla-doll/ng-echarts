@@ -101,18 +101,28 @@ try {
       }
       await page.goto(new URL('linked/', site).href);
       await expect(page.locator('app-linked-visits canvas')).toHaveCount(2);
-      await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('feb');
+      await page.getByRole('combobox', { name: 'Period', exact: true }).selectOption('month:feb');
       await expect(page.locator('.detail h2')).toHaveText('Device share · February');
       await page
         .locator('.overview')
         .getByRole('button', { name: 'Show data table', exact: true })
         .click();
       await expect(page.locator('.overview tr[aria-current=true]')).toContainText('February');
-      await page.getByRole('button', { name: 'Reset month filter', exact: true }).click();
+      await page.getByRole('button', { name: 'Reset period filter', exact: true }).click();
       await expect(page.locator('.overview tr[aria-current]')).toHaveCount(0);
-      await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toBeFocused();
+      await expect(page.getByRole('combobox', { name: 'Period', exact: true })).toBeFocused();
+      await page.getByRole('combobox', { name: 'Period', exact: true }).selectOption('__range__');
+      await expect(page.getByRole('combobox', { name: 'To', exact: true })).toHaveValue('dec');
+      await page.getByRole('combobox', { name: 'From', exact: true }).selectOption('feb');
+      await page.getByRole('combobox', { name: 'To', exact: true }).selectOption('mar');
+      await expect(page.locator('.linked-status')).toContainText('February–March: 2,169 visits');
+      await expect(page.locator('.overview .selected-row')).toHaveCount(2);
+      await expect(page.locator('.overview tr[aria-current]')).toHaveCount(0);
+      await page.getByRole('button', { name: 'Reset period filter', exact: true }).click();
+      await expect(page.locator('.overview .selected-row')).toHaveCount(0);
+      await expect(page.getByRole('combobox', { name: 'Period', exact: true })).toBeFocused();
       await page.reload();
-      await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('');
+      await expect(page.getByRole('combobox', { name: 'Period', exact: true })).toHaveValue('');
       await expect(page.locator('app-linked-visits canvas')).toHaveCount(2);
       await page.goto(new URL('line/', site).href);
       await expect(page.locator('canvas')).toHaveCount(4);

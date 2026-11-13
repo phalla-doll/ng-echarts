@@ -14,15 +14,15 @@ import { linkedExampleSource } from './linked-example-source';
       <header class="gallery-heading">
         <div>
           <h1>Linked Charts</h1>
-          <p>Select a month to explore its device share.</p>
+          <p>Explore device share for a month or a custom range.</p>
         </div>
       </header>
       <app-linked-visits [data]="rows" [theme]="theme()" />
       <section class="linking-guide" id="linking-pattern" aria-labelledby="linking-title">
         <h2 id="linking-title">Linking pattern</h2>
         <p>
-          One selected month connects the overview and detail. Chart legends stay independent. Use
-          the month selector or open the overview’s data table for keyboard selection.
+          Choose a month or an inclusive range to connect the overview and detail. Chart legends
+          stay independent. Use the period fields or the overview’s data table with a keyboard.
         </p>
         <details>
           <summary>Standalone Angular example</summary>

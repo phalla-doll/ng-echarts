@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import {
   ChartFrame,
   ɵCartesianChart,
@@ -19,6 +19,17 @@ export class BarChart<T extends object> extends ɵCartesianChart<T, BarOption> {
   readonly stacked = input(false);
   readonly gradient = input(false);
   readonly selectedRowId = input<string | null>(null);
+  readonly selectedRowIds = input<readonly string[] | null>(null);
+  private readonly selectedIds = computed<ReadonlySet<string>>(() => {
+    const model = this.model();
+    const available = new Set(model.kind === 'error' ? [] : model.rows.map((row) => row.id));
+    const multiple = this.selectedRowIds();
+    const requested =
+      multiple === null ? [this.selectedRowId()] : Array.isArray(multiple) ? multiple : [];
+    return new Set(
+      requested.filter((id): id is string => typeof id === 'string' && available.has(id)),
+    );
+  });
   private readonly loader = inject(BAR_RENDERER_LOADER);
   protected override renderer() {
     return this.loader();
@@ -29,16 +40,24 @@ export class BarChart<T extends object> extends ɵCartesianChart<T, BarOption> {
       stacked: this.stacked(),
       gradient: this.gradient(),
       selectedRowId: this.selectedRowId(),
+      selectedRowIds: this.selectedRowIds(),
     };
   }
   protected override rowSelectionId(): string | null {
-    return this.selectedRowId();
+    const ids = this.selectedIds();
+    return ids.size === 1 ? (ids.values().next().value ?? null) : null;
+  }
+  protected override rowIsSelected(id: string): boolean {
+    return this.selectedIds().has(id);
   }
   protected override familyError() {
     if (!['vertical', 'horizontal'].includes(this.layout())) return 'Chart layout is invalid.';
-    return this.selectedRowId() === null || typeof this.selectedRowId() === 'string'
+    if (this.selectedRowId() !== null && typeof this.selectedRowId() !== 'string')
+      return 'Selected row ID must be a string or null.';
+    const ids = this.selectedRowIds();
+    return ids === null || (Array.isArray(ids) && ids.every((id) => typeof id === 'string'))
       ? null
-      : 'Selected row ID must be a string or null.';
+      : 'Selected row IDs must be an array of strings or null.';
   }
   protected override buildOptions(context: ɵCartesianContext<T>): BarOption {
     return buildBarOptions(
@@ -51,7 +70,7 @@ export class BarChart<T extends object> extends ɵCartesianChart<T, BarOption> {
       context.animation,
       context.format,
       context.categoryTicks,
-      this.selectedRowId(),
+      this.selectedIds(),
     );
   }
 }

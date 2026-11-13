@@ -24,7 +24,7 @@ function build(
   layout: BarLayout,
   stacked: boolean,
   gradient: boolean,
-  selectedRowId: string | null = null,
+  selectedRowId: string | readonly string[] | null = null,
 ) {
   const model = normalizeBarData(rows, 'id', 'category', series);
   if (model.kind !== 'ready') throw new Error('Expected ready acceptance fixture');
@@ -38,7 +38,7 @@ function build(
     false,
     String,
     undefined,
-    selectedRowId,
+    new Set(typeof selectedRowId === 'string' ? [selectedRowId] : (selectedRowId ?? [])),
   );
 }
 
@@ -138,5 +138,34 @@ it.each(variants)(
     const reset = build(theme, layout, stacked, gradient);
     expect(unknown.series).toEqual(reset.series);
     expect(layout === 'vertical' ? unknown.xAxis : unknown.yAxis).not.toHaveProperty('splitArea');
+  },
+);
+
+it.each(variants)(
+  'highlights multiple row identities including zero/missing values: $theme/$layout stack=$stacked gradient=$gradient',
+  ({ theme, layout, stacked, gradient }) => {
+    const options = build(theme, layout, stacked, gradient, ['b', 'c', 'c', 'unknown']);
+    expect(layout === 'vertical' ? options.xAxis : options.yAxis).toMatchObject({
+      splitArea: {
+        areaStyle: {
+          color: ['transparent', defaultBarTheme(theme).border, defaultBarTheme(theme).border],
+        },
+      },
+    });
+    if (!Array.isArray(options.series)) throw new Error('Expected series');
+    expect(options.series[0]).toMatchObject({
+      data: [
+        { id: 'a', itemStyle: { opacity: 0.35 } },
+        { id: 'b', value: -20, itemStyle: { opacity: 1 } },
+        { id: 'c', value: 0, itemStyle: { opacity: 1 } },
+      ],
+    });
+    expect(options.series[1]).toMatchObject({
+      data: [
+        { id: 'a', itemStyle: { opacity: 0.35 } },
+        { id: 'b', value: 10, itemStyle: { opacity: 1 } },
+        { id: 'c', value: '-', itemStyle: { opacity: 1 } },
+      ],
+    });
   },
 );

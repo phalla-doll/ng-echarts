@@ -70,7 +70,10 @@
             </thead>
             <tbody>
               @for (row of tableRows(); track row.id) {
-                <tr [attr.aria-current]="row.selected ? 'true' : null">
+                <tr
+                  [class.selected-row]="row.selected"
+                  [attr.aria-current]="row.current ? 'true' : null"
+                >
                   <th scope="row">
                     {{ row.category }}
                     @if (row.selected) {

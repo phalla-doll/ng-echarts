@@ -65,10 +65,10 @@ td {
 td {
   white-space: nowrap;
 }
-tr[aria-current='true'] {
+.selected-row {
   background: color-mix(in srgb, var(--nec-text, #18202c) 5%, transparent);
 }
-tr[aria-current='true'] th {
+.selected-row th {
   box-shadow: inset 2px 0 var(--nec-text, #18202c);
 }
 .selection-label {

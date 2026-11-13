@@ -1,27 +1,28 @@
-<div class="linked-toolbar">
+<div class="linked-toolbar" [class.has-range]="range() !== null">
   <div class="linked-controls">
     <label
-      >Month
+      >Period
       <span class="month-field">
         <select
-          #month
-          [value]="selectedId() ?? ''"
+          #period
+          [value]="periodValue()"
           [style.color-scheme]="theme()"
-          (change)="selectMonth(month.value)"
+          (change)="selectPeriod(period.value)"
         >
           <option value="">All months</option>
+          <option value="__range__" [disabled]="data().length === 0">Custom range</option>
           @for (row of data(); track row.id) {
-            <option [value]="row.id">{{ row.month }}</option>
+            <option [value]="'month:' + row.id">{{ row.month }}</option>
           }
         </select>
         <app-site-icon name="chevron" />
       </span>
     </label>
-    @if (selectedId() !== null) {
+    @if (selection() !== null) {
       <button
         class="reset-month"
         type="button"
-        aria-label="Reset month filter"
+        aria-label="Reset period filter"
         (click)="resetMonth()"
       >
         <app-site-icon name="close" />Reset
@@ -37,6 +38,37 @@
       <span class="summary-unit">{{ summary().unit }}</span>
     }
   </p>
+  @if (range(); as bounds) {
+    <fieldset #rangeFields class="range-fields">
+      <legend class="visually-hidden">Custom month range</legend>
+      <label
+        >From<span class="month-field">
+          <select
+            #from
+            [value]="bounds.from"
+            [style.color-scheme]="theme()"
+            (change)="selectBound('from', from.value)"
+          >
+            @for (row of data(); track row.id) {
+              <option [value]="row.id" [selected]="row.id === bounds.from">{{ row.month }}</option>
+            }</select
+          ><app-site-icon name="chevron" /> </span
+      ></label>
+      <label
+        >To<span class="month-field">
+          <select
+            #to
+            [value]="bounds.to"
+            [style.color-scheme]="theme()"
+            (change)="selectBound('to', to.value)"
+          >
+            @for (row of data(); track row.id) {
+              <option [value]="row.id" [selected]="row.id === bounds.to">{{ row.month }}</option>
+            }</select
+          ><app-site-icon name="chevron" /> </span
+      ></label>
+    </fieldset>
+  }
 </div>
 <p class="linked-status visually-hidden" role="status" aria-live="polite" aria-atomic="true">
   {{ status() }}
@@ -50,7 +82,7 @@
       rowIdKey="id"
       categoryKey="month"
       [series]="series"
-      [selectedRowId]="selectedId()"
+      [selectedRowIds]="selectedIds()"
       [categoryTickFormatter]="monthTick"
       [theme]="theme()"
       [height]="250"

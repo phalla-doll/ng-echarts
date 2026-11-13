@@ -30,7 +30,7 @@ it('derives current detail from stable IDs and clears removed IDs without resurr
   await fixture.whenStable();
   const host = fixture.nativeElement as HTMLElement;
   const select = host.querySelector('select')!;
-  select.value = 'b';
+  select.value = 'month:b';
   select.dispatchEvent(new Event('change'));
   await fixture.whenStable();
   expect(host.querySelector('.linked-status')?.textContent).toContain('B: 20 visits');
@@ -39,7 +39,7 @@ it('derives current detail from stable IDs and clears removed IDs without resurr
     initial[0]!,
   ]);
   await fixture.whenStable();
-  expect(select.value).toBe('b');
+  expect(select.value).toBe('month:b');
   expect(host.querySelector('.linked-status')?.textContent).toContain('Renamed: 25 visits');
   fixture.componentRef.setInput('data', [initial[0]!]);
   await fixture.whenStable();
@@ -72,4 +72,43 @@ it('keeps the visible summary aligned with current values when a previously sele
   expect(host.querySelector('.linked-summary')?.textContent).not.toContain('Desktop');
   expect(host.querySelector('.summary-value')?.textContent).toBe('8');
   expect(host.querySelector('.linked-status')?.textContent).toContain('All months: 8 visits.');
+});
+
+it('aggregates an inclusive range, reconciles bounds and returns focus before removed fields disappear', async () => {
+  TestBed.configureTestingModule({ providers: [{ provide: PLATFORM_ID, useValue: 'server' }] });
+  const fixture = TestBed.createComponent(LinkedVisits);
+  const rows: readonly VisitMonth[] = [
+    { id: 'jan', month: 'January', desktop: null, mobile: 0 },
+    { id: 'feb', month: 'February', desktop: 20, mobile: 0 },
+    { id: 'mar', month: 'March', desktop: 30, mobile: null },
+  ];
+  fixture.componentRef.setInput('data', rows);
+  await fixture.whenStable();
+  const host = fixture.nativeElement as HTMLElement;
+  const period = host.querySelector('select')!;
+  period.value = '__range__';
+  period.dispatchEvent(new Event('change'));
+  await fixture.whenStable();
+  const [from, to] = [...host.querySelectorAll<HTMLSelectElement>('.range-fields select')];
+  from!.value = 'feb';
+  from!.dispatchEvent(new Event('change'));
+  await fixture.whenStable();
+  expect(host.querySelector('.linked-status')?.textContent).toContain('February–March: 50 visits');
+  expect(to!.value).toBe('mar');
+  fixture.componentRef.setInput('data', [...rows].reverse());
+  await fixture.whenStable();
+  expect(from!.value).toBe('mar');
+  expect(to!.value).toBe('feb');
+  to!.focus();
+  fixture.componentRef.setInput(
+    'data',
+    rows.filter((row) => row.id !== 'feb'),
+  );
+  await fixture.whenStable();
+  expect(period.value).toBe('');
+  expect(host.querySelector('.range-fields')).toBeNull();
+  expect(host.ownerDocument.activeElement).toBe(period);
+  fixture.componentRef.setInput('data', rows);
+  await fixture.whenStable();
+  expect(period.value).toBe('');
 });

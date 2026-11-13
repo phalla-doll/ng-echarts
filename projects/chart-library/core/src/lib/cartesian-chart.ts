@@ -54,6 +54,9 @@ export abstract class CartesianChart<
   protected rowSelectionId(): string | null {
     return null;
   }
+  protected rowIsSelected(id: string): boolean {
+    return id === this.rowSelectionId();
+  }
   readonly title = input.required<string>();
   readonly description = input('');
   readonly data = input.required<readonly T[]>();
@@ -175,7 +178,8 @@ export abstract class CartesianChart<
     return model.rows.map((row) => ({
       id: row.id,
       category: row.category,
-      selected: row.id === this.rowSelectionId(),
+      selected: this.rowIsSelected(row.id),
+      current: row.id === this.rowSelectionId(),
       cells: row.points.map((point, index) => {
         const text = point.value === null ? 'Missing' : this.formatting().format(point.value);
         return {

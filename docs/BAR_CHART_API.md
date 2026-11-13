@@ -59,6 +59,7 @@ Bind booleans and numbers as Angular properties, for example `[stacked]="true"` 
 | `stacked` | `boolean`, `false` | Stack visible series together |
 | `gradient` | `boolean`, `false` | Theme-colored linear fade along the value axis |
 | `selectedRowId` | `string \| null`, `null` | Controlled row feedback (rc.2+): retain this category's bar colors, fade others, draw a category band and mark the expanded table row as current. Unknown/empty IDs render normally. |
+| `selectedRowIds` | `readonly string[] \| null`, `null` | Controlled multiple-row feedback (rc.3+). A non-null array overrides `selectedRowId`; empty clears. Known IDs are deduplicated; unknown/empty IDs are ignored. All selected table rows have visible labels, with `aria-current` only for one effective row. |
 | `theme` | `'light' \| 'dark'`, `'light'` | Explicit palette defaults; no automatic system preference |
 | `themeRevision` | Finite `number`, `0` | Change to reread inherited font and CSS colors |
 | `locale` | `string`, `'en-US'` | Deterministic numeric locale |
@@ -102,3 +103,5 @@ Grouped/stacked, vertical/horizontal, rounded, and solid/gradient combinations a
 Tested versions: Angular/CLI 22.2.6, TypeScript 6.0.3, ECharts 6.1.0, Node 24.22.2, npm 11.19.1. Current package peers require Angular common/core `^22.2.6` and ECharts `^6.1.0`; the full ranges have not been tested. The [recorded performance envelope](COMPATIBILITY.md#data-and-measured-envelope) is up to 200 categories × three series on the reference machine; 2,000 × three is stress evidence rather than a hard API limit or latency guarantee.
 
 See [source comparison](experiments/R03_VISUAL_REVIEW.md), [provenance](UPSTREAM_PROVENANCE.md), [package boundaries](experiments/NG09_PACKAGE_BOUNDARIES.md), and [foundation/bar acceptance](experiments/NG09_NG10_ACCEPTANCE.md). The deferred human listening review remains a release requirement.
+
+For a range, derive `[selectedRowIds]="includedIds()"` in the application. Membership is by ID, independent of adjacency or array order; the library does not infer dates or reconcile endpoints. Set this input to `null` to resume scalar fallback, or `[]` to clear even when a scalar is bound. Both inputs retain runtime type validation; plural values must be an array of strings. The [range example](LINKED_CHARTS.md) defines inclusive supplied-order membership, crossing and removal policy.

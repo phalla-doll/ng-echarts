@@ -35,10 +35,10 @@ export function buildBarOptions<T>(
   animation: boolean,
   format: (value: number) => string,
   categoryTicks: readonly string[] = model.rows.map((row) => row.category),
-  selectedRowId: string | null = null,
+  selectedRowIds: ReadonlySet<string> = new Set(),
 ): BarOption {
   const horizontal = layout === 'horizontal';
-  const selected = model.rows.some((row) => row.id === selectedRowId);
+  const selected = selectedRowIds.size > 0 && model.rows.some((row) => selectedRowIds.has(row.id));
   const base = ɵbuildCartesianOptions(
     model,
     hiddenIds,
@@ -56,13 +56,15 @@ export function buildBarOptions<T>(
       show: true,
       interval: 0,
       areaStyle: {
-        color: model.rows.map((row) => (row.id === selectedRowId ? tokens.border : 'transparent')),
+        color: model.rows.map((row) =>
+          selectedRowIds.has(row.id) ? tokens.border : 'transparent',
+        ),
         opacity: 0.3,
       },
     },
     data: model.rows.map((row) => ({
       value: row.id,
-      textStyle: row.id === selectedRowId ? { color: tokens.text, fontWeight: 600 } : undefined,
+      textStyle: selectedRowIds.has(row.id) ? { color: tokens.text, fontWeight: 600 } : undefined,
     })),
   });
   return {
@@ -99,7 +101,7 @@ export function buildBarOptions<T>(
           data: model.rows.map((row) => ({
             id: row.id,
             value: row.points[index]?.value ?? '-',
-            ...(selected ? { itemStyle: { opacity: row.id === selectedRowId ? 1 : 0.35 } } : {}),
+            ...(selected ? { itemStyle: { opacity: selectedRowIds.has(row.id) ? 1 : 0.35 } } : {}),
           })),
         },
       ];

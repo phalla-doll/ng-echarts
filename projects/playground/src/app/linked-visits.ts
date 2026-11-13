@@ -3,8 +3,10 @@ import {
   Component,
   computed,
   ElementRef,
+  effect,
   input,
   linkedSignal,
+  untracked,
   viewChild,
 } from '@angular/core';
 import {
@@ -15,6 +17,7 @@ import {
 } from '@ng-echarts/chart-library/bar';
 import { PieChart, type ChartMeasure } from '@ng-echarts/chart-library/pie';
 import { SiteIcon } from './site-icon';
+import { changePeriodBound, periodRows, reconcilePeriod, type VisitPeriod } from './linked-period';
 
 export interface VisitMonth {
   readonly id: string;
@@ -54,30 +57,51 @@ export function deviceShare(rows: readonly VisitMonth[]): readonly DeviceVisits[
 export class LinkedVisits {
   readonly data = input.required<readonly VisitMonth[]>();
   readonly theme = input<ChartTheme>('light');
-  private readonly monthSelect = viewChild.required<ElementRef<HTMLSelectElement>>('month');
-  protected readonly selectedId = linkedSignal<readonly VisitMonth[], string | null>({
+  private readonly periodSelect = viewChild.required<ElementRef<HTMLSelectElement>>('period');
+  private readonly rangeFields = viewChild<ElementRef<HTMLElement>>('rangeFields');
+  protected readonly selection = linkedSignal<readonly VisitMonth[], VisitPeriod>({
     source: this.data,
-    computation: (rows, previous) =>
-      rows.some((row) => row.id === previous?.value) ? previous!.value : null,
+    computation: (rows, previous) => reconcilePeriod(rows, previous?.value ?? null),
   });
-  protected readonly selectedMonth = computed(
-    () => this.data().find((row) => row.id === this.selectedId()) ?? null,
+  protected readonly range = computed(() => {
+    const value = this.selection();
+    return value?.kind === 'range' ? value : null;
+  });
+  protected readonly periodValue = computed(() => {
+    const value = this.selection();
+    return value?.kind === 'range' ? '__range__' : value ? `month:${value.id}` : '';
+  });
+  protected readonly scope = computed(() => periodRows(this.data(), this.selection()));
+  protected readonly selectedIds = computed(() =>
+    this.selection() === null ? [] : this.scope().map((row) => row.id),
   );
-  protected readonly context = computed(() => this.selectedMonth()?.month ?? 'All months');
+  protected readonly context = computed(() => {
+    if (this.selection() === null) return 'All months';
+    const rows = this.scope();
+    return rows.length === 1 ? rows[0]!.month : `${rows[0]!.month}–${rows.at(-1)!.month}`;
+  });
+  protected readonly scopeDescription = computed(() =>
+    this.selection() === null
+      ? 'all available months'
+      : this.scope().length === 1
+        ? 'this month'
+        : `${this.scope().length} months`,
+  );
   protected readonly overviewDescription = computed(() =>
-    this.selectedMonth()
-      ? `${this.context()} selected. Choose another month to compare.`
-      : 'Choose a month from a bar or the data table.',
+    this.selection() !== null
+      ? `${this.context()} selected. Choose a month or edit the period.`
+      : 'Choose a month from the bars, table or period field.',
   );
-  protected readonly share = computed(() =>
-    deviceShare(this.selectedMonth() ? [this.selectedMonth()!] : this.data()),
-  );
+  protected readonly share = computed(() => deviceShare(this.scope()));
   protected readonly detailTitle = computed(() => 'Device share · ' + this.context());
   protected readonly detailDescription = computed(
-    () => 'Desktop and mobile visits for ' + (this.selectedMonth()?.month ?? 'all months') + '.',
+    () =>
+      'Desktop and mobile visits for ' +
+      (this.selection() !== null ? this.context() : 'all months') +
+      '.',
   );
   protected readonly selectedDevice = linkedSignal({
-    source: this.selectedId,
+    source: this.selection,
     computation: () => '',
   });
   protected readonly summary = computed(() => {
@@ -98,7 +122,7 @@ export class LinkedVisits {
     if (detail && detail.visits !== null)
       return `${this.context()}: ${detail.device}, ${this.number(detail.visits)} visits.`;
     const total = this.share().reduce((sum, row) => sum + (row.visits ?? 0), 0);
-    return `${this.context()}: ${this.number(total)} visits. Device share shows ${this.selectedMonth() ? 'this month' : 'all available months'}.`;
+    return `${this.context()}: ${this.number(total)} visits. Device share shows ${this.scopeDescription()}.`;
   });
   protected readonly series: readonly ChartSeries<VisitMonth>[] = [
     { id: 'desktop', key: 'desktop', label: 'Desktop' },
@@ -110,14 +134,45 @@ export class LinkedVisits {
     label: 'Visits',
   };
   protected readonly monthTick = (month: string) => month.slice(0, 3);
+  constructor() {
+    // View effects run before the conditional fields disappear. Preserve focus only
+    // when the removed range fields contain it, never from another active control.
+    effect(() => {
+      if (this.range() !== null) return;
+      untracked(() => {
+        const fields = this.rangeFields()?.nativeElement;
+        if (fields?.contains(fields.ownerDocument.activeElement))
+          this.periodSelect().nativeElement.focus();
+      });
+    });
+  }
+  protected selectPeriod(id: string): void {
+    if (id !== '__range__') {
+      this.selectMonth(id.startsWith('month:') ? id.slice(6) : '');
+      return;
+    }
+    const rows = this.data();
+    if (!rows.length) return;
+    const current = this.selection();
+    const anchor = current?.kind === 'month' ? current.id : null;
+    this.selection.set({
+      kind: 'range',
+      from: anchor ?? rows[0]!.id,
+      to: anchor ?? rows.at(-1)!.id,
+    });
+    this.selectedDevice.set('');
+  }
+  protected selectBound(bound: 'from' | 'to', id: string): void {
+    this.selection.update((period) => changePeriodBound(this.data(), period, bound, id));
+    this.selectedDevice.set('');
+  }
   protected selectMonth(id: string): void {
-    this.selectedId.set(this.data().some((row) => row.id === id) ? id : null);
+    this.selection.set(this.data().some((row) => row.id === id) ? { kind: 'month', id } : null);
     this.selectedDevice.set('');
   }
   protected resetMonth(): void {
     this.selectMonth('');
-    // The conditional reset action disappears; retain keyboard focus on the month field.
-    this.monthSelect().nativeElement.focus();
+    this.periodSelect().nativeElement.focus();
   }
   protected selectPoint(point: PointSelection<VisitMonth>): void {
     this.selectMonth(point.rowId);

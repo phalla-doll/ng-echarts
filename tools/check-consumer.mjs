@@ -239,6 +239,7 @@ try {
   const invalidSource = await readFile(join(consumer, 'invalid-consumer.ts'), 'utf8');
   for (const [component, binding] of [
     ['InvalidBarSelection', '[selectedRowId]="12"'],
+    ['InvalidBarSelection', '[selectedRowIds]="[12]"'],
     ['InvalidSeriesConsumer', '[series]="badSeries"'],
     ['InvalidLine', '[series]="series"'],
     ['InvalidLine', '[smooth]="\'yes\'"'],

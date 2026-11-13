@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-rc.3 — 13 November 2026
+
+- Add controlled `BarChart.selectedRowIds` for multiple stable row IDs; a non-null array takes precedence over the existing scalar input, with an empty array clearing feedback.
+- Highlight selected categories and native table rows together; retain `aria-current` only for one effective selected row.
+- Extend linked charts with inclusive native From/To controls, supplied-order reconciliation, focus recovery, complete compiled source and three-engine consumer checks.
+
+This private candidate preserves rc.0–rc.2 artifacts and notices. Graphical brushing and deferred human release acceptance remain open.
+
 ## 0.1.0-rc.2 — 13 November 2026
 
 - Add controlled `BarChart.selectedRowId` feedback by stable row identity, with muted surrounding bars and a category band that remains visible for zero/missing values and hidden series.

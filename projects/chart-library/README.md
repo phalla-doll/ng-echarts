@@ -1,13 +1,13 @@
 # Angular chart library
 
-Experimental standalone Angular 22 components using Apache ECharts. The local identity `@ng-echarts/chart-library` is private and has not been published. Local candidate: `0.1.0-rc.2`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. Public naming and human release acceptance remain open.
+Experimental standalone Angular 22 components using Apache ECharts. The local identity `@ng-echarts/chart-library` is private and has not been published. Local candidate: `0.1.0-rc.3`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. Public naming and human release acceptance remain open.
 
 ## Installation
 
 In the source checkout, use Node 24.22.2 and npm 11.19.1, then run `npm ci` and `npm run pack:lib`. Install the resulting file into a separate Angular application:
 
 ```sh
-npm install /absolute/path/to/ng-echarts-chart-library-0.1.0-rc.2.tgz echarts@6.1.0
+npm install /absolute/path/to/ng-echarts-chart-library-0.1.0-rc.3.tgz echarts@6.1.0
 ```
 
 Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes.
@@ -110,3 +110,5 @@ The checkout contains complete [installation](https://github.com/phalla-doll/ng-
 ## License
 
 Original library code is [MIT licensed](LICENSE). Adapted EvilCharts material and external dependencies retain their own notices; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). This private local candidate does not complete the deferred human screen-reader review or public release gates.
+
+`BarChart.selectedRowIds` (rc.3+) accepts `readonly string[] | null`. A non-null array overrides `selectedRowId`; `[]` clears feedback. Known IDs are deduplicated, and unknown/empty IDs are ignored. Multiple categories retain their palette and bands, with “Selected” labels on their native table rows; `aria-current` is used only for one effective row. The application defines range membership and reconciliation. The linked guide demonstrates inclusive From/To controls without graphical brushing.

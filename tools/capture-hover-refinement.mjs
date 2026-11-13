@@ -191,8 +191,8 @@ try {
       await audit('footer-link', page.locator('.gallery-footer a'), theme);
       await navigate('linked/', theme);
       await expect(page.locator('canvas')).toHaveCount(2);
-      const month = page.getByRole('combobox', { name: 'Month', exact: true });
-      await month.selectOption('dec');
+      const month = page.getByRole('combobox', { name: 'Period', exact: true });
+      await month.selectOption('month:dec');
       await audit('month', month, theme, { visual: true });
       await audit('reset', page.locator('.reset-month'), theme);
       await audit('disclosure', page.locator('.linking-guide summary'), theme, { visual: true });
@@ -308,7 +308,7 @@ try {
         );
         for (const target of [
           button,
-          page.getByRole('combobox', { name: 'Month', exact: true }),
+          page.getByRole('combobox', { name: 'Period', exact: true }),
           page.locator('.overview .legend button').first(),
         ]) {
           await target.hover();
@@ -329,14 +329,14 @@ try {
         assert(
           await touch.evaluate(() => matchMedia('(hover: none) and (pointer: coarse)').matches),
         );
-        const month = touch.getByRole('combobox', { name: 'Month', exact: true });
+        const month = touch.getByRole('combobox', { name: 'Period', exact: true });
         const normal = await read(month);
         await month.hover();
         const hover = await read(month);
         assert.equal(normal.background, hover.background);
         assert.equal(normal.border, hover.border);
-        await month.selectOption('dec');
-        await touch.getByRole('button', { name: 'Reset month filter', exact: true }).tap();
+        await month.selectOption('month:dec');
+        await touch.getByRole('button', { name: 'Reset period filter', exact: true }).tap();
         await expect(month).toHaveValue('');
         await expect(month).toBeFocused();
         await expect

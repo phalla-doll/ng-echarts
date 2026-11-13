@@ -56,9 +56,9 @@ try {
     await page.evaluate(() => document.fonts.ready);
     for (const width of [1440, 768, 390, 320]) {
       await page.setViewportSize({ width, height: 1000 });
-      await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('');
+      await page.getByRole('combobox', { name: 'Period', exact: true }).selectOption('');
       await expect(
-        page.getByRole('button', { name: 'Reset month filter', exact: true }),
+        page.getByRole('button', { name: 'Reset period filter', exact: true }),
       ).toHaveCount(0);
       await expect
         .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
@@ -82,7 +82,7 @@ try {
           });
         }
       }
-      await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('feb');
+      await page.getByRole('combobox', { name: 'Period', exact: true }).selectOption('month:feb');
       await expect(page.locator('.detail h2')).toHaveText('Device share · February');
       await expect
         .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
@@ -112,6 +112,59 @@ try {
         name,
         sha256: hash(await page.screenshot({ path: resolve(output, name), fullPage: true })),
       });
+      await page.getByRole('combobox', { name: 'Period', exact: true }).selectOption('__range__');
+      await page.getByRole('combobox', { name: 'From', exact: true }).selectOption('feb');
+      const to = page.getByRole('combobox', { name: 'To', exact: true });
+      await to.selectOption('apr');
+      await expect(page.locator('.linked-status')).toContainText('February–April: 3,189 visits');
+      await expect
+        .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
+        .toBeLessThanOrEqual(width);
+      await page.waitForTimeout(250);
+      await page.evaluate(() => window.scrollTo(0, 0));
+      const rangePage = `linked-${theme}-${width}-range.png`;
+      captures.push({
+        name: rangePage,
+        sha256: hash(await page.screenshot({ path: resolve(output, rangePage), fullPage: true })),
+      });
+      await to.focus();
+      const rangeToolbar = `linked-${theme}-${width}-range-focus.png`;
+      const toolbar = await page.locator('.linked-toolbar').boundingBox();
+      assert(toolbar);
+      captures.push({
+        name: rangeToolbar,
+        sha256: hash(
+          await page.screenshot({
+            path: resolve(output, rangeToolbar),
+            clip: {
+              x: toolbar.x - 4,
+              y: toolbar.y - 4,
+              width: toolbar.width + 8,
+              height: toolbar.height + 8,
+            },
+          }),
+        ),
+      });
+      if (width === 320) {
+        await page
+          .locator('.overview')
+          .getByRole('button', { name: 'Show data table', exact: true })
+          .click();
+        await expect(page.locator('.overview .selected-row')).toHaveCount(3);
+        await expect(page.locator('.overview tr[aria-current]')).toHaveCount(0);
+        const rangeTable = `linked-${theme}-${width}-range-table.png`;
+        await page.evaluate(() => window.scrollTo(0, 0));
+        captures.push({
+          name: rangeTable,
+          sha256: hash(
+            await page.screenshot({ path: resolve(output, rangeTable), fullPage: true }),
+          ),
+        });
+        await page
+          .locator('.overview')
+          .getByRole('button', { name: 'Hide data table', exact: true })
+          .click();
+      }
       measurements.push({
         theme,
         width,
@@ -153,6 +206,7 @@ try {
     'projects/chart-library/core/src/lib/cartesian-chart.ts',
     'projects/chart-library/core/src/lib/cartesian-chart.html',
     'projects/chart-library/core/src/lib/cartesian-chart.css',
+    'projects/playground/src/app/linked-period.ts',
     'projects/playground/src/app/linked-visits.ts',
     'projects/playground/src/app/linked-visits.html',
     'projects/playground/src/app/linked-visits.css',

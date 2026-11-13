@@ -129,12 +129,12 @@ try {
         await navigate('linked/', theme);
         await expect(page.locator('canvas')).toHaveCount(2);
         await page.evaluate(() => document.fonts.ready);
-        const month = page.getByRole('combobox', { name: 'Month', exact: true });
-        await month.selectOption('dec');
+        const month = page.getByRole('combobox', { name: 'Period', exact: true });
+        await month.selectOption('month:dec');
         await focus(month, 'month', theme, width);
         await capture(page.locator('.linked-toolbar'), `month-${theme}-${width}.png`);
         await focus(
-          page.getByRole('button', { name: 'Reset month filter', exact: true }),
+          page.getByRole('button', { name: 'Reset period filter', exact: true }),
           'reset',
           theme,
           width,
@@ -225,7 +225,7 @@ try {
     engines.at(-1).forcedColorsEmulated = supported;
     if (supported) {
       await focus(
-        page.getByRole('combobox', { name: 'Month', exact: true }),
+        page.getByRole('combobox', { name: 'Period', exact: true }),
         'forced-month',
         'system',
         1440,

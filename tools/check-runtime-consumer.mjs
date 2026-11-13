@@ -211,16 +211,26 @@ async function exercise(engine, url, ssr) {
     await expect(page.locator('.linked-status')).toContainText('February: 1,367 visits');
     await expect(page.locator('.overview tr[aria-current=true]')).toContainText('February');
     await expect(page.locator('.overview .selection-label')).toHaveText('Selected');
-    await page.getByRole('button', { name: 'Reset month filter', exact: true }).click();
-    await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('');
+    await page.getByRole('button', { name: 'Reset period filter', exact: true }).click();
+    await expect(page.getByRole('combobox', { name: 'Period', exact: true })).toHaveValue('');
     await expect(page.locator('.overview tr[aria-current]')).toHaveCount(0);
-    await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toBeFocused();
+    await expect(page.getByRole('combobox', { name: 'Period', exact: true })).toBeFocused();
+    await page.getByRole('combobox', { name: 'Period', exact: true }).selectOption('__range__');
+    await expect(page.getByRole('combobox', { name: 'To', exact: true })).toHaveValue('dec');
+    await page.getByRole('combobox', { name: 'From', exact: true }).selectOption('feb');
+    await page.getByRole('combobox', { name: 'To', exact: true }).selectOption('mar');
+    await expect(page.locator('.linked-status')).toContainText('February–March: 2,169 visits');
+    await expect(page.locator('.overview .selected-row')).toHaveCount(2);
+    await expect(page.locator('.overview tr[aria-current]')).toHaveCount(0);
+    await page.getByRole('button', { name: 'Reset period filter', exact: true }).click();
+    await expect(page.locator('.overview .selected-row')).toHaveCount(0);
+    await expect(page.getByRole('combobox', { name: 'Period', exact: true })).toBeFocused();
     await navigation.getByRole('link', { name: 'Linked validation', exact: true }).click();
     await expect(
       page.getByRole('heading', { name: 'Linked selection validation', exact: true }),
     ).toBeVisible();
     await expect(page.locator('app-linked-visits canvas')).toHaveCount(2);
-    await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('feb');
+    await page.getByRole('combobox', { name: 'Period', exact: true }).selectOption('month:feb');
     await expect(page.locator('.linked-status')).toContainText('February: 200 visits');
     await page.getByRole('button', { name: 'Update linked values', exact: true }).click();
     await expect(page.locator('.linked-status')).toContainText('February: 210 visits');
@@ -234,7 +244,7 @@ async function exercise(engine, url, ssr) {
         .getByRole('button', { name: 'Select Visits for Mobile: 0', exact: true }),
     ).toBeVisible();
     await page.getByRole('button', { name: 'Remove February', exact: true }).click();
-    await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('');
+    await expect(page.getByRole('combobox', { name: 'Period', exact: true })).toHaveValue('');
     await navigation.getByRole('link', { name: 'Navigate away', exact: true }).click();
     await expect(page.locator('canvas')).toHaveCount(0);
     assert.deepEqual(errors, []);

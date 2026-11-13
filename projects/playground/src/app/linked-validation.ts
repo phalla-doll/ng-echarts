@@ -13,8 +13,8 @@ export const linkedValidationRows: readonly VisitMonth[] = [
   template: `<main class="utility-page">
     <h1>Linked selection validation</h1>
     <p>
-      Selection follows month IDs through immutable data changes. Removing a selected month restores
-      all months.
+      Months and range endpoints follow stable IDs through immutable data changes. Removing an
+      endpoint restores all months; removing an interior month shrinks the range.
     </p>
     <div class="controls">
       <button type="button" (click)="refresh()">Update linked values</button>

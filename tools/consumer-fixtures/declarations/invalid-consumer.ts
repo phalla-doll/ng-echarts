@@ -31,6 +31,7 @@ export class InvalidConsumer {
     categoryKey="category"
     [series]="series"
     [selectedRowId]="12"
+    [selectedRowIds]="[12]"
   />`,
 })
 export class InvalidBarSelection {
