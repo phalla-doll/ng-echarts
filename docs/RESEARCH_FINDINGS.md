@@ -37,7 +37,7 @@ The pinned registry has 302 entries overall, including 125 examples whose names 
 | `echarts-line-chart` | MVP |
 | `echarts-area-chart` | MVP |
 | `echarts-pie-chart` | MVP, including donut configuration |
-| `echarts-composed-chart` | Subsequent scope |
+| `echarts-composed-chart` | Outside MVP; local bar/line extension now recorded in [NG17](experiments/NG17_COMPOSED_CHART.md), without copying its React implementation |
 | `echarts-radar-chart` | Subsequent scope |
 | `echarts-radial-chart` | Subsequent scope |
 | `echarts-sankey-chart` | Subsequent scope |

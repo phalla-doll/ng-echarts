@@ -80,6 +80,14 @@
         ><app-site-icon name="pie" />Pie &amp; Donut Blocks</a
       >
       <a
+        routerLink="/composed"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="composed" />Composed Blocks</a
+      >
+      <a
         routerLink="/playground"
         routerLinkActive="active"
         ariaCurrentWhenActive="page"
@@ -135,6 +143,13 @@
         ariaCurrentWhenActive="page"
         (click)="closeMenu()"
         ><app-site-icon name="layers" />Pie validation</a
+      >
+      <a
+        routerLink="/composed-validation"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        ><app-site-icon name="layers" />Composed validation</a
       >
       <a
         routerLink="/retention"

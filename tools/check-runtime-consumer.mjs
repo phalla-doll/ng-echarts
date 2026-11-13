@@ -167,6 +167,34 @@ async function exercise(engine, url, ssr) {
     }
     await page.getByRole('link', { name: 'Navigate away', exact: true }).click();
     await expect(page.locator('canvas')).toHaveCount(0);
+    await navigation.getByRole('link', { name: 'Composed Blocks', exact: true }).click();
+    await expect(page.locator('nec-composed-chart canvas')).toHaveCount(1);
+    await navigation.getByRole('link', { name: 'Composed validation', exact: true }).click();
+    const composed = page.locator('.primary-composed nec-composed-chart');
+    await expect(composed.locator('canvas')).toHaveCount(1);
+    await composed.getByRole('button', { name: 'Show data table', exact: true }).click();
+    await composed.getByRole('button', { name: 'Select Trend for March: 0', exact: true }).focus();
+    await page.keyboard.press('Enter');
+    await expect(page.locator('.selection')).toHaveText('c/trend/0/table');
+    await page.getByRole('button', { name: 'Update composed values', exact: true }).click();
+    await expect(
+      composed.getByRole('button', { name: 'Select Visits for January: 110', exact: true }),
+    ).toBeVisible();
+    await composed.locator('.legend button').first().click();
+    await page.getByRole('button', { name: 'Switch series kind', exact: true }).click();
+    await expect(composed.locator('.legend button').first()).toHaveAttribute(
+      'aria-pressed',
+      'false',
+    );
+    if (ssr) {
+      await page
+        .locator('.deferred-composed')
+        .getByRole('button', { name: 'Show data table', exact: true })
+        .click();
+      await expect(page.locator('.deferred-composed canvas')).toHaveCount(1);
+    }
+    await page.getByRole('link', { name: 'Navigate away', exact: true }).click();
+    await expect(page.locator('canvas')).toHaveCount(0);
     assert.deepEqual(errors, []);
     return {
       engine: browser.browserType().name(),
@@ -230,6 +258,8 @@ try {
      assert.equal(root.AreaChart, area.AreaChart);
      const line = await import('@ng-echarts/chart-library/line');
      assert.equal(root.LineChart, line.LineChart);
+     const composed = await import('@ng-echarts/chart-library/composed');
+     assert.equal(root.ComposedChart, composed.ComposedChart);
      const pie = await import('@ng-echarts/chart-library/pie');
      assert.equal(root.PieChart, pie.PieChart);
      const core = await import('@ng-echarts/chart-library/core');
@@ -322,7 +352,7 @@ try {
     skipLibCheck: tsconfig.compilerOptions.skipLibCheck,
     workspaceAliases: false,
     installedOutsideWorkspace: true,
-    entryPoints: ['.', './core', './bar', './line', './area', './pie'],
+    entryPoints: ['.', './core', './bar', './line', './area', './pie', './composed'],
     compatibilityIdentity: true,
     privateImportsBlocked: true,
     reactRuntime: false,

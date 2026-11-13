@@ -157,7 +157,7 @@ Angular and ECharts peer requirements remain unchanged. A core-only bundle exclu
 
 R08 installs a production packed artifact into a consumer outside this workspace, without source aliases, symlinks, or parent-workspace dependency resolution. Exercise both client rendering and an SSR route from that artifact. Inspect the package contents, public declaration files, peer ranges, and consumer bundle. Run a dedicated declaration-compatibility check without `skipLibCheck`; broad error suppression cannot establish TypeScript 6 compatibility.
 
-A temporary local package identity is sufficient for these tests. The user selected MIT for original library code. NG16 now prepares a private 0.1.0-rc.0 artifact with original/upstream/dependency notices and an inventory/checksum manifest. Exact-artifact strict/docs/client/SSR checks are documented in the [release checklist](RELEASE_CHECKLIST.md). G4 still requires the deferred human evidence; public registry naming and publication remain later work.
+A temporary local package identity is sufficient for these tests. The user selected MIT for original library code. NG16 established packaging and NG17 advances the private candidate to 0.1.0-rc.1 with original/upstream/dependency notices and an inventory/checksum manifest. Exact-artifact strict/docs/client/SSR checks are documented in the [release checklist](RELEASE_CHECKLIST.md). G4 still requires the deferred human evidence; public registry naming and publication remain later work.
 
 The requested folder remains `ng-echarts`. Angular's naming guidance recommends avoiding `ng-` for published libraries, so select a distinct package namespace before registry release ([S8](SOURCES.md#platform-sources)).
 
@@ -248,3 +248,10 @@ Area constructs independent per-series fill objects, multiplies original color a
 Radial code owns its ready-state/options and browser lifecycle coordination while reusing PlotController, ChartFocusKeeper, theme probing, formatting, state precedence and ChartFrame. This avoids exposing Cartesian-only series/axis inputs. Its lazy adapter registers Pie/Tooltip/Canvas without Grid or Cartesian engines. Per-row palette slots survive filtering; reordering also reorders colors. `innerRadius` is a responsive ratio from 0 to 0.9. Labels are optional outside category text with overlap suppression, edge alignment and extra plot margin. The [pie API](PIE_CHART_API.md) lists explicit behavior and limits.
 
 The [NG13 report](experiments/NG13_PIE_CHART.md) records the cumulative root budget adjustment: adding a third distinct engine across four families changes the combined root gzip cap from 200,000 to 210,000 bytes; its Brotli cap stays 175,000. Focused family, core, and root-frame caps remain unchanged. Focused entries remain recommended.
+
+
+## NG17 composed Cartesian extension
+
+`ComposedChart<T>` uses `CartesianChart<T, Option, Series>` with a default-compatible third generic parameter. The mixed series union refines the required input without changing existing component contracts. Normalization, stable identity, visibility, focus, formatting, state precedence, theme/motion and plot coordination remain shared. The pure composed builder maps each validated descriptor to a bar or line, retains category centers when bars are hidden, renders lines above bars and replaces options on every update. No sibling family internals are imported.
+
+The focused `/composed` entry owns its browser loader and registers Bar/Line/Grid/Tooltip/Canvas lazily. The shared curve point decoder handles direct bar/marker events and nearest-category whole-line events. Root exports preserve class identity. All component/engine boundaries retain existing size caps. The [API](COMPOSED_CHART_API.md) and [NG17 report](experiments/NG17_COMPOSED_CHART.md) cover the initial one-scale, vertical, unstacked scope and its validation.

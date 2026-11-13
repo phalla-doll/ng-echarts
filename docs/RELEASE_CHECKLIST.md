@@ -1,6 +1,6 @@
 # Local release candidate checklist
 
-The local candidate is `@ng-echarts/chart-library@0.1.0-rc.0`. The user selected MIT for original library code on 13 November 2026. The package remains private; public naming and publication are NG22 work. This checklist separates verified artifact behavior from release decisions and the deferred human interpretation review.
+The local candidate is `@ng-echarts/chart-library@0.1.0-rc.1`. The user selected MIT for original library code on 13 November 2026. The package remains private; public naming and publication are NG22 work. This checklist separates verified artifact behavior from release decisions and the deferred human interpretation review.
 
 ## Prepare and verify one artifact
 
@@ -15,10 +15,12 @@ npm run release:local
 
 Outputs:
 
-- `dist/releases/ng-echarts-chart-library-0.1.0-rc.0.tgz` — local candidate.
-- `dist/releases/ng-echarts-chart-library-0.1.0-rc.0.tgz.sha256` — SHA-256 checksum.
+- `dist/releases/ng-echarts-chart-library-0.1.0-rc.1.tgz` — local candidate.
+- `dist/releases/ng-echarts-chart-library-0.1.0-rc.1.tgz.sha256` — SHA-256 checksum.
 - `dist/releases/release-manifest.json` — inventory, hashes, metadata, source snapshot and verification results.
-- [NG16 evidence](experiments/data/ng16-local-release.json) — tracked copy of the verified manifest after the check.
+- [Current candidate evidence](experiments/data/local-release-0.1.0-rc.1.json) — tracked copy of the verified manifest after the check.
+
+Earlier rc.0 artifact results remain preserved in the [NG16 record](experiments/data/ng16-local-release.json). Each version writes its own evidence filename; preparing rc.1 does not replace that record.
 
 The source snapshot records the base commit and whether local changes were included. File hashes identify the exact artifact content even when a local candidate was prepared from a working tree. Build outputs remain ignored; retain the tarball/checksum together when sharing with another local consumer.
 
@@ -32,7 +34,7 @@ npm run release:check
 To run an individual checker against a retained candidate, set its absolute path and the digest from its checksum file:
 
 ```sh
-export CHART_LIBRARY_TARBALL="$PWD/dist/releases/ng-echarts-chart-library-0.1.0-rc.0.tgz"
+export CHART_LIBRARY_TARBALL="$PWD/dist/releases/ng-echarts-chart-library-0.1.0-rc.1.tgz"
 export CHART_LIBRARY_TARBALL_SHA256="$(cut -d ' ' -f1 "$CHART_LIBRARY_TARBALL.sha256")"
 npm run check:consumer
 ```
@@ -44,13 +46,13 @@ The `check:docs` and `check:runtime` scripts accept the same variables. Without 
 The automated candidate check requires:
 
 - Correct local identity/version, `private: true`, MIT metadata, description/repository, unchanged Angular/ECharts peer ranges, tslib dependency and `sideEffects: false`.
-- Root, core, bar, line, area and pie declarations/runtime targets present, with private implementation imports blocked by installed-consumer checks.
+- Root, core, bar, line, area, pie and composed declarations/runtime targets present, with private implementation imports blocked by installed-consumer checks.
 - Complete packaged README/example, changelog, original-code [MIT license](../projects/chart-library/LICENSE), [third-party notices](../projects/chart-library/THIRD_PARTY_NOTICES.md), and preserved notice/provenance files.
 - Copied license/notice bytes matching their recorded hashes and the exact installed dependency versions; upstream EvilCharts copyright remains intact.
 - No raw workspace source or test files, node_modules, private paths or archive links in the tarball. Source maps and public declarations are intentional package files.
 - Strict external Angular compilation with `skipLibCheck: false`, expected negative-template diagnostics and no React dependency tree.
 - Fresh documented install and lockfile reinstall, all four families, keyboard value actions, updates, themes, resizing and stable instances in three browsers.
-- Installed client and SSR/hydration applications covering the four families, deferred rendering and navigation cleanup in Chromium, Firefox and WebKit.
+- Installed client and SSR/hydration applications covering the four MVP families and composed extension, deferred rendering and navigation cleanup in Chromium, Firefox and WebKit.
 
 The recorded dependency versions describe verified inputs, not every version admitted by the peer ranges. Demo-only icons, fonts, highlighting and the React reference harness remain outside the library artifact.
 
@@ -58,7 +60,7 @@ The recorded dependency versions describe verified inputs, not every version adm
 
 | Item | Status / evidence |
 | --- | --- |
-| Local candidate automated checks | Passed for `0.1.0-rc.0`; recorded in [NG16 evidence](experiments/data/ng16-local-release.json) and the [NG16 report](experiments/NG16_LOCAL_RELEASE.md) |
+| Local candidate automated checks | Passed for `0.1.0-rc.1`; recorded in [current candidate evidence](experiments/data/local-release-0.1.0-rc.1.json) and the [NG17 report](experiments/NG17_COMPOSED_CHART.md); preserved rc.0 results remain in [NG16](experiments/NG16_LOCAL_RELEASE.md) |
 | Original library license | MIT selected by the user; full text ships in the candidate |
 | Human interpretation, F09/R06 | Deferred; follow the [manual review](experiments/R06_MANUAL_REVIEW.md) across every family |
 | NG14/G2/G3/G4 acceptance | Pending until the required human evidence exists; successful artifact checks do not close these gates |

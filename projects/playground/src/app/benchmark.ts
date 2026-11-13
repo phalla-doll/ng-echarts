@@ -10,6 +10,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ComposedChart, type ComposedSeries } from '@ng-echarts/chart-library/composed';
 import { PieChart } from '@ng-echarts/chart-library/pie';
 import { AreaChart } from '@ng-echarts/chart-library/area';
 import { LineChart } from '@ng-echarts/chart-library/line';
@@ -28,6 +29,10 @@ const series: readonly ChartSeries<Row>[] = [
   { id: 'second', key: 'second', label: 'Second' },
   { id: 'third', key: 'third', label: 'Third' },
 ];
+const composedSeries: readonly ComposedSeries<Row>[] = series.map((item, index) => ({
+  ...item,
+  kind: index === 1 ? 'line' : 'bar',
+}));
 let onFinished: ((chart: EChartsType) => void) | undefined;
 // Public ECharts hook: subscribe before the library's first setOption, without changing its API.
 registerPostInit((chart) => chart.on('finished', () => onFinished?.(chart)));
@@ -77,15 +82,17 @@ export class Benchmark {
   private readonly destroy = inject(DestroyRef);
   private readonly family = inject(ActivatedRoute).snapshot.data['family'];
   protected readonly benchmarkTitle =
-    this.family === 'pie'
-      ? 'Pie/donut'
-      : this.family === 'area'
-        ? 'Area'
-        : this.family === 'line'
-          ? 'Line'
-          : 'Bar';
+    this.family === 'composed'
+      ? 'Composed'
+      : this.family === 'pie'
+        ? 'Pie/donut'
+        : this.family === 'area'
+          ? 'Area'
+          : this.family === 'line'
+            ? 'Line'
+            : 'Bar';
   private reference: ComponentRef<
-    BarChart<Row> | LineChart<Row> | AreaChart<Row> | PieChart<Row>
+    BarChart<Row> | LineChart<Row> | AreaChart<Row> | PieChart<Row> | ComposedChart<Row>
   > | null = null;
 
   constructor() {
@@ -118,13 +125,15 @@ export class Benchmark {
   }
   private create(rows: readonly Row[]): void {
     this.reference =
-      this.family === 'pie'
-        ? this.charts().createComponent(PieChart<Row>)
-        : this.family === 'area'
-          ? this.charts().createComponent(AreaChart<Row>)
-          : this.family === 'line'
-            ? this.charts().createComponent(LineChart<Row>)
-            : this.charts().createComponent(BarChart<Row>);
+      this.family === 'composed'
+        ? this.charts().createComponent(ComposedChart<Row>)
+        : this.family === 'pie'
+          ? this.charts().createComponent(PieChart<Row>)
+          : this.family === 'area'
+            ? this.charts().createComponent(AreaChart<Row>)
+            : this.family === 'line'
+              ? this.charts().createComponent(LineChart<Row>)
+              : this.charts().createComponent(BarChart<Row>);
     for (const [key, value] of Object.entries({
       title: 'Benchmark',
       description:
@@ -134,7 +143,7 @@ export class Benchmark {
       data: rows,
       ...(this.family === 'pie'
         ? { measure: { id: 'first', key: 'first', label: 'Value' }, innerRadius: 0.6 }
-        : { series }),
+        : { series: this.family === 'composed' ? composedSeries : series }),
       rowIdKey: 'id',
       categoryKey: 'category',
       animation: false,

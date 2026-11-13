@@ -43,6 +43,18 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
           stroke-width="2"
         />
       }
+      @case ('composed') {
+        <path
+          d="M35 120V76h26v44m32 0V52h26v68m32 0V65h26v55m32 0V30h26v90"
+          fill="var(--gallery-primary)"
+          opacity=".7"
+        />
+        <path
+          d="m25 86 33-16 35 6 36-36 36 12 43-30 27 5"
+          stroke="var(--gallery-secondary)"
+          stroke-width="3"
+        />
+      }
       @case ('pie') {
         <circle
           cx="130"
@@ -69,5 +81,5 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChartIllustration {
-  readonly kind = input.required<'bar' | 'line' | 'area' | 'pie'>();
+  readonly kind = input.required<'bar' | 'line' | 'area' | 'pie' | 'composed'>();
 }

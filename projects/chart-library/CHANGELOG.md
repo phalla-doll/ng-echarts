@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-rc.1 — 13 November 2026
+
+- Add `ComposedChart` and typed bar/line descriptors through `/composed` and root exports.
+- Combine vertical bars and lines on shared category/value axes with stable identity, shared controls, raw events and lazy rendering.
+- Add the visits/trend gallery, complete API example, strict packed-consumer checks and browser/lifecycle coverage.
+
+This is an experimental private extension. Human interpretation and release gates remain pending. The earlier rc.0 artifact and its evidence are retained separately.
+
 ## 0.1.0-rc.0 — 13 November 2026
 
 First private local release candidate of the four-family Angular 22 library:

@@ -8,6 +8,8 @@ export interface DeviceRow {
   readonly month: string;
   readonly desktop: number | null;
   readonly mobile: number | null;
+  /** Optional locally derived trend for the composed demonstration. */
+  readonly trend?: number | null;
 }
 
 export const deviceRows: readonly DeviceRow[] = [

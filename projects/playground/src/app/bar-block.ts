@@ -7,6 +7,7 @@ import {
 } from '@ng-echarts/chart-library/bar';
 import { LineChart } from '@ng-echarts/chart-library/line';
 import { AreaChart } from '@ng-echarts/chart-library/area';
+import { ComposedChart } from '@ng-echarts/chart-library/composed';
 import { chartExampleSource, type CartesianBlock } from './chart-blocks';
 import type { DeviceRow } from './fixtures/evilcharts-bar-fixture';
 import { SiteIcon } from './site-icon';
@@ -14,7 +15,7 @@ import { HighlightCode } from './highlight-code';
 
 @Component({
   selector: 'app-bar-block',
-  imports: [BarChart, LineChart, AreaChart, SiteIcon, HighlightCode, RouterLink],
+  imports: [BarChart, LineChart, AreaChart, ComposedChart, SiteIcon, HighlightCode, RouterLink],
   templateUrl: './bar-block.html',
   styleUrl: './bar-block.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -33,22 +34,32 @@ export class BarBlockExample {
   protected readonly copyFailed = signal(false);
   protected readonly importSource = computed(() => {
     const kind = this.block().kind;
-    const name = { bar: 'BarChart', line: 'LineChart', area: 'AreaChart' }[kind];
+    const name = {
+      bar: 'BarChart',
+      line: 'LineChart',
+      area: 'AreaChart',
+      composed: 'ComposedChart',
+    }[kind];
     return `import { ${name} } from '@ng-echarts/chart-library/${kind}';`;
   });
   protected readonly source = computed(() => chartExampleSource(this.block(), this.dark()));
   protected readonly copied = computed(() => this.copiedText() === this.source());
   protected readonly selection = signal('');
   protected readonly monthTick: CategoryTickFormatter = (month) => month.slice(0, 3);
-  protected readonly metrics = computed(() =>
-    this.block().series.map((series) => ({
-      id: series.id,
-      label: series.label,
-      total: new Intl.NumberFormat('en-US').format(
-        this.block().rows.reduce((sum, row) => sum + (row[series.key] ?? 0), 0),
-      ),
-    })),
-  );
+  protected readonly metrics = computed(() => {
+    const block = this.block();
+    return block.series.map((series) => {
+      const latest = block.kind === 'composed' && 'kind' in series && series.kind === 'line';
+      const value = latest
+        ? (block.rows.at(-1)?.[series.key] ?? 0)
+        : block.rows.reduce((sum, row) => sum + (row[series.key] ?? 0), 0);
+      return {
+        id: series.id,
+        label: latest ? 'Latest 3-month mean' : series.label,
+        total: new Intl.NumberFormat('en-US', { maximumFractionDigits: 1 }).format(value),
+      };
+    });
+  });
   protected showView(view: 'preview' | 'code'): void {
     this.view.set(view);
   }

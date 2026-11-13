@@ -1,5 +1,6 @@
 import { PLATFORM_ID, type OutputEmitterRef, type Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { ComposedChart } from '../../../composed/src/lib/composed-chart';
 import { BarChart } from '../../../bar/src/lib/bar-chart';
 import { LineChart } from '../../../line/src/lib/line-chart';
 import { AreaChart } from '../../../area/src/lib/area-chart';
@@ -21,6 +22,7 @@ const rows: readonly Row[] = [
 ];
 const measure = { id: 'value', key: 'value', label: 'Value' };
 const families: readonly { family: string; component: Type<Chart> }[] = [
+  { family: 'composed', component: ComposedChart<Row> },
   { family: 'bar', component: BarChart<Row> },
   { family: 'line', component: LineChart<Row> },
   { family: 'area', component: AreaChart<Row> },
@@ -28,6 +30,7 @@ const families: readonly { family: string; component: Type<Chart> }[] = [
 ];
 
 describe.each(families)('$family cross-family acceptance', ({ family, component }) => {
+  const descriptor = family === 'composed' ? { ...measure, kind: 'bar' } : measure;
   async function setup() {
     TestBed.configureTestingModule({ providers: [{ provide: PLATFORM_ID, useValue: 'server' }] });
     const fixture = TestBed.createComponent(component);
@@ -36,7 +39,7 @@ describe.each(families)('$family cross-family acceptance', ({ family, component 
       data: rows,
       rowIdKey: 'id',
       categoryKey: 'category',
-      ...(family === 'pie' ? { measure } : { series: [measure] }),
+      ...(family === 'pie' ? { measure } : { series: [descriptor] }),
     }))
       fixture.componentRef.setInput(key, value);
     await fixture.whenStable();
@@ -106,7 +109,7 @@ describe.each(families)('$family cross-family acceptance', ({ family, component 
       rows.map((row) => ({ ...row, category: 'Renamed' })),
     );
     if (family !== 'pie')
-      fixture.componentRef.setInput('series', [{ ...measure, label: 'Renamed' }]);
+      fixture.componentRef.setInput('series', [{ ...descriptor, label: 'Renamed' }]);
     await fixture.whenStable();
     expect(host.querySelector('.legend button')?.getAttribute('aria-pressed')).toBe('false');
     expect(host.querySelectorAll('tbody button')).toHaveLength(2);
@@ -114,7 +117,7 @@ describe.each(families)('$family cross-family acceptance', ({ family, component 
     else fixture.componentRef.setInput('series', []);
     await fixture.whenStable();
     fixture.componentRef.setInput('data', rows);
-    if (family !== 'pie') fixture.componentRef.setInput('series', [measure]);
+    if (family !== 'pie') fixture.componentRef.setInput('series', [descriptor]);
     await fixture.whenStable();
     expect(host.querySelector('.legend button')?.getAttribute('aria-pressed')).toBe('true');
     expect(host.querySelectorAll('tbody tr')).toHaveLength(3);

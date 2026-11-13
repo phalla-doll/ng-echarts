@@ -74,3 +74,8 @@ G1 requires technical feasibility evidence and a confirmed integration choice. G
 Store reports under `docs/experiments/` when work begins and link each report to its requirement, chart family, task, and gate. Keep status as pending, pass, or fail. A planned check, revised target, or screenshot alone cannot substitute for a required behavioral result.
 
 The [NG16 local candidate](experiments/NG16_LOCAL_RELEASE.md) adds final-artifact automated evidence for F01/F10, metadata, notices, dependencies and distribution contents. All three isolated consumer stages use the same `0.1.0-rc.0` tarball and digest, with snapshots in the candidate record. Original library code is MIT licensed by user choice. G4, NG14/G3 and F09 remain pending for the deferred human interpretation evidence; automated packaging success does not close those gates.
+
+
+## NG17 extension evidence
+
+The first [composed increment](experiments/NG17_COMPOSED_CHART.md) applies the existing F01–F10 automated behavior to a shared-axis bar/line chart: typed numeric descriptors, immutable updates and kind changes, stable IDs/visibility/focus, signed/zero/missing observations, native controls/events, states, responsive themes, motion, lifecycle and SSR/deferred hydration. The [API](COMPOSED_CHART_API.md) defines the bounded extension; dedicated tests and exact rc.1 consumers extend the four-family baseline. Human interpretation remains deferred and NG14/G2/G3/G4 remain pending.

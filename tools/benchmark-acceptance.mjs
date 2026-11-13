@@ -6,6 +6,8 @@ import { setTimeout as delay } from 'node:timers/promises';
 import { chromium } from 'playwright';
 import { format, resolveConfig } from 'prettier';
 
+const selected = process.argv[2];
+assert(!selected || selected === 'composed', 'Optional family must be composed');
 const root = new URL('../', import.meta.url);
 const server = spawn(process.execPath, ['dist/playground/server/server.mjs'], {
   cwd: root,
@@ -25,7 +27,7 @@ try {
   }
   browser = await chromium.launch();
   const families = [];
-  for (const family of ['bar', 'line', 'area', 'pie']) {
+  for (const family of selected ? [selected] : ['bar', 'line', 'area', 'pie']) {
     const context = await browser.newContext({
       viewport: { width: 1600, height: 1000 },
       deviceScaleFactor: 1,
@@ -102,7 +104,7 @@ try {
       fixture:
         '768x320 plot profile; resize alternates host width 768/640; DPR 1; animation disabled; reduced motion; table collapsed',
       variants:
-        'bar grouped solid vertical; line straight with points; area stacked gradient; pie donut ratio 0.6 with labels off',
+        'bar grouped solid vertical; line straight with points; area stacked gradient; pie donut ratio 0.6 with labels off; composed bar/line/bar with points',
       samples:
         'Each operation: one warm-up and 30 measured samples; p95 = 29th sorted sample. Counts are 200/2000 Cartesian and 12/100 pie.',
       mountAndUpdate:
@@ -121,13 +123,16 @@ try {
     passed: true,
   };
   await writeFile(
-    new URL('docs/experiments/data/ng14-benchmark.json', root),
+    new URL(
+      `docs/experiments/data/${selected ? 'ng17-composed-benchmark' : 'ng14-benchmark'}.json`,
+      root,
+    ),
     await format(JSON.stringify(evidence), {
       ...(await resolveConfig(new URL('.prettierrc', root).pathname)),
       parser: 'json',
     }),
   );
-  console.log('PASS: all four families measured; normal mount/update meet the target.');
+  console.log('PASS: selected families measured; normal mount/update meet the target.');
 } finally {
   await browser?.close();
   server.kill('SIGTERM');

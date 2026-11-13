@@ -16,13 +16,15 @@ import { SiteIcon } from './site-icon';
 export class Gallery {
   private readonly requestedFamily = inject(ActivatedRoute).snapshot.data['family'];
   protected readonly family =
-    this.requestedFamily === 'pie'
-      ? 'pie'
-      : this.requestedFamily === 'area'
-        ? 'area'
-        : this.requestedFamily === 'line'
-          ? 'line'
-          : 'bar';
+    this.requestedFamily === 'composed'
+      ? 'composed'
+      : this.requestedFamily === 'pie'
+        ? 'pie'
+        : this.requestedFamily === 'area'
+          ? 'area'
+          : this.requestedFamily === 'line'
+            ? 'line'
+            : 'bar';
   protected readonly config = galleryFamilies[this.family];
   protected readonly heading = this.config.title;
   protected readonly subtitle = `Ready-made Angular ${this.config.noun} chart blocks, powered by Apache ECharts`;

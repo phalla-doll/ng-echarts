@@ -76,7 +76,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'status',
         title: 'Project status',
         paragraphs: [
-          'The library is experimental and the package is private. Use the workspace or a packed local build; a public npm installation is not available yet. Automated acceptance covers all four chart families. Human screen-reader interpretation and final artifact/release acceptance remain pending.',
+          'The library is experimental and the package is private. Use the workspace or a packed local build; a public npm installation is not available yet. Automated acceptance covers the four MVP families and the first shared-axis composed increment. Human screen-reader interpretation and final artifact/release acceptance remain pending.',
         ],
       },
     ],
@@ -112,7 +112,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
           'Create a production tarball from the workspace root. Install that file and the tested ECharts peer in a separate Angular 22 application. Replace the example path with the location of your checkout. Keep the file at the lockfile’s recorded path, or copy it into the consumer’s vendor directory first; commit the lockfile and use npm ci for repeat installs.',
         ],
         source:
-          'npm run pack:lib\n\n# In your Angular 22 application:\nnpm install /path/to/ng-echarts/dist/ng-echarts-chart-library-0.1.0-rc.0.tgz echarts@6.1.0',
+          'npm run pack:lib\n\n# In your Angular 22 application:\nnpm install /path/to/ng-echarts/dist/ng-echarts-chart-library-0.1.0-rc.1.tgz echarts@6.1.0',
         language: 'Terminal',
       },
       {
@@ -142,7 +142,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         paragraphs: [
           'Exact tests use Angular/CLI 22.2.6, TypeScript 6.0.3, RxJS 7.8.2 and ECharts 6.1.0 with Node 24.22.2/npm 11.19.1. Library peers declare Angular common/core ^22.2.6 and ECharts ^6.1.0; wider allowed ranges are not a test of every version. Chromium 158.0.8127.18, Firefox 159.0 and WebKit 27.2 cover client and SSR/hydration paths.',
           'The measured starting envelope is 200 categories and three Cartesian series, or 12 pie/donut categories, on the recorded M2 Pro reference machine. Stress fixtures use 2,000 and 100 categories respectively. These are measured inputs rather than hard API limits or portable latency promises. Crowded outside labels may be shortened or hidden; native controls retain complete text.',
-          'The APIs remain experimental. Automated tests pass; human screen-reader interpretation is deferred to release acceptance. The private 0.1.0-rc.0 candidate uses MIT for original library code and includes third-party notices. Human release acceptance and registry publication remain separate.',
+          'The APIs remain experimental. Automated tests pass; human screen-reader interpretation is deferred to release acceptance. The private 0.1.0-rc.1 candidate uses MIT for original library code and includes third-party notices. Human release acceptance and registry publication remain separate.',
         ],
       },
       {
@@ -168,13 +168,13 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
       {
         id: 'charts',
         title: 'Charts',
-        paragraphs: ['Explore working bar, line, area, and pie/donut components.'],
+        paragraphs: ['Explore working bar, line, area, pie/donut, and composed components.'],
       },
       {
         id: 'data-contracts',
         title: 'Choose the data contract',
         paragraphs: [
-          'Bar, line, and area charts accept a typed array of ChartSeries<T> measures. PieChart accepts one ChartMeasure<T> and turns category rows into slices. Import each component from its focused @ng-echarts/chart-library/bar, /line, /area, or /pie entry.',
+          'ComposedChart accepts ComposedSeries<T> with a bar/line kind per measure on one shared axis pair. Bar, line, and area charts accept a typed array of ChartSeries<T> measures. PieChart accepts one ChartMeasure<T> and turns category rows into slices. Import each component from its focused @ng-echarts/chart-library/bar, /line, /area, /pie, or /composed entry.',
           'Use innerRadius 0 for a pie or 0.6 for a donut. Optional outside labels may shorten or hide collisions, while category controls retain full labels. Pie measures must be nonnegative; all-zero totals show an empty state.',
           'Pie legend changes emit rowId and visible; Cartesian legend changes emit seriesId and visible. Point selection in every family includes the original row and raw value. The data table remains the keyboard point-action alternative; gallery examples opt out of it.',
         ],
@@ -221,6 +221,13 @@ export const chartCatalog = [
       'Compare category shares with pie or donut layouts, category controls, and labels.',
     kind: 'pie',
     route: '/pie',
+    status: 'Available',
+  },
+  {
+    title: 'Composed Chart',
+    description: 'Combine bars and trend lines using shared categories and one numeric scale.',
+    kind: 'composed',
+    route: '/composed',
     status: 'Available',
   },
 ] as const;

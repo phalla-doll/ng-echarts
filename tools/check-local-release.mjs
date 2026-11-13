@@ -69,7 +69,10 @@ try {
   const options = { ...(await resolveConfig(join(releaseRoot, '.prettierrc'))), parser: 'json' };
   const json = await format(JSON.stringify(record), options);
   await writeFile(join(directory, 'release-manifest.json'), json);
-  await writeFile(join(releaseRoot, 'docs/experiments/data/ng16-local-release.json'), json);
+  await writeFile(
+    join(releaseRoot, `docs/experiments/data/local-release-${actual.version}.json`),
+    json,
+  );
 }
 console.log(
   `PASS: exact ${actual.filename} metadata/notices, strict declarations, fresh docs and three-engine CSR/SSR consumers. Human release gates remain pending.`,

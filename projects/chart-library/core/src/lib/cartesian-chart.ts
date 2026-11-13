@@ -39,9 +39,13 @@ import type {
 } from './chart-types';
 import { PlotController, type PlotPoint } from './plot-controller';
 
-/** Internal Cartesian behavior shared by the bar and line entries; not a supported consumer API. */
+/** Internal Cartesian behavior shared by the Cartesian entries; not a supported consumer API. */
 @Directive()
-export abstract class CartesianChart<T extends object, Option> {
+export abstract class CartesianChart<
+  T extends object,
+  Option,
+  Series extends ChartSeries<T> = ChartSeries<T>,
+> {
   protected abstract renderer(): Promise<PlotRendererFactory<Option>>;
   protected abstract familyConfiguration(): unknown;
   protected abstract familyError(): string | null;
@@ -51,7 +55,7 @@ export abstract class CartesianChart<T extends object, Option> {
   readonly data = input.required<readonly T[]>();
   readonly rowIdKey = input.required<StringKey<T>>();
   readonly categoryKey = input.required<StringKey<T>>();
-  readonly series = input.required<readonly ChartSeries<T>[]>();
+  readonly series = input.required<readonly Series[]>();
   readonly height = input(320);
   readonly theme = input<ChartTheme>('light');
   readonly themeRevision = input(0);

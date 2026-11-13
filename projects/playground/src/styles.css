@@ -193,7 +193,9 @@ a:focus-visible {
   background: white;
 }
 
-.measurement-scroll:not(:has(nec-bar-chart, nec-line-chart, nec-area-chart, nec-pie-chart)) {
+.measurement-scroll:not(
+  :has(nec-bar-chart, nec-line-chart, nec-area-chart, nec-pie-chart, nec-composed-chart)
+) {
   display: none;
 }
 .measurement-scroll:focus-visible {

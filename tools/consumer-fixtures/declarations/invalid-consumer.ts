@@ -123,3 +123,61 @@ import { PieChart } from '@ng-echarts/chart-library/pie';
 export class InvalidPie {
   readonly data = [{ id: 'a', label: 'A', value: 1 }];
 }
+
+import { ComposedChart } from '@ng-echarts/chart-library/composed';
+@Component({
+  imports: [ComposedChart],
+  template: `<nec-composed-chart
+    title="Invalid composed kind"
+    [data]="rows"
+    rowIdKey="id"
+    categoryKey="category"
+    [series]="series"
+  />`,
+})
+export class InvalidComposedKind {
+  readonly rows = [{ id: 'a', category: 'A', count: 1 }];
+  readonly series = [{ id: 'v', key: 'count', label: 'V', kind: 'area' }] as const;
+}
+@Component({
+  imports: [ComposedChart],
+  template: `<nec-composed-chart
+    title="Invalid composed options"
+    [data]="rows"
+    rowIdKey="id"
+    categoryKey="category"
+    [series]="series"
+  />`,
+})
+export class InvalidComposedOptions {
+  readonly rows = [{ id: 'a', category: 'A', count: 1 }];
+  readonly series = [{ id: 'v', key: 'count', label: 'V', kind: 'bar', smooth: true }] as const;
+}
+@Component({
+  imports: [ComposedChart],
+  template: `<nec-composed-chart
+    title="Invalid composed measure"
+    [data]="rows"
+    rowIdKey="id"
+    categoryKey="category"
+    [series]="series"
+  />`,
+})
+export class InvalidComposedMeasure {
+  readonly rows = [{ id: 'a', category: 'A', count: 1 }];
+  readonly series = [{ id: 'v', key: 'category', label: 'V', kind: 'line' }] as const;
+}
+@Component({
+  imports: [ComposedChart],
+  template: `<nec-composed-chart
+    title="Invalid composed missing kind"
+    [data]="rows"
+    rowIdKey="id"
+    categoryKey="category"
+    [series]="series"
+  />`,
+})
+export class InvalidComposedMissingKind {
+  readonly rows = [{ id: 'a', category: 'A', count: 1 }];
+  readonly series = [{ id: 'v', key: 'count', label: 'V' }] as const;
+}

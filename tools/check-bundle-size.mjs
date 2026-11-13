@@ -16,12 +16,19 @@ const scenarios = [
   { name: 'bar', entry: '/bar', symbol: 'BarChart', engine: true, families: ['bar'] },
   { name: 'line', entry: '/line', symbol: 'LineChart', engine: true, families: ['line'] },
   { name: 'area', entry: '/area', symbol: 'AreaChart', engine: true, families: ['line'] },
+  {
+    name: 'composed',
+    entry: '/composed',
+    symbol: 'ComposedChart',
+    engine: true,
+    families: ['bar', 'line'],
+  },
   { name: 'pie', entry: '/pie', symbol: 'PieChart', engine: true, families: ['pie'] },
   { name: 'core', entry: '/core', symbol: 'ChartFrame', engine: false },
   {
     name: 'root',
     entry: '',
-    symbol: 'BarChart, LineChart, AreaChart, PieChart, ChartFrame',
+    symbol: 'BarChart, LineChart, AreaChart, PieChart, ComposedChart, ChartFrame',
     engine: true,
     families: ['bar', 'line', 'pie'],
   },
@@ -109,8 +116,10 @@ for (const scenario of scenarios) {
   const reachableEngineInputs = reachableInputs.filter((name) =>
     /node_modules\/(echarts|zrender)\//.test(name),
   );
-  if (['bar', 'line', 'area', 'pie'].includes(scenario.name)) {
-    const other = ['bar', 'line', 'area', 'pie'].filter((name) => name !== scenario.name);
+  if (['bar', 'line', 'area', 'pie', 'composed'].includes(scenario.name)) {
+    const other = ['bar', 'line', 'area', 'pie', 'composed'].filter(
+      (name) => name !== scenario.name,
+    );
     assert(
       !inputs.some((name) =>
         other.some((family) => name.includes(`ng-echarts-chart-library-${family}.mjs`)),
@@ -168,7 +177,7 @@ for (const scenario of scenarios) {
       `${scenario.name} must exclude ECharts and ZRender entirely`,
     );
     assert(
-      !reachableInputs.some((name) => /chart-library-(?:bar|line|area|pie)/.test(name)),
+      !reachableInputs.some((name) => /chart-library-(?:bar|line|area|pie|composed)/.test(name)),
       `${scenario.name} must exclude bar implementation`,
     );
   }

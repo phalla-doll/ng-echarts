@@ -8,9 +8,16 @@ import { chromium } from 'playwright';
 import { expect } from '@playwright/test';
 
 // Pass a deployed base URL to review the same matrix against GitHub Pages.
-const external = process.argv[2];
+const composed = process.argv.includes('--composed');
+const args = process.argv.slice(2).filter((arg) => arg !== '--composed');
+const external = args[0];
 const base = external ?? 'http://localhost:4181/';
-const output = resolve(process.argv[3] ?? 'docs/experiments/captures/visual-audit/after');
+const output = resolve(
+  args[1] ??
+    (composed
+      ? 'docs/experiments/captures/composed'
+      : 'docs/experiments/captures/visual-audit/after'),
+);
 const server = external
   ? null
   : spawn(process.execPath, ['dist/playground/server/server.mjs'], {
@@ -57,11 +64,13 @@ try {
     const bytes = await locator.screenshot({ path: resolve(output, name), ...options });
     captures.push({ name, sha256: sha(bytes) });
   };
-  for (const route of ['', 'line', 'area', 'pie']) {
+  for (const route of composed ? ['composed'] : ['', 'line', 'area', 'pie']) {
     const family = route || 'bar';
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto(new URL(route, base).href);
-    await expect(page.locator('.gallery canvas')).toHaveCount(route === 'pie' ? 3 : 4);
+    await expect(page.locator('.gallery canvas')).toHaveCount(
+      route === 'composed' ? 1 : route === 'pie' ? 3 : 4,
+    );
     await page.evaluate(() => document.fonts.ready);
     for (const theme of ['dark', 'light']) {
       if (theme === 'light')
@@ -184,6 +193,12 @@ try {
     'projects/playground/src/app/pie-block.html',
     'projects/chart-library/core/src/lib/cartesian-options.ts',
     'tools/capture-visual-audit.mjs',
+    ...(composed
+      ? [
+          'projects/chart-library/composed/src/lib/composed-options.ts',
+          'projects/playground/src/app/composed-blocks.ts',
+        ]
+      : []),
   ];
   const sources = [];
   for (const path of sourcePaths) sources.push({ path, sha256: sha(await readFile(path)) });

@@ -17,6 +17,9 @@ const pageTitles: Readonly<Record<string, string>> = {
   '/': 'Bar Blocks',
   '/line': 'Line Blocks',
   '/pie': 'Pie & Donut Blocks',
+  '/composed': 'Composed Blocks',
+  '/composed-benchmark': 'Composed benchmark',
+  '/composed-validation': 'Composed validation',
   '/pie-validation': 'Pie validation',
   '/area': 'Area Blocks',
   '/area-validation': 'Area validation',
@@ -61,7 +64,7 @@ export class Root {
     () => (this.url().split(/[?#]/, 1)[0] ?? '/').replace(/\/+$/, '') || '/',
   );
   protected readonly galleryMode = computed(() =>
-    ['/', '/line', '/area', '/pie'].includes(this.routePath()),
+    ['/', '/line', '/area', '/pie', '/composed'].includes(this.routePath()),
   );
   protected readonly themeLabel = computed(() =>
     this.dark() ? 'Use light theme' : 'Use dark theme',
@@ -74,9 +77,13 @@ export class Root {
   );
   protected readonly fullWidth = computed(
     () =>
-      ['/benchmark', '/line-benchmark', '/area-benchmark', '/pie-benchmark'].includes(
-        this.routePath(),
-      ) ||
+      [
+        '/benchmark',
+        '/line-benchmark',
+        '/area-benchmark',
+        '/pie-benchmark',
+        '/composed-benchmark',
+      ].includes(this.routePath()) ||
       (this.comparisonMode() &&
         new URLSearchParams(this.url().split('?')[1]?.split('#')[0]).get('reference') === '1'),
   );

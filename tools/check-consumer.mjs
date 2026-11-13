@@ -62,8 +62,29 @@ try {
   const { areaBlocks, areaExampleSource } = await import(
     `data:text/javascript;base64,${Buffer.from(areas.outputFiles[0].contents).toString('base64')}`
   );
+  const composedBuild = await build({
+    entryPoints: [join(root, 'projects/playground/src/app/composed-blocks.ts')],
+    bundle: true,
+    write: false,
+    platform: 'node',
+    format: 'esm',
+  });
+  const { composedBlocks, composedExampleSource } = await import(
+    `data:text/javascript;base64,${Buffer.from(composedBuild.outputFiles[0].contents).toString('base64')}`
+  );
   const configPath = join(consumer, 'tsconfig.json');
   const config = JSON.parse(await readFile(configPath, 'utf8'));
+  const composedGuide = await readFile(join(root, 'docs/COMPOSED_CHART_API.md'), 'utf8');
+  const composedExample = composedGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
+  assert(composedExample, 'Composed guide must contain its integration example');
+  await writeFile(join(consumer, 'composed-api-example.ts'), composedExample);
+  config.files.push('composed-api-example.ts');
+  for (const dark of [false, true])
+    for (const block of composedBlocks) {
+      const file = `${block.id}-${dark ? 'dark' : 'light'}.ts`;
+      await writeFile(join(consumer, file), composedExampleSource(block, dark));
+      config.files.push(file);
+    }
   const documentation = await build({
     entryPoints: [join(root, 'projects/playground/src/app/documentation-content.ts')],
     bundle: true,
@@ -166,13 +187,14 @@ try {
     '.',
     './area',
     './bar',
+    './composed',
     './core',
     './line',
     './package.json',
     './pie',
   ]);
   assert.equal(manifest.sideEffects, false);
-  for (const entry of ['.', './core', './bar', './line', './area', './pie']) {
+  for (const entry of ['.', './core', './bar', './line', './area', './pie', './composed']) {
     for (const field of ['types', 'default']) {
       assert(
         await readFile(join(installed, manifest.exports[entry][field])),
@@ -205,6 +227,10 @@ try {
     ['InvalidArea', '[stacked]="\'yes\'"'],
     ['InvalidPie', '[measure]="{'],
     ['InvalidPie', '[innerRadius]="\'wrong\'"'],
+    ...['Kind', 'Options', 'Measure', 'MissingKind'].map((name) => [
+      `InvalidComposed${name}`,
+      '[series]="series"',
+    ]),
   ]) {
     const classAt = invalidSource.indexOf(`export class ${component} `);
     assert(classAt >= 0, `Missing negative fixture ${component}`);

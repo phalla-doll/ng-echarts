@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { collectBrowserErrors } from './resource-audit';
 
-for (const family of ['line', 'area', 'pie']) {
+for (const family of ['line', 'area', 'pie', 'composed']) {
   test(`${family} refreshes explicit palette tokens and recovers hidden/narrow plots without replacing its renderer`, async ({
     page,
   }) => {

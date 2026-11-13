@@ -113,3 +113,6 @@ Apply the [template and derived-state conventions](TECHNICAL_ARCHITECTURE.md#tem
 For each experiment, record its question, exact versions and source revision, fixture, reproduction commands, expected outcome, observed result, screenshots or logs, decision, and remaining issue. Store reports under `docs/experiments/` when experiments start. Do not prefill outcomes or performance numbers.
 
 Each report must identify the experiment ID, chart family, affected F01 through F10 requirements, backlog tasks, and gate. For benchmarks, include hardware, OS, browser version, build mode, renderer, host size, device-pixel ratio, animation and table settings, sample count, and raw samples. For visual evidence, link both the pinned upstream reference and the resulting capture with any accepted differences.
+
+
+The user-authorized [NG17 composed extension](experiments/NG17_COMPOSED_CHART.md) applies the shared-axis architecture to mixed vertical bars and lines. Its automated regression, isolated consumers, bundle boundaries and actual-component measurements are recorded independently of the historical four-family MVP evidence. Its first scope excludes dual scales/stacking/area composition and retains the existing human release deferral.

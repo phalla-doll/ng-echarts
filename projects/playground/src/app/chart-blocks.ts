@@ -1,11 +1,14 @@
+import { composedBlocks, composedExampleSource, type ComposedBlock } from './composed-blocks';
 import { barBlocks, barExampleSource, type BarBlock } from './bar-blocks';
 import { lineBlocks, lineExampleSource, type LineBlock } from './line-blocks';
 import { areaBlocks, areaExampleSource, type AreaBlock } from './area-blocks';
 import { pieBlocks, pieExampleSource, type PieBlock } from './pie-blocks';
-export type CartesianBlock = BarBlock | LineBlock | AreaBlock;
+export type CartesianBlock = BarBlock | LineBlock | AreaBlock | ComposedBlock;
 export type ChartBlock = CartesianBlock | PieBlock;
 export function chartExampleSource(block: ChartBlock, dark: boolean): string {
   switch (block.kind) {
+    case 'composed':
+      return composedExampleSource(block, dark);
     case 'pie':
       return pieExampleSource(block, dark);
     case 'bar':
@@ -17,6 +20,13 @@ export function chartExampleSource(block: ChartBlock, dark: boolean): string {
   }
 }
 export const galleryFamilies = {
+  composed: {
+    title: 'Composed Blocks',
+    noun: 'composed',
+    blocks: composedBlocks,
+    validationRoute: '/composed-validation',
+    validationLabel: 'Composed validation',
+  },
   pie: {
     title: 'Pie & Donut Blocks',
     noun: 'pie and donut',

@@ -12,6 +12,7 @@
     "core/src/**/*.spec.ts",
     "line/src/**/*.spec.ts",
     "area/src/**/*.spec.ts",
-    "pie/src/**/*.spec.ts"
+    "pie/src/**/*.spec.ts",
+    "composed/src/**/*.spec.ts"
   ]
 }

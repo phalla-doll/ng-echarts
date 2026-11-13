@@ -7,7 +7,8 @@
       "@ng-echarts/chart-library/core": ["./dist/chart-library/core"],
       "@ng-echarts/chart-library/line": ["./dist/chart-library/line"],
       "@ng-echarts/chart-library/area": ["./dist/chart-library/area"],
-      "@ng-echarts/chart-library/pie": ["./dist/chart-library/pie"]
+      "@ng-echarts/chart-library/pie": ["./dist/chart-library/pie"],
+      "@ng-echarts/chart-library/composed": ["./dist/chart-library/composed"]
     },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

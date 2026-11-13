@@ -18,6 +18,7 @@
     "legacy-consumer.ts",
     "line-consumer.ts",
     "area-consumer.ts",
-    "pie-consumer.ts"
+    "pie-consumer.ts",
+    "composed-consumer.ts"
   ]
 }

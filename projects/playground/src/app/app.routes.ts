@@ -2,6 +2,20 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: 'composed-benchmark',
+    data: { family: 'composed' },
+    loadComponent: () => import('./benchmark').then((m) => m.Benchmark),
+  },
+  {
+    path: 'composed',
+    data: { family: 'composed' },
+    loadComponent: () => import('./gallery').then((m) => m.Gallery),
+  },
+  {
+    path: 'composed-validation',
+    loadComponent: () => import('./composed-validation').then((m) => m.ComposedValidation),
+  },
+  {
     path: 'pie',
     data: { family: 'pie' },
     loadComponent: () => import('./gallery').then((m) => m.Gallery),

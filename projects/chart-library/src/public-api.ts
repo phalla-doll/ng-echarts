@@ -18,3 +18,10 @@ export type {
 } from '@ng-echarts/chart-library/core';
 
 export { PieChart } from '@ng-echarts/chart-library/pie';
+
+export {
+  ComposedChart,
+  type ComposedSeries,
+  type ComposedBarSeries,
+  type ComposedLineSeries,
+} from '@ng-echarts/chart-library/composed';

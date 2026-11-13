@@ -51,6 +51,9 @@ try {
     'line/',
     'area/',
     'pie/',
+    'composed/',
+    'composed-validation/',
+    'composed-benchmark/',
     'installation/',
     'get-started/',
     'components/',
@@ -86,6 +89,7 @@ try {
         ['line/', 4],
         ['area/', 4],
         ['pie/', 3],
+        ['composed/', 1],
       ]) {
         await page.goto(new URL(path, site).href);
         await expect(page.locator('canvas')).toHaveCount(count);

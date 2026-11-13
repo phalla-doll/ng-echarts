@@ -60,12 +60,13 @@ export async function inspectRelease(path) {
     '.',
     './area',
     './bar',
+    './composed',
     './core',
     './line',
     './package.json',
     './pie',
   ]);
-  for (const entry of ['.', './core', './bar', './line', './area', './pie']) {
+  for (const entry of ['.', './core', './bar', './line', './area', './pie', './composed']) {
     for (const condition of ['types', 'default']) {
       assert(
         files.includes(manifest.exports[entry][condition].replace(/^\.\//, '')),

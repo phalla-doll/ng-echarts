@@ -47,7 +47,22 @@
       </div>
       @let example = block();
       @for (instance of instances(); track instance) {
-        @if (example.kind === 'line') {
+        @if (example.kind === 'composed') {
+          <nec-composed-chart
+            class="gallery-chart"
+            [title]="example.title"
+            [description]="example.description"
+            [data]="example.rows"
+            rowIdKey="id"
+            categoryKey="month"
+            [series]="example.series"
+            [theme]="theme()"
+            [categoryTickFormatter]="monthTick"
+            [showDataTable]="false"
+            [height]="230"
+            (pointSelect)="select($event)"
+          />
+        } @else if (example.kind === 'line') {
           <nec-line-chart
             class="gallery-chart"
             [title]="example.title"

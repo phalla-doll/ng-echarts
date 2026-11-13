@@ -1,13 +1,13 @@
 # Angular chart library
 
-Experimental standalone Angular 22 components using Apache ECharts. The local identity `@ng-echarts/chart-library` is private and has not been published. Local candidate: `0.1.0-rc.0`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. Public naming and human release acceptance remain open.
+Experimental standalone Angular 22 components using Apache ECharts. The local identity `@ng-echarts/chart-library` is private and has not been published. Local candidate: `0.1.0-rc.1`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. Public naming and human release acceptance remain open.
 
 ## Installation
 
 In the source checkout, use Node 24.22.2 and npm 11.19.1, then run `npm ci` and `npm run pack:lib`. Install the resulting file into a separate Angular application:
 
 ```sh
-npm install /absolute/path/to/ng-echarts-chart-library-0.1.0-rc.0.tgz echarts@6.1.0
+npm install /absolute/path/to/ng-echarts-chart-library-0.1.0-rc.1.tgz echarts@6.1.0
 ```
 
 Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes.
@@ -60,9 +60,10 @@ The installed-declaration check compiles this exact packaged example, each API g
 | `LineChart<T>` | `@ng-echarts/chart-library/line` | Straight/smooth, optional points, missing-value gaps |
 | `AreaChart<T>` | `@ng-echarts/chart-library/area` | Independent gradient/solid fills, same-sign stacks |
 | `PieChart<T>` | `@ng-echarts/chart-library/pie` | One measure across categories; innerRadius 0 for pie, 0.6 for donut; optional outside labels |
+| `ComposedChart<T>` | `@ng-echarts/chart-library/composed` | Vertical unstacked bars and lines on one shared scale; typed per-series kind |
 | `ChartFrame` and shared types | `@ng-echarts/chart-library/core` | Presentation shell with required title, optional description and projected content; no engine runtime |
 
-All charts require `title`, immutable `data`, `rowIdKey`, `categoryKey`, and either Cartesian `series: readonly ChartSeries<T>[]` or one pie `measure: ChartMeasure<T>`. Measures have `id`, numeric `key` and `label`; Cartesian series also accept `color`. IDs must be unique nonempty strings; labels may repeat. Numeric keys exclude text, `any`, `unknown` and exclusively nullish fields.
+All charts require `title`, immutable `data`, `rowIdKey`, `categoryKey`, and either Cartesian `series: readonly ChartSeries<T>[]` (composed uses `ComposedSeries<T>[]`) or one pie `measure: ChartMeasure<T>`. Measures have `id`, numeric `key` and `label`; Cartesian series also accept `color`. IDs must be unique nonempty strings; labels may repeat. Numeric keys exclude text, `any`, `unknown` and exclusively nullish fields.
 
 Replace row, series and configuration references to update them. Visibility follows stable IDs; new IDs start visible and removed IDs are discarded. Null/undefined stay missing, zero stays numeric, and Cartesian negatives are valid. Pie rejects negative/nonfinite values and overflowing totals; zero totals are empty. Line/area gaps never become zero. Area events return raw observations rather than stack totals.
 
@@ -94,9 +95,13 @@ Focused imports keep unrelated engines out. Line and area intentionally share EC
 
 Raw ECharts options, custom tooltip templates, time/logarithmic axes, server plot images/export, brushes, advanced decoration and additional chart families are outside the MVP. APIs remain experimental. Automated acceptance passes; human interpretation and final artifact/release gates remain pending.
 
+## Composed charts
+
+The post-MVP `ComposedChart` and `ComposedSeries<T>` exports in `/composed` combine vertical bars and lines on one category/value scale. Every descriptor adds `kind: 'bar' | 'line'` to the shared series fields; lines accept `smooth` and `showPoints`. Supply comparable units. The renderer uses supplied trend values; the demo computes its trailing mean separately. Dual axes, stacking and area composition are outside this first increment.
+
 ## Repository guides
 
-The checkout contains complete [installation](https://github.com/phalla-doll/ng-echarts/blob/main/docs/INSTALLATION.md), [integration](https://github.com/phalla-doll/ng-echarts/blob/main/docs/INTEGRATION_GUIDE.md), and [compatibility](https://github.com/phalla-doll/ng-echarts/blob/main/docs/COMPATIBILITY.md) guides, plus [bar](https://github.com/phalla-doll/ng-echarts/blob/main/docs/BAR_CHART_API.md), [line](https://github.com/phalla-doll/ng-echarts/blob/main/docs/LINE_CHART_API.md), [area](https://github.com/phalla-doll/ng-echarts/blob/main/docs/AREA_CHART_API.md) and [pie/donut](https://github.com/phalla-doll/ng-echarts/blob/main/docs/PIE_CHART_API.md) references. In the source workspace, run `npm run build:lib`, `npm run check:consumer` and `npm run check:docs` to reproduce documentation checks; these scripts are not commands inside the installed package.
+The checkout contains complete [installation](https://github.com/phalla-doll/ng-echarts/blob/main/docs/INSTALLATION.md), [integration](https://github.com/phalla-doll/ng-echarts/blob/main/docs/INTEGRATION_GUIDE.md), and [compatibility](https://github.com/phalla-doll/ng-echarts/blob/main/docs/COMPATIBILITY.md) guides, plus [bar](https://github.com/phalla-doll/ng-echarts/blob/main/docs/BAR_CHART_API.md), [line](https://github.com/phalla-doll/ng-echarts/blob/main/docs/LINE_CHART_API.md), [area](https://github.com/phalla-doll/ng-echarts/blob/main/docs/AREA_CHART_API.md) and [pie/donut](https://github.com/phalla-doll/ng-echarts/blob/main/docs/PIE_CHART_API.md) and [composed](https://github.com/phalla-doll/ng-echarts/blob/main/docs/COMPOSED_CHART_API.md) references. In the source workspace, run `npm run build:lib`, `npm run check:consumer` and `npm run check:docs` to reproduce documentation checks; these scripts are not commands inside the installed package.
 
 ## License
 
