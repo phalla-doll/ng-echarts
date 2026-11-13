@@ -1,0 +1,89 @@
+{
+  "recordedAt": "2026-11-13T04:22:25.461Z",
+  "base": "https://phalla-doll.github.io/ng-echarts/",
+  "results": [
+    {
+      "engine": "chromium",
+      "route": "comparison",
+      "normalThemeNavigationMobile": "passed",
+      "referenceQueryHydrationWidthTheme": "passed"
+    },
+    {
+      "engine": "chromium",
+      "route": "line-comparison",
+      "normalThemeNavigationMobile": "passed",
+      "referenceQueryHydrationWidthTheme": "passed"
+    },
+    {
+      "engine": "chromium",
+      "route": "area-comparison",
+      "normalThemeNavigationMobile": "passed",
+      "referenceQueryHydrationWidthTheme": "passed"
+    },
+    {
+      "engine": "chromium",
+      "route": "pie-comparison",
+      "normalThemeNavigationMobile": "passed",
+      "referenceQueryHydrationWidthTheme": "passed"
+    },
+    {
+      "engine": "firefox",
+      "route": "comparison",
+      "normalThemeNavigationMobile": "passed",
+      "referenceQueryHydrationWidthTheme": "passed"
+    },
+    {
+      "engine": "firefox",
+      "route": "line-comparison",
+      "normalThemeNavigationMobile": "passed",
+      "referenceQueryHydrationWidthTheme": "passed"
+    },
+    {
+      "engine": "firefox",
+      "route": "area-comparison",
+      "normalThemeNavigationMobile": "passed",
+      "referenceQueryHydrationWidthTheme": "passed"
+    },
+    {
+      "engine": "firefox",
+      "route": "pie-comparison",
+      "normalThemeNavigationMobile": "passed",
+      "referenceQueryHydrationWidthTheme": "passed"
+    },
+    {
+      "engine": "webkit",
+      "route": "comparison",
+      "normalThemeNavigationMobile": "passed",
+      "referenceQueryHydrationWidthTheme": "passed"
+    },
+    {
+      "engine": "webkit",
+      "route": "line-comparison",
+      "normalThemeNavigationMobile": "passed",
+      "referenceQueryHydrationWidthTheme": "passed"
+    },
+    {
+      "engine": "webkit",
+      "route": "area-comparison",
+      "normalThemeNavigationMobile": "passed",
+      "referenceQueryHydrationWidthTheme": "passed"
+    },
+    {
+      "engine": "webkit",
+      "route": "pie-comparison",
+      "normalThemeNavigationMobile": "passed",
+      "referenceQueryHydrationWidthTheme": "passed"
+    }
+  ],
+  "errors": [],
+  "previewBuild": {
+    "builtAt": "2026-11-13T04:20:17.243Z",
+    "sourceBaseCommit": "6cffc35b2f92b79e50e895f40a3742feafdebcbc",
+    "includesWorkingTree": false
+  },
+  "deploymentCommit": "83aad71d1592250c5d3a53d90233012e9c879d44",
+  "deploymentRun": "https://github.com/phalla-doll/ng-echarts/actions/runs/43364862604",
+  "liveCaptures": 22,
+  "captureErrors": [],
+  "note": "All four comparison routes verified in normal and reference modes across three engines. Local before/after evidence is retained under captures/comparison-page; transient live screenshots are outside the workspace."
+}
