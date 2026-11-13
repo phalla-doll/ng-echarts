@@ -1,0 +1,22 @@
+{
+  "retrieved": "2026-11-13",
+  "api": "https://api.svgl.app?search=github",
+  "revision": "90f6de7026c5e75a9014dbf1f422792bd40b1802",
+  "assets": [
+    {
+      "local": "projects/playground/public/third-party/github-light.svg",
+      "source": "https://raw.githubusercontent.com/pheralb/svgl/90f6de7026c5e75a9014dbf1f422792bd40b1802/static/library/github_light.svg",
+      "sha256": "64568845c83d5e840e6a1fb7af1939fed14709636427ce9be2fbcdc14ac5e021"
+    },
+    {
+      "local": "projects/playground/public/third-party/github-dark.svg",
+      "source": "https://raw.githubusercontent.com/pheralb/svgl/90f6de7026c5e75a9014dbf1f422792bd40b1802/static/library/github_dark.svg",
+      "sha256": "83adf1cacb564250654ccf60caadd8aaf852d9de47936befb7cb61b674ace7e8"
+    },
+    {
+      "local": "projects/playground/public/third-party/svgl-LICENSE.txt",
+      "source": "https://raw.githubusercontent.com/pheralb/svgl/90f6de7026c5e75a9014dbf1f422792bd40b1802/LICENSE",
+      "sha256": "8140f413cb8bf477735c35b7b1c1e0a5731a5b41406c042304a98c39e6b8ba47"
+    }
+  ]
+}

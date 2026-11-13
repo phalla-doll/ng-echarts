@@ -1,6 +1,6 @@
 # UI spacing and alignment review
 
-Reviewed 12 November 2026 against `6b8a0a1`, following the user's request for a cleaner, more consistent interface. The approved EvilCharts-inspired neutral layout, Inter typography, and Heroicons remain the design direction.
+Reviewed 12 November 2026 against `6b8a0a1`, following the user's request for a cleaner, more consistent interface. The approved EvilCharts-inspired neutral layout, Inter typography, and Heroicons remain the design direction. The subsequent [sidebar refinement](SIDEBAR_REFINEMENT.md) updates the navigation hierarchy and desktop rail width; measurements below describe the earlier spacing review.
 
 ## Findings and changes
 

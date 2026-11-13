@@ -10,7 +10,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
     />
     @switch (kind()) {
       @case ('bar') {
-        <g fill="var(--site-muted)" opacity=".35">
+        <g fill="var(--gallery-secondary)" opacity=".65">
           <rect x="34" y="68" width="24" height="52" rx="2" />
           <rect x="94" y="88" width="24" height="32" rx="2" />
           <rect x="154" y="52" width="24" height="68" rx="2" />
@@ -26,20 +26,20 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
       @case ('line') {
         <path
           d="m25 108 33-18 35 12 36-60 36 35 43-52 27 18"
-          stroke="var(--site-muted)"
+          stroke="var(--gallery-primary)"
           stroke-width="2"
         />
-        <circle cx="208" cy="25" r="4" fill="var(--site-muted)" />
+        <circle cx="208" cy="25" r="4" fill="var(--gallery-primary)" />
       }
       @case ('area') {
         <path
           d="m25 108 33-18 35 12 36-60 36 35 43-52 27 18v77H25Z"
-          fill="var(--site-muted)"
+          fill="var(--gallery-primary)"
           opacity=".15"
         />
         <path
           d="m25 108 33-18 35 12 36-60 36 35 43-52 27 18"
-          stroke="var(--site-muted)"
+          stroke="var(--gallery-primary)"
           stroke-width="2"
         />
       }
@@ -60,11 +60,11 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
           cx="130"
           cy="70"
           r="43"
-          stroke="var(--site-muted)"
+          stroke="var(--gallery-primary)"
           stroke-width="24"
-          opacity=".25"
+          opacity=".65"
         />
-        <path d="M130 27a43 43 0 0 1 43 43" stroke="var(--site-muted)" stroke-width="24" />
+        <path d="M130 27a43 43 0 0 1 43 43" stroke="var(--gallery-secondary)" stroke-width="24" />
       }
     }
   </svg>`,

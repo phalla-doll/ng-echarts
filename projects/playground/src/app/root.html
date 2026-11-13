@@ -30,183 +30,246 @@
       <span>ng-echarts<span class="brand-caption">Charts for Angular</span></span>
     </a>
     <nav aria-label="Playground pages">
-      <p class="nav-heading">Get started</p>
-      <a
-        routerLink="/get-started"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="book" />Get Started</a
-      >
-      <a
-        routerLink="/installation"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="code" />Installation</a
-      >
-      <a
-        routerLink="/components"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="layers" />Components</a
-      >
-      <p class="nav-heading nav-group">Charts</p>
-      <a
-        routerLink="/"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="chart" />Bar Blocks</a
-      >
-      <a
-        routerLink="/line"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="line" />Line Blocks</a
-      >
-      <a
-        routerLink="/area"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="area" />Area Blocks</a
-      >
-      <a
-        routerLink="/pie"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="pie" />Pie &amp; Donut Blocks</a
-      >
-      <a
-        routerLink="/composed"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="composed" />Composed Blocks</a
-      >
-      <a
-        routerLink="/linked"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="link" />Linked Charts</a
-      >
-      <a
-        routerLink="/playground"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="sliders" />Playground</a
-      >
-      <a
-        routerLink="/comparison"
-        [class.active]="comparisonMode()"
-        [attr.aria-current]="comparisonMode() ? 'page' : null"
-        (click)="closeMenu()"
-        ><app-site-icon name="compare" />Visual comparison</a
-      >
-      <p class="nav-heading validation-heading">Validation</p>
-      <a
-        routerLink="/formatting"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="code" />Value formatting</a
-      >
-      <a
-        routerLink="/updates"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="update" />Input updates</a
-      >
-      <a
-        routerLink="/validation"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="layers" />Lifecycle validation</a
-      >
-      <a
-        routerLink="/line-validation"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="layers" />Line validation</a
-      >
-      <a
-        routerLink="/area-validation"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="layers" />Area validation</a
-      >
-      <a
-        routerLink="/pie-validation"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="layers" />Pie validation</a
-      >
-      <a
-        routerLink="/composed-validation"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="layers" />Composed validation</a
-      >
-      <a
-        routerLink="/linked-validation"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="layers" />Linked validation</a
-      >
-      <a
-        routerLink="/retention"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="update" />Retention checks</a
-      >
-      <a
-        routerLink="/benchmark"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="chart" />Render benchmark</a
-      >
-      <a
-        routerLink="/away"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        (click)="closeMenu()"
-        ><app-site-icon name="leave" />Navigate away</a
-      >
+      <section class="nav-section" aria-labelledby="nav-documentation">
+        <h2 class="nav-heading" id="nav-documentation">Documentation</h2>
+        <ul class="nav-links">
+          <li>
+            <a
+              routerLink="/get-started"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="book" />Get Started</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/installation"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="code" />Installation</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/components"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="layers" />Components</a
+            >
+          </li>
+        </ul>
+      </section>
+      <section class="nav-section" aria-labelledby="nav-charts">
+        <h2 class="nav-heading" id="nav-charts">Chart blocks</h2>
+        <ul class="nav-links">
+          <li>
+            <a
+              routerLink="/"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="chart" />Bar Blocks</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/line"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="line" />Line Blocks</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/area"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="area" />Area Blocks</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/pie"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="pie" />Pie &amp; Donut Blocks</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/composed"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="composed" />Composed Blocks</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/linked"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="link" />Linked Charts</a
+            >
+          </li>
+        </ul>
+      </section>
+      <section class="nav-section" aria-labelledby="nav-tools">
+        <h2 class="nav-heading" id="nav-tools">Tools</h2>
+        <ul class="nav-links">
+          <li>
+            <a
+              routerLink="/playground"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="sliders" />Playground</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/comparison"
+              [class.active]="comparisonMode()"
+              [attr.aria-current]="comparisonMode() ? 'page' : null"
+              (click)="closeMenu()"
+              ><app-site-icon name="compare" />Visual comparison</a
+            >
+          </li>
+        </ul>
+      </section>
+      <section class="nav-section" aria-labelledby="nav-validation">
+        <h2 class="nav-heading" id="nav-validation">Validation</h2>
+        <ul class="nav-links">
+          <li>
+            <a
+              routerLink="/formatting"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="code" />Value formatting</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/updates"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="update" />Input updates</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/validation"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="layers" />Lifecycle validation</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/line-validation"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="layers" />Line validation</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/area-validation"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="layers" />Area validation</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/pie-validation"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="layers" />Pie validation</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/composed-validation"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="layers" />Composed validation</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/linked-validation"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="layers" />Linked validation</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/retention"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="update" />Retention checks</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/benchmark"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="chart" />Render benchmark</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/away"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              (click)="closeMenu()"
+              ><app-site-icon name="leave" />Navigate away</a
+            >
+          </li>
+        </ul>
+      </section>
     </nav>
-    <div class="sidebar-note">
-      <span class="release-dot"></span>
-      <div>
-        Work in progress
-        <p>Public API may change.</p>
+    <footer class="sidebar-footer">
+      <div class="sidebar-note">
+        <span class="release-dot"></span>
+        <div>
+          Work in progress
+          <p>Public API may change.</p>
+        </div>
       </div>
-    </div>
-    <a
-      class="source-link"
-      href="https://github.com/phalla-doll/ng-echarts"
-      target="_blank"
-      rel="noopener noreferrer"
-      ><app-site-icon name="code" />View source on GitHub<app-site-icon name="arrow"
-    /></a>
+      <a
+        class="source-link"
+        href="https://github.com/phalla-doll/ng-echarts"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><app-site-icon name="code" />View source on GitHub<app-site-icon name="arrow"
+      /></a>
+    </footer>
   </aside>
   <div class="site-body">
     <header class="site-header">
@@ -223,11 +286,20 @@
       <span class="header-title" [hidden]="galleryMode()">{{ pageTitle() }}</span>
       <div class="site-actions">
         <a
+          class="github-link"
           href="https://github.com/phalla-doll/ng-echarts"
           target="_blank"
           rel="noopener noreferrer"
-          >Source<app-site-icon name="arrow"
-        /></a>
+          aria-label="View ng-echarts on GitHub"
+          title="View ng-echarts on GitHub"
+        >
+          <img
+            [src]="dark() ? 'third-party/github-dark.svg' : 'third-party/github-light.svg'"
+            width="18"
+            height="18"
+            alt=""
+          />
+        </a>
         <button
           type="button"
           (click)="toggleTheme()"
@@ -236,7 +308,6 @@
         >
           <app-site-icon [name]="themeIcon()" />
         </button>
-        <span>Angular 22</span>
       </div>
     </header>
     <div class="page-content" id="page-content" tabindex="-1"><router-outlet /></div>

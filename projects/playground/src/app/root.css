@@ -3,98 +3,10 @@
 }
 .site-shell {
   display: grid;
-  grid-template-columns: 228px minmax(0, 1fr);
+  grid-template-columns: 248px minmax(0, 1fr);
   min-height: 100vh;
   color: var(--site-text);
   background: var(--site-bg);
-}
-.sidebar {
-  position: sticky;
-  top: 0;
-  align-self: start;
-  height: 100dvh;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  display: flex;
-  flex-direction: column;
-  padding: 24px 16px 16px;
-  background: var(--site-bg);
-  border-right: 1px solid var(--site-border);
-}
-nav {
-  margin-top: 32px;
-  flex: none;
-}
-.nav-heading {
-  margin: 0 8px 8px;
-  color: var(--site-muted);
-  font-size: 12px;
-  line-height: 20px;
-  font-weight: 500;
-}
-.nav-group,
-.validation-heading {
-  margin-top: 24px;
-}
-nav a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 36px;
-  margin: 4px 0;
-  padding: 8px;
-  border-radius: 6px;
-  color: var(--site-muted);
-  text-decoration: none;
-  font-size: 12px;
-  line-height: 20px;
-  font-weight: 400;
-}
-nav a.active {
-  color: var(--site-text);
-  background: var(--site-subtle);
-}
-nav a.active {
-  font-weight: 500;
-}
-.sidebar-note {
-  display: flex;
-  align-items: start;
-  gap: 8px;
-  margin: auto 8px 24px;
-  padding-top: 32px;
-  flex: none;
-  font-size: 11px;
-  line-height: 18px;
-}
-.release-dot {
-  flex: none;
-  width: 6px;
-  height: 6px;
-  margin-top: 5px;
-  border-radius: 50%;
-  background: var(--site-muted);
-}
-.sidebar-note p {
-  margin: 5px 0 0;
-  color: var(--site-muted);
-}
-.source-link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex: none;
-  border-top: 1px solid var(--site-border);
-  padding: 16px 8px 0;
-  font-size: 11px;
-  line-height: 18px;
-  color: var(--site-muted);
-  text-decoration: none;
-}
-.source-link app-site-icon:last-child {
-  width: 13px;
-  height: 13px;
-  margin-left: auto;
 }
 .site-body {
   min-width: 0;
@@ -125,7 +37,7 @@ nav a.active {
   color: var(--site-muted);
 }
 
-.site-actions button {
+.site-actions :is(a, button) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -167,23 +79,11 @@ nav a.active {
 .focus-layout {
   grid-template-columns: minmax(0, 1fr);
 }
-.focus-layout .sidebar {
-  display: none;
-  position: fixed;
-  top: 48px;
-  left: 0;
-  z-index: 30;
-  width: 228px;
-  height: calc(100dvh - 48px);
-}
 .focus-layout .menu-button {
   display: inline-flex;
 }
 .focus-layout .site-header {
   padding-left: 72px;
-}
-.focus-layout.menu-open .sidebar {
-  display: flex;
 }
 .mobile-brand {
   display: none;
@@ -205,41 +105,6 @@ nav a.active {
   .site-shell {
     grid-template-columns: minmax(0, 1fr);
   }
-  .sidebar,
-  .focus-layout .sidebar {
-    display: none;
-    position: fixed;
-    top: 56px;
-    left: 0;
-    right: 0;
-    z-index: 30;
-    width: auto;
-    height: auto;
-    max-height: calc(100dvh - 56px);
-    padding: 24px 16px;
-    border-right: 0;
-    border-bottom: 1px solid var(--site-border);
-  }
-  .menu-open .sidebar {
-    display: flex;
-  }
-  .sidebar-note,
-  .brand {
-    display: none;
-  }
-  nav {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 4px;
-    margin: 0;
-  }
-  .nav-heading {
-    grid-column: 1/-1;
-  }
-  .nav-group,
-  .validation-heading {
-    margin-top: 16px;
-  }
   .menu-button {
     display: inline-flex;
   }
@@ -253,8 +118,7 @@ nav a.active {
   .mobile-brand {
     display: inline-flex;
   }
-  .header-title,
-  .site-actions > span {
+  .header-title {
     display: none;
   }
   .site-actions {
@@ -263,16 +127,16 @@ nav a.active {
   .page-content {
     scroll-margin-top: 56px;
   }
-  .source-link {
-    display: flex;
-    margin-top: 20px;
-  }
-  .source-link app-site-icon:last-child {
-    margin-left: 0;
+}
+
+.github-link img {
+  display: block;
+}
+@media (hover: hover) and (pointer: fine) {
+  .site-actions a:hover {
+    background: var(--site-hover);
   }
 }
-@media (max-width: 380px) {
-  .site-actions > a {
-    display: none;
-  }
+.site-actions a:active {
+  background: var(--site-pressed);
 }

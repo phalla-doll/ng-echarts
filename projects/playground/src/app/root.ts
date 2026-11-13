@@ -46,7 +46,7 @@ const pageTitles: Readonly<Record<string, string>> = {
   selector: 'app-root',
   imports: [RouterLink, RouterLinkActive, RouterOutlet, SiteIcon],
   templateUrl: './root.html',
-  styleUrl: './root.css',
+  styleUrls: ['./root.css', './root-navigation.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Root {

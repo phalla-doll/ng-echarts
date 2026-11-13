@@ -1,0 +1,94 @@
+{
+  "recordedAt": "2026-11-13T09:45:48.827946+00:00",
+  "baseCommit": "5da586de6eee1affaae27342ebbb1da6d59e3c50",
+  "artifact": "production Pages build under /ng-echarts/",
+  "browser": {
+    "name": "Chromium",
+    "version": "158.0.8127.18"
+  },
+  "reducedMotion": true,
+  "fonts": "loaded local assets",
+  "sourceSha256": {
+    "projects/playground/src/app/root.html": "1890ec9ba1ada58fd23484f9fbf39847e592f6a53a39582e0564df4944457c14",
+    "projects/playground/src/app/root.css": "ce51e92f82fcc41309793f9e774d6d961b6138a6f52dbfa4df0feebf11b70e6b",
+    "projects/playground/src/app/root-navigation.css": "0e18014bea5ee180e6af466926c71b5db1c4f25bca9dc6098e37b247189fa579",
+    "projects/playground/src/app/root.ts": "d97a3227dae677c9bb6a9656ac434208383957b0743b0ed629269215106d9734",
+    "projects/playground/src/app/chart-illustration.ts": "1cfd20424567d091fe23b66c2e343de7dc0a75bea9e42dac90a45bfcfd57924b",
+    "projects/playground/public/third-party/github-light.svg": "64568845c83d5e840e6a1fb7af1939fed14709636427ce9be2fbcdc14ac5e021",
+    "projects/playground/public/third-party/github-dark.svg": "83adf1cacb564250654ccf60caadd8aaf852d9de47936befb7cb61b674ace7e8"
+  },
+  "captures": [
+    {
+      "file": "catalog-dark.png",
+      "sha256": "ac1b65c2358cf264e67fef537a3fd650404dd837fb0c476728e68a7fb8966dd5"
+    },
+    {
+      "file": "catalog-light.png",
+      "sha256": "0f999a753b3c8a2028b204cd0017a7917b45a2a5172d09ba49df34a4b4403129"
+    },
+    {
+      "file": "dark-1440.png",
+      "sha256": "dcc12e842523520a1a19824ab5e02ba2fd53dc17eb141f235f72a1a0926f7db4"
+    },
+    {
+      "file": "dark-320.png",
+      "sha256": "ccbcaf6febc02f1caa8b2b525ec56fd2bbb56df3c89095c137766d07dd4f9154"
+    },
+    {
+      "file": "dark-390.png",
+      "sha256": "493ddeed50af054e3ca6600927d37759144539acf1e18f491f99cf6a39ea12c9"
+    },
+    {
+      "file": "dark-801.png",
+      "sha256": "c050f1f345413b14db668b62c4c5a7b7aa58e192a984350187a5fec4bc60ff64"
+    },
+    {
+      "file": "header-dark-1440.png",
+      "sha256": "f30c592cd41c21c9b0bbfe4d05f2bdb2e33fa38357fbe3edb4f68b3d79b67d44"
+    },
+    {
+      "file": "header-dark-320.png",
+      "sha256": "7b6ffb087fed842e5c371c89c5b608aad221e92757e0edd7919d6f5cd018de06"
+    },
+    {
+      "file": "header-dark-390.png",
+      "sha256": "2df17fec7d31decddb38c63e47702d049aa6c0fb15cad736a1f3f51990073b1b"
+    },
+    {
+      "file": "header-dark-801.png",
+      "sha256": "fe11b068f44ab6ff0cea391c1759b54b5d495ab264e35254197d66b3aceccd78"
+    },
+    {
+      "file": "header-light-1440.png",
+      "sha256": "12f0f1db1537b65d003425ff75470418b16e395f3edd85430b8f9c3bdf79797e"
+    },
+    {
+      "file": "header-light-320.png",
+      "sha256": "80c06321ff34e3e5ac98d12a453bdcd9f04f20d01f3bf4602b8672457d773486"
+    },
+    {
+      "file": "header-light-390.png",
+      "sha256": "8edebcf7a09762df5aeed3c44c577fd3f50b7d7005bc61d56cc66be641f4ff64"
+    },
+    {
+      "file": "header-light-801.png",
+      "sha256": "e688d39a7c0546e784a907447da53d0aa46c8ee0b20689abd7b9d464c217f2f1"
+    },
+    {
+      "file": "light-1440.png",
+      "sha256": "cf050afb46c925baf7f89916a18b1b68ba9b49b02846788cd84d95f60199770f"
+    },
+    {
+      "file": "light-320.png",
+      "sha256": "19b55c78cde58849206abac7bfcad709cb8eb0c2fb0299fdc59f2bef3bd7edae"
+    },
+    {
+      "file": "light-390.png",
+      "sha256": "8c45364c017d86ac53e167b7e63d3efb0ef51fe6bc1f5fa76dcac5896890ff54"
+    },
+    {
+      "file": "light-801.png",
+      "sha256": "b1b123917a1566ad976fee3a95a6655a977f446323fd21c1ea0d69b7b709e6db"
+    }
+  ]
+}

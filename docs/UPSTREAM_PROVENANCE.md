@@ -67,6 +67,12 @@ The complete [MIT notice](../projects/playground/public/third-party/heroicons-LI
 | `arrow` | `arrow-up-right` |
 | `book` | `book-open` |
 
+## Demo header GitHub logo: SVGL
+
+The header uses the GitHub logo provided by the [SVGL API](https://svgl.app/docs/api), pinned to [SVGL revision `90f6de7026c5e75a9014dbf1f422792bd40b1802`](https://github.com/pheralb/svgl/tree/90f6de7026c5e75a9014dbf1f422792bd40b1802). The unmodified `static/library/github_light.svg` and `static/library/github_dark.svg` files are hosted locally as `projects/playground/public/third-party/github-light.svg` and `github-dark.svg`. The header selects the matching theme asset; its link provides the accessible name and decorative images use empty alternative text.
+
+The [SVGL MIT notice](../projects/playground/public/third-party/svgl-LICENSE.txt), copyright 2022 Pablo Hdez, ships with the demo. The [download manifest](experiments/data/svgl-github-provenance.json) records exact source URLs and SHA-256 hashes. GitHub's trademark remains its owner's; this logo identifies the repository destination. These demo assets introduce no library dependency or runtime API requests.
+
 ## Demo code presentation dependencies
 
 Google Sans Code is locally hosted from the official [Google Fonts distribution](https://fonts.google.com/specimen/Google+Sans+Code), maintained in [googlefonts/googlesans-code](https://github.com/googlefonts/googlesans-code). The original Latin WOFF2 asset is unchanged; [download provenance](experiments/data/google-sans-code.json) records the exact versioned asset URL and hashes. The [full SIL Open Font License](../projects/playground/public/fonts/GOOGLE-SANS-CODE-OFL.txt), copyright 2025 The Google Sans Code Project Authors, ships beside it. The original font name is retained.
