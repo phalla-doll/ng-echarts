@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-13T03:02:15.743Z",
+  "recordedAt": "2026-11-13T03:32:00.866Z",
   "node": "v24.22.2",
   "npm": "11.19.1",
   "method": "Fresh pinned CLI scaffold outside workspace; execute INSTALLATION.md shell blocks; install local tarball; copy exact INTEGRATION_GUIDE.md App; strict ngc and production build; generated server HTML then three-engine hydration/actions/updates/themes/resize.",

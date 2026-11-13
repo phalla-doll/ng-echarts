@@ -86,7 +86,7 @@ Gallery examples set `[showDataTable]="false"` at the user's request; datasets r
 
 ## Formatting, themes, and lifecycle
 
-Numeric formatting is shared across value-axis ticks, tooltip values, table cells, and action labels. Custom formatters must also support generated finite axis ticks absent from the data. Missing values bypass callbacks; events retain raw numbers. Category-tick formatting leaves full tooltip/table labels unchanged. Keep data and formatter behavior identical on server and client. See the [formatting guide](../projects/chart-library/README.md#numeric-formatting).
+Numeric formatting is shared across value-axis ticks, tooltip values, table cells, and action labels. Horizontal bars request fewer rounded numeric intervals for narrow hosts; overlapping value-axis labels may be omitted. ECharts chooses the rounded tick domain; tooltip/table values remain complete. Custom formatters must also support generated finite axis ticks absent from the data. Missing values bypass callbacks; events retain raw numbers. Category-tick formatting leaves full tooltip/table labels unchanged. Keep data and formatter behavior identical on server and client. See the [formatting guide](../projects/chart-library/README.md#numeric-formatting).
 
 CSS tokens are `--nec-background`, `--nec-text`, `--nec-muted`, `--nec-border`, `--nec-focus`, and `--nec-series-1` onward. A series' explicit `color` takes precedence over its CSS color token. Theme/revision changes refresh browser color reads. Canvas labels and tooltips inherit the host font; load a replacement font before incrementing `themeRevision`. No font or UI framework is bundled with the library.
 

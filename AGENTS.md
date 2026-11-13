@@ -29,6 +29,7 @@ Use Node from `.nvmrc` and npm 11.19.1; install with `npm ci`.
 - `npm run check`: formatting, builds, strict compilation, tests, isolated declarations/documentation/runtime consumers, SSR, three-browser scenarios, and package budgets. First install browsers with `npx playwright install chromium firefox webkit`.
 - `npm run build:pages` / `npm run check:pages`: prerender and verify the static preview under `/ng-echarts/`; retain direct-route HTML, subpath-safe links/fonts, hydration, and notices.
 - `npm run deploy:pages`: rebuild/check and push compiled assets to `gh-pages`; requires GitHub CLI access. Source commits are separate, and pushes to `main` do not automatically redeploy the preview.
+- `npm run capture:visual`: capture all gallery families/themes at 320/390/768/1440 px, including tooltip bounds and narrow label/control evidence; first run `npm run build`.
 - `npm run format`: apply Prettier.
 
 Verify documentation links, heading anchors, and `git diff --check` before committing.

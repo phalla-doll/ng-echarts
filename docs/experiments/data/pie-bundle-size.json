@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-13T03:08:29.716Z",
+  "recordedAt": "2026-11-13T03:38:38.443Z",
   "method": "Resolve public package imports, Angular-link, bundle/minify/split with Angular/RxJS peers external; count only modules contributing bytes to output; traverse static imports separately from lazy chunks; sum independently compressed JavaScript chunks",
   "files": [
     { "name": "stdin.js", "raw": 41231, "gzip": 10042, "brotli": 8666 },

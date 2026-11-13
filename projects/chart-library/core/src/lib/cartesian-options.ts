@@ -65,9 +65,10 @@ export function buildCartesianOptions<T>(
   };
   const valueAxis = {
     type: 'value' as const,
+    splitNumber: horizontal ? 3 : 5,
     axisLine: { show: false },
     axisTick: { show: false },
-    axisLabel: { color: tokens.muted, fontSize: 12, formatter: format },
+    axisLabel: { color: tokens.muted, fontSize: 12, formatter: format, hideOverlap: true },
     splitLine: { lineStyle: { color: tokens.border, type: 'dashed' as const } },
   };
   return {

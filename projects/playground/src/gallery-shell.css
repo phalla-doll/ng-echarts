@@ -1,4 +1,15 @@
 /* The reusable chart keeps its native controls and table; only gallery presentation changes. */
+.gallery .block-metrics:has(> .block-metric:only-child) {
+  grid-template-columns: minmax(0, 1fr);
+}
+.gallery :is(.reload-button, .integration-heading button, .block-views button):hover {
+  color: var(--site-text);
+  background: var(--site-subtle);
+}
+.gallery :is(.integration-card pre, .block-code pre):focus-visible {
+  outline: 2px solid var(--site-text);
+  outline-offset: -3px;
+}
 .gallery .gallery-chart {
   --nec-background: var(--site-bg);
   --nec-text: var(--site-text);
@@ -45,6 +56,16 @@
   height: 8px;
   margin-right: 3px;
 }
+.gallery .gallery-chart .legend button:hover {
+  background: var(--site-subtle);
+}
+.gallery .gallery-chart .legend button[aria-pressed='false'] {
+  border-style: dashed;
+  color: var(--site-muted);
+}
+.gallery .gallery-chart .legend button[aria-pressed='false'] .swatch {
+  opacity: 0.35;
+}
 .gallery .gallery-chart .table-toggle {
   margin: 4px 0 0;
 }
@@ -64,4 +85,43 @@
 .site-shell a:focus-visible {
   outline: 2px solid var(--site-text);
   outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .gallery .integration-card pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .gallery .block-header {
+    height: 44px;
+    padding: 0 4px;
+    gap: 4px;
+  }
+  .gallery .reload-button {
+    width: 40px;
+    height: 40px;
+    flex: none;
+  }
+  .gallery .block-views {
+    gap: 4px;
+  }
+  .gallery .block-views button {
+    min-width: 52px;
+    justify-content: center;
+  }
+  .gallery .gallery-chart .chart-frame {
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+  .gallery .gallery-chart .legend {
+    gap: 8px;
+  }
+  .gallery .gallery-chart .legend button {
+    min-height: 40px;
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .gallery .gallery-chart .visibility {
+    font-size: 11px;
+    line-height: 18px;
+  }
 }

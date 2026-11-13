@@ -134,7 +134,10 @@
         <app-site-icon [name]="copied() ? 'check' : 'copy'" />
       </button>
     </div>
-    <pre><code [appHighlight]="importSource()"></code></pre>
+    <pre
+      tabindex="0"
+      [attr.aria-label]="block().title + ' Angular import'"
+    ><code [appHighlight]="importSource()"></code></pre>
   </div>
   @if (copyFailed()) {
     <p class="copy-notice" role="status">

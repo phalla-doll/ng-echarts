@@ -20,7 +20,7 @@ The [NG13 pie/donut report](experiments/NG13_PIE_CHART.md) adds automated F01–
 
 ## Implemented family evidence
 
-This index records automated implementation acceptance, not completed human NG14/G3 acceptance. The latest regression has 119 unit/integration tests, 145 passing browser scenarios (plus two CDP-only skips), and six installed-package client/SSR modes. [Package evidence](experiments/data/package-boundaries.json) covers seven import scenarios.
+This index records automated implementation acceptance, not completed human NG14/G3 acceptance. The latest regression has 119 unit/integration tests, 160 passing browser scenarios (plus two CDP-only skips), and six installed-package client/SSR modes. [Package evidence](experiments/data/package-boundaries.json) covers seven import scenarios.
 
 | Family | Contract and automated behavior | Visual/performance evidence |
 | --- | --- | --- |
@@ -30,6 +30,8 @@ This index records automated implementation acceptance, not completed human NG14
 | Pie/donut | [API](PIE_CHART_API.md), [browser scenarios](../tests/browser/pie-chart.spec.ts) | [NG13](experiments/NG13_PIE_CHART.md) |
 
 The [NG14 report](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md#requirement-reconciliation) maps every requirement to each family's checks. It adds 100-cycle cleanup in all three engines for every family, explicit mounted palette-refresh checks, per-binding negative consumer assertions, and actual Angular normal/stress legend/resize measurements. Its verification section records current outcomes. Human F09 interpretation remains pending in all four families, so NG14/G3 remain open. Radial charts have no axes, so axis-specific checks are inapplicable; numeric tooltip/table formatting, category labels, and keyboard actions still apply.
+
+The [four-family visual audit](experiments/VISUAL_AUDIT.md) supplements pinned comparisons with dated official ECharts/EvilCharts observations, 32 gallery/theme/width combinations and narrow tooltip/label evidence. It records the intentional horizontal numeric-axis interval change and gallery refinements. The new browser checks measure painted label spacing and keyboard operation; human F09 remains pending.
 
 ## Requirement coverage
 

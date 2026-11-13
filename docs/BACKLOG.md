@@ -1,5 +1,7 @@
 # ng-echarts delivery backlog
 
+The user-requested [four-family visual audit and refinement](experiments/VISUAL_AUDIT.md) is recorded with official Apache ECharts/EvilCharts comparisons, mobile readability fixes, reproducible captures and three-engine checks. This demo presentation work remains separate from NG16 artifact/release acceptance.
+
 Updated 13 November 2026. NG01–NG05 are complete for the bar feasibility scope. NG06 awaits human listening review; NG07 implementation and NG08 measurement/package evidence pass, with their NG06/G2 dependencies still open. NG09/NG10 implementation is complete for the bar-proven baseline; NG11 line, NG12 area, and NG13 pie/donut implementations are complete; NG14 automated cross-family evidence is reconciled; NG15 documentation and fresh-consumer verification are complete; human interpretation and NG16–NG22 remain pending. Human release evidence remains separate. The user deferred R06 on 12 November 2026 so it no longer blocks development; it remains required before release acceptance. Priority P0 blocks the next milestone, P1 belongs to MVP, and P2 follows MVP. IDs are stable so experiment reports and changes can reference them.
 
 NG01 evidence: [R01 toolchain report](experiments/R01_TOOLCHAIN.md). The [implementation plan](IMPLEMENTATION_PLAN.md) sequences the remaining work. G1 passes for bar; G2 awaits R06, and G3/G4 remain pending.

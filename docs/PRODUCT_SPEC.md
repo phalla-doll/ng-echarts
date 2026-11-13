@@ -90,6 +90,8 @@ The user's 12 November 2026 [area-block reference review](experiments/AREA_BLOCK
 
 The same neutral style now applies to setup documentation, the component catalog, and engineering pages through the [site alignment](experiments/SITE_THEME_ALIGNMENT.md). Keep theme selection consistent across navigation, distinguish working components from planned ones, and preserve explicit conditions for measurement fixtures. Setup guidance must use the actual local package workflow until registry publication exists.
 
+The [four-family visual audit](experiments/VISUAL_AUDIT.md) records the current gallery review against live Apache ECharts and EvilCharts references, with mobile axis/code/control refinements and both-theme evidence. Dated live observations complement the pinned-fixture comparisons below.
+
 Capture reference images for the agreed upstream examples at the pinned revision. Match typography, spacing, axis treatments, color use, fills, tooltip hierarchy, and legend behavior. Compare the same fixture data at 320, 768, and 1440 px host widths in both themes.
 
 Require a reviewed visual baseline for each MVP chart. Canvas and SVG rasterization can differ, so evaluate measured differences and visible defects rather than promising pixel identity. Document intentional changes for readability or accessibility.

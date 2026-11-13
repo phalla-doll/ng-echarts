@@ -1,0 +1,78 @@
+{
+  "reviewedOn": "2026-11-13",
+  "note": "Live reference pages inspected in Chromium. These screenshots are dated observations; exact pinned fixture parity is recorded separately in the R03 and NG11\u2013NG13 reports.",
+  "captures": [
+    {
+      "name": "apache-bar.png",
+      "url": "https://echarts.apache.org/examples/en/editor.html?c=bar-simple",
+      "sha256": "3ac4fe12af010f103dffad32ac314208e482f1e367d3f97d7ba4cfafc4be381e",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "name": "evilcharts-bar.png",
+      "url": "https://evilcharts.com/docs/echarts/bar-chart/blocks",
+      "sha256": "3dc1bcc2d29dc987e150c373457071cb63f3c9fd759498a5215d8a1c4bbfb0be",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "name": "apache-line.png",
+      "url": "https://echarts.apache.org/examples/en/editor.html?c=line-simple",
+      "sha256": "d1c53e40eca8acb0f912982dd38acdc7524d961b2ae0dc6a8f964140558966e1",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "name": "evilcharts-line.png",
+      "url": "https://evilcharts.com/docs/echarts/line-chart/blocks",
+      "sha256": "30ee02559e387e894dab115915c55127520f563c1194fff2912fb956bfd42e7a",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "name": "apache-area.png",
+      "url": "https://echarts.apache.org/examples/en/editor.html?c=area-basic",
+      "sha256": "26a356956c4fbf30ea16cb0b8c2bb518b5cb505aa95c3da246ed82490d465cb6",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "name": "evilcharts-area.png",
+      "url": "https://evilcharts.com/docs/echarts/area-chart/blocks",
+      "sha256": "42581e8fd7e656f84d9bc4b851412ef003c489e9b2d26841b058847342847726",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "name": "apache-pie.png",
+      "url": "https://echarts.apache.org/examples/en/editor.html?c=pie-doughnut",
+      "sha256": "abbade984232b310b49960fc6ba957202927c9be2e414751fc0469763fa59fb8",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    },
+    {
+      "name": "evilcharts-pie.png",
+      "url": "https://evilcharts.com/docs/echarts/pie-chart/blocks",
+      "sha256": "a84b6927795878d44ca5871d1b0d49fcc28e4dcd5a3ee22dd4e1a8fe1a421ebb",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      }
+    }
+  ]
+}

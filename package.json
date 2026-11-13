@@ -32,6 +32,7 @@
     "capture:area": "node tools/capture-area-reference.mjs",
     "benchmark:pie": "node tools/benchmark-pie.mjs",
     "capture:pie": "node tools/capture-pie-reference.mjs",
+    "capture:visual": "node tools/capture-visual-audit.mjs",
     "build:pages": "npm run build:lib && ng build playground --configuration production,pages && node tools/prepare-pages.mjs",
     "check:pages": "node tools/check-pages.mjs",
     "deploy:pages": "npm run build:pages && npm run check:pages && node tools/deploy-pages.mjs"

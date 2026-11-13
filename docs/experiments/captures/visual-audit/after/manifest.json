@@ -1,0 +1,3712 @@
+{
+  "recordedAt": "2026-11-13T03:39:06.544Z",
+  "base": "http://localhost:4181/",
+  "browser": "158.0.8127.18",
+  "node": "v24.22.2",
+  "reducedMotion": "reduce",
+  "deviceScaleFactor": 1,
+  "viewportHeights": 1000,
+  "sources": [
+    {
+      "path": "projects/playground/src/gallery-shell.css",
+      "sha256": "c78f4b9c39e5a162d8d564b1fa979b7ff9462648859738436f179d1503946bd8"
+    },
+    {
+      "path": "projects/playground/src/app/bar-block.css",
+      "sha256": "77cd983ec2bb326966a4b526fb557ae03eb6d71f738405d9818df7c5e7799cd4"
+    },
+    {
+      "path": "projects/playground/src/app/bar-block.html",
+      "sha256": "dec066287cdfb8bd5b7dcad5f27752b9561fd60ba6b200571b7bcab4085b57f4"
+    },
+    {
+      "path": "projects/playground/src/app/pie-block.html",
+      "sha256": "0205e324e63bb3bc0ad95218f8b5fcd3d4d4db9415f198972bad18925214cbf8"
+    },
+    {
+      "path": "projects/chart-library/core/src/lib/cartesian-options.ts",
+      "sha256": "763fdd71006b5a6d08912cbc256c6399e5311bb95e2b9f5fadfefe8f69b8fa83"
+    },
+    {
+      "path": "tools/capture-visual-audit.mjs",
+      "sha256": "c28757147f1b051de3d25f1d80c69b87ef7609b6f2bf233b23a6fd3d0889c2d7"
+    }
+  ],
+  "captures": [
+    {
+      "name": "bar-dark-1440.png",
+      "sha256": "1b3645c52228a3fd92cf2b971b6fb2e69e5d0ffc3ef92e3d396c60786db3728b"
+    },
+    {
+      "name": "bar-dark-1440-tooltip.png",
+      "sha256": "73304c100db07bcc9a7f6736070ec4101d4f38e6d4cd5ff1cf93c71860046a7f"
+    },
+    {
+      "name": "bar-dark-768.png",
+      "sha256": "4ee12a6dc987e7529eb9c10f11de29413f12e99135679326c8de2302543cb1ea"
+    },
+    {
+      "name": "bar-dark-390.png",
+      "sha256": "c7a8107372033d3e828c93c2838010ec11b39603530126293c6a214cc20add1d"
+    },
+    {
+      "name": "bar-dark-320.png",
+      "sha256": "77e4d06623030f95b476f47c63b683c72e937f4b78096f90b471152a80582fa0"
+    },
+    {
+      "name": "bar-dark-320-tooltip.png",
+      "sha256": "8581a0a62fc5a525464ed2febb2a3cec0ba37d4554234b3239260f82e9e500c7"
+    },
+    {
+      "name": "bar-dark-320-full.png",
+      "sha256": "332e7e640cf283e6876a4666d95094e416dc3561d23624229cfb67d76cbd32ce"
+    },
+    {
+      "name": "bar-dark-320-last.png",
+      "sha256": "446acf0c02fc8d107ef09882d19cc7ffbdd957ecc51fb523fe687d10b4f6d434"
+    },
+    {
+      "name": "bar-dark-320-code.png",
+      "sha256": "7a593500a62cf75eeedc21753ec8ff49d471980533f080d765977aed7783b0f8"
+    },
+    {
+      "name": "bar-dark-320-hidden.png",
+      "sha256": "33c7a414844ea043f1b436aab45a726102e8e4485f948251756813fe10b6b8e2"
+    },
+    {
+      "name": "bar-light-1440.png",
+      "sha256": "fd366b3b980fb4601e3f742354d926fdb1b00007e0aa423849d40b8d0f99c89a"
+    },
+    {
+      "name": "bar-light-1440-tooltip.png",
+      "sha256": "d207d41a409e7e6f4c1e623f21304f7737b9d9f9cf961fb0c9261bef68c6d2d3"
+    },
+    {
+      "name": "bar-light-768.png",
+      "sha256": "fba10d783b7ab76cc6ce4026b6f9f9985008e934eae2988093664c826bbfd501"
+    },
+    {
+      "name": "bar-light-390.png",
+      "sha256": "b1d009a90136be0b6449950a00d60788892e28e35ed7dc0292fb1c6f4ac71f57"
+    },
+    {
+      "name": "bar-light-320.png",
+      "sha256": "afebfbe1cf972625c78a15708fe9635b16f0a031e7bca9593583893c1e037169"
+    },
+    {
+      "name": "bar-light-320-tooltip.png",
+      "sha256": "82e3efda242f0b7383536841ba0bc19e0ea4147a899decfc3ba65f1e502576fb"
+    },
+    {
+      "name": "bar-light-320-full.png",
+      "sha256": "53587d2afd1445200d9c89782eb115bf9b189bf47471d37428d6e7dd8a4e3d78"
+    },
+    {
+      "name": "bar-light-320-last.png",
+      "sha256": "2be88a3e510dabdaf16876783cac7f90a417e5e2542d6dfd20b4fc025850a604"
+    },
+    {
+      "name": "bar-light-320-code.png",
+      "sha256": "6da4a8d9b37c49fdeea6164de7258a9751d79241113ae8e3a7c70d33f94fbcc8"
+    },
+    {
+      "name": "bar-light-320-hidden.png",
+      "sha256": "d1820736b3e9cb3a015344ce0ce8b557c8e10e5929967daa3a19aab7d7613d57"
+    },
+    {
+      "name": "line-dark-1440.png",
+      "sha256": "1548563995ad96310de9565e110335eb6c49621d2466ca06f0e894623cb076ab"
+    },
+    {
+      "name": "line-dark-1440-tooltip.png",
+      "sha256": "a68070adfd3df8c89a92f32c45f0d6e3f439a7027447741215a049e9357db292"
+    },
+    {
+      "name": "line-dark-768.png",
+      "sha256": "5bd111ddf08416287c6b3b61fd1d792b2beb1cd90ff6d309751826c65ed9beaf"
+    },
+    {
+      "name": "line-dark-390.png",
+      "sha256": "26d89b03f7473c27c7a2cf8203b5e4495f4f806aace7576aefda9c82f266154c"
+    },
+    {
+      "name": "line-dark-320.png",
+      "sha256": "20ca610fa587e5830d3092c488b43031ef67823e0b69f497ce656c2ef30a883a"
+    },
+    {
+      "name": "line-dark-320-tooltip.png",
+      "sha256": "5e716fc6f884af72600a049fa70539159f6344e70eea360d2cc3bb67a57212c1"
+    },
+    {
+      "name": "line-dark-320-full.png",
+      "sha256": "6a5daa8a93adec34669ecbad21a9761bbfcac7520f1235632ce292d80f6a68eb"
+    },
+    {
+      "name": "line-dark-320-code.png",
+      "sha256": "2cb1330466fa78eee89147c02799d9f42f06390f4bfebbe5cae658435ce37334"
+    },
+    {
+      "name": "line-light-1440.png",
+      "sha256": "ef207f339cda5a30e4437fb814bd026daa70286b29d956997fd7b4079f05a431"
+    },
+    {
+      "name": "line-light-1440-tooltip.png",
+      "sha256": "ed7d455447f49530f7ff792ac9fa2ff020b9ed21b8dcef2c367f3dc381db14e3"
+    },
+    {
+      "name": "line-light-768.png",
+      "sha256": "e31ecd500e5e54bd82f3ae8130120306e2d9757b5494646c4690a51ca9204505"
+    },
+    {
+      "name": "line-light-390.png",
+      "sha256": "0d1b687929967bf0c251155f7dcc802fbd0bcc6bea629a945030c8c820c4b883"
+    },
+    {
+      "name": "line-light-320.png",
+      "sha256": "f56630b986dbd9b7acbe902aa9bb608585c836f22894523358b7f9ae540dbada"
+    },
+    {
+      "name": "line-light-320-tooltip.png",
+      "sha256": "1ee95935355bfa96530ad7fc5bf9b39cc2b7cbdb84c0b9e2605d76b1e7c4749a"
+    },
+    {
+      "name": "line-light-320-full.png",
+      "sha256": "b34c18a6f3f627cd22be43bf85dc7c578070bc872dfa7e5b122162eb319833bc"
+    },
+    {
+      "name": "line-light-320-code.png",
+      "sha256": "2a2a89d4678c1eccc5c382b3f21edc616ab3f9e432410fc178eb955f6d18e53a"
+    },
+    {
+      "name": "area-dark-1440.png",
+      "sha256": "42f92775808ce1f99d5d6ff31e8ef19eaf89e455dbad1d6c9c4a425a70597e7b"
+    },
+    {
+      "name": "area-dark-1440-tooltip.png",
+      "sha256": "d0eb81c4021427619d3ce50e488afd5fbaaf2b75237594c1b1c62495e0923435"
+    },
+    {
+      "name": "area-dark-768.png",
+      "sha256": "ecd0a1f899c10a4f8932026a7a1154f27eadf2cff477d06fa9c3cfb0321f9536"
+    },
+    {
+      "name": "area-dark-390.png",
+      "sha256": "03344748601ca212b69fde7bc9b09a692936e81e2e41b27b2b0490913bd0f2a0"
+    },
+    {
+      "name": "area-dark-320.png",
+      "sha256": "0472e36acc81a604df02737970b9cab22b3fa39b5a3753ec32a03bd66f406bc6"
+    },
+    {
+      "name": "area-dark-320-tooltip.png",
+      "sha256": "5e8ab047b194064b4007a354e3003306f6db9f2f434b4510b2884d670a4352e7"
+    },
+    {
+      "name": "area-dark-320-full.png",
+      "sha256": "34ba87cb16485930b2eb580c5a39da3f9b55c0f157362048a912685ab4741ad9"
+    },
+    {
+      "name": "area-dark-320-code.png",
+      "sha256": "2bb813818048a3c3d08ff9806277f666a439d2d7798715d815712936cfceeffd"
+    },
+    {
+      "name": "area-light-1440.png",
+      "sha256": "f57d23962bbd67d5f659c5dd09461969f77da24540bee5eae2ae7c5b4786b529"
+    },
+    {
+      "name": "area-light-1440-tooltip.png",
+      "sha256": "5d130c3f51394854b95fd9be73a01d9d8aa0773f3b3d891ad26d1d1755594228"
+    },
+    {
+      "name": "area-light-768.png",
+      "sha256": "9ce3e530a834e0b375555b0729183884fd71d9e866653a99a64bb28176a7b8e7"
+    },
+    {
+      "name": "area-light-390.png",
+      "sha256": "3d51d9f41c99add141b001a180a49922bae52141318e5f90fb8a2b42b55a2e14"
+    },
+    {
+      "name": "area-light-320.png",
+      "sha256": "b27a571dc2323f3818eba1cf3c8d848c77f1dbc58e9fe5c16ccf30be34536b41"
+    },
+    {
+      "name": "area-light-320-tooltip.png",
+      "sha256": "d66c57bb1bf56299947c14768cdf22365b5ec1050de03b29424478cff7c8b79d"
+    },
+    {
+      "name": "area-light-320-full.png",
+      "sha256": "f48e44a73e5bd8be86d75d14bc5b39a9238bdf0bd61ebc20640790ecf3fda3dc"
+    },
+    {
+      "name": "area-light-320-code.png",
+      "sha256": "4208990ae2fb4521e1cddd9e1aa2b39cc3ce5dac1d49ba8c6fbcf5c333d96edf"
+    },
+    {
+      "name": "pie-dark-1440.png",
+      "sha256": "bfcdf58133be350f8619a698386062730d0500dd6a174dac7a9cc9601539c2e2"
+    },
+    {
+      "name": "pie-dark-1440-tooltip.png",
+      "sha256": "2e1c838bbff842b6553508e38ce8e77e21f78de91ea4ed637370f6b985d911e2"
+    },
+    {
+      "name": "pie-dark-768.png",
+      "sha256": "32bb75e70fccd2a726ab18edb287758c49bbad7859c300d7eefc45b3d1aa0e26"
+    },
+    {
+      "name": "pie-dark-390.png",
+      "sha256": "ec7b461081afe5eb85e1aa5a7c9713665c62a0ee7ed1319da7044522f99b3f56"
+    },
+    {
+      "name": "pie-dark-320.png",
+      "sha256": "a307fdf70622d7cb378d738f04bd8fbfdf96bd907c73c7cebeab63a296863994"
+    },
+    {
+      "name": "pie-dark-320-tooltip.png",
+      "sha256": "bbb7e0e1c0a2e9ae93bb4ac8e089fee39d522c6f207853cbbdc8ef90d5ea6450"
+    },
+    {
+      "name": "pie-dark-320-full.png",
+      "sha256": "2e80c24cda92db6b519129af20c009f818badb7df27610f0f1caab9def415dfd"
+    },
+    {
+      "name": "pie-dark-320-last.png",
+      "sha256": "a9cd8d96c299f529aee582ee350e967e5aee65a90ebcbb90be7b74876f344d57"
+    },
+    {
+      "name": "pie-dark-320-code.png",
+      "sha256": "c5946e9730f1d2bdf33ce3161055e8bdb47f3d7502c2b4a31b450d33064a6e3a"
+    },
+    {
+      "name": "pie-light-1440.png",
+      "sha256": "8b5ca288704745a9c37a3964af9ceca766708079ec1618abe1203785387b9bd5"
+    },
+    {
+      "name": "pie-light-1440-tooltip.png",
+      "sha256": "de63837b5199f9ccf8fea9d0d83ebad6733518491399a831fe6281aa08679785"
+    },
+    {
+      "name": "pie-light-768.png",
+      "sha256": "ced0b66f37d98f235a055c7c34b84740f5e32326f4415d4bea9647929d991fe5"
+    },
+    {
+      "name": "pie-light-390.png",
+      "sha256": "246f2268d97d234cb3a431f85a1dbdb2d86cd65d3723be4f49d288807828b43d"
+    },
+    {
+      "name": "pie-light-320.png",
+      "sha256": "d2b529a27413651282b9965e0589955b0a2875c49e27e695f2cd927ed4315bdd"
+    },
+    {
+      "name": "pie-light-320-tooltip.png",
+      "sha256": "1c9ef596a86d29028ef3b2dad833f4508b1e705567be3c9e390877ae63f8763a"
+    },
+    {
+      "name": "pie-light-320-full.png",
+      "sha256": "12e95d099afa1c25a66a476eef9162c2029affcfb17245a8e77b7f6bad9e87ba"
+    },
+    {
+      "name": "pie-light-320-last.png",
+      "sha256": "457e0026b3c1efbfc2145691eb9637d3f34b80a3e5dd03499bae515d01f4a5ba"
+    },
+    {
+      "name": "pie-light-320-code.png",
+      "sha256": "5fcf74cb87e2a021bb4fa779a4427be8cfd272c7b8bb098377f29b33499df4a6"
+    }
+  ],
+  "measurements": [
+    {
+      "family": "bar",
+      "theme": "dark",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "blocks": [
+        {
+          "id": "device-visits",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 404,
+            "y": 413,
+            "width": 596,
+            "height": 230,
+            "top": 413,
+            "right": 1000,
+            "bottom": 643,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-comparison",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 404,
+            "y": 1054,
+            "width": 596,
+            "height": 230,
+            "top": 1054,
+            "right": 1000,
+            "bottom": 1284,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "gradient-fills",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 404,
+            "y": 1695,
+            "width": 596,
+            "height": 230,
+            "top": 1695,
+            "right": 1000,
+            "bottom": 1925,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "horizontal-comparison",
+          "metrics": "Desktop1,324visits",
+          "plot": {
+            "x": 404,
+            "y": 2336,
+            "width": 596,
+            "height": 230,
+            "top": 2336,
+            "right": 1000,
+            "bottom": 2566,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(59, 130, 246)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "bar",
+      "theme": "dark",
+      "width": 768,
+      "scrollWidth": 768,
+      "blocks": [
+        {
+          "id": "device-visits",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 58,
+            "y": 421,
+            "width": 652,
+            "height": 230,
+            "top": 421,
+            "right": 710,
+            "bottom": 651,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-comparison",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 58,
+            "y": 1062,
+            "width": 652,
+            "height": 230,
+            "top": 1062,
+            "right": 710,
+            "bottom": 1292,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "gradient-fills",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 58,
+            "y": 1703,
+            "width": 652,
+            "height": 230,
+            "top": 1703,
+            "right": 710,
+            "bottom": 1933,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "horizontal-comparison",
+          "metrics": "Desktop1,324visits",
+          "plot": {
+            "x": 58,
+            "y": 2344,
+            "width": 652,
+            "height": 230,
+            "top": 2344,
+            "right": 710,
+            "bottom": 2574,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(59, 130, 246)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "bar",
+      "theme": "dark",
+      "width": 390,
+      "scrollWidth": 390,
+      "blocks": [
+        {
+          "id": "device-visits",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 442,
+            "width": 330,
+            "height": 230,
+            "top": 442,
+            "right": 360,
+            "bottom": 672,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-comparison",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 1092,
+            "width": 330,
+            "height": 230,
+            "top": 1092,
+            "right": 360,
+            "bottom": 1322,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "gradient-fills",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 1742,
+            "width": 330,
+            "height": 230,
+            "top": 1742,
+            "right": 360,
+            "bottom": 1972,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "horizontal-comparison",
+          "metrics": "Desktop1,324visits",
+          "plot": {
+            "x": 30,
+            "y": 2392,
+            "width": 330,
+            "height": 230,
+            "top": 2392,
+            "right": 360,
+            "bottom": 2622,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(59, 130, 246)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "bar",
+      "theme": "dark",
+      "width": 320,
+      "scrollWidth": 320,
+      "blocks": [
+        {
+          "id": "device-visits",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 442,
+            "width": 260,
+            "height": 230,
+            "top": 442,
+            "right": 290,
+            "bottom": 672,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-comparison",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 1092,
+            "width": 260,
+            "height": 230,
+            "top": 1092,
+            "right": 290,
+            "bottom": 1322,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "gradient-fills",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 1742,
+            "width": 260,
+            "height": 230,
+            "top": 1742,
+            "right": 290,
+            "bottom": 1972,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "horizontal-comparison",
+          "metrics": "Desktop1,324visits",
+          "plot": {
+            "x": 30,
+            "y": 2392,
+            "width": 260,
+            "height": 230,
+            "top": 2392,
+            "right": 290,
+            "bottom": 2622,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(59, 130, 246)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "bar",
+      "theme": "light",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "blocks": [
+        {
+          "id": "device-visits",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 404,
+            "y": 413,
+            "width": 596,
+            "height": 230,
+            "top": 413,
+            "right": 1000,
+            "bottom": 643,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-comparison",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 404,
+            "y": 1054,
+            "width": 596,
+            "height": 230,
+            "top": 1054,
+            "right": 1000,
+            "bottom": 1284,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "gradient-fills",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 404,
+            "y": 1695,
+            "width": 596,
+            "height": 230,
+            "top": 1695,
+            "right": 1000,
+            "bottom": 1925,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "horizontal-comparison",
+          "metrics": "Desktop1,324visits",
+          "plot": {
+            "x": 404,
+            "y": 2336,
+            "width": 596,
+            "height": 230,
+            "top": 2336,
+            "right": 1000,
+            "bottom": 2566,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(37, 99, 235)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "bar",
+      "theme": "light",
+      "width": 768,
+      "scrollWidth": 768,
+      "blocks": [
+        {
+          "id": "device-visits",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 58,
+            "y": 421,
+            "width": 652,
+            "height": 230,
+            "top": 421,
+            "right": 710,
+            "bottom": 651,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-comparison",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 58,
+            "y": 1062,
+            "width": 652,
+            "height": 230,
+            "top": 1062,
+            "right": 710,
+            "bottom": 1292,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "gradient-fills",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 58,
+            "y": 1703,
+            "width": 652,
+            "height": 230,
+            "top": 1703,
+            "right": 710,
+            "bottom": 1933,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "horizontal-comparison",
+          "metrics": "Desktop1,324visits",
+          "plot": {
+            "x": 58,
+            "y": 2344,
+            "width": 652,
+            "height": 230,
+            "top": 2344,
+            "right": 710,
+            "bottom": 2574,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(37, 99, 235)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "bar",
+      "theme": "light",
+      "width": 390,
+      "scrollWidth": 390,
+      "blocks": [
+        {
+          "id": "device-visits",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 442,
+            "width": 330,
+            "height": 230,
+            "top": 442,
+            "right": 360,
+            "bottom": 672,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-comparison",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 1092,
+            "width": 330,
+            "height": 230,
+            "top": 1092,
+            "right": 360,
+            "bottom": 1322,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "gradient-fills",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 1742,
+            "width": 330,
+            "height": 230,
+            "top": 1742,
+            "right": 360,
+            "bottom": 1972,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "horizontal-comparison",
+          "metrics": "Desktop1,324visits",
+          "plot": {
+            "x": 30,
+            "y": 2392,
+            "width": 330,
+            "height": 230,
+            "top": 2392,
+            "right": 360,
+            "bottom": 2622,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(37, 99, 235)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "bar",
+      "theme": "light",
+      "width": 320,
+      "scrollWidth": 320,
+      "blocks": [
+        {
+          "id": "device-visits",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 442,
+            "width": 260,
+            "height": 230,
+            "top": 442,
+            "right": 290,
+            "bottom": 672,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-comparison",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 1092,
+            "width": 260,
+            "height": 230,
+            "top": 1092,
+            "right": 290,
+            "bottom": 1322,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "gradient-fills",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 1742,
+            "width": 260,
+            "height": 230,
+            "top": 1742,
+            "right": 290,
+            "bottom": 1972,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "horizontal-comparison",
+          "metrics": "Desktop1,324visits",
+          "plot": {
+            "x": 30,
+            "y": 2392,
+            "width": 260,
+            "height": 230,
+            "top": 2392,
+            "right": 290,
+            "bottom": 2622,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(37, 99, 235)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "line",
+      "theme": "dark",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "blocks": [
+        {
+          "id": "straight-lines",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 404,
+            "y": 413,
+            "width": 596,
+            "height": 230,
+            "top": 413,
+            "right": 1000,
+            "bottom": 643,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "smooth-lines",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 404,
+            "y": 1054,
+            "width": 596,
+            "height": 230,
+            "top": 1054,
+            "right": 1000,
+            "bottom": 1284,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "line-only",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 404,
+            "y": 1695,
+            "width": 596,
+            "height": 230,
+            "top": 1695,
+            "right": 1000,
+            "bottom": 1925,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "missing-observations",
+          "metrics": "Desktop6,712visitsMobile3,736visits",
+          "plot": {
+            "x": 404,
+            "y": 2336,
+            "width": 596,
+            "height": 230,
+            "top": 2336,
+            "right": 1000,
+            "bottom": 2566,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "line",
+      "theme": "dark",
+      "width": 768,
+      "scrollWidth": 768,
+      "blocks": [
+        {
+          "id": "straight-lines",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 58,
+            "y": 421,
+            "width": 652,
+            "height": 230,
+            "top": 421,
+            "right": 710,
+            "bottom": 651,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "smooth-lines",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 58,
+            "y": 1062,
+            "width": 652,
+            "height": 230,
+            "top": 1062,
+            "right": 710,
+            "bottom": 1292,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "line-only",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 58,
+            "y": 1703,
+            "width": 652,
+            "height": 230,
+            "top": 1703,
+            "right": 710,
+            "bottom": 1933,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "missing-observations",
+          "metrics": "Desktop6,712visitsMobile3,736visits",
+          "plot": {
+            "x": 58,
+            "y": 2344,
+            "width": 652,
+            "height": 230,
+            "top": 2344,
+            "right": 710,
+            "bottom": 2574,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "line",
+      "theme": "dark",
+      "width": 390,
+      "scrollWidth": 390,
+      "blocks": [
+        {
+          "id": "straight-lines",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 442,
+            "width": 330,
+            "height": 230,
+            "top": 442,
+            "right": 360,
+            "bottom": 672,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "smooth-lines",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 1092,
+            "width": 330,
+            "height": 230,
+            "top": 1092,
+            "right": 360,
+            "bottom": 1322,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "line-only",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 1742,
+            "width": 330,
+            "height": 230,
+            "top": 1742,
+            "right": 360,
+            "bottom": 1972,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "missing-observations",
+          "metrics": "Desktop6,712visitsMobile3,736visits",
+          "plot": {
+            "x": 30,
+            "y": 2392,
+            "width": 330,
+            "height": 230,
+            "top": 2392,
+            "right": 360,
+            "bottom": 2622,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "line",
+      "theme": "dark",
+      "width": 320,
+      "scrollWidth": 320,
+      "blocks": [
+        {
+          "id": "straight-lines",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 442,
+            "width": 260,
+            "height": 230,
+            "top": 442,
+            "right": 290,
+            "bottom": 672,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "smooth-lines",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 1092,
+            "width": 260,
+            "height": 230,
+            "top": 1092,
+            "right": 290,
+            "bottom": 1322,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "line-only",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 1742,
+            "width": 260,
+            "height": 230,
+            "top": 1742,
+            "right": 290,
+            "bottom": 1972,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "missing-observations",
+          "metrics": "Desktop6,712visitsMobile3,736visits",
+          "plot": {
+            "x": 30,
+            "y": 2392,
+            "width": 260,
+            "height": 230,
+            "top": 2392,
+            "right": 290,
+            "bottom": 2622,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "line",
+      "theme": "light",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "blocks": [
+        {
+          "id": "straight-lines",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 404,
+            "y": 413,
+            "width": 596,
+            "height": 230,
+            "top": 413,
+            "right": 1000,
+            "bottom": 643,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "smooth-lines",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 404,
+            "y": 1054,
+            "width": 596,
+            "height": 230,
+            "top": 1054,
+            "right": 1000,
+            "bottom": 1284,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "line-only",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 404,
+            "y": 1695,
+            "width": 596,
+            "height": 230,
+            "top": 1695,
+            "right": 1000,
+            "bottom": 1925,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "missing-observations",
+          "metrics": "Desktop6,712visitsMobile3,736visits",
+          "plot": {
+            "x": 404,
+            "y": 2336,
+            "width": 596,
+            "height": 230,
+            "top": 2336,
+            "right": 1000,
+            "bottom": 2566,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "line",
+      "theme": "light",
+      "width": 768,
+      "scrollWidth": 768,
+      "blocks": [
+        {
+          "id": "straight-lines",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 58,
+            "y": 421,
+            "width": 652,
+            "height": 230,
+            "top": 421,
+            "right": 710,
+            "bottom": 651,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "smooth-lines",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 58,
+            "y": 1062,
+            "width": 652,
+            "height": 230,
+            "top": 1062,
+            "right": 710,
+            "bottom": 1292,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "line-only",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 58,
+            "y": 1703,
+            "width": 652,
+            "height": 230,
+            "top": 1703,
+            "right": 710,
+            "bottom": 1933,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "missing-observations",
+          "metrics": "Desktop6,712visitsMobile3,736visits",
+          "plot": {
+            "x": 58,
+            "y": 2344,
+            "width": 652,
+            "height": 230,
+            "top": 2344,
+            "right": 710,
+            "bottom": 2574,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "line",
+      "theme": "light",
+      "width": 390,
+      "scrollWidth": 390,
+      "blocks": [
+        {
+          "id": "straight-lines",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 442,
+            "width": 330,
+            "height": 230,
+            "top": 442,
+            "right": 360,
+            "bottom": 672,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "smooth-lines",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 1092,
+            "width": 330,
+            "height": 230,
+            "top": 1092,
+            "right": 360,
+            "bottom": 1322,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "line-only",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 1742,
+            "width": 330,
+            "height": 230,
+            "top": 1742,
+            "right": 360,
+            "bottom": 1972,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "missing-observations",
+          "metrics": "Desktop6,712visitsMobile3,736visits",
+          "plot": {
+            "x": 30,
+            "y": 2392,
+            "width": 330,
+            "height": 230,
+            "top": 2392,
+            "right": 360,
+            "bottom": 2622,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "line",
+      "theme": "light",
+      "width": 320,
+      "scrollWidth": 320,
+      "blocks": [
+        {
+          "id": "straight-lines",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 442,
+            "width": 260,
+            "height": 230,
+            "top": 442,
+            "right": 290,
+            "bottom": 672,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "smooth-lines",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 1092,
+            "width": 260,
+            "height": 230,
+            "top": 1092,
+            "right": 290,
+            "bottom": 1322,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "line-only",
+          "metrics": "Desktop7,170visitsMobile4,293visits",
+          "plot": {
+            "x": 30,
+            "y": 1742,
+            "width": 260,
+            "height": 230,
+            "top": 1742,
+            "right": 290,
+            "bottom": 1972,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "missing-observations",
+          "metrics": "Desktop6,712visitsMobile3,736visits",
+          "plot": {
+            "x": 30,
+            "y": 2392,
+            "width": 260,
+            "height": 230,
+            "top": 2392,
+            "right": 290,
+            "bottom": 2622,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "area",
+      "theme": "dark",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "blocks": [
+        {
+          "id": "gradient-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 404,
+            "y": 413,
+            "width": 596,
+            "height": 230,
+            "top": 413,
+            "right": 1000,
+            "bottom": 643,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 404,
+            "y": 1054,
+            "width": 596,
+            "height": 230,
+            "top": 1054,
+            "right": 1000,
+            "bottom": 1284,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "solid-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 404,
+            "y": 1695,
+            "width": 596,
+            "height": 230,
+            "top": 1695,
+            "right": 1000,
+            "bottom": 1925,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "area-gaps",
+          "metrics": "Desktop6,712visitsMobile4,979visits",
+          "plot": {
+            "x": 404,
+            "y": 2336,
+            "width": 596,
+            "height": 230,
+            "top": 2336,
+            "right": 1000,
+            "bottom": 2566,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "area",
+      "theme": "dark",
+      "width": 768,
+      "scrollWidth": 768,
+      "blocks": [
+        {
+          "id": "gradient-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 58,
+            "y": 421,
+            "width": 652,
+            "height": 230,
+            "top": 421,
+            "right": 710,
+            "bottom": 651,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 58,
+            "y": 1062,
+            "width": 652,
+            "height": 230,
+            "top": 1062,
+            "right": 710,
+            "bottom": 1292,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "solid-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 58,
+            "y": 1703,
+            "width": 652,
+            "height": 230,
+            "top": 1703,
+            "right": 710,
+            "bottom": 1933,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "area-gaps",
+          "metrics": "Desktop6,712visitsMobile4,979visits",
+          "plot": {
+            "x": 58,
+            "y": 2344,
+            "width": 652,
+            "height": 230,
+            "top": 2344,
+            "right": 710,
+            "bottom": 2574,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "area",
+      "theme": "dark",
+      "width": 390,
+      "scrollWidth": 390,
+      "blocks": [
+        {
+          "id": "gradient-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 30,
+            "y": 442,
+            "width": 330,
+            "height": 230,
+            "top": 442,
+            "right": 360,
+            "bottom": 672,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 30,
+            "y": 1092,
+            "width": 330,
+            "height": 230,
+            "top": 1092,
+            "right": 360,
+            "bottom": 1322,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "solid-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 30,
+            "y": 1742,
+            "width": 330,
+            "height": 230,
+            "top": 1742,
+            "right": 360,
+            "bottom": 1972,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "area-gaps",
+          "metrics": "Desktop6,712visitsMobile4,979visits",
+          "plot": {
+            "x": 30,
+            "y": 2392,
+            "width": 330,
+            "height": 230,
+            "top": 2392,
+            "right": 360,
+            "bottom": 2622,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "area",
+      "theme": "dark",
+      "width": 320,
+      "scrollWidth": 320,
+      "blocks": [
+        {
+          "id": "gradient-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 30,
+            "y": 442,
+            "width": 260,
+            "height": 230,
+            "top": 442,
+            "right": 290,
+            "bottom": 672,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 30,
+            "y": 1092,
+            "width": 260,
+            "height": 230,
+            "top": 1092,
+            "right": 290,
+            "bottom": 1322,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "solid-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 30,
+            "y": 1742,
+            "width": 260,
+            "height": 230,
+            "top": 1742,
+            "right": 290,
+            "bottom": 1972,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "area-gaps",
+          "metrics": "Desktop6,712visitsMobile4,979visits",
+          "plot": {
+            "x": 30,
+            "y": 2392,
+            "width": 260,
+            "height": 230,
+            "top": 2392,
+            "right": 290,
+            "bottom": 2622,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "area",
+      "theme": "light",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "blocks": [
+        {
+          "id": "gradient-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 404,
+            "y": 413,
+            "width": 596,
+            "height": 230,
+            "top": 413,
+            "right": 1000,
+            "bottom": 643,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 404,
+            "y": 1054,
+            "width": 596,
+            "height": 230,
+            "top": 1054,
+            "right": 1000,
+            "bottom": 1284,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "solid-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 404,
+            "y": 1695,
+            "width": 596,
+            "height": 230,
+            "top": 1695,
+            "right": 1000,
+            "bottom": 1925,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "area-gaps",
+          "metrics": "Desktop6,712visitsMobile4,979visits",
+          "plot": {
+            "x": 404,
+            "y": 2336,
+            "width": 596,
+            "height": 230,
+            "top": 2336,
+            "right": 1000,
+            "bottom": 2566,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "area",
+      "theme": "light",
+      "width": 768,
+      "scrollWidth": 768,
+      "blocks": [
+        {
+          "id": "gradient-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 58,
+            "y": 421,
+            "width": 652,
+            "height": 230,
+            "top": 421,
+            "right": 710,
+            "bottom": 651,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 58,
+            "y": 1062,
+            "width": 652,
+            "height": 230,
+            "top": 1062,
+            "right": 710,
+            "bottom": 1292,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "solid-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 58,
+            "y": 1703,
+            "width": 652,
+            "height": 230,
+            "top": 1703,
+            "right": 710,
+            "bottom": 1933,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "area-gaps",
+          "metrics": "Desktop6,712visitsMobile4,979visits",
+          "plot": {
+            "x": 58,
+            "y": 2344,
+            "width": 652,
+            "height": 230,
+            "top": 2344,
+            "right": 710,
+            "bottom": 2574,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "area",
+      "theme": "light",
+      "width": 390,
+      "scrollWidth": 390,
+      "blocks": [
+        {
+          "id": "gradient-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 30,
+            "y": 442,
+            "width": 330,
+            "height": 230,
+            "top": 442,
+            "right": 360,
+            "bottom": 672,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 30,
+            "y": 1092,
+            "width": 330,
+            "height": 230,
+            "top": 1092,
+            "right": 360,
+            "bottom": 1322,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "solid-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 30,
+            "y": 1742,
+            "width": 330,
+            "height": 230,
+            "top": 1742,
+            "right": 360,
+            "bottom": 1972,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "area-gaps",
+          "metrics": "Desktop6,712visitsMobile4,979visits",
+          "plot": {
+            "x": 30,
+            "y": 2392,
+            "width": 330,
+            "height": 230,
+            "top": 2392,
+            "right": 360,
+            "bottom": 2622,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "area",
+      "theme": "light",
+      "width": 320,
+      "scrollWidth": 320,
+      "blocks": [
+        {
+          "id": "gradient-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 30,
+            "y": 442,
+            "width": 260,
+            "height": 230,
+            "top": 442,
+            "right": 290,
+            "bottom": 672,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 30,
+            "y": 1092,
+            "width": 260,
+            "height": 230,
+            "top": 1092,
+            "right": 290,
+            "bottom": 1322,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "solid-areas",
+          "metrics": "Desktop7,170visitsMobile5,722visits",
+          "plot": {
+            "x": 30,
+            "y": 1742,
+            "width": 260,
+            "height": 230,
+            "top": 1742,
+            "right": 290,
+            "bottom": 1972,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "area-gaps",
+          "metrics": "Desktop6,712visitsMobile4,979visits",
+          "plot": {
+            "x": 30,
+            "y": 2392,
+            "width": 260,
+            "height": 230,
+            "top": 2392,
+            "right": 290,
+            "bottom": 2622,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "pie",
+      "theme": "dark",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "blocks": [
+        {
+          "id": "browser-share",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 404,
+            "y": 412,
+            "width": 596,
+            "height": 300,
+            "top": 412,
+            "right": 1000,
+            "bottom": 712,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(96, 165, 250)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(52, 211, 153)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(251, 191, 36)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(167, 139, 250)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(156, 163, 175)"
+            }
+          ]
+        },
+        {
+          "id": "browser-donut",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 404,
+            "y": 1122,
+            "width": 596,
+            "height": 300,
+            "top": 1122,
+            "right": 1000,
+            "bottom": 1422,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(96, 165, 250)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(52, 211, 153)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(251, 191, 36)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(167, 139, 250)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(156, 163, 175)"
+            }
+          ]
+        },
+        {
+          "id": "labeled-donut",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 404,
+            "y": 1832,
+            "width": 596,
+            "height": 300,
+            "top": 1832,
+            "right": 1000,
+            "bottom": 2132,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(96, 165, 250)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(52, 211, 153)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(251, 191, 36)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(167, 139, 250)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(156, 163, 175)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "pie",
+      "theme": "dark",
+      "width": 768,
+      "scrollWidth": 768,
+      "blocks": [
+        {
+          "id": "browser-share",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 58,
+            "y": 420,
+            "width": 652,
+            "height": 300,
+            "top": 420,
+            "right": 710,
+            "bottom": 720,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(96, 165, 250)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(52, 211, 153)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(251, 191, 36)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(167, 139, 250)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(156, 163, 175)"
+            }
+          ]
+        },
+        {
+          "id": "browser-donut",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 58,
+            "y": 1130,
+            "width": 652,
+            "height": 300,
+            "top": 1130,
+            "right": 710,
+            "bottom": 1430,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(96, 165, 250)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(52, 211, 153)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(251, 191, 36)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(167, 139, 250)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(156, 163, 175)"
+            }
+          ]
+        },
+        {
+          "id": "labeled-donut",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 58,
+            "y": 1840,
+            "width": 652,
+            "height": 300,
+            "top": 1840,
+            "right": 710,
+            "bottom": 2140,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(96, 165, 250)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(52, 211, 153)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(251, 191, 36)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(167, 139, 250)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(156, 163, 175)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "pie",
+      "theme": "dark",
+      "width": 390,
+      "scrollWidth": 390,
+      "blocks": [
+        {
+          "id": "browser-share",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 30,
+            "y": 442,
+            "width": 330,
+            "height": 300,
+            "top": 442,
+            "right": 360,
+            "bottom": 742,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(96, 165, 250)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(52, 211, 153)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(251, 191, 36)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(167, 139, 250)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(156, 163, 175)"
+            }
+          ]
+        },
+        {
+          "id": "browser-donut",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 30,
+            "y": 1258,
+            "width": 330,
+            "height": 300,
+            "top": 1258,
+            "right": 360,
+            "bottom": 1558,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(96, 165, 250)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(52, 211, 153)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(251, 191, 36)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(167, 139, 250)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(156, 163, 175)"
+            }
+          ]
+        },
+        {
+          "id": "labeled-donut",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 30,
+            "y": 2074,
+            "width": 330,
+            "height": 300,
+            "top": 2074,
+            "right": 360,
+            "bottom": 2374,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(96, 165, 250)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(52, 211, 153)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(251, 191, 36)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(167, 139, 250)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(156, 163, 175)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "pie",
+      "theme": "dark",
+      "width": 320,
+      "scrollWidth": 320,
+      "blocks": [
+        {
+          "id": "browser-share",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 30,
+            "y": 442,
+            "width": 260,
+            "height": 300,
+            "top": 442,
+            "right": 290,
+            "bottom": 742,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(96, 165, 250)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(52, 211, 153)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(251, 191, 36)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(167, 139, 250)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(156, 163, 175)"
+            }
+          ]
+        },
+        {
+          "id": "browser-donut",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 30,
+            "y": 1258,
+            "width": 260,
+            "height": 300,
+            "top": 1258,
+            "right": 290,
+            "bottom": 1558,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(96, 165, 250)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(52, 211, 153)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(251, 191, 36)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(167, 139, 250)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(156, 163, 175)"
+            }
+          ]
+        },
+        {
+          "id": "labeled-donut",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 30,
+            "y": 2074,
+            "width": 260,
+            "height": 300,
+            "top": 2074,
+            "right": 290,
+            "bottom": 2374,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(96, 165, 250)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(52, 211, 153)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(251, 191, 36)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(167, 139, 250)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(156, 163, 175)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "pie",
+      "theme": "light",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "blocks": [
+        {
+          "id": "browser-share",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 404,
+            "y": 412,
+            "width": 596,
+            "height": 300,
+            "top": 412,
+            "right": 1000,
+            "bottom": 712,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(59, 130, 246)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(245, 158, 11)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(139, 92, 246)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(107, 114, 128)"
+            }
+          ]
+        },
+        {
+          "id": "browser-donut",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 404,
+            "y": 1122,
+            "width": 596,
+            "height": 300,
+            "top": 1122,
+            "right": 1000,
+            "bottom": 1422,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(59, 130, 246)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(245, 158, 11)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(139, 92, 246)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(107, 114, 128)"
+            }
+          ]
+        },
+        {
+          "id": "labeled-donut",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 404,
+            "y": 1832,
+            "width": 596,
+            "height": 300,
+            "top": 1832,
+            "right": 1000,
+            "bottom": 2132,
+            "left": 404
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(59, 130, 246)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(245, 158, 11)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(139, 92, 246)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(107, 114, 128)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "pie",
+      "theme": "light",
+      "width": 768,
+      "scrollWidth": 768,
+      "blocks": [
+        {
+          "id": "browser-share",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 58,
+            "y": 420,
+            "width": 652,
+            "height": 300,
+            "top": 420,
+            "right": 710,
+            "bottom": 720,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(59, 130, 246)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(245, 158, 11)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(139, 92, 246)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(107, 114, 128)"
+            }
+          ]
+        },
+        {
+          "id": "browser-donut",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 58,
+            "y": 1130,
+            "width": 652,
+            "height": 300,
+            "top": 1130,
+            "right": 710,
+            "bottom": 1430,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(59, 130, 246)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(245, 158, 11)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(139, 92, 246)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(107, 114, 128)"
+            }
+          ]
+        },
+        {
+          "id": "labeled-donut",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 58,
+            "y": 1840,
+            "width": 652,
+            "height": 300,
+            "top": 1840,
+            "right": 710,
+            "bottom": 2140,
+            "left": 58
+          },
+          "legend": [
+            {
+              "height": 32,
+              "color": "rgb(59, 130, 246)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(245, 158, 11)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(139, 92, 246)"
+            },
+            {
+              "height": 32,
+              "color": "rgb(107, 114, 128)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "pie",
+      "theme": "light",
+      "width": 390,
+      "scrollWidth": 390,
+      "blocks": [
+        {
+          "id": "browser-share",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 30,
+            "y": 442,
+            "width": 330,
+            "height": 300,
+            "top": 442,
+            "right": 360,
+            "bottom": 742,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(59, 130, 246)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(245, 158, 11)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(139, 92, 246)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(107, 114, 128)"
+            }
+          ]
+        },
+        {
+          "id": "browser-donut",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 30,
+            "y": 1258,
+            "width": 330,
+            "height": 300,
+            "top": 1258,
+            "right": 360,
+            "bottom": 1558,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(59, 130, 246)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(245, 158, 11)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(139, 92, 246)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(107, 114, 128)"
+            }
+          ]
+        },
+        {
+          "id": "labeled-donut",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 30,
+            "y": 2074,
+            "width": 330,
+            "height": 300,
+            "top": 2074,
+            "right": 360,
+            "bottom": 2374,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(59, 130, 246)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(245, 158, 11)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(139, 92, 246)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(107, 114, 128)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "pie",
+      "theme": "light",
+      "width": 320,
+      "scrollWidth": 320,
+      "blocks": [
+        {
+          "id": "browser-share",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 30,
+            "y": 442,
+            "width": 260,
+            "height": 300,
+            "top": 442,
+            "right": 290,
+            "bottom": 742,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(59, 130, 246)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(245, 158, 11)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(139, 92, 246)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(107, 114, 128)"
+            }
+          ]
+        },
+        {
+          "id": "browser-donut",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 30,
+            "y": 1258,
+            "width": 260,
+            "height": 300,
+            "top": 1258,
+            "right": 290,
+            "bottom": 1558,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(59, 130, 246)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(245, 158, 11)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(139, 92, 246)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(107, 114, 128)"
+            }
+          ]
+        },
+        {
+          "id": "labeled-donut",
+          "metrics": "Total visitors925Browsers5",
+          "plot": {
+            "x": 30,
+            "y": 2074,
+            "width": 260,
+            "height": 300,
+            "top": 2074,
+            "right": 290,
+            "bottom": 2374,
+            "left": 30
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(59, 130, 246)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(245, 158, 11)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(139, 92, 246)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(107, 114, 128)"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

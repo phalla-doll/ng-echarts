@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ng-echarts visual audit</title>
+    <style>
+      body {
+        margin: 24px;
+        font: 14px/1.5 system-ui;
+        color: #18202c;
+        background: #eef0f3;
+      }
+      h1 {
+        font-size: 26px;
+        margin: 0 0 8px;
+      }
+      h2 {
+        font-size: 18px;
+        margin: 24px 0 12px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+      }
+      figure {
+        margin: 0;
+      }
+      figcaption {
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ccd0d5;
+      }
+      a {
+        color: #174ac5;
+      }
+      p {
+        max-width: 100ch;
+      }
+      @media (max-width: 800px) {
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ng-echarts visual audit</h1>
+    <p>
+      13 November 2026. Four chart families in both themes, before/after refinements reviewed
+      against Apache ECharts and EvilCharts. Click an image for the original size.
+      <a href="../../VISUAL_AUDIT.md">Audit report</a> ·
+      <a href="after/manifest.json">All 70 captures and measurements</a> ·
+      <a href="reference/manifest.json">Reference URLs and screenshots</a>
+    </p>
+    <section>
+      <h2>Desktop dark — 1440 × 1000</h2>
+      <div class="grid">
+        <figure>
+          <figcaption>Bar</figcaption>
+          <a href="after/bar-dark-1440.png"
+            ><img src="after/bar-dark-1440.png" alt="bar gallery in dark mode at 1440 pixels"
+          /></a>
+        </figure>
+        <figure>
+          <figcaption>Line</figcaption>
+          <a href="after/line-dark-1440.png"
+            ><img src="after/line-dark-1440.png" alt="line gallery in dark mode at 1440 pixels"
+          /></a>
+        </figure>
+        <figure>
+          <figcaption>Area</figcaption>
+          <a href="after/area-dark-1440.png"
+            ><img src="after/area-dark-1440.png" alt="area gallery in dark mode at 1440 pixels"
+          /></a>
+        </figure>
+        <figure>
+          <figcaption>Pie/donut</figcaption>
+          <a href="after/pie-dark-1440.png"
+            ><img src="after/pie-dark-1440.png" alt="pie gallery in dark mode at 1440 pixels"
+          /></a>
+        </figure>
+      </div>
+    </section>
+    <section>
+      <h2>Desktop light — 1440 × 1000</h2>
+      <div class="grid">
+        <figure>
+          <figcaption>Bar</figcaption>
+          <a href="after/bar-light-1440.png"
+            ><img src="after/bar-light-1440.png" alt="bar gallery in light mode at 1440 pixels"
+          /></a>
+        </figure>
+        <figure>
+          <figcaption>Line</figcaption>
+          <a href="after/line-light-1440.png"
+            ><img src="after/line-light-1440.png" alt="line gallery in light mode at 1440 pixels"
+          /></a>
+        </figure>
+        <figure>
+          <figcaption>Area</figcaption>
+          <a href="after/area-light-1440.png"
+            ><img src="after/area-light-1440.png" alt="area gallery in light mode at 1440 pixels"
+          /></a>
+        </figure>
+        <figure>
+          <figcaption>Pie/donut</figcaption>
+          <a href="after/pie-light-1440.png"
+            ><img src="after/pie-light-1440.png" alt="pie gallery in light mode at 1440 pixels"
+          /></a>
+        </figure>
+      </div>
+    </section>
+    <section>
+      <h2>Mobile dark — 320 × 1000</h2>
+      <div class="grid">
+        <figure>
+          <figcaption>Bar</figcaption>
+          <a href="after/bar-dark-320.png"
+            ><img src="after/bar-dark-320.png" alt="bar gallery in dark mode at 320 pixels"
+          /></a>
+        </figure>
+        <figure>
+          <figcaption>Line</figcaption>
+          <a href="after/line-dark-320.png"
+            ><img src="after/line-dark-320.png" alt="line gallery in dark mode at 320 pixels"
+          /></a>
+        </figure>
+        <figure>
+          <figcaption>Area</figcaption>
+          <a href="after/area-dark-320.png"
+            ><img src="after/area-dark-320.png" alt="area gallery in dark mode at 320 pixels"
+          /></a>
+        </figure>
+        <figure>
+          <figcaption>Pie/donut</figcaption>
+          <a href="after/pie-dark-320.png"
+            ><img src="after/pie-dark-320.png" alt="pie gallery in dark mode at 320 pixels"
+          /></a>
+        </figure>
+      </div>
+    </section>
+    <section>
+      <h2>Mobile light — 320 × 1000</h2>
+      <div class="grid">
+        <figure>
+          <figcaption>Bar</figcaption>
+          <a href="after/bar-light-320.png"
+            ><img src="after/bar-light-320.png" alt="bar gallery in light mode at 320 pixels"
+          /></a>
+        </figure>
+        <figure>
+          <figcaption>Line</figcaption>
+          <a href="after/line-light-320.png"
+            ><img src="after/line-light-320.png" alt="line gallery in light mode at 320 pixels"
+          /></a>
+        </figure>
+        <figure>
+          <figcaption>Area</figcaption>
+          <a href="after/area-light-320.png"
+            ><img src="after/area-light-320.png" alt="area gallery in light mode at 320 pixels"
+          /></a>
+        </figure>
+        <figure>
+          <figcaption>Pie/donut</figcaption>
+          <a href="after/pie-light-320.png"
+            ><img src="after/pie-light-320.png" alt="pie gallery in light mode at 320 pixels"
+          /></a>
+        </figure>
+      </div>
+    </section>
+  </body>
+</html>

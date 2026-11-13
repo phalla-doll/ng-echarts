@@ -1,0 +1,27 @@
+{
+  "reviewedOn": "2026-11-13",
+  "sourceBaseCommit": "35ef3289e7b342a94ac9470964848070c05b2d3f",
+  "deviceScaleFactor": 1,
+  "reducedMotion": "reduce",
+  "note": "Baseline overview/measurements from the unmodified production SSR demo at localhost:4178. Horizontal element capture from the existing public Pages artifact 9930a004ddf0f06f093d8e73d5a59127437a977c before republishing.",
+  "captures": [
+    {
+      "name": "bar-dark-320.png",
+      "sha256": "fe8edf7fef50ee610ce74cb20a7692e4c9f820d933e9ccb803456c2a2ddcc625",
+      "imageWidth": 320,
+      "imageHeight": 1000
+    },
+    {
+      "name": "horizontal-dark-320.png",
+      "sha256": "bd31cd3d933245d1d260c39b7dc53a25e79347724bae6caed2462e46d6d17f65",
+      "imageWidth": 288,
+      "imageHeight": 578
+    },
+    {
+      "name": "pie-light-320.png",
+      "sha256": "029eef97f1152f708bc0ffbf2c33b5bf48c06a0418694b6d1db00b51396e0bf6",
+      "imageWidth": 320,
+      "imageHeight": 1000
+    }
+  ]
+}

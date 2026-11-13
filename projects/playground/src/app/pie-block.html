@@ -28,17 +28,9 @@
     </header>
     <div class="block-surface" [hidden]="view() !== 'preview'">
       <div class="block-metrics" aria-label="Browser distribution in this sample">
-        @for (metric of metrics(); track metric.id; let index = $index) {
+        @for (metric of metrics(); track metric.id) {
           <div class="block-metric">
-            <span class="metric-label"
-              ><span
-                class="metric-marker"
-                [class.secondary]="index === 1"
-                [style.background]="palette()[index]"
-                aria-hidden="true"
-              ></span
-              >{{ metric.label }}</span
-            >
+            <span class="metric-label">{{ metric.label }}</span>
             <span class="metric-total">{{ metric.total }}</span>
           </div>
         }
@@ -95,7 +87,10 @@
         <app-site-icon [name]="copied() ? 'check' : 'copy'" />
       </button>
     </div>
-    <pre><code [appHighlight]="importSource()"></code></pre>
+    <pre
+      tabindex="0"
+      [attr.aria-label]="block().title + ' Angular import'"
+    ><code [appHighlight]="importSource()"></code></pre>
   </div>
   @if (copyFailed()) {
     <p class="copy-notice" role="status">
