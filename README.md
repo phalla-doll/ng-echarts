@@ -34,6 +34,7 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | [UI spacing review](docs/experiments/UI_SPACING_REVIEW.md) | Shared gutters, aligned headings, consistent panels/controls, breakpoint checks, and before/after captures |
 | [Code presentation](docs/experiments/CODE_PRESENTATION_REVIEW.md) | Google Sans Code, theme-aware syntax colors, and corrected copy actions |
 | [Area-block reference audit](docs/experiments/AREA_BLOCKS_VISUAL_AUDIT.md) | User's visual target, current layout gaps, and gallery correction brief |
+| [Linked selection feedback](docs/experiments/LINKED_SELECTION_FEEDBACK.md) | Persistent month feedback, current table row, reset and rc.2 evidence |
 | [Linked UI refinement](docs/experiments/LINKED_UI_REFINEMENT.md) | Before/after control, spacing, card and mobile review for the linked demo |
 | [Linked charts guide](docs/LINKED_CHARTS.md) | Application-owned month selection, keyboard actions, resets, updates and a complete compiled example |
 | [Composed API reference](docs/COMPOSED_CHART_API.md) | Shared-axis vertical bars and lines, typed descriptors and stable controls |
@@ -149,8 +150,8 @@ The home page presents the existing grouped, stacked, gradient, and horizontal b
 
 The `/composed` gallery combines monthly visits and a trailing three-month mean on one visits scale, with the same preview/code controls and themes. `/composed-validation` provides state, kind-change, keyboard and deferred-hydration checks. See the [composed API](docs/COMPOSED_CHART_API.md) for the typed bar/line contract and current limits.
 
-The `/linked` page connects a monthly visits overview to device share through stable month IDs. Plot clicks, keyboard table actions and a native selector update the companion chart; Show all months clears the filter. `/linked-validation` covers immutable updates, reordering, removal and missing/empty recovery. The [guide](docs/LINKED_CHARTS.md) supplies the displayed, strictly compiled standalone example. This application integration uses the existing rc.1 library without changing its API or artifact.
+The `/linked` page connects a monthly visits overview to device share through stable month IDs. Plot clicks, keyboard table actions and a native selector update the companion chart; All months or Reset clears the filter. `/linked-validation` covers immutable updates, reordering, removal and missing/empty recovery. The [guide](docs/LINKED_CHARTS.md) supplies the displayed, strictly compiled standalone example. The controlled `selectedRowId` bar input (rc.2+) reflects the month with a category band, focused bar colors and a current-row table label. See the [selection-feedback review](docs/experiments/LINKED_SELECTION_FEEDBACK.md).
 
 ## Library license
 
-Original chart-library code is [MIT licensed](projects/chart-library/LICENSE). See its [third-party notices](projects/chart-library/THIRD_PARTY_NOTICES.md) for preserved upstream/dependency terms. The current private local release candidate is `0.1.0-rc.1`; follow the [release checklist](docs/RELEASE_CHECKLIST.md) to prepare and verify it.
+Original chart-library code is [MIT licensed](projects/chart-library/LICENSE). See its [third-party notices](projects/chart-library/THIRD_PARTY_NOTICES.md) for preserved upstream/dependency terms. The current private local release candidate is `0.1.0-rc.2`; follow the [release checklist](docs/RELEASE_CHECKLIST.md) to prepare and verify it.

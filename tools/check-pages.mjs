@@ -103,6 +103,14 @@ try {
       await expect(page.locator('app-linked-visits canvas')).toHaveCount(2);
       await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('feb');
       await expect(page.locator('.detail h2')).toHaveText('Device share · February');
+      await page
+        .locator('.overview')
+        .getByRole('button', { name: 'Show data table', exact: true })
+        .click();
+      await expect(page.locator('.overview tr[aria-current=true]')).toContainText('February');
+      await page.getByRole('button', { name: 'Reset month filter', exact: true }).click();
+      await expect(page.locator('.overview tr[aria-current]')).toHaveCount(0);
+      await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toBeFocused();
       await page.reload();
       await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('');
       await expect(page.locator('app-linked-visits canvas')).toHaveCount(2);

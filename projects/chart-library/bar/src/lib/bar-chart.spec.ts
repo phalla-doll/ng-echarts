@@ -32,6 +32,45 @@ async function setup() {
 }
 
 describe('bar Angular controls', () => {
+  it('reflects controlled row identity in the table without changing selection on point events', async () => {
+    const { fixture, element } = await setup();
+    const events = vi.fn();
+    fixture.componentInstance.pointSelect.subscribe(events);
+    element.querySelector<HTMLButtonElement>('.table-toggle')!.click();
+    fixture.componentRef.setInput('selectedRowId', 'second');
+    await fixture.whenStable();
+    expect(element.querySelector('tr[aria-current]')?.textContent).toContain('B Selected');
+    expect(events).not.toHaveBeenCalled();
+    element.querySelector<HTMLButtonElement>('tbody button')!.click();
+    expect(events).toHaveBeenCalledWith(expect.objectContaining({ rowId: 'first', value: 0 }));
+    expect(element.querySelector('tr[aria-current]')?.textContent).toContain('B Selected');
+    fixture.componentRef.setInput('data', [
+      { id: 'second', category: 'Renamed', value: null },
+      data[0],
+    ]);
+    await fixture.whenStable();
+    expect(element.querySelector('tbody tr')?.getAttribute('aria-current')).toBe('true');
+    expect(element.querySelector('tr[aria-current]')?.textContent).toContain('Renamed Selected');
+    fixture.componentRef.setInput('data', [data[0]]);
+    await fixture.whenStable();
+    expect(element.querySelector('tr[aria-current]')).toBeNull();
+    fixture.componentRef.setInput('selectedRowId', null);
+    fixture.componentRef.setInput('data', data);
+    await fixture.whenStable();
+    expect(element.querySelector('tr[aria-current]')).toBeNull();
+    expect(events).toHaveBeenCalledTimes(1);
+  });
+
+  it('contains invalid runtime selection types and recovers on a valid input', async () => {
+    const { fixture, element } = await setup();
+    fixture.componentRef.setInput('selectedRowId', 12);
+    await fixture.whenStable();
+    expect(element.querySelector('[role=alert]')?.textContent).toContain('Selected row ID');
+    fixture.componentRef.setInput('selectedRowId', 'unknown');
+    await fixture.whenStable();
+    expect(element.querySelector('[role=alert]')).toBeNull();
+  });
+
   it('can omit the table controls and expanded values without changing the legend', async () => {
     const { fixture, element } = await setup();
     element.querySelector<HTMLButtonElement>('.table-toggle')!.click();

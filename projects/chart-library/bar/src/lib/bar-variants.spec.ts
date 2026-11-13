@@ -19,7 +19,13 @@ const variants = (['light', 'dark'] as const).flatMap((theme) =>
   ),
 );
 
-function build(theme: ChartTheme, layout: BarLayout, stacked: boolean, gradient: boolean) {
+function build(
+  theme: ChartTheme,
+  layout: BarLayout,
+  stacked: boolean,
+  gradient: boolean,
+  selectedRowId: string | null = null,
+) {
   const model = normalizeBarData(rows, 'id', 'category', series);
   if (model.kind !== 'ready') throw new Error('Expected ready acceptance fixture');
   return buildBarOptions(
@@ -31,6 +37,8 @@ function build(theme: ChartTheme, layout: BarLayout, stacked: boolean, gradient:
     gradient,
     false,
     String,
+    undefined,
+    selectedRowId,
   );
 }
 
@@ -91,5 +99,44 @@ it.each(variants)(
     }
     expect(rows[2].second).toBeNull();
     expect(options['animation']).toBe(false);
+  },
+);
+
+it.each(variants)(
+  'selects a stable row without changing values or fills: $theme/$layout stack=$stacked gradient=$gradient',
+  ({ theme, layout, stacked, gradient }) => {
+    const options = build(theme, layout, stacked, gradient, 'b');
+    const axis = layout === 'vertical' ? options.xAxis : options.yAxis;
+    expect(axis).toMatchObject({
+      data: [
+        { value: 'a' },
+        { value: 'b', textStyle: { color: defaultBarTheme(theme).text, fontWeight: 600 } },
+        { value: 'c' },
+      ],
+      splitArea: {
+        show: true,
+        interval: 0,
+        areaStyle: { color: ['transparent', defaultBarTheme(theme).border, 'transparent'] },
+      },
+    });
+    if (!Array.isArray(options.series)) throw new Error('Expected bar series');
+    expect(options.series[0]).toMatchObject({
+      data: [
+        { id: 'a', value: 40, itemStyle: { opacity: 0.35 } },
+        { id: 'b', value: -20, itemStyle: { opacity: 1 } },
+        { id: 'c', value: 0, itemStyle: { opacity: 0.35 } },
+      ],
+    });
+    expect(options.series[1]).toMatchObject({
+      data: [
+        { id: 'a', value: -30, itemStyle: { opacity: 0.35 } },
+        { id: 'b', value: 10, itemStyle: { opacity: 1 } },
+        { id: 'c', value: '-', itemStyle: { opacity: 0.35 } },
+      ],
+    });
+    const unknown = build(theme, layout, stacked, gradient, 'removed');
+    const reset = build(theme, layout, stacked, gradient);
+    expect(unknown.series).toEqual(reset.series);
+    expect(layout === 'vertical' ? unknown.xAxis : unknown.yAxis).not.toHaveProperty('splitArea');
   },
 );

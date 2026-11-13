@@ -209,8 +209,12 @@ async function exercise(engine, url, ssr) {
     await expect(linkedPoint).toBeFocused();
     await expect(page.locator('.detail h2')).toHaveText('Device share · February');
     await expect(page.locator('.linked-status')).toContainText('February: 1,367 visits');
+    await expect(page.locator('.overview tr[aria-current=true]')).toContainText('February');
+    await expect(page.locator('.overview .selection-label')).toHaveText('Selected');
     await page.getByRole('button', { name: 'Reset month filter', exact: true }).click();
     await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('');
+    await expect(page.locator('.overview tr[aria-current]')).toHaveCount(0);
+    await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toBeFocused();
     await navigation.getByRole('link', { name: 'Linked validation', exact: true }).click();
     await expect(
       page.getByRole('heading', { name: 'Linked selection validation', exact: true }),

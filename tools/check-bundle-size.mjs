@@ -206,10 +206,11 @@ for (const scenario of scenarios) {
     }),
     { raw: 0, gzip: 0, brotli: 0 },
   );
-  // Four-family root adds the independent Pie engine; focused-entry limits stay unchanged.
+  // The combined root includes all engines plus rc.2 controlled row feedback.
+  // Its measured Brotli cap is 176 kB; focused entries and gzip limits stay unchanged.
   const budget =
     scenario.name === 'root'
-      ? { gzip: 210_000, brotli: 175_000 }
+      ? { gzip: 210_000, brotli: 176_000 }
       : scenario.engine || scenario.allowOrphanChunks
         ? { gzip: 200_000, brotli: 175_000 }
         : { gzip: 10_000, brotli: 9_000 };

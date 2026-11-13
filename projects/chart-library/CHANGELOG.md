@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-rc.2 — 13 November 2026
+
+- Add controlled `BarChart.selectedRowId` feedback by stable row identity, with muted surrounding bars and a category band that remains visible for zero/missing values and hidden series.
+- Mark the selected native table row as current with a visible “Selected” label; input changes do not emit point events or take ownership of application selection.
+- Extend the linked demo, complete source example, strict package checks and browser coverage for selection, reset, updates, themes and native focus.
+
+This private candidate retains the experimental API and deferred human release gates. Earlier rc.0/rc.1 artifacts remain preserved.
+
 ## 0.1.0-rc.1 — 13 November 2026
 
 - Add `ComposedChart` and typed bar/line descriptors through `/composed` and root exports.

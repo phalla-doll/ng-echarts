@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { firstGreenBarPoint } from './canvas-point';
+import { firstGreenBarPoint, selectionBandCenter, solidBarGroups } from './canvas-point';
 import { collectBrowserErrors, installResourceAudit } from './resource-audit';
 
 test('hydrates linked charts and connects real plot clicks, keyboard values and a native month selector', async ({
@@ -17,6 +17,7 @@ test('hydrates linked charts and connects real plot clicks, keyboard values and 
   const overview = page.locator('.overview nec-bar-chart');
   const detail = page.locator('.detail nec-pie-chart');
   await expect(page.locator('canvas')).toHaveCount(2);
+  await expect.poll(() => solidBarGroups(overview)).toBe(12);
   const instances = await page
     .locator('app-linked-visits .plot')
     .evaluateAll((plots) => plots.map((plot) => plot.getAttribute('_echarts_instance_')));
@@ -25,7 +26,10 @@ test('hydrates linked charts and connects real plot clicks, keyboard values and 
   await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('jan');
   await expect(detail.getByRole('heading')).toHaveText('Device share · January');
   await expect(page.locator('.linked-status')).toContainText('January: 526 visits');
+  await page.mouse.move(0, 0);
+  await expect.poll(() => solidBarGroups(overview)).toBe(1);
   await overview.getByRole('button', { name: 'Show data table', exact: true }).click();
+  await expect(overview.locator('tr[aria-current=true]')).toContainText('January');
   const february = overview.getByRole('button', {
     name: 'Select Mobile for February: 491',
     exact: true,
@@ -33,6 +37,8 @@ test('hydrates linked charts and connects real plot clicks, keyboard values and 
   await february.focus();
   await page.keyboard.press('Enter');
   await expect(february).toBeFocused();
+  await expect(overview.locator('tr[aria-current=true]')).toContainText('February');
+  await expect(overview.locator('.selection-label')).toHaveText('Selected');
   await expect(detail.getByRole('heading')).toHaveText('Device share · February');
   await detail.getByRole('button', { name: 'Show data table', exact: true }).click();
   await expect(
@@ -42,6 +48,7 @@ test('hydrates linked charts and connects real plot clicks, keyboard values and 
     detail.getByRole('button', { name: 'Select Visits for Mobile: 491', exact: true }),
   ).toBeVisible();
   await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('mar');
+  await expect(overview.locator('tr[aria-current=true]')).toContainText('March');
   await expect(
     detail.getByRole('button', { name: 'Select Visits for Desktop: 512', exact: true }),
   ).toBeVisible();
@@ -56,6 +63,8 @@ test('hydrates linked charts and connects real plot clicks, keyboard values and 
     0,
   );
   await expect(detail.getByRole('heading')).toHaveText('Device share · All months');
+  await expect(overview.locator('tr[aria-current]')).toHaveCount(0);
+  await expect.poll(() => solidBarGroups(overview)).toBe(12);
   await expect(
     detail.getByRole('button', { name: 'Select Visits for Desktop: 7,170', exact: true }),
   ).toBeVisible();
@@ -100,6 +109,7 @@ test('retains month identity, source focus and independent legends through chang
     .evaluate((button: HTMLButtonElement) => button.click());
   await expect(february).toBeFocused();
   await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('feb');
+  await expect(overview.locator('tr[aria-current=true]')).toContainText('February');
   await page.getByRole('button', { name: 'Update linked values', exact: true }).click();
   await expect(
     detail.getByRole('button', { name: 'Select Visits for Desktop: 210', exact: true }),
@@ -117,6 +127,7 @@ test('retains month identity, source focus and independent legends through chang
   await page.getByRole('button', { name: 'Remove February', exact: true }).click();
   await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('');
   await expect(detail.getByRole('heading')).toHaveText('Device share · All months');
+  await expect(overview.locator('tr[aria-current]')).toHaveCount(0);
   await page.getByRole('button', { name: 'Restore linked data', exact: true }).click();
   await expect(page.getByRole('combobox', { name: 'Month', exact: true })).toHaveValue('');
   await page.getByRole('button', { name: 'Missing linked data', exact: true }).click();
@@ -151,6 +162,7 @@ test('keeps linked layouts usable in both themes and releases both charts on nav
         .toBeLessThanOrEqual(width);
       await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('feb');
       await expect(page.locator('.detail h2')).toHaveText('Device share · February');
+      await expect.poll(() => solidBarGroups(page.locator('.overview nec-bar-chart'))).toBe(1);
     }
   }
   expect(
@@ -219,5 +231,34 @@ test('copies the standalone linking example and offers a manual fallback when cl
       { exact: true },
     ),
   ).toBeVisible();
+  expect(errors).toEqual([]);
+});
+
+test('keeps the selected category visible with zero, missing and hidden measures and moves it by row ID', async ({
+  page,
+}) => {
+  const errors = collectBrowserErrors(page);
+  await page.goto('/linked-validation');
+  const overview = page.locator('.overview nec-bar-chart');
+  await expect(overview.locator('canvas')).toHaveCount(1);
+  await overview.locator('.legend button').first().click();
+  await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('feb');
+  // February's remaining visible measure is zero; the category still has a painted band.
+  await expect.poll(() => selectionBandCenter(overview)).not.toBeNull();
+  const original = (await selectionBandCenter(overview))!;
+  await page.getByRole('button', { name: 'Reverse months', exact: true }).click();
+  await expect.poll(() => selectionBandCenter(overview)).toBeGreaterThan(original + 0.1);
+  await overview.locator('.legend button').last().click();
+  await page.getByRole('combobox', { name: 'Month', exact: true }).selectOption('mar');
+  await expect.poll(() => selectionBandCenter(overview)).not.toBeNull();
+  await overview.getByRole('button', { name: 'Show data table', exact: true }).click();
+  await expect(overview.locator('tr[aria-current=true]')).toContainText('March');
+  await expect(overview.locator('tr[aria-current=true]')).toContainText('Missing');
+  await page.getByRole('button', { name: 'Use light theme', exact: true }).click();
+  await expect.poll(() => selectionBandCenter(overview)).not.toBeNull();
+  await page.getByRole('button', { name: 'Reset month filter', exact: true }).click();
+  await expect.poll(() => selectionBandCenter(overview)).toBeNull();
+  await expect(overview.locator('tr[aria-current]')).toHaveCount(0);
+  await expect(overview.locator('.legend button[aria-pressed=false]')).toHaveCount(2);
   expect(errors).toEqual([]);
 });

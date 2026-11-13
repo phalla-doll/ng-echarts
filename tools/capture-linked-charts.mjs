@@ -97,6 +97,15 @@ try {
         });
       }
       await page.waitForTimeout(400);
+      if (width === 1440 || width === 320) {
+        const overview = `linked-${theme}-${width}-selected-overview.png`;
+        captures.push({
+          name: overview,
+          sha256: hash(
+            await page.locator('.overview').screenshot({ path: resolve(output, overview) }),
+          ),
+        });
+      }
       await page.evaluate(() => window.scrollTo(0, 0));
       const name = `linked-${theme}-${width}.png`;
       captures.push({
@@ -120,6 +129,7 @@ try {
     await action.focus();
     await page.keyboard.press('Enter');
     await expect(action).toBeFocused();
+    await expect(page.locator('.overview tr[aria-current=true]')).toContainText('March');
     const name = `linked-${theme}-320-keyboard.png`;
     captures.push({
       name,
@@ -138,11 +148,17 @@ try {
   assert.deepEqual(errors, []);
   const sources = [];
   for (const path of [
+    'projects/chart-library/bar/src/lib/bar-chart.ts',
+    'projects/chart-library/bar/src/lib/bar-options.ts',
+    'projects/chart-library/core/src/lib/cartesian-chart.ts',
+    'projects/chart-library/core/src/lib/cartesian-chart.html',
+    'projects/chart-library/core/src/lib/cartesian-chart.css',
     'projects/playground/src/app/linked-visits.ts',
     'projects/playground/src/app/linked-visits.html',
     'projects/playground/src/app/linked-visits.css',
     'projects/playground/src/app/linked-charts.ts',
     'projects/playground/src/app/linked-charts.css',
+    'projects/playground/src/app/linked-example-source.ts',
     'projects/playground/src/styles.css',
     'tools/capture-linked-charts.mjs',
   ])

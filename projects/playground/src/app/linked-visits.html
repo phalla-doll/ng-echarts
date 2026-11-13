@@ -45,11 +45,12 @@
   <section class="linked-card overview" aria-label="Monthly visits overview">
     <nec-bar-chart
       title="Monthly visits"
-      description="Choose a month from a bar or the data table."
+      [description]="overviewDescription()"
       [data]="data()"
       rowIdKey="id"
       categoryKey="month"
       [series]="series"
+      [selectedRowId]="selectedId()"
       [categoryTickFormatter]="monthTick"
       [theme]="theme()"
       [height]="250"

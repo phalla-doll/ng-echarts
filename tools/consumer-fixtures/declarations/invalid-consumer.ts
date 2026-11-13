@@ -25,6 +25,22 @@ export class InvalidConsumer {
 @Component({
   imports: [BarChart],
   template: `<nec-bar-chart
+    title="Invalid row selection"
+    [data]="rows"
+    rowIdKey="id"
+    categoryKey="category"
+    [series]="series"
+    [selectedRowId]="12"
+  />`,
+})
+export class InvalidBarSelection {
+  readonly rows: readonly Row[] = [{ id: 'a', category: 'A', count: 1 }];
+  readonly series: readonly ChartSeries<Row>[] = [{ id: 'count', key: 'count', label: 'Count' }];
+}
+
+@Component({
+  imports: [BarChart],
+  template: `<nec-bar-chart
     title="Invalid numeric key"
     [data]="rows"
     rowIdKey="id"

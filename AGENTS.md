@@ -17,7 +17,7 @@ Library source and colocated tests: `projects/chart-library/{core,bar,line,area,
 
 ## Implementation Workflow
 
-The product specification owns scope; research findings own compatibility ranges. Follow the implementation plan and upstream provenance ledger. G1 passes for bar. The user deferred R06 human listening to release acceptance and authorized continued development through NG17 composed charts and the first NG20 linked-chart integration; retain human F09 and G2/G3/G4 as pending until their evidence exists. NG16 records the private 0.1.0-rc.0 candidate; NG17 advances it to 0.1.0-rc.1 with the user-selected MIT license, preserved notices and exact-artifact checks; NG20 reuses rc.1 without library changes. Human release gates remain pending. Demo deployment does not publish the library package or close release gates.
+The product specification owns scope; research findings own compatibility ranges. Follow the implementation plan and upstream provenance ledger. G1 passes for bar. The user deferred R06 human listening to release acceptance and authorized continued development through NG17 composed charts and the first NG20 linked-chart integration; retain human F09 and G2/G3/G4 as pending until their evidence exists. NG16 records the private 0.1.0-rc.0 candidate; NG17 advances it to 0.1.0-rc.1 with the user-selected MIT license, preserved notices and exact-artifact checks; NG20 initially reused rc.1; its controlled bar selection-feedback extension advances the private candidate to rc.2, preserving both earlier artifacts. Human release gates remain pending. Demo deployment does not publish the library package or close release gates.
 
 ## Build, Test, and Development Commands
 

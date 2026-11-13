@@ -50,6 +50,10 @@ export abstract class CartesianChart<
   protected abstract familyConfiguration(): unknown;
   protected abstract familyError(): string | null;
   protected abstract buildOptions(context: CartesianContext<T>): Option;
+  /** A family can opt into controlled row feedback without changing point events. */
+  protected rowSelectionId(): string | null {
+    return null;
+  }
   readonly title = input.required<string>();
   readonly description = input('');
   readonly data = input.required<readonly T[]>();
@@ -171,6 +175,7 @@ export abstract class CartesianChart<
     return model.rows.map((row) => ({
       id: row.id,
       category: row.category,
+      selected: row.id === this.rowSelectionId(),
       cells: row.points.map((point, index) => {
         const text = point.value === null ? 'Missing' : this.formatting().format(point.value);
         return {

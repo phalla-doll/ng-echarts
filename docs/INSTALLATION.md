@@ -9,7 +9,7 @@ Run these commands in the repository root after selecting the toolchain:
 ```sh
 npm ci
 npm run pack:lib
-export CHART_LIBRARY_TARBALL="$PWD/dist/ng-echarts-chart-library-0.1.0-rc.1.tgz"
+export CHART_LIBRARY_TARBALL="$PWD/dist/ng-echarts-chart-library-0.1.0-rc.2.tgz"
 ```
 
 The `CHART_LIBRARY_TARBALL` variable is an absolute path for the commands below. If you open another terminal, set it to the actual tarball location. Keep the tarball available for subsequent installs, or copy it into the consuming project's `vendor/` directory before installing it. Commit the consumer's resulting lockfile and use `npm ci` for repeat installs. Rebuild/repack/reinstall when changing the library; a tarball installation does not watch the checkout.

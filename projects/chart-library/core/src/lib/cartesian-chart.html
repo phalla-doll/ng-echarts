@@ -70,8 +70,13 @@
             </thead>
             <tbody>
               @for (row of tableRows(); track row.id) {
-                <tr>
-                  <th scope="row">{{ row.category }}</th>
+                <tr [attr.aria-current]="row.selected ? 'true' : null">
+                  <th scope="row">
+                    {{ row.category }}
+                    @if (row.selected) {
+                      <span class="selection-label">Selected</span>
+                    }
+                  </th>
                   @for (cell of row.cells; track cell.seriesId) {
                     <td>
                       @if (cell.value !== null) {

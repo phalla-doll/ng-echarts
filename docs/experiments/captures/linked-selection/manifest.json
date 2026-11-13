@@ -1,0 +1,219 @@
+{
+  "recordedAt": "2026-11-13T07:16:38.175Z",
+  "base": "http://localhost:4182/",
+  "browser": "158.0.8127.18",
+  "node": "v24.22.2",
+  "reducedMotion": "reduce",
+  "deviceScaleFactor": 1,
+  "sources": [
+    {
+      "path": "projects/chart-library/bar/src/lib/bar-chart.ts",
+      "sha256": "976dac8d6d68b8db09dcfb3131eaeba4385c229e43e82d06d33e9db728b32f8c"
+    },
+    {
+      "path": "projects/chart-library/bar/src/lib/bar-options.ts",
+      "sha256": "be1afcd5c66b11b81f874540ba27948ab4cc2d8c5839141659e8dc30f8bc3d8c"
+    },
+    {
+      "path": "projects/chart-library/core/src/lib/cartesian-chart.ts",
+      "sha256": "6fb9968281d35523b2b562a8960954b72bb0c02f7c2f94894ccef29108eb04d5"
+    },
+    {
+      "path": "projects/chart-library/core/src/lib/cartesian-chart.html",
+      "sha256": "d428f1c898d572eb0f60d7f8bdaf799692c8ca37dc41cebdf6b38e709b23de45"
+    },
+    {
+      "path": "projects/chart-library/core/src/lib/cartesian-chart.css",
+      "sha256": "57c95f29a776ee22008ebdd3e374ef2a741e0416030209ce7b0e360b1fa2c4b5"
+    },
+    {
+      "path": "projects/playground/src/app/linked-visits.ts",
+      "sha256": "0e9d355c5e326c7796d733c897f1c9aedc7fa1b28df14ac3cacd63753042e7eb"
+    },
+    {
+      "path": "projects/playground/src/app/linked-visits.html",
+      "sha256": "fd8c516c7743616ee676b2dc7e3e91a2ebd9e2a37335bee2e841f64a89e5c224"
+    },
+    {
+      "path": "projects/playground/src/app/linked-visits.css",
+      "sha256": "afbffb5e26d719891c69f47cbb6b652160d6afa7901ca1be70ebbbb85d150a3c"
+    },
+    {
+      "path": "projects/playground/src/app/linked-charts.ts",
+      "sha256": "de2825269cf7a2f56ca0d788bf8090b112d04eda558bcd803d70deb5bd74dfd2"
+    },
+    {
+      "path": "projects/playground/src/app/linked-charts.css",
+      "sha256": "d987731761865da5046502640c953bf4cb53242aaaa0f40cd58ce8e199253717"
+    },
+    {
+      "path": "projects/playground/src/app/linked-example-source.ts",
+      "sha256": "2ad649209913505aa515d3214a4c52f676718f4ead7407b53f0b879259aa9cc1"
+    },
+    {
+      "path": "projects/playground/src/styles.css",
+      "sha256": "d405f30a03d9c37f2c87cf85f3635a253a1ca4b6b184f1ff146057cf89031035"
+    },
+    {
+      "path": "tools/capture-linked-charts.mjs",
+      "sha256": "17c3e6dd6f28666e41c0fbf2affc2bce75544389c92b3c6ff00622159bf672ca"
+    }
+  ],
+  "captures": [
+    {
+      "name": "linked-dark-1440-all-months-filter.png",
+      "sha256": "ee37b4daf019aed9d658308a46cf1a8ea1a8010fc1e01b12a42140e35c44d94b"
+    },
+    {
+      "name": "linked-dark-1440-all-months.png",
+      "sha256": "2d0be9e297f86a1e040f40b57c0a5e5a9f076940b87d630c774dd5c1ffb6e597"
+    },
+    {
+      "name": "linked-dark-1440-selected-filter.png",
+      "sha256": "73a53b6ee350ad11d10ba1bd7d9376f7572ee0242cb7821641b6dd973afa7a50"
+    },
+    {
+      "name": "linked-dark-1440-selected-overview.png",
+      "sha256": "6555c36c5d7da64153c588f47356b43361a67c7ef114a8cfdbf7bb9cbcb22bff"
+    },
+    {
+      "name": "linked-dark-1440.png",
+      "sha256": "9706ad6222974bcc405a14f1e24ed9469f5ee63802f88c9afc76e2454560356c"
+    },
+    {
+      "name": "linked-dark-768.png",
+      "sha256": "842dc7af09661c142bd45a2b611b4a4dcf6e36a0873c1478321e4d34d4c1f760"
+    },
+    {
+      "name": "linked-dark-390.png",
+      "sha256": "a1dc49a5940ad3dd81a3c7bbcf9920689e887dfab968790c4699c383c502cfd6"
+    },
+    {
+      "name": "linked-dark-320-all-months-filter.png",
+      "sha256": "10dd990b8728a214c7f2fd1c3dc82141c3cd69be834ad5bdae79d3a2b0c5be37"
+    },
+    {
+      "name": "linked-dark-320-selected-filter.png",
+      "sha256": "50af79ef1688375913104e152160687c01d2e4eb444af904f966e304fa5bf906"
+    },
+    {
+      "name": "linked-dark-320-selected-overview.png",
+      "sha256": "3de821b92f7861c93842a013df35c74c2a0e85345b8916088dbef0f0e2909369"
+    },
+    {
+      "name": "linked-dark-320.png",
+      "sha256": "85f1cf9f20c1a679e148022a20baf5a1a8e1f7fc864ec6e2c30b865b35b5b6f3"
+    },
+    {
+      "name": "linked-dark-320-keyboard.png",
+      "sha256": "6ec75ce74bf372605ac6f946f49e46dea5123471b61379741af539636d18b931"
+    },
+    {
+      "name": "linked-dark-320-code.png",
+      "sha256": "2065ae32cdab1a47082cba360631bea0ae8b0779ce88f3d30adcc53d5c99f21a"
+    },
+    {
+      "name": "linked-light-1440-all-months-filter.png",
+      "sha256": "f9553317644bc3f005a589ec1c9395f4387e87842acf6573db68a7f8f00ef35e"
+    },
+    {
+      "name": "linked-light-1440-all-months.png",
+      "sha256": "e6ff31613a2b422bb46fc1b13e4b0e58b059ae98c8eb854ba9334b3edd4b629f"
+    },
+    {
+      "name": "linked-light-1440-selected-filter.png",
+      "sha256": "470e6a50a0cfb745dbae67c7a3a5aac347db621e0508fae94dc46de2d1a47bed"
+    },
+    {
+      "name": "linked-light-1440-selected-overview.png",
+      "sha256": "4523f6d750f429b19c77f8b02e885d6cc3eb0d6ea91cff81d08475b68aa9a6b6"
+    },
+    {
+      "name": "linked-light-1440.png",
+      "sha256": "524e909f169a29905765093e02a75a088d17a1467c754c59c53f0a60505546fe"
+    },
+    {
+      "name": "linked-light-768.png",
+      "sha256": "cce72d2b9d7a9639d7b11a28e45e6d1c102ad6efd51d46aabce71d7ca27d0628"
+    },
+    {
+      "name": "linked-light-390.png",
+      "sha256": "5329d05883ec49b4d99c16751d8150f78f37169bea6fa221c924efacfed12bf7"
+    },
+    {
+      "name": "linked-light-320-all-months-filter.png",
+      "sha256": "10873f11113ace4a670dcdc2e0f9e70c126e1f4302606bb886f5bdef54d8a979"
+    },
+    {
+      "name": "linked-light-320-selected-filter.png",
+      "sha256": "bd53457bdb22dee6fcf0ec2badf9a30b0c3ae911b4b98204af108953bacd7b93"
+    },
+    {
+      "name": "linked-light-320-selected-overview.png",
+      "sha256": "0a70150f2960e037d5c46439bbb198aa60384d964148c592b1d5a775f17c47aa"
+    },
+    {
+      "name": "linked-light-320.png",
+      "sha256": "8c362f9ad8408a3a6751eb4b8f9c2a4294a9935cc168cf52bdc2072fac170bfb"
+    },
+    {
+      "name": "linked-light-320-keyboard.png",
+      "sha256": "b60661f417348163f783b6132134610db142f21afcfb139bdfc715c2a1457ffb"
+    },
+    {
+      "name": "linked-light-320-code.png",
+      "sha256": "24bef2680f451ab4b16287499cf7b50132cf476397f23057e7f46c090bb053b1"
+    }
+  ],
+  "measurements": [
+    {
+      "theme": "dark",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "status": " February: 1,367 visits. Device share shows this month.\n"
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "scrollWidth": 768,
+      "status": " February: 1,367 visits. Device share shows this month.\n"
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "scrollWidth": 390,
+      "status": " February: 1,367 visits. Device share shows this month.\n"
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "scrollWidth": 320,
+      "status": " February: 1,367 visits. Device share shows this month.\n"
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "status": " February: 1,367 visits. Device share shows this month.\n"
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "scrollWidth": 768,
+      "status": " February: 1,367 visits. Device share shows this month.\n"
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "scrollWidth": 390,
+      "status": " February: 1,367 visits. Device share shows this month.\n"
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "scrollWidth": 320,
+      "status": " February: 1,367 visits. Device share shows this month.\n"
+    }
+  ],
+  "errors": []
+}

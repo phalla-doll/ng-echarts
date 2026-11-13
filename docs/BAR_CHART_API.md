@@ -58,6 +58,7 @@ Bind booleans and numbers as Angular properties, for example `[stacked]="true"` 
 | `layout` | `'vertical' \| 'horizontal'`, `'vertical'` | Category/value axis orientation |
 | `stacked` | `boolean`, `false` | Stack visible series together |
 | `gradient` | `boolean`, `false` | Theme-colored linear fade along the value axis |
+| `selectedRowId` | `string \| null`, `null` | Controlled row feedback (rc.2+): retain this category's bar colors, fade others, draw a category band and mark the expanded table row as current. Unknown/empty IDs render normally. |
 | `theme` | `'light' \| 'dark'`, `'light'` | Explicit palette defaults; no automatic system preference |
 | `themeRevision` | Finite `number`, `0` | Change to reread inherited font and CSS colors |
 | `locale` | `string`, `'en-US'` | Deterministic numeric locale |
@@ -81,6 +82,8 @@ Replace row, series, and options references to update them. Visibility survives 
 | `legendChange` | `LegendVisibilityChange`: `seriesId`, `visible` |
 
 Use `(pointSelect)="select($event)"` with a named handler. Plot selection ignores hidden series; table actions remain available for every nonmissing value, including hidden series and zero. Missing cells have text but no action. Legend buttons expose pressed state and work by keyboard. The native table preserves every row when a series is hidden.
+
+To reflect an application selection, bind `[selectedRowId]="selectedId()"` and set that signal from `pointSelect` or another native control. The chart never mutates this input or emits a point event for an input change. Reset it to `null` for the full overview. IDs refer to supplied rows, including rows with zero/missing observations; duplicate category labels do not affect identity. Unknown IDs produce no highlight. The application decides whether a removed ID should be cleared or highlighted again if reintroduced; the [linked example](LINKED_CHARTS.md) clears removed IDs permanently. Legends and raw tooltip/table values remain independent of feedback, including with horizontal, stacked or gradient bars. Feedback appears only in the ready state; entirely missing/empty data retains the normal empty state, and loading/errors hide the plot and table.
 
 Gallery examples set `[showDataTable]="false"` at the user's request; datasets remain in Code. Applications needing keyboard point actions should retain the table or provide an equivalent interface. Disabling and reenabling the input preserves the previous expansion preference.
 

@@ -51,7 +51,7 @@ NG09 first increment: [shared numeric formatting](experiments/NG09_SHARED_FORMAT
 | NG17 | P2 | Composed Cartesian charts: first vertical bar/line increment implemented; dual-axis/stacked/area extensions deferred | [API and evidence](experiments/NG17_COMPOSED_CHART.md); user-authorized experimental continuation |
 | NG18 | P2 | Radar and radial charts | Separate geometry and accessibility requirements defined |
 | NG19 | P2 | Sankey and calendar heatmaps | Family-specific data models and fixtures agreed |
-| NG20 | P2 | First application-owned overview/detail link implemented; range brush, zoom/hover and two-way selection deferred | [Selection contract and evidence](experiments/NG20_LINKED_CHARTS.md); user prioritized linked charts after NG17 |
+| NG20 | P2 | Application-owned overview/detail link and controlled bar row feedback implemented; range brush, zoom/hover and two-way selection deferred | [Initial contract](experiments/NG20_LINKED_CHARTS.md) and [selection feedback](experiments/LINKED_SELECTION_FEEDBACK.md); user prioritized linked charts after NG17 |
 | NG21 | P2 | Patterns, glow, advanced animations, and tooltip templates | Per-variant visual and performance targets agreed |
 | NG22 | P2 | Publication workflow and public package identity | Namespace availability checked and release destination chosen |
 
@@ -73,3 +73,5 @@ The user selected NG20 linked charts as the next increment after NG17. The [link
 
 
 The requested [linked-demo UI refinement](experiments/LINKED_UI_REFINEMENT.md) replaces the heavy filter row with a compact native Month field, conditional Reset and concise totals, and aligns chart cards/controls with the gallery. Reset returns focus to the month field; linking/state semantics and the rc.1 artifact remain unchanged.
+
+The subsequent [selection-feedback increment](experiments/LINKED_SELECTION_FEEDBACK.md) adds controlled `BarChart.selectedRowId` presentation: a category band, focused bar colors and a visibly/current-marked table row. The link remains application-owned and clears removed IDs. Reset restores the overview without changing local legends. This public input advances the private package to rc.2; earlier artifacts and evidence remain preserved. Range selection and deferred human release acceptance remain open.

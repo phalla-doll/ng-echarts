@@ -64,6 +64,11 @@ export class LinkedVisits {
     () => this.data().find((row) => row.id === this.selectedId()) ?? null,
   );
   protected readonly context = computed(() => this.selectedMonth()?.month ?? 'All months');
+  protected readonly overviewDescription = computed(() =>
+    this.selectedMonth()
+      ? `${this.context()} selected. Choose another month to compare.`
+      : 'Choose a month from a bar or the data table.',
+  );
   protected readonly share = computed(() =>
     deviceShare(this.selectedMonth() ? [this.selectedMonth()!] : this.data()),
   );

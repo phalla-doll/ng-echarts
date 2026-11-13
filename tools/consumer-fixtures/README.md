@@ -25,3 +25,5 @@ NG17 adds focused/root composed class identity, inferred row events, numeric key
 
 
 NG20 compiles the exact standalone linking source displayed in the demo and requires it to match the guide fence byte-for-byte. Installed client/SSR consumers additionally select an overview value with the keyboard, observe updated device share, clear selection, navigate to the validation fixture, update the selected month, retain a zero device value, clear a removed ID and navigate away. These checks use the preserved rc.1 tarball; no new library API is required.
+
+The later NG20 selection-feedback increment advances the private candidate to rc.2. The exact displayed/guide source now binds `selectedRowId`; strict negative templates reject numeric IDs. Installed client/SSR consumers require the selected overview table row and visible label, then verify Reset removes feedback and retains Month focus. The rc.1 record above describes the initial integration and remains preserved separately.

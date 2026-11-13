@@ -65,3 +65,16 @@ td {
 td {
   white-space: nowrap;
 }
+tr[aria-current='true'] {
+  background: color-mix(in srgb, var(--nec-text, #18202c) 5%, transparent);
+}
+tr[aria-current='true'] th {
+  box-shadow: inset 2px 0 var(--nec-text, #18202c);
+}
+.selection-label {
+  display: block;
+  margin-top: 2px;
+  color: var(--nec-muted, #536176);
+  font-size: 0.6875rem;
+  font-weight: 500;
+}

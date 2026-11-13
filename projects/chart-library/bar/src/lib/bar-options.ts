@@ -35,18 +35,39 @@ export function buildBarOptions<T>(
   animation: boolean,
   format: (value: number) => string,
   categoryTicks: readonly string[] = model.rows.map((row) => row.category),
+  selectedRowId: string | null = null,
 ): BarOption {
   const horizontal = layout === 'horizontal';
+  const selected = model.rows.some((row) => row.id === selectedRowId);
+  const base = ɵbuildCartesianOptions(
+    model,
+    hiddenIds,
+    tokens,
+    horizontal,
+    animation,
+    format,
+    categoryTicks,
+  );
+  const categoryAxis = horizontal ? base.yAxis : base.xAxis;
+  const selectedAxis = () => ({
+    ...categoryAxis,
+    // A category band remains visible for zero/missing values or hidden series.
+    splitArea: {
+      show: true,
+      interval: 0,
+      areaStyle: {
+        color: model.rows.map((row) => (row.id === selectedRowId ? tokens.border : 'transparent')),
+        opacity: 0.3,
+      },
+    },
+    data: model.rows.map((row) => ({
+      value: row.id,
+      textStyle: row.id === selectedRowId ? { color: tokens.text, fontWeight: 600 } : undefined,
+    })),
+  });
   return {
-    ...ɵbuildCartesianOptions(
-      model,
-      hiddenIds,
-      tokens,
-      horizontal,
-      animation,
-      format,
-      categoryTicks,
-    ),
+    ...base,
+    ...(selected ? (horizontal ? { yAxis: selectedAxis() } : { xAxis: selectedAxis() }) : {}),
     series: model.series.flatMap((item, index): BarSeriesOption[] => {
       if (hiddenIds.has(item.id)) return [];
       const color = tokens.series[index % tokens.series.length] ?? '#047857';
@@ -75,7 +96,11 @@ export function buildBarOptions<T>(
                 }
               : color,
           },
-          data: model.rows.map((row) => ({ id: row.id, value: row.points[index]?.value ?? '-' })),
+          data: model.rows.map((row) => ({
+            id: row.id,
+            value: row.points[index]?.value ?? '-',
+            ...(selected ? { itemStyle: { opacity: row.id === selectedRowId ? 1 : 0.35 } } : {}),
+          })),
         },
       ];
     }),

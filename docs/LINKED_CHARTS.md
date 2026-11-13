@@ -1,6 +1,6 @@
 # Linked charts
 
-NG20's first increment links a monthly visits overview to a device-share detail. Selection belongs to the application: `pointSelect` supplies a stable row ID, a signal stores it, and `computed` derives the companion chart's data. No ECharts instance connection, global selection bus or new library API is required.
+NG20 links a monthly visits overview to a device-share detail. Selection belongs to the application: `pointSelect` supplies a stable row ID, a signal stores it, and `computed` derives the companion chart's data. The bar chart's controlled `selectedRowId` input reflects that context in the overview. No ECharts instance connection or global selection bus is required. Use private rc.2 or later for this feedback input; rc.1 supports the original link without persistent highlighting.
 
 ## Complete standalone example
 
@@ -48,6 +48,7 @@ interface Device {
       rowIdKey="id"
       categoryKey="month"
       [series]="series"
+      [selectedRowId]="selectedId() || null"
       (pointSelect)="selectMonth($event.rowId)"
     />
     <nec-pie-chart
@@ -112,6 +113,7 @@ Replace `rows` immutably to update observations. `linkedSignal` keeps an existin
 ## Interaction contract
 
 - A point in either overview series selects its **month**, not a device filter. The companion chart updates to that month's desktop/mobile observations.
+- `selectedRowId` highlights the full month category: its bars retain their palette, other months fade, and a subtle band remains even for zero/missing values or hidden series. The expanded table marks the same row as current and displays “Selected.” Binding the input alone emits no point event; chart clicks do not mutate it. The application owns reconciliation and reset.
 - The month selector provides the same month action without opening a table. All months clears selection. The live demo also shows a compact Reset action only while a month is selected; it returns focus to the month field after clearing. Focus stays on the initiating control; an update does not move focus to the detail chart.
 - Legends retain independent visibility. Hiding a series/category does not change the linked month, and native tables retain complete values.
 - The live demo displays a compact total and announces its full context through a polite status region; detail actions display and announce the selected device's current value. Updating a context never writes back into the source event, so no feedback loop is created.
@@ -122,7 +124,7 @@ The [live example](https://phalla-doll.github.io/ng-echarts/linked/) uses the ex
 
 ## Scope
 
-This is a one-way, application-owned context link. It does not add persistent plot highlighting, shared legend visibility, linked zoom, brushing, range selection, cross-chart hover or an ECharts connection API. Range brushing and two-way/multiple-selection designs remain later NG20 work. The private rc.1 library artifact is unchanged. Human interpretation and release gates retain their deferred status; the [NG20 report](experiments/NG20_LINKED_CHARTS.md) records executed evidence.
+This is a one-way, application-owned context link with persistent overview feedback. Shared legend visibility, linked zoom, brushing, range selection, cross-chart hover and an ECharts connection API remain outside this increment. Range brushing and two-way/multiple-selection designs remain later NG20 work. The new bar input advances the private candidate to rc.2; earlier candidate artifacts remain preserved. Human interpretation and release gates retain their deferred status; the [initial NG20 report](experiments/NG20_LINKED_CHARTS.md) and [selection-feedback review](experiments/LINKED_SELECTION_FEEDBACK.md) record their respective evidence.
 
 
 ## Demo presentation
