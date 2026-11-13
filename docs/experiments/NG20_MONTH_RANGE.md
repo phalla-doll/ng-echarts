@@ -50,3 +50,9 @@ Documentation links/anchors, whitespace and capture hashes are checked before co
 ## Remaining scope
 
 Graphical range brushing/dragging, linked zoom/hover, shared legends and bidirectional selection remain later NG20 work. Native ranges do not claim a new large-data or multi-chart performance envelope. Human F09/R06/G2/G3/G4 remain deferred/pending. The package stays private; no registry publication occurs, and rc.0–rc.2 artifacts and evidence remain preserved.
+
+## Live delivery
+
+Feature/evidence commit `a85c80efea57dc019abed690c505eb8a73445af9` is pushed to main. The [live linked demo](https://phalla-doll.github.io/ng-echarts/linked/) is served from static commit `195ff7801fd7ae4dca5690b96c6b2244e31b23d5`; the [Pages deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43404190342) succeeds. The preview marker identifies that clean feature source with `includesWorkingTree: false`.
+
+Live checks pass in Chromium, Firefox and WebKit across all 29 prerendered routes, including native range initialization, February–March totals, multiple Selected table rows without multiple current rows, Reset/focus and reload reset, lazy fonts/assets, themes, fragments and mobile navigation. The separate workspace CI workflow runs independently; these results identify the executed local and live checks. The verified rc.3 tarball/checksum is retained alongside rc.0–rc.2 in the shared workspace's ignored `dist/releases/`. No npm publication or human gate closure is claimed.
