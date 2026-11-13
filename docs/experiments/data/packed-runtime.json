@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-13T10:31:55.763Z",
+  "recordedAt": "2026-11-13T12:37:29.425Z",
   "node": "v24.22.2",
   "package": "@ng-echarts/chart-library",
   "version": "0.1.0-rc.4",
@@ -15,11 +15,47 @@
   "privateImportsBlocked": true,
   "reactRuntime": false,
   "results": [
-    { "engine": "chromium", "version": "158.0.8127.18", "mode": "client", "passed": true },
-    { "engine": "chromium", "version": "158.0.8127.18", "mode": "ssr-hydration", "passed": true },
-    { "engine": "firefox", "version": "159.0", "mode": "client", "passed": true },
-    { "engine": "firefox", "version": "159.0", "mode": "ssr-hydration", "passed": true },
-    { "engine": "webkit", "version": "27.2", "mode": "client", "passed": true },
-    { "engine": "webkit", "version": "27.2", "mode": "ssr-hydration", "passed": true }
+    {
+      "engine": "chromium",
+      "version": "158.0.8127.18",
+      "mode": "client",
+      "conceptGallery": true,
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "158.0.8127.18",
+      "mode": "ssr-hydration",
+      "conceptGallery": true,
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "mode": "client",
+      "conceptGallery": true,
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "mode": "ssr-hydration",
+      "conceptGallery": true,
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "mode": "client",
+      "conceptGallery": true,
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "mode": "ssr-hydration",
+      "conceptGallery": true,
+      "passed": true
+    }
   ]
 }

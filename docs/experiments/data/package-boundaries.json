@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-13T10:29:39.287Z",
+  "recordedAt": "2026-11-13T12:34:46.495Z",
   "method": "Resolve public package imports, Angular-link, bundle/minify/split with Angular/RxJS peers external; count only modules contributing bytes to output; traverse static imports separately from lazy chunks; sum independently compressed JavaScript chunks",
   "scenarios": [
     {

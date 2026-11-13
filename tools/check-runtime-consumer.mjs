@@ -2,7 +2,7 @@ import { consumerArtifact } from './consumer-artifact.mjs';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { createServer } from 'node:http';
-import { cp, mkdtemp, realpath, readFile, writeFile, rm } from 'node:fs/promises';
+import { cp, mkdir, mkdtemp, realpath, readFile, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, relative, resolve } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
@@ -264,11 +264,21 @@ async function exercise(engine, url, ssr) {
     await expect(page.getByRole('combobox', { name: 'Period', exact: true })).toHaveValue('');
     await navigation.getByRole('link', { name: 'Navigate away', exact: true }).click();
     await expect(page.locator('canvas')).toHaveCount(0);
+    await navigation.getByRole('link', { name: 'Chart possibilities', exact: true }).click();
+    const concepts = page.frameLocator('app-chart-possibilities iframe');
+    await expect(concepts.locator('.card')).toHaveCount(12);
+    await expect(concepts.locator('.plot svg, .spark-plot svg')).toHaveCount(14);
+    await concepts.getByRole('button', { name: 'Find patterns', exact: true }).click();
+    await expect(concepts.locator('.card:visible')).toHaveCount(2);
+    await navigation.getByRole('link', { name: 'Navigate away', exact: true }).click();
+    await expect(page.locator('iframe')).toHaveCount(0);
+    await expect(page.locator('canvas')).toHaveCount(0);
     assert.deepEqual(errors, []);
     return {
       engine: browser.browserType().name(),
       version: browser.version(),
       mode: ssr ? 'ssr-hydration' : 'client',
+      conceptGallery: true,
       passed: true,
     };
   } finally {
@@ -280,6 +290,11 @@ try {
   await cp(join(root, 'projects/playground'), join(consumer, 'projects/playground'), {
     recursive: true,
   });
+  await mkdir(join(consumer, 'docs/experiments'), { recursive: true });
+  await cp(
+    join(root, 'docs/experiments/chart-style-gallery.html'),
+    join(consumer, 'docs/experiments/chart-style-gallery.html'),
+  );
   const tsconfig = JSON.parse(await readFile(join(root, 'tsconfig.json')));
   delete tsconfig.compilerOptions.paths;
   delete tsconfig.references;
