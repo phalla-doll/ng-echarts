@@ -97,6 +97,14 @@ await withPagesLock(root, 'performance', async () => {
         try {
           const page = await context.newPage();
           const errors = [];
+          let conceptNavigations = 0;
+          page.on('request', (request) => {
+            if (
+              request.isNavigationRequest() &&
+              request.url().includes('/concepts/chart-style-gallery-embedded.html')
+            )
+              conceptNavigations++;
+          });
           page.on('pageerror', (error) => errors.push(error.message));
           page.on('response', (response) => {
             if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`);
@@ -129,6 +137,8 @@ await withPagesLock(root, 'performance', async () => {
           );
           const readyMs = await page.evaluate(() => performance.now());
           await page.waitForLoadState('load');
+          if (route === 'chart-possibilities')
+            await page.locator('.loading-note').waitFor({ state: 'hidden' });
           const sample = await page.evaluate(() => {
             const windows = [
               window,
@@ -164,7 +174,8 @@ await withPagesLock(root, 'performance', async () => {
               })),
             };
           });
-          samples.push({ readyMs, ...sample });
+          samples.push({ readyMs, conceptNavigations, ...sample });
+          assert(conceptNavigations <= 1, 'Hydration restarted the concept frame navigation.');
           assert.deepEqual(errors, [], `Browser errors at ${route || '/'}`);
         } finally {
           await context.close();

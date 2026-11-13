@@ -102,6 +102,7 @@ test('loads the concept frame before Angular and recovers the late parent handsh
     const gallery = page.frameLocator('app-chart-possibilities iframe');
     await expect(gallery.locator('#plot-calendar svg')).toHaveCount(1);
     await expect(gallery.locator('#plot-calendar')).toHaveAttribute('data-render-count', '1');
+    const frameOrigin = await gallery.locator('html').evaluate(() => performance.timeOrigin);
     release();
     await expect(page.locator('.loading-note')).toBeHidden();
     await expect
@@ -118,6 +119,7 @@ test('loads the concept frame before Angular and recovers the late parent handsh
       .toBeLessThanOrEqual(1);
     await expect(gallery.locator('#plot-calendar')).toHaveAttribute('data-render-count', '1');
     expect(documents).toHaveLength(1);
+    expect(await gallery.locator('html').evaluate(() => performance.timeOrigin)).toBe(frameOrigin);
     const height = await page.locator('iframe').getAttribute('style');
     await page.evaluate(() =>
       dispatchEvent(
@@ -172,5 +174,25 @@ test('renders concept charts progressively, keeps data available, and retains a 
     'aria-pressed',
     'true',
   );
+  expect(errors).toEqual([]);
+});
+
+test('keeps deferred concepts usable in cached wrappers without viewport messages', async ({
+  page,
+}) => {
+  const errors = collectBrowserErrors(page);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.route('**/legacy-gallery-host', (route) =>
+    route.fulfill({
+      contentType: 'text/html',
+      body: `<!doctype html><style>body{margin:0}iframe{display:block;width:100%;height:12000px;border:0}</style><app-chart-possibilities><iframe title="Legacy concept host" src="/concepts/chart-style-gallery.html?embedded=1&theme=dark"></iframe></app-chart-possibilities>`,
+    }),
+  );
+  await page.goto('/legacy-gallery-host');
+  const gallery = page.frameLocator('iframe');
+  await expect(gallery.locator('#plot-calendar svg')).toHaveCount(1);
+  await expect(gallery.locator('#plot-treemap svg')).toHaveCount(0);
+  await renderConcepts(page);
+  await expect(gallery.locator('.plot svg,.spark-plot svg')).toHaveCount(14);
   expect(errors).toEqual([]);
 });

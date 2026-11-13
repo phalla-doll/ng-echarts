@@ -15,7 +15,7 @@ import {
 import { SiteAppearance } from './site-appearance';
 import { SiteIcon } from './site-icon';
 
-const standaloneUrl = 'concepts/chart-style-gallery.html?v=0c7a20dadb90';
+const standaloneUrl = 'concepts/chart-style-gallery.html?v=afaee21ece15';
 
 /** Keep a server-started iframe navigation alive during hydration. Angular reapplies
  * static attributes too, so src is assigned once here rather than in the template. */
@@ -27,7 +27,7 @@ class ConceptGallerySource {
       inject(Renderer2).setAttribute(
         frame,
         'src',
-        `${standaloneUrl.replace('.html?', '-embedded.html?')}&embedded=1&theme=dark`,
+        `${standaloneUrl.replace('.html?', '-embedded.html?')}&embedded=1&theme=${inject(SiteAppearance).theme()}`,
       );
   }
 }
@@ -50,10 +50,7 @@ export class ChartPossibilities {
   protected readonly height = signal(4600);
   // Refresh the document in browsers that cached the first gallery deployment.
   protected readonly standaloneUrl = standaloneUrl;
-  // The iframe uses a static bundled src in the template: hydration must not
-  // reassign HTMLIFrameElement.src and restart an already loading document.
-  private viewportFrame: number | null = null;
-  private lastViewport = '';
+  // The source directive preserves the server-started frame document during hydration.
 
   constructor() {
     afterNextRender(() => {
@@ -71,10 +68,7 @@ export class ChartPossibilities {
           const height = data['height'];
           if (typeof height === 'number' && Number.isFinite(height) && height > 0) {
             const next = Math.min(30000, Math.ceil(height));
-            if (next !== this.height()) {
-              this.height.set(next);
-              this.scheduleViewport();
-            }
+            this.height.set(next);
             if (data['ready'] === true) this.ready.set(true);
           }
         } else if (data['type'] === 'chart-possibilities:anchor') {
@@ -86,14 +80,8 @@ export class ChartPossibilities {
         }
       };
       hostWindow.addEventListener('message', receive);
-      const viewport = () => this.scheduleViewport();
-      hostWindow.addEventListener('scroll', viewport, { passive: true });
-      hostWindow.addEventListener('resize', viewport);
       this.destroyRef.onDestroy(() => {
         hostWindow.removeEventListener('message', receive);
-        hostWindow.removeEventListener('scroll', viewport);
-        hostWindow.removeEventListener('resize', viewport);
-        if (this.viewportFrame !== null) hostWindow.cancelAnimationFrame(this.viewportFrame);
       });
       this.browserReady.set(true);
       // Also synchronizes a child that finished before the hydration listener existed.
@@ -106,26 +94,7 @@ export class ChartPossibilities {
   }
 
   protected onGalleryLoad(): void {
-    this.lastViewport = '';
     this.sendTheme(this.appearance.theme());
-    this.scheduleViewport();
-  }
-
-  private scheduleViewport(): void {
-    const hostWindow = this.document.defaultView;
-    if (!hostWindow || this.viewportFrame !== null || this.destroyRef.destroyed) return;
-    this.viewportFrame = hostWindow.requestAnimationFrame(() => {
-      this.viewportFrame = null;
-      const top = this.frame().nativeElement.getBoundingClientRect().top;
-      const viewport = { top: -top, bottom: hostWindow.innerHeight - top };
-      const signature = JSON.stringify(viewport);
-      if (signature === this.lastViewport) return;
-      this.lastViewport = signature;
-      this.frame().nativeElement.contentWindow?.postMessage(
-        { type: 'chart-possibilities:viewport', ...viewport },
-        hostWindow.location.origin,
-      );
-    });
   }
 
   private sendTheme(theme: 'light' | 'dark'): void {

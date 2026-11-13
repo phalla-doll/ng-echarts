@@ -2653,33 +2653,31 @@ PERFORMANCE OF THIS SOFTWARE.
         let fontsReady = false;
         let renderFrame = 0;
         let firstPlotReady = false;
-        let viewport = { top: 0, bottom: embedded ? 600 : innerHeight };
         const renderedThemes = new Map();
-        const widths = new Map();
+        const renderedSizes = new Map();
+        const nearViewport = new Set();
         const plotIds = models
           .filter((m) => m.id !== 'sparklines')
           .map((m) => m.id)
           .concat(['spark-0', 'spark-1', 'spark-2']);
         const plotElement = (id) =>
           document.getElementById(id.startsWith('spark-') ? id : `plot-${id}`);
+        const size = (el) => `${el.clientWidth}x${el.clientHeight}`;
         function visible(id, all = false) {
           const el = plotElement(id);
           if (el.closest('.card').hidden || !el.clientWidth) return false;
-          const bounds = el.getBoundingClientRect();
-          return (
-            all || (bounds.bottom >= viewport.top - 180 && bounds.top <= viewport.bottom + 180)
-          );
+          return all || nearViewport.has(el.id);
         }
         function renderPlot(id) {
           const el = plotElement(id);
           if (!charts.has(id)) {
             charts.set(id, echarts.init(el, null, { renderer: 'svg' }));
-            widths.set(id, el.clientWidth);
+            renderedSizes.set(id, size(el));
           }
           const chart = charts.get(id);
-          if (widths.get(id) !== el.clientWidth) {
+          if (renderedSizes.get(id) !== size(el)) {
             chart.resize();
-            widths.set(id, el.clientWidth);
+            renderedSizes.set(id, size(el));
             if (id === 'treemap' || id === 'radar') renderedThemes.delete(id);
           }
           const theme = document.documentElement.dataset.theme;
@@ -2707,7 +2705,7 @@ PERFORMANCE OF THIS SOFTWARE.
               (id) =>
                 visible(id) &&
                 (renderedThemes.get(id) !== document.documentElement.dataset.theme ||
-                  widths.get(id) !== plotElement(id).clientWidth),
+                  renderedSizes.get(id) !== size(plotElement(id))),
             );
             if (next) {
               renderPlot(next);
@@ -2760,9 +2758,21 @@ PERFORMANCE OF THIS SOFTWARE.
           }),
         );
         function resize() {
-          if (!embedded) viewport = { top: 0, bottom: innerHeight };
           requestRender();
         }
+        // The implicit root clips through ancestor frames, including the site's tall iframe.
+        // This also supports cached wrappers that only implement the original theme/size bridge.
+        const visibilityObserver = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) nearViewport.add(entry.target.id);
+              else nearViewport.delete(entry.target.id);
+            }
+            requestRender();
+          },
+          { rootMargin: '180px 0px' },
+        );
+        plotIds.forEach((id) => visibilityObserver.observe(plotElement(id)));
         const observer = new ResizeObserver(() => resize());
         observer.observe($('#collection'));
         const heightObserver = new ResizeObserver(reportHeight);
@@ -2809,19 +2819,12 @@ PERFORMANCE OF THIS SOFTWARE.
               initial = event.data.theme;
               setTheme(initial);
               reportHeight();
-            } else if (event.data.type === 'chart-possibilities:viewport') {
-              const { top, bottom } = event.data;
-              if (Number.isFinite(top) && Number.isFinite(bottom) && bottom > top) {
-                viewport = { top, bottom };
-                requestRender();
-              }
             }
           });
         document.fonts.ready.then(() => {
           fontsReady = true;
           setTheme(initial);
         });
-        if (!embedded) window.addEventListener('scroll', requestRender, { passive: true });
         window.addEventListener('resize', resize);
         window.addEventListener('beforeprint', () => {
           if (fontsReady) plotIds.filter((id) => visible(id, true)).forEach(renderPlot);
