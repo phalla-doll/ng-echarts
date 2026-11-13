@@ -13,7 +13,7 @@ npm run check:pages
 
 The build captures its commit/tree/source digest before compilation, extracts a clean commit into an isolated directory (or copies an exact dirty snapshot for local development), and uses the pinned installed dependencies. It checks inputs before/after compilation, prefixes Pages font URLs, preserves notices and `.nojekyll`, and seals every emitted file with SHA-256. Source changes during the build fail instead of being mislabeled. Internal relative source aliases remain within the snapshot; output symlinks are rejected.
 
-The `production,pages` build prerenders **30 routes** with base `/ng-echarts/`, physical route HTML, hydration metadata and lazy modules. Chart possibilities uses the exact bundled standalone document; its URL revision must match the source hash prefix. Native and graphical linked ranges remain covered.
+The `production,pages` build prerenders **31 routes** with base `/ng-echarts/`, physical route HTML, hydration metadata and lazy modules. Chart possibilities uses the exact bundled standalone document; its URL revision must match the source hash prefix. Native and graphical linked ranges and the focused radar gallery remain covered.
 
 Local verification serves the artifact without a SPA fallback and checks integrity before/after the Chromium, Firefox and WebKit flows. A successful run writes `dist/pages/pages-verification.json`, bound to the exact marker bytes. Failed or partial checks cannot authorize publication. Build/check/upload share an operation lock; dead-owner locks recover automatically. Build outputs and receipts remain ignored.
 
