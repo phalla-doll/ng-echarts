@@ -351,3 +351,35 @@ test('supports a real horizontal touch drag while leaving vertical touch scrolli
   }
   expect(errors).toEqual([]);
 });
+
+test('activates the range button once per real touch while retaining its native pressed state', async ({
+  page,
+  baseURL,
+}) => {
+  const touch = await page
+    .context()
+    .browser()!
+    .newContext({
+      viewport: { width: 390, height: 900 },
+      hasTouch: true,
+      reducedMotion: 'reduce',
+    });
+  try {
+    const phone = await touch.newPage();
+    const errors = collectBrowserErrors(phone);
+    await phone.goto(new URL('/linked', baseURL!).href);
+    await expect(phone.locator('canvas')).toHaveCount(2);
+    const button = phone.getByRole('button', { name: 'Select range', exact: true });
+    for (let i = 0; i < 3; i++) {
+      await button.tap();
+      await expect(button).toHaveAttribute('aria-pressed', 'true');
+      await expect(phone.locator('.nec-range-surface')).toBeVisible();
+      await button.tap();
+      await expect(button).toHaveAttribute('aria-pressed', 'false');
+      await expect(phone.locator('.nec-range-surface')).toHaveCount(0);
+    }
+    expect(errors).toEqual([]);
+  } finally {
+    await touch.close();
+  }
+});

@@ -34,7 +34,9 @@
       type="button"
       [attr.aria-pressed]="rangeMode()"
       [disabled]="!canSelectRange()"
-      (click)="toggleRange()"
+      (pointerup)="activateRangeTouch($event)"
+      (touchend)="finishRangeTouch($event)"
+      (click)="activateRangeClick($event)"
     >
       Select range
     </button>

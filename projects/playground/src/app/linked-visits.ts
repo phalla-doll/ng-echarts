@@ -60,6 +60,7 @@ export function deviceShare(rows: readonly VisitMonth[]): readonly DeviceVisits[
   host: { '(document:keydown.escape)': 'cancelRange()' },
 })
 export class LinkedVisits {
+  private rangeTouchActivated = false;
   readonly data = input.required<readonly VisitMonth[]>();
   readonly theme = input<ChartTheme>('light');
   readonly layout = input<BarLayout>('vertical');
@@ -195,6 +196,38 @@ export class LinkedVisits {
   protected toggleRange(): void {
     this.rangeMode.update((value) => !value);
     this.rangeButton()?.nativeElement.focus();
+  }
+  protected activateRangeTouch(event: PointerEvent): void {
+    if (
+      event.pointerType !== 'touch' ||
+      !event.isPrimary ||
+      event.button !== 0 ||
+      !this.canSelectRange()
+    )
+      return;
+    const box = (event.currentTarget as HTMLButtonElement).getBoundingClientRect();
+    if (
+      event.clientX < box.left ||
+      event.clientX > box.right ||
+      event.clientY < box.top ||
+      event.clientY > box.bottom
+    )
+      return;
+    // Chromium can suppress the compatibility click after a captured range drag.
+    // A canceled pan has no pointerup; releasing outside the button does not activate it.
+    event.preventDefault();
+    this.rangeTouchActivated = true;
+    this.toggleRange();
+  }
+  protected finishRangeTouch(event: TouchEvent): void {
+    if (!this.rangeTouchActivated) return;
+    this.rangeTouchActivated = false;
+    // WebKit's compatibility click is a MouseEvent without pointerType.
+    event.preventDefault();
+  }
+  protected activateRangeClick(event: MouseEvent): void {
+    // A touch release already activated the button; retain native mouse/keyboard clicks.
+    if ((event as PointerEvent).pointerType !== 'touch') this.toggleRange();
   }
   protected cancelRange(): void {
     this.rangeMode.set(false);

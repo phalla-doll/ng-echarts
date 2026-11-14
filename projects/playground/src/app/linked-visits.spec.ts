@@ -186,3 +186,54 @@ it('starts with unavailable range selection and recovers without losing focus wh
   expect(button.getAttribute('aria-pressed')).toBe('false');
   expect(host.ownerDocument.activeElement).toBe(period);
 });
+
+it('activates a completed touch once, retains native clicks, and ignores unavailable or outside releases', async () => {
+  TestBed.configureTestingModule({ providers: [{ provide: PLATFORM_ID, useValue: 'server' }] });
+  const fixture = TestBed.createComponent(LinkedVisits);
+  fixture.componentRef.setInput('data', [
+    { id: 'jan', month: 'January', desktop: 120, mobile: 80 },
+  ]);
+  await fixture.whenStable();
+  const button = (fixture.nativeElement as HTMLElement).querySelector<HTMLButtonElement>(
+    '.select-range',
+  )!;
+  const release = (clientX = 0, isPrimary = true) =>
+    button.dispatchEvent(
+      new PointerEvent('pointerup', {
+        bubbles: true,
+        cancelable: true,
+        pointerType: 'touch',
+        isPrimary,
+        button: 0,
+        clientX,
+      }),
+    );
+  release(10);
+  release(0, false);
+  button.dispatchEvent(
+    new PointerEvent('pointerup', {
+      bubbles: true,
+      pointerType: 'mouse',
+      isPrimary: true,
+      button: 0,
+    }),
+  );
+  await fixture.whenStable();
+  expect(button.getAttribute('aria-pressed')).toBe('false');
+  release();
+  const touchEnd = new Event('touchend', { bubbles: true, cancelable: true });
+  button.dispatchEvent(touchEnd);
+  expect(touchEnd.defaultPrevented).toBe(true);
+  button.dispatchEvent(new PointerEvent('click', { bubbles: true, pointerType: 'touch' }));
+  await fixture.whenStable();
+  expect(button.getAttribute('aria-pressed')).toBe('true');
+  button.click();
+  await fixture.whenStable();
+  expect(button.getAttribute('aria-pressed')).toBe('false');
+  fixture.componentRef.setInput('data', []);
+  await fixture.whenStable();
+  release();
+  await fixture.whenStable();
+  expect(button.disabled).toBe(true);
+  expect(button.getAttribute('aria-pressed')).toBe('false');
+});

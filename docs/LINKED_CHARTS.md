@@ -118,7 +118,10 @@ export function changePeriodBound(
       type="button"
       [attr.aria-pressed]="rangeMode()"
       [disabled]="!canSelectRange()"
-      (click)="toggleRange()"
+      style="touch-action: manipulation"
+      (pointerup)="activateRangeTouch($event)"
+      (touchend)="finishRangeTouch($event)"
+      (click)="activateRangeClick($event)"
     >
       Select range
     </button>
@@ -187,6 +190,7 @@ export function changePeriodBound(
     />`,
 })
 export class App {
+  private rangeTouchActivated = false;
   readonly rows = signal<readonly Month[]>([
     { id: "jan", month: "January", desktop: 120, mobile: 80 },
     { id: "feb", month: "February", desktop: 200, mobile: 0 },
@@ -296,6 +300,38 @@ export class App {
     this.rangeMode.update((value) => !value);
     this.rangeButton()?.nativeElement.focus();
   }
+  activateRangeTouch(event: PointerEvent): void {
+    if (
+      event.pointerType !== 'touch' ||
+      !event.isPrimary ||
+      event.button !== 0 ||
+      !this.canSelectRange()
+    )
+      return;
+    const box = (event.currentTarget as HTMLButtonElement).getBoundingClientRect();
+    if (
+      event.clientX < box.left ||
+      event.clientX > box.right ||
+      event.clientY < box.top ||
+      event.clientY > box.bottom
+    )
+      return;
+    // Chromium can suppress the compatibility click after a captured range drag.
+    // A canceled pan has no pointerup; releasing outside the button does not activate it.
+    event.preventDefault();
+    this.rangeTouchActivated = true;
+    this.toggleRange();
+  }
+  finishRangeTouch(event: TouchEvent): void {
+    if (!this.rangeTouchActivated) return;
+    this.rangeTouchActivated = false;
+    // WebKit's compatibility click is a MouseEvent without pointerType.
+    event.preventDefault();
+  }
+  activateRangeClick(event: MouseEvent): void {
+    // A touch release already activated the button; retain native mouse/keyboard clicks.
+    if ((event as PointerEvent).pointerType !== 'touch') this.toggleRange();
+  }
   cancelRange(): void {
     this.rangeMode.set(false);
     this.preview.set(null);
@@ -381,3 +417,6 @@ Enable **Preview months** to inspect the companion chart without changing the co
 Pointer exit restores a focused table preview if one exists, otherwise the committed context. Blur, Escape, input replacement, visibility/state changes, range mode and disabling preview clear transient context. Click or Enter/Space commits through the existing `pointSelect`; preview never emits that event. Graphical range selection takes precedence. Touch compatibility hover is ignored; taps retain normal selection and scrolling. Legends remain independent, and the two chart instances are retained. There is no ECharts connection, global bus, shared zoom or two-way selection.
 
 The [follow-up record](experiments/NG20_MONTH_PREVIEWS.md) separates local verification, the mobile tap safeguard and the still-pending human/public-release decisions.
+
+
+The range button activates completed primary touch releases within its bounds and suppresses duplicate compatibility clicks. This preserves rapid re-arming after captured chart drags in Chromium and single activation in WebKit, while mouse/keyboard activation and canceled pan gestures keep their native path. See the [rc.17 touch follow-up](experiments/RC17_RELEASE_REVIEW.md#rapid-touch-activation-correction).
