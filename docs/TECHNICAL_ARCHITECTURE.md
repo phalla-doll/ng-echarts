@@ -122,6 +122,8 @@ Start the prototype with Canvas and compare an SVG build using the same fixtures
 
 Expose library-scoped CSS custom properties for background, text, muted text, border, focus, and series colors. Core styles must work without Tailwind or a specific application UI kit. A compatibility recipe may map existing application tokens into these properties.
 
+The shared frame inherits public CSS colors from the first server render. Chart templates pass theme defaults through private properties; the frame resolves inherited colors on its host before supplying scoped defaults to projected controls. This avoids shadowing the application's palette with inline defaults while hydration or the lazy renderer is pending. Browser color measurement still supplies normalized Canvas/tooltip colors; `themeRevision` requests a new measurement after CSS-only palette changes. See the [theme handoff review](experiments/THEME_HANDOFF.md).
+
 Native Angular controls own keyboard navigation and selection. The plot reflects the same state through renderer actions. Provide a data table because pointer tooltips and a painted canvas alone do not expose all values accessibly.
 
 `showDataTable` is a boolean signal input, defaulting to `true`. Guard both the toggle and expanded table in the template and skip table-row derivation while disabled. The gallery explicitly binds `false` in its previews and generated source; other consumers keep the default. Disabling and reenabling the input preserves the prior expansion preference. An application that disables the table owns any equivalent keyboard point-action interface; the gallery's Code tab exposes sample data rather than replacing those actions.

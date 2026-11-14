@@ -149,6 +149,8 @@ Provide a meaningful `title` and `description`. For Cartesian, pie and radar cha
 
 `theme` is explicit; the library does not infer an application theme. CSS tokens are `--nec-background`, `--nec-text`, `--nec-muted`, `--nec-border`, `--nec-focus`, and numbered `--nec-series-N` colors. Explicit Cartesian series colors take precedence. After changing CSS or a loaded host font, increment `themeRevision` to reread them. Fonts are inherited; Inter is a playground choice, not a package dependency. Reduced-motion preference overrides decorative animation even when `animation` is true.
 
+Set frame color tokens on the chart or an ancestor so they apply before hydration and while the renderer loads. Omitted colors use the explicit theme's defaults. Native frame colors follow CSS immediately; `themeRevision` refreshes the measured Canvas and tooltip palette.
+
 See [compatibility and limits](COMPATIBILITY.md) for exact versions, measured data envelopes, browser coverage, exclusions and pending release work.
 
 

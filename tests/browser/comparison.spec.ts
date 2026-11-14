@@ -171,12 +171,19 @@ for (const route of ['/comparison', '/line-comparison', '/area-comparison', '/pi
     await expect(page.locator('.site-shell')).toHaveClass(/focus-layout/);
     await expect(page.locator('.comparison-page')).toHaveClass(/reference-mode/);
     await expect(page.locator('.comparison-host')).not.toHaveCSS('font-family', /Inter/);
-    await expect(page.locator('.chart-frame')).toHaveCSS('background-color', 'rgb(255, 255, 255)');
+    // Inherited colors keep their authored color space before and after hydration.
+    const frameBackground = () =>
+      page.locator('.chart-frame').evaluate((element) => {
+        const canvas = element.ownerDocument.createElement('canvas');
+        canvas.width = canvas.height = 1;
+        const context = canvas.getContext('2d')!;
+        context.fillStyle = getComputedStyle(element).backgroundColor;
+        context.fillRect(0, 0, 1, 1);
+        return Array.from(context.getImageData(0, 0, 1, 1).data);
+      });
+    await expect.poll(frameBackground).toEqual([255, 255, 255, 255]);
     await page.getByRole('button', { name: /Toggle .*comparison theme/ }).click();
-    await expect(page.locator('.chart-frame')).not.toHaveCSS(
-      'background-color',
-      'rgb(255, 255, 255)',
-    );
+    await expect.poll(frameBackground).not.toEqual([255, 255, 255, 255]);
     await expect(page.locator('.site-shell')).toHaveClass(/\bdark\b/);
     expect(errors).toEqual([]);
   });

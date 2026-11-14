@@ -1,0 +1,39 @@
+{
+  "method": "Chromium composed theme-handoff Playwright case; held client scripts before hydration, then hydrated Canvas in restored dark theme; screenshots crop the card",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "reducedMotion": "reduce",
+  "reportedScreenshot": "User-supplied original screenshot; different viewport/scale",
+  "images": [
+    {
+      "file": "fixed-after-hydration.png",
+      "width": 640,
+      "height": 449,
+      "sha256": "59cb5af978ad22d8a59df2e0633e6113acd25445f5a44bd4027f97a4f1043a59"
+    },
+    {
+      "file": "fixed-before-hydration.png",
+      "width": 640,
+      "height": 449,
+      "sha256": "f0be93f3cf564a45331bb7bb2bb5e025d7f5a3dad7e0ca0b47ef2bceb737b3b8"
+    },
+    {
+      "file": "reported-loading.png",
+      "width": 1586,
+      "height": 1038,
+      "sha256": "cd18b10f52b4f64e6e0a908d59765d0ebc89b8d24fbcc885f1129fc6bc21265a"
+    }
+  ],
+  "runtimeSources": {
+    "projects/chart-library/calendar/src/lib/calendar-heatmap.html": "d1a794dc06016a5458a3354179e970129807f1bb4990ed138889ef7e162ecc55",
+    "projects/chart-library/core/src/lib/cartesian-chart.html": "b93d36cd4bd1c3e5241d3405df209ed894bc4f3c6ac3e8ae49f907420da1e5a5",
+    "projects/chart-library/core/src/lib/chart-frame.css": "95131b5fd6793e0d27e6f9f3c647687609c2cd0a964a1b138ee6d9062769f04d",
+    "projects/chart-library/core/src/lib/chart-frame.html": "a63bf9ffe2ec65026a4dca1120857d0dd2bce24dbfdb5c1852c1356041568818",
+    "projects/chart-library/pie/src/lib/pie-chart.html": "7d93a154b9bca7b273c9afe82cf7e43767e51088c8c7376ee138901ad58b6332",
+    "projects/chart-library/radar/src/lib/radar-chart.html": "4a22ec79c910d16ef669432ada1159c9246275bdff698a39e6f65e3e33b3f1bd",
+    "projects/chart-library/radial/src/lib/radial-progress.html": "2c367b6446d8ba23fea669c70ca8171ade1021b4502385122984613b346ae247",
+    "projects/chart-library/sankey/src/lib/sankey-chart.html": "d47114baf9c2d80a4dbba2c7949469b923b1d9620d06230a0754bd2f2bc07415"
+  }
+}

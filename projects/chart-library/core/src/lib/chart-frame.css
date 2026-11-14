@@ -1,8 +1,18 @@
 :host {
   display: block;
+  /* Resolve caller tokens here, before the section supplies scoped defaults.
+   * Keeping defaults separate lets inherited CSS win even before hydration. */
+  --_nec-frame-background: var(--nec-background, var(--_nec-default-background, #ffffff));
+  --_nec-frame-text: var(--nec-text, var(--_nec-default-text, #18202c));
+  --_nec-frame-muted: var(--nec-muted, var(--_nec-default-muted, #536176));
+  --_nec-frame-border: var(--nec-border, var(--_nec-default-border, #d6dce5));
 }
 
 .chart-frame {
+  --nec-background: var(--_nec-frame-background);
+  --nec-text: var(--_nec-frame-text);
+  --nec-muted: var(--_nec-frame-muted);
+  --nec-border: var(--_nec-frame-border);
   padding: 1.5rem;
   color: var(--nec-text, #18202c);
   background: var(--nec-background, #ffffff);
