@@ -1,1 +1,0 @@
-import{O as Tv,R as ja,j as am}from"./chunk-9_5MoeDK.js";import{la as wN}from"./chunk-BNPRWdv_.js";ja([Tv,am]);var m=i=>{let e=wN(i,void 0,{renderer:`canvas`});return{update:s=>e.setOption(s,{notMerge:!0,lazyUpdate:!1}),resize:()=>e.resize(),dispose:()=>e.dispose()}};export{m as createRadialRenderer};

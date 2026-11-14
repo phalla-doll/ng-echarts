@@ -1,0 +1,1 @@
+import"./chunk-bMy_vjaX.js";import"./chunk-CKv4O5SJ.js";import"./chunk-fm48qzA9.js";import{rt as zi,z as io}from"./chunk-DI1Tmhid.js";import{pn as RN}from"./chunk-5tkH_LWN.js";zi([io]);var p=s=>{let e=RN(s,void 0,{renderer:`canvas`});return{update:a=>e.setOption(a,{notMerge:!0,lazyUpdate:!1}),resize:()=>e.resize(),dispose:()=>e.dispose()}};export{p as createRadialRenderer};
