@@ -2506,10 +2506,16 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
               reportHeight();
             }
           });
-        document.fonts.ready.then(() => {
-          fontsReady = true;
-          setTheme(initial);
-        });
+        // WebKit can keep the whole FontFaceSet ready promise pending in an
+        // embedded document even after Inter is loaded. Wait for the font used
+        // by the plots directly, and retain fallback rendering on font failure.
+        document.fonts
+          .load('12px Inter')
+          .catch(() => [])
+          .then(() => {
+            fontsReady = true;
+            setTheme(initial);
+          });
         window.addEventListener('resize', resize);
         window.addEventListener('beforeprint', () => {
           if (fontsReady) plotIds.filter((id) => visible(id, true)).forEach(renderPlot);
