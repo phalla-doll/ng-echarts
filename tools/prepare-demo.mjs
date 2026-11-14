@@ -13,6 +13,7 @@ export const rendererRoutes = {
   radar: ['radar'],
   radial: ['radial'],
   calendar: ['calendar'],
+  sankey: ['sankey'],
   linked: ['bar', 'pie'],
   playground: ['bar'],
   formatting: ['bar'],
@@ -35,6 +36,27 @@ export function rendererPreloads(outputs) {
       }
     }
     visit(entry[0]);
+    const allowedCharts = {
+      bar: ['bar'],
+      line: ['line'],
+      area: ['line'],
+      composed: ['bar', 'line'],
+      pie: ['pie'],
+      radar: ['radar'],
+      radial: ['pie'],
+      calendar: ['heatmap'],
+      sankey: ['sankey'],
+    }[family];
+    for (const name of files) {
+      for (const [input, contribution] of Object.entries(outputs[name].inputs ?? {})) {
+        if (contribution.bytesInOutput <= 0) continue;
+        const chart = input.match(/echarts\/lib\/chart\/([^/.]+)(?:\/|\.js$)/)?.[1];
+        assert(
+          !chart || ['helper', 'custom', ...allowedCharts].includes(chart),
+          `${family} renderer preloads unrelated ${chart} chart code`,
+        );
+      }
+    }
     families[family] = [...files].filter((name) => name.endsWith('.js'));
   }
   return Object.fromEntries(

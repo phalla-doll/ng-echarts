@@ -19,6 +19,7 @@ import {
 } from '@angular/core';
 import {
   ChartFrame,
+  ɵChartStage,
   ɵbrowserPlotEnvironment as browserPlotEnvironment,
   ɵreadCartesianTheme as readCartesianTheme,
   ɵresolveCartesianState as resolveCartesianState,
@@ -41,15 +42,19 @@ import { buildPieOptions, type PieOption } from './pie-options';
 
 @Component({
   selector: 'nec-pie-chart',
-  imports: [ChartFrame],
+  imports: [ChartFrame, ɵChartStage],
   templateUrl: './pie-chart.html',
-  styleUrl: '../../../core/src/lib/cartesian-chart.css',
+  styleUrls: [
+    '../../../core/src/lib/cartesian-chart.css',
+    '../../../core/src/lib/chart-controls.css',
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PieChart<T extends object> {
   private readonly loader = inject(PIE_RENDERER_LOADER);
   readonly innerRadius = input(0);
   readonly showLabels = input(false);
+  readonly showTotal = input(false);
   readonly title = input.required<string>();
   readonly description = input('');
   readonly data = input.required<readonly T[]>();
@@ -95,13 +100,17 @@ export class PieChart<T extends object> {
       this.valueFormatter(),
       model.kind === 'error'
         ? []
-        : model.rows.flatMap((row) => row.points.map((point) => point.value)),
+        : [
+            ...model.rows.flatMap((row) => row.points.map((point) => point.value)),
+            ...(this.showTotal() ? [this.visibleTotal()] : []),
+          ],
     );
   });
   private readonly settings = computed(() => ({
     height: this.height(),
     innerRadius: this.innerRadius(),
     showLabels: this.showLabels(),
+    showTotal: this.showTotal(),
     theme: this.theme(),
     themeRevision: this.themeRevision(),
     animation: this.animation(),
@@ -125,8 +134,8 @@ export class PieChart<T extends object> {
               settings.innerRadius < 0 ||
               settings.innerRadius > 0.9
             ? 'Inner radius must be a finite ratio from 0 to 0.9.'
-            : typeof settings.showLabels !== 'boolean'
-              ? 'Show labels must be a boolean.'
+            : typeof settings.showLabels !== 'boolean' || typeof settings.showTotal !== 'boolean'
+              ? 'Show labels and show total must be booleans.'
               : this.formatting().error;
     return resolveCartesianState(
       settings.error,
@@ -136,15 +145,42 @@ export class PieChart<T extends object> {
       configurationError,
     );
   });
+  private readonly percentFormat = computed(() => {
+    try {
+      return new Intl.NumberFormat(this.locale(), { style: 'percent', maximumFractionDigits: 1 })
+        .format;
+    } catch {
+      return (ratio: number) => String(ratio);
+    }
+  });
+  protected readonly visibleTotal = computed(() => {
+    const model = this.model();
+    return model.kind === 'error'
+      ? 0
+      : model.rows.reduce(
+          (sum, row) => sum + (this.hiddenIds().has(row.id) ? 0 : (row.points[0]?.value ?? 0)),
+          0,
+        );
+  });
+  protected readonly totalText = computed(() => this.formatting().format(this.visibleTotal()));
   protected readonly legendItems = computed(() => {
     const model = this.model();
     if (model.kind === 'error') return [];
-    return model.rows.map((item, index) => ({
-      id: item.id,
-      label: item.category,
-      visible: !this.hiddenIds().has(item.id),
-      color: this.tokens().series[index % this.tokens().series.length],
-    }));
+    return model.rows.map((item, index) => {
+      const value = item.points[0]?.value ?? null;
+      const visible = !this.hiddenIds().has(item.id);
+      return {
+        id: item.id,
+        label: item.category,
+        visible,
+        color: this.tokens().series[index % this.tokens().series.length],
+        valueText: value === null ? 'Missing' : this.formatting().format(value),
+        shareText:
+          !visible || value === null
+            ? '—'
+            : this.percentFormat()(this.visibleTotal() > 0 ? value / this.visibleTotal() : 0),
+      };
+    });
   });
   protected readonly noVisibleValues = computed(() => {
     const model = this.model();
@@ -164,6 +200,7 @@ export class PieChart<T extends object> {
       format: this.formatting().format,
       innerRadius: this.innerRadius(),
       showLabels: this.showLabels(),
+      formatPercent: this.percentFormat(),
     });
   });
   protected readonly tableRows = computed(() => {

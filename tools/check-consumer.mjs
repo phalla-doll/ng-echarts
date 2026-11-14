@@ -74,6 +74,28 @@ try {
   );
   const configPath = join(consumer, 'tsconfig.json');
   const config = JSON.parse(await readFile(configPath, 'utf8'));
+  const sankeyGuide = await readFile(join(root, 'docs/SANKEY_CHART_API.md'), 'utf8');
+  const sankeyExample = sankeyGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
+  const sankeyBuild = await build({
+    entryPoints: [join(root, 'projects/playground/src/app/sankey-examples.ts')],
+    bundle: true,
+    write: false,
+    platform: 'node',
+    format: 'esm',
+  });
+  const { sankeyExampleSource } = await import(
+    `data:text/javascript;base64,${Buffer.from(sankeyBuild.outputFiles[0].contents).toString('base64')}`
+  );
+  assert.equal(
+    sankeyExample?.trim(),
+    sankeyExampleSource(false).trim(),
+    'Guide and copied Sankey source must agree',
+  );
+  for (const dark of [false, true]) {
+    const file = `sankey-${dark ? 'dark' : 'light'}.ts`;
+    await writeFile(join(consumer, file), sankeyExampleSource(dark));
+    config.files.push(file);
+  }
   const calendarGuide = await readFile(join(root, 'docs/CALENDAR_HEATMAP_API.md'), 'utf8');
   const calendarExample = calendarGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
   assert(calendarExample, 'Calendar guide must contain its standalone example');
@@ -268,6 +290,7 @@ try {
     './pie',
     './radar',
     './radial',
+    './sankey',
   ]);
   assert.equal(manifest.sideEffects, false);
   for (const entry of [
@@ -281,6 +304,7 @@ try {
     './composed',
     './radar',
     './radial',
+    './sankey',
   ]) {
     for (const field of ['types', 'default']) {
       assert(
@@ -307,6 +331,8 @@ try {
   const diagnostics = `${invalid.stdout}${invalid.stderr}`.replace(/\x1b\[[0-9;]*m/g, '');
   const invalidSource = await readFile(join(consumer, 'invalid-consumer.ts'), 'utf8');
   for (const [component, binding] of [
+    ['InvalidSankeyNode', '[nodes]="nodes"'],
+    ['InvalidSankeyLink', '[links]="links"'],
     ['InvalidCalendarDate', 'dateKey="count"'],
     ['InvalidCalendarValue', 'valueKey="date"'],
     ['InvalidCalendarYear', '[year]="wrong"'],

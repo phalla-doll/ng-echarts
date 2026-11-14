@@ -6,7 +6,7 @@ An Angular 22 chart component library inspired by EvilCharts, using Apache EChar
 
 Preview: **[Live demo on GitHub Pages](https://phalla-doll.github.io/ng-echarts/)**. See [deployment instructions](docs/GITHUB_PAGES.md) to rebuild and publish the current demo snapshot.
 
-Status: experimental bar, line, area, pie/donut, composed, focused radar, radial progress and calendar heatmap components. Updated 13 November 2026. The Angular library and SSR playground now render bars, lines, areas, and pies/donuts with native controls; G1 technical feasibility passes for bar; the user has deferred the human screen-reader review to release acceptance, allowing development to continue while G2 remains pending.
+Status: experimental bar, line, area, pie/donut, composed, focused radar, radial progress, calendar heatmap and Sankey components. Updated 14 November 2026. The Angular library and SSR playground now render bars, lines, areas, and pies/donuts with native controls; G1 technical feasibility passes for bar; the user has deferred the human screen-reader review to release acceptance, allowing development to continue while G2 remains pending.
 
 ## Project direction
 
@@ -32,6 +32,7 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | [Upstream provenance](docs/UPSTREAM_PROVENANCE.md) | Pinned fixtures, reuse decisions, and adapted-file notices |
 | [Bar prototype evidence](docs/experiments/BAR_PROTOTYPE.md) | Implemented behavior, test results, captures, and open research |
 | [Comparison page alignment](docs/experiments/COMPARISON_PAGE_ALIGNMENT.md) | Shared sidebar/theme/typography for comparisons, explicit measurement mode, and before/after evidence |
+| [Chart presentation refinement](docs/experiments/PREMIUM_CHART_REFINEMENT.md) | All nine families, stable states, clearer data encodings, quantitative legends and before/after comparisons |
 | [Four-family visual audit](docs/experiments/VISUAL_AUDIT.md) | Official ECharts and EvilCharts review, mobile refinements, both-theme captures and browser evidence |
 | [Visual comparison](docs/experiments/R03_VISUAL_REVIEW.md) | Pinned upstream comparisons at three host widths and remaining alignment work |
 | [Playground layout review](docs/experiments/PLAYGROUND_LAYOUT_REVIEW.md) | Responsive site design, before/after captures, navigation, and interface checks |
@@ -134,7 +135,7 @@ Angular 22 with strict TypeScript and template checking. The selected toolchain 
 
 ## Implemented chart families
 
-Package entries below follow `@ng-echarts/chart-library`. All four families are experimental; implementation completion does not close NG14 or the release gates.
+Package entries below follow `@ng-echarts/chart-library`. All chart entries are experimental; implementation completion does not close NG14 or the release gates.
 
 | Component | Entry | Gallery / behavior fixture | API and evidence |
 | --- | --- | --- | --- |
@@ -143,10 +144,11 @@ Package entries below follow `@ng-echarts/chart-library`. All four families are 
 | `AreaChart<T>` | `/area` | `/area` / `/area-validation` | [API](docs/AREA_CHART_API.md), [NG12](docs/experiments/NG12_AREA_CHART.md) |
 | `ComposedChart<T>` | `/composed` | `/composed` / `/composed-validation` | [API](docs/COMPOSED_CHART_API.md), [NG17](docs/experiments/NG17_COMPOSED_CHART.md) |
 | `PieChart<T>` (pie and donut) | `/pie` | `/pie` / `/pie-validation` | [API](docs/PIE_CHART_API.md), [NG13](docs/experiments/NG13_PIE_CHART.md) |
+| `SankeyChart<N, L>` | `/sankey` | `/sankey` | [API](docs/SANKEY_CHART_API.md), [NG19](docs/experiments/NG19_SANKEY_CHART.md) |
 
 Cartesian charts take `series: readonly ChartSeries<T>[]`; pie/donut takes one `measure: ChartMeasure<T>`. Cartesian legend events identify a `seriesId`; pie legend events identify a `rowId`. Both point events retain the original row and numeric value. See the guides for zero/missing/negative rules and optional keyboard table actions.
 
-Focused families keep the 200,000 gzip / 175,000 Brotli byte cap; `/core` keeps 10,000/9,000. The combined four-family root uses 210,000/175,000; its frame-only scenario keeps 200,000/175,000. [Current measured boundaries](docs/experiments/data/package-boundaries.json) include all lazy chunks; prefer focused imports.
+Focused families keep the 200,000 gzip / 175,000 Brotli byte cap; `/core` keeps 10,000/9,000. The combined compatibility root uses 218,000/186,000; its frame-only emitted-orphan scenario keeps 201,500/175,000. [Current measured boundaries](docs/experiments/data/package-boundaries.json) include all lazy chunks; prefer focused imports.
 
 ## Bar feasibility baseline
 
@@ -181,3 +183,7 @@ The user-approved [radar increment](docs/experiments/NG18_RADAR_CHART.md) adds t
 The user-approved [radial progress increment](docs/experiments/NG18_RADIAL_PROGRESS.md) adds the focused `/radial` Angular entry and two demo examples. Required scalar value and explicit positive maximum supply native progress semantics, visible formatted values and a noninteractive ring. The [API](docs/RADIAL_PROGRESS_API.md) defines zero/null/invalid states, formatting, motion and SSR behavior. This advances the private candidate to rc.6 while preserving rc.5 and earlier artifacts and the existing compatibility root. Native progress provides the scalar alternative; legends, point actions and a data table are inapplicable. Human interpretation and public release gates remain pending.
 
 Calendar heatmaps: [experimental API](docs/CALENDAR_HEATMAP_API.md), [NG19 evidence](docs/experiments/NG19_CALENDAR_HEATMAP.md), and the `/calendar` demo. One explicit year and fixed maximum preserve date identity and missing-vs-zero behavior.
+
+Experimental Sankey flows: [API](docs/SANKEY_CHART_API.md), [NG19 record](docs/experiments/NG19_SANKEY_CHART.md), and the `/sankey` demo. Directed acyclic node/link data retain native totals, zero links and equivalent plot/table actions. Private rc.10 preserves rc.9, rc.8; human interpretation and public release remain pending.
+
+Private rc.11 combines Sankey and independent lazy engine loading with the completed [chart presentation refinement](docs/experiments/PREMIUM_CHART_REFINEMENT.md). Earlier candidates remain preserved; [release evidence](docs/RELEASE_CHECKLIST.md) keeps human release gates separate.

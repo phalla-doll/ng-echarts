@@ -1,10 +1,11 @@
-import { LineChart } from 'echarts/charts';
+// Use exported per-chart entries to preserve independent lazy engine chunks.
+import 'echarts/lib/chart/line';
 import { GridComponent, TooltipComponent } from 'echarts/components';
 import { init, use } from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
 import { ɵcurvePoint, type ɵPlotRendererFactory } from '@ng-echarts/chart-library/core';
 import type { AreaOption } from './area-options';
-use([LineChart, GridComponent, TooltipComponent, CanvasRenderer]);
+use([GridComponent, TooltipComponent, CanvasRenderer]);
 export const createAreaRenderer: ɵPlotRendererFactory<AreaOption> = (host, onPoint) => {
   const chart = init(host, undefined, { renderer: 'canvas' });
   let current: AreaOption | null = null;

@@ -19,6 +19,7 @@ const routes = {
   radar: 445000,
   radial: 445000,
   calendar: 445000,
+  sankey: 445000,
   linked: 455000,
   'chart-possibilities': 465000,
   'get-started': 240000,
@@ -27,7 +28,14 @@ const routes = {
   formatting: 400000,
   playground: 445000,
 };
-const measuredRoutes = new Set(['', 'chart-possibilities', 'linked', 'installation', 'calendar']);
+const measuredRoutes = new Set([
+  '',
+  'chart-possibilities',
+  'linked',
+  'installation',
+  'calendar',
+  'sankey',
+]);
 const recordOnly = process.argv.includes('--record');
 const median = (values) => [...values].sort((a, b) => a - b)[Math.floor(values.length / 2)];
 

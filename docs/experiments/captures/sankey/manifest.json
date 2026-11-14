@@ -1,0 +1,123 @@
+{
+  "capturedAt": "2026-11-14T06:02:43.579Z",
+  "source": {
+    "projects/chart-library/sankey/src/lib/sankey-chart.ts": "9a052395f1479607bd931b1823e211c480449ca302e465c116441166b5a38c75",
+    "projects/chart-library/sankey/src/lib/sankey-chart.html": "85bbf21ecf1d9d8a356d47845a37aba606f3df22a23dd5505e882bd873750fc7",
+    "projects/chart-library/sankey/src/lib/sankey-chart.css": "6e7dcebe5a658354bebbce395529d7c93c5ef09c811e25c07813ca7c39f32b98",
+    "projects/chart-library/sankey/src/lib/sankey-model.ts": "f397c386b2cb105c802a6b7c90f3b347a7b8b10c9e32a3d5d4c526cfee61494b",
+    "projects/chart-library/sankey/src/lib/sankey-options.ts": "e0545aad10a0ab10334a6e00f89f9061110d64509a5e4fb3906e1f1b22611115",
+    "projects/chart-library/sankey/src/lib/sankey-browser.ts": "91ba0f767e6524e6c3590422d684f4b5b5bd164a1529c72ccc7cafd1bde51afb",
+    "projects/chart-library/sankey/src/lib/sankey-renderer.ts": "4e937648a40421702942a2a1a0811af9cf250c0c57913970d2bbe7278c4793b2",
+    "projects/playground/src/app/sankey-blocks.ts": "566c55407fbf323f2de64ae47dd1d20babfe075f315ff150ed74184cd86a7747",
+    "projects/playground/src/app/sankey-blocks.html": "bfd80b8ce3cb49ec42383ac618a9f804796416f315b05e5c1e0be413a75c4d7d",
+    "projects/playground/src/app/sankey-blocks.css": "717f9642b872e7154c1096a6110256c9d20e357c553770461c18f2afa21ff3c7",
+    "projects/playground/src/app/sankey-examples.ts": "e78bace670e8fd1138631a65ab6b5d543fe4b34dea4886f54e599073d8b5fcbb"
+  },
+  "captures": [
+    {
+      "theme": "dark",
+      "width": 1440,
+      "path": "docs/experiments/captures/sankey/dark-1440.png",
+      "sha256": "2766210d5900346ff10527bfe95fd83421e7d024f14f199053d2ce1b7ef06fc4"
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "path": "docs/experiments/captures/sankey/dark-768.png",
+      "sha256": "431adf4f0132dcde4133a576d5d71400151649fd7ab3eb306862c4ac396ef6ce"
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "path": "docs/experiments/captures/sankey/dark-390.png",
+      "sha256": "18b0b2d1a00cc13893213af64a8eb98799ab31be90c22acf5d0bc80b68edfcc4"
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "path": "docs/experiments/captures/sankey/dark-320.png",
+      "sha256": "33cefa5ed733f6e27a0435436eb04a0d3f181053cdfd6fbd3cae8226bd6bbfd0"
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "case": "native zero action",
+      "path": "docs/experiments/captures/sankey/dark-320-data.png",
+      "sha256": "fbbb7c604e8e4559708bf152dff517cc96adb76ec0a9368ba789e39c929e5798"
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "case": "zero",
+      "path": "docs/experiments/captures/sankey/dark-320-zero.png",
+      "sha256": "25070f6452d5ce7cb0303e6fdae408a329f13c06c420554e9baeda9c935df042"
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "case": "empty",
+      "path": "docs/experiments/captures/sankey/dark-320-empty.png",
+      "sha256": "da57a1a38b2a09b2c3a0d0c11be6381a7ffda400f7f2cf8dd65ad61647d313bf"
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "case": "error",
+      "path": "docs/experiments/captures/sankey/dark-320-error.png",
+      "sha256": "1d3b76f1f908f1f2f2a87eab653fd89654e4776ddd13acf632599a38dc633f2b"
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "path": "docs/experiments/captures/sankey/light-1440.png",
+      "sha256": "673a1bc4f2dbdc11a82bdff9c6907488f281894cc09af72c48dd5ce674de38fb"
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "path": "docs/experiments/captures/sankey/light-768.png",
+      "sha256": "f3225f82e770870fa8a17cd71edac99db7af337450da2bf3a44a9dfb4b67043a"
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "path": "docs/experiments/captures/sankey/light-390.png",
+      "sha256": "8262742b15161ce8a6351c1bd197983cad71239e868002a62ee0175eebdc6542"
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "path": "docs/experiments/captures/sankey/light-320.png",
+      "sha256": "d8d82e6401655bd2844f3e384a0e371a4a8841c88c3cf6bdca01a29c54405c4b"
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "case": "native zero action",
+      "path": "docs/experiments/captures/sankey/light-320-data.png",
+      "sha256": "f305222bae8287a7dba083426303043ed4cff4a76d7f38a1ad1c4c1081f48f03"
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "case": "zero",
+      "path": "docs/experiments/captures/sankey/light-320-zero.png",
+      "sha256": "e6811ba28b68c183cc734bee37da33322b95c95cff0d9e6f31afe5cd536455b4"
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "case": "empty",
+      "path": "docs/experiments/captures/sankey/light-320-empty.png",
+      "sha256": "b162d4326299efe2211929ba80a3ebd6530a661f81c4f4f8af2120ef05e04eff"
+    },
+    {
+      "theme": "light",
+      "width": 320,
+      "case": "error",
+      "path": "docs/experiments/captures/sankey/light-320-error.png",
+      "sha256": "0e44118e0e0bf913d7515232c35465b691ec07eaf5ca689f2920e8485c508c1c"
+    }
+  ],
+  "errors": []
+}

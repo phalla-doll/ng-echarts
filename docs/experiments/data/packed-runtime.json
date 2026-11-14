@@ -1,10 +1,10 @@
 {
-  "recordedAt": "2026-11-13T16:18:34.643Z",
+  "recordedAt": "2026-11-14T06:03:47.016Z",
   "node": "v24.22.2",
   "package": "@ng-echarts/chart-library",
-  "version": "0.1.0-rc.8",
+  "version": "0.1.0-rc.11",
   "artifact": {
-    "sha256": "589b7273d26a4cbd112067b5a492205122db8ebe4835cac2801ae881da133371",
+    "sha256": "9258a75f04b398694cab2da94ba14026b38751af56d5a45bc9bb453036c19faa",
     "exactCandidate": true
   },
   "skipLibCheck": false,
@@ -20,7 +20,8 @@
     "./calendar",
     "./composed",
     "./radar",
-    "./radial"
+    "./radial",
+    "./sankey"
   ],
   "compatibilityIdentity": true,
   "privateImportsBlocked": true,

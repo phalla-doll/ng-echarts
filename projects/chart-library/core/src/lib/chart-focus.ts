@@ -25,21 +25,38 @@ export class ChartFocusKeeper {
       this.document.activeElement !== this.document.body
     )
       return;
-    if (previous.isConnected && this.host.contains(previous)) {
+    if (this.available(previous)) {
       previous.focus({ preventScroll: true });
       return;
     }
     // The focused row/series disappeared, or ready UI changed to a status message.
-    const fallback =
-      this.host.querySelector<HTMLElement>('.table-toggle') ??
-      this.host.querySelector<HTMLElement>('.legend button') ??
-      this.host.querySelector<HTMLElement>('[role="alert"], [role="status"]') ??
-      this.host.querySelector<HTMLElement>('.chart-frame');
+    const selectors = [
+      '.table-toggle',
+      '.legend button',
+      '[role="alert"], [role="status"]',
+      '.chart-frame',
+    ];
+    let fallback: HTMLElement | undefined;
+    for (const selector of selectors) {
+      fallback = [...this.host.querySelectorAll<HTMLElement>(selector)].find((element) =>
+        this.available(element),
+      );
+      if (fallback) break;
+    }
     this.remembered = null;
     if (fallback) {
       if (fallback.tagName !== 'BUTTON') fallback.tabIndex = -1;
       fallback.focus({ preventScroll: true });
     }
+  }
+
+  private available(element: HTMLElement): boolean {
+    return (
+      element.isConnected &&
+      this.host.contains(element) &&
+      !element.matches(':disabled') &&
+      !element.closest('[inert], [hidden], [aria-hidden="true"]')
+    );
   }
 
   destroy(): void {

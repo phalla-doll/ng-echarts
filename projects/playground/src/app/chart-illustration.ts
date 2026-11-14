@@ -3,7 +3,9 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 @Component({
   selector: 'app-chart-illustration',
   template: `<svg viewBox="0 0 260 140" fill="none" aria-hidden="true">
-    @if (kind() !== 'radar' && kind() !== 'radial' && kind() !== 'calendar') {
+    @if (
+      kind() !== 'radar' && kind() !== 'radial' && kind() !== 'calendar' && kind() !== 'sankey'
+    ) {
       <path
         d="M20 30H240M20 65H240M20 100H240M55 15V125M100 15V125M145 15V125M190 15V125M235 15V125"
         stroke="var(--site-border)"
@@ -11,6 +13,19 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
       />
     }
     @switch (kind()) {
+      @case ('sankey') {
+        <path
+          d="M46 36C108 36 102 55 148 55M46 104C108 104 102 70 148 70M158 55C191 55 192 34 220 34M158 78C190 78 192 104 220 104"
+          stroke="currentColor"
+          stroke-width="18"
+          opacity=".3"
+        />
+        <path
+          d="M40 20V54M40 88V120M152 36V92M226 18V52M226 86V122"
+          stroke="currentColor"
+          stroke-width="10"
+        />
+      }
       @case ('calendar') {
         @for (row of [0, 1, 2, 3, 4, 5, 6]; track row) {
           @for (column of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; track column) {
@@ -140,6 +155,6 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 })
 export class ChartIllustration {
   readonly kind = input.required<
-    'bar' | 'line' | 'area' | 'pie' | 'composed' | 'radar' | 'radial' | 'calendar'
+    'bar' | 'line' | 'area' | 'pie' | 'composed' | 'radar' | 'radial' | 'calendar' | 'sankey'
   >();
 }

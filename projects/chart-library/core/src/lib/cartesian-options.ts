@@ -1,3 +1,4 @@
+import { tooltipStyle, tooltipMarkup } from './tooltip';
 // First two palette colors adapted from EvilCharts (2026 Gurbinder, MIT); see package third-party notice.
 import type { ChartTheme } from './chart-types';
 import type { CartesianModel } from './cartesian-model';
@@ -30,13 +31,7 @@ export function defaultCartesianTheme(theme: ChartTheme): CartesianThemeTokens {
       };
 }
 
-export function escapeTooltipText(value: string): string {
-  return value.replace(
-    /[&<>"']/g,
-    (character) =>
-      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]!,
-  );
-}
+export { escapeTooltipText } from './tooltip';
 
 function record(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null;
@@ -51,6 +46,7 @@ export function buildCartesianOptions<T>(
   format: (value: number) => string,
   categoryTicks: readonly string[] = model.rows.map((row) => row.category),
 ) {
+  const hasVisibleSeries = model.series.some((series) => !hiddenIds.has(series.id));
   const categoryAxis = {
     type: 'category' as const,
     data: model.rows.map((row) => row.id),
@@ -68,8 +64,17 @@ export function buildCartesianOptions<T>(
     splitNumber: horizontal ? 3 : 5,
     axisLine: { show: false },
     axisTick: { show: false },
-    axisLabel: { color: tokens.muted, fontSize: 12, formatter: format, hideOverlap: true },
-    splitLine: { lineStyle: { color: tokens.border, type: 'dashed' as const } },
+    axisLabel: {
+      show: hasVisibleSeries,
+      color: tokens.muted,
+      fontSize: 12,
+      formatter: format,
+      hideOverlap: true,
+    },
+    splitLine: {
+      show: hasVisibleSeries,
+      lineStyle: { color: tokens.border, type: 'dashed' as const },
+    },
   };
   return {
     animation,
@@ -90,18 +95,7 @@ export function buildCartesianOptions<T>(
     tooltip: {
       trigger: 'axis' as const,
       confine: true,
-      backgroundColor: tokens.background,
-      borderColor: tokens.border,
-      textStyle: {
-        fontFamily: tokens.fontFamily,
-        color: tokens.text,
-        fontSize: 12,
-        lineHeight: 20,
-      },
-      padding: [6, 10],
-      borderRadius: 6,
-      extraCssText:
-        'max-width: min(280px, calc(100% - 16px)); white-space: normal; pointer-events: none;',
+      ...tooltipStyle(tokens),
       formatter: (params: unknown) => {
         const items = Array.isArray(params) ? params : [params];
         const first = items.find((item) => record(item) && record(item['data']));
@@ -113,10 +107,14 @@ export function buildCartesianOptions<T>(
           if (hiddenIds.has(point.seriesId)) return [];
           const label = model.series.find((item) => item.id === point.seriesId)?.label ?? '';
           return [
-            `<div style="display:flex;align-items:baseline;gap:8px;margin-top:4px"><span aria-hidden="true" style="display:inline-block;flex:none;width:8px;height:8px;border-radius:2px;background:${escapeTooltipText(tokens.series[index % tokens.series.length] ?? '#047857')}"></span><span style="flex:1;overflow-wrap:anywhere">${escapeTooltipText(label)}</span><span style="flex:none;font-variant-numeric:tabular-nums;text-align:right">${escapeTooltipText(point.value === null ? 'Missing' : format(point.value))}</span></div>`,
+            {
+              label,
+              value: point.value === null ? 'Missing' : format(point.value),
+              color: tokens.series[index % tokens.series.length] ?? '#047857',
+            },
           ];
         });
-        return `<div data-nec-tooltip><strong style="font-weight:600;overflow-wrap:anywhere">${escapeTooltipText(row.category)}</strong>${values.join('')}</div>`;
+        return tooltipMarkup(row.category, values);
       },
     },
   };

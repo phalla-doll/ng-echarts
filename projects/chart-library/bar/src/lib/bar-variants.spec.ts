@@ -57,7 +57,11 @@ it.each(variants)(
     const rendered = options.series;
     if (!Array.isArray(rendered)) throw new Error('Expected bar series array');
     expect(rendered.map((item) => item.id)).toEqual(['first', 'second']);
-    expect(rendered.map((item) => item.data)).toEqual([
+    expect(
+      rendered.map((item) =>
+        (item.data as { id: string; value: unknown }[]).map(({ id, value }) => ({ id, value })),
+      ),
+    ).toEqual([
       [
         { id: 'a', value: 40 },
         { id: 'b', value: -20 },
@@ -75,7 +79,7 @@ it.each(variants)(
     const palette = defaultBarTheme(theme).series;
     for (const [index, item] of rendered.entries()) {
       expect(item.type).toBe('bar');
-      expect(item.itemStyle?.borderRadius).toBe(2);
+      expect(item.itemStyle?.borderRadius).toBe(stacked ? 0 : 3);
       const color = item.itemStyle?.color;
       if (gradient) {
         expect(color).toMatchObject({
@@ -92,7 +96,7 @@ it.each(variants)(
           { offset: 0.2, color: palette[index] },
         ]);
         expect(color.colorStops.slice(2).map((stop) => stop.offset)).toEqual([0.9, 1]);
-        expect(color.colorStops.slice(2).every((stop) => /,0\)$/.test(stop.color))).toBe(true);
+        expect(color.colorStops.slice(2).every((stop) => /,0\.3\)$/.test(stop.color))).toBe(true);
       } else {
         expect(color).toBe(palette[index]);
       }
@@ -169,3 +173,39 @@ it.each(variants)(
     });
   },
 );
+
+it('keeps internal stack joins square and moves exposed caps when a series is hidden', () => {
+  const model = normalizeBarData(
+    [{ id: 'row', label: 'A', a: 10, b: 20, c: -4, d: -6 }],
+    'id',
+    'label',
+    [
+      { id: 'a', key: 'a', label: 'A' },
+      { id: 'b', key: 'b', label: 'B' },
+      { id: 'c', key: 'c', label: 'C' },
+      { id: 'd', key: 'd', label: 'D' },
+    ],
+  );
+  if (model.kind !== 'ready') throw new Error('Invalid fixture');
+  const build = (hidden = new Set<string>()) =>
+    buildBarOptions(
+      model,
+      hidden,
+      defaultBarTheme('light'),
+      'vertical',
+      true,
+      false,
+      false,
+      String,
+    );
+  expect(build().series).toMatchObject([
+    { id: 'a', data: [{ itemStyle: { borderRadius: 0 } }] },
+    { id: 'b', data: [{ itemStyle: { borderRadius: [3, 3, 0, 0] } }] },
+    { id: 'c', data: [{ itemStyle: { borderRadius: 0 } }] },
+    { id: 'd', data: [{ itemStyle: { borderRadius: [0, 0, 3, 3] } }] },
+  ]);
+  expect(build(new Set(['b', 'd'])).series).toMatchObject([
+    { id: 'a', data: [{ value: 10, itemStyle: { borderRadius: [3, 3, 0, 0] } }] },
+    { id: 'c', data: [{ value: -4, itemStyle: { borderRadius: [0, 0, 3, 3] } }] },
+  ]);
+});

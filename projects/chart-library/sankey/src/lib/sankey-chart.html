@@ -1,0 +1,135 @@
+<nec-chart-frame
+  [title]="title()"
+  [description]="description()"
+  [style.--nec-background]="tokens().background"
+  [style.--nec-text]="tokens().text"
+  [style.--nec-muted]="tokens().muted"
+  [style.--nec-border]="tokens().border"
+>
+  @let currentState = state();
+
+  <nec-chart-stage
+    [state]="currentState"
+    [height]="plotHeight()"
+    [retryable]="rendererError()"
+    retryLabel="Retry flows"
+    (retry)="retryRenderer()"
+  >
+    <div
+      class="flow-viewport"
+      tabindex="0"
+      (keydown)="scrollViewport($event)"
+      role="region"
+      aria-label="Flow diagram. Scroll horizontally for wider graphs."
+      [hidden]="currentState.kind !== 'ready' || !hasFlow()"
+    >
+      <div
+        #plot
+        class="plot"
+        aria-hidden="true"
+        [style.min-width.px]="plotWidth()"
+        [style.height.px]="plotHeight()"
+      ></div>
+    </div>
+    @if (currentState.kind === 'ready' && !hasFlow()) {
+      <p class="plot-message" role="status">
+        No positive flow to draw. Recorded zeros and isolated nodes remain in the tables.
+      </p>
+    }
+  </nec-chart-stage>
+  <div
+    class="chart-controls"
+    [attr.inert]="currentState.kind !== 'ready' ? '' : null"
+    [attr.aria-hidden]="currentState.kind !== 'ready' ? 'true' : null"
+  >
+    <p class="flow-scroll-hint">
+      Scroll to explore all stages. You can also focus the diagram and use the arrow keys.
+    </p>
+
+    <details class="flow-data">
+      <summary class="table-toggle">Explore flow data</summary>
+      <p class="table-help">
+        Ribbon width represents link value. Node height represents the larger incoming or outgoing
+        total; totals can differ. Zero links and isolated nodes appear only in these tables. Scroll
+        the diagram on narrow screens.
+      </p>
+      @if (currentState.kind === 'ready') {
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Node totals">
+          <table>
+            <caption>
+              {{
+                title()
+              }}
+              — Nodes
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Node</th>
+                <th scope="col">Incoming</th>
+                <th scope="col">Outgoing</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (node of nodeRows(); track node.id) {
+                <tr>
+                  <th scope="row">
+                    <button
+                      type="button"
+                      [attr.aria-label]="'Select node ' + node.label"
+                      (click)="selectItem(node.id, 'node', 'table')"
+                    >
+                      {{ node.label }}
+                    </button>
+                  </th>
+                  <td>{{ node.incomingText }}</td>
+                  <td>{{ node.outgoingText }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Flow links">
+          <table>
+            <caption>
+              {{
+                title()
+              }}
+              — Links
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">From</th>
+                <th scope="col">To</th>
+                <th scope="col">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (link of linkRows(); track link.id) {
+                <tr>
+                  <th scope="row">{{ link.sourceLabel }}</th>
+                  <td>{{ link.targetLabel }}</td>
+                  <td>
+                    <button
+                      type="button"
+                      [attr.aria-label]="
+                        'Select flow ' +
+                        link.sourceLabel +
+                        ' to ' +
+                        link.targetLabel +
+                        ': ' +
+                        link.text
+                      "
+                      (click)="selectItem(link.id, 'link', 'table')"
+                    >
+                      {{ link.text }}
+                    </button>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+    </details>
+  </div>
+</nec-chart-frame>

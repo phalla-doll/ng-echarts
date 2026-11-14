@@ -1,3 +1,4 @@
+import { SankeyChart } from '@ng-echarts/chart-library/sankey';
 import { CalendarHeatmap } from '@ng-echarts/chart-library/calendar';
 import { RadialProgress } from '@ng-echarts/chart-library/radial';
 import { RadarChart } from '@ng-echarts/chart-library/radar';
@@ -296,4 +297,19 @@ export class InvalidCalendarValue {
 export class InvalidCalendarYear {
   readonly rows = [{ date: '2024-01-01', count: 1 }];
   readonly wrong = '2024';
+}
+
+@Component({
+  imports: [SankeyChart],
+  template: `<nec-sankey-chart title="Invalid nodes" [nodes]="nodes" [links]="[]" />`,
+})
+export class InvalidSankeyNode {
+  readonly nodes = [{ id: 1, label: 'A' }];
+}
+@Component({
+  imports: [SankeyChart],
+  template: `<nec-sankey-chart title="Invalid links" [nodes]="[]" [links]="links" />`,
+})
+export class InvalidSankeyLink {
+  readonly links = [{ id: 'ab', source: 'a', target: 'b', value: null }];
 }

@@ -35,19 +35,20 @@ Supply immutable `data`, unique stable string row IDs, string category labels, a
 | `title`, `data`, `rowIdKey`, `categoryKey`, `measure` | Required | Native title, immutable rows, identity, category label, and one numeric measure |
 | `description`, `height` | `''`, `320` | Summary and positive finite plot height in CSS pixels |
 | `innerRadius` | `0` | Ratio of outer radius, from 0 to 0.9; `0` is pie, `0.6` is a donut |
+| `showTotal` | `false` | Show the formatted visible total and measure label in a donut with `innerRadius >= 0.4`; hidden for no positive visible values |
 | `showLabels` | `false` | Outside category labels, with leader lines, truncation and overlap suppression |
 | `theme`, `themeRevision` | `'light'`, `0` | Explicit theme and CSS/font refresh revision |
 | `locale`, `numberFormatOptions`, `valueFormatter` | `'en-US'`, `undefined`, `undefined` | Shared numeric text in tooltips and table actions |
 | `showDataTable` | `true` | Initially collapsed, complete native table with keyboard point actions |
 | `loading`, `error`, `animation` | `false`, `null`, `true` | Shared state precedence and motion behavior; OS reduced motion overrides animation |
 
-The outer radius is 80% of half the shorter plot dimension, reduced to 60% when labels are enabled. Labels align within canvas edges to reserve room on narrow hosts. Ratios keep donuts responsive; this differs from the upstream example's fixed 60 px inner radius. Labels are category text rather than numeric percentages. Long/colliding labels may be shortened or hidden; the native legend and table retain complete text. No category-axis formatter applies to radial charts.
+The outer radius is 80% of half the shorter plot dimension, reduced to 60% when labels are enabled. Labels follow short leader lines near the ring, with edge bounds and overlap suppression on narrow hosts. Ratios keep donuts responsive; this differs from the upstream example's fixed 60 px inner radius. Labels are category text rather than numeric percentages. Long/colliding labels may be shortened or hidden; the native legend and table retain complete text. No category-axis formatter applies to radial charts.
 
 ## Visibility, events, and keyboard controls
 
 `legendChange` emits `CategoryVisibilityChange { rowId, visible }`, identifying a **category**, rather than a Cartesian series. Hidden IDs survive immutable row updates/reordering, and disappear when the corresponding row is removed from a valid dataset. Filtering retains each original palette slot. Reordering rows also reorders palette slots.
 
-`pointSelect` emits `PointSelection<T>` with original `row`, `rowId`, measure ID in `seriesId`, raw `value`, and `source: 'plot' | 'table'`. Sector clicks select positive supplied observations. Zero and hidden values retain table actions; missing observations show “Missing” with no action. Visibility changes recompute proportions among visible values without changing event values. Hiding every positive category keeps recovery controls and displays “No visible positive values”; it does not draw placeholder sectors. Empty/error/loading states follow the shared contract and omit the ready table.
+`pointSelect` emits `PointSelection<T>` with original `row`, `rowId`, measure ID in `seriesId`, raw `value`, and `source: 'plot' | 'table'`. Sector clicks select positive supplied observations. Zero and hidden values retain table actions; missing observations show “Missing” with no action. Visibility changes recompute proportions among visible values without changing event values. Native legends show each raw value and its locale-formatted share of the visible total; hidden/missing categories show a dash for share. Tooltips use the same denominator. When `showTotal` is enabled, the sum is validated through the value formatter alongside observations, so a formatter failure produces a recoverable chart error. Hiding every positive category keeps recovery controls and displays “No visible positive values”; it does not draw placeholder sectors. Empty/error/loading states reserve the plot height, keep controls inert and omit the ready table.
 
 Keep the default table or provide equivalent keyboard point controls. Gallery previews and copied examples use `[showDataTable]="false"` at the user's request. Inspectable code does not replace keyboard actions. Native legend focus is retained across keyed updates; removal restores a usable local control without stealing external focus.
 

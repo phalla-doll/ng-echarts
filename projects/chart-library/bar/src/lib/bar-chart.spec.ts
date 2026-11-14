@@ -232,7 +232,8 @@ describe('bar Angular controls', () => {
       'Category tick formatting failed',
     );
     expect(element.textContent).not.toContain('Private details');
-    expect(element.querySelector('.table-toggle')).toBeNull();
+    expect(element.querySelector<HTMLButtonElement>('.table-toggle')?.disabled).toBe(true);
+    expect(element.querySelector('.table-toggle')?.closest('[inert]')).not.toBeNull();
     fixture.componentRef.setInput('loading', true);
     await fixture.whenStable();
     expect(element.querySelector('[role=status]')?.textContent).toContain('Loading');

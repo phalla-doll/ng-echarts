@@ -17,6 +17,7 @@ import {
 } from '@angular/core';
 import {
   ChartFrame,
+  ɵChartStage,
   ɵPlotController,
   ɵChartFocusKeeper,
   ɵbrowserPlotEnvironment,
@@ -33,7 +34,7 @@ import { buildRadialOptions, type RadialOption } from './radial-options';
 import { RADIAL_RENDERER_LOADER } from './radial-browser';
 @Component({
   selector: 'nec-radial-progress',
-  imports: [ChartFrame],
+  imports: [ChartFrame, ɵChartStage],
   templateUrl: './radial-progress.html',
   styleUrl: './radial-progress.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

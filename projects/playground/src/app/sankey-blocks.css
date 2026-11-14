@@ -1,0 +1,12 @@
+.flow-selection {
+  margin: 0;
+  padding: 0 24px 20px;
+  color: var(--site-muted);
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.block-section {
+  min-width: 0;
+}

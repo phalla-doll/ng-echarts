@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.1.0-rc.11 — 14 November 2026
+
+- Preserve plot geometry through loading/empty/error states and explain all-hidden series without removing recovery controls.
+- Refine bar/area fills, exposed stack corners, redundant line encodings, composed trend visibility, radar scale context and radial track weight.
+- Unify escaped tooltip presentation, add optional pie `showTotal` and quantitative category legends, and optional calendar/Sankey `valueLabel`.
+- Resolve the full Sankey stage palette, display node totals and expose mobile diagram scrolling. Existing private candidate archives and human release gates remain unchanged.
+
+## 0.1.0-rc.10 — 14 November 2026
+
+- Load every chart through ECharts' exported per-chart entries so multi-family applications keep each family's engine code outside unrelated renderer chunks. Rendering and public contracts are unchanged; registration stays browser-only and lazy.
+- Preserve focused/core limits; document the compatibility-root aggregate compression allowance of 215,000 gzip / 184,000 Brotli bytes for separate lazy chart chunks.
+- Preserve the verified rc.9 and earlier archives. Human release gates remain pending.
+
+## 0.1.0-rc.9 — 14 November 2026
+
+- Add the focused experimental `/sankey` entry: typed acyclic node/link data, raw selection events, native node totals/link values, zero-flow states, lazy Canvas rendering and shared theme/formatting/motion/lifecycle policies.
+- Preserve rc.8 and all previous artifacts. The compatibility root remains unchanged; human F09/R06/G2/G3/G4 and public publication remain pending.
+
 ## 0.1.0-rc.8 — 13 November 2026
 
 - Retain exact daily tables and omit the calendar drawing when a browser timezone skips a civil date in the selected year, rather than mapping two observations into one cell.

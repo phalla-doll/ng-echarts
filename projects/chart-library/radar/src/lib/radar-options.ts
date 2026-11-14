@@ -2,7 +2,8 @@ import type { RadarSeriesOption } from 'echarts/charts';
 import type { RadarComponentOption, TooltipComponentOption } from 'echarts/components';
 import type { ComposeOption } from 'echarts/core';
 import {
-  ɵescapeTooltipText as escape,
+  ɵtooltipMarkup as tooltipMarkup,
+  ɵtooltipStyle as tooltipStyle,
   type ɵCartesianContext,
 } from '@ng-echarts/chart-library/core';
 
@@ -31,7 +32,7 @@ export function buildRadarOptions<T>(
       axisName: {
         color: tokens.muted,
         fontFamily: tokens.fontFamily,
-        fontSize: 11,
+        fontSize: 12,
         width: 60,
         overflow: 'truncate',
       },
@@ -48,22 +49,22 @@ export function buildRadarOptions<T>(
     tooltip: {
       trigger: 'item',
       confine: true,
-      backgroundColor: tokens.background,
-      borderColor: tokens.border,
-      textStyle: { color: tokens.text, fontFamily: tokens.fontFamily, fontSize: 12 },
-      extraCssText:
-        'max-width: min(280px, calc(100% - 16px)); white-space: normal; pointer-events: none;',
+      ...tooltipStyle(tokens),
       formatter: (params: unknown) => {
         if (!params || typeof params !== 'object') return '';
         const id = (params as Record<string, unknown>)['seriesId'];
         const index = model.series.findIndex((s) => s.id === id);
         if (index < 0 || hiddenIds.has(String(id))) return '';
-        return `<div data-nec-tooltip><strong>${escape(model.series[index]!.label)}</strong>${model.rows
-          .map((row, i) => {
-            const value = row.points[index]!.value;
-            return `<div>${escape(row.category)}: ${value === null ? 'Missing' : escape(format(value))} / ${escape(format(maxima[i]!))}</div>`;
-          })
-          .join('')}</div>`;
+        return tooltipMarkup(
+          model.series[index]!.label,
+          model.rows.map((row, i) => ({
+            label: row.category,
+            value:
+              row.points[index]!.value === null
+                ? 'Missing'
+                : `${format(row.points[index]!.value!)} / ${format(maxima[i]!)}`,
+          })),
+        );
       },
     },
     series: model.series.flatMap((item, index) => {

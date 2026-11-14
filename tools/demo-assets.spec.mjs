@@ -35,7 +35,17 @@ test('rejects missing engine boundaries and verifies the pinned modular engine',
 
 test('warms only the requested renderer graph and preserves the Pages prefix', () => {
   const outputs = { 'shared.js': { imports: [] }, 'unused.js': { imports: [] } };
-  for (const family of ['bar', 'line', 'area', 'pie', 'composed', 'radar', 'radial', 'calendar']) {
+  for (const family of [
+    'bar',
+    'line',
+    'area',
+    'pie',
+    'composed',
+    'radar',
+    'radial',
+    'calendar',
+    'sankey',
+  ]) {
     outputs[`${family}.js`] = {
       entryPoint: `ng-echarts-chart-library-${family}-${family}-renderer-hash.mjs`,
       imports: [
@@ -62,4 +72,31 @@ test('warms only the requested renderer graph and preserves the Pages prefix', (
   assert(preloadMarkup(manifest, '').includes('href="/ng-echarts/bar.js"'));
   assert(!preloadMarkup(manifest, 'installation').includes('<link'));
   assert.throws(() => rendererPreloads({}), /Missing bar renderer/);
+});
+
+test('rejects unrelated chart code entering a renderer preload graph', () => {
+  const outputs = {};
+  for (const family of [
+    'bar',
+    'line',
+    'area',
+    'composed',
+    'pie',
+    'radar',
+    'radial',
+    'calendar',
+    'sankey',
+  ]) {
+    outputs[`${family}.js`] = {
+      entryPoint: `ng-echarts-chart-library-${family}-${family}-renderer-hash.mjs`,
+      imports: [],
+      inputs: {},
+    };
+  }
+  outputs['bar.js'].inputs['node_modules/echarts/lib/chart/sankey/SankeyView.js'] = {
+    bytesInOutput: 100,
+  };
+  assert.throws(() => rendererPreloads(outputs), /bar renderer preloads unrelated sankey/);
+  outputs['bar.js'].inputs['node_modules/echarts/lib/chart/sankey/SankeyView.js'].bytesInOutput = 0;
+  assert.doesNotThrow(() => rendererPreloads(outputs));
 });

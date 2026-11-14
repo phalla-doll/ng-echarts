@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import {
   ChartFrame,
+  ɵChartStage,
   ɵCartesianChart,
   ɵcreateValueFormatting,
   type ɵCartesianContext,
@@ -12,9 +13,12 @@ import { RADAR_RENDERER_LOADER } from './radar-browser';
 import type { RadarIdentityOption } from './radar-point';
 @Component({
   selector: 'nec-radar-chart',
-  imports: [ChartFrame],
+  imports: [ChartFrame, ɵChartStage],
   templateUrl: './radar-chart.html',
-  styleUrl: '../../../core/src/lib/cartesian-chart.css',
+  styleUrls: [
+    '../../../core/src/lib/cartesian-chart.css',
+    '../../../core/src/lib/chart-controls.css',
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RadarChart<T extends object> extends ɵCartesianChart<T, RadarOption> {
@@ -49,6 +53,12 @@ export class RadarChart<T extends object> extends ɵCartesianChart<T, RadarOptio
             `${this.maxFormatting().format(0)} – ${this.maxFormatting().format(model.maxima[i]!)}`,
           ]),
     );
+  });
+  protected readonly scaleContext = computed(() => {
+    const scales = [...new Set(this.scaleLabels().values())];
+    return scales.length === 1
+      ? `Each dimension: ${scales[0]}`
+      : 'Each dimension has its own scale. See the data table.';
   });
   protected readonly incompleteIds = computed(() => {
     const model = this.model();

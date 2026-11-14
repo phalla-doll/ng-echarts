@@ -1,0 +1,612 @@
+{
+  "preparedAt": "2026-11-14T06:01:33.220Z",
+  "toolchain": { "node": "v24.22.2", "npm": "11.19.1", "platform": "darwin", "arch": "arm64" },
+  "sourceBaseCommit": "158b21b6a730b3e7e1aa2016bb6774bc9fb9118a",
+  "includesWorkingTree": true,
+  "artifact": {
+    "filename": "ng-echarts-chart-library-0.1.0-rc.11.tgz",
+    "name": "@ng-echarts/chart-library",
+    "version": "0.1.0-rc.11",
+    "license": "MIT",
+    "private": true,
+    "sha256": "9258a75f04b398694cab2da94ba14026b38751af56d5a45bc9bb453036c19faa",
+    "integrity": "sha512-2GDPmqCz4cA+jxeF5yPLsTwo8e/ilAjhpE4I5lNSuYYiOsxhm9Hlyz3YO2bRpIrLNFbOhVpCOpikwdTvAmwp7Q==",
+    "bytes": 146600,
+    "exports": {
+      "./package.json": { "default": "./package.json" },
+      ".": {
+        "types": "./types/ng-echarts-chart-library.d.ts",
+        "default": "./fesm2022/ng-echarts-chart-library.mjs"
+      },
+      "./area": {
+        "types": "./types/ng-echarts-chart-library-area.d.ts",
+        "default": "./fesm2022/ng-echarts-chart-library-area.mjs"
+      },
+      "./bar": {
+        "types": "./types/ng-echarts-chart-library-bar.d.ts",
+        "default": "./fesm2022/ng-echarts-chart-library-bar.mjs"
+      },
+      "./calendar": {
+        "types": "./types/ng-echarts-chart-library-calendar.d.ts",
+        "default": "./fesm2022/ng-echarts-chart-library-calendar.mjs"
+      },
+      "./composed": {
+        "types": "./types/ng-echarts-chart-library-composed.d.ts",
+        "default": "./fesm2022/ng-echarts-chart-library-composed.mjs"
+      },
+      "./core": {
+        "types": "./types/ng-echarts-chart-library-core.d.ts",
+        "default": "./fesm2022/ng-echarts-chart-library-core.mjs"
+      },
+      "./line": {
+        "types": "./types/ng-echarts-chart-library-line.d.ts",
+        "default": "./fesm2022/ng-echarts-chart-library-line.mjs"
+      },
+      "./pie": {
+        "types": "./types/ng-echarts-chart-library-pie.d.ts",
+        "default": "./fesm2022/ng-echarts-chart-library-pie.mjs"
+      },
+      "./radar": {
+        "types": "./types/ng-echarts-chart-library-radar.d.ts",
+        "default": "./fesm2022/ng-echarts-chart-library-radar.mjs"
+      },
+      "./radial": {
+        "types": "./types/ng-echarts-chart-library-radial.d.ts",
+        "default": "./fesm2022/ng-echarts-chart-library-radial.mjs"
+      },
+      "./sankey": {
+        "types": "./types/ng-echarts-chart-library-sankey.d.ts",
+        "default": "./fesm2022/ng-echarts-chart-library-sankey.mjs"
+      }
+    },
+    "peerDependencies": {
+      "@angular/common": "^22.2.6",
+      "@angular/core": "^22.2.6",
+      "echarts": "^6.1.0"
+    },
+    "dependencies": { "tslib": "^2.3.0" },
+    "assets": [
+      "LICENSE",
+      "README.md",
+      "CHANGELOG.md",
+      "THIRD_PARTY_NOTICES.md",
+      "third-party/provenance.json",
+      "third-party/evilcharts-LICENSE.txt",
+      "third-party/angular-LICENSE.txt",
+      "third-party/echarts-LICENSE.txt",
+      "third-party/echarts-NOTICE.txt",
+      "third-party/zrender-LICENSE.txt",
+      "third-party/rxjs-LICENSE.txt",
+      "third-party/tslib-LICENSE.txt",
+      "third-party/tslib-CopyrightNotice.txt"
+    ],
+    "notices": [
+      {
+        "package": "@angular/core",
+        "version": "22.2.6",
+        "license": "MIT",
+        "source": "node_modules/@angular/core/LICENSE",
+        "file": "angular-LICENSE.txt",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      },
+      {
+        "package": "@angular/common",
+        "version": "22.2.6",
+        "license": "MIT",
+        "source": "node_modules/@angular/common/LICENSE",
+        "file": "angular-LICENSE.txt",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      },
+      {
+        "package": "echarts",
+        "version": "6.1.0",
+        "license": "Apache-2.0",
+        "source": "node_modules/echarts/LICENSE",
+        "file": "echarts-LICENSE.txt",
+        "sha256": "634293835b43a6dd2094fa39182a3d9a6b9ca43b7fdb9ac354e8037af2a3093a"
+      },
+      {
+        "package": "echarts",
+        "version": "6.1.0",
+        "license": "Apache-2.0",
+        "source": "node_modules/echarts/NOTICE",
+        "file": "echarts-NOTICE.txt",
+        "sha256": "d491d358344f842685c1b1585970999db65fe30ecf7ef3867af8814f4016c016"
+      },
+      {
+        "package": "zrender",
+        "version": "6.1.0",
+        "license": "BSD-3-Clause",
+        "source": "node_modules/zrender/LICENSE",
+        "file": "zrender-LICENSE.txt",
+        "sha256": "a681e9d183c72b4af4856935893805eb48c08f0f5a3f260203db7444c20fb98a"
+      },
+      {
+        "package": "rxjs",
+        "version": "7.8.2",
+        "license": "Apache-2.0",
+        "source": "node_modules/rxjs/LICENSE.txt",
+        "file": "rxjs-LICENSE.txt",
+        "sha256": "81c407ac717813b0e3795402960e04003c7bba8ba59b621624707028531c9ade"
+      },
+      {
+        "package": "tslib",
+        "version": "2.8.1",
+        "license": "0BSD",
+        "source": "node_modules/tslib/LICENSE.txt",
+        "file": "tslib-LICENSE.txt",
+        "sha256": "210b19e543130388c68654b7497e967119ce17145f66ab7d85688fbd70f08751"
+      },
+      {
+        "package": "tslib",
+        "version": "2.8.1",
+        "license": "0BSD",
+        "source": "node_modules/tslib/CopyrightNotice.txt",
+        "file": "tslib-CopyrightNotice.txt",
+        "sha256": "da16ddb65f8ca390998fb99223d0112498b56b45784d00afd77ff8ce1ac4de8b"
+      },
+      {
+        "package": "EvilCharts",
+        "revision": "4c2dd7c9bae780703244265c9a4b509d40c055ad",
+        "license": "MIT",
+        "file": "evilcharts-LICENSE.txt",
+        "source": "https://github.com/legions-developer/evilcharts/blob/4c2dd7c9bae780703244265c9a4b509d40c055ad/LICENSE",
+        "sha256": "7b6baf25f6caa0de061a2c99a47205d6651cdefc6e636910bc51bb3853ed056e"
+      }
+    ],
+    "files": [
+      {
+        "path": "CHANGELOG.md",
+        "sha256": "1ce1f93e5fcd120f8ca196bb05ccebc736e736ae7fd5140403f7096cea72b7d6"
+      },
+      {
+        "path": "LICENSE",
+        "sha256": "2f04f987f36ea464962c27c8ffdba7a7f3f119a3b6b4f5d35d0a4026589204c4"
+      },
+      {
+        "path": "README.md",
+        "sha256": "ac8faf7fb7d7a802646b244c48a4a729371e282dfe46e26f147fae962505d4de"
+      },
+      {
+        "path": "THIRD_PARTY_NOTICES.md",
+        "sha256": "514f88cf1a33d2657becd084cbce5f062192a905009cbc5a428e82ef82f0c988"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-area-area-renderer-qEXwzXQS.mjs",
+        "sha256": "3ea7fcfbc459bbc8e49b3adf0513d5942e56e358f6a05913e7f861baeee61118"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-area-area-renderer-qEXwzXQS.mjs.map",
+        "sha256": "48feb42167322ec2598b906987fc007726856ab9039c1c0ba921c311de749367"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-area.mjs",
+        "sha256": "47115175c5a1bef81f34702b4768d08899e8d4bee584e4e88888a61381a75c7d"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-area.mjs.map",
+        "sha256": "38dcbddf516614684d5c8c8da2d267bc072d2964b549aab0bada98d0c1450dbf"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-bar-bar-renderer-F3UCoZl8.mjs",
+        "sha256": "22d9d9df9b84b1f00d584ba10d9ba1c5e3babdec34a93d18fa13789b29c3b87c"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-bar-bar-renderer-F3UCoZl8.mjs.map",
+        "sha256": "54670e5b316e6898fcaa3de822db25dd8fdcd2a605b8770aaa703f7866662ca6"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-bar.mjs",
+        "sha256": "eeee4e028beea87e63f419faeb02026202d48d2b7d940347d413f5ec8d4db286"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-bar.mjs.map",
+        "sha256": "82c169d026301dcedd1a7736d2c6e129986ac0f20822c3685d4831e69afe74da"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-calendar-calendar-options-D-scjnSG.mjs",
+        "sha256": "1959d76a10afdb473b70a84f264bd827352fccc70d31ef97dee19850a778f431"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-calendar-calendar-options-D-scjnSG.mjs.map",
+        "sha256": "8332208b1bd947f20d8b05a95207bc45c82129690ba2c7cd2e945625d852c09d"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-calendar-calendar-renderer-CWBE2woN.mjs",
+        "sha256": "e58e04eaf584271c26bd6cf034fb28fcaa571918ec391559acdbae7d3d65e03e"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-calendar-calendar-renderer-CWBE2woN.mjs.map",
+        "sha256": "eef35b09bbc6a2222e12e04cdd8b709a1a3fe895b5946fdd193b60966b9ce00d"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-calendar.mjs",
+        "sha256": "1a59c200c39b92e3fb14c56d430f4c4421a57a1104687bc4635098717871f2cd"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-calendar.mjs.map",
+        "sha256": "0caafd6ed0dfd3b73bbeb18f845cd0585db40d0c9cd64d25afec519fdecb43bc"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu.mjs",
+        "sha256": "8e4a384c4b3dd4b48a845f88357a8b9b22ada38852129f86efb658d4d68ebe1e"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu.mjs.map",
+        "sha256": "ca9bec2b91299ec864e9e76738a5b8ad600b6b9361239df04d61faf52fc854c0"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-composed.mjs",
+        "sha256": "ad6de3213f2581467a2001a1b4409bb066ac5a15575778adcb2fe964f04e2632"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-composed.mjs.map",
+        "sha256": "ce857cd0973f8f25a9c8ae6f1cd88344f145d90c8666a82ac9d394e67dc06124"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-core.mjs",
+        "sha256": "dc83abe05d21a23b166767ac7473906de796d10111a5dbb28649b9b32f619ac5"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-core.mjs.map",
+        "sha256": "19292ef37f9aabd060f554698738a415683355eba8a532458f22a5ed974be69d"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-line-line-renderer-LmCzqHhD.mjs",
+        "sha256": "1364b95c81e7563bbb2338107e5ef2f48dd6bd230fe33cec22e9d29e2a3d9fd0"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-line-line-renderer-LmCzqHhD.mjs.map",
+        "sha256": "dd17d46460d10dbafb37129596e4a5757d26ec9e5d4a450897933dd4bdad2cb4"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-line.mjs",
+        "sha256": "497bbf4ad0e420a92312d829f25f58716b7e29d096df47714cf76b870ff5295d"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-line.mjs.map",
+        "sha256": "cc8fae0c02acab602fdc884c5b66becc5894260009240963d5c2248f3d85e184"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-pie-pie-renderer-C8JrAbQD.mjs",
+        "sha256": "9f20c07fe6a7fc97e495d6997cceca69659c9ec9a59a78d91d0f319274f18f58"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-pie-pie-renderer-C8JrAbQD.mjs.map",
+        "sha256": "628ababaf09142de8451a3c5c1ee42c0c379aeff9b815b3b51b7e6f4cb2a2c88"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-pie.mjs",
+        "sha256": "b948524d8a01d37c87485315f032fb242c3a05ea6c61d7668a0622517811b4d0"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-pie.mjs.map",
+        "sha256": "e7c589d8e101817db86e27f4c849a0c334cae8b54156293d2d6613460c336104"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-radar-radar-options-WzYf5n3w.mjs",
+        "sha256": "2d0d40892c3bf9e2df1a590e3666671344431813b1d65ab816bd888d899d010f"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-radar-radar-options-WzYf5n3w.mjs.map",
+        "sha256": "b9e06c7fb704f276e840fad100d4c2da5b5af52926f0458ab438b6801a80ad7a"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-radar-radar-renderer-NBJrDg4R.mjs",
+        "sha256": "65e7e7dd8aebb1e0bc197347c646865efafa31af94874e8d429c5dbeba67b6ca"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-radar-radar-renderer-NBJrDg4R.mjs.map",
+        "sha256": "771319d0f453208ee2d088d662ff36b725aa1e5e442cbbd19a897635c8093d76"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-radar.mjs",
+        "sha256": "44a16c65269923bdcfdcb347d25479687367236a0e170691158dcd76f4a9eb9c"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-radar.mjs.map",
+        "sha256": "7737757844d6fa0be2a11cbe34e54734855305648a88612eac1c8ad3a10e411f"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-radial-radial-renderer-DlH2JDoC.mjs",
+        "sha256": "67218da3f888e37c5847d4faf4350ecb045d06d6c992315ab76bdf7ff105dd37"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-radial-radial-renderer-DlH2JDoC.mjs.map",
+        "sha256": "e8c96c8f9b145963ad28da7cb44e44ad764ca0abcb1f206e2437c7664256a100"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-radial.mjs",
+        "sha256": "aa66c19144ebeb2d754d71382cbd83e949d70fa8ca6fa8d70f24c25d699c43f7"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-radial.mjs.map",
+        "sha256": "deb2cc0ecfc84d6e29464b9da779b01dfdd124c87eaf17af5cf376a91e27e505"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-sankey-sankey-renderer-L8C_YWa7.mjs",
+        "sha256": "504db4549bcd68dcf4267eb4b8c30a306152946bcd7e74bbfbf1c89bfe33d44b"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-sankey-sankey-renderer-L8C_YWa7.mjs.map",
+        "sha256": "d52ad26f06a2083e2cc75a1a3ed5a0442c3c64c8a3130c7bac9cbd148e81865a"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-sankey.mjs",
+        "sha256": "48536432a5cae9de6795a70b24e363d0fea444d1b3c996274f370a5e1739b2ff"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library-sankey.mjs.map",
+        "sha256": "75f3a5a4ecff9e10f9812f486596992c9f21d4821ee5709e42fc6330e41ba8a5"
+      },
+      {
+        "path": "fesm2022/ng-echarts-chart-library.mjs",
+        "sha256": "3dbaf3f8a8ff4b8f6e50320caf03728585c424c024c8a709523b21b0c87567d0"
+      },
+      {
+        "path": "package.json",
+        "sha256": "d9d1abc7969a015c992824fa45ed1f7d57e77cc7dfd0fab6effcf94b7554412a"
+      },
+      {
+        "path": "third-party/angular-LICENSE.txt",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      },
+      {
+        "path": "third-party/echarts-LICENSE.txt",
+        "sha256": "634293835b43a6dd2094fa39182a3d9a6b9ca43b7fdb9ac354e8037af2a3093a"
+      },
+      {
+        "path": "third-party/echarts-NOTICE.txt",
+        "sha256": "d491d358344f842685c1b1585970999db65fe30ecf7ef3867af8814f4016c016"
+      },
+      {
+        "path": "third-party/evilcharts-LICENSE.txt",
+        "sha256": "7b6baf25f6caa0de061a2c99a47205d6651cdefc6e636910bc51bb3853ed056e"
+      },
+      {
+        "path": "third-party/provenance.json",
+        "sha256": "02324b05358b542df126783b44fa70cb5d1757cad43df030c5be1002f38c0b7a"
+      },
+      {
+        "path": "third-party/rxjs-LICENSE.txt",
+        "sha256": "81c407ac717813b0e3795402960e04003c7bba8ba59b621624707028531c9ade"
+      },
+      {
+        "path": "third-party/tslib-CopyrightNotice.txt",
+        "sha256": "da16ddb65f8ca390998fb99223d0112498b56b45784d00afd77ff8ce1ac4de8b"
+      },
+      {
+        "path": "third-party/tslib-LICENSE.txt",
+        "sha256": "210b19e543130388c68654b7497e967119ce17145f66ab7d85688fbd70f08751"
+      },
+      {
+        "path": "third-party/zrender-LICENSE.txt",
+        "sha256": "a681e9d183c72b4af4856935893805eb48c08f0f5a3f260203db7444c20fb98a"
+      },
+      {
+        "path": "types/ng-echarts-chart-library-area.d.ts",
+        "sha256": "19c862535e415ba7dbf6ec34de493347f7f2c070c5754403969e868e7202da2b"
+      },
+      {
+        "path": "types/ng-echarts-chart-library-bar.d.ts",
+        "sha256": "874c26b4b4640cc3046f78897fb07392157c2a16467f9bb37002f79c682293f1"
+      },
+      {
+        "path": "types/ng-echarts-chart-library-calendar.d.ts",
+        "sha256": "f2847bc692021bb6ad41f07c92c5dd8050ddf641c58028592f1919b0bd54a8b7"
+      },
+      {
+        "path": "types/ng-echarts-chart-library-composed.d.ts",
+        "sha256": "ced3e94d6357a0ab952643134dd1aaeb7790748e4a8674e36fcfc748a9e8be68"
+      },
+      {
+        "path": "types/ng-echarts-chart-library-core.d.ts",
+        "sha256": "b7572b746bf97b32d2907406e8dcc4400bffa6c087f9320029e20b9bafd661fd"
+      },
+      {
+        "path": "types/ng-echarts-chart-library-line.d.ts",
+        "sha256": "80ed2ad324fec0d064700064cd64713c8e2201a91686498a8f7e01504af6aecd"
+      },
+      {
+        "path": "types/ng-echarts-chart-library-pie.d.ts",
+        "sha256": "0840b8f915d2641ab071c85f1e83d67b719c3ff79690f5986915882e63a61b6b"
+      },
+      {
+        "path": "types/ng-echarts-chart-library-radar.d.ts",
+        "sha256": "e277bfc4e739970dd3f57f6314e8df656079b55eb17e7ee9c75d00d5065d8539"
+      },
+      {
+        "path": "types/ng-echarts-chart-library-radial.d.ts",
+        "sha256": "8ad78f0e661d1ae7701e590432ecd7763d9891891a16599a5bea220ce9cb5887"
+      },
+      {
+        "path": "types/ng-echarts-chart-library-sankey.d.ts",
+        "sha256": "c1bf1ef57796f7328c384a77dc4dff180fafe15b5849884e61d9ad1954ae0da0"
+      },
+      {
+        "path": "types/ng-echarts-chart-library.d.ts",
+        "sha256": "0e1ee12a1b5b8aae904fcc765d872da7a5f0f3a23a6653e52b6e4a805649547e"
+      }
+    ]
+  },
+  "verification": {
+    "automatedArtifact": "passed",
+    "humanInterpretation": "pending",
+    "G4": "pending"
+  },
+  "consumerEvidence": {
+    "ng15-documentation-consumer.json": {
+      "recordedAt": "2026-11-14T06:02:52.744Z",
+      "artifact": {
+        "name": "@ng-echarts/chart-library",
+        "version": "0.1.0-rc.11",
+        "sha256": "9258a75f04b398694cab2da94ba14026b38751af56d5a45bc9bb453036c19faa",
+        "exactCandidate": true
+      },
+      "node": "v24.22.2",
+      "npm": "11.19.1",
+      "method": "Fresh pinned CLI scaffold outside workspace; execute INSTALLATION.md shell blocks; install local tarball; copy exact INTEGRATION_GUIDE.md App; strict ngc and production build; generated server HTML then three-engine hydration/actions/updates/themes/resize.",
+      "sources": {
+        "docs/INSTALLATION.md": "d03e6664ef721edeca915df8463899cd32bf774d02746f2b877287fae6ad62e7",
+        "docs/INTEGRATION_GUIDE.md": "897b0df3e7a3d4d8a43f38232e1da7a715618e89f0c05d1877fac89e39fd6ae4"
+      },
+      "installedOutsideWorkspace": true,
+      "lockfileReinstall": true,
+      "workspaceAliases": false,
+      "skipLibCheck": false,
+      "strictTemplates": true,
+      "versions": {
+        "@angular/build": "22.2.6",
+        "@angular/cli": "22.2.6",
+        "@angular/common": "22.2.6",
+        "@angular/compiler-cli": "22.2.6",
+        "@angular/compiler": "22.2.6",
+        "@angular/core": "22.2.6",
+        "@angular/forms": "22.2.6",
+        "@angular/platform-browser": "22.2.6",
+        "@angular/platform-server": "22.2.6",
+        "@angular/router": "22.2.6",
+        "@angular/ssr": "22.2.6",
+        "@ng-echarts/chart-library": "0.1.0-rc.11",
+        "@types/express": "5.0.6",
+        "@types/node": "22.20.5",
+        "echarts": "6.1.0",
+        "express": "5.3.0",
+        "prettier": "3.10.1",
+        "rxjs": "7.8.2",
+        "tslib": "2.8.1",
+        "typescript": "6.0.3"
+      },
+      "generatedPackage": "chart-consumer",
+      "ssrHeadings": 4,
+      "serverCanvasCount": 0,
+      "results": [
+        {
+          "engine": "chromium",
+          "version": "158.0.8127.18",
+          "charts": 4,
+          "keyboardEvents": true,
+          "immutableUpdates": true,
+          "themes": true,
+          "responsive": true,
+          "stableInstances": true,
+          "passed": true
+        },
+        {
+          "engine": "firefox",
+          "version": "159.0",
+          "charts": 4,
+          "keyboardEvents": true,
+          "immutableUpdates": true,
+          "themes": true,
+          "responsive": true,
+          "stableInstances": true,
+          "passed": true
+        },
+        {
+          "engine": "webkit",
+          "version": "27.2",
+          "charts": 4,
+          "keyboardEvents": true,
+          "immutableUpdates": true,
+          "themes": true,
+          "responsive": true,
+          "stableInstances": true,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "packed-runtime.json": {
+      "recordedAt": "2026-11-14T06:03:47.016Z",
+      "node": "v24.22.2",
+      "package": "@ng-echarts/chart-library",
+      "version": "0.1.0-rc.11",
+      "artifact": {
+        "sha256": "9258a75f04b398694cab2da94ba14026b38751af56d5a45bc9bb453036c19faa",
+        "exactCandidate": true
+      },
+      "skipLibCheck": false,
+      "workspaceAliases": false,
+      "installedOutsideWorkspace": true,
+      "entryPoints": [
+        ".",
+        "./core",
+        "./bar",
+        "./line",
+        "./area",
+        "./pie",
+        "./calendar",
+        "./composed",
+        "./radar",
+        "./radial",
+        "./sankey"
+      ],
+      "compatibilityIdentity": true,
+      "privateImportsBlocked": true,
+      "reactRuntime": false,
+      "results": [
+        {
+          "engine": "chromium",
+          "version": "158.0.8127.18",
+          "mode": "client",
+          "conceptGallery": true,
+          "passed": true
+        },
+        {
+          "engine": "chromium",
+          "version": "158.0.8127.18",
+          "mode": "ssr-hydration",
+          "conceptGallery": true,
+          "passed": true
+        },
+        {
+          "engine": "firefox",
+          "version": "159.0",
+          "mode": "client",
+          "conceptGallery": true,
+          "passed": true
+        },
+        {
+          "engine": "firefox",
+          "version": "159.0",
+          "mode": "ssr-hydration",
+          "conceptGallery": true,
+          "passed": true
+        },
+        {
+          "engine": "webkit",
+          "version": "27.2",
+          "mode": "client",
+          "conceptGallery": true,
+          "passed": true
+        },
+        {
+          "engine": "webkit",
+          "version": "27.2",
+          "mode": "ssr-hydration",
+          "conceptGallery": true,
+          "passed": true
+        }
+      ]
+    }
+  },
+  "verifiedAt": "2026-11-14T06:03:48.820Z",
+  "results": [
+    {
+      "script": "check-consumer.mjs",
+      "candidateSha256": "9258a75f04b398694cab2da94ba14026b38751af56d5a45bc9bb453036c19faa",
+      "passed": true
+    },
+    {
+      "script": "check-documentation-consumer.mjs",
+      "candidateSha256": "9258a75f04b398694cab2da94ba14026b38751af56d5a45bc9bb453036c19faa",
+      "passed": true
+    },
+    {
+      "script": "check-runtime-consumer.mjs",
+      "candidateSha256": "9258a75f04b398694cab2da94ba14026b38751af56d5a45bc9bb453036c19faa",
+      "passed": true
+    }
+  ]
+}

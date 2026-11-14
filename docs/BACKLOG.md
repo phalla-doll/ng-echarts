@@ -2,7 +2,7 @@
 
 The user-requested [four-family visual audit and refinement](experiments/VISUAL_AUDIT.md) is recorded with official Apache ECharts/EvilCharts comparisons, mobile readability fixes, reproducible captures and three-engine checks. This demo presentation work remains separate from NG16 artifact/release acceptance.
 
-Updated 13 November 2026. NG01–NG05 are complete for the bar feasibility scope. NG06 awaits human listening review; NG07 implementation and NG08 measurement/package evidence pass, with their NG06/G2 dependencies still open. NG09/NG10 implementation is complete for the bar-proven baseline; NG11 line, NG12 area, and NG13 pie/donut implementations are complete; NG14 automated cross-family evidence is reconciled; NG15 documentation and fresh-consumer verification are complete; NG16 automated local-candidate checks pass; NG17 first-increment implementation is recorded below; NG20 graphical month-range and NG18 first radar integration are recorded below; broader linked interaction, NG19 calendar first-increment implementation is recorded below; Sankey, complete human release acceptance and NG21/NG22 remain pending. Human release evidence remains separate. The user deferred R06 on 12 November 2026 so it no longer blocks development; it remains required before release acceptance. Priority P0 blocks the next milestone, P1 belongs to MVP, and P2 follows MVP. IDs are stable so experiment reports and changes can reference them.
+Updated 14 November 2026. NG01–NG05 are complete for the bar feasibility scope. NG06 awaits human listening review; NG07 implementation and NG08 measurement/package evidence pass, with their NG06/G2 dependencies still open. NG09/NG10 implementation is complete for the bar-proven baseline; NG11 line, NG12 area, and NG13 pie/donut implementations are complete; NG14 automated cross-family evidence is reconciled; NG15 documentation and fresh-consumer verification are complete; NG16 automated local-candidate checks pass; NG17 first-increment implementation is recorded below; NG20 graphical month-range and NG18 first radar integration are recorded below; NG19 calendar and Sankey first-increment implementations are recorded below; broader linked interaction and Sankey variants, complete human release acceptance and NG21/NG22 remain pending. Human release evidence remains separate. The user deferred R06 on 12 November 2026 so it no longer blocks development; it remains required before release acceptance. Priority P0 blocks the next milestone, P1 belongs to MVP, and P2 follows MVP. IDs are stable so experiment reports and changes can reference them.
 
 NG01 evidence: [R01 toolchain report](experiments/R01_TOOLCHAIN.md). The [implementation plan](IMPLEMENTATION_PLAN.md) sequences the remaining work. G1 passes for bar; G2 awaits R06, and G3/G4 remain pending.
 
@@ -48,13 +48,13 @@ NG09 first increment: [shared numeric formatting](experiments/NG09_SHARED_FORMAT
 
 ## Subsequent collection
 
-The [Chart possibilities gallery](experiments/CHART_POSSIBILITIES.md) previews twelve user-approved chart styles in the demo. These are interactive design proposals; NG18 has focused radar/radial components and NG19 adds a focused calendar heatmap; other proposals and their family-specific acceptance remain subsequent work.
+The [Chart possibilities gallery](experiments/CHART_POSSIBILITIES.md) previews twelve user-approved chart styles in the demo. These are interactive design proposals; NG18 has focused radar/radial components and NG19 adds focused calendar heatmap and Sankey components; other proposals and their family-specific acceptance remain subsequent work.
 
 | ID | Priority | Work | Start condition |
 | --- | --- | --- | --- |
 | NG17 | P2 | Composed Cartesian charts: first vertical bar/line increment implemented; dual-axis/stacked/area extensions deferred | [API and evidence](experiments/NG17_COMPOSED_CHART.md); user-authorized experimental continuation |
 | NG18 | P2 | First radar and radial progress increments implemented; human interpretation pending | [Radar contract and verification](experiments/NG18_RADAR_CHART.md); human interpretation remains pending |
-| NG19 | P2 | First single-year calendar heatmap implemented; Sankey and broader windows deferred | [Calendar contract and evidence](experiments/NG19_CALENDAR_HEATMAP.md); family-specific human interpretation pending |
+| NG19 | P2 | First single-year calendar heatmap and bounded Sankey implemented; broader windows and flow variants deferred | [Calendar contract and evidence](experiments/NG19_CALENDAR_HEATMAP.md); family-specific human interpretation pending |
 | NG20 | P2 | Application-owned overview/detail link, inclusive native/graphical month ranges and controlled bar feedback implemented; zoom/hover, disjoint and two-way selection deferred | [Initial contract](experiments/NG20_LINKED_CHARTS.md) and [selection feedback](experiments/LINKED_SELECTION_FEEDBACK.md); user prioritized linked charts after NG17 |
 | NG21 | P2 | Patterns, glow, advanced animations, and tooltip templates | Per-variant visual and performance targets agreed |
 | NG22 | P2 | Publication workflow and public package identity | Namespace availability checked and release destination chosen |
@@ -104,4 +104,11 @@ The user-approved [radial progress increment](experiments/NG18_RADIAL_PROGRESS.m
 
 ## NG19 calendar first increment
 
-The [calendar API](CALENDAR_HEATMAP_API.md) and [implementation record](experiments/NG19_CALENDAR_HEATMAP.md) define the focused date/value contract, year/maximum bounds, missing-vs-zero semantics, responsive year/quarter layout and native daily actions. Workspace and exact rc.8 artifact verification pass; Sankey, broader date windows and human release acceptance remain pending.
+The [calendar API](CALENDAR_HEATMAP_API.md) and [implementation record](experiments/NG19_CALENDAR_HEATMAP.md) define the focused date/value contract, year/maximum bounds, missing-vs-zero semantics, responsive year/quarter layout and native daily actions. Workspace and exact rc.8 artifact verification pass for calendar; broader date windows and human release acceptance remain pending. The following increment adds Sankey.
+
+
+## NG19 Sankey first increment
+
+The next NG19 increment adds a focused experimental `/sankey` entry and visitor-flow demo, with typed node/link IDs, directed acyclic validation, separate incoming/outgoing totals, native table actions and lazy Canvas rendering. The [API](SANKEY_CHART_API.md) defines the bounded 24-node/60-link contract; the [implementation record](experiments/NG19_SANKEY_CHART.md) records verification and scope. Private rc.10 preserves rc.9, rc.8 and earlier artifacts. Circular/vertical/drag variants, broader linked interactions and human F09/R06/G2/G3/G4 acceptance remain pending.
+
+Private rc.11 combines the completed [presentation refinement](experiments/PREMIUM_CHART_REFINEMENT.md) with Sankey and independent lazy chart loading. It preserves rc.10 and earlier archives. The current combined-root aggregate allowance is 218,000 gzip / 186,000 Brotli bytes; emitted root-frame orphan chunks allow 201,500 / 175,000, with zero reachable engine modules. Focused/core and demo route guards remain unchanged. Human acceptance and publication remain pending.

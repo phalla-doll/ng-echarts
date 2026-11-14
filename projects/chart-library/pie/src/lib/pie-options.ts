@@ -2,7 +2,8 @@ import type { PieSeriesOption } from 'echarts/charts';
 import type { TooltipComponentOption } from 'echarts/components';
 import type { ComposeOption } from 'echarts/core';
 import {
-  ɵescapeTooltipText as escape,
+  ɵtooltipMarkup as tooltipMarkup,
+  ɵtooltipStyle as tooltipStyle,
   type ɵCartesianModel,
   type ɵCartesianThemeTokens,
   type ValueFormatter,
@@ -16,10 +17,19 @@ export function buildPieOptions<T>(context: {
   format: ValueFormatter;
   innerRadius: number;
   showLabels: boolean;
+  formatPercent?: (ratio: number) => string;
 }): PieOption {
   const { model, hiddenIds, tokens, format, innerRadius, showLabels } = context;
   const measure = model.series[0]!;
   const outerRadius = showLabels ? 60 : 80;
+  const formatPercent =
+    context.formatPercent ??
+    ((ratio: number) =>
+      new Intl.NumberFormat('en-US', { style: 'percent', maximumFractionDigits: 1 }).format(ratio));
+  const total = model.rows.reduce(
+    (sum, row) => sum + (hiddenIds.has(row.id) ? 0 : (row.points[0]?.value ?? 0)),
+    0,
+  );
   const visible = model.rows.flatMap((row, index) => {
     const value = row.points[0]!.value;
     return hiddenIds.has(row.id) || value === null
@@ -44,11 +54,7 @@ export function buildPieOptions<T>(context: {
     tooltip: {
       trigger: 'item',
       confine: true,
-      backgroundColor: tokens.background,
-      borderColor: tokens.border,
-      textStyle: { color: tokens.text, fontFamily: tokens.fontFamily, fontSize: 12 },
-      extraCssText:
-        'max-width: min(280px, calc(100% - 16px)); white-space: normal; pointer-events: none;',
+      ...tooltipStyle(tokens),
       formatter: (params: unknown) => {
         if (typeof params !== 'object' || params === null) return '';
         const data = (params as Record<string, unknown>)['data'];
@@ -58,7 +64,17 @@ export function buildPieOptions<T>(context: {
         const value = row?.points[0]?.value;
         return !row || hiddenIds.has(row.id) || value == null
           ? ''
-          : `<div data-nec-tooltip><strong>${escape(row.category)}</strong><div>${escape(measure.label)}: ${escape(format(value))}</div></div>`;
+          : tooltipMarkup(row.category, [
+              {
+                label: measure.label,
+                value: format(value),
+                color: tokens.series[model.rows.indexOf(row) % tokens.series.length],
+              },
+              {
+                label: 'Share of visible total',
+                value: formatPercent(total > 0 ? value / total : 0),
+              },
+            ]);
       },
     },
     series: [
@@ -76,7 +92,7 @@ export function buildPieOptions<T>(context: {
         label: {
           show: showLabels,
           position: 'outside',
-          alignTo: 'edge',
+          alignTo: 'labelLine',
           edgeDistance: 8,
           bleedMargin: 4,
           color: tokens.text,
@@ -85,7 +101,12 @@ export function buildPieOptions<T>(context: {
           overflow: 'truncate',
           formatter: '{b}',
         },
-        labelLine: { show: showLabels, length: 10, length2: 8, lineStyle: { color: tokens.muted } },
+        labelLine: {
+          show: showLabels,
+          length: 12,
+          length2: 12,
+          lineStyle: { color: tokens.muted },
+        },
         labelLayout: { hideOverlap: true },
         avoidLabelOverlap: true,
         data: visible,

@@ -7,24 +7,27 @@
   [style.--nec-border]="tokens().border"
 >
   @let currentState = state();
-  @switch (currentState.kind) {
-    @case ('loading') {
-      <p role="status">{{ currentState.message }}</p>
-    }
-    @case ('empty') {
-      <p role="status">{{ currentState.message }}</p>
-    }
-    @case ('error') {
-      <p role="alert">{{ currentState.message }}</p>
-      @if (rendererError()) {
-        <button type="button" (click)="retryRenderer()">Retry calendar</button>
-      }
-    }
-  }
-  <div class="calendar-viewport" [hidden]="currentState.kind !== 'ready' || !localDatesAvailable()">
-    <div #plot class="plot" aria-hidden="true"></div>
-  </div>
-  @if (currentState.kind === 'ready') {
+
+  <nec-chart-stage
+    class="calendar-stage"
+    [state]="currentState"
+    [height]="null"
+    [retryable]="rendererError()"
+    retryLabel="Retry calendar"
+    (retry)="retryRenderer()"
+  >
+    <div
+      class="calendar-viewport"
+      [hidden]="currentState.kind !== 'ready' || !localDatesAvailable()"
+    >
+      <div #plot class="plot" aria-hidden="true"></div>
+    </div>
+  </nec-chart-stage>
+  <div
+    class="chart-controls calendar-controls"
+    [attr.inert]="currentState.kind !== 'ready' ? '' : null"
+    [attr.aria-hidden]="currentState.kind !== 'ready' ? 'true' : null"
+  >
     @if (!localDatesAvailable()) {
       <p role="status">
         This timezone skips a date in {{ year() }}. Explore the exact daily values below.
@@ -41,11 +44,13 @@
         ><i [style.background]="tokens().border" aria-hidden="true"></i>{{ zeroLabel() }}</span
       >
       <span class="scale-ramp"
-        ><span>More</span>
+        ><span>Up to</span>
         @for (step of scale(); track $index) {
-          <i [style.background]="step.color" [attr.title]="step.label" aria-hidden="true"></i>
+          <span class="scale-step" [attr.title]="step.label"
+            ><i [style.background]="step.color" aria-hidden="true"></i
+            ><span>{{ step.upperText }}</span></span
+          >
         }
-        <span>{{ maximumLabel() }}</span>
       </span>
     </div>
     <details class="calendar-data">
@@ -54,58 +59,60 @@
         Monday-first calendar. Blank dates mean no data; zero is a recorded value. Positive values
         use four equal intervals up to {{ maximumLabel() }}.
       </p>
-      @for (month of months(); track month.name) {
-        <details class="calendar-month">
-          <summary>{{ month.name }} {{ year() }}</summary>
-          <div
-            class="table-scroll"
-            tabindex="0"
-            role="region"
-            [attr.aria-label]="month.name + ' daily values'"
-          >
-            <table>
-              <caption>
-                {{
-                  title()
-                }}
-                —
-                {{
-                  month.name
-                }}
-                {{
-                  year()
-                }}
-              </caption>
-              <thead>
-                <tr>
-                  <th scope="col">Date</th>
-                  <th scope="col">Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                @for (day of month.days; track day.date) {
+      @if (currentState.kind === 'ready') {
+        @for (month of months(); track month.name) {
+          <details class="calendar-month">
+            <summary>{{ month.name }} {{ year() }}</summary>
+            <div
+              class="table-scroll"
+              tabindex="0"
+              role="region"
+              [attr.aria-label]="month.name + ' daily values'"
+            >
+              <table>
+                <caption>
+                  {{
+                    title()
+                  }}
+                  —
+                  {{
+                    month.name
+                  }}
+                  {{
+                    year()
+                  }}
+                </caption>
+                <thead>
                   <tr>
-                    <th scope="row">{{ day.date }}</th>
-                    <td>
-                      @if (day.value !== null) {
-                        <button
-                          type="button"
-                          [attr.aria-label]="'Select ' + day.date + ': ' + day.text"
-                          (click)="selectDate(day.date, 'table')"
-                        >
-                          {{ day.text }}
-                        </button>
-                      } @else {
-                        <span>{{ day.text }}</span>
-                      }
-                    </td>
+                    <th scope="col">Date</th>
+                    <th scope="col">Value</th>
                   </tr>
-                }
-              </tbody>
-            </table>
-          </div>
-        </details>
+                </thead>
+                <tbody>
+                  @for (day of month.days; track day.date) {
+                    <tr>
+                      <th scope="row">{{ day.date }}</th>
+                      <td>
+                        @if (day.value !== null) {
+                          <button
+                            type="button"
+                            [attr.aria-label]="'Select ' + day.date + ': ' + day.text"
+                            (click)="selectDate(day.date, 'table')"
+                          >
+                            {{ day.text }}
+                          </button>
+                        } @else {
+                          <span>{{ day.text }}</span>
+                        }
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          </details>
+        }
       }
     </details>
-  }
+  </div>
 </nec-chart-frame>

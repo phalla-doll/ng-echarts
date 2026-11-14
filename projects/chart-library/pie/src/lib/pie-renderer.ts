@@ -1,10 +1,11 @@
-import { PieChart } from 'echarts/charts';
+// Use exported per-chart entries to preserve independent lazy engine chunks.
+import 'echarts/lib/chart/pie';
 import { TooltipComponent } from 'echarts/components';
 import { init, use } from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
 import type { ɵPlotRendererFactory } from '@ng-echarts/chart-library/core';
 import type { PieOption } from './pie-options';
-use([PieChart, TooltipComponent, CanvasRenderer]);
+use([TooltipComponent, CanvasRenderer]);
 export const createPieRenderer: ɵPlotRendererFactory<PieOption> = (host, onPoint) => {
   const chart = init(host, undefined, { renderer: 'canvas' });
   let current: PieOption | null = null;

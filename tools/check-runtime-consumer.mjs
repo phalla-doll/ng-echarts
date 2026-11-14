@@ -39,8 +39,26 @@ async function exercise(engine, url, ssr) {
     const page = await browser.newPage({ reducedMotion: 'reduce' });
     const errors = [];
     page.on('pageerror', (error) => errors.push(error.message));
+    const diagnostics = [];
     page.on('console', (message) => {
-      if (message.type() === 'error' || /NG05\d+/.test(message.text())) errors.push(message.text());
+      if (message.type() !== 'error' && !/NG05\d+/.test(message.text())) return;
+      const entry = { text: message.text(), url: page.url(), location: message.location() };
+      errors.push(entry);
+      diagnostics.push(
+        Promise.all(
+          message
+            .args()
+            .map((handle) =>
+              handle
+                .evaluate((value) =>
+                  value instanceof Error ? { message: value.message, stack: value.stack } : value,
+                )
+                .catch(() => 'unavailable'),
+            ),
+        ).then((args) => {
+          entry.args = args;
+        }),
+      );
     });
     const response = await page.goto(`${url}/validation`);
     const html = await response.text();
@@ -78,6 +96,19 @@ async function exercise(engine, url, ssr) {
       await page.getByTestId('deferred').locator('table').waitFor();
     }
     const navigation = page.getByRole('navigation', { name: 'Playground pages' });
+    await navigation.getByRole('link', { name: 'Sankey Flow', exact: true }).click();
+    const flow = page.locator('nec-sankey-chart');
+    await expect(flow.locator('canvas').first()).toBeVisible();
+    const flowResponse = await page.reload();
+    assert.equal(flowResponse.status(), 200);
+    const flowHtml = await flowResponse.text();
+    assert(!flowHtml.includes('<canvas'), 'Sankey engine remains browser-only');
+    if (ssr) assert(flowHtml.includes('Explore flow data'), 'SSR preserves native flow tables');
+    await expect(flow.locator('canvas').first()).toBeVisible();
+    await flow.locator('.flow-data > summary').click();
+    await flow.getByRole('button', { name: 'Select flow Direct to Trial: 0', exact: true }).focus();
+    await page.keyboard.press('Enter');
+    await expect(page.locator('.flow-selection')).toHaveText('Direct to Trial: 0 visits');
     await navigation.getByRole('link', { name: 'Calendar Heatmap', exact: true }).click();
     const calendar = page.locator('nec-calendar-heatmap');
     await expect(calendar.locator('canvas').first()).toBeVisible();
@@ -336,6 +367,7 @@ async function exercise(engine, url, ssr) {
     await navigation.getByRole('link', { name: 'Navigate away', exact: true }).click();
     await expect(page.locator('iframe')).toHaveCount(0);
     await expect(page.locator('canvas')).toHaveCount(0);
+    await Promise.all(diagnostics);
     assert.deepEqual(errors, []);
     return {
       engine: browser.browserType().name(),
@@ -407,6 +439,9 @@ try {
      assert.equal(root.LineChart, line.LineChart);
      const composed = await import('@ng-echarts/chart-library/composed');
      assert.equal(root.ComposedChart, composed.ComposedChart);
+     const sankey = await import('@ng-echarts/chart-library/sankey');
+     assert.equal(typeof sankey.SankeyChart, 'function');
+     assert.equal(root.SankeyChart, undefined);
      const calendar = await import('@ng-echarts/chart-library/calendar');
      assert.equal(typeof calendar.CalendarHeatmap, 'function');
      assert.equal(root.CalendarHeatmap, undefined);
@@ -423,7 +458,7 @@ try {
      assert.equal(root.ChartFrame, core.ChartFrame);
      assert.deepEqual(Object.keys(core).filter(name => !name.startsWith('ɵ')), ['ChartFrame']);
      const require = createRequire(process.cwd() + '/package.json');
-     for (const path of ['src/lib/bar-chart', 'bar/src/lib/bar-chart', 'radar/src/lib/radar-chart', 'radial/src/lib/radial-progress', 'calendar/src/lib/calendar-heatmap', 'fesm2022/ng-echarts-chart-library-bar.mjs', 'fesm2022/ng-echarts-chart-library-radar.mjs']) {
+     for (const path of ['src/lib/bar-chart', 'bar/src/lib/bar-chart', 'radar/src/lib/radar-chart', 'radial/src/lib/radial-progress', 'calendar/src/lib/calendar-heatmap', 'sankey/src/lib/sankey-chart', 'fesm2022/ng-echarts-chart-library-bar.mjs', 'fesm2022/ng-echarts-chart-library-radar.mjs']) {
        assert.throws(() => require.resolve('@ng-echarts/chart-library/' + path), { code: 'ERR_PACKAGE_PATH_NOT_EXPORTED' });
      }`,
   ]);
@@ -520,6 +555,7 @@ try {
       './composed',
       './radar',
       './radial',
+      './sankey',
     ],
     compatibilityIdentity: true,
     privateImportsBlocked: true,

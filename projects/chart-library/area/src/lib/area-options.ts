@@ -43,11 +43,11 @@ export function buildAreaOptions<T>(
                 x2: 0,
                 y2: 1,
                 colorStops: [
-                  { offset: 0, color: alphaColor(color, 0.1) },
-                  { offset: 1, color: alphaColor(color, 0) },
+                  { offset: 0, color: alphaColor(color, 0.22) },
+                  { offset: 1, color: alphaColor(color, 0.04) },
                 ],
               }
-            : alphaColor(color, 0.1),
+            : alphaColor(color, 0.16),
         },
       };
     }),

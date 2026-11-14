@@ -44,7 +44,7 @@ Area shares the [bar API's](BAR_CHART_API.md) typed Cartesian data, formatting, 
 | `title`, `data`, `rowIdKey`, `categoryKey`, `series` | Required | Ordered immutable rows and typed numeric/nullish measures; unique stable string IDs |
 | `description`, `height` | `''`, `320` | Concise summary and positive finite plot height in CSS pixels |
 | `stacked` | `false` | Stack visible series in one group, keeping positive and negative stacks separate |
-| `gradient` | `true` | Vertical per-series fill from 10% color alpha at the top to transparent at the bottom; `false` uses uniform 10% alpha |
+| `gradient` | `true` | Vertical per-series fill from 22% color alpha at the top to 4% at the bottom; `false` uses uniform 16% alpha |
 | `smooth`, `showPoints` | `false`, `false` | Smooth interpolation and optional persistent 6 px bordered markers |
 | `theme`, `themeRevision` | `'light'`, `0` | Explicit palette defaults and CSS/font refresh revision |
 | `locale`, `numberFormatOptions`, `valueFormatter` | `'en-US'`, `undefined`, `undefined` | Same numeric text in axes, tooltips, tables, and action labels |
@@ -69,3 +69,5 @@ Area covers multi-series gradient/solid fills, grouping/stacking, straight/smoot
 Use `/area` for the gallery, `/area-validation` for behavior checks, and `/area-comparison` for pinned reference conditions. `npm run benchmark:area` measures the actual Angular component; `npm run capture:area` reproduces the source comparisons after preparing the reference harness. Tested toolchain versions remain Angular/CLI 22.2.6, TypeScript 6.0.3, ECharts 6.1.0, Node 24.22.2, and npm 11.19.1. See the [NG12 report](experiments/NG12_AREA_CHART.md) for validation, measurements, supported envelope, and release limitations.
 
 The starting measured envelope is 200 categories and three series; 2,000 categories is stress evidence. [NG14](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md) records current automated acceptance; human interpretation and final release gates remain pending.
+
+Series alternate solid/circle and dashed/diamond outlines/markers, retaining these cues when another series is hidden. Non-ready states reserve the plot height and keep unavailable controls inert.

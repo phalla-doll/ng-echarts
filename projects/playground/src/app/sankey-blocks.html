@@ -1,0 +1,116 @@
+<div class="gallery">
+  <div class="gallery-content">
+    <header class="gallery-heading">
+      <div>
+        <h1>Sankey Flow</h1>
+        <p>Follow quantities between stages, with exact node totals and link values.</p>
+      </div>
+    </header>
+    <div class="gallery-examples">
+      <section class="block-section" id="visitor-journey" aria-labelledby="sankey-heading">
+        <h2 id="sankey-heading">
+          <a [routerLink]="[]" fragment="visitor-journey">Visitor journey</a>
+        </h2>
+        <div class="block-card">
+          <header class="block-header">
+            <button
+              type="button"
+              class="reload-button"
+              aria-label="Reset Visitor journey"
+              (click)="reset()"
+            >
+              <app-site-icon name="update" />
+            </button>
+            <span class="block-label">Sankey</span>
+            <div class="block-views" role="group" aria-label="Visitor journey view">
+              <button
+                type="button"
+                [attr.aria-pressed]="view() === 'code'"
+                (click)="view.set('code')"
+              >
+                Code
+              </button>
+              <button
+                type="button"
+                [attr.aria-pressed]="view() === 'preview'"
+                (click)="view.set('preview')"
+              >
+                Preview
+              </button>
+            </div>
+          </header>
+          <div class="block-surface" [hidden]="view() !== 'preview'">
+            @if (mounted()) {
+              <nec-sankey-chart
+                class="gallery-chart"
+                valueLabel="Visits"
+                title="Visitor journey"
+                description="Illustrative visits from arrival to outcome. Ribbon width represents visits."
+                [nodes]="nodes()"
+                [links]="links()"
+                [theme]="theme()"
+                [loading]="loading()"
+                [error]="error()"
+                (select)="selection.set($event)"
+              />
+            }
+            <p class="flow-selection" role="status">{{ selectionText() }}</p>
+          </div>
+          @if (view() === 'code') {
+            <div class="block-code">
+              <div class="code-heading">
+                <span>Standalone Angular component</span
+                ><button type="button" (click)="copy()">
+                  <app-site-icon [name]="copied() ? 'check' : 'copy'" />{{
+                    copied() ? 'Copied' : 'Copy code'
+                  }}
+                </button>
+              </div>
+              <pre
+                tabindex="0"
+                aria-label="Visitor journey Angular source"
+              >@defer (on immediate) {<code [appHighlight]="source()"></code>} @placeholder {<code>{{ source() }}</code>} @error {<code>{{ source() }}</code>}</pre>
+            </div>
+          }
+        </div>
+        @if (copyFailed()) {
+          <p class="copy-notice" role="status">Select the source in Code to copy it manually.</p>
+        }
+        <p class="radial-caption">
+          Follow Search and Direct visits through Browse and Trial to Customer or Exit. Zero links
+          stay in the tables. Scroll the flow diagram on narrow screens.
+        </p>
+        <details class="radial-controls">
+          <summary>Try data and states</summary>
+          <div class="radial-actions">
+            <button type="button" (click)="setMode('zero')">Show recorded zeros</button>
+            <button type="button" (click)="setMode('empty')">Empty graph</button>
+            <button type="button" (click)="setMode('cycle')">Invalid cycle</button>
+            <button type="button" (click)="setMode('updated')">Update and reorder links</button>
+            <button type="button" [attr.aria-pressed]="loading()" (click)="loading.set(!loading())">
+              Loading state
+            </button>
+            <button
+              type="button"
+              [attr.aria-pressed]="!!error()"
+              (click)="error.set(error() ? null : 'Visitor flow is temporarily unavailable.')"
+            >
+              Error state
+            </button>
+            <button type="button" [attr.aria-pressed]="mounted()" (click)="mounted.set(!mounted())">
+              Mount flow
+            </button>
+            <button type="button" (click)="reset()">Restore sample</button>
+          </div>
+        </details>
+      </section>
+    </div>
+    <footer class="gallery-footer">
+      Exact node totals and link values stay available before the chart loads.
+    </footer>
+  </div>
+  <aside class="page-outline" aria-label="On this page">
+    <p>On this page</p>
+    <a [routerLink]="[]" fragment="visitor-journey">Visitor journey</a>
+  </aside>
+</div>

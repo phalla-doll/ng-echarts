@@ -155,6 +155,10 @@ export abstract class CartesianChart<
       color: this.tokens().series[index % this.tokens().series.length],
     }));
   });
+  protected readonly allSeriesHidden = computed(() => {
+    const items = this.legendItems();
+    return items.length > 0 && items.every((item) => !item.visible);
+  });
   private readonly options = computed(() => {
     const model = this.model();
     if (this.state().kind !== 'ready' || model.kind === 'error') return null;

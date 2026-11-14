@@ -11,7 +11,8 @@
       "@ng-echarts/chart-library/composed": ["./dist/chart-library/composed"],
       "@ng-echarts/chart-library/radar": ["./dist/chart-library/radar"],
       "@ng-echarts/chart-library/radial": ["./dist/chart-library/radial"],
-      "@ng-echarts/chart-library/calendar": ["./dist/chart-library/calendar"]
+      "@ng-echarts/chart-library/calendar": ["./dist/chart-library/calendar"],
+      "@ng-echarts/chart-library/sankey": ["./dist/chart-library/sankey"]
     },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

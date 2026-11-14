@@ -6,7 +6,8 @@ import type {
 } from 'echarts/components';
 import type { ComposeOption } from 'echarts/core';
 import {
-  ɵescapeTooltipText as escape,
+  ɵtooltipMarkup as tooltipMarkup,
+  ɵtooltipStyle as tooltipStyle,
   type ɵCartesianThemeTokens,
   type ValueFormatter,
 } from '@ng-echarts/chart-library/core';
@@ -21,6 +22,7 @@ export interface CalendarView {
   readonly tokens: ɵCartesianThemeTokens;
   readonly animation: boolean;
   readonly format: ValueFormatter;
+  readonly valueLabel?: string;
 }
 
 function rgb(color: string): number[] {
@@ -85,17 +87,22 @@ export function buildCalendarOptions(view: CalendarView, width: number): Calenda
     tooltip: {
       trigger: 'item',
       confine: true,
-      backgroundColor: tokens.background,
-      borderColor: tokens.border,
-      textStyle: { color: tokens.text, fontFamily: tokens.fontFamily, fontSize: 12 },
-      extraCssText:
-        'max-width: min(280px, calc(100% - 16px)); white-space: normal; pointer-events: none;',
+      ...tooltipStyle(tokens),
       formatter: (params: unknown) => {
         const id =
           params && typeof params === 'object' ? (params as { name?: unknown }).name : null;
         const day = typeof id === 'string' ? byDate.get(id) : null;
         return day?.value != null
-          ? `<div data-nec-tooltip><strong>${escape(day.date)}</strong><div>${escape(format(day.value))}</div></div>`
+          ? tooltipMarkup(day.date, [
+              {
+                label: view.valueLabel ?? 'Value',
+                value: format(day.value),
+                color:
+                  day.value === 0
+                    ? tokens.border
+                    : colors[Math.min(3, Math.max(0, Math.ceil((day.value / max) * 4) - 1))],
+              },
+            ])
           : '';
       },
     },

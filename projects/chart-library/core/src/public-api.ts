@@ -49,3 +49,6 @@ export { ChartFocusKeeper as ɵChartFocusKeeper } from './lib/chart-focus';
 export { buildCurveOptions as ɵbuildCurveOptions } from './lib/curve-options';
 export type { CurveOption as ɵCurveOption } from './lib/curve-options';
 export { curvePoint as ɵcurvePoint } from './lib/curve-point';
+
+export { ChartStage as ɵChartStage } from './lib/chart-stage';
+export { tooltipStyle as ɵtooltipStyle, tooltipMarkup as ɵtooltipMarkup } from './lib/tooltip';

@@ -1,0 +1,96 @@
+:host {
+  display: block;
+  min-width: 0;
+  container: nec-flow / inline-size;
+}
+.flow-viewport {
+  overflow-x: auto;
+}
+.flow-viewport[hidden] {
+  display: none;
+}
+.plot {
+  width: 100%;
+  height: 320px;
+}
+.flow-data {
+  font-size: 13px;
+  line-height: 22px;
+}
+summary {
+  cursor: pointer;
+  width: fit-content;
+  padding: 6px 0;
+}
+.table-help {
+  color: var(--nec-muted);
+  margin: 12px 0;
+  max-width: 70ch;
+}
+.table-scroll {
+  overflow-x: auto;
+  margin-bottom: 12px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-variant-numeric: tabular-nums;
+}
+caption {
+  text-align: left;
+  padding: 8px 0;
+  font-weight: 600;
+}
+th,
+td {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--nec-border);
+}
+button {
+  padding: 4px 8px;
+  color: inherit;
+  background: transparent;
+  border: 1px solid var(--nec-border);
+  border-radius: 4px;
+  font: inherit;
+  cursor: pointer;
+}
+button:hover {
+  background: color-mix(in srgb, var(--nec-text) 6%, transparent);
+}
+button:focus-visible,
+summary:focus-visible,
+.table-scroll:focus-visible {
+  outline: 2px solid var(--nec-focus, #648dff);
+  outline-offset: 2px;
+}
+
+.flow-viewport:focus-visible {
+  outline: 2px solid var(--nec-focus, #648dff);
+  outline-offset: 2px;
+}
+th,
+td {
+  padding: 8px;
+  overflow-wrap: anywhere;
+}
+.table-scroll button {
+  overflow-wrap: anywhere;
+}
+
+.flow-scroll-hint {
+  margin: 8px 0;
+  color: var(--nec-muted);
+  font-size: 12px;
+  line-height: 20px;
+}
+@container nec-flow (min-width: 600px) {
+  .flow-scroll-hint {
+    display: none;
+  }
+}
+.flow-viewport {
+  scrollbar-width: thin;
+  scrollbar-color: var(--nec-muted) transparent;
+}

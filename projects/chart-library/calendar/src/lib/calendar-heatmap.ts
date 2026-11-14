@@ -18,6 +18,7 @@ import {
 } from '@angular/core';
 import {
   ChartFrame,
+  ɵChartStage,
   ɵPlotController,
   ɵChartFocusKeeper,
   ɵbrowserPlotEnvironment,
@@ -40,14 +41,15 @@ import { calendarColors, type CalendarView } from './calendar-options';
 import { CALENDAR_RENDERER_LOADER, calendarDatesExistLocally } from './calendar-browser';
 @Component({
   selector: 'nec-calendar-heatmap',
-  imports: [ChartFrame],
+  imports: [ChartFrame, ɵChartStage],
   templateUrl: './calendar-heatmap.html',
-  styleUrl: './calendar-heatmap.css',
+  styleUrls: ['./calendar-heatmap.css', '../../../core/src/lib/chart-controls.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarHeatmap<T extends object> {
   readonly title = input.required<string>();
   readonly description = input('');
+  readonly valueLabel = input('Value');
   readonly data = input.required<readonly T[]>();
   readonly dateKey = input.required<StringKey<T>>();
   readonly valueKey = input.required<NumericKey<T>>();
@@ -99,6 +101,7 @@ export class CalendarHeatmap<T extends object> {
   });
   private readonly settings = computed(() => ({
     title: this.title(),
+    valueLabel: this.valueLabel(),
     theme: this.theme(),
     themeRevision: this.themeRevision(),
     animation: this.animation(),
@@ -126,6 +129,7 @@ export class CalendarHeatmap<T extends object> {
             upper = model.max * ((i + 1) / 4);
           return {
             color: this.colors()[i]!,
+            upperText: this.formatting().format(upper),
             label: `More than ${this.formatting().format(lower)} to ${this.formatting().format(upper)}`,
           };
         });
@@ -154,13 +158,15 @@ export class CalendarHeatmap<T extends object> {
   protected readonly state = computed(() => {
     const settings = this.settings();
     const configurationError =
-      typeof settings.title !== 'string' || !settings.title.trim()
-        ? 'Calendar title must be nonempty text.'
-        : !['light', 'dark'].includes(settings.theme) || !Number.isFinite(settings.themeRevision)
-          ? 'Calendar theme configuration is invalid.'
-          : typeof settings.animation !== 'boolean' || typeof settings.loading !== 'boolean'
-            ? 'Calendar animation and loading settings must be booleans.'
-            : this.formatting().error;
+      typeof settings.valueLabel !== 'string' || !settings.valueLabel.trim()
+        ? 'Value label must be nonempty text.'
+        : typeof settings.title !== 'string' || !settings.title.trim()
+          ? 'Calendar title must be nonempty text.'
+          : !['light', 'dark'].includes(settings.theme) || !Number.isFinite(settings.themeRevision)
+            ? 'Calendar theme configuration is invalid.'
+            : typeof settings.animation !== 'boolean' || typeof settings.loading !== 'boolean'
+              ? 'Calendar animation and loading settings must be booleans.'
+              : this.formatting().error;
     const state = ɵresolveCartesianState(
       settings.error,
       typeof settings.loading === 'boolean' && settings.loading,
@@ -184,6 +190,7 @@ export class CalendarHeatmap<T extends object> {
           tokens: this.tokens(),
           animation: this.animation() && !this.reducedMotion(),
           format: this.formatting().format,
+          valueLabel: this.valueLabel(),
         }
       : null;
   });

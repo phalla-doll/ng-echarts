@@ -52,7 +52,7 @@ interface Browser { id: string; browser: string; visitors: number | null; }
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: \`<nec-pie-chart title="${block.title}" description="${block.description}"
     [data]="rows" rowIdKey="id" categoryKey="browser" [measure]="measure"
-    [innerRadius]="${block.innerRadius}" [showLabels]="${block.showLabels}"
+    [innerRadius]="${block.innerRadius}" [showLabels]="${block.showLabels}" [showTotal]="${block.innerRadius >= 0.4}"
     theme="${dark ? 'dark' : 'light'}" [showDataTable]="false" [height]="300"
     ${palette.map((color, index) => `[style.--nec-series-${index + 1}]="'${color}'"`).join(' ')}
   />\`,

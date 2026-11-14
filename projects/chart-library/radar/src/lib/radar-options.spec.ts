@@ -45,7 +45,8 @@ it('escapes tooltip labels and formatter text, and preserves raw scales', () => 
   const option = options();
   const tooltip = option.tooltip as { formatter: (p: unknown) => string };
   expect(tooltip.formatter({ seriesId: 'current' })).toContain('&lt;Current&gt;');
-  expect(tooltip.formatter({ seriesId: 'current' })).toContain('&lt;Speed&gt;: 80 pts / 100 pts');
+  expect(tooltip.formatter({ seriesId: 'current' })).toContain('&lt;Speed&gt;');
+  expect(tooltip.formatter({ seriesId: 'current' })).toContain('80 pts / 100 pts');
   expect(tooltip.formatter({ seriesId: 'stale' })).toBe('');
 });
 it('selects only a nearby unambiguous vertex using current stable identities', () => {

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
   ChartFrame,
+  ɵChartStage,
   ɵCartesianChart,
   type ɵCartesianContext,
 } from '@ng-echarts/chart-library/core';
@@ -9,9 +10,12 @@ import { buildComposedOptions, type ComposedOption } from './composed-options';
 import { composedSeriesError, type ComposedSeries } from './composed-types';
 @Component({
   selector: 'nec-composed-chart',
-  imports: [ChartFrame],
+  imports: [ChartFrame, ɵChartStage],
   templateUrl: '../../../core/src/lib/cartesian-chart.html',
-  styleUrl: '../../../core/src/lib/cartesian-chart.css',
+  styleUrls: [
+    '../../../core/src/lib/cartesian-chart.css',
+    '../../../core/src/lib/chart-controls.css',
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ComposedChart<T extends object> extends ɵCartesianChart<

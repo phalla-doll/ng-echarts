@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
 import {
   ChartFrame,
+  ɵChartStage,
   ɵCartesianChart,
   type BarLayout,
   type ɵCartesianContext,
@@ -17,9 +18,12 @@ export interface BarRangeSelection<T> {
 }
 @Component({
   selector: 'nec-bar-chart',
-  imports: [ChartFrame],
+  imports: [ChartFrame, ɵChartStage],
   templateUrl: '../../../core/src/lib/cartesian-chart.html',
-  styleUrl: '../../../core/src/lib/cartesian-chart.css',
+  styleUrls: [
+    '../../../core/src/lib/cartesian-chart.css',
+    '../../../core/src/lib/chart-controls.css',
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BarChart<T extends object> extends ɵCartesianChart<T, BarRenderOptions> {

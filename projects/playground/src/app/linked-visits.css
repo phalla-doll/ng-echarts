@@ -1,6 +1,7 @@
 :host {
   display: block;
   min-width: 0;
+  container: linked-charts / inline-size;
   --nec-background: var(--site-bg);
   --nec-text: var(--site-text);
   --nec-muted: var(--site-muted);
@@ -217,4 +218,18 @@ select {
   .select-range {
     min-height: 40px;
   }
+}
+
+@container linked-charts (min-width: 740px) {
+  .linked-pair {
+    grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+    align-items: start;
+    gap: 20px;
+  }
+}
+.linked-toolbar:has(.reset-month) {
+  border-bottom-color: var(--site-control-border);
+}
+.summary-value.numeric {
+  font-variant-numeric: tabular-nums;
 }

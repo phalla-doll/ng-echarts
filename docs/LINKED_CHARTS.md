@@ -176,7 +176,7 @@ export function changePeriodBound(
       rowIdKey="id"
       categoryKey="device"
       [measure]="measure"
-      [innerRadius]="0.6"
+      [innerRadius]="0.6" [showTotal]="true"
     />`,
 })
 export class App {
@@ -343,3 +343,5 @@ The [live example](https://phalla-doll.github.io/ng-echarts/linked/) uses the ex
 This is a one-way, application-owned context link with inclusive native range controls and controlled bar feedback. The opt-in bar drag selects one contiguous category range. Shared legends, linked zoom, cross-chart hover, disjoint/bidirectional selection and an ECharts connection API remain later work. The graphical input/output advance the private candidate to rc.4; earlier candidate artifacts and notices remain preserved. Human F09/R06/G2/G3/G4 retain their deferred status.
 
 The [initial NG20 report](experiments/NG20_LINKED_CHARTS.md), [scalar-feedback review](experiments/LINKED_SELECTION_FEEDBACK.md) and [month-range report](experiments/NG20_MONTH_RANGE.md) and [graphical-range review](experiments/GRAPHICAL_RANGE_SELECTION.md) record their respective evidence. The [UI refinement](experiments/LINKED_UI_REFINEMENT.md), [focus](experiments/FOCUS_REFINEMENT.md) and [hover](experiments/HOVER_REFINEMENT.md) reviews cover the shared presentation. Range fields use the existing quiet gallery tokens, native dropdowns and thin focus treatment; From/To sit together beneath Period and remain usable at 320 px.
+
+The demo places overview and detail alongside one another when their container is at least 740 px wide and stacks them below that width. The detail donut opts into `showTotal`, displaying the visible device total; its legend shows raw values and shares. Filtering remains application-owned and the two legends remain independent.

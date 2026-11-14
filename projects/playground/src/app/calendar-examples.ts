@@ -26,7 +26,7 @@ interface ActivityDay { readonly date: string; readonly count: number | null; }
   selector: 'app-daily-activity',
   imports: [CalendarHeatmap],
   template: \`<nec-calendar-heatmap
-    title="Daily contributions"
+    title="Daily contributions" valueLabel="Contributions"
     description="Illustrative activity in 2024. Missing days are distinct from zero."
     [data]="days"
     dateKey="date"

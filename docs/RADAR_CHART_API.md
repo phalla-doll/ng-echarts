@@ -102,3 +102,5 @@ The chart has a title/description, keyboard legend and collapsible table. The ta
 No negative/logarithmic scales, circular grid, variable minima, auto-normalization, range selection, radar-only custom tooltips or radial-progress API. Labels may truncate in narrow cards; the full table and tooltip remain available. Data-count bounds are a readability/validation scope, not measured performance guarantees. Human screen-reader interpretation and release gates remain pending.
 
 The [NG18 implementation report](experiments/NG18_RADAR_CHART.md) records validation, screenshots, package boundaries and actual private-candidate results. The original four-family MVP remains unchanged.
+
+The visible scale note names the common scale when maxima agree, or directs readers to each dimension’s table scale when maxima differ. Tooltips align dimension labels with value/maximum pairs. State changes preserve plot height; hidden comparisons remain recoverable through the native legend.

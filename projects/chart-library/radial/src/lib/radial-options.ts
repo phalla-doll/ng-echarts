@@ -18,7 +18,7 @@ export function buildRadialOptions(
         id: 'progress',
         type: 'pie',
         silent: true,
-        radius: ['66%', '80%'],
+        radius: ['68%', '80%'],
         center: ['50%', '50%'],
         startAngle: 90,
         clockwise: true,

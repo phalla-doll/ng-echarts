@@ -65,11 +65,11 @@ for (const smooth of [false, true])
               x2: 0,
               y2: 1,
               colorStops: [
-                { offset: 0, color: 'rgba(16,185,129,0.1)' },
-                { offset: 1, color: 'rgba(16,185,129,0)' },
+                { offset: 0, color: 'rgba(16,185,129,0.22)' },
+                { offset: 1, color: 'rgba(16,185,129,0.04)' },
               ],
             });
-          } else expect(colors).toEqual(['rgba(16,185,129,0.1)', 'rgba(244,63,94,0.1)']);
+          } else expect(colors).toEqual(['rgba(16,185,129,0.16)', 'rgba(244,63,94,0.16)']);
         });
       }
 it('keeps hidden palette slots, multiplies existing alpha, and does not mutate models', () => {
@@ -83,8 +83,8 @@ it('keeps hidden palette slots, multiplies existing alpha, and does not mutate m
       areaStyle: {
         color: {
           colorStops: [
-            { offset: 0, color: 'rgba(100,50,20,0.05)' },
-            { offset: 1, color: 'rgba(100,50,20,0)' },
+            { offset: 0, color: 'rgba(100,50,20,0.11)' },
+            { offset: 1, color: 'rgba(100,50,20,0.02)' },
           ],
         },
       },

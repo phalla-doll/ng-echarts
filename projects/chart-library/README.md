@@ -1,13 +1,13 @@
 # Angular chart library
 
-Experimental standalone Angular 22 components using Apache ECharts. The local identity `@ng-echarts/chart-library` is private and has not been published. Local candidate: `0.1.0-rc.8`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. Public naming and human release acceptance remain open.
+Experimental standalone Angular 22 components using Apache ECharts. The local identity `@ng-echarts/chart-library` is private and has not been published. Local candidate: `0.1.0-rc.11`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. Public naming and human release acceptance remain open.
 
 ## Installation
 
 In the source checkout, use Node 24.22.2 and npm 11.19.1, then run `npm ci` and `npm run pack:lib`. Install the resulting file into a separate Angular application:
 
 ```sh
-npm install /absolute/path/to/ng-echarts-chart-library-0.1.0-rc.8.tgz echarts@6.1.0
+npm install /absolute/path/to/ng-echarts-chart-library-0.1.0-rc.11.tgz echarts@6.1.0
 ```
 
 Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes.
@@ -131,3 +131,9 @@ Import `RadialProgress` from `/radial` (focused entry only). Required `title` is
 A native HTML progress element exposes the raw value/maximum before hydration. The decorative, noninteractive ECharts Pie ring is lazy, respects reduced motion, resizes and disposes with the component. Formatted values and a percentage remain visible. `height` defaults to 240; theme/revision, locale, numberFormatOptions, valueFormatter, loading/error and animation follow the shared policies. There are no point events, legend, table or artificial keyboard controls for a scalar indicator. The [radial API](https://github.com/phalla-doll/ng-echarts/blob/main/docs/RADIAL_PROGRESS_API.md) contains the complete contract and copied examples.
 
 Experimental calendar heatmaps use the focused `/calendar` entry: `CalendarHeatmap<T>` requires data, dateKey, valueKey, year and max. Strict date-only values distinguish missing days from zero; native monthly tables and raw point events complement the lazy calendar canvas. It is not exported by the compatibility root. If the browser timezone skips a civil date in the selected year, the plot is omitted and the exact native tables remain available. See the repository's `docs/CALENDAR_HEATMAP_API.md` for the complete contract.
+
+Experimental Sankey flows: `SankeyChart`, `SankeyNode`, `SankeyLink` and `SankeySelection` are exported from `@ng-echarts/chart-library/sankey` only. Provide unique node/link IDs and nonnegative weights in a directed acyclic graph (up to 24 nodes and 60 links). Native node/link tables retain zero values before hydration; canvas renders positive flows. See the repository `docs/SANKEY_CHART_API.md` for the full contract and example. Human interpretation and release gates remain pending.
+
+### Presentation refinements in source
+
+Charts reserve plot space during loading, empty and error states and retain unavailable controls as inert layout space. Pie legends include raw values and locale-formatted visible shares; opt into `[showTotal]="true"` for a center total when `innerRadius >= 0.4`. Calendar and Sankey accept `valueLabel` (default `Value`) to name the measure in tooltips. These source changes are unreleased; preserved private archives retain their original bytes.

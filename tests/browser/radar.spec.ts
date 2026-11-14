@@ -28,7 +28,9 @@ test('hydrates, emits equivalent plot/table identities and preserves keyboard fo
     canvas!.x + canvas!.width / 2,
     canvas!.y + canvas!.height / 2 - radius * 0.78,
   );
-  await expect(chart.locator('[data-nec-tooltip]')).toContainText('Speed: 78 / 100');
+  const speed = chart.locator('[data-nec-tooltip] > div').filter({ hasText: 'Speed' });
+  await expect(speed).toContainText('Speed');
+  await expect(speed).toContainText('78 / 100');
   await page.mouse.click(
     canvas!.x + canvas!.width / 2,
     canvas!.y + canvas!.height / 2 - radius * 0.78,

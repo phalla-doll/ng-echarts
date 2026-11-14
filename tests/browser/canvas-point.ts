@@ -76,10 +76,14 @@ export async function firstGreenBarPoint(canvas: Locator): Promise<{ x: number; 
   return canvas.evaluate((element: HTMLCanvasElement) => {
     const context = element.getContext('2d', { willReadFrequently: true })!;
     const pixels = context.getImageData(0, 0, element.width, element.height).data;
+    // WebKit dithers even a constant-color gradient stop by one channel value.
+    // Keep that paint connected without accepting translucent context bars.
+    const matches = (offset: number, r: number, g: number, b: number): boolean =>
+      Math.abs(pixels[offset]! - r) <= 2 &&
+      Math.abs(pixels[offset + 1]! - g) <= 2 &&
+      Math.abs(pixels[offset + 2]! - b) <= 2;
     const isGreen = (offset: number): boolean =>
-      pixels[offset + 3] === 255 &&
-      ((pixels[offset] === 4 && pixels[offset + 1] === 120 && pixels[offset + 2] === 87) ||
-        (pixels[offset] === 16 && pixels[offset + 1] === 185 && pixels[offset + 2] === 129));
+      pixels[offset + 3] === 255 && (matches(offset, 4, 120, 87) || matches(offset, 16, 185, 129));
     for (let x = 0; x < element.width - 4; x++) {
       const ys: number[] = [];
       for (let y = 0; y < element.height; y++) {
@@ -88,18 +92,38 @@ export async function firstGreenBarPoint(canvas: Locator): Promise<{ x: number; 
       }
       if (ys.length > 8) {
         const rect = element.getBoundingClientRect();
-        const y = ys[Math.floor(ys.length / 2)]!;
-        const firstX = x + 3;
-        let lastX = firstX;
-        while (lastX + 1 < element.width) {
-          const offset = (y * element.width + lastX + 1) * 4;
-          if (!isGreen(offset)) break;
-          lastX++;
+        // Use the centroid of one connected painted interior. A column shared
+        // by horizontal bars can have its median on a fractional shape edge;
+        // a single row may also contain only a sliver of a gradient/corner.
+        const seed = ys[Math.floor(ys.length / 2)]! * element.width + x + 3;
+        const pending = [seed];
+        const visited = new Set([seed]);
+        let sumX = 0;
+        let sumY = 0;
+        let count = 0;
+        while (pending.length) {
+          const pixel = pending.pop()!;
+          const px = pixel % element.width;
+          const py = Math.floor(pixel / element.width);
+          sumX += px + 0.5;
+          sumY += py + 0.5;
+          count++;
+          const neighbors = [
+            ...(px > 0 ? [pixel - 1] : []),
+            ...(px + 1 < element.width ? [pixel + 1] : []),
+            ...(py > 0 ? [pixel - element.width] : []),
+            ...(py + 1 < element.height ? [pixel + element.width] : []),
+          ];
+          for (const neighbor of neighbors) {
+            if (!visited.has(neighbor) && isGreen(neighbor * 4)) {
+              visited.add(neighbor);
+              pending.push(neighbor);
+            }
+          }
         }
-        // Use the bar interior; WebKit rounds fractional pointer coordinates at painted edges.
         return {
-          x: rect.x + (((firstX + lastX) / 2) * rect.width) / element.width,
-          y: rect.y + (y * rect.height) / element.height,
+          x: rect.x + ((sumX / count) * rect.width) / element.width,
+          y: rect.y + ((sumY / count) * rect.height) / element.height,
         };
       }
     }

@@ -20,7 +20,7 @@ The [NG13 pie/donut report](experiments/NG13_PIE_CHART.md) adds automated F01–
 
 ## Implemented family evidence
 
-This index records automated implementation acceptance, not completed human NG14/G3 acceptance. The latest regression has 119 unit/integration tests, 172 passing browser scenarios (plus two CDP-only skips), and six installed-package client/SSR modes. [Package evidence](experiments/data/package-boundaries.json) covers seven import scenarios.
+This index records automated implementation acceptance, not completed human NG14/G3 acceptance. The latest regression has 257 unit/integration tests, 353 passing browser scenarios (plus four expected skips), and six installed-package client/SSR modes. [Package evidence](experiments/data/package-boundaries.json) covers twelve import scenarios.
 
 | Family | Contract and automated behavior | Visual/performance evidence |
 | --- | --- | --- |
@@ -102,3 +102,10 @@ The user-approved [radar increment](experiments/NG18_RADAR_CHART.md) adds the fo
 The user-approved [radial progress increment](experiments/NG18_RADIAL_PROGRESS.md) adds the focused `/radial` Angular entry and two demo examples. Required scalar value and explicit positive maximum supply native progress semantics, visible formatted values and a noninteractive ring. The [API](RADIAL_PROGRESS_API.md) defines zero/null/invalid states, formatting, motion and SSR behavior. This advances the private candidate to rc.6 while preserving rc.5 and earlier artifacts and the existing compatibility root. Native progress provides the scalar alternative; legends, point actions and a data table are inapplicable. Human interpretation and public release gates remain pending.
 
 Calendar NG19: family-specific automated checks and unresolved limits are recorded in [NG19 calendar heatmaps](experiments/NG19_CALENDAR_HEATMAP.md). This experimental increment does not resolve human F09/R06/G2/G3/G4 or broaden the four-family MVP acceptance claim.
+
+
+## NG19 Sankey first increment
+
+The next NG19 increment adds a focused experimental `/sankey` entry and visitor-flow demo, with typed node/link IDs, directed acyclic validation, separate incoming/outgoing totals, native table actions and lazy Canvas rendering. The [API](SANKEY_CHART_API.md) defines the bounded 24-node/60-link contract; the [implementation record](experiments/NG19_SANKEY_CHART.md) records verification and scope. Private rc.10 preserves rc.9, rc.8 and earlier artifacts. Circular/vertical/drag variants, broader linked interactions and human F09/R06/G2/G3/G4 acceptance remain pending.
+
+Combined rc.11 source: the [presentation receipt](experiments/data/premium-visual-refinement.json) records the completed 257-unit/353-browser regression and 138 visual states. Exact candidate and final sealed preview evidence are reconciled in the [Sankey report](experiments/NG19_SANKEY_CHART.md); human release gates remain pending.

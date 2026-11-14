@@ -147,3 +147,10 @@ NG18 radar geometry, options, validation, fixture, hit testing and radar navigat
 The radial component, validation, normalized ring options, native-progress presentation, demo fixtures and radial navigation/catalog glyphs are original project code (MIT). Existing ECharts Pie/Canvas modules remain lazy peer imports with preserved Apache notices. Native semantics follow the [HTML progress standard](https://html.spec.whatwg.org/multipage/form-elements.html#the-progress-element); the [implementation record](experiments/NG18_RADIAL_PROGRESS.md) distinguishes progress from a meter. No additional upstream source was copied.
 
 Calendar implementation: original date normalization, responsive option construction, Angular component, demo fixture and matching calendar glyph. ECharts calendar/heatmap/VisualMap options are consumed from the pinned peer, with no copied implementation; [the contract and upstream references](CALENDAR_HEATMAP_API.md) record the reviewed sources. Existing ECharts/ZRender and icon notices remain required.
+
+
+## NG19 Sankey extension
+
+Original Angular Sankey contracts, DAG validation, native tables/events, normalized options, demo fixture and catalog geometry use the existing ECharts 6.1.0 Sankey/Tooltip/Canvas peer lazily. The sidebar reuses the existing composed icon. No upstream source/example code or dataset was copied; existing license/notice bytes remain unchanged. [Sources and checklist](experiments/NG19_SANKEY_CHART.md).
+
+The rc.10 loading correction uses ECharts 6.1.0 package.json exports for `echarts/lib/chart/{bar,line,pie,radar,heatmap,sankey}`. Their existing side-effect installers remain within lazy browser renderer modules; no upstream implementation or declaration shim is copied. Chart/options/event contracts and notice bytes are unchanged. The demo build rejects unrelated chart families in each renderer preload graph.

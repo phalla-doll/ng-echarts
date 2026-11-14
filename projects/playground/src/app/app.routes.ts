@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+  { path: 'sankey', loadComponent: () => import('./sankey-blocks').then((m) => m.SankeyBlocks) },
   {
     path: 'calendar',
     loadComponent: () => import('./calendar-blocks').then((m) => m.CalendarBlocks),

@@ -1,9 +1,13 @@
 :host {
   display: block;
   min-width: 0;
+  container: nec-calendar / inline-size;
+}
+.calendar-stage {
+  min-height: 566px;
 }
 .calendar-viewport {
-  container: nec-calendar / inline-size;
+  height: 566px;
 }
 .calendar-viewport[hidden] {
   display: none;
@@ -13,6 +17,10 @@
   height: 566px;
 }
 @container nec-calendar (min-width: 560px) {
+  .calendar-stage {
+    min-height: 152px;
+  }
+  .calendar-viewport,
   .plot {
     height: 152px;
   }
@@ -121,4 +129,23 @@ summary:focus-visible,
 
 .calendar-scale[hidden] {
   display: none;
+}
+
+.scale-ramp {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.scale-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-variant-numeric: tabular-nums;
+}
+i.missing {
+  border-color: var(--nec-muted);
+  background: repeating-linear-gradient(
+    135deg,
+    transparent 0 3px,
+    color-mix(in srgb, var(--nec-muted) 30%, transparent) 3px 4px
+  );
 }

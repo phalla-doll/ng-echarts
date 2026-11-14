@@ -17,12 +17,12 @@ export {
 export type { ɵCartesianThemeTokens as BarThemeTokens } from '@ng-echarts/chart-library/core';
 import { ɵbuildCartesianOptions } from '@ng-echarts/chart-library/core';
 import type { ɵCartesianThemeTokens as BarThemeTokens } from '@ng-echarts/chart-library/core';
-function transparentColor(color: string): string {
+function baseColor(color: string): string {
   if (/^#[\da-f]{6}$/i.test(color)) {
-    return `rgba(${[1, 3, 5].map((offset) => Number.parseInt(color.slice(offset, offset + 2), 16)).join(',')},0)`;
+    return `rgba(${[1, 3, 5].map((offset) => Number.parseInt(color.slice(offset, offset + 2), 16)).join(',')},0.3)`;
   }
-  const rgba = color.match(/^rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)/);
-  return rgba ? `rgba(${rgba[1]},${rgba[2]},${rgba[3]},0)` : 'transparent';
+  const rgba = color.match(/^rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)(?:\s*,\s*([\d.]+))?/);
+  return rgba ? `rgba(${rgba[1]},${rgba[2]},${rgba[3]},${Number(rgba[4] ?? 1) * 0.3})` : color;
 }
 
 export function buildBarOptions<T>(
@@ -81,7 +81,7 @@ export function buildBarOptions<T>(
           stack: stacked ? 'total' : undefined,
           barMaxWidth: 48,
           itemStyle: {
-            borderRadius: 2,
+            borderRadius: stacked ? 0 : 3,
             color: gradient
               ? {
                   type: 'linear',
@@ -92,17 +92,46 @@ export function buildBarOptions<T>(
                   colorStops: [
                     { offset: 0, color },
                     { offset: 0.2, color },
-                    { offset: 0.9, color: transparentColor(color) },
-                    { offset: 1, color: transparentColor(color) },
+                    { offset: 0.9, color: baseColor(color) },
+                    { offset: 1, color: baseColor(color) },
                   ],
                 }
               : color,
           },
-          data: model.rows.map((row) => ({
-            id: row.id,
-            value: row.points[index]?.value ?? '-',
-            ...(selected ? { itemStyle: { opacity: selectedRowIds.has(row.id) ? 1 : 0.35 } } : {}),
-          })),
+          data: model.rows.map((row) => {
+            const value = row.points[index]?.value ?? null;
+            const outer =
+              value !== null &&
+              value !== 0 &&
+              !model.series.some((later, laterIndex) => {
+                const other = row.points[laterIndex]?.value ?? 0;
+                return (
+                  laterIndex > index &&
+                  !hiddenIds.has(later.id) &&
+                  other !== 0 &&
+                  Math.sign(other) === Math.sign(value)
+                );
+              });
+            const cap = horizontal
+              ? value! < 0
+                ? [3, 0, 0, 3]
+                : [0, 3, 3, 0]
+              : value! < 0
+                ? [0, 0, 3, 3]
+                : [3, 3, 0, 0];
+            return {
+              id: row.id,
+              value: value ?? '-',
+              ...(stacked || selected
+                ? {
+                    itemStyle: {
+                      ...(stacked ? { borderRadius: outer ? cap : 0 } : {}),
+                      ...(selected ? { opacity: selectedRowIds.has(row.id) ? 1 : 0.35 } : {}),
+                    },
+                  }
+                : {}),
+            };
+          }),
         },
       ];
     }),

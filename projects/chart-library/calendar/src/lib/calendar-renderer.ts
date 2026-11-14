@@ -1,4 +1,5 @@
-import { HeatmapChart } from 'echarts/charts';
+// Use exported per-chart entries to preserve independent lazy engine chunks.
+import 'echarts/lib/chart/heatmap';
 import {
   CalendarComponent,
   TooltipComponent,
@@ -8,13 +9,7 @@ import { init, use } from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
 import type { ɵPlotRendererFactory } from '@ng-echarts/chart-library/core';
 import { buildCalendarOptions, type CalendarView } from './calendar-options';
-use([
-  HeatmapChart,
-  CalendarComponent,
-  TooltipComponent,
-  VisualMapPiecewiseComponent,
-  CanvasRenderer,
-]);
+use([CalendarComponent, TooltipComponent, VisualMapPiecewiseComponent, CanvasRenderer]);
 export const createCalendarRenderer: ɵPlotRendererFactory<CalendarView> = (host, onPoint) => {
   const chart = init(host, undefined, { renderer: 'canvas' });
   let current: CalendarView | null = null;

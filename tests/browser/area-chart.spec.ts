@@ -27,8 +27,16 @@ async function paintedArea(canvas: Locator) {
     const median = (list: number[]) => list[Math.floor(list.length / 2)];
     const at = (columns: number[][], fraction: number) => {
       const x = Math.round(first + (last - first) * fraction);
-      const list = [...columns[x - 1]!, ...columns[x]!, ...columns[x + 1]!].sort((a, b) => a - b);
-      return median(list);
+      // A dashed outline can leave the exact sample column unpainted. Read the
+      // nearest painted segment, preserving the signed-stack ordering check.
+      for (let radius = 1; radius <= 8; radius++) {
+        const list = columns
+          .slice(Math.max(0, x - radius), x + radius + 1)
+          .flat()
+          .sort((a, b) => a - b);
+        if (list.length) return median(list);
+      }
+      return undefined;
     };
     const middle = Math.round((first + last) / 2),
       gap = tint.slice(middle - 7, middle + 8).every((values) => values.length === 0);

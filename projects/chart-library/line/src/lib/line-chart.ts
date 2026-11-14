@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import {
   ChartFrame,
+  ɵChartStage,
   ɵCartesianChart,
   type ɵCartesianContext,
 } from '@ng-echarts/chart-library/core';
@@ -8,9 +9,12 @@ import { LINE_RENDERER_LOADER } from './line-browser';
 import { buildLineOptions, type LineOption } from './line-options';
 @Component({
   selector: 'nec-line-chart',
-  imports: [ChartFrame],
+  imports: [ChartFrame, ɵChartStage],
   templateUrl: '../../../core/src/lib/cartesian-chart.html',
-  styleUrl: '../../../core/src/lib/cartesian-chart.css',
+  styleUrls: [
+    '../../../core/src/lib/cartesian-chart.css',
+    '../../../core/src/lib/chart-controls.css',
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LineChart<T extends object> extends ɵCartesianChart<T, LineOption> {

@@ -14,7 +14,7 @@ interface ActivityDay { readonly date: string; readonly count: number | null; }
   selector: 'app-daily-activity',
   imports: [CalendarHeatmap],
   template: `<nec-calendar-heatmap
-    title="Daily contributions"
+    title="Daily contributions" valueLabel="Contributions"
     description="Illustrative activity in 2024. Missing days are distinct from zero."
     [data]="days"
     dateKey="date"
@@ -79,3 +79,9 @@ Application error takes precedence over loading, validation/format/renderer erro
 The [NG19 implementation record](experiments/NG19_CALENDAR_HEATMAP.md) records measured checks and candidate evidence. Multi-year ranges, arbitrary windows, localization of calendar labels, custom bins, missing-day plot actions, canvas keyboard navigation, brushing and Sankey are deferred. Human F09/R06/G2/G3/G4 and public publication remain pending. Calendar evidence does not expand the four-family MVP acceptance claim.
 
 Implementation follows the [ECharts calendar contract](https://github.com/apache/echarts-doc/blob/master/en/option/component/calendar.md) and checks the installed [6.1.0 calendar implementation](https://github.com/apache/echarts/blob/6.1.0/src/coord/calendar/Calendar.ts); upstream options are used through the peer dependency, with no copied upstream implementation.
+
+## Visual presentation
+
+`valueLabel: string` names the measure in aligned tooltips; it defaults to `Value` and must be nonempty text. The gallery uses `Contributions`. Loading, empty and error states preserve the plot area and retain inert control space.
+
+The numeric color key displays the upper bound of each of four equal positive intervals. Missing days use the background with an outline; the legend adds a hatch cue to distinguish missing from recorded zero. The year/quarter stage height follows the host container even while the renderer is unavailable.

@@ -96,11 +96,13 @@ Numeric formatting is shared across value-axis ticks, tooltip values, table cell
 
 CSS tokens are `--nec-background`, `--nec-text`, `--nec-muted`, `--nec-border`, `--nec-focus`, and `--nec-series-1` onward. A series' explicit `color` takes precedence over its CSS color token. Theme/revision changes refresh browser color reads. Canvas labels and tooltips inherit the host font; load a replacement font before incrementing `themeRevision`. No font or UI framework is bundled with the library.
 
+Loading, empty and error states retain the allocated plot height. Unavailable native controls keep their layout space but are inert, hidden from assistive technology, and disabled. Hiding all series displays a recovery message within the plot.
+
 Error precedence is application error, loading, data/configuration or renderer error, empty, then ready. Browser failures expose generic messages and allow retry/input recovery. SSR emits Angular headings, controls, and state text; a lazy Canvas renderer starts after hydration in a visible nonzero host. Resize, reduced-motion, and focus listeners are removed on destruction.
 
 ## Scope and tested limits
 
-Grouped/stacked, vertical/horizontal, rounded, and solid/gradient combinations are implemented. Bar corners are 2 px, widths are capped at 48 px, and the gradient holds its color through 20% before becoming clear at 90%. Brush selection, arbitrary ECharts options, custom tooltip templates, and pixel identity with upstream are outside this API.
+Grouped/stacked, vertical/horizontal, rounded, and solid/gradient combinations are implemented. Bar corners are 3 px and widths are capped at 48 px. Stacks round only the exposed end of each positive/negative stack; internal joins remain square. Gradients hold their color through 20% and retain 30% alpha at the base so the baseline stays visible. Brush selection, arbitrary ECharts options, custom tooltip templates, and pixel identity with upstream are outside this API.
 
 Tested versions: Angular/CLI 22.2.6, TypeScript 6.0.3, ECharts 6.1.0, Node 24.22.2, npm 11.19.1. Current package peers require Angular common/core `^22.2.6` and ECharts `^6.1.0`; the full ranges have not been tested. The [recorded performance envelope](COMPATIBILITY.md#data-and-measured-envelope) is up to 200 categories × three series on the reference machine; 2,000 × three is stress evidence rather than a hard API limit or latency guarantee.
 

@@ -16,6 +16,7 @@
     "composed/src/**/*.spec.ts",
     "radar/src/**/*.spec.ts",
     "radial/src/**/*.spec.ts",
-    "calendar/src/**/*.spec.ts"
+    "calendar/src/**/*.spec.ts",
+    "sankey/src/**/*.spec.ts"
   ]
 }

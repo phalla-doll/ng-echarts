@@ -7,33 +7,45 @@
   [style.--nec-border]="tokens().border"
 >
   @let currentState = state();
-  @switch (currentState.kind) {
-    @case ('loading') {
-      <p role="status">{{ currentState.message }}</p>
+
+  <nec-chart-stage
+    [state]="currentState"
+    [height]="plotHeight()"
+    [retryable]="rendererError()"
+    (retry)="retryRenderer()"
+  >
+    <div
+      #plot
+      class="plot"
+      [hidden]="currentState.kind !== 'ready'"
+      [style.height.px]="plotHeight()"
+      aria-hidden="true"
+    ></div>
+
+    @if (currentState.kind === 'ready' && allSeriesHidden()) {
+      <div class="plot-message" role="status">
+        <span>All series are hidden. Choose a series below.</span>
+      </div>
     }
-    @case ('empty') {
-      <p role="status">{{ currentState.message }}</p>
-    }
-    @case ('error') {
-      <p role="alert">{{ currentState.message }}</p>
-      @if (rendererError()) {
-        <button type="button" (click)="retryRenderer()">Retry chart</button>
-      }
-    }
-  }
+  </nec-chart-stage>
   <div
-    #plot
-    class="plot"
-    [hidden]="currentState.kind !== 'ready'"
-    [style.height.px]="plotHeight()"
-    aria-hidden="true"
-  ></div>
-  @if (currentState.kind === 'ready') {
+    class="chart-controls"
+    [attr.inert]="currentState.kind !== 'ready' ? '' : null"
+    [attr.aria-hidden]="currentState.kind !== 'ready' ? 'true' : null"
+  >
     <div class="legend" aria-label="Chart series">
       @for (item of legendItems(); track item.id) {
-        <button type="button" [attr.aria-pressed]="item.visible" (click)="toggleSeries(item.id)">
+        <button
+          type="button"
+          [disabled]="currentState.kind !== 'ready'"
+          [attr.aria-pressed]="item.visible"
+          (click)="toggleSeries(item.id)"
+        >
           <span class="swatch" [style.background]="item.color" aria-hidden="true"></span>
-          {{ item.label }} <span class="visibility">{{ item.visible ? 'Visible' : 'Hidden' }}</span>
+          {{ item.label }}
+          <span class="visibility" [class.legend-note]="false">{{
+            item.visible ? 'Visible' : 'Hidden'
+          }}</span>
         </button>
       }
     </div>
@@ -41,12 +53,13 @@
       <button
         type="button"
         class="table-toggle"
+        [disabled]="currentState.kind !== 'ready'"
         [attr.aria-expanded]="tableExpanded()"
         (click)="toggleTable()"
       >
         {{ tableExpanded() ? 'Hide data table' : 'Show data table' }}
       </button>
-      @if (tableExpanded()) {
+      @if (tableExpanded() && currentState.kind === 'ready') {
         <div
           class="table-scroll"
           tabindex="0"
@@ -102,5 +115,5 @@
         </div>
       }
     }
-  }
+  </div>
 </nec-chart-frame>

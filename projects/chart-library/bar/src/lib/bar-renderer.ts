@@ -1,11 +1,12 @@
-import { BarChart } from 'echarts/charts';
+// Use exported per-chart entries to preserve independent lazy engine chunks.
+import 'echarts/lib/chart/bar';
 import { GridComponent, TooltipComponent } from 'echarts/components';
 import { init, use } from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
 import type { BarRendererFactory } from './plot-controller';
 import { createBarRangeSurface } from './bar-range-browser';
 
-use([BarChart, GridComponent, TooltipComponent, CanvasRenderer]);
+use([GridComponent, TooltipComponent, CanvasRenderer]);
 
 export const createBarRenderer: BarRendererFactory = (host, onPoint, onRange) => {
   const chart = init(host, undefined, { renderer: 'canvas' });

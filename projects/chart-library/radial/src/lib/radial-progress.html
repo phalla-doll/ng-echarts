@@ -7,20 +7,7 @@
   [style.--nec-border]="tokens().border"
 >
   @let currentState = state();
-  @switch (currentState.kind) {
-    @case ('loading') {
-      <p role="status">{{ currentState.message }}</p>
-    }
-    @case ('empty') {
-      <p role="status">{{ currentState.message }}</p>
-    }
-    @case ('error') {
-      <p role="alert">{{ currentState.message }}</p>
-      @if (rendererError()) {
-        <button type="button" (click)="retryRenderer()">Retry progress</button>
-      }
-    }
-  }
+
   @let current = model();
   @if (currentState.kind === 'ready' && current.kind === 'ready') {
     <progress
@@ -33,17 +20,25 @@
       {{ labels().accessible }}
     </progress>
   }
-  <div
-    class="progress-surface"
-    [hidden]="currentState.kind !== 'ready'"
-    [style.height.px]="plotHeight()"
-    [style.--nec-progress-height]="plotHeight() + 'px'"
+  <nec-chart-stage
+    [state]="currentState"
+    [height]="plotHeight()"
+    [retryable]="rendererError()"
+    retryLabel="Retry progress"
+    (retry)="retryRenderer()"
   >
-    <div #plot class="plot" aria-hidden="true"></div>
-    @if (currentState.kind === 'ready') {
-      <div class="progress-label" aria-hidden="true">
-        <strong>{{ labels().percent }}</strong><span>{{ labels().values }}</span>
-      </div>
-    }
-  </div>
+    <div
+      class="progress-surface"
+      [hidden]="currentState.kind !== 'ready'"
+      [style.height.px]="plotHeight()"
+      [style.--nec-progress-height]="plotHeight() + 'px'"
+    >
+      <div #plot class="plot" aria-hidden="true"></div>
+      @if (currentState.kind === 'ready') {
+        <div class="progress-label" aria-hidden="true">
+          <strong>{{ labels().percent }}</strong><span>{{ labels().values }}</span>
+        </div>
+      }
+    </div>
+  </nec-chart-stage>
 </nec-chart-frame>

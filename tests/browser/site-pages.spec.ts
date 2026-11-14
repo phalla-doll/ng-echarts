@@ -28,8 +28,8 @@ test('renders honest component availability and navigates copyable setup documen
   expect(html).toContain('Components');
   expect(html).toContain('Available');
   expect(html).not.toContain('<canvas');
-  await expect(page.locator('.component-card')).toHaveCount(8);
-  await expect(page.locator('a.component-card')).toHaveCount(8);
+  await expect(page.locator('.component-card')).toHaveCount(9);
+  await expect(page.locator('a.component-card')).toHaveCount(9);
   await expect(page.locator('.component-card.planned')).toHaveCount(0);
   await expect(
     page.locator('.component-card.planned a, .component-card.planned button'),

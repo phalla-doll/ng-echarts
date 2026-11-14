@@ -48,3 +48,5 @@ Initial research inspected repository metadata, registry structure, source excer
 Current visual and browser evidence is recorded in the [R03 review](experiments/R03_VISUAL_REVIEW.md) and [R04/R05 report](experiments/R04_R05_VALIDATION.md). The reference harness executes unmodified upstream React code separately from Angular library builds. Its font/CSS/build context is documented so the captures are not mistaken for the full upstream website.
 
 Family implementation evidence now includes [NG11 line](experiments/NG11_LINE_CHART.md), [NG12 area](experiments/NG12_AREA_CHART.md), and [NG13 pie/donut](experiments/NG13_PIE_CHART.md). Their reports pair exact pinned examples with current Angular captures and record accepted differences. The [family evidence index](ACCEPTANCE_MATRIX.md#implemented-family-evidence) distinguishes recorded implementation checks from pending full acceptance.
+
+Sankey source review (14 November 2026): [Apache Sankey options](https://github.com/apache/echarts-doc/blob/master/en/option/series/sankey.md); installed ECharts 6.1.0 Sankey layout/series/view modules. [Local interpretation and limits](experiments/NG19_SANKEY_CHART.md).

@@ -309,3 +309,18 @@ The user-approved [radial progress increment](experiments/NG18_RADIAL_PROGRESS.m
 ## Focused calendar heatmap
 
 `/calendar` exports `CalendarHeatmap<T>` and its raw-date selection contract without expanding compatibility-root exports. Pure Gregorian normalization owns validation and complete year enumeration. The browser adapter alone registers Heatmap/Calendar/piecewise VisualMap/Tooltip/Canvas, applies responsive year/quarter options and maps observed dates back to original rows. Native monthly disclosures/tables render during SSR. Shared plot lifecycle, formatting, themes, state and focus behavior remain in use; [the API](CALENDAR_HEATMAP_API.md) defines the bounded semantics.
+
+
+## NG19 Sankey first increment
+
+The next NG19 increment adds a focused experimental `/sankey` entry and visitor-flow demo, with typed node/link IDs, directed acyclic validation, separate incoming/outgoing totals, native table actions and lazy Canvas rendering. The [API](SANKEY_CHART_API.md) defines the bounded 24-node/60-link contract; the [implementation record](experiments/NG19_SANKEY_CHART.md) records verification and scope. Private rc.10 preserves rc.9, rc.8 and earlier artifacts. Circular/vertical/drag variants, broader linked interactions and human F09/R06/G2/G3/G4 acceptance remain pending.
+
+## Shared chart presentation refinement
+
+The internal core `ChartStage` reserves plot geometry for loading, empty and error states and owns state messages/retry controls. Family controls retain their footprint while unavailable through native inert/disabled semantics and hidden visibility. Calendar stage geometry uses its host container width for the same year/quarter layout in ready and unavailable states. Expanded tables are not retained as stale interactive data. Core remains free of ECharts runtime code.
+
+Internal tooltip helpers share escaped title/label/value markup, tabular numeric alignment, spacing, confinement styling and a quiet shadow across families. Pie legends and optional `showTotal` use the visible-category denominator; percentage locale follows `locale`, while raw values/totals follow value formatting. The optional calendar/Sankey `valueLabel` supplies application units without changing raw numeric contracts. These source refinements do not modify existing candidate archives or close human release gates.
+
+The combined-root source budget is 218,000 gzip / 186,000 Brotli bytes for the shared presentation work. Measured aggregate growth over rc.10 is 3,479 gzip / 2,635 Brotli bytes (217,597 / 185,843 total). The frame-only root stays engine-free while its emitted orphan allowance becomes 201,500 gzip / 175,000 Brotli bytes (measured 201,395 / 173,611, up 1,277 / 1,125 over rc.10). Focused/core caps and engine-isolation assertions remain unchanged; no existing candidate archive is repacked by this source refinement.
+
+Private rc.11 combines the completed [presentation refinement](experiments/PREMIUM_CHART_REFINEMENT.md) with Sankey and independent lazy chart loading. It preserves rc.10 and earlier archives. The current combined-root aggregate allowance is 218,000 gzip / 186,000 Brotli bytes; emitted root-frame orphan chunks allow 201,500 / 175,000, with zero reachable engine modules. Focused/core and demo route guards remain unchanged. Human acceptance and publication remain pending.

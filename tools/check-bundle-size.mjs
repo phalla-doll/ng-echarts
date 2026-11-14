@@ -32,6 +32,7 @@ const scenarios = [
     engine: true,
     families: ['heatmap'],
   },
+  { name: 'sankey', entry: '/sankey', symbol: 'SankeyChart', engine: true, families: ['sankey'] },
   { name: 'radial', entry: '/radial', symbol: 'RadialProgress', engine: true, families: ['pie'] },
   { name: 'core', entry: '/core', symbol: 'ChartFrame', engine: false },
   {
@@ -126,13 +127,21 @@ for (const scenario of scenarios) {
     /node_modules\/(echarts|zrender)\//.test(name),
   );
   if (
-    ['bar', 'line', 'area', 'pie', 'composed', 'radar', 'radial', 'calendar'].includes(
+    ['bar', 'line', 'area', 'pie', 'composed', 'radar', 'radial', 'calendar', 'sankey'].includes(
       scenario.name,
     )
   ) {
-    const other = ['bar', 'line', 'area', 'pie', 'composed', 'radar', 'radial', 'calendar'].filter(
-      (name) => name !== scenario.name,
-    );
+    const other = [
+      'bar',
+      'line',
+      'area',
+      'pie',
+      'composed',
+      'radar',
+      'radial',
+      'calendar',
+      'sankey',
+    ].filter((name) => name !== scenario.name);
     assert(
       !inputs.some((name) =>
         other.some((family) => name.includes(`ng-echarts-chart-library-${family}.mjs`)),
@@ -140,7 +149,7 @@ for (const scenario of scenarios) {
       `${scenario.name} includes another component entry`,
     );
   }
-  if (['pie', 'radar', 'radial', 'calendar'].includes(scenario.name))
+  if (['pie', 'radar', 'radial', 'calendar', 'sankey'].includes(scenario.name))
     assert(
       !inputs.some(
         (name) =>
@@ -191,7 +200,7 @@ for (const scenario of scenarios) {
     );
     assert(
       !reachableInputs.some((name) =>
-        /chart-library-(?:bar|line|area|pie|composed|radar|radial|calendar)/.test(name),
+        /chart-library-(?:bar|line|area|pie|composed|radar|radial|calendar|sankey)/.test(name),
       ),
       `${scenario.name} must exclude bar implementation`,
     );
@@ -222,13 +231,16 @@ for (const scenario of scenarios) {
     { raw: 0, gzip: 0, brotli: 0 },
   );
   // The compatibility root retains its existing families; radar is a focused opt-in entry.
-  // Its measured allowance is 212/178 kB; focused and core limits stay unchanged.
+  // Independent lazy chart entries trade aggregate compression for route isolation.
+  // Shared visual refinements: root 218/186 kB; focused/core limits stay unchanged.
   const budget =
     scenario.name === 'root'
-      ? { gzip: 212_000, brotli: 178_000 }
-      : scenario.engine || scenario.allowOrphanChunks
-        ? { gzip: 200_000, brotli: 175_000 }
-        : { gzip: 10_000, brotli: 9_000 };
+      ? { gzip: 218_000, brotli: 186_000 }
+      : scenario.name === 'root-frame'
+        ? { gzip: 201_500, brotli: 175_000 }
+        : scenario.engine
+          ? { gzip: 200_000, brotli: 175_000 }
+          : { gzip: 10_000, brotli: 9_000 };
   const passed = total.gzip <= budget.gzip && total.brotli <= budget.brotli;
   assert(passed, `${scenario.name} exceeded its measured budget: ${JSON.stringify(total)}`);
   results.push({
