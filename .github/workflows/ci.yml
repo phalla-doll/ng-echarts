@@ -21,16 +21,59 @@ jobs:
       - run: npm install --global npm@11.19.1
       - run: npm ci
       - run: npx playwright install --with-deps chromium firefox webkit
+      - run: npm run check:workspace
+      - run: npm run release:local
+      - name: Retain exact candidate evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: private-release-candidate
+          path: |
+            dist/releases/
+            docs/experiments/data/local-release-*.json
+          if-no-files-found: ignore
+          retention-days: 14
+
+  pages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm install --global npm@11.19.1
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium firefox webkit
       # Seal/check the clean checkout before benchmark evidence files are refreshed.
       - run: npm run build:pages
       - run: npm run check:pages
       - run: npm run check:demo-performance
-      - run: npm run check
+
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm install --global npm@11.19.1
+      - run: npm ci
+      - run: npx playwright install --with-deps ${{ matrix.browser }}
+      - run: npm run build
+      - run: npm run test:browser -- --project=${{ matrix.browser }}
       - name: Retain browser failure evidence
-        if: failure()
+        if: failure() || cancelled()
         uses: actions/upload-artifact@v7
         with:
-          name: browser-failure-evidence
+          name: browser-failure-evidence-${{ matrix.browser }}
           path: test-results/
           if-no-files-found: ignore
           retention-days: 7

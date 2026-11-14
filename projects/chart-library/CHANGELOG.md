@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.0-rc.17 — 14 November 2026
+
+- Inherit application theme colors before hydration across all nine chart families, preventing a mismatched loading surface while retaining standalone defaults and partial overrides.
+- Preserve rc.16 and all earlier archives; public publication and human release gates remain pending.
+
 ## 0.1.0-rc.16 — 14 November 2026
 
 - Combine the rc.15 month-preview API with dimension-aware rendering: unchanged-size observer frames and option updates no longer restart entrance animation.
