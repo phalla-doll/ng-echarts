@@ -18,7 +18,7 @@ export function calendarSample(year: number): readonly ActivityDay[] {
 }
 export function calendarExampleSource(dark = false): string {
   return `import { Component } from '@angular/core';
-import { CalendarHeatmap } from '@ng-echarts/chart-library/calendar';
+import { CalendarHeatmap } from '@mantha911/ng-echarts/calendar';
 
 interface ActivityDay { readonly date: string; readonly count: number | null; }
 

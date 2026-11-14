@@ -9,4 +9,4 @@ export type {
   PointSelection,
   StringKey,
   ValueFormatter,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';

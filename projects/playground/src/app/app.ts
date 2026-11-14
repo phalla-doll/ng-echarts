@@ -4,7 +4,7 @@ import {
   BarChart,
   type CategoryTickFormatter,
   type PointSelection,
-} from '@ng-echarts/chart-library/bar';
+} from '@mantha911/ng-echarts/bar';
 import { deviceRows, deviceSeries, type DeviceRow } from './fixtures/evilcharts-bar-fixture';
 import { SiteAppearance } from './site-appearance';
 import { SiteIcon } from './site-icon';

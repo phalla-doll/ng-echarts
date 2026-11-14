@@ -54,3 +54,8 @@ Use Vitest for colocated `*.spec.ts` tests and Playwright in `tests/browser/`, w
 Follow the initial commit's style: `docs: add Angular ECharts product and R&D plans`. Keep subjects concise, imperative, and focused.
 
 PRs should explain the problem and resulting behavior, reference issues or NG/R/F identifiers, and report validation and unresolved limits. Include comparison screenshots for visual changes. Preserve upstream notices and align affected specifications, decisions, and backlog entries.
+
+
+## Public prerelease exception — 14 November 2026
+
+The user selected `@mantha911/ng-echarts` after authenticating as npm user `mantha911`, requested skipping the VoiceOver session, and authorized completing the experimental public prerelease. rc.18 changes the package identity and current imports while preserving private rc.17 and earlier archives. Publish the exact verified artifact to npm with public access and the `next` tag. Keep human F09/R06/G2/G3/G4 pending: the user’s deferral permits this experimental publication without claiming completed human interpretation, a stable API, or full release acceptance.

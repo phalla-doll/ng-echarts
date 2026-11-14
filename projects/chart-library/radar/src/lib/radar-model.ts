@@ -4,7 +4,7 @@ import {
   type ChartSeries,
   type NumericKey,
   type StringKey,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 
 export type RadarModel<T> =
   | Extract<ɵCartesianModel<T>, { kind: 'error' }>

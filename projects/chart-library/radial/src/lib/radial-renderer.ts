@@ -2,7 +2,7 @@
 import 'echarts/lib/chart/pie';
 import { init, use } from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
-import type { ɵPlotRendererFactory } from '@ng-echarts/chart-library/core';
+import type { ɵPlotRendererFactory } from '@mantha911/ng-echarts/core';
 import type { RadialOption } from './radial-options';
 use([CanvasRenderer]);
 export const createRadialRenderer: ɵPlotRendererFactory<RadialOption> = (host) => {

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { PieChart, type ChartMeasure, type PointSelection } from '@ng-echarts/chart-library/pie';
+import { PieChart, type ChartMeasure, type PointSelection } from '@mantha911/ng-echarts/pie';
 import { SiteAppearance } from './site-appearance';
 interface Row {
   readonly id: string;

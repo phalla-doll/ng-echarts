@@ -2,7 +2,7 @@ import {
   ɵnormalizeCartesianData,
   ɵdefaultCartesianTheme,
   type ɵCartesianContext,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 import { buildComposedOptions } from './composed-options';
 import { composedSeriesError, type ComposedSeries } from './composed-types';
 const rows = [

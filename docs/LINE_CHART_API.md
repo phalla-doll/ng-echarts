@@ -6,7 +6,7 @@ Experimental native Angular 22 line charts. Use the local workspace or packed ar
 
 ```ts
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { LineChart, type ChartSeries } from '@ng-echarts/chart-library/line';
+import { LineChart, type ChartSeries } from '@mantha911/ng-echarts/line';
 
 interface Reading { id: string; label: string; value: number | null; }
 

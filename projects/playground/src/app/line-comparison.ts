@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { ComparisonAppearance } from './comparison-appearance';
-import { LineChart } from '@ng-echarts/chart-library/line';
+import { LineChart } from '@mantha911/ng-echarts/line';
 import { lineBlocks } from './line-blocks';
 @Component({
   selector: 'app-line-comparison',

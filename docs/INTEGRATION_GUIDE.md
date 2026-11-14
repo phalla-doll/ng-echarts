@@ -6,14 +6,14 @@ Follow [installation](INSTALLATION.md) first. Every component is standalone. Pre
 
 | Component / selector | Focused entry | API |
 | --- | --- | --- |
-| `BarChart<T>` / `nec-bar-chart` | `@ng-echarts/chart-library/bar` | [Bar](BAR_CHART_API.md) |
-| `LineChart<T>` / `nec-line-chart` | `@ng-echarts/chart-library/line` | [Line](LINE_CHART_API.md) |
-| `AreaChart<T>` / `nec-area-chart` | `@ng-echarts/chart-library/area` | [Area](AREA_CHART_API.md) |
-| `PieChart<T>` / `nec-pie-chart` | `@ng-echarts/chart-library/pie` | [Pie/donut](PIE_CHART_API.md) |
-| `ComposedChart<T>` / `nec-composed-chart` | `@ng-echarts/chart-library/composed` | [Composed](COMPOSED_CHART_API.md) |
-| `RadarChart<T>` / `nec-radar-chart` | `@ng-echarts/chart-library/radar` | [Radar](RADAR_CHART_API.md) |
-| `RadialProgress` / `nec-radial-progress` | `@ng-echarts/chart-library/radial` | [Radial progress](RADIAL_PROGRESS_API.md) |
-| `ChartFrame` / `nec-chart-frame` | `@ng-echarts/chart-library/core` | Required `title`, optional `description`, projected content |
+| `BarChart<T>` / `nec-bar-chart` | `@mantha911/ng-echarts/bar` | [Bar](BAR_CHART_API.md) |
+| `LineChart<T>` / `nec-line-chart` | `@mantha911/ng-echarts/line` | [Line](LINE_CHART_API.md) |
+| `AreaChart<T>` / `nec-area-chart` | `@mantha911/ng-echarts/area` | [Area](AREA_CHART_API.md) |
+| `PieChart<T>` / `nec-pie-chart` | `@mantha911/ng-echarts/pie` | [Pie/donut](PIE_CHART_API.md) |
+| `ComposedChart<T>` / `nec-composed-chart` | `@mantha911/ng-echarts/composed` | [Composed](COMPOSED_CHART_API.md) |
+| `RadarChart<T>` / `nec-radar-chart` | `@mantha911/ng-echarts/radar` | [Radar](RADAR_CHART_API.md) |
+| `RadialProgress` / `nec-radial-progress` | `@mantha911/ng-echarts/radial` | [Radial progress](RADIAL_PROGRESS_API.md) |
+| `ChartFrame` / `nec-chart-frame` | `@mantha911/ng-echarts/core` | Required `title`, optional `description`, projected content |
 
 ## Complete four-chart application
 
@@ -21,16 +21,16 @@ Copy this entire block into `src/app/app.ts` in the generated application. Its e
 
 ```ts
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { BarChart } from '@ng-echarts/chart-library/bar';
-import { LineChart } from '@ng-echarts/chart-library/line';
-import { AreaChart } from '@ng-echarts/chart-library/area';
-import { PieChart } from '@ng-echarts/chart-library/pie';
+import { BarChart } from '@mantha911/ng-echarts/bar';
+import { LineChart } from '@mantha911/ng-echarts/line';
+import { AreaChart } from '@mantha911/ng-echarts/area';
+import { PieChart } from '@mantha911/ng-echarts/pie';
 import type {
   ChartMeasure,
   ChartSeries,
   ChartTheme,
   PointSelection,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 
 interface Visit {
   readonly id: string;

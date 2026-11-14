@@ -5,7 +5,7 @@ import {
   ɵtooltipMarkup as tooltipMarkup,
   ɵtooltipStyle as tooltipStyle,
   type ɵCartesianContext,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 
 export type RadarOption = ComposeOption<
   RadarSeriesOption | RadarComponentOption | TooltipComponentOption

@@ -55,7 +55,7 @@ export function lineExampleSource(block: LineBlock, dark: boolean): string {
   )
     .replaceAll('BarChart', 'LineChart')
     .replaceAll('nec-bar-chart', 'nec-line-chart')
-    .replaceAll('chart-library/bar', 'chart-library/line')
+    .replaceAll('ng-echarts/bar', 'ng-echarts/line')
     .replace(/ layout="vertical"/, '')
     .replace(
       '    [stacked]="false" [gradient]="false"',

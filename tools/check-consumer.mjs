@@ -192,15 +192,15 @@ try {
   );
   assert(
     documentationPages.installation.sections.some((section) =>
-      section.source?.includes(`ng-echarts-chart-library-${packed.version}.tgz`),
+      section.source?.includes(`mantha911-ng-echarts-${packed.version}.tgz`),
     ),
     'The public Installation page must name the actual candidate tarball',
   );
   assert(
     documentationPages.installation.sections.some((section) =>
-      section.paragraphs.some((text) => text.includes(`private ${packed.version} candidate`)),
+      section.paragraphs.some((text) => text.includes(`public ${packed.version} candidate`)),
     ),
-    'The public Installation status must name the actual private candidate',
+    'The public Installation status must name the actual public candidate',
   );
   await writeFile(join(consumer, 'quick-start-example.ts'), quickStartExample);
   config.files.push('quick-start-example.ts');
@@ -274,11 +274,11 @@ try {
       '--package-lock=false',
       '--no-audit',
       '--no-fund',
-      `./${packed.filename}`,
+      packed.registrySpec ?? `./${packed.filename}`,
     ],
     consumer,
   );
-  const installed = await realpath(join(consumer, 'node_modules/@ng-echarts/chart-library'));
+  const installed = await realpath(join(consumer, 'node_modules/@mantha911/ng-echarts'));
   assert(
     !relative(consumer, installed).startsWith('..'),
     'Installed package must stay inside isolated consumer',

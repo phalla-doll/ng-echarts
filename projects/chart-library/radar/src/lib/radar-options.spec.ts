@@ -1,4 +1,4 @@
-import { ɵdefaultCartesianTheme } from '@ng-echarts/chart-library/core';
+import { ɵdefaultCartesianTheme } from '@mantha911/ng-echarts/core';
 import { buildRadarOptions, radarLayout } from './radar-options';
 import { radarPoint } from './radar-point';
 import { normalizeRadarData } from './radar-model';

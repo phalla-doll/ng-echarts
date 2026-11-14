@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LineChart, type ChartSeries, type PointSelection } from '@ng-echarts/chart-library/line';
+import { LineChart, type ChartSeries, type PointSelection } from '@mantha911/ng-echarts/line';
 interface Row {
   id: string;
   label: string;

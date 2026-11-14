@@ -3,7 +3,7 @@ import 'echarts/lib/chart/line';
 import { GridComponent, TooltipComponent } from 'echarts/components';
 import { init, use } from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
-import { ɵcurvePoint, type ɵPlotRendererFactory } from '@ng-echarts/chart-library/core';
+import { ɵcurvePoint, type ɵPlotRendererFactory } from '@mantha911/ng-echarts/core';
 import type { LineOption } from './line-options';
 use([GridComponent, TooltipComponent, CanvasRenderer]);
 export const createLineRenderer: ɵPlotRendererFactory<LineOption> = (host, onPoint) => {

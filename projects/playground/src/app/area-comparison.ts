@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { ComparisonAppearance } from './comparison-appearance';
-import { AreaChart } from '@ng-echarts/chart-library/area';
+import { AreaChart } from '@mantha911/ng-echarts/area';
 import { areaBlocks } from './area-blocks';
 @Component({
   selector: 'app-area-comparison',

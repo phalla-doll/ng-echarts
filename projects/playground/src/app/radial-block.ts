@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { RadialProgress } from '@ng-echarts/chart-library/radial';
+import { RadialProgress } from '@mantha911/ng-echarts/radial';
 import { SiteIcon } from './site-icon';
 import { HighlightCode } from './highlight-code';
 import { radialExampleSource, type RadialBlock } from './radial-examples';

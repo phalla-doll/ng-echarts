@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CalendarHeatmap, type CalendarPointSelection } from '@ng-echarts/chart-library/calendar';
+import { CalendarHeatmap, type CalendarPointSelection } from '@mantha911/ng-echarts/calendar';
 interface DailyCount {
   readonly date: string;
   readonly count: number | null;

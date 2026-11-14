@@ -69,7 +69,7 @@ Use the exported types rather than copying their mapped-type definitions. The in
 import type {
   ChartSeries, ChartMeasure, PointSelection,
   LegendVisibilityChange, CategoryVisibilityChange,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 
 interface RevenueRow {
   id: string;
@@ -186,7 +186,7 @@ The first implementation should record exact choices and measured evidence here 
 
 The workspace uses Angular/CLI 22.2.6, TypeScript 6.0.3, Node 24.22.2, npm 11.19.1, RxJS 7.8.2, and ng-packagr 22.2.0. Strict TypeScript, strict templates, and dependency declaration checking are enabled. The zoneless playground has a real SSR route and client hydration configured. Vitest/jsdom cover Angular integration; Prettier formats the workspace.
 
-`@ng-echarts/chart-library` is a private, temporary package identity. The playground resolves the production library output, while a separate tarball fixture checks declarations outside the workspace. The experimental `ChartFrame`, `BarChart<T>`, and typed contracts are exported. ECharts `^6.1.0` is a provisional peer; 6.1.0 is tested. See the [implementation plan](IMPLEMENTATION_PLAN.md) and [R01 report](experiments/R01_TOOLCHAIN.md).
+`@mantha911/ng-echarts` is a private, temporary package identity. The playground resolves the production library output, while a separate tarball fixture checks declarations outside the workspace. The experimental `ChartFrame`, `BarChart<T>`, and typed contracts are exported. ECharts `^6.1.0` is a provisional peer; 6.1.0 is tested. See the [implementation plan](IMPLEMENTATION_PLAN.md) and [R01 report](experiments/R01_TOOLCHAIN.md).
 
 ### Initial bar implementation
 

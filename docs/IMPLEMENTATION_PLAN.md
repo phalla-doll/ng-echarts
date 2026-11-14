@@ -4,7 +4,7 @@ Updated 14 November 2026. Begin with the Angular workspace and one bar chart. Ex
 
 ## Initial scaffold
 
-The workspace contains an Angular library, a zoneless SSR playground with client hydration configured, Vitest tests, Prettier, and production build scripts. `ChartFrame` provides a small presentation shell for validating the package boundary. Its local package name, `@ng-echarts/chart-library`, and API are experimental; both workspace and library packages are private.
+The workspace contains an Angular library, a zoneless SSR playground with client hydration configured, Vitest tests, Prettier, and production build scripts. `ChartFrame` provides a small presentation shell for validating the package boundary. Its local package name, `@mantha911/ng-echarts`, and API are experimental; both workspace and library packages are private.
 
 The selected toolchain is Node 24.22.2, npm 11.19.1, Angular/CLI 22.2.6, TypeScript 6.0.3, RxJS 7.8.2, ECharts 6.1.0, and ng-packagr 22.2.0. The lockfiles pin the full dependency graphs. These versions fit Angular's [supported ranges](https://angular.dev/reference/versions). Reproduction commands and results belong in [R01 evidence](experiments/R01_TOOLCHAIN.md).
 
@@ -152,3 +152,6 @@ The [combined rc.16 checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) ver
 
 
 The [rc.17 release follow-up](experiments/RC17_RELEASE_REVIEW.md) includes pre-hydration theme inheritance and separate CI browser jobs. Exact candidate verification is recorded separately from the preserved rc.16 checkpoint. The [human result sheet](experiments/RC17_HUMAN_REVIEW.md) and [NG22 publication plan](PUBLICATION.md) keep listening evidence, public identity and registry access explicit. Human F09/R06/G2/G3/G4 remain pending.
+
+
+The [NG22 public prerelease](experiments/NG22_PUBLIC_PRERELEASE.md) uses `@mantha911/ng-echarts@0.1.0-rc.18` with npm public access and the `next` tag. The user selected the authenticated personal scope and explicitly skipped the listening session while requesting this experimental publication. Earlier private candidates remain preserved; human F09/R06/G2/G3/G4 remain pending.

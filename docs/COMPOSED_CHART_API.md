@@ -6,7 +6,7 @@ NG17's first composed increment combines vertical bars and lines on one category
 
 ```ts
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ComposedChart, type ComposedSeries } from '@ng-echarts/chart-library/composed';
+import { ComposedChart, type ComposedSeries } from '@mantha911/ng-echarts/composed';
 
 interface Visit {
   id: string;

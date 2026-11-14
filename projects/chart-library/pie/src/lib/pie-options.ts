@@ -7,7 +7,7 @@ import {
   type ɵCartesianModel,
   type ɵCartesianThemeTokens,
   type ValueFormatter,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 export type PieOption = ComposeOption<PieSeriesOption | TooltipComponentOption>;
 export function buildPieOptions<T>(context: {
   model: Exclude<ɵCartesianModel<T>, { kind: 'error' }>;

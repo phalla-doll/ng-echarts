@@ -2,17 +2,17 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@ng-echarts/chart-library": ["./dist/chart-library"],
-      "@ng-echarts/chart-library/bar": ["./dist/chart-library/bar"],
-      "@ng-echarts/chart-library/core": ["./dist/chart-library/core"],
-      "@ng-echarts/chart-library/line": ["./dist/chart-library/line"],
-      "@ng-echarts/chart-library/area": ["./dist/chart-library/area"],
-      "@ng-echarts/chart-library/pie": ["./dist/chart-library/pie"],
-      "@ng-echarts/chart-library/composed": ["./dist/chart-library/composed"],
-      "@ng-echarts/chart-library/radar": ["./dist/chart-library/radar"],
-      "@ng-echarts/chart-library/radial": ["./dist/chart-library/radial"],
-      "@ng-echarts/chart-library/calendar": ["./dist/chart-library/calendar"],
-      "@ng-echarts/chart-library/sankey": ["./dist/chart-library/sankey"]
+      "@mantha911/ng-echarts": ["./dist/chart-library"],
+      "@mantha911/ng-echarts/bar": ["./dist/chart-library/bar"],
+      "@mantha911/ng-echarts/core": ["./dist/chart-library/core"],
+      "@mantha911/ng-echarts/line": ["./dist/chart-library/line"],
+      "@mantha911/ng-echarts/area": ["./dist/chart-library/area"],
+      "@mantha911/ng-echarts/pie": ["./dist/chart-library/pie"],
+      "@mantha911/ng-echarts/composed": ["./dist/chart-library/composed"],
+      "@mantha911/ng-echarts/radar": ["./dist/chart-library/radar"],
+      "@mantha911/ng-echarts/radial": ["./dist/chart-library/radial"],
+      "@mantha911/ng-echarts/calendar": ["./dist/chart-library/calendar"],
+      "@mantha911/ng-echarts/sankey": ["./dist/chart-library/sankey"]
     },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

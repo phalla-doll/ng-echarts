@@ -1,12 +1,12 @@
 # Radar chart API
 
-Experimental NG18 first increment, private `0.1.0-rc.5`. Import `RadarChart` from `@ng-echarts/chart-library/radar`; it is deliberately absent from the compatibility root so existing imports retain their engine/bundle boundaries. Radial progress is separate subsequent work.
+Experimental NG18 first increment, private `0.1.0-rc.5`. Import `RadarChart` from `@mantha911/ng-echarts/radar`; it is deliberately absent from the compatibility root so existing imports retain their engine/bundle boundaries. Radial progress is separate subsequent work.
 
 ## Example
 
 ```ts
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RadarChart, type ChartSeries } from '@ng-echarts/chart-library/radar';
+import { RadarChart, type ChartSeries } from '@mantha911/ng-echarts/radar';
 
 interface Capability {
   id: string; dimension: string; max: number;

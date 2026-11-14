@@ -59,7 +59,7 @@ test('hydrates a line gallery with copyable examples, matching themes, and narro
   await expect(page.locator('nec-line-chart canvas')).toHaveCount(4);
   const first = page.locator('#straight-lines');
   await first.getByRole('button', { name: 'Code', exact: true }).click();
-  await expect(first.locator('.block-code')).toContainText('@ng-echarts/chart-library/line');
+  await expect(first.locator('.block-code')).toContainText('@mantha911/ng-echarts/line');
   await first.getByRole('button', { name: 'Copy code', exact: true }).click();
   expect(
     await page.evaluate(() => (window as unknown as { lineClipboard: string }).lineClipboard),

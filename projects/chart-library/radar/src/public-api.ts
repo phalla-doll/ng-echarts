@@ -8,4 +8,4 @@ export type {
   PointSelection,
   LegendVisibilityChange,
   NumericKey,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';

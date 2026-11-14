@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AreaChart, type ChartSeries, type PointSelection } from '@ng-echarts/chart-library/area';
+import { AreaChart, type ChartSeries, type PointSelection } from '@mantha911/ng-echarts/area';
 interface Row {
   id: string;
   label: string;

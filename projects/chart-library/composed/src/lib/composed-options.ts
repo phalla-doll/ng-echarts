@@ -1,7 +1,7 @@
 import type { BarSeriesOption, LineSeriesOption } from 'echarts/charts';
 import type { GridComponentOption, TooltipComponentOption } from 'echarts/components';
 import type { ComposeOption } from 'echarts/core';
-import { ɵbuildCartesianOptions, type ɵCartesianContext } from '@ng-echarts/chart-library/core';
+import { ɵbuildCartesianOptions, type ɵCartesianContext } from '@mantha911/ng-echarts/core';
 import type { ComposedSeries } from './composed-types';
 export type ComposedOption = ComposeOption<
   BarSeriesOption | LineSeriesOption | GridComponentOption | TooltipComponentOption

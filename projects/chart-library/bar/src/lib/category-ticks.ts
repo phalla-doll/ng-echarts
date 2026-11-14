@@ -1,1 +1,1 @@
-export { ɵformatCategoryTicks as formatCategoryTicks } from '@ng-echarts/chart-library/core';
+export { ɵformatCategoryTicks as formatCategoryTicks } from '@mantha911/ng-echarts/core';

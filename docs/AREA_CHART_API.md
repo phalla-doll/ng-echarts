@@ -2,11 +2,11 @@
 
 Use [installation](INSTALLATION.md), the [complete application example](INTEGRATION_GUIDE.md), and the [tested compatibility/limits table](COMPATIBILITY.md) with this API.
 
-Experimental native Angular 22 area charts. Import from `@ng-echarts/chart-library/area` using the local workspace or packed artifact; no public npm installer is available.
+Experimental native Angular 22 area charts. Import from `@mantha911/ng-echarts/area` using the local workspace or packed artifact; no public npm installer is available.
 
 ```ts
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { AreaChart, type ChartSeries } from '@ng-echarts/chart-library/area';
+import { AreaChart, type ChartSeries } from '@mantha911/ng-echarts/area';
 
 interface Reading { id: string; label: string; desktop: number | null; mobile: number | null; }
 

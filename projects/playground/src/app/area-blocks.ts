@@ -55,7 +55,7 @@ export function areaExampleSource(block: AreaBlock, dark: boolean): string {
   return lineExampleSource({ ...block, kind: 'line' }, dark)
     .replaceAll('LineChart', 'AreaChart')
     .replaceAll('nec-line-chart', 'nec-area-chart')
-    .replaceAll('chart-library/line', 'chart-library/area')
+    .replaceAll('ng-echarts/line', 'ng-echarts/area')
     .replace(
       ' [height]="230"',
       ` [stacked]="${block.stacked}" [gradient]="${block.gradient}" [height]="230"`,

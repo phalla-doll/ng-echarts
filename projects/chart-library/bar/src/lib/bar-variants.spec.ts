@@ -1,4 +1,4 @@
-import type { BarLayout, ChartSeries, ChartTheme } from '@ng-echarts/chart-library/core';
+import type { BarLayout, ChartSeries, ChartTheme } from '@mantha911/ng-echarts/core';
 import { normalizeBarData } from './bar-model';
 import { buildBarOptions, defaultBarTheme } from './bar-options';
 

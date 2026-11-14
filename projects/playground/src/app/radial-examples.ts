@@ -23,7 +23,7 @@ export const radialBlocks: readonly RadialBlock[] = [
 ];
 export function radialExampleSource(block: RadialBlock, dark: boolean): string {
   return `import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { RadialProgress } from '@ng-echarts/chart-library/radial';
+import { RadialProgress } from '@mantha911/ng-echarts/radial';
 
 @Component({
   selector: 'app-goal-progress',

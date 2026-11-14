@@ -4,7 +4,7 @@ import {
   ɵChartStage,
   ɵCartesianChart,
   type ɵCartesianContext,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 import { LINE_RENDERER_LOADER } from './line-browser';
 import { buildLineOptions, type LineOption } from './line-options';
 @Component({

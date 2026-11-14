@@ -7,8 +7,8 @@ import {
   type PointSelection,
   type PointPreview,
   type ValueFormatter,
-} from '@ng-echarts/chart-library/bar';
-import { ChartFrame } from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/bar';
+import { ChartFrame } from '@mantha911/ng-echarts/core';
 import type { EChartsCoreOption } from 'echarts/core';
 
 // Check installed Angular template metadata and ECharts declarations under TS 6.

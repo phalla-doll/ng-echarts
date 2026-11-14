@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { ComparisonAppearance } from './comparison-appearance';
-import { BarChart, type CategoryTickFormatter } from '@ng-echarts/chart-library/bar';
+import { BarChart, type CategoryTickFormatter } from '@mantha911/ng-echarts/bar';
 import { deviceRows, deviceSeries } from './fixtures/evilcharts-bar-fixture';
 import { horizontalRows, horizontalSeries } from './fixtures/evilcharts-horizontal-fixture';
 

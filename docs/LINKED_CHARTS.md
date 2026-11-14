@@ -23,8 +23,8 @@ import {
   type ChartSeries,
   type BarRangeSelection,
   type PointPreview,
-} from "@ng-echarts/chart-library/bar";
-import { PieChart, type ChartMeasure } from "@ng-echarts/chart-library/pie";
+} from "@mantha911/ng-echarts/bar";
+import { PieChart, type ChartMeasure } from "@mantha911/ng-echarts/pie";
 interface Month {
   id: string;
   month: string;

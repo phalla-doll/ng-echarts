@@ -1,4 +1,4 @@
-import type { NumericKey, StringKey } from '@ng-echarts/chart-library/core';
+import type { NumericKey, StringKey } from '@mantha911/ng-echarts/core';
 
 export interface CalendarPointSelection<T> {
   readonly date: string;

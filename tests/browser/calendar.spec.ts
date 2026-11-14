@@ -126,7 +126,7 @@ test('fits both themes and both calendar layouts, retains hidden previews, and c
     }
   }
   await page.getByRole('button', { name: 'Code', exact: true }).click();
-  await expect(page.getByRole('code')).toContainText('@ng-echarts/chart-library/calendar');
+  await expect(page.getByRole('code')).toContainText('@mantha911/ng-echarts/calendar');
   const copy = page.getByRole('button', { name: 'Copy code', exact: true });
   await page.evaluate(() =>
     Object.defineProperty(navigator, 'clipboard', {

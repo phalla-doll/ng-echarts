@@ -1,4 +1,4 @@
-import type { SankeyNode, SankeyLink } from '@ng-echarts/chart-library/sankey';
+import type { SankeyNode, SankeyLink } from '@mantha911/ng-echarts/sankey';
 export const flowNodes: readonly SankeyNode[] = [
   { id: 'search', label: 'Search' },
   { id: 'direct', label: 'Direct' },
@@ -18,7 +18,7 @@ export const flowLinks: readonly SankeyLink[] = [
 ];
 export function sankeyExampleSource(dark = false): string {
   return `import { Component } from '@angular/core';
-import { SankeyChart, type SankeyNode, type SankeyLink } from '@ng-echarts/chart-library/sankey';
+import { SankeyChart, type SankeyNode, type SankeyLink } from '@mantha911/ng-echarts/sankey';
 
 @Component({
   selector: 'app-visit-flow',

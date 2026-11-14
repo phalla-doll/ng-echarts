@@ -110,7 +110,7 @@ test('fits both themes at four widths, recovers a hidden preview and offers work
     }
   }
   await block.getByRole('button', { name: 'Code', exact: true }).click();
-  await expect(block.getByRole('code')).toContainText('@ng-echarts/chart-library/radial');
+  await expect(block.getByRole('code')).toContainText('@mantha911/ng-echarts/radial');
   await block.getByRole('button', { name: 'Preview', exact: true }).click();
   await expect(chart.locator('canvas')).toBeVisible();
   await page.reload();

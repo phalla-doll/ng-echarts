@@ -50,7 +50,7 @@ try {
   await run('sh', ['-eu', '-c', shell('scaffold')], parent);
   console.log('Installing the documented version pins and local tarball…');
   await run('sh', ['-eu', '-c', shell('install')], consumer, {
-    CHART_LIBRARY_TARBALL: join(parent, packed.filename),
+    CHART_LIBRARY_TARBALL: packed.registrySpec ?? join(parent, packed.filename),
   });
   // The guide instructs consumers to retain the artifact and repeat from the lockfile.
   await run('npm', ['ci', '--no-audit', '--no-fund'], consumer);
@@ -75,7 +75,7 @@ try {
   assert(ssrSettings, 'Installation guide must configure its local SSR hostnames');
   Object.assign(angular.projects['chart-consumer'].architect.build.options, ssrSettings);
   await writeFile(angularPath, JSON.stringify(angular));
-  const installed = await realpath(join(consumer, 'node_modules/@ng-echarts/chart-library'));
+  const installed = await realpath(join(consumer, 'node_modules/@mantha911/ng-echarts'));
   assert(!relative(consumer, installed).startsWith('..'));
   const manifest = JSON.parse(await readFile(join(consumer, 'package.json'), 'utf8'));
   const resolved = JSON.parse(await run('npm', ['ls', '--depth=0', '--json'], consumer));

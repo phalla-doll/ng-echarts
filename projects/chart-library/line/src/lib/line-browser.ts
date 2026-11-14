@@ -1,5 +1,5 @@
 import { InjectionToken } from '@angular/core';
-import type { ɵPlotRendererFactory } from '@ng-echarts/chart-library/core';
+import type { ɵPlotRendererFactory } from '@mantha911/ng-echarts/core';
 import type { LineOption } from './line-options';
 export const LINE_RENDERER_LOADER = new InjectionToken<
   () => Promise<ɵPlotRendererFactory<LineOption>>

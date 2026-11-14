@@ -4,7 +4,7 @@ import {
   type ChartMeasure,
   type CategoryVisibilityChange,
   type PointSelection,
-} from '@ng-echarts/chart-library/pie';
+} from '@mantha911/ng-echarts/pie';
 interface Reading {
   id: string;
   label: string;

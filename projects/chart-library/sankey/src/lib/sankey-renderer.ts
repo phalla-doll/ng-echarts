@@ -8,7 +8,7 @@ type TooltipPosition = Extract<
 >;
 import { init, use } from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
-import type { ɵPlotRendererFactory } from '@ng-echarts/chart-library/core';
+import type { ɵPlotRendererFactory } from '@mantha911/ng-echarts/core';
 import { buildSankeyOptions, type SankeyView } from './sankey-options';
 use([TooltipComponent, CanvasRenderer]);
 export const createSankeyRenderer: ɵPlotRendererFactory<SankeyView> = (host, onPoint) => {

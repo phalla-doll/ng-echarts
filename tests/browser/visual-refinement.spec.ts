@@ -78,7 +78,7 @@ for (const [route, selector] of [
       await expect
         .poll(() => code.evaluate((element) => element.scrollWidth <= element.clientWidth))
         .toBe(true);
-      await expect(code).toContainText(`@ng-echarts/chart-library/${selector!.slice(4, -6)}`);
+      await expect(code).toContainText(`@mantha911/ng-echarts/${selector!.slice(4, -6)}`);
       await block.getByRole('button', { name: 'Code', exact: true }).click();
       await expect(block.locator('canvas')).toBeHidden();
       await expect(block.locator('.block-code')).toContainText(

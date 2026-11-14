@@ -18,6 +18,38 @@ const run = (command, args, cwd) => {
 /** All release consumers install a byte-for-byte copy of the supplied candidate, never a repack. */
 export async function consumerArtifact(root, destination) {
   const candidate = process.env['CHART_LIBRARY_TARBALL'];
+  const registrySpec = process.env['CHART_LIBRARY_REGISTRY_SPEC'];
+  if (registrySpec) {
+    const source = JSON.parse(
+      await readFile(join(root, 'projects/chart-library/package.json'), 'utf8'),
+    );
+    assert.equal(
+      registrySpec,
+      `${source.name}@${source.version}`,
+      'Registry checks must use the exact source identity/version',
+    );
+    const expected = process.env['CHART_LIBRARY_TARBALL_SHA256'];
+    assert(expected, 'Registry checks require the verified candidate SHA-256');
+    const packed = JSON.parse(
+      run(
+        'npm',
+        [
+          'pack',
+          registrySpec,
+          '--registry=https://registry.npmjs.org/',
+          '--ignore-scripts',
+          '--pack-destination',
+          destination,
+          '--json',
+        ],
+        root,
+      ),
+    )[0];
+    const bytes = await readFile(join(destination, packed.filename));
+    const sha256 = createHash('sha256').update(bytes).digest('hex');
+    assert.equal(sha256, expected, 'Registry tarball differs from the verified candidate');
+    return { ...packed, sha256, exactCandidate: true, registrySpec };
+  }
   if (!candidate) {
     const packed = JSON.parse(
       run(

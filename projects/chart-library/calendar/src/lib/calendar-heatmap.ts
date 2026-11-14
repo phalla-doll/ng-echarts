@@ -31,7 +31,7 @@ import {
   type ValueFormatter,
   type NumericKey,
   type StringKey,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 import {
   normalizeCalendarData,
   calendarMonths,

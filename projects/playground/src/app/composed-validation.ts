@@ -3,7 +3,7 @@ import {
   ComposedChart,
   type ComposedSeries,
   type PointSelection,
-} from '@ng-echarts/chart-library/composed';
+} from '@mantha911/ng-echarts/composed';
 import { SiteAppearance } from './site-appearance';
 export interface ComposedRow {
   readonly id: string;

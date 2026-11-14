@@ -1,6 +1,6 @@
 import type { PieSeriesOption } from 'echarts/charts';
 import type { ComposeOption } from 'echarts/core';
-import type { ɵCartesianThemeTokens } from '@ng-echarts/chart-library/core';
+import type { ɵCartesianThemeTokens } from '@mantha911/ng-echarts/core';
 import type { RadialModel } from './radial-model';
 export type RadialOption = ComposeOption<PieSeriesOption> & { readonly animation: boolean };
 export function buildRadialOptions(

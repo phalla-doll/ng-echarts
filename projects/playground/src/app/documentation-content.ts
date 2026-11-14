@@ -16,7 +16,7 @@ export interface DocPage {
 
 export const quickStartExample = [
   "import { Component } from '@angular/core';",
-  "import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';",
+  "import { BarChart, type ChartSeries } from '@mantha911/ng-echarts/bar';",
   '',
   'interface Visit { id: string; month: string; desktop: number; mobile: number | null; }',
   '',
@@ -76,7 +76,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'status',
         title: 'Project status',
         paragraphs: [
-          'The library is experimental and the package is private. Use the workspace or a packed local build; a public npm installation is not available yet. Automated acceptance covers the four MVP families, the first shared-axis composed increment, experimental radar, radial progress, calendar heatmaps and Sankey flows. Human screen-reader interpretation and final artifact/release acceptance remain pending.',
+          'The library is an experimental public prerelease under @mantha911/ng-echarts. Use the next dist-tag or a packed local build. Automated acceptance covers the four MVP families, the first shared-axis composed increment, experimental radar, radial progress, calendar heatmaps and Sankey flows. Human screen-reader interpretation and final artifact/release acceptance remain pending.',
         ],
       },
     ],
@@ -92,8 +92,17 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         title: 'Requirements',
         paragraphs: [
           'Use the Node version in .nvmrc (24.22.2) and npm 11.19.1. This workspace pins Angular 22.2.6, TypeScript 6.0.3, and ECharts 6.1.0.',
-          'The package has not been published. The commands below use the project workspace and its local build output.',
+          'Install the experimental @mantha911/ng-echarts prerelease through the next tag, or use a retained local tarball. Pin the resolved version and commit your lockfile.',
         ],
+      },
+      {
+        id: 'registry-package',
+        title: 'Install the prerelease',
+        paragraphs: [
+          'The next tag selects the experimental public prerelease. Human screen-reader interpretation remains unreviewed at the user’s request; the API is not declared stable.',
+        ],
+        source: 'npm install @mantha911/ng-echarts@next echarts@6.1.0',
+        language: 'Terminal',
       },
       {
         id: 'workspace',
@@ -112,7 +121,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
           'Create a production tarball from the workspace root. Install that file and the tested ECharts peer in a separate Angular 22 application. Replace the example path with the location of your checkout. Keep the file at the lockfile’s recorded path, or copy it into the consumer’s vendor directory first; commit the lockfile and use npm ci for repeat installs.',
         ],
         source:
-          'npm run pack:lib\n\n# In your Angular 22 application:\nnpm install /path/to/ng-echarts/dist/ng-echarts-chart-library-0.1.0-rc.17.tgz echarts@6.1.0',
+          'npm run pack:lib\n\n# In your Angular 22 application:\nnpm install /path/to/ng-echarts/dist/mantha911-ng-echarts-0.1.0-rc.18.tgz echarts@6.1.0',
         language: 'Terminal',
       },
       {
@@ -142,7 +151,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         paragraphs: [
           'Exact tests use Angular/CLI 22.2.6, TypeScript 6.0.3, RxJS 7.8.2 and ECharts 6.1.0 with Node 24.22.2/npm 11.19.1. Library peers declare Angular common/core ^22.2.6 and ECharts ^6.1.0; wider allowed ranges are not a test of every version. Chromium 158.0.8127.18, Firefox 159.0 and WebKit 27.2 cover client and SSR/hydration paths.',
           'The measured starting envelope is 200 categories and three Cartesian series, or 12 pie/donut categories, on the recorded M2 Pro reference machine. Stress fixtures use 2,000 and 100 categories respectively. These are measured inputs rather than hard API limits or portable latency promises. Crowded outside labels may be shortened or hidden; native controls retain complete text.',
-          'The APIs remain experimental. Automated tests pass; human screen-reader interpretation is deferred to release acceptance. The private 0.1.0-rc.17 candidate uses MIT for original library code and includes third-party notices. Human release acceptance and registry publication remain separate.',
+          'The APIs remain experimental. Automated tests pass; human screen-reader interpretation remains unreviewed at the user’s request. The public 0.1.0-rc.18 candidate uses MIT for original library code and includes third-party notices. Human release acceptance and registry publication remain separate.',
         ],
       },
       {
@@ -176,7 +185,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'data-contracts',
         title: 'Choose the data contract',
         paragraphs: [
-          'ComposedChart accepts ComposedSeries<T> with a bar/line kind per measure on one shared axis pair. Bar, line, and area charts accept a typed array of ChartSeries<T> measures. PieChart accepts one ChartMeasure<T> and turns category rows into slices. Import each component from its focused @ng-echarts/chart-library/bar, /line, /area, /pie, /composed, or /radar entry. RadarChart uses comparison series and an explicit maxKey for each dimension. RadialProgress uses scalar value/max inputs from /radial, CalendarHeatmap uses one year/date/value contract from /calendar, and SankeyChart uses separate node/link arrays from /sankey. The last four families require focused imports.',
+          'ComposedChart accepts ComposedSeries<T> with a bar/line kind per measure on one shared axis pair. Bar, line, and area charts accept a typed array of ChartSeries<T> measures. PieChart accepts one ChartMeasure<T> and turns category rows into slices. Import each component from its focused @mantha911/ng-echarts/bar, /line, /area, /pie, /composed, or /radar entry. RadarChart uses comparison series and an explicit maxKey for each dimension. RadialProgress uses scalar value/max inputs from /radial, CalendarHeatmap uses one year/date/value contract from /calendar, and SankeyChart uses separate node/link arrays from /sankey. The last four families require focused imports.',
           'Use innerRadius 0 for a pie or 0.6 for a donut. Optional outside labels may shorten or hide collisions, while category controls retain full labels. Pie measures must be nonnegative; all-zero totals show an empty state. Optional showTotal displays the visible sum in donuts with innerRadius at least 0.4. Calendar and Sankey valueLabel names the tooltip measure and defaults to Value.',
           'Pie legend changes emit rowId and visible; Cartesian legend changes emit seriesId and visible. Cartesian, radar and pie pointSelect events include the original row and raw value. Calendar selects an original date/value row. Sankey emits a select event for an original node or link with raw totals/values. Radial progress has no selection event. Native tables provide keyboard actions where applicable; gallery chart previews may opt out of the optional table.',
         ],

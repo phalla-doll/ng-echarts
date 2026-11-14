@@ -28,7 +28,7 @@ import {
   type ɵCartesianThemeTokens,
   type ChartTheme,
   type ValueFormatter,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 import { normalizeRadialProgress } from './radial-model';
 import { buildRadialOptions, type RadialOption } from './radial-options';
 import { RADIAL_RENDERER_LOADER } from './radial-browser';

@@ -10,7 +10,7 @@ import {
   ɵtooltipStyle as tooltipStyle,
   type ɵCartesianThemeTokens,
   type ValueFormatter,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 import { monthLength, type CalendarDay } from './calendar-model';
 export type CalendarOption = ComposeOption<
   HeatmapSeriesOption | CalendarComponentOption | TooltipComponentOption | VisualMapComponentOption

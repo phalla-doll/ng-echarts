@@ -1,4 +1,4 @@
-import type { ɵPlotPoint } from '@ng-echarts/chart-library/core';
+import type { ɵPlotPoint } from '@mantha911/ng-echarts/core';
 import type { RadarOption, radarLayout } from './radar-options';
 
 /** Only an unambiguous vertex activates a dimension; a polygon interior has no point identity. */

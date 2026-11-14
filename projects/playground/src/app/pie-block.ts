@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { PieChart, type PointSelection } from '@ng-echarts/chart-library/pie';
+import { PieChart, type PointSelection } from '@mantha911/ng-echarts/pie';
 import { pieExampleSource, type PieBlock } from './pie-blocks';
 import { visitorMeasure, browserPalette, type BrowserRow } from './fixtures/evilcharts-pie-fixture';
 import { SiteIcon } from './site-icon';

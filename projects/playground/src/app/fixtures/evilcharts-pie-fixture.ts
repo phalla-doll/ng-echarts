@@ -1,6 +1,6 @@
 // Browser observations and colors adapted from EvilCharts (2026 Gurbinder, MIT).
 // Pinned ex-echarts-pie-chart.tsx; see docs/UPSTREAM_PROVENANCE.md and package notice.
-import type { ChartMeasure } from '@ng-echarts/chart-library/pie';
+import type { ChartMeasure } from '@mantha911/ng-echarts/pie';
 export interface BrowserRow {
   readonly id: string;
   readonly browser: string;

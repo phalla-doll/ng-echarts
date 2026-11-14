@@ -5,10 +5,10 @@ import {
   BarChart,
   type CategoryTickFormatter,
   type PointSelection,
-} from '@ng-echarts/chart-library/bar';
-import { LineChart } from '@ng-echarts/chart-library/line';
-import { AreaChart } from '@ng-echarts/chart-library/area';
-import { ComposedChart } from '@ng-echarts/chart-library/composed';
+} from '@mantha911/ng-echarts/bar';
+import { LineChart } from '@mantha911/ng-echarts/line';
+import { AreaChart } from '@mantha911/ng-echarts/area';
+import { ComposedChart } from '@mantha911/ng-echarts/composed';
 import { chartExampleSource, type CartesianBlock } from './chart-blocks';
 import type { DeviceRow } from './fixtures/evilcharts-bar-fixture';
 import { SiteIcon } from './site-icon';

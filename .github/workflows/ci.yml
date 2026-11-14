@@ -23,11 +23,12 @@ jobs:
       - run: npx playwright install --with-deps chromium firefox webkit
       - run: npm run check:workspace
       - run: npm run release:local
+      - run: npm run check:release-immutability
       - name: Retain exact candidate evidence
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: private-release-candidate
+          name: release-candidate
           path: |
             dist/releases/
             docs/experiments/data/local-release-*.json

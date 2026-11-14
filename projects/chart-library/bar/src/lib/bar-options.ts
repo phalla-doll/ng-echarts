@@ -4,7 +4,7 @@ import type { BarSeriesOption } from 'echarts/charts';
 import type { GridComponentOption, TooltipComponentOption } from 'echarts/components';
 import type { ComposeOption } from 'echarts/core';
 import type { BarModel } from './bar-model';
-import type { BarLayout } from '@ng-echarts/chart-library/core';
+import type { BarLayout } from '@mantha911/ng-echarts/core';
 
 export type BarOption = ComposeOption<
   BarSeriesOption | GridComponentOption | TooltipComponentOption
@@ -13,10 +13,10 @@ export type BarOption = ComposeOption<
 export {
   ɵdefaultCartesianTheme as defaultBarTheme,
   ɵescapeTooltipText as escapeTooltipText,
-} from '@ng-echarts/chart-library/core';
-export type { ɵCartesianThemeTokens as BarThemeTokens } from '@ng-echarts/chart-library/core';
-import { ɵbuildCartesianOptions } from '@ng-echarts/chart-library/core';
-import type { ɵCartesianThemeTokens as BarThemeTokens } from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
+export type { ɵCartesianThemeTokens as BarThemeTokens } from '@mantha911/ng-echarts/core';
+import { ɵbuildCartesianOptions } from '@mantha911/ng-echarts/core';
+import type { ɵCartesianThemeTokens as BarThemeTokens } from '@mantha911/ng-echarts/core';
 function baseColor(color: string): string {
   if (/^#[\da-f]{6}$/i.test(color)) {
     return `rgba(${[1, 3, 5].map((offset) => Number.parseInt(color.slice(offset, offset + 2), 16)).join(',')},0.3)`;

@@ -423,9 +423,9 @@ try {
     '--package-lock=false',
     '--no-audit',
     '--no-fund',
-    `./${packed.filename}`,
+    packed.registrySpec ?? `./${packed.filename}`,
   ]);
-  const installed = await realpath(join(consumer, 'node_modules/@ng-echarts/chart-library'));
+  const installed = await realpath(join(consumer, 'node_modules/@mantha911/ng-echarts'));
   assert(
     !relative(consumer, installed).startsWith('..'),
     'Runtime package must be installed inside the isolated consumer',
@@ -436,35 +436,35 @@ try {
     `import assert from 'node:assert/strict';
      import { createRequire } from 'node:module';
      import '@angular/compiler';
-     const root = await import('@ng-echarts/chart-library');
-     const bar = await import('@ng-echarts/chart-library/bar');
-     const area = await import('@ng-echarts/chart-library/area');
+     const root = await import('@mantha911/ng-echarts');
+     const bar = await import('@mantha911/ng-echarts/bar');
+     const area = await import('@mantha911/ng-echarts/area');
      assert.equal(root.AreaChart, area.AreaChart);
-     const line = await import('@ng-echarts/chart-library/line');
+     const line = await import('@mantha911/ng-echarts/line');
      assert.equal(root.LineChart, line.LineChart);
-     const composed = await import('@ng-echarts/chart-library/composed');
+     const composed = await import('@mantha911/ng-echarts/composed');
      assert.equal(root.ComposedChart, composed.ComposedChart);
-     const sankey = await import('@ng-echarts/chart-library/sankey');
+     const sankey = await import('@mantha911/ng-echarts/sankey');
      assert.equal(typeof sankey.SankeyChart, 'function');
      assert.equal(root.SankeyChart, undefined);
-     const calendar = await import('@ng-echarts/chart-library/calendar');
+     const calendar = await import('@mantha911/ng-echarts/calendar');
      assert.equal(typeof calendar.CalendarHeatmap, 'function');
      assert.equal(root.CalendarHeatmap, undefined);
-     const radial = await import('@ng-echarts/chart-library/radial');
+     const radial = await import('@mantha911/ng-echarts/radial');
      assert.equal(typeof radial.RadialProgress, 'function');
      assert.equal(root.RadialProgress, undefined);
-     const radar = await import('@ng-echarts/chart-library/radar');
+     const radar = await import('@mantha911/ng-echarts/radar');
      assert.equal(typeof radar.RadarChart, 'function');
      assert.equal(root.RadarChart, undefined);
-     const pie = await import('@ng-echarts/chart-library/pie');
+     const pie = await import('@mantha911/ng-echarts/pie');
      assert.equal(root.PieChart, pie.PieChart);
-     const core = await import('@ng-echarts/chart-library/core');
+     const core = await import('@mantha911/ng-echarts/core');
      assert.equal(root.BarChart, bar.BarChart);
      assert.equal(root.ChartFrame, core.ChartFrame);
      assert.deepEqual(Object.keys(core).filter(name => !name.startsWith('ɵ')), ['ChartFrame']);
      const require = createRequire(process.cwd() + '/package.json');
-     for (const path of ['src/lib/bar-chart', 'bar/src/lib/bar-chart', 'radar/src/lib/radar-chart', 'radial/src/lib/radial-progress', 'calendar/src/lib/calendar-heatmap', 'sankey/src/lib/sankey-chart', 'fesm2022/ng-echarts-chart-library-bar.mjs', 'fesm2022/ng-echarts-chart-library-radar.mjs']) {
-       assert.throws(() => require.resolve('@ng-echarts/chart-library/' + path), { code: 'ERR_PACKAGE_PATH_NOT_EXPORTED' });
+     for (const path of ['src/lib/bar-chart', 'bar/src/lib/bar-chart', 'radar/src/lib/radar-chart', 'radial/src/lib/radial-progress', 'calendar/src/lib/calendar-heatmap', 'sankey/src/lib/sankey-chart', 'fesm2022/mantha911-ng-echarts-bar.mjs', 'fesm2022/mantha911-ng-echarts-radar.mjs']) {
+       assert.throws(() => require.resolve('@mantha911/ng-echarts/' + path), { code: 'ERR_PACKAGE_PATH_NOT_EXPORTED' });
      }`,
   ]);
   const tree = JSON.parse(await run('npm', ['ls', '--omit=dev', '--json']));

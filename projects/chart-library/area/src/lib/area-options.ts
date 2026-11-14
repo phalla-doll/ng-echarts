@@ -3,7 +3,7 @@ import {
   ɵbuildCurveOptions,
   type ɵCartesianContext,
   type ɵCurveOption,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 export type AreaOption = ɵCurveOption;
 function alphaColor(color: string, factor: number): string {
   if (/^#[\da-f]{6}$/i.test(color))

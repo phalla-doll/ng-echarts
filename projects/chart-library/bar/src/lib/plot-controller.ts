@@ -1,11 +1,11 @@
-import { ɵPlotController } from '@ng-echarts/chart-library/core';
+import { ɵPlotController } from '@mantha911/ng-echarts/core';
 import type {
   ɵPlotRenderer,
   ɵPlotRendererFactory,
   ɵPlotEnvironment,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 import type { BarRenderOptions } from './bar-render-options';
-export type { ɵPlotPoint as PlotPoint } from '@ng-echarts/chart-library/core';
+export type { ɵPlotPoint as PlotPoint } from '@mantha911/ng-echarts/core';
 export type BarRenderer = ɵPlotRenderer<BarRenderOptions>;
 export type BarRendererFactory = ɵPlotRendererFactory<BarRenderOptions>;
 export type PlotEnvironment = ɵPlotEnvironment<BarRenderOptions>;

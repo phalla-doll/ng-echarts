@@ -1,12 +1,12 @@
 # Calendar heatmap API
 
-Experimental NG19 first increment, private `0.1.0-rc.8`. Import `CalendarHeatmap` from `@ng-echarts/chart-library/calendar`. The compatibility root keeps its existing exports and engines. Original code is MIT licensed; no public npm release is available.
+Experimental NG19 first increment, private `0.1.0-rc.8`. Import `CalendarHeatmap` from `@mantha911/ng-echarts/calendar`. The compatibility root keeps its existing exports and engines. Original code is MIT licensed; no public npm release is available.
 
 ## Example
 
 ```ts
 import { Component } from '@angular/core';
-import { CalendarHeatmap } from '@ng-echarts/chart-library/calendar';
+import { CalendarHeatmap } from '@mantha911/ng-echarts/calendar';
 
 interface ActivityDay { readonly date: string; readonly count: number | null; }
 

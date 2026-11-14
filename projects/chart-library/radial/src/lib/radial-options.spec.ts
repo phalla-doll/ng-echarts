@@ -1,4 +1,4 @@
-import { ɵdefaultCartesianTheme } from '@ng-echarts/chart-library/core';
+import { ɵdefaultCartesianTheme } from '@mantha911/ng-echarts/core';
 import { normalizeRadialProgress } from './radial-model';
 import { buildRadialOptions } from './radial-options';
 it.each([0, 0.68, 1])(

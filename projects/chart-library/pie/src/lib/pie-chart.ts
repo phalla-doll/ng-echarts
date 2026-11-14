@@ -35,7 +35,7 @@ import {
   type PointSelection,
   type StringKey,
   type ValueFormatter,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 import { normalizePieData } from './pie-model';
 import { PIE_RENDERER_LOADER } from './pie-browser';
 import { buildPieOptions, type PieOption } from './pie-options';

@@ -1,12 +1,12 @@
 # Experimental Sankey chart
 
-Import `SankeyChart`, `SankeyNode`, `SankeyLink` and `SankeySelection` from `@ng-echarts/chart-library/sankey`. This focused entry stays outside the compatibility root and the four-family MVP. The package is private; human F09/R06/G2/G3/G4 remain pending.
+Import `SankeyChart`, `SankeyNode`, `SankeyLink` and `SankeySelection` from `@mantha911/ng-echarts/sankey`. This focused entry stays outside the compatibility root and the four-family MVP. The package is private; human F09/R06/G2/G3/G4 remain pending.
 
 ## Standalone example
 
 ```ts
 import { Component } from '@angular/core';
-import { SankeyChart, type SankeyNode, type SankeyLink } from '@ng-echarts/chart-library/sankey';
+import { SankeyChart, type SankeyNode, type SankeyLink } from '@mantha911/ng-echarts/sankey';
 
 @Component({
   selector: 'app-visit-flow',

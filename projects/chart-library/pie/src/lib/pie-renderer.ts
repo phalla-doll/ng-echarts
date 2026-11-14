@@ -3,7 +3,7 @@ import 'echarts/lib/chart/pie';
 import { TooltipComponent } from 'echarts/components';
 import { init, use } from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
-import type { ɵPlotRendererFactory } from '@ng-echarts/chart-library/core';
+import type { ɵPlotRendererFactory } from '@mantha911/ng-echarts/core';
 import type { PieOption } from './pie-options';
 use([TooltipComponent, CanvasRenderer]);
 export const createPieRenderer: ɵPlotRendererFactory<PieOption> = (host, onPoint) => {

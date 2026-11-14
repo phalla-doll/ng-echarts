@@ -12,7 +12,11 @@ Status: experimental bar, line, area, pie/donut, composed, focused radar, radial
 
 Build native Angular components, beginning with the upstream ECharts implementations. Preserve the selected visual designs and interactions while replacing React lifecycle, composition, state, and overlays with Angular equivalents. Validate one bar chart before expanding to the MVP collection.
 
-`ng-echarts` is the requested local project name. A public package name and namespace remain undecided; package availability and potential confusion with existing ECharts integrations must be checked before publication.
+`ng-echarts` is the project name. The user selected `@mantha911/ng-echarts` for the experimental npm prerelease, published under the `next` dist-tag. Human screen-reader interpretation remains unreviewed at the user’s request; human release gates are not marked passed.
+
+```sh
+npm install @mantha911/ng-echarts@next echarts@6.1.0
+```
 
 ## Documents
 
@@ -140,7 +144,7 @@ Angular 22 with strict TypeScript and template checking. The selected toolchain 
 
 ## Implemented chart families
 
-Package entries below follow `@ng-echarts/chart-library`. All chart entries are experimental; implementation completion does not close NG14 or the release gates.
+Package entries below follow `@mantha911/ng-echarts`. All chart entries are experimental; implementation completion does not close NG14 or the release gates.
 
 | Component | Entry | Gallery / behavior fixture | API and evidence |
 | --- | --- | --- | --- |
@@ -170,7 +174,7 @@ The `/area` page presents independent gradients, stacks, solid fills, and missin
 
 The `/line` page presents straight/smooth lines, optional points, and missing-value gaps using the same gallery design. `/line-validation` exercises line behavior and deferred hydration.
 
-The home page presents the existing grouped, stacked, gradient, and horizontal bars in a neutral gallery with code/preview controls, calculated totals, copyable Angular examples, and light/dark themes. The `/playground` route retains the pinned Desktop/Mobile fixture and grouped settings. It retains layout, stack, gradient, state, update, and remount controls. `@ng-echarts/chart-library` is a private, experimental package identity. ECharts is a peer dependency; no package has been published. Adapted fixture data and colors are tracked in the provenance ledger with the upstream MIT notice.
+The home page presents the existing grouped, stacked, gradient, and horizontal bars in a neutral gallery with code/preview controls, calculated totals, copyable Angular examples, and light/dark themes. The `/playground` route retains the pinned Desktop/Mobile fixture and grouped settings. It retains layout, stack, gradient, state, update, and remount controls. `@mantha911/ng-echarts` is the experimental public package identity. ECharts is a peer dependency. Adapted fixture data and colors are tracked in the provenance ledger with the upstream MIT notice.
 
 The `/composed` gallery combines monthly visits and a trailing three-month mean on one visits scale, with the same preview/code controls and themes. `/composed-validation` provides state, kind-change, keyboard and deferred-hydration checks. See the [composed API](docs/COMPOSED_CHART_API.md) for the typed bar/line contract and current limits.
 
@@ -178,7 +182,7 @@ The `/linked` page connects a monthly visits overview to device share through st
 
 ## Library license
 
-Original chart-library code is [MIT licensed](projects/chart-library/LICENSE). See its [third-party notices](projects/chart-library/THIRD_PARTY_NOTICES.md) for preserved upstream/dependency terms. The current private local release candidate is `0.1.0-rc.17`; follow the [release checklist](docs/RELEASE_CHECKLIST.md) to prepare and verify it.
+Original chart-library code is [MIT licensed](projects/chart-library/LICENSE). See its [third-party notices](projects/chart-library/THIRD_PARTY_NOTICES.md) for preserved upstream/dependency terms. The current experimental public release candidate is `0.1.0-rc.18`; follow the [release checklist](docs/RELEASE_CHECKLIST.md) to prepare and verify it.
 
 
 ## NG18 radar first increment
@@ -202,4 +206,7 @@ Private rc.12 corrects the packaged documentation and preserves the rc.11 implem
 The [combined preview/performance checkpoint](docs/experiments/COMBINED_PREVIEW_PERFORMANCE.md) records the current **266 unit tests, 380 browser passes (four expected skips), all twelve package budgets and six exact rc.16 installed client/SSR modes**. It retains the earlier experiment/candidate scopes and pending human release gates.
 
 
-The [rc.17 release review](docs/experiments/RC17_RELEASE_REVIEW.md) records the loading-theme correction, CI follow-up and exact-artifact verification. Complete the [human result sheet](docs/experiments/RC17_HUMAN_REVIEW.md) and [public package preparation](docs/PUBLICATION.md) before release acceptance and npm publication.
+The [rc.17 release review](docs/experiments/RC17_RELEASE_REVIEW.md) records the loading-theme correction, CI follow-up and exact-artifact verification. The [human result sheet](docs/experiments/RC17_HUMAN_REVIEW.md) remains pending under the user’s explicit prerelease deferral; [public package preparation](docs/PUBLICATION.md) records the selected npm identity and exact-artifact workflow.
+
+
+The [NG22 public prerelease](docs/experiments/NG22_PUBLIC_PRERELEASE.md) uses `@mantha911/ng-echarts@0.1.0-rc.18` with npm public access and the `next` tag. The user selected the authenticated personal scope and explicitly skipped the listening session while requesting this experimental publication. Earlier private candidates remain preserved; human F09/R06/G2/G3/G4 remain pending.

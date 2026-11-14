@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-rc.18 — 14 November 2026
+
+- Prepare the first experimental public prerelease as `@mantha911/ng-echarts`, with matching focused imports, guides and isolated consumers.
+- Set the npm registry, public access and `next` dist-tag explicitly; retain MIT and upstream notice bytes.
+- Preserve the verified private rc.17 and all earlier archives. The user requested skipping the human listening session; human F09/R06/G2/G3/G4 remain pending. No stable API or completed human accessibility review is claimed.
+
 ## 0.1.0-rc.17 — 14 November 2026
 
 - Inherit application theme colors before hydration across all nine chart families, preventing a mismatched loading surface while retaining standalone defaults and partial overrides.

@@ -29,7 +29,7 @@ import {
   type ɵCartesianThemeTokens,
   type ChartTheme,
   type ValueFormatter,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 import {
   normalizeSankey,
   type SankeyNode,

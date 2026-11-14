@@ -3,7 +3,7 @@ import {
   type ɵCartesianModel,
   type ChartMeasure,
   type StringKey,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 export function normalizePieData<T extends object>(
   data: readonly T[],
   rowIdKey: StringKey<T>,

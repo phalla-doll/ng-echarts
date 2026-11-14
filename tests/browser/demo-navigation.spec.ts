@@ -10,7 +10,7 @@ async function componentEntries() {
   return Object.fromEntries(
     ['bar', 'line', 'area', 'composed', 'pie'].map((family) => {
       const entry = Object.entries(outputs).find(([, output]) =>
-        output.entryPoint?.endsWith(`/ng-echarts-chart-library-${family}.mjs`),
+        output.entryPoint?.endsWith(`/mantha911-ng-echarts-${family}.mjs`),
       );
       expect(entry, `${family} must retain a focused deferred component entry`).toBeDefined();
       return [family, entry![0]];

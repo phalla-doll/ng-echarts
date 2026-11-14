@@ -1,8 +1,8 @@
 import { PLATFORM_ID } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { BarChart } from '@ng-echarts/chart-library/bar';
-import { PieChart } from '@ng-echarts/chart-library/pie';
+import { BarChart } from '@mantha911/ng-echarts/bar';
+import { PieChart } from '@mantha911/ng-echarts/pie';
 import { deviceShare, LinkedVisits, type VisitMonth } from './linked-visits';
 
 it('reports a detail action against preview values while preserving the committed filter and total', async () => {

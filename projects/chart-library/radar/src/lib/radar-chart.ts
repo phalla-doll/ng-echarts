@@ -6,7 +6,7 @@ import {
   ɵcreateValueFormatting,
   type ɵCartesianContext,
   type NumericKey,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 import { normalizeRadarData } from './radar-model';
 import { buildRadarOptions, type RadarOption } from './radar-options';
 import { RADAR_RENDERER_LOADER } from './radar-browser';

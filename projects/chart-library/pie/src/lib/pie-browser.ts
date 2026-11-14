@@ -1,5 +1,5 @@
 import { InjectionToken } from '@angular/core';
-import type { ɵPlotRendererFactory } from '@ng-echarts/chart-library/core';
+import type { ɵPlotRendererFactory } from '@mantha911/ng-echarts/core';
 import type { PieOption } from './pie-options';
 export const PIE_RENDERER_LOADER = new InjectionToken<
   () => Promise<ɵPlotRendererFactory<PieOption>>

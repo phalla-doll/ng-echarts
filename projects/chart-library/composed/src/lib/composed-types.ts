@@ -1,4 +1,4 @@
-import type { ChartSeries } from '@ng-echarts/chart-library/core';
+import type { ChartSeries } from '@mantha911/ng-echarts/core';
 
 export interface ComposedBarSeries<T> extends ChartSeries<T> {
   readonly kind: 'bar';

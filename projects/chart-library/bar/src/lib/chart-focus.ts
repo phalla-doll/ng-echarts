@@ -1,1 +1,1 @@
-export { ɵChartFocusKeeper as ChartFocusKeeper } from '@ng-echarts/chart-library/core';
+export { ɵChartFocusKeeper as ChartFocusKeeper } from '@mantha911/ng-echarts/core';

@@ -55,3 +55,8 @@ Apply the family-specific instructions in [R06](R06_MANUAL_REVIEW.md#cross-famil
 ## Decision
 
 Reviewer conclusion: pending. Unresolved defects: not assessed. F09/R06/G2/G3/G4 remain pending until the applicable results and any necessary reruns are recorded and reconciled in the [acceptance matrix](../ACCEPTANCE_MATRIX.md).
+
+
+## User decision — 14 November 2026
+
+During the guided session the user replied “Skip this part please.” No per-item human results or browser announcements were supplied. All results above remain pending. The user selected `@mantha911/ng-echarts` and requested completing the experimental prerelease under this deferral; this does not convert automated evidence into human interpretation or close F09/R06/G2/G3/G4.

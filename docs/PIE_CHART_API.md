@@ -2,11 +2,11 @@
 
 Use [installation](INSTALLATION.md), the [complete application example](INTEGRATION_GUIDE.md), and the [tested compatibility/limits table](COMPATIBILITY.md) with this API.
 
-Experimental Angular 22 `PieChart<T>` from `@ng-echarts/chart-library/pie`. Use the local workspace or packed artifact; public npm installation is not available yet. One component renders both pie and donut layouts.
+Experimental Angular 22 `PieChart<T>` from `@mantha911/ng-echarts/pie`. Use the local workspace or packed artifact; public npm installation is not available yet. One component renders both pie and donut layouts.
 
 ```ts
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { PieChart, type ChartMeasure } from '@ng-echarts/chart-library/pie';
+import { PieChart, type ChartMeasure } from '@mantha911/ng-echarts/pie';
 interface Browser { id: string; label: string; visitors: number | null; }
 @Component({
   selector: 'app-browser-share', imports: [PieChart],

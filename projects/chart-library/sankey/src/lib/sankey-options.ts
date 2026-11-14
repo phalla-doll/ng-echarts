@@ -6,7 +6,7 @@ import {
   ɵtooltipStyle as tooltipStyle,
   type ɵCartesianThemeTokens,
   type ValueFormatter,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 import type { FlowNode, SankeyLink } from './sankey-model';
 export interface SankeyView {
   readonly nodes: readonly FlowNode<unknown>[];

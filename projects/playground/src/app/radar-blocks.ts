@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { RadarChart, type ChartSeries, type PointSelection } from '@ng-echarts/chart-library/radar';
+import { RadarChart, type ChartSeries, type PointSelection } from '@mantha911/ng-echarts/radar';
 import { SiteAppearance } from './site-appearance';
 import { SiteIcon } from './site-icon';
 import { HighlightCode } from './highlight-code';

@@ -1,8 +1,8 @@
-export { AreaChart } from '@ng-echarts/chart-library/area';
-export { LineChart } from '@ng-echarts/chart-library/line';
+export { AreaChart } from '@mantha911/ng-echarts/area';
+export { LineChart } from '@mantha911/ng-echarts/line';
 // Compatibility entry: prefer /bar or /core for focused imports.
-export { BarChart, type BarRangeSelection } from '@ng-echarts/chart-library/bar';
-export { ChartFrame } from '@ng-echarts/chart-library/core';
+export { BarChart, type BarRangeSelection } from '@mantha911/ng-echarts/bar';
+export { ChartFrame } from '@mantha911/ng-echarts/core';
 export type {
   BarLayout,
   CategoryTickFormatter,
@@ -16,13 +16,13 @@ export type {
   PointPreview,
   StringKey,
   ValueFormatter,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 
-export { PieChart } from '@ng-echarts/chart-library/pie';
+export { PieChart } from '@mantha911/ng-echarts/pie';
 
 export {
   ComposedChart,
   type ComposedSeries,
   type ComposedBarSeries,
   type ComposedLineSeries,
-} from '@ng-echarts/chart-library/composed';
+} from '@mantha911/ng-echarts/composed';

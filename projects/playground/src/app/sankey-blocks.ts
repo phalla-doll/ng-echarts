@@ -5,7 +5,7 @@ import {
   type SankeyNode,
   type SankeyLink,
   type SankeySelection,
-} from '@ng-echarts/chart-library/sankey';
+} from '@mantha911/ng-echarts/sankey';
 import { SiteAppearance } from './site-appearance';
 import { SiteIcon } from './site-icon';
 import { HighlightCode } from './highlight-code';

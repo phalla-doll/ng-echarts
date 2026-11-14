@@ -4,7 +4,7 @@ import {
   type SankeyNode,
   type SankeyLink,
   type SankeySelection,
-} from '@ng-echarts/chart-library/sankey';
+} from '@mantha911/ng-echarts/sankey';
 interface Node extends SankeyNode {
   readonly note: string;
 }

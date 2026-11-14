@@ -1,4 +1,4 @@
-import { ɵdefaultCartesianTheme } from '@ng-echarts/chart-library/core';
+import { ɵdefaultCartesianTheme } from '@mantha911/ng-echarts/core';
 import { normalizeSankey } from './sankey-model';
 import { buildSankeyOptions } from './sankey-options';
 it('normalizes visual weights without changing raw tooltip values; excludes zero and isolated nodes', () => {

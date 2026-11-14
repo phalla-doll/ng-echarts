@@ -66,7 +66,7 @@ test('handles zeros, empty graphs, invalid cycles, application states and hidden
   await page.getByRole('button', { name: 'Restore sample', exact: true }).click();
   await expect(chart.locator('canvas').first()).toBeVisible();
   await page.getByRole('button', { name: 'Code', exact: true }).click();
-  await expect(page.getByRole('code')).toContainText('@ng-echarts/chart-library/sankey');
+  await expect(page.getByRole('code')).toContainText('@mantha911/ng-echarts/sankey');
   await page.getByRole('button', { name: 'Preview', exact: true }).click();
   await expect(chart.locator('canvas').first()).toBeVisible();
   expect(errors).toEqual([]);

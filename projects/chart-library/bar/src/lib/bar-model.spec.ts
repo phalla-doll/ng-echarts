@@ -1,6 +1,6 @@
 import { normalizeBarData, resolveBarState } from './bar-model';
 import { buildBarOptions, defaultBarTheme } from './bar-options';
-import type { ChartSeries } from '@ng-echarts/chart-library/core';
+import type { ChartSeries } from '@mantha911/ng-echarts/core';
 
 interface Row {
   id: string;

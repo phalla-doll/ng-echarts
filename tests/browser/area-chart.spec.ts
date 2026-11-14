@@ -90,7 +90,7 @@ test('renders copyable area blocks with the pinned area data and clean responsiv
   const source = await page.evaluate(
     () => (window as unknown as { areaClipboard: string }).areaClipboard,
   );
-  expect(source).toContain('@ng-echarts/chart-library/area');
+  expect(source).toContain('@mantha911/ng-echarts/area');
   expect(source).toContain('"mobile": 245');
   expect(source).toContain('[gradient]="true"');
   await first.getByRole('button', { name: 'Preview', exact: true }).click();

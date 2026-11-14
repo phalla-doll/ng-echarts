@@ -43,10 +43,19 @@ export async function inspectRelease(path) {
   const source = JSON.parse(
     await readFile(join(releaseRoot, 'projects/chart-library/package.json'), 'utf8'),
   );
-  assert.equal(manifest.name, '@ng-echarts/chart-library');
+  assert.equal(manifest.name, source.name);
+  assert.match(manifest.name, /^@[a-z0-9][a-z0-9._-]*\/[a-z0-9][a-z0-9._-]*$/);
   assert.equal(manifest.version, source.version);
   assert.match(manifest.version, /^\d+\.\d+\.\d+-rc\.\d+$/);
-  assert.equal(manifest.private, true);
+  assert.equal(manifest.private, source.private);
+  assert.equal(typeof source.private, 'boolean');
+  if (!manifest.private) {
+    assert.deepEqual(manifest.publishConfig, {
+      registry: 'https://registry.npmjs.org/',
+      access: 'public',
+      tag: 'next',
+    });
+  }
   assert.equal(manifest.license, 'MIT');
   assert.equal(manifest.description, source.description);
   assert.deepEqual(manifest.repository, source.repository);
@@ -113,7 +122,7 @@ export async function inspectRelease(path) {
       `${asset} changed in packing`,
     );
   }
-  assert(read('README.md').includes(`ng-echarts-chart-library-${manifest.version}.tgz`));
+  assert(read('README.md').includes(`mantha911-ng-echarts-${manifest.version}.tgz`));
   assert(read('LICENSE').includes('Copyright (c) 2026 Phalla'));
   assert(read('third-party/evilcharts-LICENSE.txt').includes('Copyright (c) 2026 Gurbinder'));
   const notices = JSON.parse(read('third-party/provenance.json'));

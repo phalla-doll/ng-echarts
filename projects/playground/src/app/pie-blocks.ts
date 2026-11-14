@@ -45,7 +45,7 @@ export const pieBlocks: readonly PieBlock[] = [
 export function pieExampleSource(block: PieBlock, dark: boolean): string {
   const palette = browserPalette[dark ? 'dark' : 'light'];
   return `import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { PieChart, type ChartMeasure } from '@ng-echarts/chart-library/pie';
+import { PieChart, type ChartMeasure } from '@mantha911/ng-echarts/pie';
 interface Browser { id: string; browser: string; visitors: number | null; }
 @Component({
   selector: 'app-browser-chart', imports: [PieChart],

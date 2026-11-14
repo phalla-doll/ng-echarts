@@ -2,7 +2,7 @@ import {
   ɵnormalizeCartesianData,
   ɵdefaultCartesianTheme,
   type ChartSeries,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 import { buildAreaOptions } from './area-options';
 const rows = [
   { id: 'a', category: 'Same', value: 10, other: 4 },

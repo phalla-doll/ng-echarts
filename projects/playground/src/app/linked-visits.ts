@@ -18,8 +18,8 @@ import {
   type ChartTheme,
   type PointSelection,
   type PointPreview,
-} from '@ng-echarts/chart-library/bar';
-import { PieChart, type ChartMeasure } from '@ng-echarts/chart-library/pie';
+} from '@mantha911/ng-echarts/bar';
+import { PieChart, type ChartMeasure } from '@mantha911/ng-echarts/pie';
 import { SiteIcon } from './site-icon';
 import { changePeriodBound, periodRows, reconcilePeriod, type VisitPeriod } from './linked-period';
 

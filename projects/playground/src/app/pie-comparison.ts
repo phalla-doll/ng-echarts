@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { ComparisonAppearance } from './comparison-appearance';
-import { PieChart } from '@ng-echarts/chart-library/pie';
+import { PieChart } from '@mantha911/ng-echarts/pie';
 import { pieBlocks } from './pie-blocks';
 import { visitorMeasure, browserPalette } from './fixtures/evilcharts-pie-fixture';
 @Component({

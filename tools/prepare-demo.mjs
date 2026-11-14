@@ -79,7 +79,7 @@ export function rendererPreloads(outputs) {
     // Deferred component facades otherwise add a second dependency waterfall
     // after Angular starts. Warming the renderer alone does not fetch them.
     const component = Object.entries(outputs).find(([, output]) =>
-      output.entryPoint?.endsWith(`/ng-echarts-chart-library-${family}.mjs`),
+      output.entryPoint?.endsWith(`/mantha911-ng-echarts-${family}.mjs`),
     );
     if (component) visit(component[0]);
     assertFocusedGraph(outputs, files, familyCharts[family], `${family} renderer`);

@@ -47,7 +47,7 @@ test('warms only the requested renderer graph and preserves the Pages prefix', (
     'sankey',
   ]) {
     outputs[`${family}.js`] = {
-      entryPoint: `ng-echarts-chart-library-${family}-${family}-renderer-hash.mjs`,
+      entryPoint: `mantha911-ng-echarts-${family}-${family}-renderer-hash.mjs`,
       imports: [
         { path: 'shared.js', kind: 'import-statement' },
         { path: 'unused.js', kind: 'dynamic-import' },
@@ -88,7 +88,7 @@ test('rejects unrelated chart code entering a renderer preload graph', () => {
     'sankey',
   ]) {
     outputs[`${family}.js`] = {
-      entryPoint: `ng-echarts-chart-library-${family}-${family}-renderer-hash.mjs`,
+      entryPoint: `mantha911-ng-echarts-${family}-${family}-renderer-hash.mjs`,
       imports: [],
       inputs: {},
     };
@@ -115,11 +115,11 @@ test('warms the destination component graph while keeping deferred families inde
     'sankey',
   ]) {
     outputs[`${family}-renderer.js`] = {
-      entryPoint: `ng-echarts-chart-library-${family}-${family}-renderer-hash.mjs`,
+      entryPoint: `mantha911-ng-echarts-${family}-${family}-renderer-hash.mjs`,
       imports: [{ path: 'shared.js', kind: 'import-statement' }],
     };
     outputs[`${family}-component.js`] = {
-      entryPoint: `dist/chart-library/fesm2022/ng-echarts-chart-library-${family}.mjs`,
+      entryPoint: `dist/chart-library/fesm2022/mantha911-ng-echarts-${family}.mjs`,
       imports: [{ path: 'shared.js', kind: 'import-statement' }],
     };
   }

@@ -1,9 +1,9 @@
-import { SankeyChart } from '@ng-echarts/chart-library/sankey';
-import { CalendarHeatmap } from '@ng-echarts/chart-library/calendar';
-import { RadialProgress } from '@ng-echarts/chart-library/radial';
-import { RadarChart } from '@ng-echarts/chart-library/radar';
+import { SankeyChart } from '@mantha911/ng-echarts/sankey';
+import { CalendarHeatmap } from '@mantha911/ng-echarts/calendar';
+import { RadialProgress } from '@mantha911/ng-echarts/radial';
+import { RadarChart } from '@mantha911/ng-echarts/radar';
 import { Component } from '@angular/core';
-import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';
+import { BarChart, type ChartSeries } from '@mantha911/ng-echarts/bar';
 
 interface Row {
   id: string;
@@ -96,7 +96,7 @@ export class InvalidValueFormatterConsumer {
   readonly badNumberOptions = { style: 'invalid' } as const;
 }
 
-import { LineChart } from '@ng-echarts/chart-library/line';
+import { LineChart } from '@mantha911/ng-echarts/line';
 @Component({
   imports: [LineChart],
   template: `<nec-line-chart
@@ -113,7 +113,7 @@ export class InvalidLine {
   readonly series = [{ id: 'v', key: 'category', label: 'Invalid' }] as const;
 }
 
-import { AreaChart } from '@ng-echarts/chart-library/area';
+import { AreaChart } from '@mantha911/ng-echarts/area';
 @Component({
   imports: [AreaChart],
   template: `<nec-area-chart
@@ -130,7 +130,7 @@ export class InvalidArea {
   readonly series = [{ id: 'v', key: 'category', label: 'Invalid' }] as const;
 }
 
-import { PieChart } from '@ng-echarts/chart-library/pie';
+import { PieChart } from '@mantha911/ng-echarts/pie';
 @Component({
   selector: 'invalid-pie',
   imports: [PieChart],
@@ -147,7 +147,7 @@ export class InvalidPie {
   readonly data = [{ id: 'a', label: 'A', value: 1 }];
 }
 
-import { ComposedChart } from '@ng-echarts/chart-library/composed';
+import { ComposedChart } from '@mantha911/ng-echarts/composed';
 @Component({
   imports: [ComposedChart],
   template: `<nec-composed-chart

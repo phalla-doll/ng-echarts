@@ -1,6 +1,15 @@
 # Install the local package
 
-The package is private and experimental. Build a tarball from this checkout; there is no public npm installation. Use Node **24.22.2** from `.nvmrc` and npm **11.19.1**. The [compatibility table](COMPATIBILITY.md) separates tested versions from declared peer ranges.
+The experimental public identity is `@mantha911/ng-echarts`; prereleases use the `next` dist-tag. The exact-artifact procedure below uses a tarball from this checkout. Use Node **24.22.2** from `.nvmrc` and npm **11.19.1**. The [compatibility table](COMPATIBILITY.md) separates tested versions from declared peer ranges.
+
+
+Registry prerelease installation:
+
+```sh
+npm install @mantha911/ng-echarts@next echarts@6.1.0
+```
+
+The API remains experimental. Human screen-reader interpretation is unreviewed; the user requested skipping that session and proceeding with the prerelease.
 
 ## Build and pack
 
@@ -9,7 +18,7 @@ Run these commands in the repository root after selecting the toolchain:
 ```sh
 npm ci
 npm run pack:lib
-export CHART_LIBRARY_TARBALL="$PWD/dist/ng-echarts-chart-library-0.1.0-rc.17.tgz"
+export CHART_LIBRARY_TARBALL="$PWD/dist/mantha911-ng-echarts-0.1.0-rc.18.tgz"
 ```
 
 The `CHART_LIBRARY_TARBALL` variable is an absolute path for the commands below. If you open another terminal, set it to the actual tarball location. Keep the tarball available for subsequent installs, or copy it into the consuming project's `vendor/` directory before installing it. Commit the consumer's resulting lockfile and use `npm ci` for repeat installs. Rebuild/repack/reinstall when changing the library; a tarball installation does not watch the checkout.

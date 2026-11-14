@@ -1,4 +1,4 @@
-import type { ComposedSeries } from '@ng-echarts/chart-library/composed';
+import type { ComposedSeries } from '@mantha911/ng-echarts/composed';
 import { deviceRows, type DeviceRow } from './fixtures/evilcharts-bar-fixture';
 import type { BarBlock } from './bar-blocks';
 export interface ComposedBlock extends Omit<
@@ -30,7 +30,7 @@ export const composedBlocks: readonly ComposedBlock[] = [
 export function composedExampleSource(block: ComposedBlock, dark: boolean): string {
   return [
     "import { ChangeDetectionStrategy, Component } from '@angular/core';",
-    "import { ComposedChart, type ComposedSeries } from '@ng-echarts/chart-library/composed';",
+    "import { ComposedChart, type ComposedSeries } from '@mantha911/ng-echarts/composed';",
     '',
     'interface Visit { id: string; month: string; desktop: number | null; mobile: number | null; trend?: number | null; }',
     '@Component({',

@@ -1,4 +1,4 @@
-import { ɵdefaultCartesianTheme } from '@ng-echarts/chart-library/core';
+import { ɵdefaultCartesianTheme } from '@mantha911/ng-echarts/core';
 import { createCalendarRenderer } from './calendar-renderer';
 import { normalizeCalendarData } from './calendar-model';
 import type { CalendarView } from './calendar-options';

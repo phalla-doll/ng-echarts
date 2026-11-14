@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { BarChart } from '@ng-echarts/chart-library/bar';
+import { BarChart } from '@mantha911/ng-echarts/bar';
 import { DeferredChart } from './deferred-chart';
 import { deviceRows, deviceSeries } from './fixtures/evilcharts-bar-fixture';
 import { SiteAppearance } from './site-appearance';

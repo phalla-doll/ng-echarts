@@ -17,7 +17,7 @@ const bundles = {};
 for (const renderer of ['canvas', 'svg']) {
   await build({
     entryPoints: [join(root, `tools/bench/${renderer}.ts`)],
-    alias: { '@ng-echarts/chart-library/core': join(root, 'tools/bench/core-policy.ts') },
+    alias: { '@mantha911/ng-echarts/core': join(root, 'tools/bench/core-policy.ts') },
     outfile: join(directory, `${renderer}.js`),
     bundle: true,
     minify: true,

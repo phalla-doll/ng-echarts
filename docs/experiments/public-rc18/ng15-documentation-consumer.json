@@ -1,0 +1,82 @@
+{
+  "recordedAt": "2026-11-14T13:59:13.028Z",
+  "artifact": {
+    "name": "@mantha911/ng-echarts",
+    "version": "0.1.0-rc.18",
+    "sha256": "7a341195044fd031183da0c4d41f16f087dc1b2189b03819644d67b7287fe47c",
+    "exactCandidate": true
+  },
+  "node": "v24.22.2",
+  "npm": "11.19.1",
+  "method": "Fresh pinned CLI scaffold outside workspace; execute INSTALLATION.md shell blocks; install local tarball; copy exact INTEGRATION_GUIDE.md App; strict ngc and production build; generated server HTML then three-engine hydration/actions/updates/themes/resize.",
+  "sources": {
+    "docs/INSTALLATION.md": "0bbbb2f2267709fef5f64574dbb6342762c877aac76b2ef82fc78a4eb24abf73",
+    "docs/INTEGRATION_GUIDE.md": "63f46406053de8b4c22aed47e268ad1c6f1ed979cc1932a41a2ce559b78fa5af"
+  },
+  "installedOutsideWorkspace": true,
+  "lockfileReinstall": true,
+  "workspaceAliases": false,
+  "skipLibCheck": false,
+  "strictTemplates": true,
+  "versions": {
+    "@angular/build": "22.2.6",
+    "@angular/cli": "22.2.6",
+    "@angular/common": "22.2.6",
+    "@angular/compiler-cli": "22.2.6",
+    "@angular/compiler": "22.2.6",
+    "@angular/core": "22.2.6",
+    "@angular/forms": "22.2.6",
+    "@angular/platform-browser": "22.2.6",
+    "@angular/platform-server": "22.2.6",
+    "@angular/router": "22.2.6",
+    "@angular/ssr": "22.2.6",
+    "@mantha911/ng-echarts": "0.1.0-rc.18",
+    "@types/express": "5.0.6",
+    "@types/node": "22.20.5",
+    "echarts": "6.1.0",
+    "express": "5.3.0",
+    "prettier": "3.10.1",
+    "rxjs": "7.8.2",
+    "tslib": "2.8.1",
+    "typescript": "6.0.3"
+  },
+  "generatedPackage": "chart-consumer",
+  "ssrHeadings": 4,
+  "serverCanvasCount": 0,
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "158.0.8127.18",
+      "charts": 4,
+      "keyboardEvents": true,
+      "immutableUpdates": true,
+      "themes": true,
+      "responsive": true,
+      "stableInstances": true,
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "charts": 4,
+      "keyboardEvents": true,
+      "immutableUpdates": true,
+      "themes": true,
+      "responsive": true,
+      "stableInstances": true,
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "charts": 4,
+      "keyboardEvents": true,
+      "immutableUpdates": true,
+      "themes": true,
+      "responsive": true,
+      "stableInstances": true,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

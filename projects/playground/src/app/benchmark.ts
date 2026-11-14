@@ -10,11 +10,11 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ComposedChart, type ComposedSeries } from '@ng-echarts/chart-library/composed';
-import { PieChart } from '@ng-echarts/chart-library/pie';
-import { AreaChart } from '@ng-echarts/chart-library/area';
-import { LineChart } from '@ng-echarts/chart-library/line';
-import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';
+import { ComposedChart, type ComposedSeries } from '@mantha911/ng-echarts/composed';
+import { PieChart } from '@mantha911/ng-echarts/pie';
+import { AreaChart } from '@mantha911/ng-echarts/area';
+import { LineChart } from '@mantha911/ng-echarts/line';
+import { BarChart, type ChartSeries } from '@mantha911/ng-echarts/bar';
 import { registerPostInit, type EChartsType } from 'echarts/core';
 
 interface Row {

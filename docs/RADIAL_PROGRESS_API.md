@@ -1,12 +1,12 @@
 # Radial progress API
 
-Experimental NG18 increment, private `0.1.0-rc.6`. Import `RadialProgress` from `@ng-echarts/chart-library/radial`. The focused entry leaves the compatibility root and its existing engines unchanged. Original code is MIT licensed; no public npm release is available.
+Experimental NG18 increment, private `0.1.0-rc.6`. Import `RadialProgress` from `@mantha911/ng-echarts/radial`. The focused entry leaves the compatibility root and its existing engines unchanged. Original code is MIT licensed; no public npm release is available.
 
 ## Example
 
 ```ts
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { RadialProgress } from '@ng-echarts/chart-library/radial';
+import { RadialProgress } from '@mantha911/ng-echarts/radial';
 
 @Component({
   selector: 'app-goal-progress',

@@ -3,12 +3,12 @@ import {
   ComposedChart,
   type ComposedSeries,
   type PointSelection,
-} from '@ng-echarts/chart-library/composed';
+} from '@mantha911/ng-echarts/composed';
 import {
   ComposedChart as RootComposedChart,
   type ComposedBarSeries,
   type ComposedLineSeries,
-} from '@ng-echarts/chart-library';
+} from '@mantha911/ng-echarts';
 interface Row {
   id: string;
   category: string;

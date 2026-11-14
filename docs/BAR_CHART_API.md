@@ -2,13 +2,13 @@
 
 Use [installation](INSTALLATION.md), the [complete application example](INTEGRATION_GUIDE.md), and the [tested compatibility/limits table](COMPATIBILITY.md) with this API.
 
-Implemented Angular bar API, reviewed 13 November 2026. Package/API names remain experimental. Import from `@ng-echarts/chart-library/bar`; build or install the local tarball using the [installation instructions](INSTALLATION.md). No public npm package is available.
+Implemented Angular bar API, reviewed 13 November 2026. Package/API names remain experimental. Import from `@mantha911/ng-echarts/bar`; build or install the local tarball using the [installation instructions](INSTALLATION.md). No public npm package is available.
 
 ## Minimal integration
 
 ```ts
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';
+import { BarChart, type ChartSeries } from '@mantha911/ng-echarts/bar';
 
 interface Visit {
   id: string;

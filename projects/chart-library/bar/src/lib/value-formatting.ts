@@ -1,1 +1,1 @@
-export { ɵcreateValueFormatting as createValueFormatting } from '@ng-echarts/chart-library/core';
+export { ɵcreateValueFormatting as createValueFormatting } from '@mantha911/ng-echarts/core';

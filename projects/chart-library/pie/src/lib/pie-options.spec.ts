@@ -1,4 +1,4 @@
-import { ɵdefaultCartesianTheme } from '@ng-echarts/chart-library/core';
+import { ɵdefaultCartesianTheme } from '@mantha911/ng-echarts/core';
 import { normalizePieData } from './pie-model';
 import { buildPieOptions } from './pie-options';
 const data = [

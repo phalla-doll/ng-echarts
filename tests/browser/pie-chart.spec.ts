@@ -30,7 +30,7 @@ test('renders copyable pie blocks with the pinned pie data and clean responsive 
   const source = await page.evaluate(
     () => (window as unknown as { pieClipboard: string }).pieClipboard,
   );
-  expect(source).toContain('@ng-echarts/chart-library/pie');
+  expect(source).toContain('@mantha911/ng-echarts/pie');
   expect(source).toContain('"visitors": 275');
   expect(source).toContain('[innerRadius]="0"');
   await first.getByRole('button', { name: 'Preview', exact: true }).click();

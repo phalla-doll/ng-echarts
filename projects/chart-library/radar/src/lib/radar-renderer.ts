@@ -3,7 +3,7 @@ import 'echarts/lib/chart/radar';
 import { RadarComponent, TooltipComponent } from 'echarts/components';
 import { init, use } from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
-import type { ɵPlotRendererFactory } from '@ng-echarts/chart-library/core';
+import type { ɵPlotRendererFactory } from '@mantha911/ng-echarts/core';
 import { radarLayout, type RadarOption } from './radar-options';
 import { radarPoint } from './radar-point';
 use([RadarComponent, TooltipComponent, CanvasRenderer]);

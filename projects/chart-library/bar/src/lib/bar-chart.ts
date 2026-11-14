@@ -6,7 +6,7 @@ import {
   type BarLayout,
   type PointPreview,
   type ɵCartesianContext,
-} from '@ng-echarts/chart-library/core';
+} from '@mantha911/ng-echarts/core';
 import { BAR_RENDERER_LOADER } from './bar-browser';
 import { buildBarOptions } from './bar-options';
 import type { BarRenderOptions } from './bar-render-options';

@@ -14,7 +14,7 @@ export const capabilityRows: readonly Capability[] = [
   { id: 'value', dimension: 'Value', max: 100, current: 82, target: 90 },
 ];
 export const radarExampleSource = `import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RadarChart, type ChartSeries } from '@ng-echarts/chart-library/radar';
+import { RadarChart, type ChartSeries } from '@mantha911/ng-echarts/radar';
 
 interface Capability {
   id: string; dimension: string; max: number;

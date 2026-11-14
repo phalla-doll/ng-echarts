@@ -56,7 +56,7 @@ for (const scenario of scenarios) {
   const outdir = join(directory, scenario.name);
   const result = await build({
     stdin: {
-      contents: `export { ${scenario.symbol} } from '@ng-echarts/chart-library${scenario.entry}';`,
+      contents: `export { ${scenario.symbol} } from '@mantha911/ng-echarts${scenario.entry}';`,
       resolveDir: join(root, 'dist/chart-library'),
       sourcefile: `${scenario.name}-consumer.js`,
     },
@@ -144,7 +144,7 @@ for (const scenario of scenarios) {
     ].filter((name) => name !== scenario.name);
     assert(
       !inputs.some((name) =>
-        other.some((family) => name.includes(`ng-echarts-chart-library-${family}.mjs`)),
+        other.some((family) => name.includes(`mantha911-ng-echarts-${family}.mjs`)),
       ),
       `${scenario.name} includes another component entry`,
     );
@@ -200,7 +200,9 @@ for (const scenario of scenarios) {
     );
     assert(
       !reachableInputs.some((name) =>
-        /chart-library-(?:bar|line|area|pie|composed|radar|radial|calendar|sankey)/.test(name),
+        /mantha911-ng-echarts-(?:bar|line|area|pie|composed|radar|radial|calendar|sankey)/.test(
+          name,
+        ),
       ),
       `${scenario.name} must exclude bar implementation`,
     );
@@ -245,7 +247,7 @@ for (const scenario of scenarios) {
   assert(passed, `${scenario.name} exceeded its measured budget: ${JSON.stringify(total)}`);
   results.push({
     name: scenario.name,
-    import: `@ng-echarts/chart-library${scenario.entry}`,
+    import: `@mantha911/ng-echarts${scenario.entry}`,
     exports: scenario.symbol,
     files,
     total,

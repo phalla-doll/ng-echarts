@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { AreaChart, type ChartSeries, type PointSelection } from '@ng-echarts/chart-library/area';
+import { AreaChart, type ChartSeries, type PointSelection } from '@mantha911/ng-echarts/area';
 import { SiteAppearance } from './site-appearance';
 interface Row {
   readonly id: string;

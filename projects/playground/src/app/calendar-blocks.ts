@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { CalendarHeatmap, type CalendarPointSelection } from '@ng-echarts/chart-library/calendar';
+import { CalendarHeatmap, type CalendarPointSelection } from '@mantha911/ng-echarts/calendar';
 import { SiteAppearance } from './site-appearance';
 import { SiteIcon } from './site-icon';
 import { HighlightCode } from './highlight-code';

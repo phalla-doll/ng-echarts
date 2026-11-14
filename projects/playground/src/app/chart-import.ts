@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
   template: `<code class="syntax-code"
     ><span class="hljs-keyword">import</span>{{ ' { ' + name() + ' } '
     }}<span class="hljs-keyword">from</span>{{ ' '
-    }}<span class="hljs-string">{{ "'@ng-echarts/chart-library/" + family() + "'" }}</span
+    }}<span class="hljs-string">{{ "'@mantha911/ng-echarts/" + family() + "'" }}</span
     >;</code
   >`,
   changeDetection: ChangeDetectionStrategy.OnPush,

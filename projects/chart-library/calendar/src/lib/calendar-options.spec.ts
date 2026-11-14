@@ -1,5 +1,5 @@
 import { buildCalendarOptions, calendarColors, type CalendarView } from './calendar-options';
-import { ɵdefaultCartesianTheme } from '@ng-echarts/chart-library/core';
+import { ɵdefaultCartesianTheme } from '@mantha911/ng-echarts/core';
 import { normalizeCalendarData } from './calendar-model';
 function view(): CalendarView {
   const model = normalizeCalendarData(

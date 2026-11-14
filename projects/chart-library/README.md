@@ -1,13 +1,19 @@
 # Angular chart library
 
-Experimental standalone Angular 22 components using Apache ECharts. The local identity `@ng-echarts/chart-library` is private and has not been published. Local candidate: `0.1.0-rc.17`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. Public naming and human release acceptance remain open.
+Experimental standalone Angular 22 components using Apache ECharts. Public prerelease identity: `@mantha911/ng-echarts`. Candidate: `0.1.0-rc.18`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. The API is experimental; human screen-reader interpretation remains unreviewed at the user’s request.
 
 ## Installation
 
 In the source checkout, use Node 24.22.2 and npm 11.19.1, then run `npm ci` and `npm run pack:lib`. Install the resulting file into a separate Angular application:
 
 ```sh
-npm install /absolute/path/to/ng-echarts-chart-library-0.1.0-rc.17.tgz echarts@6.1.0
+npm install @mantha911/ng-echarts@next echarts@6.1.0
+```
+
+For a retained exact local candidate:
+
+```sh
+npm install /absolute/path/to/mantha911-ng-echarts-0.1.0-rc.18.tgz echarts@6.1.0
 ```
 
 Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes.
@@ -20,7 +26,7 @@ This complete `App` can replace `src/app/app.ts` in the CLI's standalone applica
 
 ```ts
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BarChart, type ChartSeries } from '@ng-echarts/chart-library/bar';
+import { BarChart, type ChartSeries } from '@mantha911/ng-echarts/bar';
 
 interface Visit {
   readonly id: string;
@@ -56,16 +62,16 @@ The installed-declaration check compiles this exact packaged example, each API g
 
 | Component | Focused import | Behavior |
 | --- | --- | --- |
-| `BarChart<T>` | `@ng-echarts/chart-library/bar` | Grouped/stacked, vertical/horizontal, solid/gradient |
-| `LineChart<T>` | `@ng-echarts/chart-library/line` | Straight/smooth, optional points, missing-value gaps |
-| `AreaChart<T>` | `@ng-echarts/chart-library/area` | Independent gradient/solid fills, same-sign stacks |
-| `PieChart<T>` | `@ng-echarts/chart-library/pie` | One measure across categories; innerRadius 0 for pie, 0.6 for donut; optional outside labels |
-| `RadialProgress` | `@ng-echarts/chart-library/radial` | Scalar completion with a positive maximum, native progress semantics and a decorative ring |
-| `RadarChart<T>` | `@ng-echarts/chart-library/radar` | 3–12 dimensions, 1–4 comparison series, explicit zero-to-maximum scales and native table controls |
-| `ComposedChart<T>` | `@ng-echarts/chart-library/composed` | Vertical unstacked bars and lines on one shared scale; typed per-series kind |
-| `CalendarHeatmap<T>` | `@ng-echarts/chart-library/calendar` | Single explicit year and maximum, strict date-only observations, native monthly tables and responsive year/quarter layout |
-| `SankeyChart<N, L>` | `@ng-echarts/chart-library/sankey` | Horizontal directed acyclic flows, up to 24 nodes/60 links, native node totals and link actions |
-| `ChartFrame` and shared types | `@ng-echarts/chart-library/core` | Presentation shell with required title, optional description and projected content; no engine runtime |
+| `BarChart<T>` | `@mantha911/ng-echarts/bar` | Grouped/stacked, vertical/horizontal, solid/gradient |
+| `LineChart<T>` | `@mantha911/ng-echarts/line` | Straight/smooth, optional points, missing-value gaps |
+| `AreaChart<T>` | `@mantha911/ng-echarts/area` | Independent gradient/solid fills, same-sign stacks |
+| `PieChart<T>` | `@mantha911/ng-echarts/pie` | One measure across categories; innerRadius 0 for pie, 0.6 for donut; optional outside labels |
+| `RadialProgress` | `@mantha911/ng-echarts/radial` | Scalar completion with a positive maximum, native progress semantics and a decorative ring |
+| `RadarChart<T>` | `@mantha911/ng-echarts/radar` | 3–12 dimensions, 1–4 comparison series, explicit zero-to-maximum scales and native table controls |
+| `ComposedChart<T>` | `@mantha911/ng-echarts/composed` | Vertical unstacked bars and lines on one shared scale; typed per-series kind |
+| `CalendarHeatmap<T>` | `@mantha911/ng-echarts/calendar` | Single explicit year and maximum, strict date-only observations, native monthly tables and responsive year/quarter layout |
+| `SankeyChart<N, L>` | `@mantha911/ng-echarts/sankey` | Horizontal directed acyclic flows, up to 24 nodes/60 links, native node totals and link actions |
+| `ChartFrame` and shared types | `@mantha911/ng-echarts/core` | Presentation shell with required title, optional description and projected content; no engine runtime |
 
 Cartesian, radar and pie charts require `title`, immutable `data`, `rowIdKey`, `categoryKey`, and either Cartesian `series: readonly ChartSeries<T>[]` (composed uses `ComposedSeries<T>[]`) or one pie `measure: ChartMeasure<T>`. Measures have `id`, numeric `key` and `label`; Cartesian series also accept `color`. IDs must be unique nonempty strings; labels may repeat. Numeric keys exclude text, `any`, `unknown` and exclusively nullish fields. Radar additionally requires `maxKey` for each dimension. Calendar uses `dateKey`, `valueKey`, explicit `year` and `max`; Sankey uses separate node/link arrays; radial progress uses scalar `value` and `max` instead of this row/series contract.
 
@@ -113,7 +119,7 @@ The checkout contains complete [installation](https://github.com/phalla-doll/ng-
 
 ## License
 
-Original library code is [MIT licensed](LICENSE). Adapted EvilCharts material and external dependencies retain their own notices; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). This private local candidate does not complete the deferred human screen-reader review or public release gates.
+Original library code is [MIT licensed](LICENSE). Adapted EvilCharts material and external dependencies retain their own notices; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). This experimental prerelease does not complete the deferred human screen-reader review. Human F09/R06/G2/G3/G4 remain pending; the user explicitly requested continuing the prerelease while skipping that session.
 
 `BarChart.selectedRowIds` (rc.3+) accepts `readonly string[] | null`. A non-null array overrides `selectedRowId`; `[]` clears feedback. Known IDs are deduplicated, and unknown/empty IDs are ignored. Multiple categories retain their palette and bands, with “Selected” labels on their native table rows; `aria-current` is used only for one effective row. The application defines range membership and reconciliation. The linked guide demonstrates inclusive From/To controls and optional graphical selection.
 
@@ -133,7 +139,7 @@ A native HTML progress element exposes the raw value/maximum before hydration. T
 
 Experimental calendar heatmaps use the focused `/calendar` entry: `CalendarHeatmap<T>` requires data, dateKey, valueKey, year and max. Strict date-only values distinguish missing days from zero; native monthly tables and raw point events complement the lazy calendar canvas. It is not exported by the compatibility root. If the browser timezone skips a civil date in the selected year, the plot is omitted and the exact native tables remain available. See the repository's `docs/CALENDAR_HEATMAP_API.md` for the complete contract.
 
-Experimental Sankey flows: `SankeyChart`, `SankeyNode`, `SankeyLink` and `SankeySelection` are exported from `@ng-echarts/chart-library/sankey` only. Provide unique node/link IDs and nonnegative weights in a directed acyclic graph (up to 24 nodes and 60 links). Native node/link tables retain zero values before hydration; canvas renders positive flows. See the repository `docs/SANKEY_CHART_API.md` for the full contract and example. Human interpretation and release gates remain pending.
+Experimental Sankey flows: `SankeyChart`, `SankeyNode`, `SankeyLink` and `SankeySelection` are exported from `@mantha911/ng-echarts/sankey` only. Provide unique node/link IDs and nonnegative weights in a directed acyclic graph (up to 24 nodes and 60 links). Native node/link tables retain zero values before hydration; canvas renders positive flows. See the repository `docs/SANKEY_CHART_API.md` for the full contract and example. Human interpretation and release gates remain pending.
 
 ## Presentation refinements available since rc.11
 
