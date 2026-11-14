@@ -59,7 +59,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'first-chart',
         title: 'Your first chart',
         paragraphs: [
-          'After installing the local package, replace src/app/app.ts in a CLI standalone application with this entire App example. Keep the generated bootstrap and app configuration. Supply stable row and series identifiers, then replace input references when data changes.',
+          'After installing the package, replace src/app/app.ts in a CLI standalone application with this entire App example. Keep the generated bootstrap and app configuration. Supply stable row and series identifiers, then replace input references when data changes.',
         ],
         source: quickStartExample,
         language: 'TypeScript',

@@ -86,6 +86,10 @@ test('fits the gallery in both themes and supports mobile navigation and denied 
     }),
   );
   await page.goto('/');
+  await expect(page.locator('.gallery-footer')).not.toContainText('not available yet');
+  await expect(
+    page.locator('.gallery-footer').getByRole('link', { name: 'npm prerelease', exact: true }),
+  ).toHaveAttribute('href', '/installation');
   await renderGallery(page);
   await expect(page.locator('app-bar-block canvas')).toHaveCount(4);
   for (const light of [false, true]) {

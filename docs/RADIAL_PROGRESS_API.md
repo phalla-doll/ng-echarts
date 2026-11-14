@@ -1,6 +1,6 @@
 # Radial progress API
 
-Experimental NG18 increment, private `0.1.0-rc.6`. Import `RadialProgress` from `@mantha911/ng-echarts/radial`. The focused entry leaves the compatibility root and its existing engines unchanged. Original code is MIT licensed; no public npm release is available.
+Experimental NG18 component, introduced in private `0.1.0-rc.6` and now included in public `0.1.0-rc.18`. Import `RadialProgress` from `@mantha911/ng-echarts/radial`. The focused entry leaves the compatibility root and its existing engines unchanged. Original code is MIT licensed; the experimental npm prerelease is available under `next`.
 
 ## Example
 
@@ -59,4 +59,4 @@ Theme CSS tokens follow the [shared theme contract](BAR_CHART_API.md#formatting-
 
 ## Verification and limits
 
-The [implementation report](experiments/NG18_RADIAL_PROGRESS.md) owns actual verification and the private candidate evidence. Human screen-reader interpretation and F09/R06/G2/G3/G4 remain pending. Scalar requirements are separate from chart-family point/table requirements; the four-family MVP scope remains unchanged. No public package publication or API stability promise is introduced.
+The [implementation report](experiments/NG18_RADIAL_PROGRESS.md) owns actual verification and the private candidate evidence. Human screen-reader interpretation and F09/R06/G2/G3/G4 remain pending. Scalar requirements are separate from chart-family point/table requirements; the four-family MVP scope remains unchanged. The current public prerelease does not introduce an API stability promise.

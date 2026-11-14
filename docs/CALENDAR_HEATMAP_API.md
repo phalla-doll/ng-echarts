@@ -1,6 +1,6 @@
 # Calendar heatmap API
 
-Experimental NG19 first increment, private `0.1.0-rc.8`. Import `CalendarHeatmap` from `@mantha911/ng-echarts/calendar`. The compatibility root keeps its existing exports and engines. Original code is MIT licensed; no public npm release is available.
+Experimental NG19 component, introduced in private `0.1.0-rc.8` and now included in public `0.1.0-rc.18`. Import `CalendarHeatmap` from `@mantha911/ng-echarts/calendar`. The compatibility root keeps its existing exports and engines. Original code is MIT licensed; the experimental npm prerelease is available under `next`.
 
 ## Example
 

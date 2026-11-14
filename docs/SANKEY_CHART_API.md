@@ -1,6 +1,6 @@
 # Experimental Sankey chart
 
-Import `SankeyChart`, `SankeyNode`, `SankeyLink` and `SankeySelection` from `@mantha911/ng-echarts/sankey`. This focused entry stays outside the compatibility root and the four-family MVP. The package is private; human F09/R06/G2/G3/G4 remain pending.
+Import `SankeyChart`, `SankeyNode`, `SankeyLink` and `SankeySelection` from `@mantha911/ng-echarts/sankey`. This focused entry stays outside the compatibility root and the four-family MVP. The package is an experimental public prerelease; human F09/R06/G2/G3/G4 remain pending.
 
 ## Standalone example
 

@@ -49,7 +49,7 @@ import { linkedExampleSource } from './linked-example-source';
       </section>
       <footer class="gallery-footer">
         <p>
-          Examples use the local workspace package. Public npm installation is not available yet.
+          Use the experimental <a routerLink="/installation">npm prerelease</a> in your Angular app.
         </p>
         <a routerLink="/linked-validation">Open linked validation<app-site-icon name="arrow" /></a>
       </footer>

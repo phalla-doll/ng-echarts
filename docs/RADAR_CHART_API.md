@@ -1,6 +1,6 @@
 # Radar chart API
 
-Experimental NG18 first increment, private `0.1.0-rc.5`. Import `RadarChart` from `@mantha911/ng-echarts/radar`; it is deliberately absent from the compatibility root so existing imports retain their engine/bundle boundaries. Radial progress is separate subsequent work.
+Experimental NG18 component, introduced in private `0.1.0-rc.5` and now included in public `0.1.0-rc.18`. Import `RadarChart` from `@mantha911/ng-echarts/radar`; it is deliberately absent from the compatibility root so existing imports retain their engine/bundle boundaries. Radial progress is separate subsequent work.
 
 ## Example
 

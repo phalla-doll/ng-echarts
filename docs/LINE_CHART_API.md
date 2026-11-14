@@ -2,7 +2,7 @@
 
 Use [installation](INSTALLATION.md), the [complete application example](INTEGRATION_GUIDE.md), and the [tested compatibility/limits table](COMPATIBILITY.md) with this API.
 
-Experimental native Angular 22 line charts. Use the local workspace or packed artifact; the package has not been published to npm.
+Experimental native Angular 22 line charts. Install the experimental public prerelease with `npm install @mantha911/ng-echarts@next echarts@6.1.0`, or use a retained local artifact.
 
 ```ts
 import { ChangeDetectionStrategy, Component } from '@angular/core';

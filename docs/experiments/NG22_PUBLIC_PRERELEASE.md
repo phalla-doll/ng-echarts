@@ -29,3 +29,10 @@ The [publication guide](../PUBLICATION.md) records the manual first-publication 
 Fresh consumers installed by the exact registry identity after checking the fetched archive against that digest: strict positive/negative compilation passed, [documented installation and hydration](public-rc18/registry-ng15-documentation-consumer.json) passed all three engines, and [client/SSR runtime modes](public-rc18/registry-packed-runtime.json) passed all six modes. The source [CI run](https://github.com/phalla-doll/ng-echarts/actions/runs/43603889528) passed every workspace, browser, Pages/performance and aggregate job. Local checks recorded 267 unit tests and 416 browser passes with four expected skips; the updated installation/code/typography pages also passed 21 focused cases after the public-install text was finalized.
 
 npm retained an initial `latest` alias in addition to the requested `next` tag and rejected its deletion with HTTP 400. [The publication guide](../PUBLICATION.md#first-publication-result) documents this registry limitation; the prerelease version and experimental status remain explicit. Earlier private archives and human gates retain their prior status.
+
+
+## Final availability-copy review
+
+The shared gallery and linked-page footers now link to the npm prerelease installation instructions. Line, pie, radar, radial, calendar and Sankey introductions and the architecture/workflow summaries identify the public package while retaining their historical private-origin versions. Current guides and app text no longer claim that npm installation is unavailable.
+
+Strict compilation and 42 gallery/linked/documentation browser cases passed in Chromium, Firefox and WebKit. The [capture manifest](public-rc18/footer-captures.json) records the live a3f2a86 footer and local follow-up at the same viewport; [before](public-rc18/footer-before.png) and [after](public-rc18/footer-after.png) were visually inspected. This changes demo/docs copy only; the published tarball remains byte-identical to the verified archive.

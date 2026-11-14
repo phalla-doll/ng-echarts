@@ -154,6 +154,10 @@ test('keeps linked layouts usable in both themes and releases both charts on nav
   const errors = collectBrowserErrors(page);
   await installResourceAudit(page);
   await page.goto('/linked');
+  await expect(page.locator('.gallery-footer')).not.toContainText('not available yet');
+  await expect(
+    page.locator('.gallery-footer').getByRole('link', { name: 'npm prerelease', exact: true }),
+  ).toHaveAttribute('href', '/installation');
   await expect(page.locator('canvas')).toHaveCount(2);
   const initialInstances = await page
     .locator('app-linked-visits .plot')

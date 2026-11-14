@@ -4,7 +4,7 @@ Updated 14 November 2026. Begin with the Angular workspace and one bar chart. Ex
 
 ## Initial scaffold
 
-The workspace contains an Angular library, a zoneless SSR playground with client hydration configured, Vitest tests, Prettier, and production build scripts. `ChartFrame` provides a small presentation shell for validating the package boundary. Its local package name, `@mantha911/ng-echarts`, and API are experimental; both workspace and library packages are private.
+The workspace contains an Angular library, a zoneless SSR playground with client hydration configured, Vitest tests, Prettier, and production build scripts. `ChartFrame` provides a small presentation shell for validating the package boundary. Its public package name is `@mantha911/ng-echarts` and its API remains experimental. The workspace is private; the library publishes prereleases to npm under `next`.
 
 The selected toolchain is Node 24.22.2, npm 11.19.1, Angular/CLI 22.2.6, TypeScript 6.0.3, RxJS 7.8.2, ECharts 6.1.0, and ng-packagr 22.2.0. The lockfiles pin the full dependency graphs. These versions fit Angular's [supported ranges](https://angular.dev/reference/versions). Reproduction commands and results belong in [R01 evidence](experiments/R01_TOOLCHAIN.md).
 

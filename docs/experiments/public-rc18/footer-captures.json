@@ -1,0 +1,25 @@
+{
+  "capturedAt": "2026-11-14T14:58:11.365Z",
+  "beforeSource": "a3f2a8689116241165065b68db8613583d612f50",
+  "afterSource": "working tree based on a3f2a86 with publication footer correction",
+  "viewport": {
+    "width": 1280,
+    "height": 900
+  },
+  "records": [
+    {
+      "name": "before",
+      "url": "https://phalla-doll.github.io/ng-echarts/composed/",
+      "path": "docs/experiments/public-rc18/footer-before.png",
+      "sha256": "3e64cf42e9f30cb89758be3ebe26826d5cfe19eeb219387b805b6e270bc1bac1",
+      "text": "Examples use the local workspace package. Public npm installation is not available yet.\n\nOpen Composed validation"
+    },
+    {
+      "name": "after",
+      "url": "http://127.0.0.1:4205/composed",
+      "path": "docs/experiments/public-rc18/footer-after.png",
+      "sha256": "4e8247a85a060f1ca1ad5a1d027beec2cd867a761a4f50e223de400f5555816b",
+      "text": "Use the experimental npm prerelease in your Angular app.\n\nOpen Composed validation"
+    }
+  ]
+}
