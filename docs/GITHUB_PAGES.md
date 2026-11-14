@@ -2,6 +2,14 @@
 
 The demo is published from the root of the dedicated `gh-pages` branch at **https://phalla-doll.github.io/ng-echarts/**. Source and deployment are separate commits. Publication requires a clean, pushed `main` source, an unchanged sealed artifact and successful local checks in all three browsers.
 
+## rc.11 Sankey, presentation and WebKit deployment
+
+Verified 14 November 2026: [live demo](https://phalla-doll.github.io/ng-echarts/), [Sankey](https://phalla-doll.github.io/ng-echarts/sankey/) and [Chart possibilities](https://phalla-doll.github.io/ng-echarts/chart-possibilities/). The combined implementation was committed as `cfe269cc6c0ed93cff48ad5a5a98e823a46dbdff`; the demo-only WebKit font fix is source commit `23182ab88bb1ee8f2cf8a5b7ccf51fcc5f6e2b3e`. Its static commit is `78cee7569919dfad20138e00f4f61b25078763aa`, and the [Pages workflow](https://github.com/phalla-doll/ng-echarts/actions/runs/43566878538) succeeded.
+
+The clean build prerenders **34 routes** and seals **138 files**, artifact SHA-256 `4337e38f42eec51e0c54149a671076201fe7a96457b61ca20f61e5496cffaf00`. Public verification matched every inventoried file's size/hash and completed the route/reload/font/theme/focus/mobile flows in Chromium, Firefox and WebKit. All **16 local route payload budgets** and **six controlled mobile timing medians** passed. The [deployment checkpoint](experiments/data/rc11-pages-deployment.json) preserves the marker/receipt identities and measurements; later documentation-only commits do not restamp this deployed source.
+
+The [WebKit follow-up](experiments/DEMO_PERFORMANCE_FIXES.md#webkit-embedded-font-readiness-follow-up) waits for the actual Inter font instead of an indefinitely pending embedded `document.fonts.ready`. Thirty targeted concept/performance scenarios passed across the three engines, including a simulated stalled whole-set font promise. Local/static and live verification cover the resulting gallery; this does not publish the private library package or close human release gates.
+
 ## Build and verify
 
 Use Node from `.nvmrc` and npm 11.19.1 after `npm ci`:
@@ -56,6 +64,10 @@ PAGES_EXPECTED_COMMIT=<full-source-commit> node tools/check-pages.mjs https://ph
 Inspect [build provenance](https://phalla-doll.github.io/ng-echarts/preview-build.json) and [verification receipt](https://phalla-doll.github.io/ng-echarts/preview-verification.json) for the current deployment. A later documentation-only commit does not rewrite an already published identity. CI seals/checks its clean checkout before the full suite refreshes tracked evidence files; pushes to `main` still do not automatically publish.
 
 The [hardening report](experiments/PREVIEW_DEPLOYMENT_HARDENING.md) records the regression coverage and final checkpoint. This publishes the experimental demo, not the library package; human release gates remain pending.
+
+## Historical deployment records
+
+The entries below retain the versions, route counts, verification scopes and working-tree states recorded at their original checkpoints. Use the verified deployment above or the public marker for the current preview identity.
 
 ## Initial deployment
 
@@ -149,6 +161,6 @@ The [linked demo](https://phalla-doll.github.io/ng-echarts/linked/) now supports
 
 The [chart possibilities gallery](https://phalla-doll.github.io/ng-echarts/chart-possibilities/) now uses tighter treemap dividers, muted family colors, a compact family key and complete labels at narrow widths; static starting badges are removed. Clean source commit: `30966733d11d4c289f5f6286feb28b6f87ae1f5d`; static commit: `937f504b69cbd0c95b649f33096609a8960a5dc5`. The [deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43424323023) succeeds and Pages reports `built`. The published document matches the source byte for byte. Full local/live Pages checks pass in Chromium, Firefox and WebKit, together with 24 focused live cases across all three browsers, both themes and four responsive widths. The [refinement record](experiments/CHART_POSSIBILITIES_REFINEMENT.md#treemap-refinement-deployment) preserves build identity, local verification and live evidence.
 
-Sankey source support adds the `/sankey/` route, native flow tables, installed-consumer coverage and route performance guards. Local source changes do not update the published preview; use the guarded clean/pushed deployment workflow for publication.
+The deployed `/sankey/` route includes native flow tables, installed-consumer coverage and route performance guards. Source changes alone do not update the published preview; use the guarded clean/pushed deployment workflow for publication.
 
-Combined rc.11 source includes the completed [presentation refinement](experiments/PREMIUM_CHART_REFINEMENT.md) and focused Sankey entry. Final local verification uses the sealed 34-route build, its three-browser receipt and unchanged route payload/readiness guards. These local changes do not update the published demo.
+Combined rc.11 source includes the completed [presentation refinement](experiments/PREMIUM_CHART_REFINEMENT.md) and focused Sankey entry. The verified public checkpoint above includes the presentation changes, the 34-route build and its three-browser receipt. Its route payload/readiness guards remain unchanged.

@@ -42,7 +42,7 @@ The focused entry measures **166,977 gzip / 142,727 Brotli bytes**, under unchan
 
 The guarded local pipeline is `npm run build:pages`, `npm run check:pages` and `npm run check:demo-performance`. It adds `/sankey/` to the prerendered routes, checks initial node/link and zero-value markup, direct reloads and native selection in all three engines, and adds the route to the existing 445,000-byte / 5 s controlled mobile guards. Existing route, focused-entry and core limits are unchanged; the compatibility-root aggregate allowance is recorded below.
 
-After tracked source/evidence updates, this pipeline creates its sealed build inventory and three-browser receipt in ignored `dist/pages/browser/preview-build.json` and `dist/pages/pages-verification.json`, and detailed route samples in ignored `dist/demo-performance.json`. These final local files record their actual results and source identity. No source or output is changed between those checks. Publication still requires a clean, pushed commit and the guarded deployment command; this increment performs local verification only.
+After tracked source/evidence updates, this pipeline creates its sealed build inventory and three-browser receipt in ignored `dist/pages/browser/preview-build.json` and `dist/pages/pages-verification.json`, and detailed route samples in ignored `dist/demo-performance.json`. These final local files record their actual results and source identity. No source or output is changed between those checks. Publication still requires a clean, pushed commit and the guarded deployment command; that initial phase performed local verification only; the subsequent public deployment is recorded below.
 
 ## Lazy engine loading correction
 
@@ -68,8 +68,15 @@ After packaging, the source hashes from the completed visual review were checked
 
 The [Sankey capture manifest](captures/sankey/manifest.json) is refreshed against the combined source: eight ready theme/width images and eight narrow native-zero/zero/empty/error images, eleven matching source digests and no browser errors or page overflow. The refreshed dark desktop and light 320 px native-data images were inspected. The visual review's 138-state comparison remains preserved separately.
 
-Final static validation runs after these tracked evidence updates. Its actual sealed source/output identities, three-browser results and route performance samples remain in the local files named above. No deployment or registry publication is performed.
+Final static validation runs after these tracked evidence updates. Its actual sealed source/output identities, three-browser results and route performance samples remain in the local files named above. That local verification phase performed no deployment or registry publication; the later demo deployment is recorded below.
 
 ## Remaining limits
 
-At most 24 nodes and 60 directed pairs. Horizontal DAGs only; no circular/negative/null flows, parallel-edge aggregation, drag layout, link filtering, vertical variants or custom tooltip templates. Node order is supplied order within layout columns; replacement topology may reposition nodes. Human interpretation and G2/G3/G4 remain pending. The library is private. This local implementation does not deploy the demo or publish the package.
+At most 24 nodes and 60 directed pairs. Horizontal DAGs only; no circular/negative/null flows, parallel-edge aggregation, drag layout, link filtering, vertical variants or custom tooltip templates. Node order is supplied order within layout columns; replacement topology may reposition nodes. Human interpretation and G2/G3/G4 remain pending. The library is private. The subsequent demo deployment is recorded below; the library package remains private and unpublished.
+
+
+## Public demo and documentation follow-up
+
+The [14 November deployment checkpoint](../GITHUB_PAGES.md#rc11-sankey-presentation-and-webkit-deployment) records source `23182ab` and static commit `78cee756`: 34 routes, 138 sealed files, all-file public integrity, all three live browser engines, 16 local route budgets and six mobile medians. The demo-only font-readiness fix has 30 targeted scenarios and is separate from the 353-browser full regression. The [record](data/rc11-pages-deployment.json) preserves actual source/output identities; no older record is restamped.
+
+Private rc.12 corrects the packaged README and documentation status/indices without changing rc.11 implementation or public declarations. Its exact candidate result is recorded in the [release checklist](../RELEASE_CHECKLIST.md). All earlier candidate archives and human release gates retain their original status.

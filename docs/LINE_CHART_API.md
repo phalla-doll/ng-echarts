@@ -41,7 +41,7 @@ export class Readings {
 | `description` | `''` | Native concise summary |
 | `height` | `320` | Positive finite plot height in CSS pixels |
 | `smooth` | `false` | Smooth interpolation instead of straight segments |
-| `showPoints` | `true` | Persistent 6 px circular point markers |
+| `showPoints` | `true` | Persistent 6 px circle/diamond markers by stable series slot |
 | `theme`, `themeRevision` | `'light'`, `0` | Explicit palette and browser CSS/font refresh revision |
 | `locale`, `numberFormatOptions`, `valueFormatter` | `'en-US'`, `undefined`, `undefined` | Consistent numeric text across ticks, tooltips, table values, and action labels |
 | `categoryTickFormatter` | `undefined` | Shorten axis labels while preserving full labels elsewhere |
@@ -54,9 +54,9 @@ Null/undefined values remain gaps with `connectNulls: false` under both interpol
 
 ## Appearance and boundaries
 
-Lines use 2 px strokes with theme-colored, 2 px bordered circular markers. Category axes have no boundary gap. CSS tokens and host-font loading match bars. The gallery uses Inter for the interface/plot and Google Sans Code for highlighted examples, with native Heroicons controls. Gallery previews opt out of table controls and include the same option in their copied Angular source.
+Lines use 2 px strokes with theme-colored, 2 px bordered markers. Stable series slots alternate solid/circle and dashed/diamond cues. Category axes have no boundary gap. CSS tokens and host-font loading match bars. The gallery uses Inter for the interface/plot and Google Sans Code for highlighted examples, with native Heroicons controls. Gallery previews opt out of table controls and include the same option in their copied Angular source.
 
-Import `/line` for a line-only consumer. It lazily registers Line, Grid, Tooltip, and Canvas modules and excludes Bar/SVG implementations. `/bar` continues to exclude Line. The root entry reexports all four chart components for compatibility. Shared `ɵ`-prefixed exports exist only for package implementation; they are unsupported consumer APIs. Do not import renderer classes or package source internals.
+Import `/line` for a line-only consumer. It lazily registers Line, Grid, Tooltip, and Canvas modules and excludes Bar/SVG implementations. `/bar` continues to exclude Line. The compatibility root reexports bar, line, area, pie/donut and composed components; radar, radial progress, calendar and Sankey remain focused-only. Shared `ɵ`-prefixed exports exist only for package implementation; they are unsupported consumer APIs. Do not import renderer classes or package source internals.
 
 Line supports category/linear-value axes, multiple series, straight/smooth interpolation, optional markers, gaps, numeric formatting, and shared controls. Area fills, line stacks, step/bump/monotone-specific interpolation controls, brushes, animated/decorative strokes, custom tooltips, and raw ECharts options are outside this API.
 

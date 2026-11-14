@@ -43,6 +43,7 @@ export class DailyActivity {
 | `year: number` | Required | Gregorian integer year, 100–9999, padded to four digits in dates |
 | `max: number` | Required | Positive finite scale maximum; fixed across updates |
 | `description: string` | `''` | Units, source and context |
+| `valueLabel: string` | `'Value'` | Nonempty measure name in tooltips, for example `Contributions` |
 | `theme: ChartTheme` | `'light'` | Light or dark fallback colors |
 | `themeRevision: number` | `0` | Finite revision to refresh inherited theme tokens |
 | `locale: string` | `'en-US'` | Numeric formatting locale; month/day labels and surrounding copy are English |

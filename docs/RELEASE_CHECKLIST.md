@@ -1,6 +1,6 @@
 # Local release candidate checklist
 
-The local candidate is `@ng-echarts/chart-library@0.1.0-rc.11`. The user selected MIT for original library code on 13 November 2026. The package remains private; public naming and publication are NG22 work. This checklist separates verified artifact behavior from release decisions and the deferred human interpretation review.
+The local candidate is `@ng-echarts/chart-library@0.1.0-rc.12`. The user selected MIT for original library code on 13 November 2026. The package remains private; public naming and publication are NG22 work. This checklist separates verified artifact behavior from release decisions and the deferred human interpretation review.
 
 ## Prepare and verify one artifact
 
@@ -15,12 +15,12 @@ npm run release:local
 
 Outputs:
 
-- `dist/releases/ng-echarts-chart-library-0.1.0-rc.11.tgz` — local candidate.
-- `dist/releases/ng-echarts-chart-library-0.1.0-rc.11.tgz.sha256` — SHA-256 checksum.
+- `dist/releases/ng-echarts-chart-library-0.1.0-rc.12.tgz` — local candidate.
+- `dist/releases/ng-echarts-chart-library-0.1.0-rc.12.tgz.sha256` — SHA-256 checksum.
 - `dist/releases/release-manifest.json` — inventory, hashes, metadata, source snapshot and verification results.
-- [Current candidate evidence](experiments/data/local-release-0.1.0-rc.11.json) — tracked copy of the verified manifest after the check.
+- [Current candidate evidence](experiments/data/local-release-0.1.0-rc.12.json) — tracked copy of the verified manifest after the check.
 
-Earlier rc.0 artifact results remain preserved in the [NG16 record](experiments/data/ng16-local-release.json). The [rc.1 manifest](experiments/data/local-release-0.1.0-rc.1.json), [rc.2 manifest](experiments/data/local-release-0.1.0-rc.2.json) and [rc.3 manifest](experiments/data/local-release-0.1.0-rc.3.json) are also preserved. Each version writes its own evidence filename. The [rc.4 manifest](experiments/data/local-release-0.1.0-rc.4.json) and archive are preserved; the [rc.5 manifest](experiments/data/local-release-0.1.0-rc.5.json) remains preserved too; the [rc.6 manifest](experiments/data/local-release-0.1.0-rc.6.json) and archive remain unchanged and the [rc.7 manifest](experiments/data/local-release-0.1.0-rc.7.json) and archive remain preserved while rc.9 is verified.
+Earlier rc.0 artifact results remain preserved in the [NG16 record](experiments/data/ng16-local-release.json). The [rc.1 manifest](experiments/data/local-release-0.1.0-rc.1.json), [rc.2 manifest](experiments/data/local-release-0.1.0-rc.2.json) and [rc.3 manifest](experiments/data/local-release-0.1.0-rc.3.json) are also preserved. Each version writes its own evidence filename. The [rc.4 manifest](experiments/data/local-release-0.1.0-rc.4.json) and archive are preserved; the [rc.5 manifest](experiments/data/local-release-0.1.0-rc.5.json) remains preserved too; the [rc.6 manifest](experiments/data/local-release-0.1.0-rc.6.json) and archive remain unchanged and the [rc.7 manifest](experiments/data/local-release-0.1.0-rc.7.json) and archive remain preserved with subsequent rc.8–rc.12 records retained separately below.
 
 The source snapshot records the base commit and whether local changes were included. File hashes identify the exact artifact content even when a local candidate was prepared from a working tree. Build outputs remain ignored; retain the tarball/checksum together when sharing with another local consumer.
 
@@ -34,7 +34,7 @@ npm run release:check
 To run an individual checker against a retained candidate, set its absolute path and the digest from its checksum file:
 
 ```sh
-export CHART_LIBRARY_TARBALL="$PWD/dist/releases/ng-echarts-chart-library-0.1.0-rc.11.tgz"
+export CHART_LIBRARY_TARBALL="$PWD/dist/releases/ng-echarts-chart-library-0.1.0-rc.12.tgz"
 export CHART_LIBRARY_TARBALL_SHA256="$(cut -d ' ' -f1 "$CHART_LIBRARY_TARBALL.sha256")"
 npm run check:consumer
 ```
@@ -60,7 +60,7 @@ The recorded dependency versions describe verified inputs, not every version adm
 
 | Item | Status / evidence |
 | --- | --- |
-| Local candidate automated checks | Passed for `0.1.0-rc.11`; recorded in [current candidate evidence](experiments/data/local-release-0.1.0-rc.11.json) and the [Sankey report](experiments/NG19_SANKEY_CHART.md); preserved rc.0 results remain in [NG16](experiments/NG16_LOCAL_RELEASE.md) |
+| Local candidate automated checks | Passed for `0.1.0-rc.12`; recorded in [current candidate evidence](experiments/data/local-release-0.1.0-rc.12.json) and the [Sankey report](experiments/NG19_SANKEY_CHART.md); preserved rc.0 results remain in [NG16](experiments/NG16_LOCAL_RELEASE.md) |
 | Original library license | MIT selected by the user; full text ships in the candidate |
 | Human interpretation, F09/R06 | Deferred; follow the [manual review](experiments/R06_MANUAL_REVIEW.md) across every family |
 | NG14/G2/G3/G4 acceptance | Pending until the required human evidence exists; successful artifact checks do not close these gates |
@@ -79,3 +79,5 @@ The preserved [rc.8 evidence](experiments/data/local-release-0.1.0-rc.8.json) an
 The verified [rc.9 archive and evidence](experiments/data/local-release-0.1.0-rc.9.json) remain preserved. rc.10 changes only lazy engine loading to prevent unrelated chart code entering other galleries.
 
 The [rc.10 candidate](experiments/data/local-release-0.1.0-rc.10.json) remains byte-identical. rc.11 combines the verified per-chart loading with the completed [presentation refinement](experiments/PREMIUM_CHART_REFINEMENT.md), including optional donut totals and calendar/Sankey measure labels. Human F09/R06/G2/G3/G4 remain pending.
+
+The [rc.11 candidate](experiments/data/local-release-0.1.0-rc.11.json) remains unchanged. rc.12 corrects only packaged documentation and candidate metadata; implementation, public declarations, dependencies, licensing and notices remain the rc.11 baseline. Its exact-artifact checks are recorded separately.

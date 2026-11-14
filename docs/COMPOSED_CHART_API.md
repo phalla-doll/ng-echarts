@@ -69,3 +69,5 @@ Use `/composed` for `ComposedChart`, `ComposedSeries`, `ComposedBarSeries`, and 
 This initial increment supports bar/line combinations on shared axes. Dual scales, horizontal composition, stacking, area composition, raw ECharts options and custom tooltip templates are outside this increment. Mixed units such as visits and percentages require a different design, not an unlabelled shared scale. Existing [compatibility and measured-envelope guidance](COMPATIBILITY.md) remains the starting point; the [NG17 report](experiments/NG17_COMPOSED_CHART.md) records composed-specific measurements and checks.
 
 The gallery at `/composed` keeps the approved neutral styling and copyable source; `/composed-validation` exposes engineering controls separately. Human interpretation and complete release gates retain their deferred status.
+
+The line layer uses a 2.5 px dashed stroke and 7 px diamond markers; the bar layer uses 2 px corners. These presentation cues do not change raw events, series identity or comparable-unit requirements. Nonready states preserve plot geometry and retain inert control space.

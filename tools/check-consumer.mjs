@@ -187,8 +187,20 @@ try {
     platform: 'node',
     format: 'esm',
   });
-  const { quickStartExample } = await import(
+  const { quickStartExample, documentationPages } = await import(
     `data:text/javascript;base64,${Buffer.from(documentation.outputFiles[0].contents).toString('base64')}`
+  );
+  assert(
+    documentationPages.installation.sections.some((section) =>
+      section.source?.includes(`ng-echarts-chart-library-${packed.version}.tgz`),
+    ),
+    'The public Installation page must name the actual candidate tarball',
+  );
+  assert(
+    documentationPages.installation.sections.some((section) =>
+      section.paragraphs.some((text) => text.includes(`private ${packed.version} candidate`)),
+    ),
+    'The public Installation status must name the actual private candidate',
   );
   await writeFile(join(consumer, 'quick-start-example.ts'), quickStartExample);
   config.files.push('quick-start-example.ts');

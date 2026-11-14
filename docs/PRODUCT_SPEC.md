@@ -1,6 +1,6 @@
 # ng-echarts product specification
 
-Status: implementation baseline; all four selected chart families are present and automated cross-family evidence is reconciled. Human interpretation and release acceptance remain pending. Updated 13 November 2026. See the [current evidence index](ACCEPTANCE_MATRIX.md#implemented-family-evidence).
+Status: implementation baseline; all four selected chart families are present and automated cross-family evidence is reconciled. Human interpretation and release acceptance remain pending. Updated 14 November 2026. See the [current evidence index](ACCEPTANCE_MATRIX.md#implemented-family-evidence).
 
 ## Purpose and users
 

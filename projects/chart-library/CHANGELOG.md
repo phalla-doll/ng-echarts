@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.0-rc.12 — 14 November 2026
+
+- Correct the packaged family/event index, current aggregate bundle allowances and rc.11 presentation-feature status. Runtime behavior, declarations, dependencies, license and notices are unchanged.
+- Preserve the byte-identical rc.11 and earlier archives; public publication and human release gates remain pending.
+
 ## 0.1.0-rc.11 — 14 November 2026
 
 - Preserve plot geometry through loading/empty/error states and explain all-hidden series without removing recovery controls.

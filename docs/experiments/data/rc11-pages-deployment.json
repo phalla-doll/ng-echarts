@@ -1,0 +1,167 @@
+{
+  "recordedAt": "2026-11-14T06:47:07.111Z",
+  "site": "https://phalla-doll.github.io/ng-echarts/",
+  "sourceCommit": "23182ab88bb1ee8f2cf8a5b7ccf51fcc5f6e2b3e",
+  "staticCommit": "78cee7569919dfad20138e00f4f61b25078763aa",
+  "workflow": {
+    "id": 43566878538,
+    "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/43566878538",
+    "conclusion": "success"
+  },
+  "build": {
+    "builtAt": "2026-11-14T06:31:32.126Z",
+    "includesWorkingTree": false,
+    "sourceSha256": "2b89fc43c16d5bd023e85cc82f9cb57c72d13dea3d32bed61953afe089014a7d",
+    "artifactSha256": "4337e38f42eec51e0c54149a671076201fe7a96457b61ca20f61e5496cffaf00",
+    "fileCount": 138,
+    "markerSha256": "cd695497313a28a8edca0634de54b38150b0aae1376d466b17833e56d2e1b4a5"
+  },
+  "publicReceipt": {
+    "schemaVersion": 1,
+    "checkedAt": "2026-11-14T06:31:57.179Z",
+    "markerSha256": "cd695497313a28a8edca0634de54b38150b0aae1376d466b17833e56d2e1b4a5",
+    "browsers": ["chromium", "firefox", "webkit"]
+  },
+  "verification": {
+    "publicInventory": "passed; every inventoried file matched size and SHA-256",
+    "publicBrowsers": ["chromium", "firefox", "webkit"],
+    "staticRoutes": 34,
+    "localPerformanceMode": "enforced",
+    "localRouteBudgets": 16,
+    "localMobileMedians": 6,
+    "fontRegressionScenarios": 30,
+    "humanReleaseGates": "pending",
+    "libraryPublished": false
+  },
+  "performance": [
+    {
+      "route": "/",
+      "compressedBytes": 432555,
+      "byteBudget": 445000,
+      "mobile": true,
+      "medianFirstVisibleMs": 3391.7999999970198,
+      "readinessBudgetMs": 5000
+    },
+    {
+      "route": "line",
+      "compressedBytes": 433013,
+      "byteBudget": 445000,
+      "mobile": false,
+      "medianFirstVisibleMs": 174,
+      "readinessBudgetMs": null
+    },
+    {
+      "route": "area",
+      "compressedBytes": 433021,
+      "byteBudget": 445000,
+      "mobile": false,
+      "medianFirstVisibleMs": 173.5,
+      "readinessBudgetMs": null
+    },
+    {
+      "route": "pie",
+      "compressedBytes": 417473,
+      "byteBudget": 445000,
+      "mobile": false,
+      "medianFirstVisibleMs": 156.29999999701977,
+      "readinessBudgetMs": null
+    },
+    {
+      "route": "composed",
+      "compressedBytes": 441257,
+      "byteBudget": 445000,
+      "mobile": false,
+      "medianFirstVisibleMs": 173.80000001192093,
+      "readinessBudgetMs": null
+    },
+    {
+      "route": "radar",
+      "compressedBytes": 368615,
+      "byteBudget": 445000,
+      "mobile": false,
+      "medianFirstVisibleMs": 123.5,
+      "readinessBudgetMs": null
+    },
+    {
+      "route": "radial",
+      "compressedBytes": 329059,
+      "byteBudget": 445000,
+      "mobile": false,
+      "medianFirstVisibleMs": 122.20000000298023,
+      "readinessBudgetMs": null
+    },
+    {
+      "route": "calendar",
+      "compressedBytes": 376161,
+      "byteBudget": 445000,
+      "mobile": true,
+      "medianFirstVisibleMs": 2551.5,
+      "readinessBudgetMs": 5000
+    },
+    {
+      "route": "sankey",
+      "compressedBytes": 379248,
+      "byteBudget": 445000,
+      "mobile": true,
+      "medianFirstVisibleMs": 2448.9000000059605,
+      "readinessBudgetMs": 5000
+    },
+    {
+      "route": "linked",
+      "compressedBytes": 437218,
+      "byteBudget": 455000,
+      "mobile": true,
+      "medianFirstVisibleMs": 2952.199999988079,
+      "readinessBudgetMs": 5000
+    },
+    {
+      "route": "chart-possibilities",
+      "compressedBytes": 435317,
+      "byteBudget": 465000,
+      "mobile": true,
+      "medianFirstVisibleMs": 2785.7999999970198,
+      "readinessBudgetMs": 5000
+    },
+    {
+      "route": "get-started",
+      "compressedBytes": 225909,
+      "byteBudget": 240000,
+      "mobile": false,
+      "medianFirstVisibleMs": 73.59999999403954,
+      "readinessBudgetMs": null
+    },
+    {
+      "route": "installation",
+      "compressedBytes": 226653,
+      "byteBudget": 240000,
+      "mobile": true,
+      "medianFirstVisibleMs": 1630.7999999970198,
+      "readinessBudgetMs": 5000
+    },
+    {
+      "route": "components",
+      "compressedBytes": 192138,
+      "byteBudget": 210000,
+      "mobile": false,
+      "medianFirstVisibleMs": 74.40000000596046,
+      "readinessBudgetMs": null
+    },
+    {
+      "route": "formatting",
+      "compressedBytes": 374054,
+      "byteBudget": 400000,
+      "mobile": false,
+      "medianFirstVisibleMs": 159.3999999910593,
+      "readinessBudgetMs": null
+    },
+    {
+      "route": "playground",
+      "compressedBytes": 379698,
+      "byteBudget": 445000,
+      "mobile": false,
+      "medianFirstVisibleMs": 161.20000000298023,
+      "readinessBudgetMs": null
+    }
+  ],
+  "scope": "Verified deployment checkpoint, not a claim that later documentation-only commits are deployed; consult the public marker for current identity."
+}

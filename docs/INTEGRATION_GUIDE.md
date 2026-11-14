@@ -128,7 +128,7 @@ The declaration check compiles this exact block against the installed tarball; t
 | `ValueFormatter` | Pure synchronous `(value: number) => string`; called for observations and generated numeric axis ticks |
 | `CategoryTickFormatter` | Pure synchronous `(category: string, index: number) => string`; Cartesian axis text only |
 
-All types are available from `/core`; family entries reexport applicable types. `BarLayout` is reexported by `/bar`; `ChartMeasure` and `CategoryVisibilityChange` by `/pie`. A point action does not add persistent plot-selection state. Handle legend outputs with the family-specific payload above.
+The shared key/measure/event/formatting types above are available from `/core`; `BarRangeSelection<T>` belongs to `/bar` or the compatibility root. Family entries reexport their applicable shared types. `ComposedSeries<T>` belongs to `/composed` or root, `CalendarPointSelection<T>` to `/calendar`, and `SankeyNode`, `SankeyLink` and `SankeySelection<N,L>` to `/sankey`. Calendar/Sankey types are not exported by `/core`. A point action does not mutate persistent selection: bind the optional controlled bar feedback inputs to application state when needed. Handle legend outputs with the family-specific payload above.
 
 ## Updates, formatting and state
 
@@ -138,13 +138,13 @@ Null/undefined observations remain missing. Zero is numeric; Cartesian negatives
 
 The default numeric locale is explicit `en-US`. Use the same locale, immutable `Intl.NumberFormatOptions` and pure formatter on server and client. Custom text appears on numeric axes, tooltips, table cells and action names; generated ticks may contain values absent from the dataset. Missing values bypass callbacks, and emitted values stay numeric. Tooltip text is escaped. Pie has no axes. Category-tick formatting never changes full tooltip/table categories or event identity.
 
-State precedence is application error → loading → data/configuration/renderer error → empty → ready. Loading/error/empty states remove stale plot actions. Valid replacement inputs recover the latest data; renderer failures also offer Retry chart. All-hidden Cartesian series keep recovery controls; hiding every positive pie category keeps controls with no placeholder slices.
+State precedence is application error → loading → data/configuration/renderer error → empty → ready. Loading/error/empty states preserve plot geometry, remove stale tables/actions and retain unavailable controls as inert layout space. Valid replacement inputs recover the latest data; renderer failures also offer Retry chart. All-hidden Cartesian series keep recovery controls; hiding every positive pie category keeps controls with no placeholder slices.
 
 ## SSR, appearance and accessibility
 
 Keep the generated SSR/hydration configuration. Do not initialize ECharts or touch the plot surface in consumer code. Server output contains Angular headings, descriptions, state messages and controls; the browser starts a lazy Canvas plot after stability, dimensions and fonts are ready. Initially hidden cards recover when shown. The library disposes its observer, focus/motion listeners and renderer when Angular destroys the component.
 
-Provide a meaningful `title` and `description`. Keep the default `showDataTable: true` for complete values and keyboard point actions, or provide an equivalent interface. Native legends expose visibility and retain focus through keyed updates. Missing cells say Missing and have no action. Gallery previews deliberately disable tables; their Code tabs do not replace keyboard controls. Human screen-reader interpretation remains deferred to release acceptance.
+Provide a meaningful `title` and `description`. For Cartesian, pie and radar charts, keep the default `showDataTable: true` for complete values and keyboard point actions, or provide an equivalent interface. Calendar and Sankey provide their own native disclosures; radial progress supplies native progress semantics. Native legends expose visibility and retain focus through keyed updates. Missing cells say Missing and have no action. Gallery previews deliberately disable tables; their Code tabs do not replace keyboard controls. Human screen-reader interpretation remains deferred to release acceptance.
 
 `theme` is explicit; the library does not infer an application theme. CSS tokens are `--nec-background`, `--nec-text`, `--nec-muted`, `--nec-border`, `--nec-focus`, and numbered `--nec-series-N` colors. Explicit Cartesian series colors take precedence. After changing CSS or a loaded host font, increment `themeRevision` to reread them. Fonts are inherited; Inter is a playground choice, not a package dependency. Reduced-motion preference overrides decorative animation even when `animation` is true.
 
@@ -153,9 +153,23 @@ See [compatibility and limits](COMPATIBILITY.md) for exact versions, measured da
 
 ## Link an overview and detail
 
-Use a stable row ID from `pointSelect` as application state and derive another chart’s rows with `computed`. The [linked-chart guide](LINKED_CHARTS.md) provides a complete standalone bar/pie example with keyboard table actions, a native month selector, an all-month reset and stable-ID reconciliation after data changes. The library components and their independent legend states remain unchanged.
+Use a stable row ID from `pointSelect` as application state and derive another chart’s rows with `computed`. The [linked-chart guide](LINKED_CHARTS.md) provides a complete standalone bar/pie example with keyboard table actions, native month/range selectors, graphical contiguous range selection, an all-month reset and stable-ID reconciliation after data changes. The wide linked layout places overview/detail side by side, stacking them below 740 px. The library components and their independent legend states remain unchanged.
 
 
 ## Scalar goal completion
 
 `RadialProgress` accepts `title`, `value: number | null` and a positive `max` (100 by default), with the existing theme/formatting/state policies. It exposes a named native progress value before hydration, then adds a decorative ring. Scalar completion has no row/series model, point event, legend or data table. Null means missing, zero means not started, and values outside 0..max are errors rather than silently clamped. The [radial API](RADIAL_PROGRESS_API.md) supplies the compiled standalone example and complete limits.
+
+
+## Focused post-MVP entries
+
+The compatibility root exports bar, line, area, pie/donut, composed and `ChartFrame`. The four entries below are focused-only; import their component and family-specific types from the indicated path.
+
+| Entry | Data and actions | Guide |
+| --- | --- | --- |
+| `/radar` | 3–12 dimensions, 1–4 comparison series and explicit `maxKey`; shared `pointSelect`/`legendChange` | [Radar](RADAR_CHART_API.md) |
+| `/radial` | Scalar `value`/positive `max`, native progress, no selection event or table | [Radial progress](RADIAL_PROGRESS_API.md) |
+| `/calendar` | One explicit year, date/value keys and fixed maximum; `pointSelect` emits date/value/original row | [Calendar heatmap](CALENDAR_HEATMAP_API.md) |
+| `/sankey` | Separate stable-ID node/link arrays, acyclic nonnegative flows; `select` emits a node/link discriminated event | [Sankey](SANKEY_CHART_API.md) |
+
+Pie/donut's optional `showTotal` defaults to false and displays the formatted visible sum when `innerRadius >= 0.4`. Legends show raw values and locale-formatted shares of the visible total. Calendar/Sankey `valueLabel` defaults to `Value` and names the tooltip measure; it does not change numeric events. These APIs are included since private rc.11. All families retain experimental status and the deferred human release checks.

@@ -1,6 +1,6 @@
 # ng-echarts acceptance matrix
 
-Updated 13 November 2026. The [NG14 cross-family review](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md) reconciles automated evidence across all four families. Full-MVP product acceptance remains pending for human interpretation. This matrix connects the [product specification](PRODUCT_SPEC.md) to experiments and delivery tasks; the specification owns the detailed criteria and numeric targets.
+Updated 14 November 2026. The [NG14 cross-family review](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md) reconciles automated evidence across all four families. Full-MVP product acceptance remains pending for human interpretation. This matrix connects the [product specification](PRODUCT_SPEC.md) to experiments and delivery tasks; the specification owns the detailed criteria and numeric targets.
 
 The [R01 report](experiments/R01_TOOLCHAIN.md) records passing builds, strict compilation, isolated declarations, unit integration tests, and an SSR response check. Those initial scaffold results alone contribute to F01/package research without completing chart inputs, browser hydration, R08, or a gate.
 
@@ -94,7 +94,7 @@ The [graphical-range review](experiments/GRAPHICAL_RANGE_SELECTION.md) extends F
 
 ## NG18 radar first increment
 
-The user-approved [radar increment](experiments/NG18_RADAR_CHART.md) adds the focused `/radar` Angular entry and a site-aligned demo with explicit dimension maxima, stable comparisons, missing-data policy, native scale/value table and vertex/table actions. The [API](RADAR_CHART_API.md) defines the bounded contract. Radial progress remains subsequent work. The compatibility root and four-family MVP retain their scope; private rc.5 is separate from the preserved rc.4 artifact. Human F09/R06/G2/G3/G4 and public publication remain pending.
+The user-approved [radar increment](experiments/NG18_RADAR_CHART.md) adds the focused `/radar` Angular entry and a site-aligned demo with explicit dimension maxima, stable comparisons, missing-data policy, native scale/value table and vertex/table actions. The [API](RADAR_CHART_API.md) defines the bounded contract. The subsequent radial-progress increment below is implemented. The compatibility root and four-family MVP retain their scope; private rc.5 is separate from the preserved rc.4 artifact. Human F09/R06/G2/G3/G4 and public publication remain pending.
 
 
 ## NG18 radial progress increment
@@ -109,3 +109,5 @@ Calendar NG19: family-specific automated checks and unresolved limits are record
 The next NG19 increment adds a focused experimental `/sankey` entry and visitor-flow demo, with typed node/link IDs, directed acyclic validation, separate incoming/outgoing totals, native table actions and lazy Canvas rendering. The [API](SANKEY_CHART_API.md) defines the bounded 24-node/60-link contract; the [implementation record](experiments/NG19_SANKEY_CHART.md) records verification and scope. Private rc.10 preserves rc.9, rc.8 and earlier artifacts. Circular/vertical/drag variants, broader linked interactions and human F09/R06/G2/G3/G4 acceptance remain pending.
 
 Combined rc.11 source: the [presentation receipt](experiments/data/premium-visual-refinement.json) records the completed 257-unit/353-browser regression and 138 visual states. Exact candidate and final sealed preview evidence are reconciled in the [Sankey report](experiments/NG19_SANKEY_CHART.md); human release gates remain pending.
+
+Current delivery checkpoint: [Sankey/presentation/WebKit demo deployment](GITHUB_PAGES.md#rc11-sankey-presentation-and-webkit-deployment) is verified publicly in all three engines. Private rc.12 corrects documentation only, preserving rc.11 runtime/declarations and all earlier archives. Its [candidate checklist](RELEASE_CHECKLIST.md) keeps human F09/R06/G2/G3/G4 and public package publication pending. The 353-browser full regression and later 30-scenario WebKit check are distinct recorded scopes.

@@ -69,7 +69,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         title: 'Included behavior',
         paragraphs: [
           'Bar, line, area, and pie/donut charts support light and dark themes, responsive resizing, tooltips, keyboard-operable legends, and an optional data table enabled by default. Gallery previews omit the table controls; inspect their datasets in the Code tab. The playground retains the table and its keyboard actions. Plot and table actions emit the original numeric values.',
-          'Loading, empty, and error states are explicit. Browser initialization is deferred safely in server-rendered applications, and reduced-motion preferences override decorative animation.',
+          'Loading, empty, and error states preserve plot geometry and retain unavailable controls as inert space. Browser initialization is deferred safely in server-rendered applications, and reduced-motion preferences override decorative animation.',
         ],
       },
       {
@@ -112,7 +112,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
           'Create a production tarball from the workspace root. Install that file and the tested ECharts peer in a separate Angular 22 application. Replace the example path with the location of your checkout. Keep the file at the lockfile’s recorded path, or copy it into the consumer’s vendor directory first; commit the lockfile and use npm ci for repeat installs.',
         ],
         source:
-          'npm run pack:lib\n\n# In your Angular 22 application:\nnpm install /path/to/ng-echarts/dist/ng-echarts-chart-library-0.1.0-rc.4.tgz echarts@6.1.0',
+          'npm run pack:lib\n\n# In your Angular 22 application:\nnpm install /path/to/ng-echarts/dist/ng-echarts-chart-library-0.1.0-rc.12.tgz echarts@6.1.0',
         language: 'Terminal',
       },
       {
@@ -142,14 +142,14 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         paragraphs: [
           'Exact tests use Angular/CLI 22.2.6, TypeScript 6.0.3, RxJS 7.8.2 and ECharts 6.1.0 with Node 24.22.2/npm 11.19.1. Library peers declare Angular common/core ^22.2.6 and ECharts ^6.1.0; wider allowed ranges are not a test of every version. Chromium 158.0.8127.18, Firefox 159.0 and WebKit 27.2 cover client and SSR/hydration paths.',
           'The measured starting envelope is 200 categories and three Cartesian series, or 12 pie/donut categories, on the recorded M2 Pro reference machine. Stress fixtures use 2,000 and 100 categories respectively. These are measured inputs rather than hard API limits or portable latency promises. Crowded outside labels may be shortened or hidden; native controls retain complete text.',
-          'The APIs remain experimental. Automated tests pass; human screen-reader interpretation is deferred to release acceptance. The private 0.1.0-rc.4 candidate uses MIT for original library code and includes third-party notices. Human release acceptance and registry publication remain separate.',
+          'The APIs remain experimental. Automated tests pass; human screen-reader interpretation is deferred to release acceptance. The private 0.1.0-rc.12 candidate uses MIT for original library code and includes third-party notices. Human release acceptance and registry publication remain separate.',
         ],
       },
       {
         id: 'development',
         title: 'Development and checks',
         paragraphs: [
-          'Run the library watcher in a second terminal when editing library source. The site consumes built /bar, /line, /area, /pie, and /core package entries in dist/chart-library rather than source aliases. Existing root imports remain compatible.',
+          'Run the library watcher in a second terminal when editing library source. The site consumes built /bar, /line, /area, /pie, /composed, /radar, /radial, /calendar, /sankey and /core package entries from dist/chart-library. Existing root imports remain compatible.',
           'The full check builds the library and site, verifies strict templates and declarations, exercises isolated consumers, and runs browser scenarios in Chromium, Firefox, and WebKit.',
         ],
         source:
@@ -176,9 +176,9 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'data-contracts',
         title: 'Choose the data contract',
         paragraphs: [
-          'ComposedChart accepts ComposedSeries<T> with a bar/line kind per measure on one shared axis pair. Bar, line, and area charts accept a typed array of ChartSeries<T> measures. PieChart accepts one ChartMeasure<T> and turns category rows into slices. Import each component from its focused @ng-echarts/chart-library/bar, /line, /area, /pie, /composed, or /radar entry. RadarChart uses comparison series and an explicit maxKey for each dimension.',
-          'Use innerRadius 0 for a pie or 0.6 for a donut. Optional outside labels may shorten or hide collisions, while category controls retain full labels. Pie measures must be nonnegative; all-zero totals show an empty state.',
-          'Pie legend changes emit rowId and visible; Cartesian legend changes emit seriesId and visible. Point selection in every family includes the original row and raw value. The data table remains the keyboard point-action alternative; gallery examples opt out of it.',
+          'ComposedChart accepts ComposedSeries<T> with a bar/line kind per measure on one shared axis pair. Bar, line, and area charts accept a typed array of ChartSeries<T> measures. PieChart accepts one ChartMeasure<T> and turns category rows into slices. Import each component from its focused @ng-echarts/chart-library/bar, /line, /area, /pie, /composed, or /radar entry. RadarChart uses comparison series and an explicit maxKey for each dimension. RadialProgress uses scalar value/max inputs from /radial, CalendarHeatmap uses one year/date/value contract from /calendar, and SankeyChart uses separate node/link arrays from /sankey. The last four families require focused imports.',
+          'Use innerRadius 0 for a pie or 0.6 for a donut. Optional outside labels may shorten or hide collisions, while category controls retain full labels. Pie measures must be nonnegative; all-zero totals show an empty state. Optional showTotal displays the visible sum in donuts with innerRadius at least 0.4. Calendar and Sankey valueLabel names the tooltip measure and defaults to Value.',
+          'Pie legend changes emit rowId and visible; Cartesian legend changes emit seriesId and visible. Cartesian, radar and pie pointSelect events include the original row and raw value. Calendar selects an original date/value row. Sankey emits a select event for an original node or link with raw totals/values. Radial progress has no selection event. Native tables provide keyboard actions where applicable; gallery chart previews may opt out of the optional table.',
         ],
       },
       {

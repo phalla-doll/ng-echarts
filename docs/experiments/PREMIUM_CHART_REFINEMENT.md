@@ -1,6 +1,6 @@
 # Chart presentation refinement
 
-The November 2026 visual review covered all nine implemented chart families and the linked-chart composition. This refinement preserves the existing typography, theme palette, data contracts and native accessibility approach while addressing the review’s production-readiness findings. It is source work after private rc.10; existing candidate archives, notices and human F09/R06/G2/G3/G4 gates remain unchanged. Nothing is deployed or published by this work.
+The November 2026 visual review covered all nine implemented chart families and the linked-chart composition. This refinement preserves the existing typography, theme palette, data contracts and native accessibility approach while addressing the review’s production-readiness findings. It was implemented after private rc.10 and included in private rc.11; existing candidate archives, notices and human F09/R06/G2/G3/G4 gates remain unchanged. The later [demo deployment](../GITHUB_PAGES.md#rc11-sankey-presentation-and-webkit-deployment) includes this refinement. The library is not published to a registry.
 
 ## Resulting behavior
 
@@ -62,3 +62,5 @@ Screenshots and automated checks do not replace human screen-reader interpretati
 ## Combined candidate follow-up
 
 The user subsequently requested verification of the combined Sankey/presentation source. All 264 recorded source digests matched before rc.11 metadata updates; afterwards only the library package version differs, and exact rc.11 declarations, fresh documented installation and six installed client/SSR modes pass. [Combined evidence](NG19_SANKEY_CHART.md#combined-presentation-verification-and-rc11) and the [rc.11 manifest](data/local-release-0.1.0-rc.11.json) preserve those results. The original rc.10 and earlier archives remain unchanged; human release gates stay pending.
+
+The later private rc.12 corrects documentation only and preserves the rc.11 implementation/archive. The [documentation reconciliation](DOCUMENTATION_RECONCILIATION.md) distinguishes current guides, shipped private artifacts, public demo provenance and historical experiment counts.

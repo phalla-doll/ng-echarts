@@ -106,6 +106,7 @@ Node height encodes the larger incoming/outgoing total, following ECharts Sankey
 | Input | Default / behavior |
 | --- | --- |
 | `description` | Empty text; describe units and interpretation |
+| `valueLabel` | `Value`; nonempty measure name in node/link tooltips |
 | `theme`, `themeRevision` | `light`, `0`; existing CSS token resolution and explicit refresh |
 | `locale`, `numberFormatOptions`, `valueFormatter` | `en-US`, unset, unset; shared formatting across tables/tooltips; invalid formatting becomes an error |
 | `loading`, `error` | `false`, `null`; explicit error precedes loading, then validation/render errors, empty, ready |
