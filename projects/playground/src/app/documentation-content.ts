@@ -112,7 +112,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
           'Create a production tarball from the workspace root. Install that file and the tested ECharts peer in a separate Angular 22 application. Replace the example path with the location of your checkout. Keep the file at the lockfile’s recorded path, or copy it into the consumer’s vendor directory first; commit the lockfile and use npm ci for repeat installs.',
         ],
         source:
-          'npm run pack:lib\n\n# In your Angular 22 application:\nnpm install /path/to/ng-echarts/dist/ng-echarts-chart-library-0.1.0-rc.12.tgz echarts@6.1.0',
+          'npm run pack:lib\n\n# In your Angular 22 application:\nnpm install /path/to/ng-echarts/dist/ng-echarts-chart-library-0.1.0-rc.16.tgz echarts@6.1.0',
         language: 'Terminal',
       },
       {
@@ -142,7 +142,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         paragraphs: [
           'Exact tests use Angular/CLI 22.2.6, TypeScript 6.0.3, RxJS 7.8.2 and ECharts 6.1.0 with Node 24.22.2/npm 11.19.1. Library peers declare Angular common/core ^22.2.6 and ECharts ^6.1.0; wider allowed ranges are not a test of every version. Chromium 158.0.8127.18, Firefox 159.0 and WebKit 27.2 cover client and SSR/hydration paths.',
           'The measured starting envelope is 200 categories and three Cartesian series, or 12 pie/donut categories, on the recorded M2 Pro reference machine. Stress fixtures use 2,000 and 100 categories respectively. These are measured inputs rather than hard API limits or portable latency promises. Crowded outside labels may be shortened or hidden; native controls retain complete text.',
-          'The APIs remain experimental. Automated tests pass; human screen-reader interpretation is deferred to release acceptance. The private 0.1.0-rc.12 candidate uses MIT for original library code and includes third-party notices. Human release acceptance and registry publication remain separate.',
+          'The APIs remain experimental. Automated tests pass; human screen-reader interpretation is deferred to release acceptance. The private 0.1.0-rc.16 candidate uses MIT for original library code and includes third-party notices. Human release acceptance and registry publication remain separate.',
         ],
       },
       {

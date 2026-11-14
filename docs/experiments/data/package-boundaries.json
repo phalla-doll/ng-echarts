@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-14T05:57:44.132Z",
+  "recordedAt": "2026-11-14T09:54:02.711Z",
   "method": "Resolve public package imports, Angular-link, bundle/minify/split with Angular/RxJS peers external; count only modules contributing bytes to output; traverse static imports separately from lazy chunks; sum independently compressed JavaScript chunks",
   "scenarios": [
     {
@@ -7,16 +7,16 @@
       "import": "@ng-echarts/chart-library/bar",
       "exports": "BarChart",
       "files": [
-        { "name": "stdin.js", "raw": 49359, "gzip": 12914, "brotli": 11445 },
+        { "name": "stdin.js", "raw": 53560, "gzip": 13986, "brotli": 12384 },
         {
-          "name": "ng-echarts-chart-library-bar-bar-renderer-F3UCoZl8-6KEDEMAZ.js",
-          "raw": 500852,
-          "gzip": 171161,
-          "brotli": 145428
+          "name": "ng-echarts-chart-library-bar-bar-renderer-B7Rupncx-XRGZMETR.js",
+          "raw": 501393,
+          "gzip": 171309,
+          "brotli": 145709
         },
         { "name": "chunk-WOT6VMZA.js", "raw": 106, "gzip": 120, "brotli": 91 }
       ],
-      "total": { "raw": 550317, "gzip": 184195, "brotli": 156964 },
+      "total": { "raw": 555059, "gzip": 185415, "brotli": 158184 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 232,
@@ -25,7 +25,7 @@
       "chartFamilies": ["bar"],
       "sharedRegistryModules": ["node_modules/echarts/lib/chart/custom/customSeriesRegister.js"],
       "contributingInputs": [
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-bar-bar-renderer-F3UCoZl8.mjs",
+        "dist/chart-library/fesm2022/ng-echarts-chart-library-bar-bar-renderer-B7Rupncx.mjs",
         "dist/chart-library/fesm2022/ng-echarts-chart-library-bar.mjs",
         "dist/chart-library/fesm2022/ng-echarts-chart-library-core.mjs",
         "node_modules/echarts/lib/animation/basicTransition.js",
@@ -268,16 +268,16 @@
       "import": "@ng-echarts/chart-library/line",
       "exports": "LineChart",
       "files": [
-        { "name": "stdin.js", "raw": 19521, "gzip": 4619, "brotli": 4053 },
+        { "name": "stdin.js", "raw": 19748, "gzip": 4670, "brotli": 4088 },
         {
-          "name": "ng-echarts-chart-library-line-line-renderer-LmCzqHhD-RYBF2BGG.js",
+          "name": "ng-echarts-chart-library-line-line-renderer-LmCzqHhD-UP3W2DQK.js",
           "raw": 502588,
           "gzip": 171734,
-          "brotli": 146004
+          "brotli": 146104
         },
-        { "name": "chunk-BS72SG5M.js", "raw": 27535, "gzip": 8530, "brotli": 7526 }
+        { "name": "chunk-E2DMOSS4.js", "raw": 30952, "gzip": 9458, "brotli": 8386 }
       ],
-      "total": { "raw": 549644, "gzip": 184883, "brotli": 157583 },
+      "total": { "raw": 553288, "gzip": 185862, "brotli": 158578 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 230,
@@ -527,16 +527,16 @@
       "import": "@ng-echarts/chart-library/area",
       "exports": "AreaChart",
       "files": [
-        { "name": "stdin.js", "raw": 20705, "gzip": 5107, "brotli": 4469 },
+        { "name": "stdin.js", "raw": 20932, "gzip": 5156, "brotli": 4512 },
         {
-          "name": "ng-echarts-chart-library-area-area-renderer-qEXwzXQS-CVPJE3JJ.js",
+          "name": "ng-echarts-chart-library-area-area-renderer-qEXwzXQS-ID3R6SQH.js",
           "raw": 502588,
           "gzip": 171734,
-          "brotli": 146159
+          "brotli": 146006
         },
-        { "name": "chunk-BS72SG5M.js", "raw": 27535, "gzip": 8530, "brotli": 7526 }
+        { "name": "chunk-E2DMOSS4.js", "raw": 30952, "gzip": 9458, "brotli": 8386 }
       ],
-      "total": { "raw": 550828, "gzip": 185371, "brotli": 158154 },
+      "total": { "raw": 554472, "gzip": 186348, "brotli": 158904 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 230,
@@ -786,16 +786,16 @@
       "import": "@ng-echarts/chart-library/composed",
       "exports": "ComposedChart",
       "files": [
-        { "name": "stdin.js", "raw": 20330, "gzip": 5069, "brotli": 4444 },
+        { "name": "stdin.js", "raw": 20557, "gzip": 5120, "brotli": 4493 },
         {
-          "name": "ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu-EBVUYFP2.js",
+          "name": "ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu-2FZ2RZMD.js",
           "raw": 525404,
           "gzip": 179545,
-          "brotli": 152315
+          "brotli": 152353
         },
-        { "name": "chunk-JFIWR3IK.js", "raw": 26868, "gzip": 8250, "brotli": 7282 }
+        { "name": "chunk-7XLG5VP5.js", "raw": 30285, "gzip": 9181, "brotli": 8116 }
       ],
-      "total": { "raw": 572602, "gzip": 192864, "brotli": 164041 },
+      "total": { "raw": 576246, "gzip": 193846, "brotli": 164962 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 242,
@@ -1057,7 +1057,7 @@
       "import": "@ng-echarts/chart-library/pie",
       "exports": "PieChart",
       "files": [
-        { "name": "stdin.js", "raw": 55743, "gzip": 12978, "brotli": 11228 },
+        { "name": "stdin.js", "raw": 59161, "gzip": 13909, "brotli": 12090 },
         {
           "name": "ng-echarts-chart-library-pie-pie-renderer-C8JrAbQD-62GVBFUP.js",
           "raw": 433428,
@@ -1066,7 +1066,7 @@
         },
         { "name": "chunk-WOT6VMZA.js", "raw": 106, "gzip": 120, "brotli": 91 }
       ],
-      "total": { "raw": 489277, "gzip": 161515, "brotli": 138005 },
+      "total": { "raw": 492695, "gzip": 162446, "brotli": 138867 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 199,
@@ -1285,16 +1285,16 @@
       "import": "@ng-echarts/chart-library/radar",
       "exports": "RadarChart",
       "files": [
-        { "name": "stdin.js", "raw": 23115, "gzip": 5602, "brotli": 4922 },
+        { "name": "stdin.js", "raw": 23115, "gzip": 5601, "brotli": 4918 },
         {
-          "name": "ng-echarts-chart-library-radar-radar-renderer-NBJrDg4R-LTXEF3DY.js",
-          "raw": 446894,
-          "gzip": 152664,
-          "brotli": 130369
+          "name": "ng-echarts-chart-library-radar-radar-renderer-COb9pmPG-LRSVWXZP.js",
+          "raw": 446912,
+          "gzip": 152675,
+          "brotli": 130378
         },
-        { "name": "chunk-OT6YSHWP.js", "raw": 26444, "gzip": 8209, "brotli": 7219 }
+        { "name": "chunk-CLILP2C3.js", "raw": 29861, "gzip": 9123, "brotli": 8075 }
       ],
-      "total": { "raw": 496453, "gzip": 166475, "brotli": 142510 },
+      "total": { "raw": 499888, "gzip": 167399, "brotli": 143371 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 210,
@@ -1305,7 +1305,7 @@
       "contributingInputs": [
         "dist/chart-library/fesm2022/ng-echarts-chart-library-core.mjs",
         "dist/chart-library/fesm2022/ng-echarts-chart-library-radar-radar-options-WzYf5n3w.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-radar-radar-renderer-NBJrDg4R.mjs",
+        "dist/chart-library/fesm2022/ng-echarts-chart-library-radar-radar-renderer-COb9pmPG.mjs",
         "dist/chart-library/fesm2022/ng-echarts-chart-library-radar.mjs",
         "node_modules/echarts/lib/animation/basicTransition.js",
         "node_modules/echarts/lib/chart/custom/customSeriesRegister.js",
@@ -1525,16 +1525,16 @@
       "import": "@ng-echarts/chart-library/calendar",
       "exports": "CalendarHeatmap",
       "files": [
-        { "name": "stdin.js", "raw": 25258, "gzip": 6519, "brotli": 5693 },
+        { "name": "stdin.js", "raw": 25258, "gzip": 6519, "brotli": 5688 },
         {
-          "name": "ng-echarts-chart-library-calendar-calendar-renderer-CWBE2woN-YDOQAPOJ.js",
-          "raw": 462290,
-          "gzip": 156690,
-          "brotli": 133676
+          "name": "ng-echarts-chart-library-calendar-calendar-renderer-DVs0ASXM-7NGROXGR.js",
+          "raw": 462308,
+          "gzip": 156701,
+          "brotli": 133725
         },
-        { "name": "chunk-5QNO7DUI.js", "raw": 28460, "gzip": 9115, "brotli": 7967 }
+        { "name": "chunk-UMLC32J7.js", "raw": 31877, "gzip": 10029, "brotli": 8832 }
       ],
-      "total": { "raw": 516008, "gzip": 172324, "brotli": 147336 },
+      "total": { "raw": 519443, "gzip": 173249, "brotli": 148245 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 213,
@@ -1544,7 +1544,7 @@
       "sharedRegistryModules": ["node_modules/echarts/lib/chart/custom/customSeriesRegister.js"],
       "contributingInputs": [
         "dist/chart-library/fesm2022/ng-echarts-chart-library-calendar-calendar-options-D-scjnSG.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-calendar-calendar-renderer-CWBE2woN.mjs",
+        "dist/chart-library/fesm2022/ng-echarts-chart-library-calendar-calendar-renderer-DVs0ASXM.mjs",
         "dist/chart-library/fesm2022/ng-echarts-chart-library-calendar.mjs",
         "dist/chart-library/fesm2022/ng-echarts-chart-library-core.mjs",
         "node_modules/echarts/lib/animation/basicTransition.js",
@@ -1768,16 +1768,16 @@
       "import": "@ng-echarts/chart-library/sankey",
       "exports": "SankeyChart",
       "files": [
-        { "name": "stdin.js", "raw": 25655, "gzip": 6894, "brotli": 6017 },
+        { "name": "stdin.js", "raw": 25655, "gzip": 6892, "brotli": 6019 },
         {
-          "name": "ng-echarts-chart-library-sankey-sankey-renderer-L8C_YWa7-G44GQMXH.js",
+          "name": "ng-echarts-chart-library-sankey-sankey-renderer-L8C_YWa7-V643NDHF.js",
           "raw": 456835,
-          "gzip": 155164,
-          "brotli": 132362
+          "gzip": 155163,
+          "brotli": 132393
         },
-        { "name": "chunk-HOEWWRVE.js", "raw": 24946, "gzip": 7582, "brotli": 6647 }
+        { "name": "chunk-RF4BAC6N.js", "raw": 28364, "gzip": 8513, "brotli": 7510 }
       ],
-      "total": { "raw": 507436, "gzip": 169640, "brotli": 145026 },
+      "total": { "raw": 510854, "gzip": 170568, "brotli": 145922 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 205,
@@ -2002,7 +2002,7 @@
       "import": "@ng-echarts/chart-library/radial",
       "exports": "RadialProgress",
       "files": [
-        { "name": "stdin.js", "raw": 37630, "gzip": 9638, "brotli": 8433 },
+        { "name": "stdin.js", "raw": 41047, "gzip": 10583, "brotli": 9286 },
         {
           "name": "ng-echarts-chart-library-radial-radial-renderer-DlH2JDoC-BBAFLZPW.js",
           "raw": 358386,
@@ -2010,7 +2010,7 @@
           "brotli": 104667
         }
       ],
-      "total": { "raw": 396016, "gzip": 132063, "brotli": 113100 },
+      "total": { "raw": 399433, "gzip": 133008, "brotli": 113953 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 164,
@@ -2193,8 +2193,8 @@
       "name": "core",
       "import": "@ng-echarts/chart-library/core",
       "exports": "ChartFrame",
-      "files": [{ "name": "stdin.js", "raw": 23725, "gzip": 7045, "brotli": 6180 }],
-      "total": { "raw": 23725, "gzip": 7045, "brotli": 6180 },
+      "files": [{ "name": "stdin.js", "raw": 27142, "gzip": 7973, "brotli": 7016 }],
+      "total": { "raw": 27142, "gzip": 7973, "brotli": 7016 },
       "budget": { "gzip": 10000, "brotli": 9000 },
       "eagerEngineModules": 0,
       "engineModules": 0,
@@ -2210,24 +2210,24 @@
       "import": "@ng-echarts/chart-library",
       "exports": "BarChart, LineChart, AreaChart, PieChart, ComposedChart, ChartFrame",
       "files": [
-        { "name": "stdin.js", "raw": 114952, "gzip": 15055, "brotli": 11216 },
+        { "name": "stdin.js", "raw": 116418, "gzip": 15322, "brotli": 11420 },
         {
-          "name": "ng-echarts-chart-library-area-area-renderer-qEXwzXQS-YEAI6OS5.js",
+          "name": "ng-echarts-chart-library-area-area-renderer-qEXwzXQS-EZIPU7BA.js",
           "raw": 525,
           "gzip": 360,
-          "brotli": 341
+          "brotli": 345
         },
         {
-          "name": "ng-echarts-chart-library-line-line-renderer-LmCzqHhD-OBQPYZIK.js",
+          "name": "ng-echarts-chart-library-line-line-renderer-LmCzqHhD-5WAZ3XBH.js",
           "raw": 525,
           "gzip": 360,
           "brotli": 319
         },
         {
-          "name": "ng-echarts-chart-library-bar-bar-renderer-F3UCoZl8-SHW57ODZ.js",
-          "raw": 3810,
-          "gzip": 1769,
-          "brotli": 1554
+          "name": "ng-echarts-chart-library-bar-bar-renderer-B7Rupncx-DGNMMKOW.js",
+          "raw": 4351,
+          "gzip": 1930,
+          "brotli": 1697
         },
         {
           "name": "ng-echarts-chart-library-pie-pie-renderer-C8JrAbQD-T4MW5I33.js",
@@ -2236,21 +2236,21 @@
           "brotli": 6398
         },
         {
-          "name": "ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu-IAZFC2EX.js",
+          "name": "ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu-NHP76FBD.js",
           "raw": 585,
-          "gzip": 385,
-          "brotli": 355
+          "gzip": 384,
+          "brotli": 344
         },
         { "name": "chunk-UDZLFUMF.js", "raw": 27346, "gzip": 10541, "brotli": 9530 },
-        { "name": "chunk-RJ4OIGLC.js", "raw": 27519, "gzip": 8520, "brotli": 7510 },
+        { "name": "chunk-6AV3Y7H5.js", "raw": 30936, "gzip": 9453, "brotli": 8363 },
         { "name": "chunk-PSL7FE2W.js", "raw": 22031, "gzip": 8447, "brotli": 7668 },
         { "name": "chunk-IAQXTS4P.js", "raw": 6037, "gzip": 2457, "brotli": 2268 },
         { "name": "chunk-MKRCKBDC.js", "raw": 262, "gzip": 211, "brotli": 191 },
         { "name": "chunk-SPBDDDDP.js", "raw": 475122, "gzip": 162325, "brotli": 138402 },
         { "name": "chunk-WOT6VMZA.js", "raw": 106, "gzip": 120, "brotli": 91 }
       ],
-      "total": { "raw": 695604, "gzip": 217597, "brotli": 185843 },
-      "budget": { "gzip": 218000, "brotli": 186000 },
+      "total": { "raw": 701028, "gzip": 218957, "brotli": 187036 },
+      "budget": { "gzip": 219500, "brotli": 187500 },
       "eagerEngineModules": 0,
       "engineModules": 253,
       "reachableEngineModules": 253,
@@ -2260,7 +2260,7 @@
       "contributingInputs": [
         "dist/chart-library/fesm2022/ng-echarts-chart-library-area-area-renderer-qEXwzXQS.mjs",
         "dist/chart-library/fesm2022/ng-echarts-chart-library-area.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-bar-bar-renderer-F3UCoZl8.mjs",
+        "dist/chart-library/fesm2022/ng-echarts-chart-library-bar-bar-renderer-B7Rupncx.mjs",
         "dist/chart-library/fesm2022/ng-echarts-chart-library-bar.mjs",
         "dist/chart-library/fesm2022/ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu.mjs",
         "dist/chart-library/fesm2022/ng-echarts-chart-library-composed.mjs",
@@ -2532,22 +2532,22 @@
       "files": [
         { "name": "stdin.js", "raw": 93, "gzip": 95, "brotli": 96 },
         {
-          "name": "ng-echarts-chart-library-area-area-renderer-qEXwzXQS-2BDP7Q2C.js",
+          "name": "ng-echarts-chart-library-area-area-renderer-qEXwzXQS-MVLA65AY.js",
           "raw": 525,
-          "gzip": 360,
-          "brotli": 342
+          "gzip": 358,
+          "brotli": 344
         },
         {
-          "name": "ng-echarts-chart-library-line-line-renderer-LmCzqHhD-BJZUZMVS.js",
+          "name": "ng-echarts-chart-library-line-line-renderer-LmCzqHhD-GFG4D7RJ.js",
           "raw": 525,
-          "gzip": 360,
-          "brotli": 333
+          "gzip": 359,
+          "brotli": 320
         },
         {
-          "name": "ng-echarts-chart-library-bar-bar-renderer-F3UCoZl8-SHW57ODZ.js",
-          "raw": 3810,
-          "gzip": 1769,
-          "brotli": 1554
+          "name": "ng-echarts-chart-library-bar-bar-renderer-B7Rupncx-DGNMMKOW.js",
+          "raw": 4351,
+          "gzip": 1930,
+          "brotli": 1697
         },
         {
           "name": "ng-echarts-chart-library-pie-pie-renderer-C8JrAbQD-T4MW5I33.js",
@@ -2556,30 +2556,30 @@
           "brotli": 6398
         },
         {
-          "name": "ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu-Q3SH4QKQ.js",
+          "name": "ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu-LWHULE6K.js",
           "raw": 585,
-          "gzip": 381,
-          "brotli": 343
+          "gzip": 379,
+          "brotli": 356
         },
         { "name": "chunk-UDZLFUMF.js", "raw": 27346, "gzip": 10541, "brotli": 9530 },
-        { "name": "chunk-DGQLYN46.js", "raw": 24494, "gzip": 7282, "brotli": 6395 },
+        { "name": "chunk-FIEDITTD.js", "raw": 27911, "gzip": 8206, "brotli": 7237 },
         { "name": "chunk-PSL7FE2W.js", "raw": 22031, "gzip": 8447, "brotli": 7668 },
         { "name": "chunk-IAQXTS4P.js", "raw": 6037, "gzip": 2457, "brotli": 2268 },
         { "name": "chunk-MKRCKBDC.js", "raw": 262, "gzip": 211, "brotli": 191 },
         { "name": "chunk-SPBDDDDP.js", "raw": 475122, "gzip": 162325, "brotli": 138402 },
         { "name": "chunk-WOT6VMZA.js", "raw": 106, "gzip": 120, "brotli": 91 }
       ],
-      "total": { "raw": 577720, "gzip": 201395, "brotli": 173611 },
-      "budget": { "gzip": 201500, "brotli": 175000 },
+      "total": { "raw": 581678, "gzip": 202475, "brotli": 174598 },
+      "budget": { "gzip": 203000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 253,
       "reachableEngineModules": 0,
       "orphanFiles": [
-        "ng-echarts-chart-library-area-area-renderer-qEXwzXQS-2BDP7Q2C.js",
-        "ng-echarts-chart-library-line-line-renderer-LmCzqHhD-BJZUZMVS.js",
-        "ng-echarts-chart-library-bar-bar-renderer-F3UCoZl8-SHW57ODZ.js",
+        "ng-echarts-chart-library-area-area-renderer-qEXwzXQS-MVLA65AY.js",
+        "ng-echarts-chart-library-line-line-renderer-LmCzqHhD-GFG4D7RJ.js",
+        "ng-echarts-chart-library-bar-bar-renderer-B7Rupncx-DGNMMKOW.js",
         "ng-echarts-chart-library-pie-pie-renderer-C8JrAbQD-T4MW5I33.js",
-        "ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu-Q3SH4QKQ.js",
+        "ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu-LWHULE6K.js",
         "chunk-UDZLFUMF.js",
         "chunk-PSL7FE2W.js",
         "chunk-IAQXTS4P.js",
@@ -2590,7 +2590,7 @@
       "sharedRegistryModules": ["node_modules/echarts/lib/chart/custom/customSeriesRegister.js"],
       "contributingInputs": [
         "dist/chart-library/fesm2022/ng-echarts-chart-library-area-area-renderer-qEXwzXQS.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-bar-bar-renderer-F3UCoZl8.mjs",
+        "dist/chart-library/fesm2022/ng-echarts-chart-library-bar-bar-renderer-B7Rupncx.mjs",
         "dist/chart-library/fesm2022/ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu.mjs",
         "dist/chart-library/fesm2022/ng-echarts-chart-library-core.mjs",
         "dist/chart-library/fesm2022/ng-echarts-chart-library-line-line-renderer-LmCzqHhD.mjs",

@@ -37,6 +37,7 @@ export class InvalidConsumer {
     [selectedRowId]="12"
     [selectedRowIds]="[12]"
     [rangeSelection]="'yes'"
+    [previewEnabled]="'yes'"
   />`,
 })
 export class InvalidBarSelection {

@@ -32,6 +32,11 @@ export interface LegendVisibilityChange {
   readonly visible: boolean;
 }
 
+/** Transient context; never commits a selection. Null clears the preview. */
+export interface PointPreview<T> extends PointSelection<T> {
+  readonly trigger: 'pointer' | 'focus';
+}
+
 export type ChartTheme = 'light' | 'dark';
 export type BarLayout = 'vertical' | 'horizontal';
 

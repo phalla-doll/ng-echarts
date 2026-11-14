@@ -5,6 +5,7 @@ import {
   type ChartSeries,
   type NumericKey,
   type PointSelection,
+  type PointPreview,
   type ValueFormatter,
 } from '@ng-echarts/chart-library/bar';
 import { ChartFrame } from '@ng-echarts/chart-library/core';
@@ -25,6 +26,8 @@ import type { EChartsCoreOption } from 'echarts/core';
       [categoryTickFormatter]="categoryTickFormatter"
       [numberFormatOptions]="numberFormatOptions"
       [valueFormatter]="valueFormatter"
+      [previewEnabled]="true"
+      (pointPreview)="preview($event)"
       (pointSelect)="select($event)"
     />`,
 })
@@ -36,6 +39,13 @@ export class Consumer {
     `${index}: ${category}`;
   readonly rows: readonly Row[] = [{ id: 'a', category: 'A', count: 0 }];
   readonly series: readonly ChartSeries<Row>[] = [{ id: 'count', key: 'count', label: 'Count' }];
+  preview(point: PointPreview<Row> | null): void {
+    if (point) {
+      const value: number = point.value;
+      const row: Row = point.row;
+      void [value, row, point.trigger];
+    }
+  }
   select(point: PointSelection<Row>): void {
     void point.row.count;
   }

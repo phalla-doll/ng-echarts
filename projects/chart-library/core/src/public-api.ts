@@ -9,6 +9,7 @@ export type {
   LegendVisibilityChange,
   NumericKey,
   PointSelection,
+  PointPreview,
   StringKey,
   ValueFormatter,
 } from './lib/chart-types';

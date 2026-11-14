@@ -100,3 +100,49 @@ test('rejects unrelated chart code entering a renderer preload graph', () => {
   outputs['bar.js'].inputs['node_modules/echarts/lib/chart/sankey/SankeyView.js'].bytesInOutput = 0;
   assert.doesNotThrow(() => rendererPreloads(outputs));
 });
+
+test('warms the destination component graph while keeping deferred families independent', () => {
+  const outputs = { 'shared.js': { imports: [] }, 'highlighter.js': { imports: [] } };
+  for (const family of [
+    'bar',
+    'line',
+    'area',
+    'composed',
+    'pie',
+    'radar',
+    'radial',
+    'calendar',
+    'sankey',
+  ]) {
+    outputs[`${family}-renderer.js`] = {
+      entryPoint: `ng-echarts-chart-library-${family}-${family}-renderer-hash.mjs`,
+      imports: [{ path: 'shared.js', kind: 'import-statement' }],
+    };
+    outputs[`${family}-component.js`] = {
+      entryPoint: `dist/chart-library/fesm2022/ng-echarts-chart-library-${family}.mjs`,
+      imports: [{ path: 'shared.js', kind: 'import-statement' }],
+    };
+  }
+  outputs['gallery.js'] = {
+    entryPoint: 'projects/playground/src/app/gallery.ts',
+    imports: [
+      { path: 'shared.js', kind: 'import-statement' },
+      { path: 'line-component.js', kind: 'dynamic-import' },
+      { path: 'highlighter.js', kind: 'dynamic-import' },
+    ],
+  };
+  const routes = rendererPreloads(outputs);
+  expectNames(routes[''], ['bar-renderer.js', 'shared.js', 'bar-component.js', 'gallery.js']);
+  expectNames(routes.line, ['line-renderer.js', 'shared.js', 'line-component.js', 'gallery.js']);
+  assert.equal(routes.installation, undefined);
+  outputs['gallery.js'].inputs = {
+    'node_modules/echarts/lib/chart/sankey/SankeyView.js': { bytesInOutput: 100 },
+  };
+  assert.throws(() => rendererPreloads(outputs), /bar route preloads unrelated sankey/);
+  function expectNames(links, names) {
+    assert.deepEqual(
+      links.map((link) => link.href),
+      names,
+    );
+  }
+});

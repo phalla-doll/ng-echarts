@@ -49,6 +49,7 @@ Build native Angular components, beginning with the upstream ECharts implementat
 | [Shared focus refinement](docs/experiments/FOCUS_REFINEMENT.md) | Consistent thin focus rings across demo controls, keyboard scroll regions and both themes |
 | [Hover and press refinement](docs/experiments/HOVER_REFINEMENT.md) | Role-specific button/link feedback, preserved selection cues, touch and reduced-motion checks |
 | [Linked UI refinement](docs/experiments/LINKED_UI_REFINEMENT.md) | Before/after control, spacing, card and mobile review for the linked demo |
+| [Month preview follow-up](docs/experiments/NG20_MONTH_PREVIEWS.md) | Opt-in hover/focus context, mobile tap safeguard and current verification |
 | [Linked charts guide](docs/LINKED_CHARTS.md) | Application-owned month/range selection, keyboard actions, resets, updates and a complete compiled example |
 | [Graphical range selection](docs/experiments/GRAPHICAL_RANGE_SELECTION.md) | Snapped pointer selection, native equivalence, cancellation, touch/focus review and rc.4 evidence |
 | [Native month ranges](docs/experiments/NG20_MONTH_RANGE.md) | Inclusive range contract, multi-row feedback, visual review and rc.3 verification |
@@ -127,7 +128,9 @@ The site includes [Get Started](http://localhost:4310/get-started), [Installatio
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
 | `npm run check` | Run formatting, builds, compilation, unit, declaration/runtime consumers, SSR, browser, and size checks |
 
-The latest completed full workspace check records **257 unit tests and 353 passing browser scenarios, with four expected skips**, plus strict installed declarations, documented installation, SSR, six client/SSR modes and twelve package-budget scenarios. The [presentation receipt](docs/experiments/data/premium-visual-refinement.json) binds that run to its source snapshot and 138 reviewed visual states. The later [WebKit font-readiness fix](docs/experiments/DEMO_PERFORMANCE_FIXES.md#webkit-embedded-font-readiness-follow-up) separately passes 30 targeted concept/performance scenarios in all three engines; it is not presented as a new complete-suite count. The [deployment record](docs/GITHUB_PAGES.md#rc11-sankey-presentation-and-webkit-deployment) identifies the verified public source, 34 static routes and 16 route budgets. CI uses all three engines. ESLint and a numeric coverage threshold are not configured.
+The [preview-only checkpoint](docs/experiments/NG20_MONTH_PREVIEWS.md) records **260 fresh unit tests, 46 final targeted browser passes and six exact rc.15 installed client/SSR modes**. A separate full browser baseline passed 362 cases before the final focus corrections; its scope is preserved in that report. Human release acceptance remains pending.
+
+The earlier completed full workspace check records **257 unit tests and 353 passing browser scenarios, with four expected skips**, plus strict installed declarations, documented installation, SSR, six client/SSR modes and twelve package-budget scenarios. The [presentation receipt](docs/experiments/data/premium-visual-refinement.json) binds that run to its source snapshot and 138 reviewed visual states. The later [WebKit font-readiness fix](docs/experiments/DEMO_PERFORMANCE_FIXES.md#webkit-embedded-font-readiness-follow-up) separately passes 30 targeted concept/performance scenarios in all three engines; it is not presented as a new complete-suite count. The [deployment record](docs/GITHUB_PAGES.md#rc11-sankey-presentation-and-webkit-deployment) identifies the verified public source, 34 static routes and 16 route budgets. CI uses all three engines. ESLint and a numeric coverage threshold are not configured.
 
 The [visual review](docs/experiments/R03_VISUAL_REVIEW.md) records 80 current captures and accepted bar differences. R01–R05, [R07 renderer/cost](docs/experiments/R07_RENDERER_COST.md), and [R08 packed consumption](docs/experiments/R08_PACKED_RUNTIME.md) pass for bar. Canvas meets the normal 200×3 benchmark target and the measured size budget. G1 passes; G2 requires the [R06 listening result](docs/experiments/R06_MANUAL_REVIEW.md). The user has deferred that human review to release acceptance; it no longer blocks development. Automated cross-family evidence is reconciled in [NG14](docs/experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md); human interpretation and final release evidence remain pending.
 
@@ -153,7 +156,7 @@ Package entries below follow `@ng-echarts/chart-library`. All chart entries are 
 
 Cartesian charts take `series: readonly ChartSeries<T>[]`; pie/donut takes one `measure: ChartMeasure<T>`. Cartesian legend events identify a `seriesId`; pie legend events identify a `rowId`. Both point events retain the original row and numeric value. See the guides for zero/missing/negative rules and optional keyboard table actions.
 
-Focused families keep the 200,000 gzip / 175,000 Brotli byte cap; `/core` keeps 10,000/9,000. The combined compatibility root uses 218,000/186,000; its frame-only emitted-orphan scenario keeps 201,500/175,000. [Current measured boundaries](docs/experiments/data/package-boundaries.json) include all lazy chunks; prefer focused imports.
+Focused families keep the 200,000 gzip / 175,000 Brotli byte cap; `/core` keeps 10,000/9,000. The combined compatibility root uses 219,500/187,500; its frame-only emitted-orphan scenario keeps 203,000/175,000. [Current measured boundaries](docs/experiments/data/package-boundaries.json) include all lazy chunks; prefer focused imports.
 
 ## Bar feasibility baseline
 
@@ -194,3 +197,6 @@ Experimental Sankey flows: [API](docs/SANKEY_CHART_API.md), [NG19 record](docs/e
 Private rc.11 introduced Sankey and independent lazy engine loading with the completed [chart presentation refinement](docs/experiments/PREMIUM_CHART_REFINEMENT.md). Earlier candidates remain preserved; [release evidence](docs/RELEASE_CHECKLIST.md) keeps human release gates separate.
 
 Private rc.12 corrects the packaged documentation and preserves the rc.11 implementation and archive. [The release checklist](docs/RELEASE_CHECKLIST.md) records exact-artifact verification; library publication and human release gates remain pending.
+
+
+The [combined preview/performance checkpoint](docs/experiments/COMBINED_PREVIEW_PERFORMANCE.md) records the current **266 unit tests, 380 browser passes (four expected skips), all twelve package budgets and six exact rc.16 installed client/SSR modes**. It retains the earlier experiment/candidate scopes and pending human release gates.

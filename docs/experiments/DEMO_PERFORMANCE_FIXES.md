@@ -59,3 +59,39 @@ The rc.11 public deployment exposed a WebKit-only stall in the embedded concept 
 The static verifier waits for the concept document's DOM and then asserts real card/plot readiness rather than waiting on every iframe's window-load state. The generated embedded/offline editions and wrapper revision stay tied to the source hash; engine and notice bytes are preserved. This is demo-only work and does not replace or repack the verified rc.11 library artifact.
 
 Thirty targeted concept/performance scenarios pass across Chromium, Firefox and WebKit, including a deterministic regression that leaves only the embedded document's `document.fonts.ready` promise unresolved while the native font loader operates. It requires all fourteen plotted examples, filtering and parent ready-state recovery. Existing tests retain progressive rendering, cached-wrapper behavior, late hydration, theme/size synchronization and offline consumption. The clean-commit deployment workflow repeats sealed static checks and unchanged route performance guards; public integrity and browser checks verify the published source separately.
+
+## Navigation and animation follow-up
+
+The user reported delays when changing demo pages and entrance animations that snapped into place. A normal-motion trace of the deployed `aa394e5` demo identified an unchanged-size resize shortly after Pie initialization that ended its active animation. The shared controller resized unconditionally on both option updates and observer frames. Calendar/Radar additionally rebuilt the previous options in their resize adapters before applying the new snapshot.
+
+The controller now records the dimensions used at initialization, ignores unchanged-size observer deliveries, and applies same-size option changes without resizing. A real resize receives pending-update context so Calendar/Radar skip the stale intermediate options when a new snapshot follows. Pure resizes still rebuild their responsive layouts without animation. Dimensions are cleared on disposal and remeasured after asynchronous loading. A pending import is shared across observer/input frames; an early return can no longer clear another render's loading flag. Public chart inputs/outputs, reduced-motion handling, focus and preview/range semantics remain intact.
+
+The gallery previously placed Bar, Line, Area and Composed in one deferred block, so the first bar example waited for all four component imports. Family selection now happens outside four independent deferred blocks. The shared placeholder, viewport/print triggers and server-rendered chart metadata remain. Build-derived preload graphs also include the selected family component and destination route's static dependencies, excluding dynamic imports. Sidebar hover/focus warms that destination once; navigation-start warming remains available. The sidebar owns the intent listeners and removes them on teardown.
+
+`tests/browser/demo-navigation.spec.ts` checks fresh-family request independence, pointer/keyboard intent warming, and actual Pie canvas progression through repeated unchanged-size observer callbacks. The animation scenario fails against an isolated starting production build (two distinct frames) and passes with the correction. Controller and renderer unit checks cover update/resize coalescing, responsive Calendar/Radar rebuilding, late dimensions, disposal/recovery and repeated observer frames while an import is pending.
+
+`check:demo-performance` retains the original cold-mobile readiness and payload guards and adds desktop router journeys with normal motion: 1440×900 CSS pixels, DPR 1, 4× CPU slowdown, 150 ms latency and 200,000 bytes/s download. Three fresh contexts measure first visits to Line, Pie, Calendar and Sankey followed by revisits to Bar, Line, Pie and Calendar. A new canvas plus two animation frames defines readiness; animation completion is separately tested by the canvas-progression regression. Median limits are 1.5 seconds for the first navigation and 750 ms for revisits. These are controlled regression guards, not field Web Vitals or a promise about every user's network.
+
+The corrections are unreleased source work. Existing private candidate archives, including rc.15 SHA-256 `c0f85b98b1c61223a16f5287c2125c63305d6e69cde3a784c7083aa9dfd4d91f`, remain unchanged. No package publication, demo deployment or human release-gate closure is implied.
+
+### Matched measurements and validation
+
+The [measurement record](data/demo-navigation-performance.json) compares an isolated pre-fix source snapshot (HEAD plus the starting tracked working-tree patch, retaining the existing month-preview work) with the corrected production build. Both SSR outputs use the same gzip proxy and normal-motion desktop conditions above. Before/after runs alternate, with three fresh samples per build. These results are separate from the earlier public-site audit and the historical mobile tables above.
+
+| Scenario | Before median | After median |
+| --- | ---: | ---: |
+| Cold bar chart readiness | 3,282 ms | 2,715 ms |
+| First Line navigation | 310 ms | 332 ms |
+| First Pie navigation | 477 ms | 329 ms |
+| First Calendar navigation | 391 ms | 390 ms |
+| First Sankey navigation | 362 ms | 346 ms |
+| Bar revisit | 113 ms | 115 ms |
+| Line revisit | 111 ms | 110 ms |
+| Pie revisit | 93 ms | 94 ms |
+| Calendar revisit | 94 ms | 111 ms |
+
+Cold bar readiness improves 17.3%; Pie first navigation improves 31.1%. The bar page falls from 433,713 to 424,275 compressed response-body bytes and from 33 to 27 requests. Line first navigation is 22 ms slower in this sequence: the old bar page had already fetched its component, whereas the corrected bar page keeps that component deferred until Line is chosen. Calendar and revisit timings are broadly unchanged; no across-the-board speedup is claimed.
+
+Settled bar/Pie comparison captures preserve geometry and chart pixels at 390 and 1440 px. Desktop captures are byte-identical; each mobile pair differs only in five card-border pixels by one color-channel level. Inspect the [bar before](captures/demo-navigation/before-bar-390.png)/[after](captures/demo-navigation/after-bar-390.png) and [Pie before](captures/demo-navigation/before-pie-390.png)/[after](captures/demo-navigation/after-pie-390.png); the JSON record contains all four pairs, image hashes and pixel comparisons. All pairs were visually checked.
+
+Validation passes in stages: production library/playground builds, strict compilation, 266 unit tests, 380 three-browser scenarios with four existing skips (three workers), five demo-asset tests, 20 Pages provenance tests, strict packed declarations, a fresh documentation consumer, SSR, independently installed client/SSR consumers in all three engines, and all 12 package-budget scenarios. The exact animation regression fails against the isolated baseline and passes in Chromium, Firefox and WebKit. Static Pages/subpath and normal-motion navigation gate results are recorded separately in ignored build receipts; no publication is performed by this follow-up.

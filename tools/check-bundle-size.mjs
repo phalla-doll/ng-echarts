@@ -232,12 +232,12 @@ for (const scenario of scenarios) {
   );
   // The compatibility root retains its existing families; radar is a focused opt-in entry.
   // Independent lazy chart entries trade aggregate compression for route isolation.
-  // Shared visual refinements: root 218/186 kB; focused/core limits stay unchanged.
+  // rc.13 transient preview contract: measured aggregate allowance; focused/core limits stay unchanged.
   const budget =
     scenario.name === 'root'
-      ? { gzip: 218_000, brotli: 186_000 }
+      ? { gzip: 219_500, brotli: 187_500 }
       : scenario.name === 'root-frame'
-        ? { gzip: 201_500, brotli: 175_000 }
+        ? { gzip: 203_000, brotli: 175_000 }
         : scenario.engine
           ? { gzip: 200_000, brotli: 175_000 }
           : { gzip: 10_000, brotli: 9_000 };

@@ -1,6 +1,6 @@
 # Linked charts
 
-NG20 links a monthly visits overview to device share for one month or an inclusive range. Selection belongs to the application: `pointSelect` supplies a stable row ID, native period fields or a graphical drag edit the bounds, and signals derive the companion chart's data. The bar chart's controlled `selectedRowIds` input reflects every included month. No ECharts instance connection or global selection bus is required. The complete graphical example requires private rc.4 or later; native ranges require rc.3; the scalar `selectedRowId` input remains supported from rc.2.
+NG20 links a monthly visits overview to device share for one month or an inclusive range, with optional transient month previews in private rc.15. Selection belongs to the application: `pointSelect` supplies a stable row ID, native period fields or a graphical drag edit the bounds, and signals derive the companion chart's data. The bar chart's controlled `selectedRowIds` input reflects every included month. No ECharts instance connection or global selection bus is required. The complete graphical example requires private rc.4 or later; native ranges require rc.3; the scalar `selectedRowId` input remains supported from rc.2.
 
 ## Complete standalone example
 
@@ -22,6 +22,7 @@ import {
   BarChart,
   type ChartSeries,
   type BarRangeSelection,
+  type PointPreview,
 } from "@ng-echarts/chart-library/bar";
 import { PieChart, type ChartMeasure } from "@ng-echarts/chart-library/pie";
 interface Month {
@@ -157,7 +158,11 @@ export function changePeriodBound(
         </label>
       </fieldset>
     }
+    <label><input #previewToggle type="checkbox" [checked]="previewMonths()"
+      (change)="previewMonths.set(previewToggle.checked)" />Preview months</label>
     <p role="status">Device share for {{ context() }}</p>
+    @if (previewRow(); as row) { <p>Preview · {{ row.month }}. Activate to select.</p> }
+    <p role="status">{{ preview()?.trigger === 'focus' ? detailContext() : '' }}</p>
     <nec-bar-chart
       title="Monthly visits"
       description="Choose a month from a bar, table value or period field."
@@ -167,11 +172,13 @@ export function changePeriodBound(
       [series]="series"
       [selectedRowIds]="selectedIds()"
       [rangeSelection]="rangeMode()"
+      [previewEnabled]="previewMonths()"
+      (pointPreview)="preview.set($event)"
       (rangeSelect)="selectRange($event)"
       (pointSelect)="selectMonth($event.rowId)"
     />
     <nec-pie-chart
-      [title]="'Device share · ' + context()"
+      [title]="'Device share · ' + detailContext()"
       [data]="share()"
       rowIdKey="id"
       categoryKey="device"
@@ -188,6 +195,25 @@ export class App {
   readonly rangeMode = linkedSignal({
     source: this.rows,
     computation: () => false,
+  });
+  readonly previewMonths = signal(false);
+  readonly preview = linkedSignal({
+    source: () => [this.rows(), this.selection(), this.rangeMode(), this.previewMonths()],
+    computation: (): PointPreview<Month> | null => null,
+  });
+  readonly previewRow = computed(() => {
+    const point = this.preview();
+    return this.previewMonths() && !this.rangeMode()
+      ? this.rows().find(row => row.id === point?.rowId && row === point.row) ?? null
+      : null;
+  });
+  readonly detailScope = computed(() => {
+    const row = this.previewRow();
+    return row ? [row] : this.scope();
+  });
+  readonly detailContext = computed(() => {
+    const row = this.previewRow();
+    return row ? `Preview: ${row.month}` : this.context();
   });
   readonly canSelectRange = computed(() =>
     this.rows().some((row) => row.desktop !== null || row.mobile !== null),
@@ -222,7 +248,7 @@ export class App {
   });
   readonly share = computed<readonly Device[]>(() =>
     (["desktop", "mobile"] as const).map((key) => {
-      const values = this.scope().flatMap((row) =>
+      const values = this.detailScope().flatMap((row) =>
         row[key] === null ? [] : [row[key]],
       );
       return {
@@ -272,6 +298,7 @@ export class App {
   }
   cancelRange(): void {
     this.rangeMode.set(false);
+    this.preview.set(null);
   }
   selectRange(event: BarRangeSelection<Month>): void {
     if (!this.rangeMode()) return;
@@ -340,8 +367,17 @@ The [live example](https://phalla-doll.github.io/ng-echarts/linked/) uses the ex
 
 ## Scope and evidence
 
-This is a one-way, application-owned context link with inclusive native range controls and controlled bar feedback. The opt-in bar drag selects one contiguous category range. Shared legends, linked zoom, cross-chart hover, disjoint/bidirectional selection and an ECharts connection API remain later work. The graphical input/output advance the private candidate to rc.4; earlier candidate artifacts and notices remain preserved. Human F09/R06/G2/G3/G4 retain their deferred status.
+This is a one-way, application-owned context link with inclusive native range controls and controlled bar feedback. The opt-in bar drag selects one contiguous category range. Shared legends, linked zoom, bidirectional hover and disjoint/bidirectional selection and an ECharts connection API remain later work. The graphical input/output advance the private candidate to rc.4; earlier candidate artifacts and notices remain preserved. Human F09/R06/G2/G3/G4 retain their deferred status.
 
 The [initial NG20 report](experiments/NG20_LINKED_CHARTS.md), [scalar-feedback review](experiments/LINKED_SELECTION_FEEDBACK.md) and [month-range report](experiments/NG20_MONTH_RANGE.md) and [graphical-range review](experiments/GRAPHICAL_RANGE_SELECTION.md) record their respective evidence. The [UI refinement](experiments/LINKED_UI_REFINEMENT.md), [focus](experiments/FOCUS_REFINEMENT.md) and [hover](experiments/HOVER_REFINEMENT.md) reviews cover the shared presentation. Range fields use the existing quiet gallery tokens, native dropdowns and thin focus treatment; From/To sit together beneath Period and remain usable at 320 px.
 
 The demo places overview and detail alongside one another when their container is at least 740 px wide and stacks them below that width. The detail donut opts into `showTotal`, displaying the visible device total; its legend shows raw values and shares. Filtering remains application-owned and the two legends remain independent.
+
+
+## Transient month previews (rc.15)
+
+Enable **Preview months** to inspect the companion chart without changing the committed Period, From/To bounds, overview selection bands or total. Pointer hover over a numeric bar and focus on a native numeric table action emit the same original row/value through `pointPreview`. A missing cell has no action; recorded zero remains previewable from the table. Preview titles explicitly say “Preview”. Only keyboard-focus previews use a live announcement; pointer movement does not repeatedly announce context.
+
+Pointer exit restores a focused table preview if one exists, otherwise the committed context. Blur, Escape, input replacement, visibility/state changes, range mode and disabling preview clear transient context. Click or Enter/Space commits through the existing `pointSelect`; preview never emits that event. Graphical range selection takes precedence. Touch compatibility hover is ignored; taps retain normal selection and scrolling. Legends remain independent, and the two chart instances are retained. There is no ECharts connection, global bus, shared zoom or two-way selection.
+
+The [follow-up record](experiments/NG20_MONTH_PREVIEWS.md) separates local verification, the mobile tap safeguard and the still-pending human/public-release decisions.

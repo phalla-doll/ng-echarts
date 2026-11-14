@@ -1,13 +1,13 @@
 # Angular chart library
 
-Experimental standalone Angular 22 components using Apache ECharts. The local identity `@ng-echarts/chart-library` is private and has not been published. Local candidate: `0.1.0-rc.12`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. Public naming and human release acceptance remain open.
+Experimental standalone Angular 22 components using Apache ECharts. The local identity `@ng-echarts/chart-library` is private and has not been published. Local candidate: `0.1.0-rc.16`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. Public naming and human release acceptance remain open.
 
 ## Installation
 
 In the source checkout, use Node 24.22.2 and npm 11.19.1, then run `npm ci` and `npm run pack:lib`. Install the resulting file into a separate Angular application:
 
 ```sh
-npm install /absolute/path/to/ng-echarts-chart-library-0.1.0-rc.12.tgz echarts@6.1.0
+npm install /absolute/path/to/ng-echarts-chart-library-0.1.0-rc.16.tgz echarts@6.1.0
 ```
 
 Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes.
@@ -95,7 +95,7 @@ Tested: Angular/CLI 22.2.6, TypeScript 6.0.3, ECharts 6.1.0, RxJS 7.8.2, Node 24
 
 The starting measured envelope is 200 categories × three Cartesian series or 12 pie/donut categories on the recorded M2 Pro machine. Stress fixtures use 2,000 Cartesian or 100 pie/donut categories; these are observations, not hard limits or portable latency guarantees. Outside labels may shorten/hide collisions; expanded tables have separate costs.
 
-Focused imports keep unrelated engines out. Line and area intentionally share ECharts' Line engine. Root imports preserve class identity but include combined registrations. Deep paths and core `ɵ` exports are unsupported implementation APIs. Size checks count all lazy chunks, excluding Angular/RxJS peers: gzip/Brotli caps are 200,000/175,000 bytes per family, 10,000/9,000 for core, 218,000/186,000 for root, and 201,500/175,000 for root-frame emitted orphan chunks (zero reachable engine modules).
+Focused imports keep unrelated engines out. Line and area intentionally share ECharts' Line engine. Root imports preserve class identity but include combined registrations. Deep paths and core `ɵ` exports are unsupported implementation APIs. Size checks count all lazy chunks, excluding Angular/RxJS peers: gzip/Brotli caps are 200,000/175,000 bytes per family, 10,000/9,000 for core, 219,500/187,500 for root, and 203,000/175,000 for root-frame emitted orphan chunks (zero reachable engine modules).
 
 Raw ECharts options, custom tooltip templates, time/logarithmic axes, server plot images/export, brushes, advanced decoration and additional chart families are outside the MVP. APIs remain experimental. Automated acceptance passes; human interpretation and final artifact/release gates remain pending.
 
@@ -139,4 +139,4 @@ Experimental Sankey flows: `SankeyChart`, `SankeyNode`, `SankeyLink` and `Sankey
 
 Charts reserve plot space during loading, empty and error states and retain unavailable controls as inert layout space. Pie legends include raw values and locale-formatted visible shares; opt into `[showTotal]="true"` for a center total when `innerRadius >= 0.4`. Calendar and Sankey accept `valueLabel` (default `Value`) to name the measure in tooltips. These features ship in private rc.11 and the docs-only rc.12 successor. Earlier archives retain their original bytes; no public registry release is implied.
 
-The compatibility root reexports bar, line, area, pie/donut and composed components plus `ChartFrame` and applicable types. Radar, radial progress, calendar and Sankey require their focused entries. Original API documentation is at [the repository docs index](https://github.com/phalla-doll/ng-echarts#documents). rc.12 corrects this README; its runtime/declarations are unchanged from rc.11.
+The compatibility root reexports bar, line, area, pie/donut and composed components plus `ChartFrame` and applicable types. Radar, radial progress, calendar and Sankey require their focused entries. Original API documentation is at [the repository docs index](https://github.com/phalla-doll/ng-echarts#documents). Private rc.15 includes opt-in bar `previewEnabled` / `pointPreview` for transient pointer/table-focus context, settled-input reconciliation and Escape cancellation. Earlier archives, including rc.13/rc.14 and the documentation-only rc.12, retain their original bytes and scoped evidence.

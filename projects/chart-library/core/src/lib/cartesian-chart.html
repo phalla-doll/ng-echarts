@@ -99,6 +99,8 @@
                         <button
                           type="button"
                           [attr.aria-label]="cell.actionLabel"
+                          [attr.data-preview-row]="row.id"
+                          [attr.data-preview-series]="cell.seriesId"
                           (click)="selectPoint(cell, 'table')"
                         >
                           {{ cell.text }}

@@ -20,7 +20,7 @@ The [NG13 pie/donut report](experiments/NG13_PIE_CHART.md) adds automated F01–
 
 ## Implemented family evidence
 
-This index records automated implementation acceptance, not completed human NG14/G3 acceptance. The latest regression has 257 unit/integration tests, 353 passing browser scenarios (plus four expected skips), and six installed-package client/SSR modes. [Package evidence](experiments/data/package-boundaries.json) covers twelve import scenarios.
+This index records automated implementation acceptance, not completed human NG14/G3 acceptance. The current [combined checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) has 266 unit/integration tests, 380 browser passes (four expected skips), and six exact rc.16 installed client/SSR modes. Earlier NG20 and presentation receipts retain their distinct historical scopes. [Package evidence](experiments/data/package-boundaries.json) covers twelve import scenarios.
 
 | Family | Contract and automated behavior | Visual/performance evidence |
 | --- | --- | --- |
@@ -111,3 +111,8 @@ The next NG19 increment adds a focused experimental `/sankey` entry and visitor-
 Combined rc.11 source: the [presentation receipt](experiments/data/premium-visual-refinement.json) records the completed 257-unit/353-browser regression and 138 visual states. Exact candidate and final sealed preview evidence are reconciled in the [Sankey report](experiments/NG19_SANKEY_CHART.md); human release gates remain pending.
 
 Current delivery checkpoint: [Sankey/presentation/WebKit demo deployment](GITHUB_PAGES.md#rc11-sankey-presentation-and-webkit-deployment) is verified publicly in all three engines. Private rc.12 corrects documentation only, preserving rc.11 runtime/declarations and all earlier archives. Its [candidate checklist](RELEASE_CHECKLIST.md) keeps human F09/R06/G2/G3/G4 and public package publication pending. The 353-browser full regression and later 30-scenario WebKit check are distinct recorded scopes.
+
+
+## NG20 transient month previews
+
+The user-authorized [month-preview follow-up](experiments/NG20_MONTH_PREVIEWS.md) adds opt-in bar pointer/table-focus previews and one-way temporary device-share context introduced in rc.13 and corrected in the current private rc.15. Committed period/range feedback, totals and local legends stay independent; keyboard actions can commit through the existing point event. The browser adapter owns delegated listeners, touch guards and cleanup. Shared zoom, bidirectional linking and public publication remain open. The mobile range button uses an explicit tap policy; the report distinguishes local evidence from the still-required pushed CI result. Human F09/R06/G2/G3/G4 remain pending, with calendar/Sankey checklists now included.

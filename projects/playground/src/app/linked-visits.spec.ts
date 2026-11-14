@@ -1,6 +1,58 @@
 import { PLATFORM_ID } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { BarChart } from '@ng-echarts/chart-library/bar';
+import { PieChart } from '@ng-echarts/chart-library/pie';
 import { deviceShare, LinkedVisits, type VisitMonth } from './linked-visits';
+
+it('reports a detail action against preview values while preserving the committed filter and total', async () => {
+  TestBed.configureTestingModule({ providers: [{ provide: PLATFORM_ID, useValue: 'server' }] });
+  const fixture = TestBed.createComponent(LinkedVisits);
+  const rows: readonly VisitMonth[] = [
+    { id: 'jan', month: 'January', desktop: 120, mobile: 80 },
+    { id: 'feb', month: 'February', desktop: 200, mobile: 0 },
+  ];
+  fixture.componentRef.setInput('data', rows);
+  await fixture.whenStable();
+  const host = fixture.nativeElement as HTMLElement;
+  const checkbox = host.querySelector<HTMLInputElement>('.preview-toggle input')!;
+  checkbox.checked = true;
+  checkbox.dispatchEvent(new Event('change'));
+  await fixture.whenStable();
+  const bar = fixture.debugElement.query(By.directive(BarChart))
+    .componentInstance as BarChart<VisitMonth>;
+  bar.pointPreview.emit({
+    rowId: 'feb',
+    row: rows[1]!,
+    seriesId: 'mobile',
+    value: 0,
+    source: 'table',
+    trigger: 'focus',
+  });
+  await fixture.whenStable();
+  const pie = fixture.debugElement.query(By.directive(PieChart)).componentInstance as PieChart<{
+    id: string;
+    device: string;
+    visits: number | null;
+  }>;
+  pie.pointSelect.emit({
+    rowId: 'desktop',
+    row: pie.data()[0]!,
+    seriesId: 'visits',
+    value: 200,
+    source: 'plot',
+  });
+  await fixture.whenStable();
+  expect(host.querySelector('.preview-context')?.textContent).toBe(
+    'Preview · February: Desktop, 200 visits.',
+  );
+  expect(host.querySelector('.linked-status')?.textContent).toContain('All months: 400 visits');
+  expect(host.querySelector('select')!.value).toBe('');
+  bar.pointPreview.emit(null);
+  await fixture.whenStable();
+  expect(host.querySelector('.preview-context')?.textContent).not.toContain('Preview ·');
+  expect(host.querySelector('.linked-status')?.textContent).toContain('All months: 400 visits');
+});
 
 it('keeps missing device observations distinct from numeric zero and sums only available observations', () => {
   expect(deviceShare([]).map((row) => row.visits)).toEqual([null, null]);

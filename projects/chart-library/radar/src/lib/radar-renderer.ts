@@ -35,9 +35,9 @@ export const createRadarRenderer: ɵPlotRendererFactory<RadarOption> = (host, on
       current = options;
       apply();
     },
-    resize: () => {
+    resize: (context) => {
       chart.resize();
-      apply(true);
+      if (!context?.optionsPending) apply(true);
     },
     dispose: () => {
       current = null;

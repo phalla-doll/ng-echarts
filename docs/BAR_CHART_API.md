@@ -60,6 +60,7 @@ Bind booleans and numbers as Angular properties, for example `[stacked]="true"` 
 | `gradient` | `boolean`, `false` | Theme-colored linear fade along the value axis |
 | `selectedRowId` | `string \| null`, `null` | Controlled row feedback (rc.2+): retain this category's bar colors, fade others, draw a category band and mark the expanded table row as current. Unknown/empty IDs render normally. |
 | `selectedRowIds` | `readonly string[] \| null`, `null` | Controlled multiple-row feedback (rc.3+). A non-null array overrides `selectedRowId`; empty clears. Known IDs are deduplicated; unknown/empty IDs are ignored. All selected table rows have visible labels, with `aria-current` only for one effective row. |
+| `previewEnabled` | `boolean`, `false` | Opt-in transient plot hover / native table focus previews (rc.15+); disabled while range selection is armed. |
 | `rangeSelection` | `boolean`, `false` | Opt-in pointer range mode (rc.4+), only active for a ready plot. Pair it with native keyboard range fields. |
 | `theme` | `'light' \| 'dark'`, `'light'` | Explicit palette defaults; no automatic system preference |
 | `themeRevision` | Finite `number`, `0` | Change to reread inherited font and CSS colors |
@@ -81,6 +82,7 @@ Replace row, series, and options references to update them. Visibility survives 
 | Output | Payload |
 | --- | --- |
 | `pointSelect` | `PointSelection<T>`: `rowId`, `seriesId`, original `row`, raw numeric `value`, and `source: 'plot' \| 'table'` |
+| `pointPreview` | `PointPreview<T> \| null`: the point-selection fields plus `trigger: 'pointer' \| 'focus'`; null restores committed context. Preview never selects. |
 | `rangeSelect` | `BarRangeSelection<T>`: inclusive `fromRowId`, `toRowId`, ordered `rowIds`, original `rows`, and `source: 'plot'` (rc.4+) |
 | `legendChange` | `LegendVisibilityChange`: `seriesId`, `visible` |
 
@@ -89,6 +91,8 @@ Use `(pointSelect)="select($event)"` with a named handler. Plot selection ignore
 To reflect an application selection, bind `[selectedRowId]="selectedId()"` and set that signal from `pointSelect` or another native control. The chart never mutates this input or emits a point event for an input change. Reset it to `null` for the full overview. IDs refer to supplied rows, including rows with zero/missing observations; duplicate category labels do not affect identity. Unknown IDs produce no highlight. The application decides whether a removed ID should be cleared or highlighted again if reintroduced; the [linked example](LINKED_CHARTS.md) clears removed IDs permanently. Legends and raw tooltip/table values remain independent of feedback, including with horizontal, stacked or gradient bars. Feedback appears only in the ready state; entirely missing/empty data retains the normal empty state, and loading/errors hide the plot and table.
 
 Gallery examples set `[showDataTable]="false"` at the user's request; datasets remain in Code. Applications needing keyboard point actions should retain the table or provide an equivalent interface. Disabling and reenabling the input preserves the previous expansion preference.
+
+With `[previewEnabled]="true"`, hover a visible numeric bar or focus/hover a native numeric table action to preview its original row/value. Focus supplies keyboard equivalence, including zero and hidden-series table values; missing values remain noninteractive. Pointer exit falls back to any focused table action, otherwise emits null. Input/state/visibility and table disclosure changes clear previews. Actual plot resizing clears pointer context; a still-focused table action retains keyboard context. Touch compatibility hover is ignored, and range selection takes precedence. Applications own transient display, Escape handling and committed selection; see [the linked example](LINKED_CHARTS.md#transient-month-previews-rc15).
 
 ## Formatting, themes, and lifecycle
 

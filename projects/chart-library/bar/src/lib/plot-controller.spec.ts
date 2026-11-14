@@ -8,6 +8,7 @@ import type { BarRenderOptions } from './bar-render-options';
 
 function harness() {
   let width = 768;
+  let height = 320;
   let resize = (): void => {};
   const frames = new Map<number, () => void>();
   let nextFrame = 0;
@@ -33,7 +34,9 @@ function harness() {
     get clientWidth() {
       return width;
     },
-    clientHeight: 320,
+    get clientHeight() {
+      return height;
+    },
   } as HTMLElement;
   const onError = vi.fn();
   const controller = new PlotController(host, environment, vi.fn(), onError);
@@ -46,6 +49,9 @@ function harness() {
     disconnected,
     setWidth: (value: number) => {
       width = value;
+    },
+    setHeight: (value: number) => {
+      height = value;
     },
     resize: () => resize(),
     flush: async () => {
@@ -68,10 +74,59 @@ describe('plot lifecycle coordination', () => {
     await h.flush();
     expect(h.factory).toHaveBeenCalledTimes(1);
     expect(h.renderer.update).toHaveBeenCalledExactlyOnceWith(latest);
+    expect(h.renderer.resize).not.toHaveBeenCalled();
+    // Initial/repeated ResizeObserver deliveries must not interrupt entrance animation.
+    h.resize();
+    await h.flush();
+    expect(h.renderer.resize).not.toHaveBeenCalled();
+    h.setWidth(640);
+    h.resize();
     h.resize();
     await h.flush();
     expect(h.renderer.update).toHaveBeenCalledTimes(1);
-    expect(h.renderer.resize).toHaveBeenCalledTimes(2);
+    expect(h.renderer.resize).toHaveBeenCalledExactlyOnceWith({ optionsPending: false });
+    h.controller.destroy();
+  });
+
+  it('updates same-size options once and coalesces real resizing with the latest options', async () => {
+    const h = harness();
+    h.controller.update({ chart: {}, range: null });
+    await h.flush();
+    const latest = { chart: { animation: true }, range: null };
+    h.controller.update(latest);
+    await h.flush();
+    expect(h.renderer.resize).not.toHaveBeenCalled();
+    h.setHeight(400);
+    h.resize();
+    h.controller.update(latest);
+    await h.flush();
+    expect(h.renderer.resize).toHaveBeenCalledExactlyOnceWith({ optionsPending: true });
+    expect(h.renderer.update).toHaveBeenCalledTimes(3);
+    expect(h.renderer.update).toHaveBeenLastCalledWith(latest);
+    const resizeOrder = vi.mocked(h.renderer.resize).mock.invocationCallOrder[0]!;
+    expect(resizeOrder).toBeLessThan(vi.mocked(h.renderer.update).mock.invocationCallOrder[2]!);
+    h.controller.destroy();
+  });
+
+  it('measures after loading and forgets dimensions when a renderer is replaced', async () => {
+    const h = harness();
+    let complete!: (factory: BarRendererFactory) => void;
+    h.environment.load = () => new Promise((resolve) => (complete = resolve));
+    h.controller.update({ chart: {}, range: null });
+    await h.flush();
+    h.setWidth(390);
+    complete(h.factory);
+    await Promise.resolve();
+    h.resize();
+    await h.flush();
+    expect(h.renderer.resize).not.toHaveBeenCalled();
+    h.controller.update(null);
+    h.environment.load = async () => h.factory;
+    h.setHeight(240);
+    h.controller.update({ chart: {}, range: null });
+    await h.flush();
+    expect(h.factory).toHaveBeenCalledTimes(2);
+    expect(h.renderer.resize).not.toHaveBeenCalled();
     h.controller.destroy();
   });
 
@@ -123,6 +178,32 @@ describe('plot lifecycle coordination', () => {
     complete(h.factory);
     await Promise.resolve();
     expect(h.renderer.update).toHaveBeenCalledExactlyOnceWith(latest);
+    h.controller.destroy();
+  });
+
+  it('keeps one pending import across repeated observer frames and input changes', async () => {
+    const h = harness();
+    let complete!: (factory: BarRendererFactory) => void;
+    h.environment.load = vi.fn(
+      () => new Promise<BarRendererFactory>((resolve) => (complete = resolve)),
+    );
+    h.controller.update({ chart: {}, range: null });
+    await h.flush();
+    for (let index = 0; index < 3; index++) {
+      h.resize();
+      h.controller.update({ chart: { animation: true }, range: null });
+      await h.flush();
+    }
+    expect(h.environment.load).toHaveBeenCalledTimes(1);
+    h.setWidth(390);
+    complete(h.factory);
+    await Promise.resolve();
+    expect(h.factory).toHaveBeenCalledTimes(1);
+    expect(h.renderer.update).toHaveBeenCalledExactlyOnceWith({
+      chart: { animation: true },
+      range: null,
+    });
+    expect(h.renderer.resize).not.toHaveBeenCalled();
     h.controller.destroy();
   });
 

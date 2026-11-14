@@ -19,6 +19,46 @@ export const rendererRoutes = {
   formatting: ['bar'],
 };
 
+const routeComponents = {
+  '': 'gallery',
+  line: 'gallery',
+  area: 'gallery',
+  pie: 'gallery',
+  composed: 'gallery',
+  radar: 'radar-blocks',
+  radial: 'radial-blocks',
+  calendar: 'calendar-blocks',
+  sankey: 'sankey-blocks',
+  linked: 'linked-charts',
+  playground: 'app',
+  formatting: 'formatting',
+};
+
+const familyCharts = {
+  bar: ['bar'],
+  line: ['line'],
+  area: ['line'],
+  composed: ['bar', 'line'],
+  pie: ['pie'],
+  radar: ['radar'],
+  radial: ['pie'],
+  calendar: ['heatmap'],
+  sankey: ['sankey'],
+};
+
+function assertFocusedGraph(outputs, files, allowedCharts, label) {
+  for (const name of files) {
+    for (const [input, contribution] of Object.entries(outputs[name].inputs ?? {})) {
+      if (contribution.bytesInOutput <= 0) continue;
+      const chart = input.match(/echarts\/lib\/chart\/([^/.]+)(?:\/|\.js$)/)?.[1];
+      assert(
+        !chart || ['helper', 'custom', ...allowedCharts].includes(chart),
+        `${label} preloads unrelated ${chart} chart code`,
+      );
+    }
+  }
+}
+
 export function rendererPreloads(outputs) {
   const families = {};
   for (const family of new Set(Object.values(rendererRoutes).flat())) {
@@ -36,37 +76,43 @@ export function rendererPreloads(outputs) {
       }
     }
     visit(entry[0]);
-    const allowedCharts = {
-      bar: ['bar'],
-      line: ['line'],
-      area: ['line'],
-      composed: ['bar', 'line'],
-      pie: ['pie'],
-      radar: ['radar'],
-      radial: ['pie'],
-      calendar: ['heatmap'],
-      sankey: ['sankey'],
-    }[family];
-    for (const name of files) {
-      for (const [input, contribution] of Object.entries(outputs[name].inputs ?? {})) {
-        if (contribution.bytesInOutput <= 0) continue;
-        const chart = input.match(/echarts\/lib\/chart\/([^/.]+)(?:\/|\.js$)/)?.[1];
-        assert(
-          !chart || ['helper', 'custom', ...allowedCharts].includes(chart),
-          `${family} renderer preloads unrelated ${chart} chart code`,
-        );
-      }
-    }
+    // Deferred component facades otherwise add a second dependency waterfall
+    // after Angular starts. Warming the renderer alone does not fetch them.
+    const component = Object.entries(outputs).find(([, output]) =>
+      output.entryPoint?.endsWith(`/ng-echarts-chart-library-${family}.mjs`),
+    );
+    if (component) visit(component[0]);
+    assertFocusedGraph(outputs, files, familyCharts[family], `${family} renderer`);
     families[family] = [...files].filter((name) => name.endsWith('.js'));
   }
   return Object.fromEntries(
-    Object.entries(rendererRoutes).map(([route, names]) => [
-      route,
-      [...new Set(names.flatMap((name) => families[name]))].map((href) => ({
-        href,
-        rel: 'modulepreload',
-      })),
-    ]),
+    Object.entries(rendererRoutes).map(([route, names]) => {
+      const files = new Set(names.flatMap((name) => families[name]));
+      const component = Object.entries(outputs).find(([, output]) =>
+        output.entryPoint?.endsWith(`/app/${routeComponents[route]}.ts`),
+      );
+      function visit(name) {
+        if (files.has(name)) return;
+        assert(outputs[name], `Unknown route preload dependency: ${name}`);
+        files.add(name);
+        for (const dependency of outputs[name].imports ?? []) {
+          if (!dependency.external && dependency.kind !== 'dynamic-import') visit(dependency.path);
+        }
+      }
+      if (component) visit(component[0]);
+      assertFocusedGraph(
+        outputs,
+        files,
+        names.flatMap((name) => familyCharts[name]),
+        `${route || 'bar'} route`,
+      );
+      return [
+        route,
+        [...files]
+          .filter((name) => name.endsWith('.js'))
+          .map((href) => ({ href, rel: 'modulepreload' })),
+      ];
+    }),
   );
 }
 

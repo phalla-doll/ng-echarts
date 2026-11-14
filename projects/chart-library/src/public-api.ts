@@ -13,6 +13,7 @@ export type {
   LegendVisibilityChange,
   NumericKey,
   PointSelection,
+  PointPreview,
   StringKey,
   ValueFormatter,
 } from '@ng-echarts/chart-library/core';

@@ -1,0 +1,44 @@
+{
+  "capturedAt": "2026-11-14T08:19:43.106615+00:00",
+  "baseline": {
+    "sourceCommit": "aa394e5876a2205207f50a3d0e0b3e4bedb11ed2",
+    "url": "https://phalla-doll.github.io/ng-echarts/linked/",
+    "viewport": [1440, 1100]
+  },
+  "current": {
+    "url": "http://localhost:4311/linked",
+    "viewports": [
+      [1440, 1100],
+      [390, 900],
+      [320, 900]
+    ],
+    "themes": ["dark", "light"],
+    "overflow": false,
+    "keyboardFocus": "Select Desktop for February: 876",
+    "focusVisible": true,
+    "periodDuringPreview": "",
+    "escapeRestores": "Device share \u00b7 All months"
+  },
+  "sources": {
+    "projects/chart-library/bar/src/lib/bar-chart.ts": "9b0fd68f13d712c275f5ce3a3ace98179cd7dc4f45130d4ccfd67bdf35f6155a",
+    "projects/chart-library/bar/src/lib/bar-renderer.ts": "529c6611ed48495f0ffa0556e1231ef5c4ec42d6b9601085ada5e7fa3bff3634",
+    "projects/chart-library/core/src/lib/cartesian-chart.ts": "11eb8df02f67ec44ad2e982b67e917276bd915ca222ff6ee9d48e9d6c8430c59",
+    "projects/chart-library/core/src/lib/cartesian-browser.ts": "0fd6f40a8f9c1c99e4316fa6ec6c01aefd217dd3d42d524372bd90fb755d2f00",
+    "projects/chart-library/core/src/lib/cartesian-chart.html": "45431a52e7e8a1f635f2ca5002b26fa10970daca10d5012be637d02e4ff99968",
+    "projects/chart-library/core/src/lib/chart-types.ts": "7f64f85fbb3364d77974fae41146ea652c634171c79799b81a90711a23737d9d",
+    "projects/chart-library/core/src/lib/plot-controller.ts": "7c767a88829f698622f152e153a72fb12fb1e8fcea07058c842bff812a491c69",
+    "projects/playground/src/app/linked-visits.ts": "8169549287561113f684a76569ca55f97608138fee545fc74d0a4ba071d4ca73",
+    "projects/playground/src/app/linked-visits.html": "90b37f41ec784d55ac3784cb18760dab551a517523acf576b24a06535dd28b88",
+    "projects/playground/src/app/linked-visits.css": "c7ba234c7b1f5496904584773a02971b011a1fa769ee86f230131edc3b7062ac",
+    "projects/playground/src/app/linked-example-source.ts": "31809d3e55bc7f5aca1ca69fd4dd2c1e1dbb87f150747ea2cc7a6d9071fb1074",
+    "docs/LINKED_CHARTS.md": "cec683d013f33253a4afafed395dbbc1144039f01f2512153107604dd4cda6b3"
+  },
+  "captures": {
+    "before-desktop.png": "c0bf4dd8e4a0d2e798438c057ee104d42ca3333ba9e72791707be005af64ee6a",
+    "dark-desktop-preview.png": "d75b25de1734763244047045f1c52117ccb89232d50c99c879394cb3966cb5ff",
+    "dark-mobile-enabled.png": "a6c87e6f5735018599b5bf4089cb8ca8240d26b80c68d44dc635aa9ef0be0f8c",
+    "light-320-keyboard.png": "c29a1042291ddb52cd0fc610894159bb892912bf02c9e5c848da59796b23447f",
+    "light-mobile-keyboard.png": "8074c52ccb98185a9ecb4bd7bca062b95e3233714bf548d9e0a02ede50bb97ed"
+  },
+  "captureCheckpoint": "rc.13 presentation source; rc.14/rc.15 retain captured geometry/copy and correct focus/listener timing."
+}

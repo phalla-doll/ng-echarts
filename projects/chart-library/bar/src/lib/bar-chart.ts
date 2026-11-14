@@ -4,6 +4,7 @@ import {
   ɵChartStage,
   ɵCartesianChart,
   type BarLayout,
+  type PointPreview,
   type ɵCartesianContext,
 } from '@ng-echarts/chart-library/core';
 import { BAR_RENDERER_LOADER } from './bar-browser';
@@ -28,6 +29,8 @@ export interface BarRangeSelection<T> {
 })
 export class BarChart<T extends object> extends ɵCartesianChart<T, BarRenderOptions> {
   readonly rangeSelection = input(false);
+  readonly previewEnabled = input(false);
+  readonly pointPreview = output<PointPreview<T> | null>();
   readonly rangeSelect = output<BarRangeSelection<T>>();
   readonly layout = input<BarLayout>('vertical');
   readonly stacked = input(false);
@@ -48,6 +51,16 @@ export class BarChart<T extends object> extends ɵCartesianChart<T, BarRenderOpt
   protected override renderer() {
     return this.loader();
   }
+  protected override canPreview(): boolean {
+    return this.previewEnabled() && !this.rangeSelection();
+  }
+  protected override observePreviews(): boolean {
+    // Range mode suppresses events without replaying focused values on Escape.
+    return this.previewEnabled();
+  }
+  protected override emitPreview(point: PointPreview<T> | null): void {
+    this.pointPreview.emit(point);
+  }
   protected override familyConfiguration() {
     return {
       rangeSelection: this.rangeSelection(),
@@ -66,6 +79,7 @@ export class BarChart<T extends object> extends ɵCartesianChart<T, BarRenderOpt
     return this.selectedIds().has(id);
   }
   protected override familyError() {
+    if (typeof this.previewEnabled() !== 'boolean') return 'Preview enabled must be a boolean.';
     if (typeof this.rangeSelection() !== 'boolean') return 'Range selection must be a boolean.';
     if (!['vertical', 'horizontal'].includes(this.layout())) return 'Chart layout is invalid.';
     if (this.selectedRowId() !== null && typeof this.selectedRowId() !== 'string')
@@ -90,6 +104,7 @@ export class BarChart<T extends object> extends ɵCartesianChart<T, BarRenderOpt
     if (first < 0 || last < first) return;
     const rows = model.rows.slice(first, last + 1);
     if (rows.length !== ids.length || rows.some((row, index) => row.id !== ids[index])) return;
+    this.resetPointPreview();
     this.rangeSelect.emit({
       fromRowId: rows[0]!.id,
       toRowId: rows.at(-1)!.id,

@@ -1,0 +1,162 @@
+{
+  "recordedAt": "2026-11-14T08:55:17.899577+00:00",
+  "sourceBaseCommit": "aa394e5876a2205207f50a3d0e0b3e4bedb11ed2",
+  "includesWorkingTree": true,
+  "toolchain": {
+    "node": "24.22.2",
+    "npm": "11.19.1"
+  },
+  "fullBrowserBaseline": {
+    "passed": 362,
+    "skipped": 4,
+    "scope": "All three engines before the rc.14/rc.15 focus corrections; the subsequent installed-runtime assertion exposed the rc.13 attachment race. Not a claim that npm run check completed successfully on final source."
+  },
+  "finalVerification": {
+    "version": "0.1.0-rc.15",
+    "build": "passed",
+    "strictCompilation": "passed",
+    "unitTests": 260,
+    "browser": {
+      "passed": 46,
+      "skipped": 2,
+      "engines": ["chromium", "firefox", "webkit"],
+      "files": ["linked-preview.spec.ts", "linked-charts.spec.ts", "graphical-range.spec.ts"],
+      "scope": "Final source, including immediate enablement and range-mode Escape checks."
+    },
+    "ssr": "passed",
+    "packageScenarios": 12,
+    "exactCandidate": {
+      "filename": "ng-echarts-chart-library-0.1.0-rc.15.tgz",
+      "bytes": 154538,
+      "sha256": "c0f85b98b1c61223a16f5287c2125c63305d6e69cde3a784c7083aa9dfd4d91f",
+      "files": 68,
+      "verification": {
+        "automatedArtifact": "passed",
+        "humanInterpretation": "pending",
+        "G4": "pending"
+      },
+      "evidence": "local-release-0.1.0-rc.15.json"
+    },
+    "installedModes": [
+      {
+        "engine": "chromium",
+        "version": "158.0.8127.18",
+        "mode": "client",
+        "conceptGallery": true,
+        "linkedMonthPreviews": true,
+        "passed": true
+      },
+      {
+        "engine": "chromium",
+        "version": "158.0.8127.18",
+        "mode": "ssr-hydration",
+        "conceptGallery": true,
+        "linkedMonthPreviews": true,
+        "passed": true
+      },
+      {
+        "engine": "firefox",
+        "version": "159.0",
+        "mode": "client",
+        "conceptGallery": true,
+        "linkedMonthPreviews": true,
+        "passed": true
+      },
+      {
+        "engine": "firefox",
+        "version": "159.0",
+        "mode": "ssr-hydration",
+        "conceptGallery": true,
+        "linkedMonthPreviews": true,
+        "passed": true
+      },
+      {
+        "engine": "webkit",
+        "version": "27.2",
+        "mode": "client",
+        "conceptGallery": true,
+        "linkedMonthPreviews": true,
+        "passed": true
+      },
+      {
+        "engine": "webkit",
+        "version": "27.2",
+        "mode": "ssr-hydration",
+        "conceptGallery": true,
+        "linkedMonthPreviews": true,
+        "passed": true
+      }
+    ]
+  },
+  "packageCosts": {
+    "core": {
+      "total": {
+        "raw": 26881,
+        "gzip": 7903,
+        "brotli": 6961
+      },
+      "budget": {
+        "gzip": 10000,
+        "brotli": 9000
+      },
+      "reachableEngineModules": 0
+    },
+    "root": {
+      "total": {
+        "raw": 700767,
+        "gzip": 218893,
+        "brotli": 186940
+      },
+      "budget": {
+        "gzip": 219500,
+        "brotli": 187500
+      },
+      "reachableEngineModules": 253
+    },
+    "root-frame": {
+      "total": {
+        "raw": 581417,
+        "gzip": 202412,
+        "brotli": 174547
+      },
+      "budget": {
+        "gzip": 203000,
+        "brotli": 175000
+      },
+      "reachableEngineModules": 0
+    }
+  },
+  "sourceHashes": {
+    "projects/chart-library/core/src/lib/cartesian-browser.ts": "c9549d44c091947c164cc28ffb0586044f6505a54a3f1b0d278c1cca25a09aa6",
+    "projects/chart-library/core/src/lib/cartesian-chart.ts": "8d0fd15bfc0e4987117426818ba38bb767f3291d91caf4b1b3971a3da3919e44",
+    "projects/chart-library/core/src/lib/cartesian-chart.html": "45431a52e7e8a1f635f2ca5002b26fa10970daca10d5012be637d02e4ff99968",
+    "projects/chart-library/core/src/lib/chart-types.ts": "7f64f85fbb3364d77974fae41146ea652c634171c79799b81a90711a23737d9d",
+    "projects/chart-library/core/src/lib/plot-controller.ts": "7c767a88829f698622f152e153a72fb12fb1e8fcea07058c842bff812a491c69",
+    "projects/chart-library/bar/src/lib/bar-chart.ts": "cb75820cd6519be517e17e915b08bde3faaf6abc897375948f01a648e859cfef",
+    "projects/chart-library/bar/src/lib/bar-renderer.ts": "529c6611ed48495f0ffa0556e1231ef5c4ec42d6b9601085ada5e7fa3bff3634",
+    "projects/chart-library/bar/src/lib/bar-chart.spec.ts": "0b530617c8e9d61970a31b035e2e0f555199c09494f372732e22b058c1027035",
+    "projects/chart-library/core/src/lib/cartesian-preview.spec.ts": "175d87f730d68a3c4314eaee50153f73c88a31f4cc49c9da2e127fcecab03958",
+    "projects/chart-library/package.json": "c548224ebab2a9812797bc76e6fe6acc63d80336ef434b12cddd68a1f4b3e306",
+    "projects/chart-library/README.md": "18495c3ba96ea251ce06304ced26cce75544a684e063d70830c173cbfad74563",
+    "projects/playground/src/app/linked-visits.ts": "8169549287561113f684a76569ca55f97608138fee545fc74d0a4ba071d4ca73",
+    "projects/playground/src/app/linked-visits.html": "90b37f41ec784d55ac3784cb18760dab551a517523acf576b24a06535dd28b88",
+    "projects/playground/src/app/linked-visits.css": "c7ba234c7b1f5496904584773a02971b011a1fa769ee86f230131edc3b7062ac",
+    "projects/playground/src/app/linked-visits.spec.ts": "fe2bba40e1d87651f8bbc6d28ed5169b88af720dab3d5bab58383e5b4a8456c6",
+    "projects/playground/src/app/linked-example-source.ts": "31809d3e55bc7f5aca1ca69fd4dd2c1e1dbb87f150747ea2cc7a6d9071fb1074",
+    "tests/browser/linked-preview.spec.ts": "cce3ea079f0644fc9c1d00e2a95550a6ffdb5c690a678ac299284ad853644363",
+    "tests/browser/linked-charts.spec.ts": "e9ef693f44f2b8e2cc18cbd89520d3b0293c946fd19b79e1121a56ef5083b00b",
+    "tests/browser/graphical-range.spec.ts": "c4263ceb566bb1876ffbc750c80ad591ff044d9481b36db867106016d8875f01",
+    "tools/check-consumer.mjs": "4cb6bdc0348889ffda15dfe0b05f590153a2422fcbc18b4ae26b3ced6ee2b7b4",
+    "tools/check-runtime-consumer.mjs": "8096c54a1001632b2598b508b94d556a34d922f446afe4785f677eeeaf3394c9",
+    "tools/check-bundle-size.mjs": "97abda3fee9d9a87e1a1cace6f02c3714da9a44d09df9dda56fd5437dfe9c2e1"
+  },
+  "humanReleaseGates": {
+    "F09": "pending",
+    "R06": "pending",
+    "G2": "pending",
+    "G3": "pending",
+    "G4": "pending"
+  },
+  "publication": "private; no registry publication or demo deployment",
+  "staticPreview": "Final sealed snapshot and three-engine receipt are produced after tracked evidence updates in ignored dist/pages; consult their actual source/artifact identities."
+}

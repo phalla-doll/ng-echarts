@@ -7,6 +7,7 @@ import { gzipSync } from 'node:zlib';
 import { chromium } from 'playwright';
 import { artifactFingerprint, validateBuild } from './pages-provenance.mjs';
 import { withPagesLock } from './pages-lock.mjs';
+import { measureDemoNavigation } from './demo-navigation-performance.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const directory = join(root, 'dist/pages/browser');
@@ -222,6 +223,12 @@ await withPagesLock(root, 'performance', async () => {
           );
       }
     }
+    const navigation = await measureDemoNavigation(browser, base, { enforce: !recordOnly });
+    for (const result of navigation.results) {
+      console.log(
+        `${result.label} ${result.revisit ? 'revisit' : 'first navigation'}: ${Math.round(result.medianFirstChartMs)} ms (normal motion)`,
+      );
+    }
     const evidence = {
       sourceCommit: marker.sourceBaseCommit,
       sourceSha256: marker.sourceSha256,
@@ -236,6 +243,7 @@ await withPagesLock(root, 'performance', async () => {
         uploadBytesPerSecond: 93750,
       },
       results,
+      navigation,
     };
     await writeFile(
       join(root, 'dist/demo-performance.json'),

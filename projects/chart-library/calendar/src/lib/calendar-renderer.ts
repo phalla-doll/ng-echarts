@@ -41,9 +41,9 @@ export const createCalendarRenderer: ɵPlotRendererFactory<CalendarView> = (host
       current = view;
       apply();
     },
-    resize: () => {
+    resize: (context) => {
       chart.resize();
-      apply(true);
+      if (!context?.optionsPending) apply(true);
     },
     dispose: () => {
       current = null;

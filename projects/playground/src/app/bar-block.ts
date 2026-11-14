@@ -1,3 +1,4 @@
+import { NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
@@ -18,6 +19,7 @@ import { DemoPrintMode } from './demo-print-mode';
 @Component({
   selector: 'app-bar-block',
   imports: [
+    NgTemplateOutlet,
     BarChart,
     LineChart,
     AreaChart,

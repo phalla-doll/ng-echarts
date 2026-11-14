@@ -5,7 +5,8 @@ export interface PlotPoint {
 
 export interface PlotRenderer<Option> {
   update(options: Option): void;
-  resize(): void;
+  /** A following update owns option rebuilding when optionsPending is true. */
+  resize(context?: { readonly optionsPending: boolean }): void;
   dispose(): void;
 }
 
@@ -13,6 +14,7 @@ export type PlotRendererFactory<Option> = (
   host: HTMLElement,
   onPoint: (point: PlotPoint) => void,
   onRange?: (rowIds: readonly string[], snapshot: unknown) => void,
+  onPreview?: (point: PlotPoint | null) => void,
 ) => PlotRenderer<Option>;
 
 export interface PlotEnvironment<Option> {
@@ -31,6 +33,8 @@ export class PlotController<Option> {
   private dirty = false;
   private generation = 0;
   private destroyed = false;
+  private width = 0;
+  private height = 0;
   private readonly disconnect: () => void;
 
   constructor(
@@ -39,6 +43,7 @@ export class PlotController<Option> {
     private readonly onPoint: (point: PlotPoint) => void,
     private readonly onError: () => void,
     private readonly onRange: (rowIds: readonly string[], snapshot: unknown) => void = () => {},
+    private readonly onPreview: (point: PlotPoint | null) => void = () => {},
   ) {
     this.disconnect = environment.observe(host, () => this.schedule());
   }
@@ -77,19 +82,29 @@ export class PlotController<Option> {
   private async render(): Promise<void> {
     if (this.destroyed || !this.options || !this.host.clientWidth || !this.host.clientHeight)
       return;
+    // A queued observer delivery must not clear another render's pending import.
+    if (!this.renderer && this.loading) return;
     const generation = this.generation;
     try {
       if (!this.renderer) {
-        if (this.loading) return;
         this.loading = true;
         const factory = await this.environment.load();
         if (this.destroyed || generation !== this.generation || !this.options) return;
         // Measure again after asynchronous loading; a formerly visible host may now be hidden.
         if (!this.host.clientWidth || !this.host.clientHeight) return;
-        this.renderer = factory(this.host, this.onPoint, this.onRange);
+        this.width = this.host.clientWidth;
+        this.height = this.host.clientHeight;
+        // Renderer factories initialize at the host's current size.
+        this.renderer = factory(this.host, this.onPoint, this.onRange, this.onPreview);
         this.dirty = true;
       }
-      this.renderer.resize();
+      const width = this.host.clientWidth;
+      const height = this.host.clientHeight;
+      if (width !== this.width || height !== this.height) {
+        this.renderer.resize({ optionsPending: this.dirty });
+        this.width = width;
+        this.height = height;
+      }
       if (this.dirty && this.options) {
         this.renderer.update(this.options);
         this.dirty = false;
@@ -111,6 +126,7 @@ export class PlotController<Option> {
   private disposeRenderer(): void {
     this.renderer?.dispose();
     this.renderer = null;
+    this.width = this.height = 0;
   }
 
   private cancelFrame(): void {

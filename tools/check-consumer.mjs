@@ -355,6 +355,7 @@ try {
     ['InvalidBarSelection', '[selectedRowId]="12"'],
     ['InvalidBarSelection', '[selectedRowIds]="[12]"'],
     ['InvalidBarSelection', '[rangeSelection]="\'yes\'"'],
+    ['InvalidBarSelection', '[previewEnabled]="\'yes\'"'],
     ['InvalidSeriesConsumer', '[series]="badSeries"'],
     ['InvalidLine', '[series]="series"'],
     ['InvalidLine', '[smooth]="\'yes\'"'],

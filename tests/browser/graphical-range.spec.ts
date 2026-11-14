@@ -294,6 +294,10 @@ test('supports a real horizontal touch drag while leaving vertical touch scrolli
   try {
     await phone.goto(new URL('/linked', baseURL!).href);
     await expect(phone.locator('canvas')).toHaveCount(2);
+    await expect(phone.getByRole('button', { name: 'Select range', exact: true })).toHaveCSS(
+      'touch-action',
+      'manipulation',
+    );
     const arm = async () => {
       const button = phone.getByRole('button', { name: 'Select range', exact: true });
       const surface = phone.locator('.nec-range-surface');
@@ -320,6 +324,17 @@ test('supports a real horizontal touch drag while leaving vertical touch scrolli
     for (let i = 1; i <= 8; i++) await send('touchMove', x1 + ((x2 - x1) * i) / 8, y);
     await send('touchEnd', x2, y);
     await expect(phone.locator('.linked-status')).toContainText('February–April: 3,189 visits');
+    // Re-arm immediately after commits; do not mask lost tap activation with sleeps or retries.
+    for (let repetition = 0; repetition < 2; repetition++) {
+      box = await arm();
+      const start = box.x + (box.width * 3.5) / 12;
+      const end = box.x + (box.width * 1.5) / 12;
+      const middle = box.y + box.height / 2;
+      await send('touchStart', start, middle);
+      for (let i = 1; i <= 8; i++) await send('touchMove', start + ((end - start) * i) / 8, middle);
+      await send('touchEnd', end, middle);
+      await expect(phone.locator('.linked-status')).toContainText('February–April: 3,189 visits');
+    }
     box = await arm();
     const scroll = await phone.evaluate(() => scrollY),
       x = box.x + box.width / 2,

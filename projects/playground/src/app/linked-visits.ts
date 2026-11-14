@@ -6,6 +6,7 @@ import {
   effect,
   input,
   linkedSignal,
+  signal,
   untracked,
   viewChild,
 } from '@angular/core';
@@ -16,6 +17,7 @@ import {
   type ChartSeries,
   type ChartTheme,
   type PointSelection,
+  type PointPreview,
 } from '@ng-echarts/chart-library/bar';
 import { PieChart, type ChartMeasure } from '@ng-echarts/chart-library/pie';
 import { SiteIcon } from './site-icon';
@@ -67,6 +69,17 @@ export class LinkedVisits {
   private readonly rangeButton = viewChild<ElementRef<HTMLButtonElement>>('rangeButton');
   private readonly rangeFields = viewChild<ElementRef<HTMLElement>>('rangeFields');
   protected readonly rangeMode = linkedSignal({ source: this.data, computation: () => false });
+  protected readonly previewMonths = signal(false);
+  protected readonly preview = linkedSignal({
+    source: () => [this.data(), this.selection(), this.rangeMode(), this.previewMonths()],
+    computation: (): PointPreview<VisitMonth> | null => null,
+  });
+  protected readonly previewRow = computed(() => {
+    const preview = this.preview();
+    return this.previewMonths() && !this.rangeMode()
+      ? (this.data().find((row) => row.id === preview?.rowId && row === preview.row) ?? null)
+      : null;
+  });
   protected readonly canSelectRange = computed(() =>
     this.data().some((row) => row.desktop !== null || row.mobile !== null),
   );
@@ -104,12 +117,31 @@ export class LinkedVisits {
       : 'Choose a month from the bars, table or period field.',
   );
   protected readonly share = computed(() => deviceShare(this.scope()));
-  protected readonly detailTitle = computed(() => 'Device share · ' + this.context());
+  protected readonly displayShare = computed(() => {
+    const row = this.previewRow();
+    return row ? deviceShare([row]) : this.share();
+  });
+  protected readonly previewDevice = linkedSignal({ source: this.preview, computation: () => '' });
+  protected readonly previewMessage = computed(() => {
+    const row = this.previewRow();
+    const device = this.displayShare().find((item) => item.id === this.previewDevice());
+    if (row && device && device.visits !== null)
+      return `Preview · ${row.month}: ${device.device}, ${this.number(device.visits)} visits.`;
+    return row ? `Preview · ${row.month}. Activate to select.` : '';
+  });
+  protected readonly focusPreviewMessage = computed(() =>
+    this.preview()?.trigger === 'focus' || this.previewDevice() ? this.previewMessage() : '',
+  );
+  protected readonly detailTitle = computed(
+    () =>
+      'Device share · ' +
+      (this.previewRow() ? `Preview: ${this.previewRow()!.month}` : this.context()),
+  );
   protected readonly detailDescription = computed(
     () =>
       'Desktop and mobile visits for ' +
-      (this.selection() !== null ? this.context() : 'all months') +
-      '.',
+      (this.previewRow()?.month ?? (this.selection() !== null ? this.context() : 'all months')) +
+      (this.previewRow() ? '. Temporary preview; the period filter is unchanged.' : '.'),
   );
   protected readonly selectedDevice = linkedSignal({
     source: this.selection,
@@ -166,6 +198,10 @@ export class LinkedVisits {
   }
   protected cancelRange(): void {
     this.rangeMode.set(false);
+    this.preview.set(null);
+  }
+  protected previewPoint(point: PointPreview<VisitMonth> | null): void {
+    this.preview.set(this.previewMonths() && !this.rangeMode() ? point : null);
   }
   protected selectRange(event: BarRangeSelection<VisitMonth>): void {
     if (!this.rangeMode()) return;
@@ -208,6 +244,10 @@ export class LinkedVisits {
     this.selectMonth(point.rowId);
   }
   protected selectDevice(point: PointSelection<DeviceVisits>): void {
+    if (this.previewRow()) {
+      this.previewDevice.set(point.rowId);
+      return;
+    }
     this.selectedDevice.set(point.rowId);
   }
   private number(value: number): string {

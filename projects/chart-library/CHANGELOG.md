@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.1.0-rc.16 — 14 November 2026
+
+- Combine the rc.15 month-preview API with dimension-aware rendering: unchanged-size observer frames and option updates no longer restart entrance animation.
+- Coalesce real resize and pending Calendar/Radar options, and retain one pending renderer import across observer frames.
+- Preserve rc.15 and earlier archives; public publication and human release gates remain pending.
+
+## Unreleased
+
+- Preserve entrance animations by ignoring unchanged-size observer deliveries and updating options without an unconditional resize.
+- Coalesce responsive Calendar/Radar option rebuilding and retain one pending renderer import across observer/input frames.
+- Keep existing private candidate archives and human release gates unchanged.
+
+## 0.1.0-rc.15 — 14 November 2026
+
+- Keep opt-in table preview listeners attached while range mode suppresses output, so Escape leaves transient context canceled in all engines.
+- Preserve the verified rc.14 and prepared rc.13 archives with their original evidence; public publication and human release gates remain pending.
+
+## 0.1.0-rc.14 — 14 November 2026
+
+- Retain a native table action already focused while preview opt-in propagates, without moving focus or requiring another Tab.
+- Preserve the prepared rc.13 archive and its failed runtime evidence; record exact corrected-candidate checks separately. Human release gates remain pending.
+
+## 0.1.0-rc.13 — 14 November 2026
+
+- Add opt-in bar `previewEnabled` and typed `pointPreview` events for transient plot hover and native table focus, including clear events and touch/range guards.
+- Preserve committed selection, raw events, focused import boundaries and all earlier private candidate archives. Human release gates and public publication remain pending.
+
 ## 0.1.0-rc.12 — 14 November 2026
 
 - Correct the packaged family/event index, current aggregate bundle allowances and rc.11 presentation-feature status. Runtime behavior, declarations, dependencies, license and notices are unchanged.

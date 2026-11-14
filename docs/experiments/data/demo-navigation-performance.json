@@ -1,0 +1,1910 @@
+{
+  "at": "2026-11-14T09:15:12.126Z",
+  "baseline": "Isolated starting tracked source: HEAD plus starting-working-tree.patch; existing linked preview changes retained",
+  "conditions": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "deviceScaleFactor": 1,
+    "reducedMotion": "no-preference",
+    "cpuRate": 4,
+    "latencyMs": 150,
+    "downloadBytesPerSecond": 200000,
+    "uploadBytesPerSecond": 93750
+  },
+  "before": {
+    "cold": [
+      {
+        "readyMs": 3282.1000000089407,
+        "compressedBytes": 433713,
+        "requests": 33,
+        "resources": [
+          {
+            "url": "http://127.0.0.1:51536/chunk-BgBOd7dw.js",
+            "startMs": 181.29999999701977,
+            "encodedBytes": 1946,
+            "endMs": 380.5
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-nGnb0wDD.js",
+            "startMs": 181.40000000596046,
+            "encodedBytes": 1363,
+            "endMs": 394.20000000298023
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-CYaL5I5P.js",
+            "startMs": 181.40000000596046,
+            "encodedBytes": 8522,
+            "endMs": 460.79999999701977
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-5tkH_LWN.js",
+            "startMs": 181.40000000596046,
+            "encodedBytes": 114159,
+            "endMs": 2442.9000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-B6Fy8hbW.js",
+            "startMs": 182.29999999701977,
+            "encodedBytes": 507,
+            "endMs": 363.5
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-DxMTn5bz.js",
+            "startMs": 182.5,
+            "encodedBytes": 134,
+            "endMs": 410.90000000596046
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-CGs9NOTs.js",
+            "startMs": 182.5,
+            "encodedBytes": 1315,
+            "endMs": 580.6000000089407
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-fm48qzA9.js",
+            "startMs": 182.6000000089407,
+            "encodedBytes": 219,
+            "endMs": 643.1000000089407
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-DI1Tmhid.js",
+            "startMs": 182.6000000089407,
+            "encodedBytes": 22795,
+            "endMs": 1113.9000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-B7-dQp2d.js",
+            "startMs": 182.6000000089407,
+            "encodedBytes": 41551,
+            "endMs": 1630.9000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51536/fonts/inter-latin.woff2",
+            "startMs": 182.70000000298023,
+            "encodedBytes": 48432,
+            "endMs": 2060.2999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51536/fonts/google-sans-code-latin.woff2",
+            "startMs": 183.29999999701977,
+            "encodedBytes": 34948,
+            "endMs": 1752
+          },
+          {
+            "url": "http://127.0.0.1:51536/styles-53LAG56E.css",
+            "startMs": 187.20000000298023,
+            "encodedBytes": 4441,
+            "endMs": 589.1000000089407
+          },
+          {
+            "url": "http://127.0.0.1:51536/brand/orbit-e-light.svg",
+            "startMs": 211.20000000298023,
+            "encodedBytes": 188,
+            "endMs": 2300.2000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51536/third-party/github-dark.svg",
+            "startMs": 222.40000000596046,
+            "encodedBytes": 494,
+            "endMs": 2375.5
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-CkwJ7Bl-.js",
+            "startMs": 229.79999999701977,
+            "encodedBytes": 64603,
+            "endMs": 2360.4000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51536/main-6JHOSLCD.js",
+            "startMs": 230.70000000298023,
+            "encodedBytes": 39714,
+            "endMs": 2260.7999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-BtI-7Uxj.js",
+            "startMs": 231.29999999701977,
+            "encodedBytes": 921,
+            "endMs": 1948.2000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-BtJdC0T5.js",
+            "startMs": 231.29999999701977,
+            "encodedBytes": 7755,
+            "endMs": 2014.7999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-M_rEfhKe.js",
+            "startMs": 231.29999999701977,
+            "encodedBytes": 793,
+            "endMs": 2127.7000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-DQ7QTUDX.js",
+            "startMs": 231.40000000596046,
+            "encodedBytes": 1295,
+            "endMs": 2216.4000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-B7Ng-UbO.js",
+            "startMs": 231.40000000596046,
+            "encodedBytes": 313,
+            "endMs": 2248
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-B6S8MXp7.js",
+            "startMs": 2460.7999999970198,
+            "encodedBytes": 196,
+            "endMs": 2621.4000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-BU_e3h3B.js",
+            "startMs": 2676,
+            "encodedBytes": 118,
+            "endMs": 2838.9000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-GtnQ7Scp.js",
+            "startMs": 2676.1000000089407,
+            "encodedBytes": 119,
+            "endMs": 2846.1000000089407
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-B-ud_VU1.js",
+            "startMs": 2676.1000000089407,
+            "encodedBytes": 123,
+            "endMs": 2853.2999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-CHkp7UuK.js",
+            "startMs": 2676.1000000089407,
+            "encodedBytes": 119,
+            "endMs": 2861
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-9Io1ZfT2.js",
+            "startMs": 2840.1000000089407,
+            "encodedBytes": 4707,
+            "endMs": 3080.2000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-CMFs-fLg.js",
+            "startMs": 2840.2999999970198,
+            "encodedBytes": 8421,
+            "endMs": 3130.5
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-BqiQhOzM.js",
+            "startMs": 2847.1000000089407,
+            "encodedBytes": 3170,
+            "endMs": 3094.2999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-oh-2lsK1.js",
+            "startMs": 2854.2999999970198,
+            "encodedBytes": 3722,
+            "endMs": 3102.1000000089407
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-DqRvJd1G.js",
+            "startMs": 2861.7000000029802,
+            "encodedBytes": 3647,
+            "endMs": 3117.9000000059605
+          }
+        ],
+        "dclMs": 2436.7000000029802
+      },
+      {
+        "readyMs": 3272.800000011921,
+        "compressedBytes": 433713,
+        "requests": 33,
+        "resources": [
+          {
+            "url": "http://127.0.0.1:51536/chunk-BgBOd7dw.js",
+            "startMs": 173.80000001192093,
+            "encodedBytes": 1946,
+            "endMs": 373.40000000596046
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-CYaL5I5P.js",
+            "startMs": 173.80000001192093,
+            "encodedBytes": 8522,
+            "endMs": 456.20000000298023
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-nGnb0wDD.js",
+            "startMs": 173.90000000596046,
+            "encodedBytes": 1363,
+            "endMs": 386.20000000298023
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-5tkH_LWN.js",
+            "startMs": 173.90000000596046,
+            "encodedBytes": 114159,
+            "endMs": 2437.2000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-B6Fy8hbW.js",
+            "startMs": 174.5,
+            "encodedBytes": 507,
+            "endMs": 357
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-DxMTn5bz.js",
+            "startMs": 174.5,
+            "encodedBytes": 134,
+            "endMs": 403
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-CGs9NOTs.js",
+            "startMs": 174.5,
+            "encodedBytes": 1315,
+            "endMs": 573.8000000119209
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-DI1Tmhid.js",
+            "startMs": 174.5,
+            "encodedBytes": 22795,
+            "endMs": 1100.300000011921
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-fm48qzA9.js",
+            "startMs": 175,
+            "encodedBytes": 219,
+            "endMs": 635.3000000119209
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-B7-dQp2d.js",
+            "startMs": 175,
+            "encodedBytes": 41551,
+            "endMs": 1631.300000011921
+          },
+          {
+            "url": "http://127.0.0.1:51536/fonts/inter-latin.woff2",
+            "startMs": 175,
+            "encodedBytes": 48432,
+            "endMs": 2051.300000011921
+          },
+          {
+            "url": "http://127.0.0.1:51536/fonts/google-sans-code-latin.woff2",
+            "startMs": 175.40000000596046,
+            "encodedBytes": 34948,
+            "endMs": 1773.5
+          },
+          {
+            "url": "http://127.0.0.1:51536/styles-53LAG56E.css",
+            "startMs": 178.90000000596046,
+            "encodedBytes": 4441,
+            "endMs": 606.2000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51536/brand/orbit-e-light.svg",
+            "startMs": 203.20000000298023,
+            "encodedBytes": 188,
+            "endMs": 2314.7000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51536/third-party/github-dark.svg",
+            "startMs": 215.20000000298023,
+            "encodedBytes": 494,
+            "endMs": 2390.4000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-CkwJ7Bl-.js",
+            "startMs": 225.1000000089407,
+            "encodedBytes": 64603,
+            "endMs": 2353.7000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51536/main-6JHOSLCD.js",
+            "startMs": 225.20000000298023,
+            "encodedBytes": 39714,
+            "endMs": 2255.5
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-BtJdC0T5.js",
+            "startMs": 226,
+            "encodedBytes": 7755,
+            "endMs": 2014.6000000089407
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-BtI-7Uxj.js",
+            "startMs": 226.1000000089407,
+            "encodedBytes": 921,
+            "endMs": 1970.300000011921
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-M_rEfhKe.js",
+            "startMs": 226.30000001192093,
+            "encodedBytes": 793,
+            "endMs": 2142.7000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-DQ7QTUDX.js",
+            "startMs": 226.40000000596046,
+            "encodedBytes": 1295,
+            "endMs": 2223.5
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-B7Ng-UbO.js",
+            "startMs": 226.40000000596046,
+            "encodedBytes": 313,
+            "endMs": 2231.5
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-B6S8MXp7.js",
+            "startMs": 2454,
+            "encodedBytes": 196,
+            "endMs": 2613.800000011921
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-BU_e3h3B.js",
+            "startMs": 2667.5,
+            "encodedBytes": 118,
+            "endMs": 2831.5
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-GtnQ7Scp.js",
+            "startMs": 2667.5,
+            "encodedBytes": 119,
+            "endMs": 2846
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-CHkp7UuK.js",
+            "startMs": 2667.6000000089407,
+            "encodedBytes": 119,
+            "endMs": 2840.300000011921
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-B-ud_VU1.js",
+            "startMs": 2667.6000000089407,
+            "encodedBytes": 123,
+            "endMs": 2853.7000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-9Io1ZfT2.js",
+            "startMs": 2832.4000000059605,
+            "encodedBytes": 4707,
+            "endMs": 3103
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-CMFs-fLg.js",
+            "startMs": 2832.4000000059605,
+            "encodedBytes": 8421,
+            "endMs": 3131.4000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-DqRvJd1G.js",
+            "startMs": 2840.7000000029802,
+            "encodedBytes": 3647,
+            "endMs": 3087.6000000089407
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-BqiQhOzM.js",
+            "startMs": 2846.800000011921,
+            "encodedBytes": 3170,
+            "endMs": 3096.6000000089407
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-oh-2lsK1.js",
+            "startMs": 2854.4000000059605,
+            "encodedBytes": 3722,
+            "endMs": 3116.7000000029802
+          }
+        ],
+        "dclMs": 2429.7000000029802
+      },
+      {
+        "readyMs": 3302.2000000029802,
+        "compressedBytes": 433713,
+        "requests": 33,
+        "resources": [
+          {
+            "url": "http://127.0.0.1:51536/chunk-BgBOd7dw.js",
+            "startMs": 180.20000000298023,
+            "encodedBytes": 1946,
+            "endMs": 381.20000000298023
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-CYaL5I5P.js",
+            "startMs": 180.59999999403954,
+            "encodedBytes": 8522,
+            "endMs": 462.5
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-B6Fy8hbW.js",
+            "startMs": 180.70000000298023,
+            "encodedBytes": 507,
+            "endMs": 365.29999999701977
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-nGnb0wDD.js",
+            "startMs": 180.70000000298023,
+            "encodedBytes": 1363,
+            "endMs": 396.20000000298023
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-DxMTn5bz.js",
+            "startMs": 180.70000000298023,
+            "encodedBytes": 134,
+            "endMs": 412.20000000298023
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-5tkH_LWN.js",
+            "startMs": 180.70000000298023,
+            "encodedBytes": 114159,
+            "endMs": 2441.2000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-CGs9NOTs.js",
+            "startMs": 180.79999999701977,
+            "encodedBytes": 1315,
+            "endMs": 582.9000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-fm48qzA9.js",
+            "startMs": 180.79999999701977,
+            "encodedBytes": 219,
+            "endMs": 643
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-DI1Tmhid.js",
+            "startMs": 180.79999999701977,
+            "encodedBytes": 22795,
+            "endMs": 1099.5
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-B7-dQp2d.js",
+            "startMs": 180.79999999701977,
+            "encodedBytes": 41551,
+            "endMs": 1633
+          },
+          {
+            "url": "http://127.0.0.1:51536/fonts/google-sans-code-latin.woff2",
+            "startMs": 181.90000000596046,
+            "encodedBytes": 34948,
+            "endMs": 1753.5
+          },
+          {
+            "url": "http://127.0.0.1:51536/fonts/inter-latin.woff2",
+            "startMs": 181.90000000596046,
+            "encodedBytes": 48432,
+            "endMs": 2077
+          },
+          {
+            "url": "http://127.0.0.1:51536/styles-53LAG56E.css",
+            "startMs": 189.40000000596046,
+            "encodedBytes": 4441,
+            "endMs": 590.5999999940395
+          },
+          {
+            "url": "http://127.0.0.1:51536/brand/orbit-e-light.svg",
+            "startMs": 210.40000000596046,
+            "encodedBytes": 188,
+            "endMs": 2299.5999999940395
+          },
+          {
+            "url": "http://127.0.0.1:51536/third-party/github-dark.svg",
+            "startMs": 224.70000000298023,
+            "encodedBytes": 494,
+            "endMs": 2391
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-CkwJ7Bl-.js",
+            "startMs": 232.20000000298023,
+            "encodedBytes": 64603,
+            "endMs": 2360.9000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51536/main-6JHOSLCD.js",
+            "startMs": 233,
+            "encodedBytes": 39714,
+            "endMs": 2247
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-BtI-7Uxj.js",
+            "startMs": 233.20000000298023,
+            "encodedBytes": 921,
+            "endMs": 1948.7000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-BtJdC0T5.js",
+            "startMs": 233.20000000298023,
+            "encodedBytes": 7755,
+            "endMs": 2016.2000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-M_rEfhKe.js",
+            "startMs": 233.20000000298023,
+            "encodedBytes": 793,
+            "endMs": 2128.4000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-DQ7QTUDX.js",
+            "startMs": 233.79999999701977,
+            "encodedBytes": 1295,
+            "endMs": 2224
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-B7Ng-UbO.js",
+            "startMs": 233.90000000596046,
+            "encodedBytes": 313,
+            "endMs": 2254.0999999940395
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-B6S8MXp7.js",
+            "startMs": 2467.9000000059605,
+            "encodedBytes": 196,
+            "endMs": 2628.7999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-BU_e3h3B.js",
+            "startMs": 2683.0999999940395,
+            "encodedBytes": 118,
+            "endMs": 2848.2999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-GtnQ7Scp.js",
+            "startMs": 2683.7999999970198,
+            "encodedBytes": 119,
+            "endMs": 2855
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-CHkp7UuK.js",
+            "startMs": 2683.9000000059605,
+            "encodedBytes": 119,
+            "endMs": 2861
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-B-ud_VU1.js",
+            "startMs": 2684,
+            "encodedBytes": 123,
+            "endMs": 2871.5
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-9Io1ZfT2.js",
+            "startMs": 2848.9000000059605,
+            "encodedBytes": 4707,
+            "endMs": 3110.9000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-CMFs-fLg.js",
+            "startMs": 2848.9000000059605,
+            "encodedBytes": 8421,
+            "endMs": 3147.2999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-BqiQhOzM.js",
+            "startMs": 2855.5,
+            "encodedBytes": 3170,
+            "endMs": 3103.5999999940395
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-DqRvJd1G.js",
+            "startMs": 2861.7000000029802,
+            "encodedBytes": 3647,
+            "endMs": 3116.2999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51536/chunk-oh-2lsK1.js",
+            "startMs": 2871.9000000059605,
+            "encodedBytes": 3722,
+            "endMs": 3132.9000000059605
+          }
+        ],
+        "dclMs": 2439.5999999940395
+      }
+    ],
+    "navigation": [
+      [
+        {
+          "route": "line",
+          "label": "Line Blocks",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 310.3999999910593,
+              "downloadedBytes": 10991
+            }
+          ],
+          "medianFirstChartMs": 310.3999999910593
+        },
+        {
+          "route": "pie",
+          "label": "Pie & Donut Blocks",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 477.29999999701977,
+              "downloadedBytes": 13602
+            }
+          ],
+          "medianFirstChartMs": 477.29999999701977
+        },
+        {
+          "route": "calendar",
+          "label": "Calendar Heatmap",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 374,
+              "downloadedBytes": 13842
+            }
+          ],
+          "medianFirstChartMs": 374
+        },
+        {
+          "route": "sankey",
+          "label": "Sankey Flow",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 362.20000000298023,
+              "downloadedBytes": 21386
+            }
+          ],
+          "medianFirstChartMs": 362.20000000298023
+        },
+        {
+          "route": "/",
+          "label": "Bar Blocks",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 112.59999999403954,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 112.59999999403954
+        },
+        {
+          "route": "line",
+          "label": "Line Blocks",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 110.3999999910593,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 110.3999999910593
+        },
+        {
+          "route": "pie",
+          "label": "Pie & Donut Blocks",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 110.70000000298023,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 110.70000000298023
+        },
+        {
+          "route": "calendar",
+          "label": "Calendar Heatmap",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 110.59999999403954,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 110.59999999403954
+        }
+      ],
+      [
+        {
+          "route": "line",
+          "label": "Line Blocks",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 313.8999999910593,
+              "downloadedBytes": 10991
+            }
+          ],
+          "medianFirstChartMs": 313.8999999910593
+        },
+        {
+          "route": "pie",
+          "label": "Pie & Donut Blocks",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 476.69999998807907,
+              "downloadedBytes": 13602
+            }
+          ],
+          "medianFirstChartMs": 476.69999998807907
+        },
+        {
+          "route": "calendar",
+          "label": "Calendar Heatmap",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 391.40000000596046,
+              "downloadedBytes": 13842
+            }
+          ],
+          "medianFirstChartMs": 391.40000000596046
+        },
+        {
+          "route": "sankey",
+          "label": "Sankey Flow",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 360.69999998807907,
+              "downloadedBytes": 21386
+            }
+          ],
+          "medianFirstChartMs": 360.69999998807907
+        },
+        {
+          "route": "/",
+          "label": "Bar Blocks",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 114.70000000298023,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 114.70000000298023
+        },
+        {
+          "route": "line",
+          "label": "Line Blocks",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 110.59999999403954,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 110.59999999403954
+        },
+        {
+          "route": "pie",
+          "label": "Pie & Donut Blocks",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 92.09999999403954,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 92.09999999403954
+        },
+        {
+          "route": "calendar",
+          "label": "Calendar Heatmap",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 94.20000000298023,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 94.20000000298023
+        }
+      ],
+      [
+        {
+          "route": "line",
+          "label": "Line Blocks",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 304.1000000089407,
+              "downloadedBytes": 10991
+            }
+          ],
+          "medianFirstChartMs": 304.1000000089407
+        },
+        {
+          "route": "pie",
+          "label": "Pie & Donut Blocks",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 478.29999999701977,
+              "downloadedBytes": 13602
+            }
+          ],
+          "medianFirstChartMs": 478.29999999701977
+        },
+        {
+          "route": "calendar",
+          "label": "Calendar Heatmap",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 394.70000000298023,
+              "downloadedBytes": 13842
+            }
+          ],
+          "medianFirstChartMs": 394.70000000298023
+        },
+        {
+          "route": "sankey",
+          "label": "Sankey Flow",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 362.79999999701977,
+              "downloadedBytes": 21386
+            }
+          ],
+          "medianFirstChartMs": 362.79999999701977
+        },
+        {
+          "route": "/",
+          "label": "Bar Blocks",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 112.70000000298023,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 112.70000000298023
+        },
+        {
+          "route": "line",
+          "label": "Line Blocks",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 112.5,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 112.5
+        },
+        {
+          "route": "pie",
+          "label": "Pie & Donut Blocks",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 93,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 93
+        },
+        {
+          "route": "calendar",
+          "label": "Calendar Heatmap",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 93.29999999701977,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 93.29999999701977
+        }
+      ]
+    ]
+  },
+  "after": {
+    "cold": [
+      {
+        "readyMs": 2723.9000000059605,
+        "compressedBytes": 424275,
+        "requests": 27,
+        "resources": [
+          {
+            "url": "http://127.0.0.1:51538/chunk-BgBOd7dw.js",
+            "startMs": 174.20000000298023,
+            "encodedBytes": 1946,
+            "endMs": 378.79999999701977
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-nGnb0wDD.js",
+            "startMs": 174.29999999701977,
+            "encodedBytes": 1363,
+            "endMs": 388
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-CYaL5I5P.js",
+            "startMs": 174.29999999701977,
+            "encodedBytes": 8522,
+            "endMs": 462.90000000596046
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-B6Fy8hbW.js",
+            "startMs": 174.40000000596046,
+            "encodedBytes": 507,
+            "endMs": 367.20000000298023
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-DxMTn5bz.js",
+            "startMs": 174.40000000596046,
+            "encodedBytes": 134,
+            "endMs": 409.5
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-5tkH_LWN.js",
+            "startMs": 174.40000000596046,
+            "encodedBytes": 114159,
+            "endMs": 2442.7999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-CGs9NOTs.js",
+            "startMs": 175,
+            "encodedBytes": 1315,
+            "endMs": 583.2000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-DI1Tmhid.js",
+            "startMs": 175.09999999403954,
+            "encodedBytes": 22795,
+            "endMs": 1026.0999999940395
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-fm48qzA9.js",
+            "startMs": 175.20000000298023,
+            "encodedBytes": 219,
+            "endMs": 642.7999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-BVJGy3Pb.js",
+            "startMs": 175.20000000298023,
+            "encodedBytes": 119,
+            "endMs": 761.7999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-B7-dQp2d.js",
+            "startMs": 175.20000000298023,
+            "encodedBytes": 41551,
+            "endMs": 1476.0999999940395
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-orNccrpJ.js",
+            "startMs": 175.29999999701977,
+            "encodedBytes": 4711,
+            "endMs": 896.7999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-DRkD1pwN.js",
+            "startMs": 175.29999999701977,
+            "encodedBytes": 8483,
+            "endMs": 1009.4000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51538/main-RK4WJRY6.js",
+            "startMs": 175.29999999701977,
+            "encodedBytes": 40268,
+            "endMs": 1746.0999999940395
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-BCV1fTjr.js",
+            "startMs": 176.20000000298023,
+            "encodedBytes": 64755,
+            "endMs": 2388.5
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-BtI-7Uxj.js",
+            "startMs": 176.29999999701977,
+            "encodedBytes": 921,
+            "endMs": 1218.7000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-OVLXYqE9.js",
+            "startMs": 176.29999999701977,
+            "encodedBytes": 8111,
+            "endMs": 1392.7999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-M_rEfhKe.js",
+            "startMs": 176.29999999701977,
+            "encodedBytes": 793,
+            "endMs": 1409.0999999940395
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-DQ7QTUDX.js",
+            "startMs": 176.29999999701977,
+            "encodedBytes": 1295,
+            "endMs": 1609.5
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-B6S8MXp7.js",
+            "startMs": 176.40000000596046,
+            "encodedBytes": 196,
+            "endMs": 1594.7999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-B7Ng-UbO.js",
+            "startMs": 176.5,
+            "encodedBytes": 313,
+            "endMs": 1656.4000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51538/fonts/inter-latin.woff2",
+            "startMs": 180.59999999403954,
+            "encodedBytes": 48432,
+            "endMs": 2533.2999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51538/fonts/google-sans-code-latin.woff2",
+            "startMs": 180.70000000298023,
+            "encodedBytes": 34948,
+            "endMs": 2463.5
+          },
+          {
+            "url": "http://127.0.0.1:51538/styles-53LAG56E.css",
+            "startMs": 185.29999999701977,
+            "encodedBytes": 4441,
+            "endMs": 611.2000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51538/brand/orbit-e-light.svg",
+            "startMs": 203.40000000596046,
+            "encodedBytes": 188,
+            "endMs": 1842.7999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51538/third-party/github-dark.svg",
+            "startMs": 217.40000000596046,
+            "encodedBytes": 494,
+            "endMs": 1931.7999999970198
+          }
+        ],
+        "dclMs": 2468.0999999940395
+      },
+      {
+        "readyMs": 2714.7000000029802,
+        "compressedBytes": 424275,
+        "requests": 27,
+        "resources": [
+          {
+            "url": "http://127.0.0.1:51538/chunk-BgBOd7dw.js",
+            "startMs": 172.1000000089407,
+            "encodedBytes": 1946,
+            "endMs": 380
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-nGnb0wDD.js",
+            "startMs": 172.6000000089407,
+            "encodedBytes": 1363,
+            "endMs": 386.5
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-CYaL5I5P.js",
+            "startMs": 172.6000000089407,
+            "encodedBytes": 8522,
+            "endMs": 455.5
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-5tkH_LWN.js",
+            "startMs": 172.6000000089407,
+            "encodedBytes": 114159,
+            "endMs": 2418.5
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-B6Fy8hbW.js",
+            "startMs": 172.70000000298023,
+            "encodedBytes": 507,
+            "endMs": 365.6000000089407
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-DxMTn5bz.js",
+            "startMs": 172.70000000298023,
+            "encodedBytes": 134,
+            "endMs": 410.90000000596046
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-CGs9NOTs.js",
+            "startMs": 172.70000000298023,
+            "encodedBytes": 1315,
+            "endMs": 583.2999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-DI1Tmhid.js",
+            "startMs": 173.6000000089407,
+            "encodedBytes": 22795,
+            "endMs": 1033.2999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-B7-dQp2d.js",
+            "startMs": 173.6000000089407,
+            "encodedBytes": 41551,
+            "endMs": 1458.6000000089407
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-fm48qzA9.js",
+            "startMs": 173.70000000298023,
+            "encodedBytes": 219,
+            "endMs": 641.4000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-BVJGy3Pb.js",
+            "startMs": 173.79999999701977,
+            "encodedBytes": 119,
+            "endMs": 763.2999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-orNccrpJ.js",
+            "startMs": 174.1000000089407,
+            "encodedBytes": 4711,
+            "endMs": 905.5
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-DRkD1pwN.js",
+            "startMs": 174.1000000089407,
+            "encodedBytes": 8483,
+            "endMs": 1011.5
+          },
+          {
+            "url": "http://127.0.0.1:51538/main-RK4WJRY6.js",
+            "startMs": 174.1000000089407,
+            "encodedBytes": 40268,
+            "endMs": 1744.1000000089407
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-BCV1fTjr.js",
+            "startMs": 174.1000000089407,
+            "encodedBytes": 64755,
+            "endMs": 2382.7999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-BtI-7Uxj.js",
+            "startMs": 174.20000000298023,
+            "encodedBytes": 921,
+            "endMs": 1226.4000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-OVLXYqE9.js",
+            "startMs": 174.20000000298023,
+            "encodedBytes": 8111,
+            "endMs": 1392.7000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-M_rEfhKe.js",
+            "startMs": 174.29999999701977,
+            "encodedBytes": 793,
+            "endMs": 1414.6000000089407
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-DQ7QTUDX.js",
+            "startMs": 174.40000000596046,
+            "encodedBytes": 1295,
+            "endMs": 1608.7000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-B6S8MXp7.js",
+            "startMs": 175.20000000298023,
+            "encodedBytes": 196,
+            "endMs": 1602.5
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-B7Ng-UbO.js",
+            "startMs": 175.20000000298023,
+            "encodedBytes": 313,
+            "endMs": 1639
+          },
+          {
+            "url": "http://127.0.0.1:51538/fonts/google-sans-code-latin.woff2",
+            "startMs": 182.70000000298023,
+            "encodedBytes": 34948,
+            "endMs": 2458.5
+          },
+          {
+            "url": "http://127.0.0.1:51538/fonts/inter-latin.woff2",
+            "startMs": 182.70000000298023,
+            "encodedBytes": 48432,
+            "endMs": 2523.9000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51538/styles-53LAG56E.css",
+            "startMs": 184.79999999701977,
+            "encodedBytes": 4441,
+            "endMs": 613.2999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51538/brand/orbit-e-light.svg",
+            "startMs": 202,
+            "encodedBytes": 188,
+            "endMs": 1828.5
+          },
+          {
+            "url": "http://127.0.0.1:51538/third-party/github-dark.svg",
+            "startMs": 215.79999999701977,
+            "encodedBytes": 494,
+            "endMs": 1926
+          }
+        ],
+        "dclMs": 2461.1000000089407
+      },
+      {
+        "readyMs": 2712.9000000059605,
+        "compressedBytes": 424275,
+        "requests": 27,
+        "resources": [
+          {
+            "url": "http://127.0.0.1:51538/chunk-BgBOd7dw.js",
+            "startMs": 173.09999999403954,
+            "encodedBytes": 1946,
+            "endMs": 379
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-CYaL5I5P.js",
+            "startMs": 173.20000000298023,
+            "encodedBytes": 8522,
+            "endMs": 460.90000000596046
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-B6Fy8hbW.js",
+            "startMs": 173.29999999701977,
+            "encodedBytes": 507,
+            "endMs": 372.29999999701977
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-nGnb0wDD.js",
+            "startMs": 173.29999999701977,
+            "encodedBytes": 1363,
+            "endMs": 394.09999999403954
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-DxMTn5bz.js",
+            "startMs": 173.29999999701977,
+            "encodedBytes": 134,
+            "endMs": 410.5
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-5tkH_LWN.js",
+            "startMs": 173.29999999701977,
+            "encodedBytes": 114159,
+            "endMs": 2441.7000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-CGs9NOTs.js",
+            "startMs": 174.40000000596046,
+            "encodedBytes": 1315,
+            "endMs": 583.7999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-fm48qzA9.js",
+            "startMs": 174.40000000596046,
+            "encodedBytes": 219,
+            "endMs": 641.7999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-DI1Tmhid.js",
+            "startMs": 174.40000000596046,
+            "encodedBytes": 22795,
+            "endMs": 1039.9000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-B7-dQp2d.js",
+            "startMs": 174.40000000596046,
+            "encodedBytes": 41551,
+            "endMs": 1483.9000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-BVJGy3Pb.js",
+            "startMs": 174.5,
+            "encodedBytes": 119,
+            "endMs": 762.4000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-orNccrpJ.js",
+            "startMs": 174.5,
+            "encodedBytes": 4711,
+            "endMs": 896.0999999940395
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-DRkD1pwN.js",
+            "startMs": 174.5,
+            "encodedBytes": 8483,
+            "endMs": 1010.2999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51538/main-RK4WJRY6.js",
+            "startMs": 175.20000000298023,
+            "encodedBytes": 40268,
+            "endMs": 1760.2999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-BCV1fTjr.js",
+            "startMs": 175.29999999701977,
+            "encodedBytes": 64755,
+            "endMs": 2383.4000000059605
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-BtI-7Uxj.js",
+            "startMs": 175.40000000596046,
+            "encodedBytes": 921,
+            "endMs": 1226.5
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-OVLXYqE9.js",
+            "startMs": 175.40000000596046,
+            "encodedBytes": 8111,
+            "endMs": 1391.7000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-M_rEfhKe.js",
+            "startMs": 175.40000000596046,
+            "encodedBytes": 793,
+            "endMs": 1413.7999999970198
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-DQ7QTUDX.js",
+            "startMs": 175.40000000596046,
+            "encodedBytes": 1295,
+            "endMs": 1610.5
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-B6S8MXp7.js",
+            "startMs": 175.5,
+            "encodedBytes": 196,
+            "endMs": 1594.7000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51538/chunk-B7Ng-UbO.js",
+            "startMs": 176.40000000596046,
+            "encodedBytes": 313,
+            "endMs": 1661.5999999940395
+          },
+          {
+            "url": "http://127.0.0.1:51538/fonts/google-sans-code-latin.woff2",
+            "startMs": 179.40000000596046,
+            "encodedBytes": 34948,
+            "endMs": 2464.5999999940395
+          },
+          {
+            "url": "http://127.0.0.1:51538/fonts/inter-latin.woff2",
+            "startMs": 179.40000000596046,
+            "encodedBytes": 48432,
+            "endMs": 2533.5
+          },
+          {
+            "url": "http://127.0.0.1:51538/styles-53LAG56E.css",
+            "startMs": 184.09999999403954,
+            "encodedBytes": 4441,
+            "endMs": 611.5
+          },
+          {
+            "url": "http://127.0.0.1:51538/brand/orbit-e-light.svg",
+            "startMs": 203.90000000596046,
+            "encodedBytes": 188,
+            "endMs": 1850.7000000029802
+          },
+          {
+            "url": "http://127.0.0.1:51538/third-party/github-dark.svg",
+            "startMs": 217.20000000298023,
+            "encodedBytes": 494,
+            "endMs": 1940.7999999970198
+          }
+        ],
+        "dclMs": 2461.7000000029802
+      }
+    ],
+    "navigation": [
+      [
+        {
+          "route": "line",
+          "label": "Line Blocks",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 332.3999999910593,
+              "downloadedBytes": 14288
+            }
+          ],
+          "medianFirstChartMs": 332.3999999910593
+        },
+        {
+          "route": "pie",
+          "label": "Pie & Donut Blocks",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 345.09999999403954,
+              "downloadedBytes": 13605
+            }
+          ],
+          "medianFirstChartMs": 345.09999999403954
+        },
+        {
+          "route": "calendar",
+          "label": "Calendar Heatmap",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 385.5,
+              "downloadedBytes": 13867
+            }
+          ],
+          "medianFirstChartMs": 385.5
+        },
+        {
+          "route": "sankey",
+          "label": "Sankey Flow",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 343.19999998807907,
+              "downloadedBytes": 21394
+            }
+          ],
+          "medianFirstChartMs": 343.19999998807907
+        },
+        {
+          "route": "/",
+          "label": "Bar Blocks",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 116.79999999701977,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 116.79999999701977
+        },
+        {
+          "route": "line",
+          "label": "Line Blocks",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 112,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 112
+        },
+        {
+          "route": "pie",
+          "label": "Pie & Donut Blocks",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 95,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 95
+        },
+        {
+          "route": "calendar",
+          "label": "Calendar Heatmap",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 111.70000000298023,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 111.70000000298023
+        }
+      ],
+      [
+        {
+          "route": "line",
+          "label": "Line Blocks",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 330,
+              "downloadedBytes": 14288
+            }
+          ],
+          "medianFirstChartMs": 330
+        },
+        {
+          "route": "pie",
+          "label": "Pie & Donut Blocks",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 327.20000000298023,
+              "downloadedBytes": 13605
+            }
+          ],
+          "medianFirstChartMs": 327.20000000298023
+        },
+        {
+          "route": "calendar",
+          "label": "Calendar Heatmap",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 390.70000000298023,
+              "downloadedBytes": 13867
+            }
+          ],
+          "medianFirstChartMs": 390.70000000298023
+        },
+        {
+          "route": "sankey",
+          "label": "Sankey Flow",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 346.40000000596046,
+              "downloadedBytes": 21394
+            }
+          ],
+          "medianFirstChartMs": 346.40000000596046
+        },
+        {
+          "route": "/",
+          "label": "Bar Blocks",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 110.80000001192093,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 110.80000001192093
+        },
+        {
+          "route": "line",
+          "label": "Line Blocks",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 109.5,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 109.5
+        },
+        {
+          "route": "pie",
+          "label": "Pie & Donut Blocks",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 93.59999999403954,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 93.59999999403954
+        },
+        {
+          "route": "calendar",
+          "label": "Calendar Heatmap",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 110.5,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 110.5
+        }
+      ],
+      [
+        {
+          "route": "line",
+          "label": "Line Blocks",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 335.6000000089407,
+              "downloadedBytes": 14288
+            }
+          ],
+          "medianFirstChartMs": 335.6000000089407
+        },
+        {
+          "route": "pie",
+          "label": "Pie & Donut Blocks",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 328.79999999701977,
+              "downloadedBytes": 13605
+            }
+          ],
+          "medianFirstChartMs": 328.79999999701977
+        },
+        {
+          "route": "calendar",
+          "label": "Calendar Heatmap",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 390.40000000596046,
+              "downloadedBytes": 13867
+            }
+          ],
+          "medianFirstChartMs": 390.40000000596046
+        },
+        {
+          "route": "sankey",
+          "label": "Sankey Flow",
+          "revisit": false,
+          "budgetMs": 1500,
+          "samples": [
+            {
+              "firstChartMs": 362.5,
+              "downloadedBytes": 21394
+            }
+          ],
+          "medianFirstChartMs": 362.5
+        },
+        {
+          "route": "/",
+          "label": "Bar Blocks",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 114.79999999701977,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 114.79999999701977
+        },
+        {
+          "route": "line",
+          "label": "Line Blocks",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 107.8999999910593,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 107.8999999910593
+        },
+        {
+          "route": "pie",
+          "label": "Pie & Donut Blocks",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 93.40000000596046,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 93.40000000596046
+        },
+        {
+          "route": "calendar",
+          "label": "Calendar Heatmap",
+          "revisit": true,
+          "budgetMs": 750,
+          "samples": [
+            {
+              "firstChartMs": 111.09999999403954,
+              "downloadedBytes": 0
+            }
+          ],
+          "medianFirstChartMs": 111.09999999403954
+        }
+      ]
+    ]
+  },
+  "captures": [
+    {
+      "route": "/",
+      "width": 390,
+      "identical": false,
+      "pixels": {
+        "sameDimensions": true,
+        "width": 358,
+        "height": 610,
+        "differentPixels": 5,
+        "maxChannelDifference": 1,
+        "bounds": [0, 48, 6, 97]
+      },
+      "beforePath": "docs/experiments/captures/demo-navigation/before-bar-390.png",
+      "afterPath": "docs/experiments/captures/demo-navigation/after-bar-390.png",
+      "beforeSha256": "5cbf482164132d2e1e64692065f1bb525beaf6c74fd189e42e4d200f357a6383",
+      "afterSha256": "03793b250f42450d4af0d5a3e3e4c1bd228b07982d1911487747d752134c1308"
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "identical": true,
+      "pixels": {
+        "sameDimensions": true,
+        "width": 640,
+        "height": 597,
+        "differentPixels": 0,
+        "maxChannelDifference": 0,
+        "bounds": null
+      },
+      "beforePath": "docs/experiments/captures/demo-navigation/before-bar-1440.png",
+      "afterPath": "docs/experiments/captures/demo-navigation/after-bar-1440.png",
+      "beforeSha256": "6c31c1ddd8fc678900b8d8b215cce479fec3655e489136b3bb5d5d881715cd70",
+      "afterSha256": "6c31c1ddd8fc678900b8d8b215cce479fec3655e489136b3bb5d5d881715cd70"
+    },
+    {
+      "route": "pie",
+      "width": 390,
+      "identical": false,
+      "pixels": {
+        "sameDimensions": true,
+        "width": 358,
+        "height": 832,
+        "differentPixels": 5,
+        "maxChannelDifference": 1,
+        "bounds": [0, 48, 6, 97]
+      },
+      "beforePath": "docs/experiments/captures/demo-navigation/before-pie-390.png",
+      "afterPath": "docs/experiments/captures/demo-navigation/after-pie-390.png",
+      "beforeSha256": "3d81af72921b0488953a9575de5ed5566f8a7998e8789ade84e40ee1ef82618b",
+      "afterSha256": "7ebcaea6e82d903fda56c0105021ab700867ad2d2a22e7914203f4fd80434b31"
+    },
+    {
+      "route": "pie",
+      "width": 1440,
+      "identical": true,
+      "pixels": {
+        "sameDimensions": true,
+        "width": 640,
+        "height": 682,
+        "differentPixels": 0,
+        "maxChannelDifference": 0,
+        "bounds": null
+      },
+      "beforePath": "docs/experiments/captures/demo-navigation/before-pie-1440.png",
+      "afterPath": "docs/experiments/captures/demo-navigation/after-pie-1440.png",
+      "beforeSha256": "aaa47361107edfbe32f6b59029b31d6f67daef0a50a3d9ef72f8f33d98e90ab6",
+      "afterSha256": "aaa47361107edfbe32f6b59029b31d6f67daef0a50a3d9ef72f8f33d98e90ab6"
+    }
+  ],
+  "sourceBaseCommit": "aa394e5876a2205207f50a3d0e0b3e4bedb11ed2",
+  "includesWorkingTree": true,
+  "baselinePatchSha256": "0bd348d7e6b277c6823bf0fe28a9b0f00a4f2e973569155d0f66b85f25df0578",
+  "method": "Isolated pre-fix source and updated production SSR builds, served through identical gzip proxies; interleaved three-sample Chromium measurements. No field Core Web Vitals claim.",
+  "summary": {
+    "cold": {
+      "beforeMs": 3282.1000000089407,
+      "afterMs": 2714.7000000029802,
+      "beforeBytes": 433713,
+      "afterBytes": 424275,
+      "beforeRequests": 33,
+      "afterRequests": 27
+    },
+    "navigation": [
+      {
+        "page": "Line Blocks",
+        "revisit": false,
+        "beforeMs": 310.3999999910593,
+        "afterMs": 332.3999999910593
+      },
+      {
+        "page": "Pie & Donut Blocks",
+        "revisit": false,
+        "beforeMs": 477.29999999701977,
+        "afterMs": 328.79999999701977
+      },
+      {
+        "page": "Calendar Heatmap",
+        "revisit": false,
+        "beforeMs": 391.40000000596046,
+        "afterMs": 390.40000000596046
+      },
+      {
+        "page": "Sankey Flow",
+        "revisit": false,
+        "beforeMs": 362.20000000298023,
+        "afterMs": 346.40000000596046
+      },
+      {
+        "page": "Bar Blocks",
+        "revisit": true,
+        "beforeMs": 112.70000000298023,
+        "afterMs": 114.79999999701977
+      },
+      {
+        "page": "Line Blocks",
+        "revisit": true,
+        "beforeMs": 110.59999999403954,
+        "afterMs": 109.5
+      },
+      {
+        "page": "Pie & Donut Blocks",
+        "revisit": true,
+        "beforeMs": 93,
+        "afterMs": 93.59999999403954
+      },
+      {
+        "page": "Calendar Heatmap",
+        "revisit": true,
+        "beforeMs": 94.20000000298023,
+        "afterMs": 111.09999999403954
+      }
+    ]
+  },
+  "validation": {
+    "unitTests": 266,
+    "browserPassed": 380,
+    "browserSkipped": 4,
+    "browserWorkers": 3,
+    "baselineAnimation": {
+      "expectedFailure": true,
+      "distinctFrames": 2
+    },
+    "correctedAnimation": ["chromium", "firefox", "webkit"],
+    "demoAssets": 5,
+    "provenance": 20,
+    "packedDeclarations": true,
+    "documentationConsumer": true,
+    "ssr": true,
+    "independentClientAndSSR": ["chromium", "firefox", "webkit"],
+    "packageBudgets": 12,
+    "archivedRc15Sha256": "c0f85b98b1c61223a16f5287c2125c63305d6e69cde3a784c7083aa9dfd4d91f"
+  },
+  "releaseStatus": "Unreleased source; no deployment, package publication or human release-gate closure."
+}

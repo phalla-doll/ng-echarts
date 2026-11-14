@@ -32,7 +32,7 @@ The [NG14 review](NG14_CROSS_FAMILY_ACCEPTANCE.md) records automated coverage ac
 NG17 extends the pending human review to `/composed-validation` and the visits/trend summary on `/composed`. Verify that comparable units and the supplied trend meaning are understandable, mixed bar/line series retain clear native legend/table actions, zero and missing values remain distinct, and reordering/kind changes retain meaningful focus and visibility. This is a checklist for the deferred session, not a recorded listening result.
 
 
-NG20 also adds `/linked` to the deferred listening checklist. Check that the selected month, reset and updated device-share context are understandable, plot and table actions have equivalent meaning, focus stays on the initiating control, and independent legend visibility is clear. Verify no-month/all-missing/zero announcements and selection clearing after removal on `/linked-validation`. These are pending human checks, not listening results.
+NG20 also adds `/linked` to the deferred listening checklist. Check that the selected month, reset and updated device-share context are understandable, plot and table actions have equivalent meaning, focus stays on the initiating control, and independent legend visibility is clear. Verify no-month/all-missing/zero announcements and selection clearing after removal on `/linked-validation`. With opt-in Preview months enabled, confirm that hover/table-focus context is explicitly temporary, committed Period/From/To and totals remain understandable, and only focus previews are announced. Verify that Escape/blur restore committed context and Enter/Space select the month. Pointer movement should not generate repeated live announcements. These are pending human checks, not listening results.
 
 
 ## Experimental radar follow-up
@@ -43,3 +43,11 @@ The NG18 radar extension also requires human interpretation before release accep
 ## Experimental radial progress follow-up
 
 Review `/radial` with a screen reader before release acceptance: names and raw maxima, zero versus missing/loading/error values, percentage/value text, updates and multiple instances. The Canvas and duplicate center labels are decorative; the native progress element must expose the same raw value/maximum before and after hydration. This is a noninteractive scalar indicator; no keyboard selection action is required. No human result has been recorded. [Radial contract](../RADIAL_PROGRESS_API.md).
+
+## Experimental calendar heatmap follow-up
+
+Review `/calendar` in both themes and at a narrow width. Verify the supplied year and measure label, fixed scale and quarter/year layout are understandable without color alone. In the native daily table, distinguish an unrecorded date from a recorded zero, read complete dates and values, and activate a daily action with the keyboard. Check that updates, missing/zero-only data, loading/error recovery and hydration preserve meaningful labels and focus. Record the tested commit and environment with a pass/fail result for each item. This is a deferred checklist, not a listening result. [Calendar contract](../CALENDAR_HEATMAP_API.md).
+
+## Experimental Sankey follow-up
+
+Review `/sankey` in both themes and at a narrow width. Verify that the title, description and measure label explain the directed flow. Read node incoming and outgoing totals separately; confirm that an imbalance is understandable and that no graph-wide double-counted total is implied. In the native node/link tables, check full labels, source/target direction, recorded-zero links and isolated nodes, and activate equivalent node/link actions with the keyboard. Check that the named diagram scroll region, updates, empty/loading/error states and hydration retain useful reading order and focus. Record the tested commit and environment with a pass/fail result for each item. Human F09/R06/G2/G3/G4 remain pending. [Sankey contract](../SANKEY_CHART_API.md).

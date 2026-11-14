@@ -88,6 +88,21 @@
 <p class="linked-status visually-hidden" role="status" aria-live="polite" aria-atomic="true">
   {{ status() }}
 </p>
+<div class="preview-controls">
+  <label class="preview-toggle">
+    <input
+      #previewToggle
+      type="checkbox"
+      [checked]="previewMonths()"
+      (change)="previewMonths.set(previewToggle.checked)"
+    />
+    Preview months
+  </label>
+  <p class="preview-context">{{ previewMessage() || 'Hover a bar or focus a table value.' }}</p>
+</div>
+<p class="visually-hidden" role="status" aria-live="polite" aria-atomic="true">
+  {{ focusPreviewMessage() }}
+</p>
 <div class="linked-pair">
   <section class="linked-card overview" aria-label="Monthly visits overview">
     <nec-bar-chart
@@ -99,6 +114,8 @@
       [series]="series"
       [selectedRowIds]="selectedIds()"
       [rangeSelection]="rangeMode()"
+      [previewEnabled]="previewMonths()"
+      (pointPreview)="previewPoint($event)"
       [layout]="layout()"
       [stacked]="stacked()"
       [gradient]="gradient()"
@@ -113,7 +130,7 @@
     <nec-pie-chart
       [title]="detailTitle()"
       [description]="detailDescription()"
-      [data]="share()"
+      [data]="displayShare()"
       rowIdKey="id"
       categoryKey="device"
       [measure]="measure"

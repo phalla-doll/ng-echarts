@@ -46,86 +46,7 @@
         }
       </div>
       @let example = block();
-      @defer (
-        on viewport(surface);
-        when printMode.active();
-        hydrate on viewport;
-        hydrate when printMode.active()
-      ) {
-        @for (instance of instances(); track instance) {
-          @if (example.kind === 'composed') {
-            <nec-composed-chart
-              class="gallery-chart"
-              [title]="example.title"
-              [description]="example.description"
-              [data]="example.rows"
-              rowIdKey="id"
-              categoryKey="month"
-              [series]="example.series"
-              [theme]="theme()"
-              [categoryTickFormatter]="monthTick"
-              [showDataTable]="false"
-              [height]="230"
-              (pointSelect)="select($event)"
-            />
-          } @else if (example.kind === 'line') {
-            <nec-line-chart
-              class="gallery-chart"
-              [title]="example.title"
-              [description]="example.description"
-              [data]="example.rows"
-              rowIdKey="id"
-              categoryKey="month"
-              [series]="example.series"
-              [smooth]="example.smooth"
-              [showPoints]="example.showPoints"
-              [theme]="theme()"
-              [categoryTickFormatter]="monthTick"
-              [showDataTable]="false"
-              [height]="230"
-              (pointSelect)="select($event)"
-            />
-          } @else if (example.kind === 'area') {
-            <nec-area-chart
-              class="gallery-chart"
-              [title]="example.title"
-              [description]="example.description"
-              [data]="example.rows"
-              rowIdKey="id"
-              categoryKey="month"
-              [series]="example.series"
-              [smooth]="example.smooth"
-              [showPoints]="example.showPoints"
-              [stacked]="example.stacked"
-              [gradient]="example.gradient"
-              [theme]="theme()"
-              [categoryTickFormatter]="monthTick"
-              [showDataTable]="false"
-              [height]="230"
-              (pointSelect)="select($event)"
-            />
-          } @else {
-            <nec-bar-chart
-              class="gallery-chart"
-              [title]="block().title"
-              [description]="block().description"
-              [data]="block().rows"
-              rowIdKey="id"
-              categoryKey="month"
-              [series]="block().series"
-              [layout]="example.layout"
-              [stacked]="example.stacked"
-              [gradient]="example.gradient"
-              [theme]="theme()"
-              [categoryTickFormatter]="monthTick"
-              [showDataTable]="false"
-              [style.--nec-series-1]="color()"
-              [height]="230"
-              (pointSelect)="select($event)"
-            />
-          }
-        }
-      } @placeholder {
+      <ng-template #chartPlaceholder>
         <div class="gallery-chart" aria-hidden="true">
           <div class="chart-frame">
             <div [style.height.px]="230"></div>
@@ -139,6 +60,126 @@
             </div>
           </div>
         </div>
+      </ng-template>
+      @switch (example.kind) {
+        @case ('composed') {
+          @defer (
+            on viewport(surface);
+            when printMode.active();
+            hydrate on viewport;
+            hydrate when printMode.active()
+          ) {
+            @for (instance of instances(); track instance) {
+              <nec-composed-chart
+                class="gallery-chart"
+                [title]="example.title"
+                [description]="example.description"
+                [data]="example.rows"
+                rowIdKey="id"
+                categoryKey="month"
+                [series]="example.series"
+                [theme]="theme()"
+                [categoryTickFormatter]="monthTick"
+                [showDataTable]="false"
+                [height]="230"
+                (pointSelect)="select($event)"
+              />
+            }
+          } @placeholder {
+            <ng-container [ngTemplateOutlet]="chartPlaceholder" />
+          }
+        }
+        @case ('line') {
+          @defer (
+            on viewport(surface);
+            when printMode.active();
+            hydrate on viewport;
+            hydrate when printMode.active()
+          ) {
+            @for (instance of instances(); track instance) {
+              <nec-line-chart
+                class="gallery-chart"
+                [title]="example.title"
+                [description]="example.description"
+                [data]="example.rows"
+                rowIdKey="id"
+                categoryKey="month"
+                [series]="example.series"
+                [smooth]="example.smooth"
+                [showPoints]="example.showPoints"
+                [theme]="theme()"
+                [categoryTickFormatter]="monthTick"
+                [showDataTable]="false"
+                [height]="230"
+                (pointSelect)="select($event)"
+              />
+            }
+          } @placeholder {
+            <ng-container [ngTemplateOutlet]="chartPlaceholder" />
+          }
+        }
+        @case ('area') {
+          @defer (
+            on viewport(surface);
+            when printMode.active();
+            hydrate on viewport;
+            hydrate when printMode.active()
+          ) {
+            @for (instance of instances(); track instance) {
+              <nec-area-chart
+                class="gallery-chart"
+                [title]="example.title"
+                [description]="example.description"
+                [data]="example.rows"
+                rowIdKey="id"
+                categoryKey="month"
+                [series]="example.series"
+                [smooth]="example.smooth"
+                [showPoints]="example.showPoints"
+                [stacked]="example.stacked"
+                [gradient]="example.gradient"
+                [theme]="theme()"
+                [categoryTickFormatter]="monthTick"
+                [showDataTable]="false"
+                [height]="230"
+                (pointSelect)="select($event)"
+              />
+            }
+          } @placeholder {
+            <ng-container [ngTemplateOutlet]="chartPlaceholder" />
+          }
+        }
+        @case ('bar') {
+          @defer (
+            on viewport(surface);
+            when printMode.active();
+            hydrate on viewport;
+            hydrate when printMode.active()
+          ) {
+            @for (instance of instances(); track instance) {
+              <nec-bar-chart
+                class="gallery-chart"
+                [title]="block().title"
+                [description]="block().description"
+                [data]="block().rows"
+                rowIdKey="id"
+                categoryKey="month"
+                [series]="block().series"
+                [layout]="example.layout"
+                [stacked]="example.stacked"
+                [gradient]="example.gradient"
+                [theme]="theme()"
+                [categoryTickFormatter]="monthTick"
+                [showDataTable]="false"
+                [style.--nec-series-1]="color()"
+                [height]="230"
+                (pointSelect)="select($event)"
+              />
+            }
+          } @placeholder {
+            <ng-container [ngTemplateOutlet]="chartPlaceholder" />
+          }
+        }
       }
       <p class="block-selection" role="status" [class.has-selection]="selection()">
         {{ selection() }}

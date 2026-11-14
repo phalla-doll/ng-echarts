@@ -297,7 +297,11 @@ async function exercise(engine, url, ssr) {
     const linkedPoint = page
       .locator('.overview')
       .getByRole('button', { name: 'Select Mobile for February: 491', exact: true });
+    await page.getByRole('checkbox', { name: 'Preview months', exact: true }).check();
     await linkedPoint.focus();
+    await expect(page.locator('.detail h2')).toHaveText('Device share · Preview: February');
+    await expect(page.getByRole('combobox', { name: 'Period', exact: true })).toHaveValue('');
+    await expect(page.locator('.linked-status')).toContainText('All months: 11,463 visits');
     await page.keyboard.press('Enter');
     await expect(linkedPoint).toBeFocused();
     await expect(page.locator('.detail h2')).toHaveText('Device share · February');
@@ -374,6 +378,7 @@ async function exercise(engine, url, ssr) {
       version: browser.version(),
       mode: ssr ? 'ssr-hydration' : 'client',
       conceptGallery: true,
+      linkedMonthPreviews: true,
       passed: true,
     };
   } finally {

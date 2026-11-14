@@ -17,7 +17,11 @@ import {
   untracked,
   viewChild,
 } from '@angular/core';
-import { browserPlotEnvironment, readCartesianTheme } from './cartesian-browser';
+import {
+  browserPlotEnvironment,
+  readCartesianTheme,
+  observeTablePreviews,
+} from './cartesian-browser';
 import {
   normalizeCartesianData,
   resolveCartesianState,
@@ -34,6 +38,7 @@ import type {
   ChartTheme,
   LegendVisibilityChange,
   PointSelection,
+  PointPreview,
   StringKey,
   ValueFormatter,
 } from './chart-types';
@@ -58,6 +63,42 @@ export abstract class CartesianChart<
     return id === this.rowSelectionId();
   }
   protected selectRange(_rowIds: readonly string[], _snapshot: unknown): void {}
+  protected canPreview(): boolean {
+    return false;
+  }
+  protected observePreviews(): boolean {
+    return this.canPreview();
+  }
+  protected emitPreview(_point: PointPreview<T> | null): void {}
+  private pointerPreview: { point: PlotPoint; source: 'plot' | 'table' } | null = null;
+  private focusPreview: PlotPoint | null = null;
+  private lastPreview: PointPreview<T> | null = null;
+  private readonly plotContext = computed(() => [
+    this.model(),
+    this.settings(),
+    this.hiddenIds(),
+    this.formatting(),
+    this.categoryTicks(),
+    this.tokens(),
+    this.tableExpanded(),
+  ]);
+  private readonly plotPreview = signal<{ point: PlotPoint; context: readonly unknown[] } | null>(
+    null,
+    {
+      equal: (a, b) =>
+        a?.context === b?.context &&
+        a?.point.rowId === b?.point.rowId &&
+        a?.point.seriesId === b?.point.seriesId,
+    },
+  );
+  private previewSnapshot: readonly unknown[] | null = null;
+  private readonly previewContext = computed(() => [
+    this.model(),
+    this.settings(),
+    this.hiddenIds(),
+    this.tableExpanded(),
+    this.state(),
+  ]);
   readonly title = input.required<string>();
   readonly description = input('');
   readonly data = input.required<readonly T[]>();
@@ -90,6 +131,7 @@ export abstract class CartesianChart<
   private controller: PlotController<Option> | null = null;
   private removeMotionListener: (() => void) | null = null;
   private focusKeeper: ChartFocusKeeper | null = null;
+  private removePreviewListeners: (() => void) | null = null;
 
   protected readonly rendererError = signal(false);
   protected readonly tableExpanded = signal(false);
@@ -206,6 +248,31 @@ export abstract class CartesianChart<
       this.rendererError.set(false);
     });
     effect(() => {
+      const context = this.previewContext();
+      // An event can already describe the new inputs before this scheduled effect
+      // runs. Invalidate only previews captured against an older context.
+      untracked(() => {
+        if (this.previewSnapshot !== context) this.clearPreview();
+      });
+    });
+    effect(() => {
+      const current = this.plotPreview();
+      const context = this.plotContext();
+      const ready = this.state().kind === 'ready';
+      const hidden = this.hiddenIds();
+      const enabled = this.canPreview();
+      if (
+        current &&
+        (current.context !== context || !ready || hidden.has(current.point.seriesId))
+      ) {
+        this.plotPreview.set(null);
+        return;
+      }
+      // Native pointer events can arrive before Angular propagates an enabling
+      // input. Reconcile the latest hit after inputs settle, without a new move.
+      if (enabled) untracked(() => this.previewPoint(current?.point ?? null, 'plot', 'pointer'));
+    });
+    effect(() => {
       // Valid series removals still count while row data is loading or invalid.
       const series = this.series();
       if (
@@ -243,6 +310,7 @@ export abstract class CartesianChart<
             (point) => this.selectPoint(point, 'plot'),
             () => this.rendererError.set(true),
             (ids, snapshot) => this.selectRange(ids, snapshot),
+            (point) => this.plotPreview.set(point ? { point, context: this.plotContext() } : null),
           );
           this.browserReady.set(true);
           this.focusKeeper = new ChartFocusKeeper(this.host.nativeElement);
@@ -280,6 +348,17 @@ export abstract class CartesianChart<
       this.controller?.update(this.options());
     });
     afterRenderEffect(() => {
+      if (this.browserReady() && this.observePreviews()) {
+        this.removePreviewListeners ??= observeTablePreviews(
+          this.host.nativeElement,
+          (point, trigger) => this.previewPoint(point, 'table', trigger),
+        );
+      } else {
+        this.removePreviewListeners?.();
+        this.removePreviewListeners = null;
+      }
+    });
+    afterRenderEffect(() => {
       this.state();
       this.tableRows();
       this.legendItems();
@@ -287,6 +366,7 @@ export abstract class CartesianChart<
     });
     this.destroyRef.onDestroy(() => {
       this.removeMotionListener?.();
+      this.removePreviewListeners?.();
       this.controller?.destroy();
       this.focusKeeper?.destroy();
     });
@@ -294,6 +374,59 @@ export abstract class CartesianChart<
 
   protected toggleTable(): void {
     this.tableExpanded.update((expanded) => !expanded);
+  }
+
+  protected previewPoint(
+    point: PlotPoint | null,
+    source: 'plot' | 'table',
+    trigger: 'pointer' | 'focus',
+  ): void {
+    if (this.destroyRef.destroyed || !this.canPreview()) return;
+    const context = this.previewContext();
+    if (this.previewSnapshot !== context) this.clearPreview();
+    if (trigger === 'focus') this.focusPreview = point;
+    else this.pointerPreview = point ? { point, source } : null;
+    const pointer = this.pointerPreview;
+    const candidate = pointer?.point ?? this.focusPreview;
+    const origin = pointer?.source ?? 'table';
+    const model = this.model();
+    const value =
+      candidate &&
+      model.kind !== 'error' &&
+      this.state().kind === 'ready' &&
+      !(origin === 'plot' && this.hiddenIds().has(candidate.seriesId))
+        ? model.rows
+            .find((row) => row.id === candidate.rowId)
+            ?.points.find((cell) => cell.seriesId === candidate.seriesId)
+        : null;
+    const next: PointPreview<T> | null =
+      value && value.value !== null
+        ? { ...value, value: value.value, source: origin, trigger: pointer ? 'pointer' : 'focus' }
+        : null;
+    this.previewSnapshot = context;
+    if (
+      next?.row === this.lastPreview?.row &&
+      next?.seriesId === this.lastPreview?.seriesId &&
+      next?.value === this.lastPreview?.value &&
+      next?.source === this.lastPreview?.source &&
+      next?.trigger === this.lastPreview?.trigger
+    )
+      return;
+    this.lastPreview = next;
+    this.emitPreview(next);
+  }
+
+  private clearPreview(): void {
+    this.previewSnapshot = null;
+    this.pointerPreview = this.focusPreview = null;
+    if (this.lastPreview === null) return;
+    this.lastPreview = null;
+    this.emitPreview(null);
+  }
+
+  protected resetPointPreview(): void {
+    this.plotPreview.set(null);
+    this.clearPreview();
   }
   protected retryRenderer(): void {
     this.rendererError.set(false);
@@ -316,6 +449,7 @@ export abstract class CartesianChart<
       .find((row) => row.id === point.rowId)
       ?.points.find((cell) => cell.seriesId === point.seriesId);
     if (!value || value.value === null) return;
+    this.resetPointPreview();
     this.pointSelect.emit({ ...value, value: value.value, source });
   }
 }

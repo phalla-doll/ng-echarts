@@ -32,6 +32,63 @@ async function setup() {
 }
 
 describe('bar Angular controls', () => {
+  it('previews real zero values without selecting, restores focused context after hover, and clears on changes', async () => {
+    const { fixture, element } = await setup();
+    const previews = vi.fn(),
+      selections = vi.fn();
+    fixture.componentInstance.pointPreview.subscribe(previews);
+    fixture.componentInstance.pointSelect.subscribe(selections);
+    const point = { rowId: 'first', seriesId: 'value' };
+    fixture.componentInstance['previewPoint'](point, 'plot', 'pointer');
+    expect(previews).not.toHaveBeenCalled();
+    fixture.componentRef.setInput('previewEnabled', true);
+    await fixture.whenStable();
+    element.querySelector<HTMLButtonElement>('.table-toggle')!.click();
+    await fixture.whenStable();
+    const action = element.querySelector<HTMLButtonElement>('tbody button')!;
+    action.focus();
+    fixture.componentInstance['previewPoint'](point, 'table', 'focus');
+    await fixture.whenStable();
+    expect(previews.mock.lastCall?.[0]).toEqual({
+      ...point,
+      row: data[0],
+      value: 0,
+      source: 'table',
+      trigger: 'focus',
+    });
+    expect(previews.mock.lastCall?.[0].row).toBe(data[0]);
+    fixture.componentInstance['previewPoint'](point, 'plot', 'pointer');
+    expect(previews.mock.lastCall?.[0].trigger).toBe('pointer');
+    fixture.componentInstance['previewPoint'](null, 'plot', 'pointer');
+    expect(previews.mock.lastCall?.[0].trigger).toBe('focus');
+    action.blur();
+    fixture.componentInstance['previewPoint'](null, 'table', 'focus');
+    expect(previews.mock.lastCall?.[0]).toBeNull();
+    fixture.componentInstance['previewPoint'](
+      { rowId: 'second', seriesId: 'value' },
+      'plot',
+      'pointer',
+    );
+    expect(previews.mock.lastCall?.[0]).toBeNull();
+    fixture.componentInstance['previewPoint'](point, 'plot', 'pointer');
+    fixture.componentRef.setInput('data', [...data]);
+    await fixture.whenStable();
+    expect(previews.mock.lastCall?.[0]).toBeNull();
+    fixture.componentInstance['previewPoint'](point, 'plot', 'pointer');
+    fixture.componentRef.setInput('rangeSelection', true);
+    await fixture.whenStable();
+    expect(previews.mock.lastCall?.[0]).toBeNull();
+    const count = previews.mock.calls.length;
+    fixture.componentInstance['previewPoint'](point, 'plot', 'pointer');
+    expect(previews).toHaveBeenCalledTimes(count);
+    expect(selections).not.toHaveBeenCalled();
+    expect(fixture.componentInstance.selectedRowId()).toBeNull();
+    fixture.componentRef.setInput('previewEnabled', 'yes');
+    await fixture.whenStable();
+    expect(element.querySelector('[role=alert]')?.textContent).toContain(
+      'Preview enabled must be a boolean',
+    );
+  });
   it('emits a controlled contiguous range with original rows and rejects disabled, stale or unavailable requests', async () => {
     const { fixture, element } = await setup();
     const ranges = vi.fn(),
