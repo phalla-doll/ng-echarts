@@ -26,8 +26,8 @@
 .documentation-heading p {
   margin: 8px 0 0;
   color: var(--site-muted);
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 15px;
+  line-height: 26px;
 }
 .documentation-heading app-copy-button {
   margin-top: 4px;
@@ -51,8 +51,8 @@
 .doc-section > p {
   margin: 12px 0;
   color: var(--site-muted);
-  font-size: 13px;
-  line-height: 24px;
+  font-size: 15px;
+  line-height: 26px;
 }
 .component-grid {
   display: grid;
@@ -160,8 +160,8 @@
   border-left: 1px solid var(--site-border);
   color: var(--site-muted);
   text-decoration: none;
-  font-size: 11px;
-  line-height: 16px;
+  font-size: 13px;
+  line-height: 20px;
 }
 .documentation-outline a.active {
   color: var(--site-text);

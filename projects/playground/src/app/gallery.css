@@ -74,8 +74,8 @@ h1 {
   border-left: 1px solid var(--site-border);
   color: var(--site-muted);
   text-decoration: none;
-  font-size: 11px;
-  line-height: 16px;
+  font-size: 13px;
+  line-height: 20px;
 }
 .page-outline a.active {
   color: var(--site-text);
