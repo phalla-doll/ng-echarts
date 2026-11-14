@@ -46,14 +46,30 @@ test('renders honest component availability and navigates copyable setup documen
   expect(await page.evaluate(() => window.documentationClipboard)).toContain('# Get Started');
   await nav.getByRole('link', { name: 'Installation', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Installation', exact: true })).toBeVisible();
-  await expect(page.locator('article')).toContainText('The package has not been published');
+  await expect(page.locator('#registry-package')).toContainText(
+    'npm install @mantha911/ng-echarts@next echarts@6.1.0',
+  );
+  await expect(page.locator('#registry-package')).toContainText(
+    'Human screen-reader interpretation remains unreviewed',
+  );
+  await expect(page.locator('#compatibility')).toContainText('The public 0.1.0-rc.18 candidate');
   await expect(page.locator('#bootstrap')).toContainText('src/app/app.ts');
   await expect(page.locator('#bootstrap')).toContainText('strictTemplates');
   await expect(page.locator('#server-rendering')).toContainText('allowedHosts');
   await expect(page.locator('#compatibility')).toContainText(
     'wider allowed ranges are not a test of every version',
   );
-  await page.getByRole('button', { name: 'Copy Terminal example', exact: true }).first().click();
+  await page
+    .locator('#registry-package')
+    .getByRole('button', { name: 'Copy Terminal example', exact: true })
+    .click();
+  expect(await page.evaluate(() => window.documentationClipboard)).toBe(
+    'npm install @mantha911/ng-echarts@next echarts@6.1.0',
+  );
+  await page
+    .locator('#workspace')
+    .getByRole('button', { name: 'Copy Terminal example', exact: true })
+    .click();
   expect(await page.evaluate(() => window.documentationClipboard)).toContain(
     'npm start -- --port 4310',
   );
