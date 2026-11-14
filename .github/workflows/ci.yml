@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  check:
+  workspace:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -77,3 +77,20 @@ jobs:
           path: test-results/
           if-no-files-found: ignore
           retention-days: 7
+
+  # Preserve the original required-check name while requiring every split job.
+  check:
+    if: always()
+    needs: [workspace, pages, browser]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require all workspace, Pages and browser jobs
+        env:
+          WORKSPACE_RESULT: ${{ needs.workspace.result }}
+          PAGES_RESULT: ${{ needs.pages.result }}
+          BROWSER_RESULT: ${{ needs.browser.result }}
+        run: |
+          test "$WORKSPACE_RESULT" = success
+          test "$PAGES_RESULT" = success
+          test "$BROWSER_RESULT" = success
