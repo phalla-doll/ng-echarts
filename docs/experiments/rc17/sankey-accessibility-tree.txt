@@ -1,0 +1,213 @@
+- link "Skip to content" [ref=e185]
+- complementary
+  - link "ng-echarts home" [ref=e186]
+    - StaticText "ng-echarts"
+    - StaticText "Charts for Angular"
+  - navigation "Playground pages" [ref=e187]
+    - region "Documentation" [ref=e191]
+      - heading "Documentation" [level=2, ref=e199]
+      - list
+        - listitem [level=1]
+          - link "Get Started" [ref=e208]
+        - listitem [level=1]
+          - link "Installation" [ref=e209]
+        - listitem [level=1]
+          - link "Components" [ref=e210]
+    - region "Chart blocks" [ref=e192]
+      - heading "Chart blocks" [level=2, ref=e200]
+      - list
+        - listitem [level=1]
+          - link "Bar Blocks" [ref=e211]
+        - listitem [level=1]
+          - link "Line Blocks" [ref=e212]
+        - listitem [level=1]
+          - link "Area Blocks" [ref=e213]
+        - listitem [level=1]
+          - link "Pie & Donut Blocks" [ref=e214]
+        - listitem [level=1]
+          - link "Composed Blocks" [ref=e215]
+        - listitem [level=1]
+          - link "Radar Blocks" [ref=e216]
+        - listitem [level=1]
+          - link "Radial Progress" [ref=e217]
+        - listitem [level=1]
+          - link "Calendar Heatmap" [ref=e218]
+        - listitem [level=1]
+          - link "Sankey Flow" [ref=e219]
+        - listitem [level=1]
+          - link "Linked Charts" [ref=e220]
+    - region "Tools" [ref=e193]
+      - heading "Tools" [level=2, ref=e201]
+      - list
+        - listitem [level=1]
+          - link "Chart possibilities" [ref=e221]
+        - listitem [level=1]
+          - link "Playground" [ref=e222]
+        - listitem [level=1]
+          - link "Visual comparison" [ref=e223]
+    - region "Validation" [ref=e194]
+      - heading "Validation" [level=2, ref=e202]
+      - list
+        - listitem [level=1]
+          - link "Value formatting" [ref=e224]
+        - listitem [level=1]
+          - link "Input updates" [ref=e225]
+        - listitem [level=1]
+          - link "Lifecycle validation" [ref=e226]
+        - listitem [level=1]
+          - link "Line validation" [ref=e227]
+        - listitem [level=1]
+          - link "Area validation" [ref=e228]
+        - listitem [level=1]
+          - link "Pie validation" [ref=e229]
+        - listitem [level=1]
+          - link "Composed validation" [ref=e230]
+        - listitem [level=1]
+          - link "Linked validation" [ref=e231]
+        - listitem [level=1]
+          - link "Retention checks" [ref=e232]
+        - listitem [level=1]
+          - link "Render benchmark" [ref=e233]
+        - listitem [level=1]
+          - link "Navigate away" [ref=e234]
+  - sectionfooter
+    - StaticText "Work in progress"
+    - paragraph
+      - StaticText "Public API may change."
+    - link "View source on GitHub" [ref=e195]
+- banner
+  - link "View ng-echarts on GitHub" [ref=e188]
+  - button "Use light theme" [ref=e189]
+- banner
+  - heading "Sankey Flow" [level=1, ref=e196]
+  - paragraph
+    - StaticText "Follow quantities between stages, with exact node totals and link values."
+- region "Visitor journey" [ref=e190]
+  - heading "Visitor journey" [level=2, ref=e197]
+    - link "Visitor journey" [ref=e203]
+  - sectionheader
+    - button "Reset Visitor journey" [ref=e204]
+    - StaticText "Sankey"
+    - group "Visitor journey view"
+      - button "Code" [ref=e206]
+      - button "Preview" [ref=e207]
+  - region "Visitor journey" [ref=e205]
+    - sectionheader
+      - heading "Visitor journey" [level=2, ref=e235]
+      - paragraph
+        - StaticText "Illustrative visits from arrival to outcome. Ribbon width represents visits."
+    - region "Flow diagram. Scroll horizontally for wider graphs." [ref=e236] focusable [tabindex]
+    - group
+      - DisclosureTriangle "Explore flow data" [expanded=true]
+        - StaticText "Explore flow data"
+      - paragraph
+        - StaticText "Ribbon width represents link value. Node height represents the larger incoming or outgoing total; totals can differ. Zero links and isolated nodes appear only in these tables. Scroll the diagram on narrow screens."
+      - region "Node totals" [ref=e237] focusable [tabindex]
+        - table "Visitor journey — Nodes"
+          - caption
+            - StaticText "Visitor journey — Nodes"
+          - rowgroup
+            - row
+              - columnheader "Node" [ref=e278]
+              - columnheader "Incoming" [ref=e279]
+              - columnheader "Outgoing" [ref=e280]
+          - row
+            - rowheader "Select node Search" [ref=e239]
+              - button "Select node Search" [ref=e281]
+                - StaticText "Search"
+            - cell "0" [ref=e240]
+            - cell "420" [ref=e241]
+          - row
+            - rowheader "Select node Direct" [ref=e242]
+              - button "Select node Direct" [ref=e282]
+                - StaticText "Direct"
+            - cell "0" [ref=e243]
+            - cell "280" [ref=e244]
+          - row
+            - rowheader "Select node Browse" [ref=e245]
+              - button "Select node Browse" [ref=e283]
+                - StaticText "Browse"
+            - cell "700" [ref=e246]
+            - cell "700" [ref=e247]
+          - row
+            - rowheader "Select node Trial" [ref=e248]
+              - button "Select node Trial" [ref=e284]
+                - StaticText "Trial"
+            - cell "480" [ref=e249]
+            - cell "480" [ref=e250]
+          - row
+            - rowheader "Select node Customer" [ref=e251]
+              - button "Select node Customer" [ref=e285]
+                - StaticText "Customer"
+            - cell "360" [ref=e252]
+            - cell "0" [ref=e253]
+          - row
+            - rowheader "Select node Exit" [ref=e254]
+              - button "Select node Exit" [ref=e286]
+                - StaticText "Exit"
+            - cell "340" [ref=e255]
+            - cell "0" [ref=e256]
+      - region "Flow links" [ref=e238] focusable [tabindex]
+        - table "Visitor journey — Links"
+          - caption
+            - StaticText "Visitor journey — Links"
+          - rowgroup
+            - row
+              - columnheader "From" [ref=e287]
+              - columnheader "To" [ref=e288]
+              - columnheader "Value" [ref=e289]
+          - row
+            - rowheader "Search" [ref=e257]
+            - cell "Browse" [ref=e258]
+            - cell "Select flow Search to Browse: 420" [ref=e259]
+              - button "Select flow Search to Browse: 420" [ref=e290]
+                - StaticText "420"
+          - row
+            - rowheader "Direct" [ref=e260]
+            - cell "Browse" [ref=e261]
+            - cell "Select flow Direct to Browse: 280" [ref=e262]
+              - button "Select flow Direct to Browse: 280" [ref=e291]
+                - StaticText "280"
+          - row
+            - rowheader "Browse" [ref=e263]
+            - cell "Trial" [ref=e264]
+            - cell "Select flow Browse to Trial: 480" [ref=e265]
+              - button "Select flow Browse to Trial: 480" [ref=e292]
+                - StaticText "480"
+          - row
+            - rowheader "Browse" [ref=e266]
+            - cell "Exit" [ref=e267]
+            - cell "Select flow Browse to Exit: 220" [ref=e268]
+              - button "Select flow Browse to Exit: 220" [ref=e293]
+                - StaticText "220"
+          - row
+            - rowheader "Trial" [ref=e269]
+            - cell "Customer" [ref=e270]
+            - cell "Select flow Trial to Customer: 360" [ref=e271]
+              - button "Select flow Trial to Customer: 360" [ref=e294]
+                - StaticText "360"
+          - row
+            - rowheader "Trial" [ref=e272]
+            - cell "Exit" [ref=e273]
+            - cell "Select flow Trial to Exit: 120" [ref=e274]
+              - button "Select flow Trial to Exit: 120" [ref=e295]
+                - StaticText "120"
+          - row
+            - rowheader "Direct" [ref=e275]
+            - cell "Trial" [ref=e276]
+            - cell "Select flow Direct to Trial: 0" [ref=e277]
+              - button "Select flow Direct to Trial: 0" [ref=e296]
+                - StaticText "0"
+  - status
+    - StaticText "Select a node or flow, or explore the exact values in the tables."
+  - paragraph
+    - StaticText "Follow Search and Direct visits through Browse and Trial to Customer or Exit. Zero links stay in the tables. Scroll the flow diagram on narrow screens."
+  - group
+    - DisclosureTriangle "Try data and states" [expanded=false]
+      - StaticText "Try data and states"
+- contentinfo
+  - StaticText "Exact node totals and link values stay available before the chart loads."
+- complementary "On this page"
+  - paragraph
+    - StaticText "On this page"
+  - link "Visitor journey" [ref=e198]

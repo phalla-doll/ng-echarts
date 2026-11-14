@@ -1,0 +1,154 @@
+- link "Skip to content" [ref=e297]
+- complementary
+  - link "ng-echarts home" [ref=e298]
+    - StaticText "ng-echarts"
+    - StaticText "Charts for Angular"
+  - navigation "Playground pages" [ref=e299]
+    - region "Documentation" [ref=e302]
+      - heading "Documentation" [level=2, ref=e312]
+      - list
+        - listitem [level=1]
+          - link "Get Started" [ref=e324]
+        - listitem [level=1]
+          - link "Installation" [ref=e325]
+        - listitem [level=1]
+          - link "Components" [ref=e326]
+    - region "Chart blocks" [ref=e303]
+      - heading "Chart blocks" [level=2, ref=e313]
+      - list
+        - listitem [level=1]
+          - link "Bar Blocks" [ref=e327]
+        - listitem [level=1]
+          - link "Line Blocks" [ref=e328]
+        - listitem [level=1]
+          - link "Area Blocks" [ref=e329]
+        - listitem [level=1]
+          - link "Pie & Donut Blocks" [ref=e330]
+        - listitem [level=1]
+          - link "Composed Blocks" [ref=e331]
+        - listitem [level=1]
+          - link "Radar Blocks" [ref=e332]
+        - listitem [level=1]
+          - link "Radial Progress" [ref=e333]
+        - listitem [level=1]
+          - link "Calendar Heatmap" [ref=e334]
+        - listitem [level=1]
+          - link "Sankey Flow" [ref=e335]
+        - listitem [level=1]
+          - link "Linked Charts" [ref=e336]
+    - region "Tools" [ref=e304]
+      - heading "Tools" [level=2, ref=e314]
+      - list
+        - listitem [level=1]
+          - link "Chart possibilities" [ref=e337]
+        - listitem [level=1]
+          - link "Playground" [ref=e338]
+        - listitem [level=1]
+          - link "Visual comparison" [ref=e339]
+    - region "Validation" [ref=e305]
+      - heading "Validation" [level=2, ref=e315]
+      - list
+        - listitem [level=1]
+          - link "Value formatting" [ref=e340]
+        - listitem [level=1]
+          - link "Input updates" [ref=e341]
+        - listitem [level=1]
+          - link "Lifecycle validation" [ref=e342]
+        - listitem [level=1]
+          - link "Line validation" [ref=e343]
+        - listitem [level=1]
+          - link "Area validation" [ref=e344]
+        - listitem [level=1]
+          - link "Pie validation" [ref=e345]
+        - listitem [level=1]
+          - link "Composed validation" [ref=e346]
+        - listitem [level=1]
+          - link "Linked validation" [ref=e347]
+        - listitem [level=1]
+          - link "Retention checks" [ref=e348]
+        - listitem [level=1]
+          - link "Render benchmark" [ref=e349]
+        - listitem [level=1]
+          - link "Navigate away" [ref=e350]
+  - sectionfooter
+    - StaticText "Work in progress"
+    - paragraph
+      - StaticText "Public API may change."
+    - link "View source on GitHub" [ref=e306]
+- banner
+  - link "View ng-echarts on GitHub" [ref=e300]
+  - button "Use light theme" [ref=e301]
+- main
+  - sectionheader
+    - heading "Linked Charts" [level=1, ref=e316]
+    - paragraph
+      - StaticText "Explore device share for a month or a custom range."
+  - LabelText
+    - StaticText "Period"
+    - combobox "Period" [expanded=false, ref=e317]: All months
+      - MenuListPopup
+        - option "All months" [selected, ref=e351]
+        - option "Custom range" [ref=e352]
+        - option "January" [ref=e353]
+        - option "February" [ref=e354]
+        - option "March" [ref=e355]
+        - option "April" [ref=e356]
+        - option "May" [ref=e357]
+        - option "June" [ref=e358]
+        - option "July" [ref=e359]
+        - option "August" [ref=e360]
+        - option "September" [ref=e361]
+        - option "October" [ref=e362]
+        - option "November" [ref=e363]
+        - option "December" [ref=e364]
+  - button "Select range" [ref=e307]
+  - status
+    - StaticText "All months: 11,463 visits. Device share shows all available months."
+  - checkbox "Preview months" [checked=false, ref=e308]
+  - paragraph
+    - StaticText "Hover a bar or focus a table value."
+  - status
+  - region "Monthly visits overview" [ref=e309]
+    - region "Monthly visits" [ref=e322]
+      - sectionheader
+        - heading "Monthly visits" [level=2, ref=e369]
+        - paragraph
+          - StaticText "Choose a month from the bars, table or period field."
+      - generic "Chart series"
+        - button "Desktop Visible" [ref=e370]
+          - StaticText "Desktop"
+          - StaticText "Visible"
+        - button "Mobile Visible" [ref=e371]
+          - StaticText "Mobile"
+          - StaticText "Visible"
+      - button "Show data table" [expanded=false, ref=e365]
+  - region "Linked device share" [ref=e310]
+    - region "Device share · All months" [ref=e318]
+      - sectionheader
+        - heading "Device share · All months" [level=2, ref=e366]
+        - paragraph
+          - StaticText "Desktop and mobile visits for all months."
+      - generic "Chart categories"
+        - button "Desktop 7,170 62.5% Visible" [ref=e367]
+          - StaticText "Desktop"
+          - StaticText "7,170"
+          - StaticText "62.5%"
+          - StaticText "Visible"
+        - button "Mobile 4,293 37.5% Visible" [ref=e368]
+          - StaticText "Mobile"
+          - StaticText "4,293"
+          - StaticText "37.5%"
+          - StaticText "Visible"
+      - button "Show data table" [expanded=false, ref=e323]
+  - region "Linking pattern" [ref=e311]
+    - heading "Linking pattern" [level=2, ref=e319]
+    - paragraph
+      - StaticText "Choose a month or an inclusive range to connect the overview and detail. Chart legends stay independent. Use the period fields or the overview’s data table with a keyboard."
+    - group
+      - DisclosureTriangle "Standalone Angular example" [expanded=false]
+        - StaticText "Standalone Angular example"
+    - link "Read the integration guide" [ref=e320]
+  - sectionfooter
+    - paragraph
+      - StaticText "Examples use the local workspace package. Public npm installation is not available yet."
+    - link "Open linked validation" [ref=e321]

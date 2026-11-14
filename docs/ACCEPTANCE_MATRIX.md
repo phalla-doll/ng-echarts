@@ -116,3 +116,6 @@ Current delivery checkpoint: [Sankey/presentation/WebKit demo deployment](GITHUB
 ## NG20 transient month previews
 
 The user-authorized [month-preview follow-up](experiments/NG20_MONTH_PREVIEWS.md) adds opt-in bar pointer/table-focus previews and one-way temporary device-share context introduced in rc.13 and corrected in the current private rc.15. Committed period/range feedback, totals and local legends stay independent; keyboard actions can commit through the existing point event. The browser adapter owns delegated listeners, touch guards and cleanup. Shared zoom, bidirectional linking and public publication remain open. The mobile range button uses an explicit tap policy; the report distinguishes local evidence from the still-required pushed CI result. Human F09/R06/G2/G3/G4 remain pending, with calendar/Sankey checklists now included.
+
+
+The [rc.17 release follow-up](experiments/RC17_RELEASE_REVIEW.md) includes pre-hydration theme inheritance and separate CI browser jobs. Exact candidate verification is recorded separately from the preserved rc.16 checkpoint. The [human result sheet](experiments/RC17_HUMAN_REVIEW.md) and [NG22 publication plan](PUBLICATION.md) keep listening evidence, public identity and registry access explicit. Human F09/R06/G2/G3/G4 remain pending.

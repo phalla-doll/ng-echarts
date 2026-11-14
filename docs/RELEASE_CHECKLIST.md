@@ -1,6 +1,6 @@
 # Local release candidate checklist
 
-The local candidate is `@ng-echarts/chart-library@0.1.0-rc.16`. The user selected MIT for original library code on 13 November 2026. The package remains private; public naming and publication are NG22 work. This checklist separates verified artifact behavior from release decisions and the deferred human interpretation review.
+The local candidate is `@ng-echarts/chart-library@0.1.0-rc.17`. The user selected MIT for original library code on 13 November 2026. The package remains private; public naming and publication are NG22 work. This checklist separates verified artifact behavior from release decisions and the deferred human interpretation review.
 
 ## Prepare and verify one artifact
 
@@ -15,10 +15,10 @@ npm run release:local
 
 Outputs:
 
-- `dist/releases/ng-echarts-chart-library-0.1.0-rc.16.tgz` — local candidate.
-- `dist/releases/ng-echarts-chart-library-0.1.0-rc.16.tgz.sha256` — SHA-256 checksum.
+- `dist/releases/ng-echarts-chart-library-0.1.0-rc.17.tgz` — local candidate.
+- `dist/releases/ng-echarts-chart-library-0.1.0-rc.17.tgz.sha256` — SHA-256 checksum.
 - `dist/releases/release-manifest.json` — inventory, hashes, metadata, source snapshot and verification results.
-- [Current candidate evidence](experiments/data/local-release-0.1.0-rc.16.json) — tracked copy of the verified manifest after the check.
+- [Current candidate evidence](experiments/data/local-release-0.1.0-rc.17.json) — tracked copy of the verified manifest after the check.
 
 Earlier rc.0 artifact results remain preserved in the [NG16 record](experiments/data/ng16-local-release.json). The [rc.1 manifest](experiments/data/local-release-0.1.0-rc.1.json), [rc.2 manifest](experiments/data/local-release-0.1.0-rc.2.json) and [rc.3 manifest](experiments/data/local-release-0.1.0-rc.3.json) are also preserved. Each version writes its own evidence filename. The [rc.4 manifest](experiments/data/local-release-0.1.0-rc.4.json) and archive are preserved; the [rc.5 manifest](experiments/data/local-release-0.1.0-rc.5.json) remains preserved too; the [rc.6 manifest](experiments/data/local-release-0.1.0-rc.6.json) and archive remain unchanged and the [rc.7 manifest](experiments/data/local-release-0.1.0-rc.7.json) and archive remain preserved with subsequent rc.8–rc.12 records retained separately below.
 
@@ -34,7 +34,7 @@ npm run release:check
 To run an individual checker against a retained candidate, set its absolute path and the digest from its checksum file:
 
 ```sh
-export CHART_LIBRARY_TARBALL="$PWD/dist/releases/ng-echarts-chart-library-0.1.0-rc.16.tgz"
+export CHART_LIBRARY_TARBALL="$PWD/dist/releases/ng-echarts-chart-library-0.1.0-rc.17.tgz"
 export CHART_LIBRARY_TARBALL_SHA256="$(cut -d ' ' -f1 "$CHART_LIBRARY_TARBALL.sha256")"
 npm run check:consumer
 ```
@@ -60,12 +60,12 @@ The recorded dependency versions describe verified inputs, not every version adm
 
 | Item | Status / evidence |
 | --- | --- |
-| Local candidate automated checks | Passed for `0.1.0-rc.16`; recorded in [current candidate evidence](experiments/data/local-release-0.1.0-rc.16.json) and the [combined checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md); preserved rc.0 results remain in [NG16](experiments/NG16_LOCAL_RELEASE.md) |
+| Local candidate automated checks | Passed for `0.1.0-rc.17`; [exact artifact manifest](experiments/data/local-release-0.1.0-rc.17.json) and [follow-up evidence](experiments/RC17_RELEASE_REVIEW.md); rc.16 results remain preserved in the [combined checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) |
 | Original library license | MIT selected by the user; full text ships in the candidate |
-| Human interpretation, F09/R06 | Deferred; follow the [manual review](experiments/R06_MANUAL_REVIEW.md) across every family |
+| Human interpretation, F09/R06 | Pending; complete the [rc.17 result sheet](experiments/RC17_HUMAN_REVIEW.md) following the [manual review](experiments/R06_MANUAL_REVIEW.md) across every family |
 | NG14/G2/G3/G4 acceptance | Pending until the required human evidence exists; successful artifact checks do not close these gates |
-| Public package name/namespace | Undecided; current identity is local and experimental |
-| Registry destination/publishing credentials | Not configured as part of NG16 |
+| Public package name/namespace | Selection pending; [NG22 preparation](PUBLICATION.md) records the two registry lookups and proposed npm target |
+| Registry destination/publishing credentials | npm authentication returns 401; owning account/scope rights remain unverified ([plan](PUBLICATION.md)) |
 | Public API stability/versioning promise | Experimental; no stable API freeze is declared by this candidate |
 
 Record the human results, resolve remaining release decisions, and update the acceptance matrix before marking the complete release gates passed. NG16's automated packaging work can be reviewed independently while the existing human deferral remains in effect.

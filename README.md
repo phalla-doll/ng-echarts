@@ -178,7 +178,7 @@ The `/linked` page connects a monthly visits overview to device share through st
 
 ## Library license
 
-Original chart-library code is [MIT licensed](projects/chart-library/LICENSE). See its [third-party notices](projects/chart-library/THIRD_PARTY_NOTICES.md) for preserved upstream/dependency terms. The current private local release candidate is `0.1.0-rc.12`; follow the [release checklist](docs/RELEASE_CHECKLIST.md) to prepare and verify it.
+Original chart-library code is [MIT licensed](projects/chart-library/LICENSE). See its [third-party notices](projects/chart-library/THIRD_PARTY_NOTICES.md) for preserved upstream/dependency terms. The current private local release candidate is `0.1.0-rc.17`; follow the [release checklist](docs/RELEASE_CHECKLIST.md) to prepare and verify it.
 
 
 ## NG18 radar first increment
@@ -200,3 +200,6 @@ Private rc.12 corrects the packaged documentation and preserves the rc.11 implem
 
 
 The [combined preview/performance checkpoint](docs/experiments/COMBINED_PREVIEW_PERFORMANCE.md) records the current **266 unit tests, 380 browser passes (four expected skips), all twelve package budgets and six exact rc.16 installed client/SSR modes**. It retains the earlier experiment/candidate scopes and pending human release gates.
+
+
+The [rc.17 release review](docs/experiments/RC17_RELEASE_REVIEW.md) records the loading-theme correction, CI follow-up and exact-artifact verification. Complete the [human result sheet](docs/experiments/RC17_HUMAN_REVIEW.md) and [public package preparation](docs/PUBLICATION.md) before release acceptance and npm publication.

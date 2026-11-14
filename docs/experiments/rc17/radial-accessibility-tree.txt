@@ -1,0 +1,128 @@
+- link "Skip to content" [ref=e125]
+- complementary
+  - link "ng-echarts home" [ref=e126]
+    - StaticText "ng-echarts"
+    - StaticText "Charts for Angular"
+  - navigation "Playground pages" [ref=e127]
+    - region "Documentation" [ref=e132]
+      - heading "Documentation" [level=2, ref=e144]
+      - list
+        - listitem [level=1]
+          - link "Get Started" [ref=e158]
+        - listitem [level=1]
+          - link "Installation" [ref=e159]
+        - listitem [level=1]
+          - link "Components" [ref=e160]
+    - region "Chart blocks" [ref=e133]
+      - heading "Chart blocks" [level=2, ref=e145]
+      - list
+        - listitem [level=1]
+          - link "Bar Blocks" [ref=e161]
+        - listitem [level=1]
+          - link "Line Blocks" [ref=e162]
+        - listitem [level=1]
+          - link "Area Blocks" [ref=e163]
+        - listitem [level=1]
+          - link "Pie & Donut Blocks" [ref=e164]
+        - listitem [level=1]
+          - link "Composed Blocks" [ref=e165]
+        - listitem [level=1]
+          - link "Radar Blocks" [ref=e166]
+        - listitem [level=1]
+          - link "Radial Progress" [ref=e167]
+        - listitem [level=1]
+          - link "Calendar Heatmap" [ref=e168]
+        - listitem [level=1]
+          - link "Sankey Flow" [ref=e169]
+        - listitem [level=1]
+          - link "Linked Charts" [ref=e170]
+    - region "Tools" [ref=e134]
+      - heading "Tools" [level=2, ref=e146]
+      - list
+        - listitem [level=1]
+          - link "Chart possibilities" [ref=e171]
+        - listitem [level=1]
+          - link "Playground" [ref=e172]
+        - listitem [level=1]
+          - link "Visual comparison" [ref=e173]
+    - region "Validation" [ref=e135]
+      - heading "Validation" [level=2, ref=e147]
+      - list
+        - listitem [level=1]
+          - link "Value formatting" [ref=e174]
+        - listitem [level=1]
+          - link "Input updates" [ref=e175]
+        - listitem [level=1]
+          - link "Lifecycle validation" [ref=e176]
+        - listitem [level=1]
+          - link "Line validation" [ref=e177]
+        - listitem [level=1]
+          - link "Area validation" [ref=e178]
+        - listitem [level=1]
+          - link "Pie validation" [ref=e179]
+        - listitem [level=1]
+          - link "Composed validation" [ref=e180]
+        - listitem [level=1]
+          - link "Linked validation" [ref=e181]
+        - listitem [level=1]
+          - link "Retention checks" [ref=e182]
+        - listitem [level=1]
+          - link "Render benchmark" [ref=e183]
+        - listitem [level=1]
+          - link "Navigate away" [ref=e184]
+  - sectionfooter
+    - StaticText "Work in progress"
+    - paragraph
+      - StaticText "Public API may change."
+    - link "View source on GitHub" [ref=e136]
+- banner
+  - link "View ng-echarts on GitHub" [ref=e128]
+  - button "Use light theme" [ref=e129]
+- banner
+  - heading "Radial Progress" [level=1, ref=e137]
+  - paragraph
+    - StaticText "Progress toward a defined goal, with the value and target always in view."
+- region "Monthly visit goal" [ref=e130]
+  - heading "Monthly visit goal" [level=2, ref=e138]
+    - link "Monthly visit goal" [ref=e148]
+  - sectionheader
+    - button "Reset Monthly visit goal" [ref=e149]
+    - StaticText "Progress"
+    - group "Monthly visit goal view"
+      - button "Code" [ref=e152]
+      - button "Preview" [ref=e153]
+  - region "Monthly visit goal" [ref=e139]
+    - sectionheader
+      - heading "Monthly visit goal" [level=2, ref=e154]
+      - paragraph
+        - StaticText "Visits completed toward a monthly goal of 10,000."
+    - progressbar "Monthly visit goal": 6800
+  - paragraph
+    - StaticText "Visits completed toward a monthly goal of 10,000."
+  - group
+    - DisclosureTriangle "Try value and states" [expanded=false]
+      - StaticText "Try value and states"
+- region "Launch checklist" [ref=e131]
+  - heading "Launch checklist" [level=2, ref=e140]
+    - link "Launch checklist" [ref=e150]
+  - sectionheader
+    - button "Reset Launch checklist" [ref=e151]
+    - StaticText "Progress"
+    - group "Launch checklist view"
+      - button "Code" [ref=e155]
+      - button "Preview" [ref=e156]
+  - region "Launch checklist" [ref=e141]
+    - sectionheader
+      - heading "Launch checklist" [level=2, ref=e157]
+      - paragraph
+        - StaticText "Nine of twelve launch tasks are complete."
+    - progressbar "Launch checklist": 9
+  - paragraph
+    - StaticText "Nine of twelve launch tasks are complete."
+- contentinfo
+  - StaticText "The native progress value stays available before the chart loads. Examples use illustrative visit totals and task counts."
+- complementary "On this page"
+  - paragraph
+    - StaticText "On this page"
+  - link "Monthly visit goal" [ref=e142]
+  - link "Launch checklist" [ref=e143]

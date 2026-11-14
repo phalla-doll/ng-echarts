@@ -1,0 +1,207 @@
+{
+  "sourceCommit": "db07302e715e877cc7620c655ce5f30b1b7d596c",
+  "run": "https://github.com/phalla-doll/ng-echarts/actions/runs/43597081425",
+  "description": "Captured on Linux before the correction; the second button touch has pointerup/touchend but no compatibility click.",
+  "events": [
+    {
+      "type": "pointerdown",
+      "time": 415.19999999998254,
+      "target": "select-range",
+      "text": " Select range ",
+      "x": 64.5,
+      "y": 274.5,
+      "scroll": 0,
+      "pressed": "false"
+    },
+    {
+      "type": "touchstart",
+      "time": 415.5,
+      "target": "select-range",
+      "text": " Select range ",
+      "scroll": 0,
+      "pressed": "false"
+    },
+    {
+      "type": "pointerup",
+      "time": 415.5,
+      "target": "select-range",
+      "text": " Select range ",
+      "x": 64.5,
+      "y": 274.5,
+      "scroll": 0,
+      "pressed": "false"
+    },
+    {
+      "type": "touchend",
+      "time": 415.6000000000058,
+      "target": "select-range",
+      "text": " Select range ",
+      "scroll": 0,
+      "pressed": "false"
+    },
+    {
+      "type": "click",
+      "time": 416.69999999998254,
+      "target": "select-range",
+      "text": " Select range ",
+      "x": 65,
+      "y": 275,
+      "scroll": 0,
+      "pressed": "false"
+    },
+    {
+      "type": "pointerdown",
+      "time": 547.6000000000058,
+      "target": "nec-range-surface",
+      "text": "",
+      "x": 119.623046875,
+      "y": 631.4921875,
+      "scroll": 0,
+      "pressed": "true"
+    },
+    {
+      "type": "touchstart",
+      "time": 547.7999999999884,
+      "target": "nec-range-surface",
+      "text": "",
+      "scroll": 0,
+      "pressed": "true"
+    },
+    {
+      "type": "pointerup",
+      "time": 797.8999999999942,
+      "target": "nec-range-surface",
+      "text": "",
+      "x": 161.787109375,
+      "y": 631.4921875,
+      "scroll": 0,
+      "pressed": "true"
+    },
+    {
+      "type": "touchend",
+      "time": 798.6999999999825,
+      "target": "nec-range-surface",
+      "text": "",
+      "scroll": 0,
+      "pressed": "true"
+    },
+    {
+      "type": "pointerdown",
+      "time": 981.1000000000058,
+      "target": "select-range",
+      "text": " Select range ",
+      "x": 64.5,
+      "y": 268,
+      "scroll": 0,
+      "pressed": "false"
+    },
+    {
+      "type": "touchstart",
+      "time": 981.1999999999825,
+      "target": "select-range",
+      "text": " Select range ",
+      "scroll": 0,
+      "pressed": "false"
+    },
+    {
+      "type": "pointerup",
+      "time": 981.1999999999825,
+      "target": "select-range",
+      "text": " Select range ",
+      "x": 64.5,
+      "y": 268,
+      "scroll": 0,
+      "pressed": "false"
+    },
+    {
+      "type": "touchend",
+      "time": 981.2999999999884,
+      "target": "select-range",
+      "text": " Select range ",
+      "scroll": 0,
+      "pressed": "false"
+    },
+    {
+      "type": "click",
+      "time": 982.1000000000058,
+      "target": "select-range",
+      "text": " Select range ",
+      "x": 65,
+      "y": 268,
+      "scroll": 0,
+      "pressed": "false"
+    },
+    {
+      "type": "pointerdown",
+      "time": 1097.6000000000058,
+      "target": "nec-range-surface",
+      "text": "",
+      "x": 161.787109375,
+      "y": 716.4921875,
+      "scroll": 0,
+      "pressed": "true"
+    },
+    {
+      "type": "touchstart",
+      "time": 1097.6999999999825,
+      "target": "nec-range-surface",
+      "text": "",
+      "scroll": 0,
+      "pressed": "true"
+    },
+    {
+      "type": "pointerup",
+      "time": 1364.3999999999942,
+      "target": "nec-range-surface",
+      "text": "",
+      "x": 119.623046875,
+      "y": 716.4921875,
+      "scroll": 0,
+      "pressed": "true"
+    },
+    {
+      "type": "touchend",
+      "time": 1364.6000000000058,
+      "target": "nec-range-surface",
+      "text": "",
+      "scroll": 0,
+      "pressed": "true"
+    },
+    {
+      "type": "pointerdown",
+      "time": 1464.5,
+      "target": "select-range",
+      "text": " Select range ",
+      "x": 64.5,
+      "y": 268,
+      "scroll": 0,
+      "pressed": "false"
+    },
+    {
+      "type": "touchstart",
+      "time": 1464.6000000000058,
+      "target": "select-range",
+      "text": " Select range ",
+      "scroll": 0,
+      "pressed": "false"
+    },
+    {
+      "type": "pointerup",
+      "time": 1464.6000000000058,
+      "target": "select-range",
+      "text": " Select range ",
+      "x": 64.5,
+      "y": 268,
+      "scroll": 0,
+      "pressed": "false"
+    },
+    {
+      "type": "touchend",
+      "time": 1464.6999999999825,
+      "target": "select-range",
+      "text": " Select range ",
+      "scroll": 0,
+      "pressed": "false"
+    }
+  ]
+}

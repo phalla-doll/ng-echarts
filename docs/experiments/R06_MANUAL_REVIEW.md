@@ -4,6 +4,8 @@ Status: human listening review deferred at the user’s request on 12 November 2
 
 The [R&D plan](../RND_PLAN.md#research-experiments) requires a sample to be read with a screen reader. Automated accessibility-tree, keyboard, focus, and motion checks support this review but cannot record a human listening result.
 
+Use the [rc.17 result sheet](RC17_HUMAN_REVIEW.md) to record the tested identity and per-family outcomes. It contains no completed listening results.
+
 ## Reproduce
 
 Use Node from `.nvmrc`, run `npm run build:lib` and `npm start -- --host 127.0.0.1 --port 4310`, then open `http://127.0.0.1:4310/validation`. On macOS, enable VoiceOver with Command-F5 (or the configured system shortcut). Enable the browser's full keyboard navigation if necessary.

@@ -1,0 +1,229 @@
+- link "Skip to content" [ref=e1]
+- complementary
+  - link "ng-echarts home" [ref=e2]
+    - StaticText "ng-echarts"
+    - StaticText "Charts for Angular"
+  - navigation "Playground pages" [ref=e3]
+    - region "Documentation" [ref=e6]
+      - heading "Documentation" [level=2, ref=e18]
+      - list
+        - listitem [level=1]
+          - link "Get Started" [ref=e26]
+        - listitem [level=1]
+          - link "Installation" [ref=e27]
+        - listitem [level=1]
+          - link "Components" [ref=e28]
+    - region "Chart blocks" [ref=e7]
+      - heading "Chart blocks" [level=2, ref=e19]
+      - list
+        - listitem [level=1]
+          - link "Bar Blocks" [ref=e29]
+        - listitem [level=1]
+          - link "Line Blocks" [ref=e30]
+        - listitem [level=1]
+          - link "Area Blocks" [ref=e31]
+        - listitem [level=1]
+          - link "Pie & Donut Blocks" [ref=e32]
+        - listitem [level=1]
+          - link "Composed Blocks" [ref=e33]
+        - listitem [level=1]
+          - link "Radar Blocks" [ref=e34]
+        - listitem [level=1]
+          - link "Radial Progress" [ref=e35]
+        - listitem [level=1]
+          - link "Calendar Heatmap" [ref=e36]
+        - listitem [level=1]
+          - link "Sankey Flow" [ref=e37]
+        - listitem [level=1]
+          - link "Linked Charts" [ref=e38]
+    - region "Tools" [ref=e8]
+      - heading "Tools" [level=2, ref=e20]
+      - list
+        - listitem [level=1]
+          - link "Chart possibilities" [ref=e39]
+        - listitem [level=1]
+          - link "Playground" [ref=e40]
+        - listitem [level=1]
+          - link "Visual comparison" [ref=e41]
+    - region "Validation" [ref=e9]
+      - heading "Validation" [level=2, ref=e21]
+      - list
+        - listitem [level=1]
+          - link "Value formatting" [ref=e42]
+        - listitem [level=1]
+          - link "Input updates" [ref=e43]
+        - listitem [level=1]
+          - link "Lifecycle validation" [ref=e44]
+        - listitem [level=1]
+          - link "Line validation" [ref=e45]
+        - listitem [level=1]
+          - link "Area validation" [ref=e46]
+        - listitem [level=1]
+          - link "Pie validation" [ref=e47]
+        - listitem [level=1]
+          - link "Composed validation" [ref=e48]
+        - listitem [level=1]
+          - link "Linked validation" [ref=e49]
+        - listitem [level=1]
+          - link "Retention checks" [ref=e50]
+        - listitem [level=1]
+          - link "Render benchmark" [ref=e51]
+        - listitem [level=1]
+          - link "Navigate away" [ref=e52]
+  - sectionfooter
+    - StaticText "Work in progress"
+    - paragraph
+      - StaticText "Public API may change."
+    - link "View source on GitHub" [ref=e10]
+- banner
+  - StaticText "Lifecycle validation"
+  - link "View ng-echarts on GitHub" [ref=e4]
+  - button "Use light theme" [ref=e5]
+- main
+  - heading "Bar lifecycle validation" [level=1, ref=e11]
+  - paragraph
+    - StaticText "Fixtures for server rendering, hydration, hidden surfaces, updates, and cleanup."
+  - button "Mount regular charts" [ref=e12]
+  - button "Reveal hidden chart" [ref=e13]
+  - button "Finish loading" [ref=e14]
+  - button "Mobile series" [ref=e15]
+  - button "Refresh palette" [ref=e16]
+  - region "Primary visits" [ref=e22]
+    - sectionheader
+      - heading "Primary visits" [level=2, ref=e53]
+      - paragraph
+        - StaticText "Immediate server-rendered chart."
+    - generic "Chart series"
+      - button "Desktop Visible" [ref=e54]
+        - StaticText "Desktop"
+        - StaticText "Visible"
+      - button "Mobile Visible" [ref=e55]
+        - StaticText "Mobile"
+        - StaticText "Visible"
+    - button "Hide data table" [expanded=true, ref=e24]
+    - region "Primary visits data table" [ref=e61] focusable [tabindex]
+      - table "Primary visits values"
+        - caption
+          - StaticText "Primary visits values"
+        - rowgroup
+          - row
+            - columnheader "Category" [ref=e98]
+            - columnheader "Desktop" [ref=e99]
+            - columnheader "Mobile" [ref=e100]
+        - row
+          - rowheader "January" [ref=e62]
+          - cell "Select Desktop for January: 342" [ref=e63]
+            - button "Select Desktop for January: 342" [ref=e101]
+              - StaticText "342"
+          - cell "Select Mobile for January: 184" [ref=e64]
+            - button "Select Mobile for January: 184" [ref=e102]
+              - StaticText "184"
+        - row
+          - rowheader "February" [ref=e65]
+          - cell "Select Desktop for February: 876" [ref=e66]
+            - button "Select Desktop for February: 876" [ref=e103]
+              - StaticText "876"
+          - cell "Select Mobile for February: 491" [ref=e67]
+            - button "Select Mobile for February: 491" [ref=e104]
+              - StaticText "491"
+        - row
+          - rowheader "March" [ref=e68]
+          - cell "Select Desktop for March: 512" [ref=e69]
+            - button "Select Desktop for March: 512" [ref=e105]
+              - StaticText "512"
+          - cell "Select Mobile for March: 290" [ref=e70]
+            - button "Select Mobile for March: 290" [ref=e106]
+              - StaticText "290"
+        - row
+          - rowheader "April" [ref=e71]
+          - cell "Select Desktop for April: 629" [ref=e72]
+            - button "Select Desktop for April: 629" [ref=e107]
+              - StaticText "629"
+          - cell "Select Mobile for April: 391" [ref=e73]
+            - button "Select Mobile for April: 391" [ref=e108]
+              - StaticText "391"
+        - row
+          - rowheader "May" [ref=e74]
+          - cell "Select Desktop for May: 458" [ref=e75]
+            - button "Select Desktop for May: 458" [ref=e109]
+              - StaticText "458"
+          - cell "Select Mobile for May: 309" [ref=e76]
+            - button "Select Mobile for May: 309" [ref=e110]
+              - StaticText "309"
+        - row
+          - rowheader "June" [ref=e77]
+          - cell "Select Desktop for June: 781" [ref=e78]
+            - button "Select Desktop for June: 781" [ref=e111]
+              - StaticText "781"
+          - cell "Select Mobile for June: 449" [ref=e79]
+            - button "Select Mobile for June: 449" [ref=e112]
+              - StaticText "449"
+        - row
+          - rowheader "July" [ref=e80]
+          - cell "Select Desktop for July: 394" [ref=e81]
+            - button "Select Desktop for July: 394" [ref=e113]
+              - StaticText "394"
+          - cell "Select Mobile for July: 234" [ref=e82]
+            - button "Select Mobile for July: 234" [ref=e114]
+              - StaticText "234"
+        - row
+          - rowheader "August" [ref=e83]
+          - cell "Select Desktop for August: 925" [ref=e84]
+            - button "Select Desktop for August: 925" [ref=e115]
+              - StaticText "925"
+          - cell "Select Mobile for August: 557" [ref=e85]
+            - button "Select Mobile for August: 557" [ref=e116]
+              - StaticText "557"
+        - row
+          - rowheader "September" [ref=e86]
+          - cell "Select Desktop for September: 647" [ref=e87]
+            - button "Select Desktop for September: 647" [ref=e117]
+              - StaticText "647"
+          - cell "Select Mobile for September: 367" [ref=e88]
+            - button "Select Mobile for September: 367" [ref=e118]
+              - StaticText "367"
+        - row
+          - rowheader "October" [ref=e89]
+          - cell "Select Desktop for October: 532" [ref=e90]
+            - button "Select Desktop for October: 532" [ref=e119]
+              - StaticText "532"
+          - cell "Select Mobile for October: 357" [ref=e91]
+            - button "Select Mobile for October: 357" [ref=e120]
+              - StaticText "357"
+        - row
+          - rowheader "November" [ref=e92]
+          - cell "Select Desktop for November: 803" [ref=e93]
+            - button "Select Desktop for November: 803" [ref=e121]
+              - StaticText "803"
+          - cell "Select Mobile for November: 515" [ref=e94]
+            - button "Select Mobile for November: 515" [ref=e122]
+              - StaticText "515"
+        - row
+          - rowheader "December" [ref=e95]
+          - cell "Select Desktop for December: 271" [ref=e96]
+            - button "Select Desktop for December: 271" [ref=e123]
+              - StaticText "271"
+          - cell "Select Mobile for December: 149" [ref=e97]
+            - button "Select Mobile for December: 149" [ref=e124]
+              - StaticText "149"
+  - region "Loading visits" [ref=e23]
+    - sectionheader
+      - heading "Loading visits" [level=2, ref=e56]
+      - paragraph
+        - StaticText "Server/client initial loading state."
+    - status
+      - StaticText "Loading chart…"
+  - region "Deferred hydration fixture" [ref=e17]
+    - region "Deferred visits" [ref=e25]
+      - sectionheader
+        - heading "Deferred visits" [level=2, ref=e58]
+        - paragraph
+          - StaticText "Interact with its controls to hydrate this server-rendered chart."
+      - generic "Chart series"
+        - button "Desktop Visible" [ref=e59]
+          - StaticText "Desktop"
+          - StaticText "Visible"
+        - button "Mobile Visible" [ref=e60]
+          - StaticText "Mobile"
+          - StaticText "Visible"
+      - button "Show data table" [expanded=false, ref=e57]
