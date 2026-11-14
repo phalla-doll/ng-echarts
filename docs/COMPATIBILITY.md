@@ -86,3 +86,6 @@ Current rc.13 aggregate caps are 219,500 gzip / 187,500 Brotli for root and 203,
 Final rc.15 evidence separates the 362-pass pre-correction browser baseline from 46 final linked/range/preview passes and 260 fresh unit tests. All six exact installed client/SSR modes pass and exercise keyboard preview/commit. See [the scoped verification](experiments/NG20_MONTH_PREVIEWS.md#verification).
 
 The current [combined rc.16 checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) passes 266 unit tests, the full 380-case three-browser regression with four expected skips, all twelve package budgets and six exact installed client/SSR modes. It combines month previews with dimension-aware rendering and the deferred-navigation corrections; earlier receipts remain historical.
+
+
+NG22 first public prerelease: [`@mantha911/ng-echarts@0.1.0-rc.18`](experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) is published and verified from the registry in strict/docs/client/SSR consumers across all three engines. The [registry receipt](experiments/public-rc18/registry-verification.json) preserves actual tags (`next` plus npm’s initial `latest` alias). Human F09/R06/G2/G3/G4 remain pending under the user’s explicit deferral; no stable API acceptance is claimed.

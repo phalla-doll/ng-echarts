@@ -182,7 +182,7 @@ The `/linked` page connects a monthly visits overview to device share through st
 
 ## Library license
 
-Original chart-library code is [MIT licensed](projects/chart-library/LICENSE). See its [third-party notices](projects/chart-library/THIRD_PARTY_NOTICES.md) for preserved upstream/dependency terms. The current experimental public release candidate is `0.1.0-rc.18`; follow the [release checklist](docs/RELEASE_CHECKLIST.md) to prepare and verify it.
+Original chart-library code is [MIT licensed](projects/chart-library/LICENSE). See its [third-party notices](projects/chart-library/THIRD_PARTY_NOTICES.md) for preserved upstream/dependency terms. The published experimental prerelease is `@mantha911/ng-echarts@0.1.0-rc.18`; follow the [release checklist](docs/RELEASE_CHECKLIST.md) to prepare and verify it.
 
 
 ## NG18 radar first increment
@@ -210,3 +210,6 @@ The [rc.17 release review](docs/experiments/RC17_RELEASE_REVIEW.md) records the 
 
 
 The [NG22 public prerelease](docs/experiments/NG22_PUBLIC_PRERELEASE.md) uses `@mantha911/ng-echarts@0.1.0-rc.18` with npm public access and the `next` tag. The user selected the authenticated personal scope and explicitly skipped the listening session while requesting this experimental publication. Earlier private candidates remain preserved; human F09/R06/G2/G3/G4 remain pending.
+
+
+[The first public prerelease](docs/experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) is available on npm. Registry bytes match the verified archive and fresh registry consumers pass. npm retains both `next` and its initial `latest` alias for rc.18; this is an experimental prerelease, with human listening still deferred at the user’s request.

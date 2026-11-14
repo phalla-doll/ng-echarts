@@ -48,7 +48,11 @@ try {
   const packed = await consumerArtifact(root, parent);
   console.log('Scaffolding the exact documented Angular application outside the workspace…');
   await run('sh', ['-eu', '-c', shell('scaffold')], parent);
-  console.log('Installing the documented version pins and local tarball…');
+  console.log(
+    packed.registrySpec
+      ? 'Installing the documented version pins and registry package…'
+      : 'Installing the documented version pins and local tarball…',
+  );
   await run('sh', ['-eu', '-c', shell('install')], consumer, {
     CHART_LIBRARY_TARBALL: packed.registrySpec ?? join(parent, packed.filename),
   });
@@ -217,11 +221,11 @@ try {
       version: packed.version,
       sha256: packed.sha256,
       exactCandidate: packed.exactCandidate,
+      ...(packed.registrySpec ? { registrySpec: packed.registrySpec } : {}),
     },
     node: process.version,
     npm: (await run('npm', ['--version'], consumer)).trim(),
-    method:
-      'Fresh pinned CLI scaffold outside workspace; execute INSTALLATION.md shell blocks; install local tarball; copy exact INTEGRATION_GUIDE.md App; strict ngc and production build; generated server HTML then three-engine hydration/actions/updates/themes/resize.',
+    method: `Fresh pinned CLI scaffold outside workspace; execute INSTALLATION.md shell blocks; install ${packed.registrySpec ? 'exact registry package' : 'local tarball'}; copy exact INTEGRATION_GUIDE.md App; strict ngc and production build; generated server HTML then three-engine hydration/actions/updates/themes/resize.`,
     sources: Object.fromEntries(
       [
         ['docs/INSTALLATION.md', installation],

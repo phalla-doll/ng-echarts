@@ -1,6 +1,6 @@
 # Public package preparation (NG22)
 
-Status: public candidate preparation in progress. The user selected `@mantha911/ng-echarts`, authenticated as npm user `mantha911`, and requested completing the experimental prerelease while skipping the guided VoiceOver session. Human F09/R06/G2/G3/G4 remain pending; that explicit deferral permits this prerelease without claiming completed human interpretation. Private `@ng-echarts/chart-library@0.1.0-rc.17` and earlier archives retain their identities.
+Status: `@mantha911/ng-echarts@0.1.0-rc.18` is published and verified on npm under `next`. The user selected `@mantha911/ng-echarts`, authenticated as npm user `mantha911`, and requested completing the experimental prerelease while skipping the guided VoiceOver session. Human F09/R06/G2/G3/G4 remain pending; that explicit deferral permits this prerelease without claiming completed human interpretation. Private `@ng-echarts/chart-library@0.1.0-rc.17` and earlier archives retain their identities.
 
 ## Registry checks
 
@@ -30,3 +30,18 @@ The existing private candidate is intentionally not converted in place or sent t
 Prefer npm trusted publishing from this repository's GitHub Actions workflow when the chosen owner has configured it in npm package settings. The configuration must match the GitHub owner, repository and workflow filename; grant that job `id-token: write`. npm uses short-lived credentials and automatically supplies provenance on supported GitHub-hosted runners. Initial account/package setup still requires the owning npm account. See [npm trusted publishing](https://docs.npmjs.com/trusted-publishers/).
 
 Scoped public packages require public access on first publication; see [npm scoped public packages](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages/). Keep the manual prerelease path above reviewable before enabling later registry automation.
+
+
+## First publication result
+
+Published 14 November 2026 from the exact checked archive after [all release-source CI jobs passed](https://github.com/phalla-doll/ng-echarts/actions/runs/43603889528). The [registry receipt](experiments/public-rc18/registry-verification.json) binds npm’s integrity and downloaded bytes to the canonical SHA-256, with fresh strict/docs/client/SSR consumers installing by registry name in all three engines.
+
+```sh
+npm install @mantha911/ng-echarts@next echarts@6.1.0
+```
+
+npm accepted the upload with HTTP 202 before it became installable. [Publish-time scanning can delay availability](https://github.blog/changelog/2026-07-28-npm-publish-time-malware-scanning-and-dual-use-metadata/); no duplicate publish was attempted.
+
+The observed tags are `next: 0.1.0-rc.18` and `latest: 0.1.0-rc.18`. Despite publishing explicitly with `--tag next`, npm bootstrapped `latest` for this first version and rejected `npm dist-tag rm ... latest` with HTTP 400 after authentication. This [first-publication behavior is recorded in npm’s issue tracker](https://github.com/npm/cli/issues/8490). No substitute stable version was created. This remains an experimental prerelease; install `@next` or pin the exact version. Future publishing must inspect actual tags rather than assume the initial `latest` alias can be removed.
+
+Human F09/R06/G2/G3/G4 remain pending under the user’s explicit deferral. This publication does not claim a stable API or completed human interpretation. Trusted-publishing automation remains an optional future setup; this first publication used interactive npm authentication.

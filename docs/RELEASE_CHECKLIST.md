@@ -1,6 +1,6 @@
 # Local release candidate checklist
 
-The local candidate is `@mantha911/ng-echarts@0.1.0-rc.18`. The user selected MIT for original library code on 13 November 2026. The user selected this experimental public identity and explicitly deferred the human listening session while requesting publication under `next`. Human gates remain pending. This checklist separates verified artifact behavior from release decisions and the deferred human interpretation review.
+The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.18`. The user selected MIT for original library code on 13 November 2026. The user selected this experimental public identity and explicitly deferred the human listening session while requesting publication under `next`. Human gates remain pending. This checklist separates verified artifact behavior from release decisions and the deferred human interpretation review.
 
 ## Prepare and verify one artifact
 
@@ -64,7 +64,7 @@ The recorded dependency versions describe verified inputs, not every version adm
 | Original library license | MIT selected by the user; full text ships in the candidate |
 | Human interpretation, F09/R06 | Pending; complete the [rc.17 result sheet](experiments/RC17_HUMAN_REVIEW.md) following the [manual review](experiments/R06_MANUAL_REVIEW.md) across every family |
 | NG14/G2/G3/G4 acceptance | Pending until the required human evidence exists; successful artifact checks do not close these gates |
-| Public package name/namespace | Confirmed `@mantha911/ng-echarts`; [NG22 execution](PUBLICATION.md) |
+| Public package name/namespace | Published `@mantha911/ng-echarts@0.1.0-rc.18`; [NG22 execution](PUBLICATION.md) |
 | Registry destination/publishing credentials | Authenticated as `mantha911` after interactive npm login ([record](PUBLICATION.md)) |
 | Public API stability/versioning promise | Experimental; no stable API freeze is declared by this candidate |
 
@@ -90,3 +90,6 @@ The prepared [rc.13 record](experiments/data/local-release-0.1.0-rc.13.json) ret
 
 
 The [verified rc.15 preview-only artifact](experiments/data/local-release-0.1.0-rc.15.json) remains unchanged. The [combined rc.16 checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) adds dimension-aware controller/renderer behavior and verifies it alongside the demo navigation changes.
+
+
+The [first public prerelease](experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) is verified against registry bytes and fresh registry consumers. npm retained its initial `latest` alias alongside `next`; the [publication record](PUBLICATION.md#first-publication-result) records the rejected removal. Human F09/R06/G2/G3/G4 remain pending under the user’s explicit experimental-prerelease exception.

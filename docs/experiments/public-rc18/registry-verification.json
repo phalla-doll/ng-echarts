@@ -1,0 +1,32 @@
+{
+  "verifiedAt": "2026-11-14T14:37:17.091Z",
+  "name": "@mantha911/ng-echarts",
+  "version": "0.1.0-rc.18",
+  "sha256": "7a341195044fd031183da0c4d41f16f087dc1b2189b03819644d67b7287fe47c",
+  "integrity": "sha512-aTQo2Yx7P/pNwzNBmO305lIQEYgNR9XjljvuCWqOc15zcuH6ebUH3gLH62gJmPMtUDLfvEtgP9o/akTdOnMAPw==",
+  "tarball": "https://registry.npmjs.org/@mantha911/ng-echarts/-/ng-echarts-0.1.0-rc.18.tgz",
+  "distTags": {
+    "latest": "0.1.0-rc.18",
+    "next": "0.1.0-rc.18"
+  },
+  "byteIdenticalToVerifiedCandidate": true,
+  "bootstrapLatestAlias": true,
+  "latestRemoval": {
+    "attempted": true,
+    "httpStatus": 400,
+    "result": "Registry rejected deleting the initial latest alias; no stable version or replacement artifact was published."
+  },
+  "verifiedSourceCommit": "9994846359b41c4fbcf309195d23a992d0971503",
+  "sourceCI": "https://github.com/phalla-doll/ng-echarts/actions/runs/43603889528",
+  "sourceCIConclusion": "success",
+  "localAndLinuxCIArchivesByteIdentical": true,
+  "registryConsumers": {
+    "strictDeclarationsAndNegativeBindings": "passed",
+    "documentedInstallAndHydrationThreeEngines": "passed",
+    "clientAndSSRThreeEngines": "passed"
+  },
+  "humanInterpretation": "deferred at user request; F09/R06/G2/G3/G4 remain pending",
+  "publishCommand": "npm publish ./dist/releases/mantha911-ng-echarts-0.1.0-rc.18.tgz --access public --tag next --ignore-scripts --registry=https://registry.npmjs.org/ --auth-type=web --json",
+  "firstPublicationResponse": 202,
+  "availabilityDelay": "The version became readable after the registry accepted the upload; no duplicate publish was submitted."
+}
