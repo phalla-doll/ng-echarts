@@ -20,10 +20,14 @@ NG13 adds strict `/pie` and root compatibility imports, typed one-measure/catego
 
 NG16 adds exact-candidate mode to all three consumer scripts. `CHART_LIBRARY_TARBALL` supplies the retained artifact and `CHART_LIBRARY_TARBALL_SHA256` supplies its expected digest. The shared helper copies the supplied bytes into each temporary consumer and rejects a mismatch before installation; it does not repack the candidate. Ordinary checks still pack the current built library when no candidate is supplied. `npm run release:local` orchestrates these checks and requires their artifact identities to agree; see the [release checklist](../../docs/RELEASE_CHECKLIST.md).
 
-
 NG17 adds focused/root composed class identity, inferred row events, numeric keys, a required bar/line discriminator and kind-specific option negatives. The installed strict compiler checks the actual composed API fence and both generated gallery themes. Client/SSR consumers render the composed gallery, activate raw zero table values, update inputs, preserve hidden IDs through kind changes, hydrate a deferred instance and clean up navigation in all three engines. Release records are now version-specific so rc.1 evidence retains the earlier NG16 rc.0 snapshot.
-
 
 NG20 compiles the exact standalone linking source displayed in the demo and requires it to match the guide fence byte-for-byte. Installed client/SSR consumers additionally select an overview value with the keyboard, observe updated device share, clear selection, navigate to the validation fixture, update the selected month, retain a zero device value, clear a removed ID and navigate away. These checks use the preserved rc.1 tarball; no new library API is required.
 
 The later NG20 selection-feedback increment advances the private candidate to rc.2. The exact displayed/guide source now binds `selectedRowId`; strict negative templates reject numeric IDs. Installed client/SSR consumers require the selected overview table row and visible label, then verify Reset removes feedback and retains Month focus. The rc.1 record above describes the initial integration and remains preserved separately.
+
+## Published registry verification
+
+The public experimental identity is `@mantha911/ng-echarts@0.1.0-rc.18`. Set `CHART_LIBRARY_REGISTRY_SPEC` to that exact identity/version and `CHART_LIBRARY_TARBALL_SHA256` to the canonical digest in the [registry receipt](../../docs/experiments/public-rc18/registry-verification.json), then run `check:consumer`, `check:docs` and `check:runtime`. The shared helper checks the downloaded registry archive against that digest before the isolated consumer installs by registry name. Registry evidence explicitly records `registrySpec`; it is preserved separately from prepublication tarball evidence.
+
+The verified [public package results](../../docs/experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) cover strict positive/negative compilation, documented setup in three engines and all six client/SSR modes. A registry release does not close the deferred human listening review. npm retains its initial `latest` alias alongside `next`; this is an experimental prerelease.

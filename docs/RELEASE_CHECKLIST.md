@@ -1,6 +1,8 @@
-# Local release candidate checklist
+# Published prerelease verification
 
 The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.18`. The user selected MIT for original library code on 13 November 2026. The user selected this experimental public identity and explicitly deferred the human listening session while requesting publication under `next`. Human gates remain pending. This checklist separates verified artifact behavior from release decisions and the deferred human interpretation review.
+
+Publication and registry-consumer verification are complete for rc.18. Actual npm tags are `next: 0.1.0-rc.18` and `latest: 0.1.0-rc.18`; npm rejected deletion of the initial `latest` alias. See the [registry receipt](experiments/public-rc18/registry-verification.json) and [publication procedure](PUBLICATION.md). These results are separate from the pending human interpretation gates.
 
 ## Prepare and verify one artifact
 
@@ -10,6 +12,8 @@ Use Node 24.22.2 and npm 11.19.1 after `npm ci`. Artifact inspection also uses t
 npm run check
 npm run release:local
 ```
+
+For an already retained archive, run `npm run release:check`; do not run preparation again under the same version. `npm run check:release-immutability` tests the refusal to overwrite in a temporary fixture. The preparation commands above apply to a new, unprepared candidate version.
 
 `release:local` builds the production library, packs it once into `dist/releases/`, inspects its contents, then supplies byte-identical copies of that tarball to strict declarations, the fresh documentation application, and client/SSR runtime consumers. It does not repack a replacement between checks. Preparation refuses to overwrite an existing candidate archive; recheck it with `release:check` or use a new version for changed package contents. Every consumer receives the candidate SHA-256; a mismatch fails before copying/installing. The release checker verifies the digest again between stages and requires the documentation/runtime reports to identify that exact artifact.
 
@@ -40,6 +44,20 @@ npm run check:consumer
 ```
 
 The `check:docs` and `check:runtime` scripts accept the same variables. Without a supplied candidate, the ordinary workspace check retains its build-and-pack behavior.
+
+## Verify the published registry package
+
+All three consumer scripts support exact registry installs. The helper verifies the fetched registry tarball before each consumer installs by its exact npm identity. Use the digest from the committed [registry receipt](experiments/public-rc18/registry-verification.json):
+
+```sh
+export CHART_LIBRARY_REGISTRY_SPEC="@mantha911/ng-echarts@0.1.0-rc.18"
+export CHART_LIBRARY_TARBALL_SHA256="7a341195044fd031183da0c4d41f16f087dc1b2189b03819644d67b7287fe47c"
+npm run check:consumer
+npm run check:docs
+npm run check:runtime
+```
+
+Preserve the published archive, checksum, packaged README/changelog and notice bytes. A change to package contents requires a new candidate version and verification; repository-only documentation updates do not repack rc.18.
 
 ## Artifact checklist
 

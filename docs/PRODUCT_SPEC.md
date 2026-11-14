@@ -94,7 +94,7 @@ Use the locally hosted Inter font for site prose, navigation, controls, metrics,
 
 The user's 12 November 2026 [area-block reference review](experiments/AREA_BLOCKS_VISUAL_AUDIT.md) establishes a neutral chart-block gallery as the site direction: reference-led typography, subdued chrome, compact code/preview headers, and complete chart compositions. Keep engineering settings and validation fixtures separate from the gallery. The user selected existing bar charts for the first [gallery correction](experiments/BAR_GALLERY_VISUAL_REVIEW.md). The settings workspace remains an engineering fixture. Area examples are implemented following NG12; advanced dotted-fill behavior remains outside the MVP.
 
-The same neutral style now applies to setup documentation, the component catalog, and engineering pages through the [site alignment](experiments/SITE_THEME_ALIGNMENT.md). Keep theme selection consistent across navigation, distinguish working components from planned ones, and preserve explicit conditions for measurement fixtures. Setup guidance must use the actual local package workflow until registry publication exists.
+The same neutral style now applies to setup documentation, the component catalog, and engineering pages through the [site alignment](experiments/SITE_THEME_ALIGNMENT.md). Keep theme selection consistent across navigation, distinguish working components from planned ones, and preserve explicit conditions for measurement fixtures. Setup guidance must use the verified public `@mantha911/ng-echarts` prerelease workflow, with the retained exact-tarball procedure available for reproducible artifact checks. Publication status and actual npm tags are recorded in the [publication guide](PUBLICATION.md#first-publication-result); full human acceptance remains separate under the user’s explicit experimental-prerelease deferral.
 
 The [four-family visual audit](experiments/VISUAL_AUDIT.md) records the current gallery review against live Apache ECharts and EvilCharts references, with mobile axis/code/control refinements and both-theme evidence. Dated live observations complement the pinned-fixture comparisons below.
 
@@ -124,12 +124,12 @@ Deliver installation instructions, typed examples, an API reference, data limits
 
 Use the [acceptance matrix](ACCEPTANCE_MATRIX.md) to track F01 through F10, visual parity, and quality targets. Every required check must pass against its current criterion. A revised target needs a recorded rationale, an aligned specification, and a successful rerun before its gate can pass.
 
-The local project name is fixed by the user. Original library code is MIT licensed under the user’s 13 November 2026 decision; upstream/dependency notices remain separate. Public package naming and registry publication remain future decisions. The current work produces an experimental private `0.1.0-rc.4` candidate and playground; the [release checklist](RELEASE_CHECKLIST.md) records final-artifact checks and open human acceptance.
+The local project name is fixed by the user. Original library code is MIT licensed under the user’s 13 November 2026 decision; upstream/dependency notices remain separate. The user selected the public identity `@mantha911/ng-echarts`; experimental `0.1.0-rc.18` is published and verified. Private rc.4 and later private candidates remain preserved. The [release checklist](RELEASE_CHECKLIST.md) records exact-artifact and registry checks, actual npm tags and open human acceptance under the explicit prerelease deferral.
 
 
 ## NG18 radar first increment
 
-The user-approved [radar increment](experiments/NG18_RADAR_CHART.md) adds the focused `/radar` Angular entry and a site-aligned demo with explicit dimension maxima, stable comparisons, missing-data policy, native scale/value table and vertex/table actions. The [API](RADAR_CHART_API.md) defines the bounded contract. Radial progress remains subsequent work. The compatibility root and four-family MVP retain their scope; private rc.5 is separate from the preserved rc.4 artifact. Human F09/R06/G2/G3/G4 and public publication remain pending.
+The user-approved [radar increment](experiments/NG18_RADAR_CHART.md) adds the focused `/radar` Angular entry and a site-aligned demo with explicit dimension maxima, stable comparisons, missing-data policy, native scale/value table and vertex/table actions. The [API](RADAR_CHART_API.md) defines the bounded contract. The separate radial-progress increment below is implemented. The compatibility root and four-family MVP retain their scope; private rc.5 is separate from the preserved rc.4 artifact. Human F09/R06/G2/G3/G4 remain pending. This private-origin increment now ships in [public rc.18](PUBLICATION.md#first-publication-result).
 
 
 ## NG18 radial progress increment

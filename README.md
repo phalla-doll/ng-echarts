@@ -2,6 +2,8 @@
 
 # ng-echarts
 
+Published experimental release: **`@mantha911/ng-echarts@0.1.0-rc.18`**. Install with `npm install @mantha911/ng-echarts@next echarts@6.1.0`, or pin `@0.1.0-rc.18`. npm retains both `next` and its initial `latest` alias for this prerelease; neither the alias nor publication declares a stable API. The user deferred VoiceOver review, so human F09/R06/G2/G3/G4 remain pending. See [publication status and evidence](docs/PUBLICATION.md#first-publication-result).
+
 An Angular 22 chart component library inspired by EvilCharts, using Apache ECharts for rendering and TypeScript for its public API.
 
 Preview: **[Live demo on GitHub Pages](https://phalla-doll.github.io/ng-echarts/)**. See [deployment instructions](docs/GITHUB_PAGES.md) to rebuild and publish the current demo snapshot.
@@ -24,14 +26,15 @@ npm install @mantha911/ng-echarts@next echarts@6.1.0
 | --- | --- |
 | [Brand identity](docs/BRANDING.md) | Orbit e logo, icons, social preview and asset regeneration |
 | [Product specification](docs/PRODUCT_SPEC.md) | Users, scope, behavior, requirements, and acceptance criteria |
-| [Local installation](docs/INSTALLATION.md) | Pack/install workflow, pinned fresh CLI application, bootstrap and SSR configuration |
+| [Installation](docs/INSTALLATION.md) | Public npm prerelease, exact tarballs, pinned CLI application, bootstrap and SSR configuration |
+| [Publication and verification](docs/PUBLICATION.md) | Published identity, actual npm tags, registry checks and future release procedure |
 | [Integration guide](docs/INTEGRATION_GUIDE.md) | Complete four-chart application, API/type index, updates, events and accessibility |
 | [Radial progress API](docs/RADIAL_PROGRESS_API.md) | Scalar completion, native semantics, states and experimental limits |
 | [Calendar heatmap API](docs/CALENDAR_HEATMAP_API.md) | Single-year date/value contract, fixed scale and native daily actions |
 | [Sankey API](docs/SANKEY_CHART_API.md) | Directed acyclic node/link data, native totals and plot/table selection |
 | [Radar API](docs/RADAR_CHART_API.md) | Explicit dimension scales, comparison profiles, native table and experimental limits |
 | [Compatibility and limits](docs/COMPATIBILITY.md) | Exact tested versions, peer contracts, browser coverage, measured envelopes and exclusions |
-| [Local release checklist](docs/RELEASE_CHECKLIST.md) | Candidate preparation, exact-tarball consumer checks, MIT/notices and remaining release gates |
+| [Release verification](docs/RELEASE_CHECKLIST.md) | Candidate preparation, exact-tarball consumer checks, MIT/notices and remaining release gates |
 | [Preview deployment hardening](docs/experiments/PREVIEW_DEPLOYMENT_HARDENING.md) | Immutable build provenance, clean-commit publishing, verification receipts and stale-build rejection |
 | [GitHub Pages preview](docs/GITHUB_PAGES.md) | Live URL, static subpath build, local/live verification, notices and manual republishing |
 | [Implementation plan](docs/IMPLEMENTATION_PLAN.md) | Delivery increments, scaffold boundaries, and developer workflow |
@@ -132,6 +135,8 @@ The site includes [Get Started](http://localhost:4310/get-started), [Installatio
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
 | `npm run check` | Run formatting, builds, compilation, unit, declaration/runtime consumers, SSR, browser, and size checks |
 
+Current rc.18 verification: **267 unit tests and 416 browser passes, with four expected skips**; [all release-source CI jobs passed](https://github.com/phalla-doll/ng-echarts/actions/runs/43607829796). The published registry bytes match the canonical archive, with fresh strict/docs and six client/SSR consumer modes verified. See [publication evidence](docs/experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) and the [last verified demo deployment](docs/GITHUB_PAGES.md#latest-verified-deployment--public-rc18). The older checkpoints below retain their original counts and scope.
+
 The [preview-only checkpoint](docs/experiments/NG20_MONTH_PREVIEWS.md) records **260 fresh unit tests, 46 final targeted browser passes and six exact rc.15 installed client/SSR modes**. A separate full browser baseline passed 362 cases before the final focus corrections; its scope is preserved in that report. Human release acceptance remains pending.
 
 The earlier completed full workspace check records **257 unit tests and 353 passing browser scenarios, with four expected skips**, plus strict installed declarations, documented installation, SSR, six client/SSR modes and twelve package-budget scenarios. The [presentation receipt](docs/experiments/data/premium-visual-refinement.json) binds that run to its source snapshot and 138 reviewed visual states. The later [WebKit font-readiness fix](docs/experiments/DEMO_PERFORMANCE_FIXES.md#webkit-embedded-font-readiness-follow-up) separately passes 30 targeted concept/performance scenarios in all three engines; it is not presented as a new complete-suite count. The [deployment record](docs/GITHUB_PAGES.md#rc11-sankey-presentation-and-webkit-deployment) identifies the verified public source, 34 static routes and 16 route budgets. CI uses all three engines. ESLint and a numeric coverage threshold are not configured.
@@ -160,7 +165,7 @@ Package entries below follow `@mantha911/ng-echarts`. All chart entries are expe
 
 Cartesian charts take `series: readonly ChartSeries<T>[]`; pie/donut takes one `measure: ChartMeasure<T>`. Cartesian legend events identify a `seriesId`; pie legend events identify a `rowId`. Both point events retain the original row and numeric value. See the guides for zero/missing/negative rules and optional keyboard table actions.
 
-Focused families keep the 200,000 gzip / 175,000 Brotli byte cap; `/core` keeps 10,000/9,000. The combined compatibility root uses 219,500/187,500; its frame-only emitted-orphan scenario keeps 203,000/175,000. [Current measured boundaries](docs/experiments/data/package-boundaries.json) include all lazy chunks; prefer focused imports.
+Focused families keep the 200,000 gzip / 175,000 Brotli byte cap; `/core` keeps 10,000/9,000. The combined compatibility root uses 219,500/187,500; its frame-only emitted-orphan scenario keeps 203,000/175,000. [Current measured boundaries](docs/experiments/public-rc18/package-boundaries.json) include all lazy chunks; prefer focused imports.
 
 ## Bar feasibility baseline
 
@@ -187,7 +192,7 @@ Original chart-library code is [MIT licensed](projects/chart-library/LICENSE). S
 
 ## NG18 radar first increment
 
-The user-approved [radar increment](docs/experiments/NG18_RADAR_CHART.md) adds the focused `/radar` Angular entry and a site-aligned demo with explicit dimension maxima, stable comparisons, missing-data policy, native scale/value table and vertex/table actions. The [API](docs/RADAR_CHART_API.md) defines the bounded contract. The subsequent radial-progress increment is also implemented below. The compatibility root and four-family MVP retain their scope; private rc.5 is separate from the preserved rc.4 artifact. Human F09/R06/G2/G3/G4 and public publication remain pending.
+The user-approved [radar increment](docs/experiments/NG18_RADAR_CHART.md) adds the focused `/radar` Angular entry and a site-aligned demo with explicit dimension maxima, stable comparisons, missing-data policy, native scale/value table and vertex/table actions. The [API](docs/RADAR_CHART_API.md) defines the bounded contract. The subsequent radial-progress increment is also implemented below. The compatibility root and four-family MVP retain their scope; private rc.5 is separate from the preserved rc.4 artifact. Human F09/R06/G2/G3/G4 remain pending. This private-origin checkpoint preceded the [public rc.18 release](docs/experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication).
 
 
 ## NG18 radial progress increment
@@ -196,17 +201,17 @@ The user-approved [radial progress increment](docs/experiments/NG18_RADIAL_PROGR
 
 Calendar heatmaps: [experimental API](docs/CALENDAR_HEATMAP_API.md), [NG19 evidence](docs/experiments/NG19_CALENDAR_HEATMAP.md), and the `/calendar` demo. One explicit year and fixed maximum preserve date identity and missing-vs-zero behavior.
 
-Experimental Sankey flows: [API](docs/SANKEY_CHART_API.md), [NG19 record](docs/experiments/NG19_SANKEY_CHART.md), and the `/sankey` demo. Directed acyclic node/link data retain native totals, zero links and equivalent plot/table actions. Private rc.10 preserves rc.9, rc.8; human interpretation and public release remain pending.
+Experimental Sankey flows: [API](docs/SANKEY_CHART_API.md), [NG19 record](docs/experiments/NG19_SANKEY_CHART.md), and the `/sankey` demo. Directed acyclic node/link data retain native totals, zero links and equivalent plot/table actions. The preserved private rc.10 kept rc.9 and rc.8 unchanged. This component now ships in the experimental public rc.18 release; human interpretation remains pending.
 
 Private rc.11 introduced Sankey and independent lazy engine loading with the completed [chart presentation refinement](docs/experiments/PREMIUM_CHART_REFINEMENT.md). Earlier candidates remain preserved; [release evidence](docs/RELEASE_CHECKLIST.md) keeps human release gates separate.
 
-Private rc.12 corrects the packaged documentation and preserves the rc.11 implementation and archive. [The release checklist](docs/RELEASE_CHECKLIST.md) records exact-artifact verification; library publication and human release gates remain pending.
+Private rc.12 corrects the packaged documentation and preserves the rc.11 implementation and archive. [The release checklist](docs/RELEASE_CHECKLIST.md) preserves its exact-artifact verification; rc.18 publication is recorded separately and human release gates remain pending.
 
 
-The [combined preview/performance checkpoint](docs/experiments/COMBINED_PREVIEW_PERFORMANCE.md) records the current **266 unit tests, 380 browser passes (four expected skips), all twelve package budgets and six exact rc.16 installed client/SSR modes**. It retains the earlier experiment/candidate scopes and pending human release gates.
+The [combined preview/performance checkpoint](docs/experiments/COMBINED_PREVIEW_PERFORMANCE.md) preserves the rc.16 result of **266 unit tests, 380 browser passes (four expected skips), all twelve package budgets and six exact rc.16 installed client/SSR modes**. It retains the earlier experiment/candidate scopes and pending human release gates.
 
 
-The [rc.17 release review](docs/experiments/RC17_RELEASE_REVIEW.md) records the loading-theme correction, CI follow-up and exact-artifact verification. The [human result sheet](docs/experiments/RC17_HUMAN_REVIEW.md) remains pending under the user’s explicit prerelease deferral; [public package preparation](docs/PUBLICATION.md) records the selected npm identity and exact-artifact workflow.
+The [rc.17 release review](docs/experiments/RC17_RELEASE_REVIEW.md) records the loading-theme correction, CI follow-up and exact-artifact verification. The [human result sheet](docs/experiments/RC17_HUMAN_REVIEW.md) remains pending under the user’s explicit prerelease deferral; [public package publication](docs/PUBLICATION.md) records the selected npm identity and exact-artifact workflow.
 
 
 The [NG22 public prerelease](docs/experiments/NG22_PUBLIC_PRERELEASE.md) uses `@mantha911/ng-echarts@0.1.0-rc.18` with npm public access and the `next` tag. The user selected the authenticated personal scope and explicitly skipped the listening session while requesting this experimental publication. Earlier private candidates remain preserved; human F09/R06/G2/G3/G4 remain pending.

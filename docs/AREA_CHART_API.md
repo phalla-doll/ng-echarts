@@ -2,7 +2,7 @@
 
 Use [installation](INSTALLATION.md), the [complete application example](INTEGRATION_GUIDE.md), and the [tested compatibility/limits table](COMPATIBILITY.md) with this API.
 
-Experimental native Angular 22 area charts. Import from `@mantha911/ng-echarts/area` using the local workspace or packed artifact; no public npm installer is available.
+Experimental native Angular 22 area charts. Import from `@mantha911/ng-echarts/area` after installing the experimental public rc.18 through `@next` or an exact version. The retained packed-artifact workflow is also supported; see [installation](INSTALLATION.md). Human interpretation and release gates remain pending.
 
 ```ts
 import { ChangeDetectionStrategy, Component } from '@angular/core';

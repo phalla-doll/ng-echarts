@@ -2,6 +2,8 @@
 
 The experimental public identity is `@mantha911/ng-echarts`; prereleases use the `next` dist-tag. The exact-artifact procedure below uses a tarball from this checkout. Use Node **24.22.2** from `.nvmrc` and npm **11.19.1**. The [compatibility table](COMPATIBILITY.md) separates tested versions from declared peer ranges.
 
+As verified on 14 November 2026, npm exposes rc.18 through both `next` and its initial `latest` alias. A bare install also resolves that experimental prerelease. Use `@next` deliberately or pin `@0.1.0-rc.18` for a repeatable dependency, then retain the lockfile. The [publication receipt](experiments/public-rc18/registry-verification.json) records the exact registry integrity and the rejected attempt to remove the initial `latest` alias.
+
 
 Registry prerelease installation:
 

@@ -2,12 +2,13 @@
 
 ## Project Structure and Scope
 
-Angular 22 chart library using Apache ECharts. Bar, line, area, pie/donut and the first shared-axis composed increment are implemented. NG20 adds linked charts with native and graphical month ranges. NG14 automated acceptance and NG15 documentation are recorded; human interpretation and release gates remain open. The demo is deployed to GitHub Pages.
+Angular 22 chart library using Apache ECharts. Bar, line, area, pie/donut and the first shared-axis composed increment are implemented. NG20 adds linked charts with native and graphical month ranges. NG14 automated acceptance and NG15 documentation are recorded; human interpretation and release gates remain open. The demo is deployed to GitHub Pages. Experimental `@mantha911/ng-echarts@0.1.0-rc.18` is published on npm; human F09/R06/G2/G3/G4 remain pending under the user’s explicit prerelease deferral.
 
 - `README.md`: overview and document index.
 - `docs/PRODUCT_SPEC.md`: MVP scope and required behavior.
 - `docs/TECHNICAL_ARCHITECTURE.md`: implemented API, rendering lifecycle, and implementation conventions.
 - `docs/INSTALLATION.md`, `docs/INTEGRATION_GUIDE.md`, and `docs/COMPATIBILITY.md`: verified installation/examples, exact tested versions, and limits.
+- `docs/PUBLICATION.md` and `docs/RELEASE_CHECKLIST.md`: published identity/tags, exact registry verification, archive preservation and pending human gates.
 - `docs/LINKED_CHARTS.md`: application-owned point selection, derived companion data and keyboard/reset behavior.
 - `docs/GITHUB_PAGES.md`: live preview, static build, verification, and manual deployment.
 - `docs/IMPLEMENTATION_PLAN.md`, `docs/RND_PLAN.md`, `docs/BACKLOG.md`, and `docs/ACCEPTANCE_MATRIX.md`: delivery sequence, experiments, tasks, and evidence.
@@ -30,7 +31,8 @@ Use Node from `.nvmrc` and npm 11.19.1; install with `npm ci`.
 - `npm run check`: formatting, builds, strict compilation, tests, isolated declarations/documentation/runtime consumers, SSR, three-browser scenarios, and package budgets. First install browsers with `npx playwright install chromium firefox webkit`.
 - `npm run build:pages` / `npm run check:pages`: build an isolated source snapshot and verify its sealed static output under `/ng-echarts/` in all three browsers. Dirty snapshots are local-only; inputs/outputs must remain unchanged.
 - `npm run deploy:pages`: requires clean source already pushed to current remote main; rebuilds/checks, validates its receipt and publishes immutable provenance with compiled assets to `gh-pages`. Never restamp or bypass stale-build guards. Pushes to main do not automatically redeploy.
-- `npm run release:local`: build/pack one private candidate, verify metadata/notices and pass byte-identical copies to strict/docs/client/SSR consumers. `release:prepare` and `release:check` run separate phases; keep human gates pending.
+- `npm run release:local`: build/pack one local candidate, verify metadata/notices and pass byte-identical copies to strict/docs/client/SSR consumers. `release:prepare` and `release:check` run separate phases; keep human gates pending.
+- `npm run check:release-immutability`: after preparing an artifact, verify that repeated preparation cannot overwrite its archive, checksum or manifest. Registry consumers use `CHART_LIBRARY_REGISTRY_SPEC` plus the recorded `CHART_LIBRARY_TARBALL_SHA256`; see `docs/RELEASE_CHECKLIST.md`.
 - `npm run capture:visual`: capture the four MVP gallery families/themes at 320/390/768/1440 px, including tooltip bounds and narrow label/control evidence; first run `npm run build`.
 - `npm run capture:composed` / `npm run capture:linked`: capture post-MVP composed and linked examples using the same responsive themes.
 - `npm run test:pages-provenance`: test source/build integrity, receipts, stale/tampered artifact rejection and operation locks.
@@ -55,7 +57,8 @@ Follow the initial commit's style: `docs: add Angular ECharts product and R&D pl
 
 PRs should explain the problem and resulting behavior, reference issues or NG/R/F identifiers, and report validation and unresolved limits. Include comparison screenshots for visual changes. Preserve upstream notices and align affected specifications, decisions, and backlog entries.
 
-
 ## Public prerelease exception — 14 November 2026
 
-The user selected `@mantha911/ng-echarts` after authenticating as npm user `mantha911`, requested skipping the VoiceOver session, and authorized completing the experimental public prerelease. rc.18 changes the package identity and current imports while preserving private rc.17 and earlier archives. Publish the exact verified artifact to npm with public access and the `next` tag. Keep human F09/R06/G2/G3/G4 pending: the user’s deferral permits this experimental publication without claiming completed human interpretation, a stable API, or full release acceptance.
+The user selected `@mantha911/ng-echarts` after authenticating as npm user `mantha911`, requested skipping the VoiceOver session, and authorized completing the experimental public prerelease. rc.18 changes the package identity and current imports while preserving private rc.17 and earlier archives. The exact verified artifact was published to npm with public access and the `next` tag. Keep human F09/R06/G2/G3/G4 pending: the user’s deferral permits this experimental publication without claiming completed human interpretation, a stable API, or full release acceptance.
+
+The rc.18 publication is complete. npm retains both `next` and its initial `latest` alias for rc.18 and rejected deleting `latest` with HTTP 400; preserve that observed limitation in current docs. The published archive and packaged README/changelog are immutable. Preserve rc.17 and earlier artifacts, use a new version for package-content changes, and keep repository-only documentation corrections separate from package publication.

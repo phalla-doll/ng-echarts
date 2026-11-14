@@ -2,6 +2,8 @@
 
 Follow [installation](INSTALLATION.md) first. Every component is standalone. Prefer focused imports; `/core` supplies shared public types and `ChartFrame` without ECharts runtime. Root imports remain compatible for existing exports; radar and radial progress use their focused entries only; `ɵ` exports and deep source paths are unsupported implementation APIs.
 
+The examples target the published experimental `@mantha911/ng-echarts@0.1.0-rc.18` release. Follow [installation](INSTALLATION.md) for `@next`, exact-version or retained-tarball installs. [Publication status](PUBLICATION.md#first-publication-result) records npm’s initial `latest` alias and the deferred human interpretation review; a registry release does not close F09/R06/G2/G3/G4.
+
 ## API index
 
 | Component / selector | Focused entry | API |

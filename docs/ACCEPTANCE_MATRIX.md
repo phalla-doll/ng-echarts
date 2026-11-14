@@ -20,7 +20,7 @@ The [NG13 pie/donut report](experiments/NG13_PIE_CHART.md) adds automated F01–
 
 ## Implemented family evidence
 
-This index records automated implementation acceptance, not completed human NG14/G3 acceptance. The current [combined checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) has 266 unit/integration tests, 380 browser passes (four expected skips), and six exact rc.16 installed client/SSR modes. Earlier NG20 and presentation receipts retain their distinct historical scopes. [Package evidence](experiments/data/package-boundaries.json) covers twelve import scenarios.
+This index records automated implementation acceptance, not completed human NG14/G3 acceptance. The current [public rc.18 evidence](experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) records 267 unit/integration tests, 416 browser passes with four expected skips, and six installed client/SSR modes. Fresh [registry consumers](experiments/public-rc18/registry-verification.json) verify the published bytes. [Current package evidence](experiments/public-rc18/package-boundaries.json) covers twelve import scenarios. The [rc.16 combined checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) retains its historical 266-unit/380-browser scope; earlier receipts are not restamped.
 
 | Family | Contract and automated behavior | Visual/performance evidence |
 | --- | --- | --- |
@@ -94,7 +94,7 @@ The [graphical-range review](experiments/GRAPHICAL_RANGE_SELECTION.md) extends F
 
 ## NG18 radar first increment
 
-The user-approved [radar increment](experiments/NG18_RADAR_CHART.md) adds the focused `/radar` Angular entry and a site-aligned demo with explicit dimension maxima, stable comparisons, missing-data policy, native scale/value table and vertex/table actions. The [API](RADAR_CHART_API.md) defines the bounded contract. The subsequent radial-progress increment below is implemented. The compatibility root and four-family MVP retain their scope; private rc.5 is separate from the preserved rc.4 artifact. Human F09/R06/G2/G3/G4 and public publication remain pending.
+The user-approved [radar increment](experiments/NG18_RADAR_CHART.md) adds the focused `/radar` Angular entry and a site-aligned demo with explicit dimension maxima, stable comparisons, missing-data policy, native scale/value table and vertex/table actions. The [API](RADAR_CHART_API.md) defines the bounded contract. The subsequent radial-progress increment below is implemented. The compatibility root and four-family MVP retain their scope; private rc.5 is separate from the preserved rc.4 artifact. Human F09/R06/G2/G3/G4 remain pending. This private-origin increment now ships in [public rc.18](PUBLICATION.md#first-publication-result).
 
 
 ## NG18 radial progress increment
@@ -110,12 +110,12 @@ The next NG19 increment adds a focused experimental `/sankey` entry and visitor-
 
 Combined rc.11 source: the [presentation receipt](experiments/data/premium-visual-refinement.json) records the completed 257-unit/353-browser regression and 138 visual states. Exact candidate and final sealed preview evidence are reconciled in the [Sankey report](experiments/NG19_SANKEY_CHART.md); human release gates remain pending.
 
-Current delivery checkpoint: [Sankey/presentation/WebKit demo deployment](GITHUB_PAGES.md#rc11-sankey-presentation-and-webkit-deployment) is verified publicly in all three engines. Private rc.12 corrects documentation only, preserving rc.11 runtime/declarations and all earlier archives. Its [candidate checklist](RELEASE_CHECKLIST.md) keeps human F09/R06/G2/G3/G4 and public package publication pending. The 353-browser full regression and later 30-scenario WebKit check are distinct recorded scopes.
+Historical rc.12 delivery checkpoint: [Sankey/presentation/WebKit demo deployment](GITHUB_PAGES.md#rc11-sankey-presentation-and-webkit-deployment) is verified publicly in all three engines. Private rc.12 corrects documentation only, preserving rc.11 runtime/declarations and all earlier archives. At that checkpoint, human F09/R06/G2/G3/G4 and public package publication were pending. The [candidate checklist](RELEASE_CHECKLIST.md) now records the completed rc.18 publication while preserving pending human gates. The 353-browser full regression and later 30-scenario WebKit check are distinct recorded scopes.
 
 
 ## NG20 transient month previews
 
-The user-authorized [month-preview follow-up](experiments/NG20_MONTH_PREVIEWS.md) adds opt-in bar pointer/table-focus previews and one-way temporary device-share context introduced in rc.13 and corrected in the current private rc.15. Committed period/range feedback, totals and local legends stay independent; keyboard actions can commit through the existing point event. The browser adapter owns delegated listeners, touch guards and cleanup. Shared zoom, bidirectional linking and public publication remain open. The mobile range button uses an explicit tap policy; the report distinguishes local evidence from the still-required pushed CI result. Human F09/R06/G2/G3/G4 remain pending, with calendar/Sankey checklists now included.
+The user-authorized [month-preview follow-up](experiments/NG20_MONTH_PREVIEWS.md) adds opt-in bar pointer/table-focus previews and one-way temporary device-share context introduced in rc.13 and corrected in the preserved private rc.15. Committed period/range feedback, totals and local legends stay independent; keyboard actions can commit through the existing point event. The browser adapter owns delegated listeners, touch guards and cleanup. Shared zoom and bidirectional linking remain open; [public rc.18 publication](PUBLICATION.md#first-publication-result) is complete. The mobile range button uses an explicit tap policy; the original report retains the local/CI evidence available at that checkpoint. Current release-source CI is recorded in the [publication result](PUBLICATION.md#first-publication-result). Human F09/R06/G2/G3/G4 remain pending, with calendar/Sankey checklists now included.
 
 
 The [rc.17 release follow-up](experiments/RC17_RELEASE_REVIEW.md) includes pre-hydration theme inheritance and separate CI browser jobs. Exact candidate verification is recorded separately from the preserved rc.16 checkpoint. The [human result sheet](experiments/RC17_HUMAN_REVIEW.md) and [NG22 publication plan](PUBLICATION.md) keep listening evidence, public identity and registry access explicit. Human F09/R06/G2/G3/G4 remain pending.

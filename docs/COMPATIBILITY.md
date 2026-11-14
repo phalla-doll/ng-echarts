@@ -49,7 +49,7 @@ Cartesian/pie benchmark fixtures validate finite numeric observations and stable
 
 ## Packaging and excluded behavior
 
-All focused entries ship in one tarball. Each family lazily loads its renderer; `/core` contains no engine runtime. Area and line deliberately share ECharts' Line engine. Root imports preserve class identity but may include the combined registrations; prefer focused imports. [Measured module boundaries](experiments/data/package-boundaries.json) include all emitted lazy chunks while excluding Angular/RxJS peers. Byte caps remain 200,000 gzip / 175,000 Brotli per family, 10,000/9,000 for core, 219,500/187,500 for root, and 203,000/175,000 for root-frame.
+All focused entries ship in one tarball. Each family lazily loads its renderer; `/core` contains no engine runtime. Area and line deliberately share ECharts' Line engine. Root imports preserve class identity but may include the combined registrations; prefer focused imports. [Measured module boundaries](experiments/public-rc18/package-boundaries.json) include all emitted lazy chunks while excluding Angular/RxJS peers. Byte caps remain 200,000 gzip / 175,000 Brotli per family, 10,000/9,000 for core, 219,500/187,500 for root, and 203,000/175,000 for root-frame.
 
 Sankey/calendar charts, broader linked zoom/hover, streaming/time/logarithmic axes, advanced patterns/glow/decorative animation, raw ECharts options and custom tooltip templates are outside the MVP. The first post-MVP composed increment is documented in its [API](COMPOSED_CHART_API.md) and [measurement report](experiments/NG17_COMPOSED_CHART.md); it does not add dual axes or stacking. The selected visual baselines have documented Angular differences; full upstream pixel/API parity is not promised. Individual [bar](BAR_CHART_API.md), [line](LINE_CHART_API.md), [area](AREA_CHART_API.md), and [pie/donut](PIE_CHART_API.md) guides list their specific exclusions.
 
@@ -81,11 +81,11 @@ The private rc.12 successor corrects documentation only. Its runtime/declaration
 
 Private rc.13 adds the [bounded one-way month preview](experiments/NG20_MONTH_PREVIEWS.md). This is an opt-in bar output and application-owned derived context; it does not introduce shared zoom or bidirectional selection. Existing limits and pending human release gates remain unchanged.
 
-Current rc.13 aggregate caps are 219,500 gzip / 187,500 Brotli for root and 203,000 / 175,000 for emitted root-frame chunks. The [measured delta](experiments/NG20_MONTH_PREVIEWS.md#package-cost) preserves focused/core limits and the engine-free reachable frame.
+The caps introduced with rc.13, retained for public rc.18, are 219,500 gzip / 187,500 Brotli for root and 203,000 / 175,000 for emitted root-frame chunks. The [measured delta](experiments/NG20_MONTH_PREVIEWS.md#package-cost) preserves focused/core limits and the engine-free reachable frame.
 
 Final rc.15 evidence separates the 362-pass pre-correction browser baseline from 46 final linked/range/preview passes and 260 fresh unit tests. All six exact installed client/SSR modes pass and exercise keyboard preview/commit. See [the scoped verification](experiments/NG20_MONTH_PREVIEWS.md#verification).
 
-The current [combined rc.16 checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) passes 266 unit tests, the full 380-case three-browser regression with four expected skips, all twelve package budgets and six exact installed client/SSR modes. It combines month previews with dimension-aware rendering and the deferred-navigation corrections; earlier receipts remain historical.
+The preserved [combined rc.16 checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) passes 266 unit tests, the full 380-case three-browser regression with four expected skips, all twelve package budgets and six exact installed client/SSR modes. It combines month previews with dimension-aware rendering and the deferred-navigation corrections; earlier receipts remain historical.
 
 
 NG22 first public prerelease: [`@mantha911/ng-echarts@0.1.0-rc.18`](experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) is published and verified from the registry in strict/docs/client/SSR consumers across all three engines. The [registry receipt](experiments/public-rc18/registry-verification.json) preserves actual tags (`next` plus npm’s initial `latest` alias). Human F09/R06/G2/G3/G4 remain pending under the user’s explicit deferral; no stable API acceptance is claimed.

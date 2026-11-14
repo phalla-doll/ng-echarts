@@ -77,7 +77,7 @@ Application error takes precedence over loading, validation/format/renderer erro
 
 ## Verification and limits
 
-The [NG19 implementation record](experiments/NG19_CALENDAR_HEATMAP.md) records measured checks and candidate evidence. Multi-year ranges, arbitrary windows, localization of calendar labels, custom bins, missing-day plot actions, canvas keyboard navigation, brushing and Sankey are deferred. Human F09/R06/G2/G3/G4 and public publication remain pending. Calendar evidence does not expand the four-family MVP acceptance claim.
+The [NG19 implementation record](experiments/NG19_CALENDAR_HEATMAP.md) records measured checks and candidate evidence. Multi-year ranges, arbitrary windows, localization of calendar labels, custom bins, missing-day plot actions, canvas keyboard navigation and brushing remain deferred. The later [Sankey component](SANKEY_CHART_API.md) has its own focused contract. Calendar is included in the [published experimental rc.18](PUBLICATION.md#first-publication-result); human F09/R06/G2/G3/G4 remain pending under the user’s explicit deferral. Calendar evidence does not expand the four-family MVP acceptance claim.
 
 Implementation follows the [ECharts calendar contract](https://github.com/apache/echarts-doc/blob/master/en/option/component/calendar.md) and checks the installed [6.1.0 calendar implementation](https://github.com/apache/echarts/blob/6.1.0/src/coord/calendar/Calendar.ts); upstream options are used through the peer dependency, with no copied upstream implementation.
 

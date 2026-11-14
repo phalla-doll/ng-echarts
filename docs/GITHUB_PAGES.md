@@ -2,6 +2,22 @@
 
 The demo is published from the root of the dedicated `gh-pages` branch at **https://phalla-doll.github.io/ng-echarts/**. Source and deployment are separate commits. Publication requires a clean, pushed `main` source, an unchanged sealed artifact and successful local checks in all three browsers.
 
+## Latest verified deployment — public rc.18
+
+Verified 14 November 2026 after the npm release and final availability-copy corrections. The [demo](https://phalla-doll.github.io/ng-echarts/) uses the public package name in its installation examples and gallery links. The loading frame and rendered Canvas retain the same theme background.
+
+| Identity / check | Verified result |
+| --- | --- |
+| Source commit | `49889c085b6b1a34b42b878af1c3dcae6ab4f01a` |
+| `gh-pages` commit | `bba9a3a8c6027d21326ef7c86df0d624b92faa3f` |
+| Sealed artifact SHA-256 | `f8850e877dd5115d88ead2c15e486139cd0d1dfe69b4200196f5fb55f2593b3d` |
+| Pages workflow | [Successful deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43608362885) |
+| Release-source CI | [All jobs passed](https://github.com/phalla-doll/ng-echarts/actions/runs/43607829796) |
+| Public verification | All 138 sealed files and Chromium/Firefox/WebKit route, reload, lazy-chart/font, anchor, focus, theme and mobile scenarios passed |
+| Targeted live verification | Registry install-command copying, public gallery links and matching pre-hydration/Canvas background passed |
+
+The [npm publication record](PUBLICATION.md#first-publication-result) is separate from this demo deployment. It verifies the exact registry package and records npm’s initial `latest` alias alongside `next`; human listening remains deferred. Markdown-only follow-ups do not restamp the last deployed source, and source pushes do not automatically redeploy Pages. Earlier deployment sections below retain their original identities.
+
 ## rc.11 Sankey, presentation and WebKit deployment
 
 Verified 14 November 2026: [live demo](https://phalla-doll.github.io/ng-echarts/), [Sankey](https://phalla-doll.github.io/ng-echarts/sankey/) and [Chart possibilities](https://phalla-doll.github.io/ng-echarts/chart-possibilities/). The combined implementation was committed as `cfe269cc6c0ed93cff48ad5a5a98e823a46dbdff`; the demo-only WebKit font fix is source commit `23182ab88bb1ee8f2cf8a5b7ccf51fcc5f6e2b3e`. Its static commit is `78cee7569919dfad20138e00f4f61b25078763aa`, and the [Pages workflow](https://github.com/phalla-doll/ng-echarts/actions/runs/43566878538) succeeded.

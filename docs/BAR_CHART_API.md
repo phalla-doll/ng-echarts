@@ -2,7 +2,7 @@
 
 Use [installation](INSTALLATION.md), the [complete application example](INTEGRATION_GUIDE.md), and the [tested compatibility/limits table](COMPATIBILITY.md) with this API.
 
-Implemented Angular bar API, reviewed 13 November 2026. Package/API names remain experimental. Import from `@mantha911/ng-echarts/bar`; build or install the local tarball using the [installation instructions](INSTALLATION.md). No public npm package is available.
+Implemented Angular 22 bar API, updated 14 November 2026. Import from `@mantha911/ng-echarts/bar`; install the experimental public `0.1.0-rc.18` release through `@next` or use the exact retained tarball. See [installation](INSTALLATION.md) and [publication status](PUBLICATION.md#first-publication-result). The API remains experimental; human interpretation is deferred at the user’s request.
 
 ## Minimal integration
 
