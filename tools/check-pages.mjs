@@ -179,7 +179,11 @@ async function checkPages() {
         await calendar.locator('.calendar-month').first().locator('summary').click();
         await calendar.getByRole('button', { name: 'Select 2024-01-01: 0', exact: true }).click();
         await expect(page.locator('.calendar-selection')).toHaveText('2024-01-01: 0 contributions');
-        await page.goto(new URL('chart-possibilities/', site).href);
+        // Embedded fonts may leave WebKit's window load pending; assert actual
+        // gallery/plot readiness below rather than waiting on every frame resource.
+        await page.goto(new URL('chart-possibilities/', site).href, {
+          waitUntil: 'domcontentloaded',
+        });
         const concepts = page.frameLocator('app-chart-possibilities iframe');
         await expect(concepts.locator('.card')).toHaveCount(12);
         await renderConcepts(page);
@@ -187,7 +191,7 @@ async function checkPages() {
         await expect(concepts.locator('html')).toHaveAttribute('data-theme', 'dark');
         await concepts.getByRole('button', { name: 'Find patterns', exact: true }).click();
         await expect(concepts.locator('.card:visible')).toHaveCount(2);
-        await page.reload();
+        await page.reload({ waitUntil: 'domcontentloaded' });
         await expect(concepts.locator('.card:visible')).toHaveCount(12);
         const standalone = page.getByRole('link', { name: 'Open standalone gallery', exact: true });
         assert(

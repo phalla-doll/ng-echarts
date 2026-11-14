@@ -15,7 +15,7 @@ import {
 import { SiteAppearance } from './site-appearance';
 import { SiteIcon } from './site-icon';
 
-const standaloneUrl = 'concepts/chart-style-gallery.html?v=afaee21ece15';
+const standaloneUrl = 'concepts/chart-style-gallery.html?v=d7a92b74410e';
 
 /** Keep a server-started iframe navigation alive during hydration. Angular reapplies
  * static attributes too, so src is assigned once here rather than in the template. */

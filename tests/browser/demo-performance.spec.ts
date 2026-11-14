@@ -196,3 +196,25 @@ test('keeps deferred concepts usable in cached wrappers without viewport message
   await expect(gallery.locator('.plot svg,.spark-plot svg')).toHaveCount(14);
   expect(errors).toEqual([]);
 });
+
+test('starts embedded concepts when WebKit leaves whole-set font readiness pending', async ({
+  page,
+}) => {
+  const errors = collectBrowserErrors(page);
+  await page.addInitScript(() => {
+    if (window === parent) return;
+    Object.defineProperty(document.fonts, 'ready', {
+      configurable: true,
+      get: () => new Promise(() => {}),
+    });
+  });
+  await page.goto('/chart-possibilities', { waitUntil: 'domcontentloaded' });
+  const gallery = page.frameLocator('app-chart-possibilities iframe');
+  await expect(gallery.locator('#plot-calendar svg')).toHaveCount(1);
+  await expect(page.locator('.loading-note')).toBeHidden();
+  await renderConcepts(page);
+  await expect(gallery.locator('.plot svg, .spark-plot svg')).toHaveCount(14);
+  await gallery.getByRole('button', { name: 'Find patterns', exact: true }).click();
+  await expect(gallery.locator('.card:visible')).toHaveCount(2);
+  expect(errors).toEqual([]);
+});
