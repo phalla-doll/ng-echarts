@@ -1,0 +1,23 @@
+{
+  "verifiedAt": "2026-11-15T06:17:14.663802+00:00",
+  "name": "@mantha911/ng-echarts",
+  "version": "0.1.0-rc.19",
+  "sha256": "85fd51a061557f6a33255c77581add6d1868ca47f45334f182d178953f5d38ba",
+  "integrity": "sha512-6APOaOV04otfKvVHxFZFLPbyUrRJgnhsSP8ouZ0loNa7R9DGvxmTdfYV+74c6ZVcSMym5kq9dtaqaXtXUT4i+A==",
+  "tarball": "https://registry.npmjs.org/@mantha911/ng-echarts/-/ng-echarts-0.1.0-rc.19.tgz",
+  "distTags": {
+    "next": "0.1.0-rc.19",
+    "latest": "0.1.0-rc.18"
+  },
+  "byteIdenticalToVerifiedCandidate": true,
+  "verifiedSourceCommit": "fb6cb05e5c985bca7f2f06bddf6460795ab511a3",
+  "registryConsumers": {
+    "strictDeclarationsAndNegativeBindings": "passed",
+    "documentedInstallAndHydrationThreeEngines": "passed",
+    "clientAndSSRThreeEngines": "passed"
+  },
+  "humanInterpretation": "deferred by user; F09/R06/G2/G3/G4 pending",
+  "sourceCI": "https://github.com/phalla-doll/ng-echarts/actions/runs/43680879332",
+  "sourceCIConclusion": "success",
+  "sourceCICommit": "fb6cb05e5c985bca7f2f06bddf6460795ab511a3"
+}

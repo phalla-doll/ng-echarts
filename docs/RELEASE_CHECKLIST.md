@@ -1,8 +1,8 @@
 # Published prerelease verification
 
-The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.18`. The user selected MIT for original library code on 13 November 2026. The user selected this experimental public identity and explicitly deferred the human listening session while requesting publication under `next`. Human gates remain pending. This checklist separates verified artifact behavior from release decisions and the deferred human interpretation review.
+The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.19`; the current stacked-composition source candidate is separate. The user selected MIT for original library code on 13 November 2026. The user selected this experimental public identity and explicitly deferred the human listening session while requesting publication under `next`. Human gates remain pending. This checklist separates verified artifact behavior from release decisions and the deferred human interpretation review.
 
-Publication and registry-consumer verification are complete for rc.18. Actual npm tags are `next: 0.1.0-rc.18` and `latest: 0.1.0-rc.18`; npm rejected deletion of the initial `latest` alias. See the [registry receipt](experiments/public-rc18/registry-verification.json) and [publication procedure](PUBLICATION.md). These results are separate from the pending human interpretation gates.
+The rc.19 publication and registry-consumer status are recorded in its [receipt](experiments/public-rc19/registry-verification.json). Actual npm tags are `next: 0.1.0-rc.19` and `latest: 0.1.0-rc.18`; npm rejected deletion of the initial `latest` alias. See the [registry receipt](experiments/public-rc18/registry-verification.json) and [publication procedure](PUBLICATION.md). These results are separate from the pending human interpretation gates.
 
 ## Prepare and verify one artifact
 
@@ -19,10 +19,10 @@ For an already retained archive, run `npm run release:check`; do not run prepara
 
 Outputs:
 
-- `dist/releases/mantha911-ng-echarts-0.1.0-rc.18.tgz` — local candidate.
-- `dist/releases/mantha911-ng-echarts-0.1.0-rc.18.tgz.sha256` — SHA-256 checksum.
+- `dist/releases/mantha911-ng-echarts-0.1.0-rc.21.tgz` — local candidate.
+- `dist/releases/mantha911-ng-echarts-0.1.0-rc.21.tgz.sha256` — SHA-256 checksum.
 - `dist/releases/release-manifest.json` — inventory, hashes, metadata, source snapshot and verification results.
-- [Current candidate evidence](experiments/data/local-release-0.1.0-rc.18.json) — tracked copy of the verified manifest after the check.
+- [Current candidate evidence](experiments/data/local-release-0.1.0-rc.21.json) — tracked copy of the verified manifest after the check.
 
 Earlier rc.0 artifact results remain preserved in the [NG16 record](experiments/data/ng16-local-release.json). The [rc.1 manifest](experiments/data/local-release-0.1.0-rc.1.json), [rc.2 manifest](experiments/data/local-release-0.1.0-rc.2.json) and [rc.3 manifest](experiments/data/local-release-0.1.0-rc.3.json) are also preserved. Each version writes its own evidence filename. The [rc.4 manifest](experiments/data/local-release-0.1.0-rc.4.json) and archive are preserved; the [rc.5 manifest](experiments/data/local-release-0.1.0-rc.5.json) remains preserved too; the [rc.6 manifest](experiments/data/local-release-0.1.0-rc.6.json) and archive remain unchanged and the [rc.7 manifest](experiments/data/local-release-0.1.0-rc.7.json) and archive remain preserved with subsequent rc.8–rc.12 records retained separately below.
 
@@ -38,7 +38,7 @@ npm run release:check
 To run an individual checker against a retained candidate, set its absolute path and the digest from its checksum file:
 
 ```sh
-export CHART_LIBRARY_TARBALL="$PWD/dist/releases/mantha911-ng-echarts-0.1.0-rc.18.tgz"
+export CHART_LIBRARY_TARBALL="$PWD/dist/releases/mantha911-ng-echarts-0.1.0-rc.21.tgz"
 export CHART_LIBRARY_TARBALL_SHA256="$(cut -d ' ' -f1 "$CHART_LIBRARY_TARBALL.sha256")"
 npm run check:consumer
 ```
@@ -47,11 +47,11 @@ The `check:docs` and `check:runtime` scripts accept the same variables. Without 
 
 ## Verify the published registry package
 
-All three consumer scripts support exact registry installs. The helper verifies the fetched registry tarball before each consumer installs by its exact npm identity. Use the digest from the committed [registry receipt](experiments/public-rc18/registry-verification.json):
+All three consumer scripts support exact registry installs. The helper verifies the fetched registry tarball before each consumer installs by its exact npm identity. Use the matching rc.19 source checkout (`fb6cb05e5c985bca7f2f06bddf6460795ab511a3`) and the digest from its committed [registry receipt](experiments/public-rc19/registry-verification.json); current rc.21 source intentionally rejects a mismatched registry identity:
 
 ```sh
-export CHART_LIBRARY_REGISTRY_SPEC="@mantha911/ng-echarts@0.1.0-rc.18"
-export CHART_LIBRARY_TARBALL_SHA256="7a341195044fd031183da0c4d41f16f087dc1b2189b03819644d67b7287fe47c"
+export CHART_LIBRARY_REGISTRY_SPEC="@mantha911/ng-echarts@0.1.0-rc.19"
+export CHART_LIBRARY_TARBALL_SHA256="85fd51a061557f6a33255c77581add6d1868ca47f45334f182d178953f5d38ba"
 npm run check:consumer
 npm run check:docs
 npm run check:runtime
@@ -78,11 +78,11 @@ The recorded dependency versions describe verified inputs, not every version adm
 
 | Item | Status / evidence |
 | --- | --- |
-| Local candidate automated checks | Passed exact-artifact verification for `0.1.0-rc.18`; [exact artifact manifest](experiments/data/local-release-0.1.0-rc.18.json) and [public prerelease evidence](experiments/NG22_PUBLIC_PRERELEASE.md); rc.16 results remain preserved in the [combined checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) |
+| Local candidate automated checks | Passed exact-artifact verification for local `0.1.0-rc.21`; [exact artifact manifest](experiments/data/local-release-0.1.0-rc.21.json), [rc.20/rc.21 report](experiments/NG17_STACKED_COMPOSED.md) and published [rc.19 evidence](experiments/RC19_RELEASE_REVIEW.md); rc.16 results remain preserved in the [combined checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) |
 | Original library license | MIT selected by the user; full text ships in the candidate |
-| Human interpretation, F09/R06 | Pending; complete the [rc.17 result sheet](experiments/RC17_HUMAN_REVIEW.md) following the [manual review](experiments/R06_MANUAL_REVIEW.md) across every family |
+| Human interpretation, F09/R06 | Pending; complete the [current result sheet](experiments/RC20_HUMAN_REVIEW.md) following the [manual review](experiments/R06_MANUAL_REVIEW.md) across every family |
 | NG14/G2/G3/G4 acceptance | Pending until the required human evidence exists; successful artifact checks do not close these gates |
-| Public package name/namespace | Published `@mantha911/ng-echarts@0.1.0-rc.18`; [NG22 execution](PUBLICATION.md) |
+| Public package name/namespace | Published `@mantha911/ng-echarts@0.1.0-rc.19`; [NG22 execution](PUBLICATION.md) |
 | Registry destination/publishing credentials | Authenticated as `mantha911` after interactive npm login ([record](PUBLICATION.md)) |
 | Public API stability/versioning promise | Experimental; no stable API freeze is declared by this candidate |
 
@@ -112,6 +112,11 @@ The [verified rc.15 preview-only artifact](experiments/data/local-release-0.1.0-
 
 The [first public prerelease](experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) is verified against registry bytes and fresh registry consumers. npm retained its initial `latest` alias alongside `next`; the [publication record](PUBLICATION.md#first-publication-result) records the rejected removal. Human F09/R06/G2/G3/G4 remain pending under the user’s explicit experimental-prerelease exception.
 
-## Unreleased rc.19 working tree
+## Preserved rc.19 delivery checkpoint
 
-The [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md) advances source metadata to `0.1.0-rc.19`. Source build and consumer commands now exercise that version; the rc.18 filenames and receipts above remain historical published evidence. No rc.19 release archive or publication is claimed. Preserve rc.18 and all earlier archives, and prepare a distinct new artifact before any future publication. To recheck the published rc.18 registry receipt with the exact-source-identity guard, use the matching rc.18 source checkout.
+The [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md) introduced `0.1.0-rc.19`. Its [delivery checkpoint](experiments/RC19_RELEASE_REVIEW.md) records the prepared immutable archive, exact consumer checks, overwrite refusal and publication status. Earlier rc.18 receipts remain historical published evidence. Preserve rc.18 and all earlier archives, and prepare a distinct new artifact before any future publication. To recheck the published rc.18 registry receipt with the exact-source-identity guard, use the matching rc.18 source checkout.
+
+
+## rc.20 named composed stacks
+
+Source now targets documentation-corrected `0.1.0-rc.21` for [named composed stacks](experiments/NG17_STACKED_COMPOSED.md). Preserve the verified rc.19 archive/checksum/versioned manifest; never repack or overwrite it for the new API. The rc.20 runtime is preserved in a documentation-only rc.21 successor; the report owns exact-artifact results. rc.21 is a local candidate, not a claimed registry publication. Human interpretation and G2/G3/G4 remain pending; the user explicitly continued the listening deferral on 15 November.

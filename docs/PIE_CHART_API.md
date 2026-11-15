@@ -62,8 +62,10 @@ This API covers solid sectors, pie/donut radii, outside labels, missing/zero han
 
 The starting measured envelope is 12 categories; 100 categories is stress evidence, measured on a donut with labels off. Crowded outside labels have separate layout costs. [NG14](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md) records current automated acceptance; human interpretation and final release gates remain pending.
 
-## Optional table pagination in unreleased rc.19 source
+<a id="optional-table-pagination-in-unreleased-rc19-source"></a>
+
+## Optional table pagination since rc.19
 
 Set `[tablePageSize]="50"` to create at most 50 native table rows at once. The default `null` retains the complete table. The size must be a positive safe integer; invalid values produce a configuration error. The plot continues to show all observations. Previous/Next buttons announce the visible row range and retain keyboard focus at either boundary. Every row remains available through paging, including hidden-series values, zero and missing observations.
 
-Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is not in published rc.18; use a local rc.19 source build.
+Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. The current local rc.21 candidate also includes it.

@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-15T04:35:36.811Z",
+  "recordedAt": "2026-11-15T06:15:43.175Z",
   "method": "Resolve public package imports, Angular-link, bundle/minify/split with Angular/RxJS peers external; count only modules contributing bytes to output; traverse static imports separately from lazy chunks; sum independently compressed JavaScript chunks",
   "scenarios": [
     {
@@ -786,7 +786,7 @@
       "import": "@mantha911/ng-echarts/composed",
       "exports": "ComposedChart",
       "files": [
-        { "name": "stdin.js", "raw": 20868, "gzip": 5205, "brotli": 4582 },
+        { "name": "stdin.js", "raw": 21526, "gzip": 5462, "brotli": 4797 },
         {
           "name": "mantha911-ng-echarts-composed-composed-renderer-C9EFo56K-ILMLZ523.js",
           "raw": 525404,
@@ -795,7 +795,7 @@
         },
         { "name": "chunk-OAJG5X4H.js", "raw": 36889, "gzip": 10453, "brotli": 9277 }
       ],
-      "total": { "raw": 583161, "gzip": 195201, "brotli": 166365 },
+      "total": { "raw": 583819, "gzip": 195458, "brotli": 166580 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 242,
@@ -2210,7 +2210,7 @@
       "import": "@mantha911/ng-echarts",
       "exports": "BarChart, LineChart, AreaChart, PieChart, ComposedChart, ChartFrame",
       "files": [
-        { "name": "stdin.js", "raw": 118326, "gzip": 15600, "brotli": 11586 },
+        { "name": "stdin.js", "raw": 118980, "gzip": 15844, "brotli": 11810 },
         {
           "name": "mantha911-ng-echarts-area-area-renderer-DQmIKv7N-JKM55LCU.js",
           "raw": 525,
@@ -2249,7 +2249,7 @@
         { "name": "chunk-SPBDDDDP.js", "raw": 475122, "gzip": 162325, "brotli": 138402 },
         { "name": "chunk-WOT6VMZA.js", "raw": 106, "gzip": 120, "brotli": 91 }
       ],
-      "total": { "raw": 709549, "gzip": 220504, "brotli": 188335 },
+      "total": { "raw": 710203, "gzip": 220748, "brotli": 188559 },
       "budget": { "gzip": 222000, "brotli": 190000 },
       "eagerEngineModules": 0,
       "engineModules": 253,

@@ -1,6 +1,6 @@
 # Composed chart API
 
-NG17's first composed increment combines vertical bars and lines on one category axis and one linear value axis. Use comparable units for all measures. It inherits the Cartesian formatting, states, stable identities, native legends/tables, motion, resizing, and SSR behavior.
+NG17 combines vertical bars and lines on one category axis and one linear value axis. Use comparable units for all measures. It inherits the Cartesian formatting, states, stable identities, native legends/tables, motion, resizing, and SSR behavior.
 
 ## Complete example
 
@@ -45,10 +45,14 @@ export class ComposedExample {
 
 | Kind | Additional settings |
 | --- | --- |
-| `bar` | None; vertical, unstacked, solid fill |
+| `bar` | `stack?: string` (rc.20+); omission means vertical, unstacked, solid fill |
 | `line` | `smooth?: boolean` (default false), `showPoints?: boolean` (default true) |
 
 A missing/unknown kind, nonboolean line settings, or line settings on a bar produce a configuration error at runtime; typed templates/descriptors reject them during compilation. Replace the series reference to change its kind/settings. Stable IDs preserve legend visibility through reordering, renaming and kind changes; removing an ID discards its previous hidden state.
+
+`stack` must be a nonempty string without surrounding whitespace. Equal names group bars into the same stack; different names form separate stacks next to unstacked bars. Lines reject stack settings in strict types and at runtime. Supplied series order defines segment order. Positive and negative values stack separately from zero; null/undefined remain missing and zero remains observed. Hiding a segment recalculates the visible stack and exposed end corners; its original table values remain accessible. Tooltips, tables and point events report raw segment values. The library does not calculate a cumulative line or percentage normalization.
+
+For example, supply descriptors `{ id: 'desktop', key: 'desktop', label: 'Desktop', kind: 'bar', stack: 'visits' }` and `{ id: 'mobile', key: 'mobile', label: 'Mobile', kind: 'bar', stack: 'visits' }`, plus a line descriptor for your own total/target/trend field. See the copyable second `/composed` gallery example. Named stacks require rc.20 or later (use the current rc.21 candidate); they are absent from published rc.18 and the preserved rc.19 artifact.
 
 Bars and lines use the same category centers, with a half-category edge gap retained even when all bars are hidden. Lines render above bars and preserve missing-observation gaps. A line path without persistent markers remains clickable and resolves the nearest valid category on that series. Negative and zero values remain raw numeric values. Null/undefined values are missing; all-zero data is valid.
 
@@ -66,14 +70,16 @@ States follow application error, loading, data/configuration/renderer error, emp
 
 Use `/composed` for `ComposedChart`, `ComposedSeries`, `ComposedBarSeries`, and `ComposedLineSeries`; root exports are compatible. Shared event/key/formatter types are reexported by `/composed` and `/core`. The focused entry lazily registers only bar, line, grid, tooltip and Canvas modules. Existing focused bar/line/area/pie entries do not acquire the composed component or additional engines.
 
-This initial increment supports bar/line combinations on shared axes. Dual scales, horizontal composition, stacking, area composition, raw ECharts options and custom tooltip templates are outside this increment. Mixed units such as visits and percentages require a different design, not an unlabelled shared scale. Existing [compatibility and measured-envelope guidance](COMPATIBILITY.md) remains the starting point; the [NG17 report](experiments/NG17_COMPOSED_CHART.md) records composed-specific measurements and checks.
+This initial increment supports bar/line combinations on shared axes. Dual scales, horizontal composition, stacked lines, area composition, raw ECharts options and custom tooltip templates are outside this increment. Mixed units such as visits and percentages require a different design, not an unlabelled shared scale. Existing [compatibility and measured-envelope guidance](COMPATIBILITY.md) remains the starting point; the [NG17 report](experiments/NG17_COMPOSED_CHART.md) records composed-specific measurements and checks.
 
 The gallery at `/composed` keeps the approved neutral styling and copyable source; `/composed-validation` exposes engineering controls separately. Human interpretation and complete release gates retain their deferred status.
 
 The line layer uses a 2.5 px dashed stroke and 7 px diamond markers; the bar layer uses 2 px corners. These presentation cues do not change raw events, series identity or comparable-unit requirements. Nonready states preserve plot geometry and retain inert control space.
 
-## Optional table pagination in unreleased rc.19 source
+<a id="optional-table-pagination-in-unreleased-rc19-source"></a>
+
+## Optional table pagination since rc.19
 
 Set `[tablePageSize]="50"` to create at most 50 native table rows at once. The default `null` retains the complete table. The size must be a positive safe integer; invalid values produce a configuration error. The plot continues to show all observations. Previous/Next buttons announce the visible row range and retain keyboard focus at either boundary. Every row remains available through paging, including hidden-series values, zero and missing observations.
 
-Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is not in published rc.18; use a local rc.19 source build.
+Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. The current local rc.21 candidate also includes it.

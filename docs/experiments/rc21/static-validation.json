@@ -1,0 +1,16 @@
+{
+  "sourceBaseCommit": "8d28f252def1fcb3f01dda6a9cff1a510a472791",
+  "sourceSha256": "4128b639a6aedb3989fe664c42e03fc15afbf9d64f9c9616365f6d138a073286",
+  "includesWorkingTree": true,
+  "isolatedClone": true,
+  "sharedWorkspaceWasNotModifiedByVerification": true,
+  "results": {
+    "buildPages": "passed",
+    "threeBrowserStaticChecks": "passed",
+    "enforcedDemoPerformance": "passed"
+  },
+  "artifactSha256": "3c18186fa0095772e1045179bf523586522f681b4e644b84bfedf480072e2efe",
+  "rawMarkerCopy": "pages-build.txt",
+  "rawReceiptCopy": "pages-verification.txt",
+  "artifactDirectory": "dist/review-pages-rc21-3c18186fa009"
+}

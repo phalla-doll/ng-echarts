@@ -1,6 +1,16 @@
 # Changelog
 
-## 0.1.0-rc.19 — Unreleased source
+## 0.1.0-rc.21 — Documentation correction
+
+- Correct packaged availability/version guidance after rc.19 publication, and document pagination and named composed stacks by their introduction versions.
+- Preserve rc.20 runtime/declarations, dependencies, licensing, notices and all archived candidates. Human release gates remain pending.
+
+## 0.1.0-rc.20 — Verified local candidate
+
+- Add optional named bar stacks to composed charts on the existing shared scale, with signed end caps, raw point actions and independent supplied line values.
+- Preserve the verified rc.19 performance/Angular artifact and all earlier archives. Human release gates remain pending.
+
+## 0.1.0-rc.19 — Verified local candidate
 
 - Reconcile renderer recovery, legend visibility and transient plot previews with dependent signals; explicitly phase browser rendering while retaining mixed CSS-color and focus operations.
 - Add opt-in `tablePageSize` to bar, line, area, composed and pie tables, with keyboard paging, bounded row creation and original-row selection events. The default remains a complete table.

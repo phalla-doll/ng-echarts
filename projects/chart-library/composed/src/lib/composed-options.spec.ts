@@ -80,7 +80,7 @@ it('retains category geometry and palette slots as bars/lines are hidden', () =>
 it('supports descriptor reordering and switching kind without retaining obsolete line settings', () => {
   const swapped: readonly ComposedSeries<Row>[] = [
     { ...series[1]!, kind: 'bar', smooth: undefined, showPoints: undefined },
-    { ...series[0]!, kind: 'line', showPoints: true },
+    { ...series[0]!, kind: 'line', stack: undefined, showPoints: true },
   ];
   const model = ɵnormalizeCartesianData(rows, 'id', 'category', swapped);
   if (model.kind === 'error') throw new Error(model.message);
@@ -103,6 +103,12 @@ it.each([
   [{ kind: 'bar', smooth: false }, 'bar series'],
   [{ kind: 'line', smooth: 'yes' }, 'booleans'],
   [{ kind: 'line', showPoints: 0 }, 'booleans'],
+  [{ kind: 'bar', stack: '' }, 'stack names'],
+  [{ kind: 'bar', stack: '  ' }, 'stack names'],
+  [{ kind: 'bar', stack: ' visits' }, 'stack names'],
+  [{ kind: 'bar', stack: null }, 'stack names'],
+  [{ kind: 'bar', stack: 1 }, 'stack names'],
+  [{ kind: 'line', stack: 'visits' }, 'line series'],
 ])('rejects invalid mixed descriptors: %o', (settings, message) => {
   expect(
     composedSeriesError([
@@ -113,4 +119,84 @@ it.each([
 it('accepts defaults and empty series', () => {
   expect(composedSeriesError([])).toBeNull();
   expect(composedSeriesError(series)).toBeNull();
+});
+
+it('stacks only named bar groups and caps each visible signed end without changing raw observations', () => {
+  const rows = [
+    { id: 'positive', category: 'P', first: 10, second: 20, other: 30, line: 60 },
+    { id: 'negative', category: 'N', first: -10, second: -20, other: -30, line: -60 },
+    { id: 'mixed', category: 'M', first: -10, second: 20, other: 0, line: 10 },
+    { id: 'missing', category: 'X', first: 10, second: null, other: 0, line: null },
+    { id: 'zero', category: 'Z', first: 0, second: 0, other: null, line: 0 },
+  ];
+  const descriptors: readonly ComposedSeries<(typeof rows)[number]>[] = [
+    { id: 'first', key: 'first', label: 'First', kind: 'bar', stack: 'visits' },
+    { id: 'second', key: 'second', label: 'Second', kind: 'bar', stack: 'visits' },
+    { id: 'other', key: 'other', label: 'Other', kind: 'bar', stack: 'comparison' },
+    { id: 'line', key: 'line', label: 'Line', kind: 'line' },
+  ];
+  const model = ɵnormalizeCartesianData(rows, 'id', 'category', descriptors);
+  if (model.kind === 'error') throw new Error(model.message);
+  const input = { ...context(), model };
+  const options = buildComposedOptions(input, descriptors);
+  expect(options.series).toMatchObject([
+    {
+      id: 'first',
+      stack: 'visits',
+      stackStrategy: 'samesign',
+      data: [
+        { value: 10, itemStyle: { borderRadius: 0 } },
+        { value: -10, itemStyle: { borderRadius: 0 } },
+        { value: -10, itemStyle: { borderRadius: [0, 0, 2, 2] } },
+        { value: 10, itemStyle: { borderRadius: [2, 2, 0, 0] } },
+        { value: 0, itemStyle: { borderRadius: 0 } },
+      ],
+    },
+    {
+      id: 'second',
+      stack: 'visits',
+      data: [
+        { value: 20, itemStyle: { borderRadius: [2, 2, 0, 0] } },
+        { value: -20, itemStyle: { borderRadius: [0, 0, 2, 2] } },
+        { value: 20 },
+        { value: '-' },
+        { value: 0 },
+      ],
+    },
+    {
+      id: 'other',
+      stack: 'comparison',
+      data: expect.arrayContaining([
+        expect.objectContaining({ value: 30, itemStyle: { borderRadius: [2, 2, 0, 0] } }),
+      ]),
+    },
+    {
+      id: 'line',
+      type: 'line',
+      data: expect.arrayContaining([expect.objectContaining({ value: 60 })]),
+    },
+  ]);
+  const rendered = options.series as { stack?: string }[];
+  expect(rendered[3]?.stack).toBeUndefined();
+  const hidden = buildComposedOptions({ ...input, hiddenIds: new Set(['second']) }, descriptors);
+  expect((hidden.series as unknown[])[0]).toMatchObject({
+    id: 'first',
+    data: expect.arrayContaining([
+      expect.objectContaining({ value: 10, itemStyle: { borderRadius: [2, 2, 0, 0] } }),
+      expect.objectContaining({ value: -10, itemStyle: { borderRadius: [0, 0, 2, 2] } }),
+    ]),
+  });
+  expect(model.rows[0]!.points[1]!.row).toBe(rows[0]);
+  expect(model.rows[0]!.points[1]!.value).toBe(20);
+  const grouped = descriptors.map((item) =>
+    item.kind === 'bar' ? { ...item, stack: undefined } : item,
+  );
+  const unstacked = buildComposedOptions(input, grouped);
+  expect((unstacked.series as { stack?: string }[]).every((item) => item.stack === undefined)).toBe(
+    true,
+  );
+  expect((unstacked.series as unknown[])[0]).toMatchObject({
+    data: expect.arrayContaining([expect.objectContaining({ id: 'positive', value: 10 })]),
+    itemStyle: { borderRadius: 2 },
+  });
 });

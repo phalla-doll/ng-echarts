@@ -7,7 +7,9 @@ import { chromium } from 'playwright';
 import { format, resolveConfig } from 'prettier';
 
 const selected = process.argv[2];
+const stacked = process.argv.includes('--stacked');
 assert(!selected || selected === 'composed', 'Optional family must be composed');
+assert(!stacked || selected === 'composed', 'Stacked measurements require composed');
 const root = new URL('../', import.meta.url);
 const server = spawn(process.execPath, ['dist/playground/server/server.mjs'], {
   cwd: root,
@@ -46,7 +48,9 @@ try {
         });
         observer.observe(document, { childList: true, subtree: true });
       }, family);
-      await page.goto(`http://localhost:${port}/${family === 'bar' ? '' : `${family}-`}benchmark`);
+      await page.goto(
+        `http://localhost:${port}/${family === 'bar' ? '' : `${family}-`}benchmark${stacked ? '?stacked=1' : ''}`,
+      );
       await page.waitForFunction(() => window.angularBarBenchmark);
       const results = [],
         table = [];
@@ -103,8 +107,9 @@ try {
       build: 'production SSR playground, actual Angular components, lazy Canvas renderer',
       fixture:
         '768x320 plot profile; resize alternates host width 768/640; DPR 1; animation disabled; reduced motion; table collapsed',
-      variants:
-        'bar grouped solid vertical; line straight with points; area stacked gradient; pie donut ratio 0.6 with labels off; composed bar/line/bar with points',
+      variants: stacked
+        ? 'composed first/third bars share the visits stack, independent supplied second-series line with points'
+        : 'bar grouped solid vertical; line straight with points; area stacked gradient; pie donut ratio 0.6 with labels off; composed bar/line/bar with points',
       samples:
         'Each operation: one warm-up and 30 measured samples; p95 = 29th sorted sample. Counts are 200/2000 Cartesian and 12/100 pie.',
       mountAndUpdate:
@@ -124,7 +129,7 @@ try {
   };
   await writeFile(
     new URL(
-      `docs/experiments/data/${selected ? 'ng17-composed-benchmark' : 'ng14-benchmark'}.json`,
+      `docs/experiments/data/${stacked ? 'ng17-stacked-composed-benchmark' : selected ? 'ng17-composed-benchmark' : 'ng14-benchmark'}.json`,
       root,
     ),
     await format(JSON.stringify(evidence), {

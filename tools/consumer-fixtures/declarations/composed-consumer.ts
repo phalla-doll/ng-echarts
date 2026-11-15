@@ -30,7 +30,7 @@ interface Row {
 export class ComposedConsumer {
   readonly rows: readonly Row[] = [{ id: 'a', category: 'A', value: 0, trend: 1 }];
   readonly series: readonly ComposedSeries<Row>[] = [
-    { id: 'v', key: 'value', label: 'V', kind: 'bar' },
+    { id: 'v', key: 'value', label: 'V', kind: 'bar', stack: 'visits' },
     { id: 't', key: 'trend', label: 'T', kind: 'line', smooth: true, showPoints: false },
   ];
   select(point: PointSelection<Row>) {
@@ -61,3 +61,20 @@ const badLine: ComposedLineSeries<Row> = {
   showPoints: 'yes',
 };
 void [badKey, missingKind, badKind, badBar, badLine];
+const stackedLine: ComposedLineSeries<Row> = {
+  id: 't',
+  key: 'trend',
+  label: 'T',
+  kind: 'line',
+  // @ts-expect-error Composed stacks belong to bars only.
+  stack: 'visits',
+};
+const numericStack: ComposedBarSeries<Row> = {
+  id: 'v',
+  key: 'value',
+  label: 'V',
+  kind: 'bar',
+  // @ts-expect-error Stack names are strings.
+  stack: 1,
+};
+void [stackedLine, numericStack];

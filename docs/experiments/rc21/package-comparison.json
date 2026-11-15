@@ -1,0 +1,6 @@
+{
+  "comparedVersions": ["0.1.0-rc.20", "0.1.0-rc.21"],
+  "changedFiles": ["package/package.json", "package/CHANGELOG.md", "package/README.md"],
+  "runtimeAndDeclarationsByteIdentical": true,
+  "dependenciesPeersLicensesNoticesPreserved": true
+}

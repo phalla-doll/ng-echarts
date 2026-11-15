@@ -261,7 +261,8 @@ async function exercise(engine, url, ssr) {
     await page.getByRole('link', { name: 'Navigate away', exact: true }).click();
     await expect(page.locator('canvas')).toHaveCount(0);
     await navigation.getByRole('link', { name: 'Composed Blocks', exact: true }).click();
-    await expect(page.locator('nec-composed-chart canvas')).toHaveCount(1);
+    await renderGallery(page);
+    await expect(page.locator('nec-composed-chart canvas')).toHaveCount(2);
     await navigation.getByRole('link', { name: 'Composed validation', exact: true }).click();
     const composed = page.locator('.primary-composed nec-composed-chart');
     await expect(composed.locator('canvas')).toHaveCount(1);
@@ -279,6 +280,19 @@ async function exercise(engine, url, ssr) {
       'aria-pressed',
       'false',
     );
+    await page.getByRole('button', { name: 'Use stacked bars', exact: true }).click();
+    await expect(composed.locator('.legend button').filter({ hasText: 'Visits' })).toHaveAttribute(
+      'aria-pressed',
+      'false',
+    );
+    await composed
+      .getByRole('button', { name: 'Select Mobile for January: 40', exact: true })
+      .focus();
+    await page.keyboard.press('Enter');
+    await expect(page.locator('.selection')).toHaveText('a/mobile/40/table');
+    await page.getByRole('button', { name: 'Separate bar stacks', exact: true }).click();
+    await page.getByRole('button', { name: 'Use unstacked bars', exact: true }).click();
+    await expect(composed.locator('canvas')).toHaveCount(1);
     if (ssr) {
       await page
         .locator('.deferred-composed')

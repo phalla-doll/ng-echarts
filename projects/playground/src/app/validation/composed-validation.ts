@@ -9,14 +9,15 @@ export interface ComposedRow {
   readonly id: string;
   readonly month: string;
   readonly visits: number | null;
+  readonly mobile?: number | null;
   readonly trend: number | null;
 }
 export const composedValidationRows: readonly ComposedRow[] = [
-  { id: 'a', month: 'January', visits: 100, trend: 80 },
-  { id: 'b', month: 'February', visits: 200, trend: 140 },
-  { id: 'c', month: 'March', visits: null, trend: 0 },
-  { id: 'd', month: 'April', visits: -60, trend: null },
-  { id: 'e', month: 'May', visits: 120, trend: 40 },
+  { id: 'a', month: 'January', visits: 100, mobile: 40, trend: 80 },
+  { id: 'b', month: 'February', visits: 200, mobile: -30, trend: 140 },
+  { id: 'c', month: 'March', visits: null, mobile: 0, trend: 0 },
+  { id: 'd', month: 'April', visits: -60, mobile: -20, trend: null },
+  { id: 'e', month: 'May', visits: 120, mobile: null, trend: 40 },
 ];
 export const composedValidationSeries: readonly ComposedSeries<ComposedRow>[] = [
   { id: 'visits', key: 'visits', label: 'Visits', kind: 'bar' },
@@ -52,6 +53,10 @@ export class DeferredComposed {
       <button type="button" (click)="reorder()">Reorder composed inputs</button>
       <button type="button" (click)="switchKind()">Switch series kind</button>
       <button type="button" (click)="togglePoints()">Toggle trend points</button>
+      <button type="button" (click)="stackBars()">Use stacked bars</button>
+      <button type="button" (click)="separateStacks()">Separate bar stacks</button>
+      <button type="button" (click)="ungroupBars()">Use unstacked bars</button>
+      <button type="button" (click)="invalidateStack()">Invalid composed stack</button>
       <button type="button" (click)="refreshPalette()">Refresh palette</button>
       <button type="button" [attr.aria-pressed]="loading()" (click)="loading.set(!loading())">
         Loading composed
@@ -73,7 +78,7 @@ export class DeferredComposed {
       @if (mounted()) {
         <nec-composed-chart
           title="Visits and trend"
-          description="Signed, zero, and missing values preserve their raw meaning."
+          description="Signed, zero, and missing values preserve their raw meaning. Visits and Mobile share the visits stack when enabled; Trend is an independent supplied visits value."
           [data]="rows()"
           rowIdKey="id"
           categoryKey="month"
@@ -146,6 +151,26 @@ export class ComposedValidation {
         item.kind === 'line' ? { ...item, showPoints: !(item.showPoints ?? true) } : item,
       ),
     );
+  }
+  protected stackBars() {
+    this.series.set([
+      { id: 'visits', key: 'visits', label: 'Visits', kind: 'bar', stack: 'visits' },
+      { id: 'mobile', key: 'mobile', label: 'Mobile', kind: 'bar', stack: 'visits' },
+      { id: 'trend', key: 'trend', label: 'Trend', kind: 'line' },
+    ]);
+  }
+  protected separateStacks() {
+    this.series.update((series) =>
+      series.map((item) => (item.kind === 'bar' ? { ...item, stack: item.id } : item)),
+    );
+  }
+  protected ungroupBars() {
+    this.series.update((series) =>
+      series.map((item) => (item.kind === 'bar' ? { ...item, stack: undefined } : item)),
+    );
+  }
+  protected invalidateStack() {
+    this.series.set([{ id: 'visits', key: 'visits', label: 'Visits', kind: 'bar', stack: '' }]);
   }
   protected refreshPalette() {
     this.palette.set('#2563eb');

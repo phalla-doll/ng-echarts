@@ -4,6 +4,95 @@ import { expect, test, type Locator } from '@playwright/test';
 import { firstGreenBarPoint } from './canvas-point';
 import { collectBrowserErrors, installResourceAudit } from './resource-audit';
 
+async function firstBarSegment(canvas: Locator, color: 'green' | 'rose') {
+  await canvas.scrollIntoViewIfNeeded();
+  return canvas.evaluate((element: HTMLCanvasElement, color) => {
+    const pixels = element
+      .getContext('2d', { willReadFrequently: true })!
+      .getImageData(0, 0, element.width, element.height).data;
+    const box = element.getBoundingClientRect();
+    for (let x = 0; x < element.width; x++) {
+      const ys: number[] = [];
+      for (let y = 0; y < element.height; y++) {
+        const at = (y * element.width + x) * 4;
+        const r = pixels[at]!,
+          g = pixels[at + 1]!,
+          b = pixels[at + 2]!;
+        if (
+          color === 'green'
+            ? g > 80 && g > r * 1.5 && g > b * 1.1
+            : r > 120 && r > g * 2 && r > b * 1.3
+        )
+          ys.push(y);
+      }
+      if (ys.length > 10)
+        return {
+          x: box.x + ((x + 3) * box.width) / element.width,
+          y: box.y + ((ys[0]! + 6) * box.height) / element.height,
+        };
+    }
+    throw new Error(`${color} bar segment not painted`);
+  }, color);
+}
+
+test('stacks real segments by group, returns raw actions and replaces grouping without losing identities', async ({
+  page,
+}) => {
+  const errors = collectBrowserErrors(page);
+  await page.goto('/composed-validation');
+  const chart = page.locator('.primary-composed nec-composed-chart');
+  const canvas = chart.locator('canvas');
+  await expect(canvas).toHaveCount(1);
+  const instance = await chart.locator('.plot').getAttribute('_echarts_instance_');
+  await page.getByRole('button', { name: 'Use stacked bars', exact: true }).click();
+  let green = await firstBarSegment(canvas, 'green');
+  let rose = await firstBarSegment(canvas, 'rose');
+  expect(Math.abs(green.x - rose.x)).toBeLessThan(2);
+  expect(rose.y).toBeLessThan(green.y);
+  await page.mouse.click(rose.x, rose.y);
+  await expect(page.locator('.selection')).toHaveText('a/mobile/40/plot');
+  await page.mouse.move(rose.x, rose.y);
+  await expect(chart.locator('[data-nec-tooltip]')).toContainText('Mobile');
+  await expect(chart.locator('[data-nec-tooltip]')).toContainText('40');
+  await chart.getByRole('button', { name: 'Show data table', exact: true }).click();
+  await chart.getByRole('button', { name: 'Select Mobile for April: -20', exact: true }).focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('.selection')).toHaveText('d/mobile/-20/table');
+  await expect(chart.locator('tbody')).toContainText('Missing');
+  await chart.getByRole('button', { name: 'Select Mobile for March: 0', exact: true }).click();
+  await expect(page.locator('.selection')).toHaveText('c/mobile/0/table');
+  await page.getByRole('button', { name: 'Separate bar stacks', exact: true }).click();
+  green = await firstBarSegment(canvas, 'green');
+  rose = await firstBarSegment(canvas, 'rose');
+  expect(Math.abs(green.x - rose.x)).toBeGreaterThan(10);
+  await page.getByRole('button', { name: 'Use unstacked bars', exact: true }).click();
+  green = await firstBarSegment(canvas, 'green');
+  rose = await firstBarSegment(canvas, 'rose');
+  expect(Math.abs(green.x - rose.x)).toBeGreaterThan(10);
+  await page.getByRole('button', { name: 'Use stacked bars', exact: true }).click();
+  const mobileLegend = chart.locator('.legend button').filter({ hasText: 'Mobile' });
+  await mobileLegend.click();
+  const mobileValue = chart.getByRole('button', {
+    name: 'Select Mobile for January: 40',
+    exact: true,
+  });
+  await mobileValue.focus();
+  await page
+    .getByRole('button', { name: 'Reorder composed inputs', exact: true })
+    .evaluate((button: HTMLButtonElement) => button.click());
+  await expect(mobileValue).toBeFocused();
+  await expect(mobileLegend).toHaveAttribute('aria-pressed', 'false');
+  await page.getByRole('button', { name: 'Separate bar stacks', exact: true }).click();
+  await expect(mobileLegend).toHaveAttribute('aria-pressed', 'false');
+  await expect(chart.locator('.plot')).toHaveAttribute('_echarts_instance_', instance!);
+  await page.getByRole('button', { name: 'Invalid composed stack', exact: true }).click();
+  await expect(chart.getByRole('alert')).toContainText('stack names');
+  await expect(canvas).toHaveCount(0);
+  await page.getByRole('button', { name: 'Restore composed data', exact: true }).click();
+  await expect(canvas).toHaveCount(1);
+  expect(errors).toEqual([]);
+});
+
 async function rosePoint(canvas: Locator) {
   await canvas.scrollIntoViewIfNeeded();
   return canvas.evaluate((element: HTMLCanvasElement) => {

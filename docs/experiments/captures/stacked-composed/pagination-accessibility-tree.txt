@@ -1,0 +1,598 @@
+- link "Skip to content" [ref=e127]
+- button "Open navigation" [expanded=false, ref=e128]
+- banner
+  - link "ng-echarts home" [ref=e129]
+    - StaticText "ng-echarts"
+  - link "View ng-echarts on GitHub" [ref=e130]
+  - button "Use dark theme" [ref=e131]
+- main
+  - heading "Bar benchmark fixture" [level=1, ref=e132]
+  - paragraph
+    - StaticText "Automated measurements run through the benchmark command."
+  - button "Show paginated sample" [ref=e133]
+  - paragraph
+    - StaticText "The preview keeps its fixed 768 px measurement width and reference theme. Scroll inside the preview on a narrow screen."
+  - region "Bar benchmark preview" [ref=e134] focusable [tabindex]
+    - region "Benchmark" [ref=e135]
+      - sectionheader
+        - heading "Benchmark" [level=2, ref=e137]
+        - paragraph
+          - StaticText "Deterministic three-series fixture."
+      - generic "Chart series"
+        - button "First Visible" [ref=e138]
+          - StaticText "First"
+          - StaticText "Visible"
+        - button "Second Visible" [ref=e139]
+          - StaticText "Second"
+          - StaticText "Visible"
+        - button "Third Visible" [ref=e140]
+          - StaticText "Third"
+          - StaticText "Visible"
+      - button "Hide data table" [expanded=true, ref=e136]
+      - navigation "Benchmark data table pages" [ref=e141]
+        - button "Previous table page" [ref=e143]
+          - StaticText "Previous"
+        - status
+          - StaticText "Rows 51–100 of 123"
+        - button "Next table page" [ref=e144]
+          - StaticText "Next"
+      - region "Benchmark data table" [ref=e142] focusable [tabindex]
+        - table "Benchmark values"
+          - caption
+            - StaticText "Benchmark values"
+          - rowgroup
+            - row
+              - columnheader "Category" [ref=e345]
+              - columnheader "First" [ref=e346]
+              - columnheader "Second" [ref=e347]
+              - columnheader "Third" [ref=e348]
+          - row
+            - rowheader "Category 50" [ref=e499]
+            - cell "Select First for Category 50: 151" [ref=e500]
+              - button "Select First for Category 50: 151" [ref=e699]
+                - StaticText "151"
+            - cell "Select Second for Category 50: 50" [ref=e501]
+              - button "Select Second for Category 50: 50" [ref=e700]
+                - StaticText "50"
+            - cell "Select Third for Category 50: 250" [ref=e502]
+              - button "Select Third for Category 50: 250" [ref=e701]
+                - StaticText "250"
+          - row
+            - rowheader "Category 51" [ref=e503]
+            - cell "Select First for Category 51: 164" [ref=e504]
+              - button "Select First for Category 51: 164" [ref=e702]
+                - StaticText "164"
+            - cell "Select Second for Category 51: 67" [ref=e505]
+              - button "Select Second for Category 51: 67" [ref=e703]
+                - StaticText "67"
+            - cell "Select Third for Category 51: 273" [ref=e506]
+              - button "Select Third for Category 51: 273" [ref=e704]
+                - StaticText "273"
+          - row
+            - rowheader "Category 52" [ref=e507]
+            - cell "Select First for Category 52: 177" [ref=e508]
+              - button "Select First for Category 52: 177" [ref=e705]
+                - StaticText "177"
+            - cell "Select Second for Category 52: 84" [ref=e509]
+              - button "Select Second for Category 52: 84" [ref=e706]
+                - StaticText "84"
+            - cell "Select Third for Category 52: 296" [ref=e510]
+              - button "Select Third for Category 52: 296" [ref=e707]
+                - StaticText "296"
+          - row
+            - rowheader "Category 53" [ref=e511]
+            - cell "Select First for Category 53: 190" [ref=e512]
+              - button "Select First for Category 53: 190" [ref=e708]
+                - StaticText "190"
+            - cell "Select Second for Category 53: 101" [ref=e513]
+              - button "Select Second for Category 53: 101" [ref=e709]
+                - StaticText "101"
+            - cell "Select Third for Category 53: 19" [ref=e514]
+              - button "Select Third for Category 53: 19" [ref=e710]
+                - StaticText "19"
+          - row
+            - rowheader "Category 54" [ref=e515]
+            - cell "Select First for Category 54: 203" [ref=e516]
+              - button "Select First for Category 54: 203" [ref=e711]
+                - StaticText "203"
+            - cell "Select Second for Category 54: 118" [ref=e517]
+              - button "Select Second for Category 54: 118" [ref=e712]
+                - StaticText "118"
+            - cell "Select Third for Category 54: 42" [ref=e518]
+              - button "Select Third for Category 54: 42" [ref=e713]
+                - StaticText "42"
+          - row
+            - rowheader "Category 55" [ref=e519]
+            - cell "Select First for Category 55: 216" [ref=e520]
+              - button "Select First for Category 55: 216" [ref=e714]
+                - StaticText "216"
+            - cell "Select Second for Category 55: 135" [ref=e521]
+              - button "Select Second for Category 55: 135" [ref=e715]
+                - StaticText "135"
+            - cell "Select Third for Category 55: 65" [ref=e522]
+              - button "Select Third for Category 55: 65" [ref=e716]
+                - StaticText "65"
+          - row
+            - rowheader "Category 56" [ref=e523]
+            - cell "Select First for Category 56: 229" [ref=e524]
+              - button "Select First for Category 56: 229" [ref=e717]
+                - StaticText "229"
+            - cell "Select Second for Category 56: 152" [ref=e525]
+              - button "Select Second for Category 56: 152" [ref=e718]
+                - StaticText "152"
+            - cell "Select Third for Category 56: 88" [ref=e526]
+              - button "Select Third for Category 56: 88" [ref=e719]
+                - StaticText "88"
+          - row
+            - rowheader "Category 57" [ref=e527]
+            - cell "Select First for Category 57: 242" [ref=e528]
+              - button "Select First for Category 57: 242" [ref=e720]
+                - StaticText "242"
+            - cell "Select Second for Category 57: 169" [ref=e529]
+              - button "Select Second for Category 57: 169" [ref=e721]
+                - StaticText "169"
+            - cell "Select Third for Category 57: 111" [ref=e530]
+              - button "Select Third for Category 57: 111" [ref=e722]
+                - StaticText "111"
+          - row
+            - rowheader "Category 58" [ref=e531]
+            - cell "Select First for Category 58: 255" [ref=e532]
+              - button "Select First for Category 58: 255" [ref=e723]
+                - StaticText "255"
+            - cell "Select Second for Category 58: 186" [ref=e533]
+              - button "Select Second for Category 58: 186" [ref=e724]
+                - StaticText "186"
+            - cell "Select Third for Category 58: 134" [ref=e534]
+              - button "Select Third for Category 58: 134" [ref=e725]
+                - StaticText "134"
+          - row
+            - rowheader "Category 59" [ref=e535]
+            - cell "Select First for Category 59: 268" [ref=e536]
+              - button "Select First for Category 59: 268" [ref=e726]
+                - StaticText "268"
+            - cell "Select Second for Category 59: 203" [ref=e537]
+              - button "Select Second for Category 59: 203" [ref=e727]
+                - StaticText "203"
+            - cell "Select Third for Category 59: 157" [ref=e538]
+              - button "Select Third for Category 59: 157" [ref=e728]
+                - StaticText "157"
+          - row
+            - rowheader "Category 60" [ref=e539]
+            - cell "Select First for Category 60: 281" [ref=e540]
+              - button "Select First for Category 60: 281" [ref=e729]
+                - StaticText "281"
+            - cell "Select Second for Category 60: 220" [ref=e541]
+              - button "Select Second for Category 60: 220" [ref=e730]
+                - StaticText "220"
+            - cell "Select Third for Category 60: 180" [ref=e542]
+              - button "Select Third for Category 60: 180" [ref=e731]
+                - StaticText "180"
+          - row
+            - rowheader "Category 61" [ref=e543]
+            - cell "Select First for Category 61: 294" [ref=e544]
+              - button "Select First for Category 61: 294" [ref=e732]
+                - StaticText "294"
+            - cell "Select Second for Category 61: 237" [ref=e545]
+              - button "Select Second for Category 61: 237" [ref=e733]
+                - StaticText "237"
+            - cell "Select Third for Category 61: 203" [ref=e546]
+              - button "Select Third for Category 61: 203" [ref=e734]
+                - StaticText "203"
+          - row
+            - rowheader "Category 62" [ref=e547]
+            - cell "Select First for Category 62: 307" [ref=e548]
+              - button "Select First for Category 62: 307" [ref=e735]
+                - StaticText "307"
+            - cell "Select Second for Category 62: 254" [ref=e549]
+              - button "Select Second for Category 62: 254" [ref=e736]
+                - StaticText "254"
+            - cell "Select Third for Category 62: 226" [ref=e550]
+              - button "Select Third for Category 62: 226" [ref=e737]
+                - StaticText "226"
+          - row
+            - rowheader "Category 63" [ref=e551]
+            - cell "Select First for Category 63: 320" [ref=e552]
+              - button "Select First for Category 63: 320" [ref=e738]
+                - StaticText "320"
+            - cell "Select Second for Category 63: 271" [ref=e553]
+              - button "Select Second for Category 63: 271" [ref=e739]
+                - StaticText "271"
+            - cell "Select Third for Category 63: 249" [ref=e554]
+              - button "Select Third for Category 63: 249" [ref=e740]
+                - StaticText "249"
+          - row
+            - rowheader "Category 64" [ref=e555]
+            - cell "Select First for Category 64: 333" [ref=e556]
+              - button "Select First for Category 64: 333" [ref=e741]
+                - StaticText "333"
+            - cell "Select Second for Category 64: 288" [ref=e557]
+              - button "Select Second for Category 64: 288" [ref=e742]
+                - StaticText "288"
+            - cell "Select Third for Category 64: 272" [ref=e558]
+              - button "Select Third for Category 64: 272" [ref=e743]
+                - StaticText "272"
+          - row
+            - rowheader "Category 65" [ref=e559]
+            - cell "Select First for Category 65: 346" [ref=e560]
+              - button "Select First for Category 65: 346" [ref=e744]
+                - StaticText "346"
+            - cell "Select Second for Category 65: 305" [ref=e561]
+              - button "Select Second for Category 65: 305" [ref=e745]
+                - StaticText "305"
+            - cell "Select Third for Category 65: 295" [ref=e562]
+              - button "Select Third for Category 65: 295" [ref=e746]
+                - StaticText "295"
+          - row
+            - rowheader "Category 66" [ref=e563]
+            - cell "Select First for Category 66: 359" [ref=e564]
+              - button "Select First for Category 66: 359" [ref=e747]
+                - StaticText "359"
+            - cell "Select Second for Category 66: 322" [ref=e565]
+              - button "Select Second for Category 66: 322" [ref=e748]
+                - StaticText "322"
+            - cell "Select Third for Category 66: 18" [ref=e566]
+              - button "Select Third for Category 66: 18" [ref=e749]
+                - StaticText "18"
+          - row
+            - rowheader "Category 67" [ref=e567]
+            - cell "Select First for Category 67: 372" [ref=e568]
+              - button "Select First for Category 67: 372" [ref=e750]
+                - StaticText "372"
+            - cell "Select Second for Category 67: 339" [ref=e569]
+              - button "Select Second for Category 67: 339" [ref=e751]
+                - StaticText "339"
+            - cell "Select Third for Category 67: 41" [ref=e570]
+              - button "Select Third for Category 67: 41" [ref=e752]
+                - StaticText "41"
+          - row
+            - rowheader "Category 68" [ref=e571]
+            - cell "Select First for Category 68: 385" [ref=e572]
+              - button "Select First for Category 68: 385" [ref=e753]
+                - StaticText "385"
+            - cell "Select Second for Category 68: 356" [ref=e573]
+              - button "Select Second for Category 68: 356" [ref=e754]
+                - StaticText "356"
+            - cell "Select Third for Category 68: 64" [ref=e574]
+              - button "Select Third for Category 68: 64" [ref=e755]
+                - StaticText "64"
+          - row
+            - rowheader "Category 69" [ref=e575]
+            - cell "Select First for Category 69: 398" [ref=e576]
+              - button "Select First for Category 69: 398" [ref=e756]
+                - StaticText "398"
+            - cell "Select Second for Category 69: 373" [ref=e577]
+              - button "Select Second for Category 69: 373" [ref=e757]
+                - StaticText "373"
+            - cell "Select Third for Category 69: 87" [ref=e578]
+              - button "Select Third for Category 69: 87" [ref=e758]
+                - StaticText "87"
+          - row
+            - rowheader "Category 70" [ref=e579]
+            - cell "Select First for Category 70: 411" [ref=e580]
+              - button "Select First for Category 70: 411" [ref=e759]
+                - StaticText "411"
+            - cell "Select Second for Category 70: 390" [ref=e581]
+              - button "Select Second for Category 70: 390" [ref=e760]
+                - StaticText "390"
+            - cell "Select Third for Category 70: 110" [ref=e582]
+              - button "Select Third for Category 70: 110" [ref=e761]
+                - StaticText "110"
+          - row
+            - rowheader "Category 71" [ref=e583]
+            - cell "Select First for Category 71: 424" [ref=e584]
+              - button "Select First for Category 71: 424" [ref=e762]
+                - StaticText "424"
+            - cell "Select Second for Category 71: 7" [ref=e585]
+              - button "Select Second for Category 71: 7" [ref=e763]
+                - StaticText "7"
+            - cell "Select Third for Category 71: 133" [ref=e586]
+              - button "Select Third for Category 71: 133" [ref=e764]
+                - StaticText "133"
+          - row
+            - rowheader "Category 72" [ref=e587]
+            - cell "Select First for Category 72: 437" [ref=e588]
+              - button "Select First for Category 72: 437" [ref=e765]
+                - StaticText "437"
+            - cell "Select Second for Category 72: 24" [ref=e589]
+              - button "Select Second for Category 72: 24" [ref=e766]
+                - StaticText "24"
+            - cell "Select Third for Category 72: 156" [ref=e590]
+              - button "Select Third for Category 72: 156" [ref=e767]
+                - StaticText "156"
+          - row
+            - rowheader "Category 73" [ref=e591]
+            - cell "Select First for Category 73: 450" [ref=e592]
+              - button "Select First for Category 73: 450" [ref=e768]
+                - StaticText "450"
+            - cell "Select Second for Category 73: 41" [ref=e593]
+              - button "Select Second for Category 73: 41" [ref=e769]
+                - StaticText "41"
+            - cell "Select Third for Category 73: 179" [ref=e594]
+              - button "Select Third for Category 73: 179" [ref=e770]
+                - StaticText "179"
+          - row
+            - rowheader "Category 74" [ref=e595]
+            - cell "Select First for Category 74: 463" [ref=e596]
+              - button "Select First for Category 74: 463" [ref=e771]
+                - StaticText "463"
+            - cell "Select Second for Category 74: 58" [ref=e597]
+              - button "Select Second for Category 74: 58" [ref=e772]
+                - StaticText "58"
+            - cell "Select Third for Category 74: 202" [ref=e598]
+              - button "Select Third for Category 74: 202" [ref=e773]
+                - StaticText "202"
+          - row
+            - rowheader "Category 75" [ref=e599]
+            - cell "Select First for Category 75: 476" [ref=e600]
+              - button "Select First for Category 75: 476" [ref=e774]
+                - StaticText "476"
+            - cell "Select Second for Category 75: 75" [ref=e601]
+              - button "Select Second for Category 75: 75" [ref=e775]
+                - StaticText "75"
+            - cell "Select Third for Category 75: 225" [ref=e602]
+              - button "Select Third for Category 75: 225" [ref=e776]
+                - StaticText "225"
+          - row
+            - rowheader "Category 76" [ref=e603]
+            - cell "Select First for Category 76: 489" [ref=e604]
+              - button "Select First for Category 76: 489" [ref=e777]
+                - StaticText "489"
+            - cell "Select Second for Category 76: 92" [ref=e605]
+              - button "Select Second for Category 76: 92" [ref=e778]
+                - StaticText "92"
+            - cell "Select Third for Category 76: 248" [ref=e606]
+              - button "Select Third for Category 76: 248" [ref=e779]
+                - StaticText "248"
+          - row
+            - rowheader "Category 77" [ref=e607]
+            - cell "Select First for Category 77: 2" [ref=e608]
+              - button "Select First for Category 77: 2" [ref=e780]
+                - StaticText "2"
+            - cell "Select Second for Category 77: 109" [ref=e609]
+              - button "Select Second for Category 77: 109" [ref=e781]
+                - StaticText "109"
+            - cell "Select Third for Category 77: 271" [ref=e610]
+              - button "Select Third for Category 77: 271" [ref=e782]
+                - StaticText "271"
+          - row
+            - rowheader "Category 78" [ref=e611]
+            - cell "Select First for Category 78: 15" [ref=e612]
+              - button "Select First for Category 78: 15" [ref=e783]
+                - StaticText "15"
+            - cell "Select Second for Category 78: 126" [ref=e613]
+              - button "Select Second for Category 78: 126" [ref=e784]
+                - StaticText "126"
+            - cell "Select Third for Category 78: 294" [ref=e614]
+              - button "Select Third for Category 78: 294" [ref=e785]
+                - StaticText "294"
+          - row
+            - rowheader "Category 79" [ref=e615]
+            - cell "Select First for Category 79: 28" [ref=e616]
+              - button "Select First for Category 79: 28" [ref=e786]
+                - StaticText "28"
+            - cell "Select Second for Category 79: 143" [ref=e617]
+              - button "Select Second for Category 79: 143" [ref=e787]
+                - StaticText "143"
+            - cell "Select Third for Category 79: 17" [ref=e618]
+              - button "Select Third for Category 79: 17" [ref=e788]
+                - StaticText "17"
+          - row
+            - rowheader "Category 80" [ref=e619]
+            - cell "Select First for Category 80: 41" [ref=e620]
+              - button "Select First for Category 80: 41" [ref=e789]
+                - StaticText "41"
+            - cell "Select Second for Category 80: 160" [ref=e621]
+              - button "Select Second for Category 80: 160" [ref=e790]
+                - StaticText "160"
+            - cell "Select Third for Category 80: 40" [ref=e622]
+              - button "Select Third for Category 80: 40" [ref=e791]
+                - StaticText "40"
+          - row
+            - rowheader "Category 81" [ref=e623]
+            - cell "Select First for Category 81: 54" [ref=e624]
+              - button "Select First for Category 81: 54" [ref=e792]
+                - StaticText "54"
+            - cell "Select Second for Category 81: 177" [ref=e625]
+              - button "Select Second for Category 81: 177" [ref=e793]
+                - StaticText "177"
+            - cell "Select Third for Category 81: 63" [ref=e626]
+              - button "Select Third for Category 81: 63" [ref=e794]
+                - StaticText "63"
+          - row
+            - rowheader "Category 82" [ref=e627]
+            - cell "Select First for Category 82: 67" [ref=e628]
+              - button "Select First for Category 82: 67" [ref=e795]
+                - StaticText "67"
+            - cell "Select Second for Category 82: 194" [ref=e629]
+              - button "Select Second for Category 82: 194" [ref=e796]
+                - StaticText "194"
+            - cell "Select Third for Category 82: 86" [ref=e630]
+              - button "Select Third for Category 82: 86" [ref=e797]
+                - StaticText "86"
+          - row
+            - rowheader "Category 83" [ref=e631]
+            - cell "Select First for Category 83: 80" [ref=e632]
+              - button "Select First for Category 83: 80" [ref=e798]
+                - StaticText "80"
+            - cell "Select Second for Category 83: 211" [ref=e633]
+              - button "Select Second for Category 83: 211" [ref=e799]
+                - StaticText "211"
+            - cell "Select Third for Category 83: 109" [ref=e634]
+              - button "Select Third for Category 83: 109" [ref=e800]
+                - StaticText "109"
+          - row
+            - rowheader "Category 84" [ref=e635]
+            - cell "Select First for Category 84: 93" [ref=e636]
+              - button "Select First for Category 84: 93" [ref=e801]
+                - StaticText "93"
+            - cell "Select Second for Category 84: 228" [ref=e637]
+              - button "Select Second for Category 84: 228" [ref=e802]
+                - StaticText "228"
+            - cell "Select Third for Category 84: 132" [ref=e638]
+              - button "Select Third for Category 84: 132" [ref=e803]
+                - StaticText "132"
+          - row
+            - rowheader "Category 85" [ref=e639]
+            - cell "Select First for Category 85: 106" [ref=e640]
+              - button "Select First for Category 85: 106" [ref=e804]
+                - StaticText "106"
+            - cell "Select Second for Category 85: 245" [ref=e641]
+              - button "Select Second for Category 85: 245" [ref=e805]
+                - StaticText "245"
+            - cell "Select Third for Category 85: 155" [ref=e642]
+              - button "Select Third for Category 85: 155" [ref=e806]
+                - StaticText "155"
+          - row
+            - rowheader "Category 86" [ref=e643]
+            - cell "Select First for Category 86: 119" [ref=e644]
+              - button "Select First for Category 86: 119" [ref=e807]
+                - StaticText "119"
+            - cell "Select Second for Category 86: 262" [ref=e645]
+              - button "Select Second for Category 86: 262" [ref=e808]
+                - StaticText "262"
+            - cell "Select Third for Category 86: 178" [ref=e646]
+              - button "Select Third for Category 86: 178" [ref=e809]
+                - StaticText "178"
+          - row
+            - rowheader "Category 87" [ref=e647]
+            - cell "Select First for Category 87: 132" [ref=e648]
+              - button "Select First for Category 87: 132" [ref=e810]
+                - StaticText "132"
+            - cell "Select Second for Category 87: 279" [ref=e649]
+              - button "Select Second for Category 87: 279" [ref=e811]
+                - StaticText "279"
+            - cell "Select Third for Category 87: 201" [ref=e650]
+              - button "Select Third for Category 87: 201" [ref=e812]
+                - StaticText "201"
+          - row
+            - rowheader "Category 88" [ref=e651]
+            - cell "Select First for Category 88: 145" [ref=e652]
+              - button "Select First for Category 88: 145" [ref=e813]
+                - StaticText "145"
+            - cell "Select Second for Category 88: 296" [ref=e653]
+              - button "Select Second for Category 88: 296" [ref=e814]
+                - StaticText "296"
+            - cell "Select Third for Category 88: 224" [ref=e654]
+              - button "Select Third for Category 88: 224" [ref=e815]
+                - StaticText "224"
+          - row
+            - rowheader "Category 89" [ref=e655]
+            - cell "Select First for Category 89: 158" [ref=e656]
+              - button "Select First for Category 89: 158" [ref=e816]
+                - StaticText "158"
+            - cell "Select Second for Category 89: 313" [ref=e657]
+              - button "Select Second for Category 89: 313" [ref=e817]
+                - StaticText "313"
+            - cell "Select Third for Category 89: 247" [ref=e658]
+              - button "Select Third for Category 89: 247" [ref=e818]
+                - StaticText "247"
+          - row
+            - rowheader "Category 90" [ref=e659]
+            - cell "Select First for Category 90: 171" [ref=e660]
+              - button "Select First for Category 90: 171" [ref=e819]
+                - StaticText "171"
+            - cell "Select Second for Category 90: 330" [ref=e661]
+              - button "Select Second for Category 90: 330" [ref=e820]
+                - StaticText "330"
+            - cell "Select Third for Category 90: 270" [ref=e662]
+              - button "Select Third for Category 90: 270" [ref=e821]
+                - StaticText "270"
+          - row
+            - rowheader "Category 91" [ref=e663]
+            - cell "Select First for Category 91: 184" [ref=e664]
+              - button "Select First for Category 91: 184" [ref=e822]
+                - StaticText "184"
+            - cell "Select Second for Category 91: 347" [ref=e665]
+              - button "Select Second for Category 91: 347" [ref=e823]
+                - StaticText "347"
+            - cell "Select Third for Category 91: 293" [ref=e666]
+              - button "Select Third for Category 91: 293" [ref=e824]
+                - StaticText "293"
+          - row
+            - rowheader "Category 92" [ref=e667]
+            - cell "Select First for Category 92: 197" [ref=e668]
+              - button "Select First for Category 92: 197" [ref=e825]
+                - StaticText "197"
+            - cell "Select Second for Category 92: 364" [ref=e669]
+              - button "Select Second for Category 92: 364" [ref=e826]
+                - StaticText "364"
+            - cell "Select Third for Category 92: 16" [ref=e670]
+              - button "Select Third for Category 92: 16" [ref=e827]
+                - StaticText "16"
+          - row
+            - rowheader "Category 93" [ref=e671]
+            - cell "Select First for Category 93: 210" [ref=e672]
+              - button "Select First for Category 93: 210" [ref=e828]
+                - StaticText "210"
+            - cell "Select Second for Category 93: 381" [ref=e673]
+              - button "Select Second for Category 93: 381" [ref=e829]
+                - StaticText "381"
+            - cell "Select Third for Category 93: 39" [ref=e674]
+              - button "Select Third for Category 93: 39" [ref=e830]
+                - StaticText "39"
+          - row
+            - rowheader "Category 94" [ref=e675]
+            - cell "Select First for Category 94: 223" [ref=e676]
+              - button "Select First for Category 94: 223" [ref=e831]
+                - StaticText "223"
+            - cell "Select Second for Category 94: 398" [ref=e677]
+              - button "Select Second for Category 94: 398" [ref=e832]
+                - StaticText "398"
+            - cell "Select Third for Category 94: 62" [ref=e678]
+              - button "Select Third for Category 94: 62" [ref=e833]
+                - StaticText "62"
+          - row
+            - rowheader "Category 95" [ref=e679]
+            - cell "Select First for Category 95: 236" [ref=e680]
+              - button "Select First for Category 95: 236" [ref=e834]
+                - StaticText "236"
+            - cell "Select Second for Category 95: 15" [ref=e681]
+              - button "Select Second for Category 95: 15" [ref=e835]
+                - StaticText "15"
+            - cell "Select Third for Category 95: 85" [ref=e682]
+              - button "Select Third for Category 95: 85" [ref=e836]
+                - StaticText "85"
+          - row
+            - rowheader "Category 96" [ref=e683]
+            - cell "Select First for Category 96: 249" [ref=e684]
+              - button "Select First for Category 96: 249" [ref=e837]
+                - StaticText "249"
+            - cell "Select Second for Category 96: 32" [ref=e685]
+              - button "Select Second for Category 96: 32" [ref=e838]
+                - StaticText "32"
+            - cell "Select Third for Category 96: 108" [ref=e686]
+              - button "Select Third for Category 96: 108" [ref=e839]
+                - StaticText "108"
+          - row
+            - rowheader "Category 97" [ref=e687]
+            - cell "Select First for Category 97: 262" [ref=e688]
+              - button "Select First for Category 97: 262" [ref=e840]
+                - StaticText "262"
+            - cell "Select Second for Category 97: 49" [ref=e689]
+              - button "Select Second for Category 97: 49" [ref=e841]
+                - StaticText "49"
+            - cell "Select Third for Category 97: 131" [ref=e690]
+              - button "Select Third for Category 97: 131" [ref=e842]
+                - StaticText "131"
+          - row
+            - rowheader "Category 98" [ref=e691]
+            - cell "Select First for Category 98: 275" [ref=e692]
+              - button "Select First for Category 98: 275" [ref=e843]
+                - StaticText "275"
+            - cell "Select Second for Category 98: 66" [ref=e693]
+              - button "Select Second for Category 98: 66" [ref=e844]
+                - StaticText "66"
+            - cell "Select Third for Category 98: 154" [ref=e694]
+              - button "Select Third for Category 98: 154" [ref=e845]
+                - StaticText "154"
+          - row
+            - rowheader "Category 99" [ref=e695]
+            - cell "Select First for Category 99: 288" [ref=e696]
+              - button "Select First for Category 99: 288" [ref=e846]
+                - StaticText "288"
+            - cell "Select Second for Category 99: 83" [ref=e697]
+              - button "Select Second for Category 99: 83" [ref=e847]
+                - StaticText "83"
+            - cell "Select Third for Category 99: 177" [ref=e698]
+              - button "Select Third for Category 99: 177" [ref=e848]
+                - StaticText "177"

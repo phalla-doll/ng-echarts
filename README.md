@@ -2,13 +2,13 @@
 
 # ng-echarts
 
-Published experimental release: **`@mantha911/ng-echarts@0.1.0-rc.18`**. Install with `npm install @mantha911/ng-echarts@next echarts@6.1.0`, or pin `@0.1.0-rc.18`. npm retains both `next` and its initial `latest` alias for this prerelease; neither the alias nor publication declares a stable API. The user deferred VoiceOver review, so human F09/R06/G2/G3/G4 remain pending. See [publication status and evidence](docs/PUBLICATION.md#first-publication-result).
+Published experimental release: **`@mantha911/ng-echarts@0.1.0-rc.19`**. Install with `npm install @mantha911/ng-echarts@next echarts@6.1.0`, or pin `@0.1.0-rc.19`. npm `next` selects rc.19; its initial `latest` alias remains on rc.18; neither the alias nor publication declares a stable API. The user deferred VoiceOver review, so human F09/R06/G2/G3/G4 remain pending. See [publication status and evidence](docs/PUBLICATION.md#rc19-publication).
 
 An Angular 22 chart component library inspired by EvilCharts, using Apache ECharts for rendering and TypeScript for its public API.
 
 Preview: **[Live demo on GitHub Pages](https://phalla-doll.github.io/ng-echarts/)**. See [deployment instructions](docs/GITHUB_PAGES.md) to rebuild and publish the current demo snapshot.
 
-Status: experimental bar, line, area, pie/donut, composed, focused radar, radial progress, calendar heatmap and Sankey components. Updated 14 November 2026. The Angular library and SSR playground now render bars, lines, areas, and pies/donuts with native controls; G1 technical feasibility passes for bar; the user has deferred the human screen-reader review to release acceptance, allowing development to continue while G2 remains pending.
+Status: experimental bar, line, area, pie/donut, composed, focused radar, radial progress, calendar heatmap and Sankey components. Updated 15 November 2026. The Angular library and SSR playground now render bars, lines, areas, and pies/donuts with native controls; G1 technical feasibility passes for bar; the user has deferred the human screen-reader review to release acceptance, allowing development to continue while G2 remains pending.
 
 ## Project direction
 
@@ -135,7 +135,7 @@ The site includes [Get Started](http://localhost:4310/get-started), [Installatio
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
 | `npm run check` | Run formatting, builds, compilation, unit, declaration/runtime consumers, SSR, browser, and size checks |
 
-Current rc.18 verification: **267 unit tests and 416 browser passes, with four expected skips**; [all release-source CI jobs passed](https://github.com/phalla-doll/ng-echarts/actions/runs/43607829796). The published registry bytes match the canonical archive, with fresh strict/docs and six client/SSR consumer modes verified. See [publication evidence](docs/experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) and the [last verified demo deployment](docs/GITHUB_PAGES.md#latest-verified-deployment--public-rc18). The older checkpoints below retain their original counts and scope.
+Historical rc.18 verification: **267 unit tests and 416 browser passes, with four expected skips**; [all release-source CI jobs passed](https://github.com/phalla-doll/ng-echarts/actions/runs/43607829796). The published registry bytes match the canonical archive, with fresh strict/docs and six client/SSR consumer modes verified. See [publication evidence](docs/experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) and the [last verified demo deployment](docs/GITHUB_PAGES.md#current-deployment--15-november-follow-up). The older checkpoints below retain their original counts and scope.
 
 The [preview-only checkpoint](docs/experiments/NG20_MONTH_PREVIEWS.md) records **260 fresh unit tests, 46 final targeted browser passes and six exact rc.15 installed client/SSR modes**. A separate full browser baseline passed 362 cases before the final focus corrections; its scope is preserved in that report. Human release acceptance remains pending.
 
@@ -217,8 +217,11 @@ The [rc.17 release review](docs/experiments/RC17_RELEASE_REVIEW.md) records the 
 The [NG22 public prerelease](docs/experiments/NG22_PUBLIC_PRERELEASE.md) uses `@mantha911/ng-echarts@0.1.0-rc.18` with npm public access and the `next` tag. The user selected the authenticated personal scope and explicitly skipped the listening session while requesting this experimental publication. Earlier private candidates remain preserved; human F09/R06/G2/G3/G4 remain pending.
 
 
-[The first public prerelease](docs/experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) is available on npm. Registry bytes match the verified archive and fresh registry consumers pass. npm retains both `next` and its initial `latest` alias for rc.18; this is an experimental prerelease, with human listening still deferred at the user’s request.
+[The first public prerelease](docs/experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) is available on npm. Registry bytes match the verified archive and fresh registry consumers pass. At first publication npm retained both `next` and its initial `latest` alias for rc.18; the current tags are recorded above; this is an experimental prerelease, with human listening still deferred at the user’s request.
 
-The unreleased rc.19 [performance follow-up](docs/experiments/PERFORMANCE_FOLLOW_UP.md) adds optional `[tablePageSize]="50"` for bar, line, area, composed and pie, and skips stack-end scans in unstacked bars. Default tables remain complete; the published rc.18 package is unchanged.
+The published rc.19 [performance follow-up](docs/experiments/PERFORMANCE_FOLLOW_UP.md) adds optional `[tablePageSize]="50"` for bar, line, area, composed and pie, and skips stack-end scans in unstacked bars. Default tables remain complete; the published rc.18 package is unchanged.
 
-The [Angular practices follow-up](docs/experiments/ANGULAR_PRACTICES_FOLLOW_UP.md) records dependent-state reconciliation, explicit browser render phases and the playground's feature directories in unreleased rc.19 source.
+The [Angular practices follow-up](docs/experiments/ANGULAR_PRACTICES_FOLLOW_UP.md) records dependent-state reconciliation, explicit browser render phases and the playground's feature directories in rc.19.
+
+
+The [rc.19 delivery checkpoint](docs/experiments/RC19_RELEASE_REVIEW.md) preserves exact-artifact verification of the performance and Angular follow-ups. The rc.20 [stacked-composition increment](docs/experiments/NG17_STACKED_COMPOSED.md) adds named bar stacks with independent supplied lines; use its documentation-corrected, verified local rc.21 candidate. See the [composed API](docs/COMPOSED_CHART_API.md). The [current human review sheet](docs/experiments/RC20_HUMAN_REVIEW.md) retains the user's deferral.

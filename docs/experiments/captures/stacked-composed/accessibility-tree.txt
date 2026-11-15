@@ -1,0 +1,60 @@
+- link "Skip to content" [ref=e56]
+- button "Open navigation" [expanded=false, ref=e57]
+- banner
+  - link "ng-echarts home" [ref=e58]
+    - StaticText "ng-echarts"
+  - link "View ng-echarts on GitHub" [ref=e59]
+  - button "Use dark theme" [ref=e60]
+- main
+  - heading "Composed behavior validation" [level=1, ref=e61]
+  - paragraph
+    - StaticText "Bars and lines share one visits scale, native controls, and data identities."
+  - button "Update composed values" [ref=e62]
+  - button "Reorder composed inputs" [ref=e63]
+  - button "Switch series kind" [ref=e64]
+  - button "Toggle trend points" [ref=e65]
+  - button "Use stacked bars" [ref=e66]
+  - button "Separate bar stacks" [ref=e67]
+  - button "Use unstacked bars" [ref=e68]
+  - button "Invalid composed stack" [ref=e69]
+  - button "Refresh palette" [ref=e70]
+  - button "Loading composed" [ref=e71]
+  - button "Error composed" [ref=e72]
+  - button "Empty composed data" [ref=e73]
+  - button "Invalid composed settings" [ref=e74]
+  - button "Restore composed data" [ref=e75]
+  - button "Hide composed host" [ref=e76]
+  - button "Mount composed" [ref=e77]
+  - region "Visits and trend" [ref=e78]
+    - sectionheader
+      - heading "Visits and trend" [level=2, ref=e82]
+      - paragraph
+        - StaticText "Signed, zero, and missing values preserve their raw meaning. Visits and Mobile share the visits stack when enabled; Trend is an independent supplied visits value."
+    - generic "Chart series"
+      - button "Visits Visible" [ref=e83]
+        - StaticText "Visits"
+        - StaticText "Visible"
+      - button "Mobile Visible" [ref=e89]
+        - StaticText "Mobile"
+        - StaticText "Visible"
+      - button "Trend Visible" [ref=e84]
+        - StaticText "Trend"
+        - StaticText "Visible"
+    - button "Show data table" [expanded=false, ref=e80]
+  - status
+    - StaticText "No selection"
+  - status
+    - StaticText "No legend changes"
+  - generic
+    - heading "Deferred hydration" [level=2, ref=e79]
+    - region "Deferred composed" [ref=e81]
+      - sectionheader
+        - heading "Deferred composed" [level=2, ref=e86]
+      - generic "Chart series"
+        - button "Visits Visible" [ref=e87]
+          - StaticText "Visits"
+          - StaticText "Visible"
+        - button "Trend Visible" [ref=e88]
+          - StaticText "Trend"
+          - StaticText "Visible"
+      - button "Show data table" [expanded=false, ref=e85]

@@ -34,7 +34,7 @@
               ><span
                 class="metric-marker"
                 [class.secondary]="index === 1"
-                [style.background]="color()"
+                [style.background]="color() || metric.color"
                 aria-hidden="true"
               ></span
               >{{ metric.label }}</span

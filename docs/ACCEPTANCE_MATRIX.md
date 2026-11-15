@@ -128,4 +128,9 @@ NG22 first public prerelease: [`@mantha911/ng-echarts@0.1.0-rc.18`](experiments/
 
 ## Chart performance follow-up
 
-The user-authorized [follow-up](experiments/PERFORMANCE_FOLLOW_UP.md) adds opt-in native table pagination to five families and skips unnecessary unstacked-bar preparation in unreleased rc.19 source. The linked report owns current validation and measured package costs. The complete-table default, original-row actions and published rc.18 remain unchanged; human F09/R06/G2/G3/G4 remain pending.
+The user-authorized [follow-up](experiments/PERFORMANCE_FOLLOW_UP.md) adds opt-in native table pagination to five families and skips unnecessary unstacked-bar preparation in rc.19. The linked report owns current validation and measured package costs. The complete-table default, original-row actions and published rc.18 remain unchanged; human F09/R06/G2/G3/G4 remain pending.
+
+
+## Named composed stacks and delivery follow-up
+
+The [NG17 stacked-composition report](experiments/NG17_STACKED_COMPOSED.md) owns rc.20 checks for strict descriptors/runtime errors (F01), signed/grouped/hidden stacks and immutable updates (F02), raw formatted values (F03), state recovery (F04), raw plot/table actions and stable legend/focus behavior (F05), responsive rendering (F06), theme/motion (F07/F08), native alternatives (automated F09), and isolated package/hydration/teardown (F10). The [rc.19 checkpoint](experiments/RC19_RELEASE_REVIEW.md) preserves exact artifact evidence independently. Human F09/R06/G2/G3/G4 remain pending under the user's renewed deferral; the [current review sheet](experiments/RC20_HUMAN_REVIEW.md) includes pagination and stacked interpretation.

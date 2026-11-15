@@ -33,6 +33,9 @@ const composedSeries: readonly ComposedSeries<Row>[] = series.map((item, index) 
   ...item,
   kind: index === 1 ? 'line' : 'bar',
 }));
+const stackedComposedSeries = composedSeries.map((item) =>
+  item.kind === 'bar' ? { ...item, stack: 'visits' } : item,
+);
 let onFinished: ((chart: EChartsType) => void) | undefined;
 // Public ECharts hook: subscribe before the library's first setOption, without changing its API.
 registerPostInit((chart) => chart.on('finished', () => onFinished?.(chart)));
@@ -59,6 +62,7 @@ declare global {
   template: `<main class="measurement-page">
     <h1>{{ benchmarkTitle }} benchmark fixture</h1>
     <p>Automated measurements run through the benchmark command.</p>
+    <button type="button" (click)="showPaginatedSample()">Show paginated sample</button>
     <p>
       The preview keeps its fixed 768 px measurement width and reference theme. Scroll inside the
       preview on a narrow screen.
@@ -83,10 +87,16 @@ declare global {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Benchmark {
+  protected async showPaginatedSample(): Promise<void> {
+    await this.prepareTable(123, 50);
+  }
   private readonly charts = viewChild.required('charts', { read: ViewContainerRef });
   private readonly injector = inject(Injector);
   private readonly destroy = inject(DestroyRef);
-  private readonly family = inject(ActivatedRoute).snapshot.data['family'];
+  private readonly route = inject(ActivatedRoute);
+  private readonly family = this.route.snapshot.data['family'];
+  private readonly stacked =
+    this.family === 'composed' && this.route.snapshot.queryParamMap.get('stacked') === '1';
   protected readonly benchmarkTitle =
     this.family === 'composed'
       ? 'Composed'
@@ -151,7 +161,14 @@ export class Benchmark {
       data: rows,
       ...(this.family === 'pie'
         ? { measure: { id: 'first', key: 'first', label: 'Value' }, innerRadius: 0.6 }
-        : { series: this.family === 'composed' ? composedSeries : series }),
+        : {
+            series:
+              this.family === 'composed'
+                ? this.stacked
+                  ? stackedComposedSeries
+                  : composedSeries
+                : series,
+          }),
       rowIdKey: 'id',
       categoryKey: 'category',
       animation: false,
@@ -173,7 +190,8 @@ export class Benchmark {
         const end = performance.now();
         if (!chart.getDom().closest('[data-benchmark-host]')) return;
         const options = chart.getOption();
-        const renderedSeries = options['series'] as { data?: { value?: number }[] }[] | undefined;
+        const renderedSeries = options['series'] as
+          { data?: { value?: number }[]; stack?: string; type?: string }[] | undefined;
         if (
           renderedSeries?.[0]?.data?.length !== count ||
           renderedSeries[0]?.data?.[0]?.value !== phase
@@ -181,6 +199,16 @@ export class Benchmark {
           return;
         clearTimeout(timeout);
         onFinished = undefined;
+        if (
+          this.stacked &&
+          (renderedSeries[0]?.stack !== 'visits' ||
+            renderedSeries[2]?.stack !== 'visits' ||
+            renderedSeries[1]?.type !== 'line' ||
+            renderedSeries[1]?.stack != null)
+        ) {
+          reject(new Error('Expected two stacked bars and an independent line'));
+          return;
+        }
         resolve(end - start);
       };
       if (mode === 'mount' || !this.reference) this.create(rows);

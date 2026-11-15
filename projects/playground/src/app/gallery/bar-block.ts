@@ -52,7 +52,7 @@ export class BarBlockExample {
   protected readonly monthTick: CategoryTickFormatter = (month) => month.slice(0, 3);
   protected readonly metrics = computed(() => {
     const block = this.block();
-    return block.series.map((series) => {
+    return block.series.map((series, index) => {
       const latest = block.kind === 'composed' && 'kind' in series && series.kind === 'line';
       const value = latest
         ? (block.rows.at(-1)?.[series.key] ?? 0)
@@ -61,6 +61,7 @@ export class BarBlockExample {
         id: series.id,
         label: latest ? 'Latest 3-month mean' : series.label,
         total: new Intl.NumberFormat('en-US', { maximumFractionDigits: 1 }).format(value),
+        color: series.color ?? (index === 2 ? (this.dark() ? '#60a5fa' : '#2563eb') : null),
       };
     });
   });

@@ -9,7 +9,7 @@
     "build:lib": "ng build chart-library --configuration production",
     "build:playground": "npm run concepts:prepare && ng build playground --configuration production && node tools/prepare-demo.mjs dist/playground",
     "watch:lib": "ng build chart-library --configuration development --watch",
-    "test": "ng test --watch=false",
+    "test": "ng test chart-library --watch=false && ng test playground --watch=false",
     "test:watch": "ng test",
     "typecheck": "ngc -p projects/chart-library/tsconfig.lib.prod.json --noEmit && ngc -p projects/playground/tsconfig.app.json --noEmit",
     "format": "prettier --write \"**/*.{ts,tsx,mjs,json,html,css,yml}\" .prettierrc",
@@ -56,7 +56,8 @@
     "capture:sankey": "node tools/capture-sankey.mjs",
     "capture:premium": "node tools/capture-premium-refinement.mjs",
     "check:workspace": "npm run format:check && npm run test:pages-provenance && npm run test:demo-assets && npm run build && npm run typecheck && npm test && npm run check:consumer && npm run check:docs && npm run check:ssr && npm run check:runtime && npm run check:bundle",
-    "check:release-immutability": "node tools/check-release-immutability.mjs"
+    "check:release-immutability": "node tools/check-release-immutability.mjs",
+    "benchmark:composed:stacked": "node tools/benchmark-acceptance.mjs composed --stacked"
   },
   "private": true,
   "packageManager": "npm@11.19.1",

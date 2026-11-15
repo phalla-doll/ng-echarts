@@ -158,3 +158,8 @@ The [NG22 public prerelease](experiments/NG22_PUBLIC_PRERELEASE.md) uses `@manth
 
 
 NG22 first public prerelease: [`@mantha911/ng-echarts@0.1.0-rc.18`](experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) is published and verified from the registry in strict/docs/client/SSR consumers across all three engines. The [registry receipt](experiments/public-rc18/registry-verification.json) preserves actual tags (`next` plus npm’s initial `latest` alias). Human F09/R06/G2/G3/G4 remain pending under the user’s explicit deferral; no stable API acceptance is claimed.
+
+
+## rc.19 delivery and NG17 named bar stacks
+
+The user approved all recommended follow-ups on 15 November. Preserve the exact rc.19 performance/Angular checkpoint, complete its artifact checks and registry delivery when authenticated, and reconcile the already-live demo identity. The [rc.19 report](experiments/RC19_RELEASE_REVIEW.md) records exact artifact evidence. The separate rc.20 [stacked-composition increment](experiments/NG17_STACKED_COMPOSED.md) adds optional bar stack names, same-sign accumulation, native raw values and independent supplied lines on the existing shared scale. Dual axes, horizontal composition and area composition remain subsequent work. The user explicitly continued the human deferral; use the [current sheet](experiments/RC20_HUMAN_REVIEW.md) without changing F09/R06/G2/G3/G4 until actual listening evidence exists.

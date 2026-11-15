@@ -162,3 +162,7 @@ Calendar implementation: original date normalization, responsive option construc
 Original Angular Sankey contracts, DAG validation, native tables/events, normalized options, demo fixture and catalog geometry use the existing ECharts 6.1.0 Sankey/Tooltip/Canvas peer lazily. The sidebar reuses the existing composed icon. No upstream source/example code or dataset was copied; existing license/notice bytes remain unchanged. [Sources and checklist](experiments/NG19_SANKEY_CHART.md).
 
 The rc.10 loading correction uses ECharts 6.1.0 package.json exports for `echarts/lib/chart/{bar,line,pie,radar,heatmap,sankey}`. Their existing side-effect installers remain within lazy browser renderer modules; no upstream implementation or declaration shim is copied. Chart/options/event contracts and notice bytes are unchanged. The demo build rejects unrelated chart families in each renderer preload graph.
+
+## Named composed stacks follow-up — 15 November 2026
+
+The [NG17 stacked-composition increment](experiments/NG17_STACKED_COMPOSED.md) is an original extension of this repository's composed/bar builders. It uses Apache ECharts' documented [bar stack and same-sign strategy](https://echarts.apache.org/en/option.html#series-bar.stack); no additional upstream source, fixture, palette or dependency is copied. Existing EvilCharts-derived monthly fixture/palette attribution and all package notice bytes remain intact. rc.21 changes only documentation/metadata after the preserved rc.20 runtime checkpoint.

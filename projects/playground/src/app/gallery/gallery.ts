@@ -37,7 +37,7 @@ export class Gallery {
     [
       '# ' + this.heading,
       'Native Angular ' + this.config.noun + ' examples, powered by Apache ECharts.',
-      'Use the private @mantha911/ng-echarts package from this workspace. No public npm installer is available.',
+      'Install the experimental @mantha911/ng-echarts package from npm using @next. Named composed stacks require the local rc.21 candidate until it is published.',
       ...this.blocks.map(
         (block) =>
           `## ${block.title}\n\n${block.description}\n\n\`\`\`ts\n${chartExampleSource(block, this.dark())}\n\`\`\``,

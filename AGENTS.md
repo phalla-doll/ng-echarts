@@ -2,7 +2,7 @@
 
 ## Project Structure and Scope
 
-Angular 22 chart library using Apache ECharts. Bar, line, area, pie/donut and the first shared-axis composed increment are implemented. NG20 adds linked charts with native and graphical month ranges. NG14 automated acceptance and NG15 documentation are recorded; human interpretation and release gates remain open. The demo is deployed to GitHub Pages. Experimental `@mantha911/ng-echarts@0.1.0-rc.18` is published on npm; human F09/R06/G2/G3/G4 remain pending under the user’s explicit prerelease deferral.
+Angular 22 chart library using Apache ECharts. Bar, line, area, pie/donut and the first shared-axis composed increment are implemented. NG20 adds linked charts with native and graphical month ranges. NG14 automated acceptance and NG15 documentation are recorded; human interpretation and release gates remain open. The demo is deployed to GitHub Pages. Experimental `@mantha911/ng-echarts@0.1.0-rc.19` is published on npm under `next` (`latest` retains rc.18); human F09/R06/G2/G3/G4 remain pending under the user’s explicit prerelease deferral.
 
 - `README.md`: overview and document index.
 - `docs/PRODUCT_SPEC.md`: MVP scope and required behavior.
@@ -62,3 +62,10 @@ PRs should explain the problem and resulting behavior, reference issues or NG/R/
 The user selected `@mantha911/ng-echarts` after authenticating as npm user `mantha911`, requested skipping the VoiceOver session, and authorized completing the experimental public prerelease. rc.18 changes the package identity and current imports while preserving private rc.17 and earlier archives. The exact verified artifact was published to npm with public access and the `next` tag. Keep human F09/R06/G2/G3/G4 pending: the user’s deferral permits this experimental publication without claiming completed human interpretation, a stable API, or full release acceptance.
 
 The rc.18 publication is complete. npm retains both `next` and its initial `latest` alias for rc.18 and rejected deleting `latest` with HTTP 400; preserve that observed limitation in current docs. The published archive and packaged README/changelog are immutable. Preserve rc.17 and earlier artifacts, use a new version for package-content changes, and keep repository-only documentation corrections separate from package publication.
+
+
+## 15 November delivery follow-up
+
+The user authorized completing rc.19 delivery, reconciling deployment records and extending composed charts with named bar stacks, and explicitly continued the human-review deferral. rc.19 preserves the exact verified performance/Angular artifact and is published under `next`; the initial `latest` alias remains rc.18. Preserve both registry archives and all earlier candidates. Stacked composition has a separate rc.20 artifact and report. rc.21 corrects packaged documentation only after rc.19 publication, preserving rc.20 runtime/declarations and every archive. Current source/local candidate is rc.21; npm next remains rc.19. Do not change archived contents in place. Current human interpretation preparation is in `docs/experiments/RC20_HUMAN_REVIEW.md`; F09/R06/G2/G3/G4 remain pending. The prior rc.18 publication section remains historical evidence.
+
+Use `npm run benchmark:composed:stacked` to measure the named-stack variant separately from other workloads. It preserves the original composed benchmark record and asserts actual rendered stack membership.

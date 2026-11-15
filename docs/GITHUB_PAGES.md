@@ -2,7 +2,13 @@
 
 The demo is published from the root of the dedicated `gh-pages` branch at **https://phalla-doll.github.io/ng-echarts/**. Source and deployment are separate commits. Publication requires a clean, pushed `main` source, an unchanged sealed artifact and successful local checks in all three browsers.
 
-## Latest verified deployment — public rc.18
+## Current deployment — 15 November follow-up
+
+The live build marker identifies clean source `fb6cb05e5c985bca7f2f06bddf6460795ab511a3`, including table pagination, Angular state/render-phase changes, Heroicons navigation and persistent demo theme selection. Its build completed on 15 November 2026 at 05:23:39 UTC with 138 sealed files and artifact SHA-256 `e6655e1b7cb957ec637405c744ef9f14d8857c260cdf2c2815331401a0ebd46d`. The published verification receipt records Chromium, Firefox and WebKit at 05:24:06 UTC. The [successful deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43681021701) used `gh-pages` commit `989786aa867b9beba18e05ba7b769730c6f55263`. A fresh `node tools/check-pages.mjs https://phalla-doll.github.io/ng-echarts/` rechecked every sealed file and all three engines on 15 November. This demo uses local rc.19 source; npm publication remains separate. The public rc.18 deployment below is preserved as historical evidence.
+
+<a id="latest-verified-deployment--public-rc18"></a>
+
+## Historical deployment — public rc.18
 
 Verified 14 November 2026 after the npm release and final availability-copy corrections. The [demo](https://phalla-doll.github.io/ng-echarts/) uses the public package name in its installation examples and gallery links. The loading frame and rendered Canvas retain the same theme background.
 
@@ -180,3 +186,8 @@ The [chart possibilities gallery](https://phalla-doll.github.io/ng-echarts/chart
 The deployed `/sankey/` route includes native flow tables, installed-consumer coverage and route performance guards. Source changes alone do not update the published preview; use the guarded clean/pushed deployment workflow for publication.
 
 Combined rc.11 source includes the completed [presentation refinement](experiments/PREMIUM_CHART_REFINEMENT.md) and focused Sankey entry. The verified public checkpoint above includes the presentation changes, the 34-route build and its three-browser receipt. Its route payload/readiness guards remain unchanged.
+
+
+## Local stacked-composition verification — 15 November
+
+The rc.21 [stacked-composition report](experiments/NG17_STACKED_COMPOSED.md#sealed-pages-verification) records a fixed local clone after concurrent illustration/hover changes. Its 34 routes, 138 sealed files, all three browser flows, 16 payload budgets, six controlled mobile timing medians and normal-motion navigation checks pass. The [raw marker](experiments/rc21/pages-build.txt) and [raw receipt](experiments/rc21/pages-verification.txt) preserve exact bytes; [validation metadata](experiments/rc21/static-validation.json) identifies the tested dirty source and retained local artifact. This local review does not update the public deployment above. The normal deployment command must rebuild/check clean pushed source before any publication; rejected stale shared-workspace runs are excluded.

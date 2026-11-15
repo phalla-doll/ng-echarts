@@ -26,6 +26,26 @@ export const composedBlocks: readonly ComposedBlock[] = [
       { id: 'trend', key: 'trend', label: '3-month mean', kind: 'line', showPoints: true },
     ],
   },
+  {
+    kind: 'composed',
+    id: 'stacked-visits-and-trend',
+    title: 'Stacked Visits & Trend',
+    description:
+      'Desktop and mobile visits share a stack. The line is a supplied trailing three-month mean of combined visits on the same visits scale. Requires the local rc.21 candidate.',
+    rows: deviceRows.map((row, index) => {
+      const window = deviceRows.slice(Math.max(0, index - 2), index + 1);
+      return {
+        ...row,
+        trend:
+          window.reduce((sum, value) => sum + value.desktop! + value.mobile!, 0) / window.length,
+      };
+    }),
+    series: [
+      { id: 'desktop', key: 'desktop', label: 'Desktop', kind: 'bar', stack: 'visits' },
+      { id: 'mobile', key: 'mobile', label: 'Mobile', kind: 'bar', stack: 'visits' },
+      { id: 'trend', key: 'trend', label: '3-month mean', kind: 'line', showPoints: true },
+    ],
+  },
 ];
 export function composedExampleSource(block: ComposedBlock, dark: boolean): string {
   return [

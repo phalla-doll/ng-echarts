@@ -1,6 +1,6 @@
 # Public package publication and verification (NG22)
 
-Status: `@mantha911/ng-echarts@0.1.0-rc.18` is published and verified on npm under `next`. The user selected `@mantha911/ng-echarts`, authenticated as npm user `mantha911`, and requested completing the experimental prerelease while skipping the guided VoiceOver session. Human F09/R06/G2/G3/G4 remain pending; that explicit deferral permits this prerelease without claiming completed human interpretation. Private `@ng-echarts/chart-library@0.1.0-rc.17` and earlier archives retain their identities.
+Status: `@mantha911/ng-echarts@0.1.0-rc.19` is published on npm under `next`; `latest` retains rc.18. The rc.19 receipt and consumer status are recorded below. The user selected `@mantha911/ng-echarts`, authenticated as npm user `mantha911`, and requested completing the experimental prerelease while skipping the guided VoiceOver session. Human F09/R06/G2/G3/G4 remain pending; that explicit deferral permits this prerelease without claiming completed human interpretation. Private `@ng-echarts/chart-library@0.1.0-rc.17` and earlier archives retain their identities.
 
 ## Historical checks before publication
 
@@ -48,4 +48,9 @@ Human F09/R06/G2/G3/G4 remain pending under the user’s explicit deferral. This
 
 ## Unreleased source after rc.18
 
-The working tree now targets `0.1.0-rc.19` for the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). It is unpublished source; this does not change the rc.18 registry receipt, tags or archived bytes above. New package contents must use the new version and receive their own artifact checks and publication decision.
+The working tree now targets `0.1.0-rc.21` for [named composed stacks](experiments/NG17_STACKED_COMPOSED.md), after the preserved [rc.19 delivery checkpoint](experiments/RC19_RELEASE_REVIEW.md). These follow-up reports own their actual publication status; this does not change the rc.18 registry receipt, tags or archived bytes above. New package contents must use the new version and receive their own artifact checks and publication decision.
+
+
+## rc.19 publication
+
+Published 15 November 2026 from the exact [verified rc.19 candidate](experiments/RC19_RELEASE_REVIEW.md), using npm browser authentication as `mantha911`. Registry bytes match SHA-256 `85fd51a061557f6a33255c77581add6d1868ca47f45334f182d178953f5d38ba`. The [registry receipt](experiments/public-rc19/registry-verification.json) records actual tags: `next: 0.1.0-rc.19`, `latest: 0.1.0-rc.18`. npm accepted the publish before cached registry metadata exposed it; no duplicate upload was attempted. The receipt owns the fresh registry-consumer results. Preserve published rc.19, rc.18 and earlier archives. Human F09/R06/G2/G3/G4 remain pending under the user's continued deferral.

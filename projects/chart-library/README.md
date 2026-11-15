@@ -1,6 +1,6 @@
 # Angular chart library
 
-Experimental standalone Angular 22 components using Apache ECharts. Public prerelease identity: `@mantha911/ng-echarts`. Working source: `0.1.0-rc.19` (unpublished); the public prerelease remains `0.1.0-rc.18`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. The API is experimental; human screen-reader interpretation remains unreviewed at the user’s request.
+Experimental standalone Angular 22 components using Apache ECharts. Public prerelease identity: `@mantha911/ng-echarts`. Current candidate: `0.1.0-rc.21`. Public prereleases use the `next` tag; consult the repository publication record for the current registry version. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. The API is experimental; human screen-reader interpretation remains unreviewed at the user’s request.
 
 ## Installation
 
@@ -13,10 +13,10 @@ npm install @mantha911/ng-echarts@next echarts@6.1.0
 For a retained exact local candidate:
 
 ```sh
-npm install /absolute/path/to/mantha911-ng-echarts-0.1.0-rc.19.tgz echarts@6.1.0
+npm install /absolute/path/to/mantha911-ng-echarts-0.1.0-rc.21.tgz echarts@6.1.0
 ```
 
-Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes. The registry `next` tag still points to rc.18; table pagination requires a local rc.19 source build until a new version is published.
+Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes. Table pagination is available since rc.19. Named composed bar stacks require rc.20 or later. The exact local candidate includes both; a registry install must resolve a version containing the features you use.
 
 No global ECharts registration, library stylesheet, Angular provider or React runtime is required. The package supplies scoped styles and a lazy Canvas renderer. Give its containing card a nonzero width. Cartesian/radar/pie plot height defaults to 320 px, with native controls adding to total height; radial progress defaults to 240 px and calendar/Sankey use family-specific layouts.
 
@@ -101,13 +101,13 @@ Tested: Angular/CLI 22.2.6, TypeScript 6.0.3, ECharts 6.1.0, RxJS 7.8.2, Node 24
 
 The starting measured envelope is 200 categories × three Cartesian series or 12 pie/donut categories on the recorded M2 Pro machine. Stress fixtures use 2,000 Cartesian or 100 pie/donut categories; these are observations, not hard limits or portable latency guarantees. Outside labels may shorten/hide collisions; expanded tables have separate costs.
 
-Focused imports keep unrelated engines out. Line and area intentionally share ECharts' Line engine. Root imports preserve class identity but include combined registrations. Deep paths and core `ɵ` exports are unsupported implementation APIs. Size checks count all lazy chunks, excluding Angular/RxJS peers: gzip/Brotli caps are 200,000/175,000 bytes per family, 10,000/9,000 for core, 219,500/187,500 for root, and 203,000/175,000 for root-frame emitted orphan chunks (zero reachable engine modules).
+Focused imports keep unrelated engines out. Line and area intentionally share ECharts' Line engine. Root imports preserve class identity but include combined registrations. Deep paths and core `ɵ` exports are unsupported implementation APIs. Size checks count all lazy chunks, excluding Angular/RxJS peers: gzip/Brotli caps are 200,000/175,000 bytes per family, 10,000/9,000 for core, 222,000/190,000 for root, and 206,000/178,000 for root-frame emitted orphan chunks (zero reachable engine modules).
 
 Raw ECharts options, custom tooltip templates, time/logarithmic axes, server plot images/export, brushes, advanced decoration and additional chart families are outside the MVP. APIs remain experimental. Automated acceptance passes; human interpretation and final artifact/release gates remain pending.
 
 ## Composed charts
 
-The post-MVP `ComposedChart` and `ComposedSeries<T>` exports in `/composed` combine vertical bars and lines on one category/value scale. Every descriptor adds `kind: 'bar' | 'line'` to the shared series fields; lines accept `smooth` and `showPoints`. Supply comparable units. The renderer uses supplied trend values; the demo computes its trailing mean separately. Dual axes, stacking and area composition are outside this first increment.
+The post-MVP `ComposedChart` and `ComposedSeries<T>` exports in `/composed` combine vertical bars and lines on one category/value scale. Every descriptor adds `kind: 'bar' | 'line'` to the shared series fields; lines accept `smooth` and `showPoints`. Supply comparable units. The renderer uses supplied trend values; the demo computes its trailing mean separately. Bars optionally accept a nonempty `stack` name: equal names stack by sign; omitted names keep bars grouped. Lines remain independent supplied values. Dual axes and area composition remain outside this increment. Named composed stacks require rc.20 or later; published rc.18 does not contain this API.
 
 ## Controlled bar selection
 
@@ -147,6 +147,6 @@ Charts reserve plot space during loading, empty and error states and retain unav
 
 The compatibility root reexports bar, line, area, pie/donut and composed components plus `ChartFrame` and applicable types. Radar, radial progress, calendar and Sankey require their focused entries. Original API documentation is at [the repository docs index](https://github.com/phalla-doll/ng-echarts#documents). Private rc.15 includes opt-in bar `previewEnabled` / `pointPreview` for transient pointer/table-focus context, settled-input reconciliation and Escape cancellation. Earlier archives, including rc.13/rc.14 and the documentation-only rc.12, retain their original bytes and scoped evidence.
 
-## Optional table pagination in rc.19 source
+## Optional table pagination since rc.19
 
 Bar, line, area, composed and pie accept `[tablePageSize]="50"`. The default `null` renders the complete table. A positive safe integer limits table row creation to the current page while the plot retains every observation. Previous/Next buttons preserve keyboard focus and announce the visible row range. Replacing the data array or page size restarts at the first page; collapsing and reopening retains the page. Off-page rows remain available through paging, with original-row selection events and hidden-series values preserved. Radar, calendar and Sankey retain their existing bounded tables.

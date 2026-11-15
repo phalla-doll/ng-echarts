@@ -30,19 +30,42 @@ export function buildComposedOptions<T>(
     series: series.flatMap((item, index): (BarSeriesOption | LineSeriesOption)[] => {
       if (hiddenIds.has(item.id)) return [];
       const color = tokens.series[index % tokens.series.length] ?? '#047857';
-      const data = model.rows.map((row) => ({
-        id: row.id,
-        value: row.points[index]?.value ?? '-',
-      }));
+      const data = model.rows.map((row) => {
+        const value = row.points[index]?.value ?? null;
+        let borderRadius: number | number[] = 0;
+        if (item.kind === 'bar' && item.stack !== undefined && value !== null && value !== 0) {
+          const covered = series.some((later, laterIndex) => {
+            const other = row.points[laterIndex]?.value ?? 0;
+            return (
+              laterIndex > index &&
+              later.kind === 'bar' &&
+              later.stack === item.stack &&
+              !hiddenIds.has(later.id) &&
+              other !== 0 &&
+              Math.sign(other) === Math.sign(value)
+            );
+          });
+          if (!covered) borderRadius = value < 0 ? [0, 0, 2, 2] : [2, 2, 0, 0];
+        }
+        return {
+          id: row.id,
+          value: value ?? '-',
+          ...(item.kind === 'bar' && item.stack !== undefined
+            ? { itemStyle: { borderRadius } }
+            : {}),
+        };
+      });
       const identity = { id: item.id, name: item.label, data };
       return item.kind === 'bar'
         ? [
             {
               ...identity,
               type: 'bar',
+              stack: item.stack,
+              stackStrategy: 'samesign',
               z: 2,
               barMaxWidth: 48,
-              itemStyle: { color, borderRadius: 2 },
+              itemStyle: { color, borderRadius: item.stack === undefined ? 2 : 0 },
             },
           ]
         : [
