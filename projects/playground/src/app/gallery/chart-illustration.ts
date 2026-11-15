@@ -16,13 +16,13 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
       @case ('sankey') {
         <path
           d="M46 36C108 36 102 55 148 55M46 104C108 104 102 70 148 70M158 55C191 55 192 34 220 34M158 78C190 78 192 104 220 104"
-          stroke="currentColor"
+          stroke="var(--gallery-primary)"
           stroke-width="18"
           opacity=".3"
         />
         <path
           d="M40 20V54M40 88V120M152 36V92M226 18V52M226 86V122"
-          stroke="currentColor"
+          stroke="var(--gallery-secondary)"
           stroke-width="10"
         />
       }
@@ -35,7 +35,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
               width="13"
               height="10"
               rx="2"
-              fill="currentColor"
+              fill="var(--gallery-primary)"
               [attr.opacity]="0.15 + ((row * 3 + column * 7) % 5) * 0.17"
             />
           }
