@@ -63,8 +63,8 @@ nav a {
   font-weight: 400;
 }
 nav a app-site-icon {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
 }
 nav a.active {
   color: var(--site-text);

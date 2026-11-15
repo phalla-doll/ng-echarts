@@ -1,0 +1,33 @@
+{
+  "capturedAt": "2026-11-15T03:53:54.467198+00:00",
+  "browser": "Chromium through agent-browser 0.43.0",
+  "route": "/linked",
+  "currentReducedMotion": true,
+  "baselineReducedMotion": "Not explicitly configured before the original outline capture.",
+  "desktopViewport": [1440, 1080],
+  "mobileViewport": [390, 844],
+  "baseline": "Existing production build, Heroicons outline, 15 px navigation; matching original first path and 1.5 stroke verified before capture.",
+  "current": "Local Angular development preview, Heroicons solid; production build separately verified. Validation capture scrolls the navigation to its bottom.",
+  "sourceHashes": {
+    "projects/playground/src/app/site-icon.ts": "2a62bb8ad106379cad897a4cb94aeb8086511a06ab288aaf2e12caf9c34c5f66",
+    "projects/playground/src/app/root.html": "3dd9229e9c723df542f3b6510520e368d27e9e9aba4f3e15364f98943ff88b87",
+    "projects/playground/src/app/root-navigation.css": "a49abbdf11fe71d06d605d41765628a4b3a76ae15454e8976ab605cd6678f9f9"
+  },
+  "desktopAudit": {
+    "instances": 36,
+    "invalid": 0,
+    "navigationSizes": [18],
+    "overflow": false,
+    "uniqueValidationIcons": 11,
+    "validationLinks": 11,
+    "viewport": [1440, 1080]
+  },
+  "images": {
+    "after-dark.png": "30c65cc8241f944a5c52c3711070469460bd52b1379a2541c66dbe3d472bb928",
+    "after-light.png": "0de288a6af938ece4c0444600fad94e16a34053063bf96b8cbc6dc1de8261c37",
+    "before-light.png": "bec71162b436e9ada17b7ba195452036cfd2a09c371ce04ffe81bbeef4353467",
+    "mobile-dark.png": "e7dd19d1a3d47f805bd3dad3c95487547c88267393cc0136d74efda15115ed85",
+    "mobile-light.png": "79b4bffbd49e1a13f2b503883b6d206d1d5d3e65fd1f65a6aae8423e61f5eccc",
+    "validation-dark.png": "bcfa8a3da0d4aa9808868e6c05e2aa4ed22fceeb510b46c6116455b11e015166"
+  }
+}

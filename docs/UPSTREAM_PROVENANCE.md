@@ -36,9 +36,17 @@ The component templates, generic contracts, data validation, option transformati
 
 The later [gallery correction](experiments/BAR_GALLERY_VISUAL_REVIEW.md) composes only the existing monthly/horizontal fixtures in `bar-blocks.ts`; it does not add upstream datasets or copy block/component implementations. `gallery-shell.css`, `gallery.*`, and `bar-block.*` are new Angular presentation code informed by the user's area-block screenshot and live-page inspection. The local Inter font has its own bundled SIL Open Font License.
 
+## Demo-site icons: Heroicons solid
+
+The current demo uses the **20 px solid (mini)** set from [Heroicons](https://heroicons.com/) **v2.2.0**, pinned to [`0435d4ca364a608cc75e2f8683d374e55abbae26`](https://github.com/tailwindlabs/heroicons/tree/0435d4ca364a608cc75e2f8683d374e55abbae26). Selected `optimized/20/solid/*.svg` paths are embedded verbatim in `projects/playground/src/app/site-icon.ts`, retaining their fill/clip rules, 20×20 view box and `currentColor` fill. Navigation icons display at 18 px. Original filled area/composed/radar/radial glyphs cover chart types without a direct Heroicons equivalent and are inventoried separately.
+
+Components uses `squares-2x2`, Sankey uses the branching `share` icon, and each validation link has a distinct symbol: chart-family glyphs, `check-badge` for lifecycle, `cpu-chip` for retention, and `bolt` for benchmarking. The complete existing [MIT notice](../projects/playground/public/third-party/heroicons-LICENSE.txt) remains unchanged. The [solid-icon provenance manifest](experiments/data/heroicons-solid-provenance.json) records exact upstream URLs and SVG/license hashes, aliases, and local geometry. There is no new runtime dependency, icon font or CDN request. Accessible names and decorative, nonfocusable treatment remain intact. This is demo presentation code; chart-library artifacts and release gates are unaffected. Validation and comparison captures are recorded in the [solid-icon review](experiments/HEROICONS_SOLID.md).
+
 ## Demo-site icons: Heroicons
 
-The demo uses [Heroicons](https://heroicons.com/) **v2.2.0**, pinned to [`0435d4ca364a608cc75e2f8683d374e55abbae26`](https://github.com/tailwindlabs/heroicons/tree/0435d4ca364a608cc75e2f8683d374e55abbae26). Selected `optimized/24/outline/*.svg` paths are embedded in `projects/playground/src/app/site-icon.ts`. Heroicons paths are copied verbatim; shared SVG attributes retain the upstream 24×24 view box, 1.5 stroke, rounded caps/joins, and `currentColor`. Multiple paths render through Angular's native template control flow.
+This section and its manifest describe the historical outline set, superseded by the solid set above. The original notice and evidence are preserved.
+
+The demo originally used [Heroicons](https://heroicons.com/) **v2.2.0**, pinned to [`0435d4ca364a608cc75e2f8683d374e55abbae26`](https://github.com/tailwindlabs/heroicons/tree/0435d4ca364a608cc75e2f8683d374e55abbae26). Selected `optimized/24/outline/*.svg` paths were embedded in `projects/playground/src/app/site-icon.ts`. Heroicons paths were copied verbatim; shared SVG attributes retained the upstream 24×24 view box, 1.5 stroke, rounded caps/joins, and `currentColor`. Multiple paths rendered through Angular's native template control flow.
 
 Line and area navigation glyphs are original project SVG geometry using the same outline dimensions and stroke; the area has a subtle `currentColor` fill. They are recorded separately from upstream icons in the manifest.
 

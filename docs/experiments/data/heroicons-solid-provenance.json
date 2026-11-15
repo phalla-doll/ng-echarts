@@ -1,0 +1,218 @@
+{
+  "project": "Heroicons",
+  "version": "v2.2.0",
+  "revision": "0435d4ca364a608cc75e2f8683d374e55abbae26",
+  "style": "20 px solid (mini), currentColor fill, 18 px navigation display",
+  "upstream": "https://github.com/tailwindlabs/heroicons",
+  "localFile": "projects/playground/src/app/site-icon.ts",
+  "license": "projects/playground/public/third-party/heroicons-LICENSE.txt",
+  "licenseSha256": "60e0b68c0f35c078eef3a5d29419d0b03ff84ec1df9c3f9d6e39a519a5ae7985",
+  "icons": [
+    {
+      "alias": "calendar",
+      "name": "calendar-days",
+      "source": "optimized/20/solid/calendar-days.svg",
+      "sha256": "a3288aadb0dfd6ea2dc2921b7f6aac5b18ac4b869e932912f75af085a1f475ad"
+    },
+    {
+      "alias": "link",
+      "name": "link",
+      "source": "optimized/20/solid/link.svg",
+      "sha256": "df3dde21da4ac66fa61346360fd7321002a3b2da65c217f7516666aac9713342"
+    },
+    {
+      "alias": "sankey",
+      "name": "share",
+      "source": "optimized/20/solid/share.svg",
+      "sha256": "2df507b65e1b347953de3bf79b803ba059aacb8837682501faa89b80a3638aeb"
+    },
+    {
+      "alias": "line",
+      "name": "arrow-trending-up",
+      "source": "optimized/20/solid/arrow-trending-up.svg",
+      "sha256": "9f36add4798940491f97e112069f55bfe02f847539e0431435a88e88ba2b55e1"
+    },
+    {
+      "alias": "sliders",
+      "name": "adjustments-horizontal",
+      "source": "optimized/20/solid/adjustments-horizontal.svg",
+      "sha256": "322b12de7ce0c77cbaaf90302f2c5d171a54b177e334fc0f3dbe3e23765c746d"
+    },
+    {
+      "alias": "pie",
+      "name": "chart-pie",
+      "source": "optimized/20/solid/chart-pie.svg",
+      "sha256": "214e9c77b27299c8df41578da49558af2697b8d45bf1971c674c9bb55c103472"
+    },
+    {
+      "alias": "chart",
+      "name": "chart-bar",
+      "source": "optimized/20/solid/chart-bar.svg",
+      "sha256": "096508d1921aac61a3f129d8c5068855adf40a5333a8b9a8a931f8fe5b8e2112"
+    },
+    {
+      "alias": "compare",
+      "name": "arrows-right-left",
+      "source": "optimized/20/solid/arrows-right-left.svg",
+      "sha256": "6ae7b2989e7baa3f15cd48e34e758667c4fe03e81807cf7c335b7903b614674b"
+    },
+    {
+      "alias": "update",
+      "name": "arrow-path",
+      "source": "optimized/20/solid/arrow-path.svg",
+      "sha256": "6cfed621fe0a11729d300b9c78f6168158be2862320f64b75b706e2902bb2d37"
+    },
+    {
+      "alias": "layers",
+      "name": "square-3-stack-3d",
+      "source": "optimized/20/solid/square-3-stack-3d.svg",
+      "sha256": "9d93903d9f85a1af820b49cfc9511f10a92553dc18aeb0d408343987aacc7af2"
+    },
+    {
+      "alias": "grid",
+      "name": "squares-2x2",
+      "source": "optimized/20/solid/squares-2x2.svg",
+      "sha256": "8e9b341a349413f7b01dc0cb72a2e1079b2fd9157d5bff6744fcfdf906cf56c2"
+    },
+    {
+      "alias": "leave",
+      "name": "arrow-right-start-on-rectangle",
+      "source": "optimized/20/solid/arrow-right-start-on-rectangle.svg",
+      "sha256": "e06b9d2622231e02ad07b474f142500778820fbf8367fb9a3a0e1fef175f3b3c"
+    },
+    {
+      "alias": "code",
+      "name": "code-bracket",
+      "source": "optimized/20/solid/code-bracket.svg",
+      "sha256": "3799be836f7454d96482ec868a36fce305bad6df8b1ee4ad6bf30129e8f7bf38"
+    },
+    {
+      "alias": "sun",
+      "name": "sun",
+      "source": "optimized/20/solid/sun.svg",
+      "sha256": "a6def934feca9166b59a9eb707d55eed4c9fcb1feb4ed96d60c5df638d2cb917"
+    },
+    {
+      "alias": "moon",
+      "name": "moon",
+      "source": "optimized/20/solid/moon.svg",
+      "sha256": "d1a5f199a7c4523564190452d4d883ee373b10c4b16a257b20ac357d8164e794"
+    },
+    {
+      "alias": "menu",
+      "name": "bars-3",
+      "source": "optimized/20/solid/bars-3.svg",
+      "sha256": "8b68ab23a745deef393f6ef430addd08d4e1e0eb13bef1601126d65bfc507f6e"
+    },
+    {
+      "alias": "close",
+      "name": "x-mark",
+      "source": "optimized/20/solid/x-mark.svg",
+      "sha256": "b76e0899f1a6e63e982c6d3e92551f42d94be6b9c51fb176150e69eeefe12a94"
+    },
+    {
+      "alias": "chevron",
+      "name": "chevron-right",
+      "source": "optimized/20/solid/chevron-right.svg",
+      "sha256": "7eb6620f0b0d4cbb5f19b8c5970507412357ce453beb46462a52ed0b3d5c41be"
+    },
+    {
+      "alias": "copy",
+      "name": "document-duplicate",
+      "source": "optimized/20/solid/document-duplicate.svg",
+      "sha256": "a45b401923bab7848edd8cf351cd2ee823c0c50d7a8c5a795e5c8535dcb08e5b"
+    },
+    {
+      "alias": "check",
+      "name": "check",
+      "source": "optimized/20/solid/check.svg",
+      "sha256": "9909b24df56e35e7516a65b40cdd39c721c7a6e48a9737df24fad1f17c7ebc04"
+    },
+    {
+      "alias": "arrow",
+      "name": "arrow-up-right",
+      "source": "optimized/20/solid/arrow-up-right.svg",
+      "sha256": "6d63415678ef9dd993600b8c0533c379261c88ab3f1efbca3c55effe59a5034c"
+    },
+    {
+      "alias": "book",
+      "name": "book-open",
+      "source": "optimized/20/solid/book-open.svg",
+      "sha256": "d719a115c948d9c0cac53fd1d74d5df34992d4a0f2d5ff7900e85ade580a0c13"
+    },
+    {
+      "alias": "braces",
+      "name": "code-bracket-square",
+      "source": "optimized/20/solid/code-bracket-square.svg",
+      "sha256": "d4175fe7ed648e33a60aade6dfdce7f4a89c0cc5faee85736d797b971b29f85f"
+    },
+    {
+      "alias": "activity",
+      "name": "check-badge",
+      "source": "optimized/20/solid/check-badge.svg",
+      "sha256": "9de085da2c22742cf92363180ab9db02fea0be2ba999b76560f7d1ad0ebdad6c"
+    },
+    {
+      "alias": "memory",
+      "name": "cpu-chip",
+      "source": "optimized/20/solid/cpu-chip.svg",
+      "sha256": "a5beccce05567a53fdc9d0b35cd0de7777316fd1538bd9af268cccd7e1868df9"
+    },
+    {
+      "alias": "gauge",
+      "name": "bolt",
+      "source": "optimized/20/solid/bolt.svg",
+      "sha256": "df1a0e3917020e701c07dd4afeb2c105e5268eab423c203414b4bb9fc9b3319c"
+    }
+  ],
+  "localIcons": [
+    {
+      "alias": "area",
+      "origin": "Original project filled geometry matching the 20 px solid icon grid.",
+      "paths": [
+        {
+          "d": "M2 14.5 6.25 8.75 10.25 11.5 17.5 3.5V17a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1Z"
+        }
+      ],
+      "pathsSha256": "035fee0c2a130d2cc32a5f570a134a6ec5c4efd00fc2c155afe23bc494d37efc"
+    },
+    {
+      "alias": "composed",
+      "origin": "Original project filled geometry matching the 20 px solid icon grid.",
+      "paths": [
+        {
+          "d": "M2 9.5 7 4.5l4 3L17 2l1 1-7 6.5-4-3L3 11Z"
+        },
+        {
+          "d": "M3 14h3v4H3Zm5-3h3v7H8Zm5 1h3v6h-3Z"
+        }
+      ],
+      "pathsSha256": "af5934de76799911c8ea26b4d283b541d4fd07a4dbab351ee43efd9c3436f731"
+    },
+    {
+      "alias": "radar",
+      "origin": "Original project filled geometry matching the 20 px solid icon grid.",
+      "paths": [
+        {
+          "d": "M10 1.5 18.5 7.7 15.3 17.5H4.7L1.5 7.7ZM10 4.2 4.1 8.5 6.3 15.3h7.4l2.2-6.8Z",
+          "fillRule": "evenodd",
+          "clipRule": "evenodd"
+        },
+        {
+          "d": "M10 7 14.2 9.8 12.6 14.5H7.4L5.8 9.8Z"
+        }
+      ],
+      "pathsSha256": "6e1732d5dae5f7d1728e671cea3fb2af3d521d64c2eef64eb4389b22f535af52"
+    },
+    {
+      "alias": "radial",
+      "origin": "Original project filled geometry matching the 20 px solid icon grid.",
+      "paths": [
+        {
+          "d": "M10 2a8 8 0 1 0 8 8h-3a5 5 0 1 1-5-5V2Z"
+        }
+      ],
+      "pathsSha256": "488dbaf5f5dce70655ea489fbbd1a1d30188a5ae8cd715f20f95daa57b1f5f9d"
+    }
+  ]
+}
