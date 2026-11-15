@@ -13,6 +13,13 @@ export const composedRows: readonly DeviceRow[] = deviceRows.map((row, index) =>
   const window = deviceRows.slice(Math.max(0, index - 2), index + 1);
   return { ...row, trend: window.reduce((sum, value) => sum + value.desktop!, 0) / window.length };
 });
+export const combinedComposedRows: readonly DeviceRow[] = deviceRows.map((row, index) => {
+  const window = deviceRows.slice(Math.max(0, index - 2), index + 1);
+  return {
+    ...row,
+    trend: window.reduce((sum, value) => sum + value.desktop! + value.mobile!, 0) / window.length,
+  };
+});
 export const composedBlocks: readonly ComposedBlock[] = [
   {
     kind: 'composed',
@@ -31,19 +38,51 @@ export const composedBlocks: readonly ComposedBlock[] = [
     id: 'stacked-visits-and-trend',
     title: 'Stacked Visits & Trend',
     description:
-      'Desktop and mobile visits share a stack. The line is a supplied trailing three-month mean of combined visits on the same visits scale. Requires the local rc.21 candidate.',
-    rows: deviceRows.map((row, index) => {
-      const window = deviceRows.slice(Math.max(0, index - 2), index + 1);
-      return {
-        ...row,
-        trend:
-          window.reduce((sum, value) => sum + value.desktop! + value.mobile!, 0) / window.length,
-      };
-    }),
+      'Desktop and mobile visits share a stack. The line is a supplied trailing three-month mean of combined visits on the same visits scale. Named bar stacks are available in rc.21 and later.',
+    rows: combinedComposedRows,
     series: [
       { id: 'desktop', key: 'desktop', label: 'Desktop', kind: 'bar', stack: 'visits' },
       { id: 'mobile', key: 'mobile', label: 'Mobile', kind: 'bar', stack: 'visits' },
       { id: 'trend', key: 'trend', label: '3-month mean', kind: 'line', showPoints: true },
+    ],
+  },
+  {
+    kind: 'composed',
+    id: 'area-visits-and-trend',
+    title: 'Area Visits & Trend',
+    description:
+      'Desktop visits as a gradient area with an independent supplied three-month mean. Missing observations remain gaps. Requires local rc.22 source.',
+    rows: composedRows,
+    series: [
+      { id: 'visits', key: 'desktop', label: 'Visits', kind: 'area', gradient: true },
+      { id: 'trend', key: 'trend', label: '3-month mean', kind: 'line' },
+    ],
+  },
+  {
+    kind: 'composed',
+    id: 'stacked-area-visits-and-trend',
+    title: 'Stacked Areas & Trend',
+    description:
+      'Desktop and mobile visits share an area stack; the line is a separately supplied trailing mean of combined visits on the same scale. Requires local rc.22 source.',
+    rows: combinedComposedRows,
+    series: [
+      {
+        id: 'desktop',
+        key: 'desktop',
+        label: 'Desktop',
+        kind: 'area',
+        stack: 'visits',
+        gradient: false,
+      },
+      {
+        id: 'mobile',
+        key: 'mobile',
+        label: 'Mobile',
+        kind: 'area',
+        stack: 'visits',
+        gradient: false,
+      },
+      { id: 'trend', key: 'trend', label: '3-month mean', kind: 'line' },
     ],
   },
 ];

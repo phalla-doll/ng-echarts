@@ -54,7 +54,7 @@ The [Chart possibilities gallery](experiments/CHART_POSSIBILITIES.md) previews t
 
 | ID | Priority | Work | Start condition |
 | --- | --- | --- | --- |
-| NG17 | P2 | Composed Cartesian charts: vertical bar/line increment and named bar stacks implemented; dual-axis/area extensions deferred | [API and evidence](experiments/NG17_COMPOSED_CHART.md); user-authorized experimental continuation |
+| NG17 | P2 | Composed Cartesian charts: bar/line/area composition and named stacks implemented; dual-axis/horizontal extensions deferred | [API and evidence](experiments/NG17_COMPOSED_CHART.md); user-authorized experimental continuation |
 | NG18 | P2 | First radar and radial progress increments implemented; human interpretation pending | [Radar contract and verification](experiments/NG18_RADAR_CHART.md); human interpretation remains pending |
 | NG19 | P2 | First single-year calendar heatmap and bounded Sankey implemented; broader windows and flow variants deferred | [Calendar contract and evidence](experiments/NG19_CALENDAR_HEATMAP.md); family-specific human interpretation pending |
 | NG20 | P2 | Application-owned overview/detail link, inclusive native/graphical month ranges and controlled bar feedback implemented; opt-in one-way hover/focus preview added in rc.13; shared zoom, disjoint and two-way selection deferred | [Initial contract](experiments/NG20_LINKED_CHARTS.md) and [selection feedback](experiments/LINKED_SELECTION_FEEDBACK.md); user prioritized linked charts after NG17 |
@@ -148,3 +148,8 @@ The user-authorized [Angular practices follow-up](experiments/ANGULAR_PRACTICES_
 The user authorized completing delivery and extending composed charts on 15 November. The [rc.19 checkpoint](experiments/RC19_RELEASE_REVIEW.md) preserves the exact performance/Angular artifact and passing consumers. The demo deployment record now identifies the already-live source. The separate [NG17 stacked-composition increment](experiments/NG17_STACKED_COMPOSED.md) targets rc.20 with named bar groups, raw actions and independent supplied line values. Its report owns validation status. The user continued the human-review deferral; the [current review sheet](experiments/RC20_HUMAN_REVIEW.md) adds pagination and stack interpretation while F09/R06/G2/G3/G4 remain pending.
 
 The stacked-composition follow-up now has passing full runtime/browser, exact rc.20/rc.21 artifact, performance and fixed-snapshot static evidence in its report. rc.21 corrects packaged documentation only and remains a local candidate; npm `next` is verified rc.19. Human interpretation remains deferred.
+
+
+## NG17 composed-area follow-up
+
+The user authorized the [area composition increment](experiments/NG17_COMPOSED_AREAS.md) after publishing the preserved rc.21 archive. Local rc.22 adds typed area descriptors, gradient/solid fills and separate same-sign area stack groups on the existing shared category/value scale. Supplied lines and point/table values remain raw, missing observations remain missing, and immutable kind changes clear obsolete presentation. The pure area-fill helper is shared with standalone areas; no additional engine or dependency is introduced. The linked report owns actual source, consumer, browser, performance and candidate results. Public next is rc.21 until another verified publication; human F09/R06/G2/G3/G4 remain deferred/pending.

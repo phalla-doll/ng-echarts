@@ -41,18 +41,19 @@ export class ComposedExample {
 
 ## Series contract
 
-`ComposedSeries<T>` is a discriminated union of `ComposedBarSeries<T>` and `ComposedLineSeries<T>`. Every descriptor requires a unique nonempty `id`, numeric/nullish numeric `key`, text `label`, and `kind: 'bar' | 'line'`. `color?: string` follows the existing explicit-color/token/default precedence.
+`ComposedSeries<T>` is a discriminated union of `ComposedBarSeries<T>`, `ComposedLineSeries<T>` and `ComposedAreaSeries<T>`. Every descriptor requires a unique nonempty `id`, numeric/nullish numeric `key`, text `label`, and `kind: 'bar' | 'line' | 'area'`. `color?: string` follows the existing explicit-color/token/default precedence.
 
 | Kind | Additional settings |
 | --- | --- |
 | `bar` | `stack?: string` (rc.20+); omission means vertical, unstacked, solid fill |
 | `line` | `smooth?: boolean` (default false), `showPoints?: boolean` (default true) |
+| `area` (rc.22+) | `smooth`, `showPoints`, `gradient?: boolean` (default true), `stack?: string` |
 
 A missing/unknown kind, nonboolean line settings, or line settings on a bar produce a configuration error at runtime; typed templates/descriptors reject them during compilation. Replace the series reference to change its kind/settings. Stable IDs preserve legend visibility through reordering, renaming and kind changes; removing an ID discards its previous hidden state.
 
 `stack` must be a nonempty string without surrounding whitespace. Equal names group bars into the same stack; different names form separate stacks next to unstacked bars. Lines reject stack settings in strict types and at runtime. Supplied series order defines segment order. Positive and negative values stack separately from zero; null/undefined remain missing and zero remains observed. Hiding a segment recalculates the visible stack and exposed end corners; its original table values remain accessible. Tooltips, tables and point events report raw segment values. The library does not calculate a cumulative line or percentage normalization.
 
-For example, supply descriptors `{ id: 'desktop', key: 'desktop', label: 'Desktop', kind: 'bar', stack: 'visits' }` and `{ id: 'mobile', key: 'mobile', label: 'Mobile', kind: 'bar', stack: 'visits' }`, plus a line descriptor for your own total/target/trend field. See the copyable second `/composed` gallery example. Named stacks require rc.20 or later (use the current rc.21 candidate); they are absent from published rc.18 and the preserved rc.19 artifact.
+For example, supply descriptors `{ id: 'desktop', key: 'desktop', label: 'Desktop', kind: 'bar', stack: 'visits' }` and `{ id: 'mobile', key: 'mobile', label: 'Mobile', kind: 'bar', stack: 'visits' }`, plus a line descriptor for your own total/target/trend field. See the copyable second `/composed` gallery example. Named bar stacks ship in published rc.21; composed areas require the local rc.22 candidate. The earlier rc.19 artifact remains preserved.
 
 Bars and lines use the same category centers, with a half-category edge gap retained even when all bars are hidden. Lines render above bars and preserve missing-observation gaps. A line path without persistent markers remains clickable and resolves the nearest valid category on that series. Negative and zero values remain raw numeric values. Null/undefined values are missing; all-zero data is valid.
 
@@ -68,9 +69,9 @@ States follow application error, loading, data/configuration/renderer error, emp
 
 ## Entry points, scope and limits
 
-Use `/composed` for `ComposedChart`, `ComposedSeries`, `ComposedBarSeries`, and `ComposedLineSeries`; root exports are compatible. Shared event/key/formatter types are reexported by `/composed` and `/core`. The focused entry lazily registers only bar, line, grid, tooltip and Canvas modules. Existing focused bar/line/area/pie entries do not acquire the composed component or additional engines.
+Use `/composed` for `ComposedChart`, `ComposedSeries`, `ComposedBarSeries`, and `ComposedLineSeries` and `ComposedAreaSeries`; root exports are compatible. Shared event/key/formatter types are reexported by `/composed` and `/core`. The focused entry lazily registers only bar, line, grid, tooltip and Canvas modules. Existing focused bar/line/area/pie entries do not acquire the composed component or additional engines.
 
-This initial increment supports bar/line combinations on shared axes. Dual scales, horizontal composition, stacked lines, area composition, raw ECharts options and custom tooltip templates are outside this increment. Mixed units such as visits and percentages require a different design, not an unlabelled shared scale. Existing [compatibility and measured-envelope guidance](COMPATIBILITY.md) remains the starting point; the [NG17 report](experiments/NG17_COMPOSED_CHART.md) records composed-specific measurements and checks.
+The current increment supports bar/line/area combinations on shared axes. Dual scales, horizontal composition, stacked ordinary lines, raw ECharts options and custom tooltip templates are outside this increment. Mixed units such as visits and percentages require a different design, not an unlabelled shared scale. Existing [compatibility and measured-envelope guidance](COMPATIBILITY.md) remains the starting point; the [NG17 report](experiments/NG17_COMPOSED_CHART.md) records composed-specific measurements and checks.
 
 The gallery at `/composed` keeps the approved neutral styling and copyable source; `/composed-validation` exposes engineering controls separately. Human interpretation and complete release gates retain their deferred status.
 
@@ -83,3 +84,14 @@ The line layer uses a 2.5 px dashed stroke and 7 px diamond markers; the bar lay
 Set `[tablePageSize]="50"` to create at most 50 native table rows at once. The default `null` retains the complete table. The size must be a positive safe integer; invalid values produce a configuration error. The plot continues to show all observations. Previous/Next buttons announce the visible row range and retain keyboard focus at either boundary. Every row remains available through paging, including hidden-series values, zero and missing observations.
 
 Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. The current local rc.21 candidate also includes it.
+
+
+## Area composition in rc.22
+
+`ComposedAreaSeries<T>` adds `kind: 'area'` with the same numeric/nullish keys and curve settings. Its independent fill is gradient by default; `gradient: false` uses the existing solid translucent area treatment. Fill settings on bars/ordinary lines and nonboolean area settings are rejected by strict types and runtime validation.
+
+Named area stacks accumulate same-sign observations in supplied series order. Bar and area stack namespaces are separate, even when their public names match; the library never combines those geometries into one stack. Ordinary lines remain independent supplied values. Missing values stay gaps in the affected series, zero remains observed, and other observed series remain available. An observed partial stack must not be presented as a complete total when another member is missing. Tooltips, native tables and plot/table actions return original observations, not cumulative stack heights.
+
+Areas render behind bars and ordinary lines; category centers and half-category edge gaps stay stable through kind/legend changes. Replacing a descriptor clears obsolete fill/stack settings. Whole-area and line clicks resolve the nearest observed category; missing observations cannot emit. The native table supplies exact keyboard actions.
+
+The third and fourth gallery examples provide compiled area+line and stacked-area+line source. Dual axes, horizontal composition and percentage normalization remain deferred. The [area increment report](experiments/NG17_COMPOSED_AREAS.md) owns current verification; human interpretation stays pending.

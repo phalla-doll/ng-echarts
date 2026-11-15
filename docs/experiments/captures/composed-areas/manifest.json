@@ -1,0 +1,1008 @@
+{
+  "recordedAt": "2026-11-15T07:27:38.906Z",
+  "base": "http://localhost:4391/",
+  "browser": "158.0.8127.18",
+  "node": "v24.22.2",
+  "reducedMotion": "reduce",
+  "deviceScaleFactor": 1,
+  "viewportHeights": 1000,
+  "sources": [
+    {
+      "path": "projects/playground/src/gallery-shell.css",
+      "sha256": "b268a7088467d51eed2fad29eeb2d234f7509f5e92a93bd4b744e50110080879"
+    },
+    {
+      "path": "projects/playground/src/app/gallery/bar-block.css",
+      "sha256": "28bb156642664753eb4c6b29a1815344b42b29a51feac61a391bc696dd3df67c"
+    },
+    {
+      "path": "projects/playground/src/app/gallery/bar-block.html",
+      "sha256": "b60414d9865368c7d4901d20af0d80316e92042d3c4208a935490f2914a29668"
+    },
+    {
+      "path": "projects/playground/src/app/gallery/pie-block.html",
+      "sha256": "0c8d4f4b1301ab1ac03e4720958b5b2c78f59a4e887016f8308003dcc89eaacd"
+    },
+    {
+      "path": "projects/chart-library/core/src/lib/cartesian-options.ts",
+      "sha256": "74637d6d7bc2ac0b636f4dd2cd46c53be3c4e1c46f87ffa2ec406d6e4b11cd12"
+    },
+    {
+      "path": "tools/capture-visual-audit.mjs",
+      "sha256": "42b799f7fedd62fe18daacb984f316d818beb48e6e18b29495626a238c97e52b"
+    },
+    {
+      "path": "projects/chart-library/composed/src/lib/composed-options.ts",
+      "sha256": "1bdadddb9136fe001128c5a26aa08256e13d05f3fa442d5ee77e8fef5b8425b2"
+    },
+    {
+      "path": "projects/playground/src/app/gallery/composed/composed-blocks.ts",
+      "sha256": "7c70ff997a3db61f69403055f7bc4fd34e9f40a275b6cb1565b9c510198ff428"
+    }
+  ],
+  "captures": [
+    {
+      "name": "composed-dark-1440.png",
+      "sha256": "666ce29ddacb2d771f1c02c30faf5ab277431d35b8b67744e7e9f70d593106a4"
+    },
+    {
+      "name": "composed-dark-1440-tooltip.png",
+      "sha256": "3baa38344cc3d6467cd9319ede5380a2606f6c0f1032d9b5fa9486c545984b64"
+    },
+    {
+      "name": "composed-dark-768.png",
+      "sha256": "fb4e25b7987ee6927fad079237c3c4a5747fe1cc7c9fcd115e69f6e5bec78334"
+    },
+    {
+      "name": "composed-dark-390.png",
+      "sha256": "ff1622764d869997eda60fe7a1ef2b3df3e83ae0ab090caea96d1b1fb32ef4aa"
+    },
+    {
+      "name": "composed-dark-320.png",
+      "sha256": "7d03dcb4d5349f627414ee9542685825c2f5dddfd89a6c10736d2e41e4923fd9"
+    },
+    {
+      "name": "composed-dark-320-tooltip.png",
+      "sha256": "c95dd919fac786feb27b772f874ad5d2db81755d6a1b8e0f117be4d699b39cd5"
+    },
+    {
+      "name": "composed-dark-320-full.png",
+      "sha256": "986b11fe8d7f74e5135fe3af8af2f3835ff3fadeb8e1878f323dbd953f8c7688"
+    },
+    {
+      "name": "composed-dark-320-code.png",
+      "sha256": "1607fe31586777babffa2dbb8b5c6248e1c682dec23aae1d9e28b99a766e99ca"
+    },
+    {
+      "name": "composed-light-1440.png",
+      "sha256": "984bec63620cce207fd09c279545fdd560b66803e88bc53d2ce12fc6e78c5165"
+    },
+    {
+      "name": "composed-light-1440-tooltip.png",
+      "sha256": "ca8b52e8e661d3af3eeb4ab6948f9cba674cf76e7a9361eb0d04deb0e3211074"
+    },
+    {
+      "name": "composed-light-768.png",
+      "sha256": "d6ed42e06da007b72c5f78ac1e88d712c904dc9e243acea6b09887fed6f71c47"
+    },
+    {
+      "name": "composed-light-390.png",
+      "sha256": "40f79795ebd17a968f9d47af0683a2cd54d739f6a5a3bc1aa61196a76d6e41c4"
+    },
+    {
+      "name": "composed-light-320.png",
+      "sha256": "17e7682c8380e6ee9061d82b9f911542e865e9bcdf1473cc4176529fa71b26e4"
+    },
+    {
+      "name": "composed-light-320-tooltip.png",
+      "sha256": "bb797d1b21214016f8b4cbd8f1ea037b4965229a6c33afffd877ef49ee2eb634"
+    },
+    {
+      "name": "composed-light-320-full.png",
+      "sha256": "b1f3c21dd5c9c812a9d986bf0640a8d9f9bc855bc0af542cddaa83ee6fc7ac41"
+    },
+    {
+      "name": "composed-light-320-code.png",
+      "sha256": "a9aba948c72ae24a9b4751200aac8a1c7a54ee81f3b92bb1ae969f0b5bfe7790"
+    }
+  ],
+  "measurements": [
+    {
+      "family": "composed",
+      "theme": "dark",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "blocks": [
+        {
+          "id": "visits-and-trend",
+          "metrics": "Visits7,170visitsLatest 3-month mean535.3visits",
+          "plot": {
+            "x": 413,
+            "y": 396,
+            "width": 598,
+            "height": 230,
+            "top": 396,
+            "right": 1011,
+            "bottom": 626,
+            "left": 413
+          },
+          "legend": [
+            {
+              "height": 34,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-visits-and-trend",
+          "metrics": "Desktop7,170visitsMobile4,293visitsLatest 3-month mean875.7visits",
+          "plot": {
+            "x": 413,
+            "y": 1086,
+            "width": 598,
+            "height": 230,
+            "top": 1086,
+            "right": 1011,
+            "bottom": 1316,
+            "left": 413
+          },
+          "legend": [
+            {
+              "height": 34,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(244, 63, 94)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(96, 165, 250)"
+            }
+          ]
+        },
+        {
+          "id": "area-visits-and-trend",
+          "metrics": "Visits7,170visitsLatest 3-month mean535.3visits",
+          "plot": {
+            "x": 413,
+            "y": 1723,
+            "width": 598,
+            "height": 230,
+            "top": 1723,
+            "right": 1011,
+            "bottom": 1953,
+            "left": 413
+          },
+          "legend": [
+            {
+              "height": 34,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-area-visits-and-trend",
+          "metrics": "Desktop7,170visitsMobile4,293visitsLatest 3-month mean875.7visits",
+          "plot": {
+            "x": 413,
+            "y": 2413,
+            "width": 598,
+            "height": 230,
+            "top": 2413,
+            "right": 1011,
+            "bottom": 2643,
+            "left": 413
+          },
+          "legend": [
+            {
+              "height": 34,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(244, 63, 94)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(96, 165, 250)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "composed",
+      "theme": "dark",
+      "width": 768,
+      "scrollWidth": 768,
+      "blocks": [
+        {
+          "id": "visits-and-trend",
+          "metrics": "Visits7,170visitsLatest 3-month mean535.3visits",
+          "plot": {
+            "x": 57,
+            "y": 404,
+            "width": 654,
+            "height": 230,
+            "top": 404,
+            "right": 711,
+            "bottom": 634,
+            "left": 57
+          },
+          "legend": [
+            {
+              "height": 34,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-visits-and-trend",
+          "metrics": "Desktop7,170visitsMobile4,293visitsLatest 3-month mean875.7visits",
+          "plot": {
+            "x": 57,
+            "y": 1094,
+            "width": 654,
+            "height": 230,
+            "top": 1094,
+            "right": 711,
+            "bottom": 1324,
+            "left": 57
+          },
+          "legend": [
+            {
+              "height": 34,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(244, 63, 94)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(96, 165, 250)"
+            }
+          ]
+        },
+        {
+          "id": "area-visits-and-trend",
+          "metrics": "Visits7,170visitsLatest 3-month mean535.3visits",
+          "plot": {
+            "x": 57,
+            "y": 1731,
+            "width": 654,
+            "height": 230,
+            "top": 1731,
+            "right": 711,
+            "bottom": 1961,
+            "left": 57
+          },
+          "legend": [
+            {
+              "height": 34,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-area-visits-and-trend",
+          "metrics": "Desktop7,170visitsMobile4,293visitsLatest 3-month mean875.7visits",
+          "plot": {
+            "x": 57,
+            "y": 2421,
+            "width": 654,
+            "height": 230,
+            "top": 2421,
+            "right": 711,
+            "bottom": 2651,
+            "left": 57
+          },
+          "legend": [
+            {
+              "height": 34,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(244, 63, 94)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(96, 165, 250)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "composed",
+      "theme": "dark",
+      "width": 390,
+      "scrollWidth": 390,
+      "blocks": [
+        {
+          "id": "visits-and-trend",
+          "metrics": "Visits7,170visitsLatest 3-month mean535.3visits",
+          "plot": {
+            "x": 29,
+            "y": 437,
+            "width": 332,
+            "height": 230,
+            "top": 437,
+            "right": 361,
+            "bottom": 667,
+            "left": 29
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-visits-and-trend",
+          "metrics": "Desktop7,170visitsMobile4,293visitsLatest 3-month mean875.7visits",
+          "plot": {
+            "x": 29,
+            "y": 1129,
+            "width": 332,
+            "height": 230,
+            "top": 1129,
+            "right": 361,
+            "bottom": 1359,
+            "left": 29
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(96, 165, 250)"
+            }
+          ]
+        },
+        {
+          "id": "area-visits-and-trend",
+          "metrics": "Visits7,170visitsLatest 3-month mean535.3visits",
+          "plot": {
+            "x": 29,
+            "y": 1771,
+            "width": 332,
+            "height": 230,
+            "top": 1771,
+            "right": 361,
+            "bottom": 2001,
+            "left": 29
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-area-visits-and-trend",
+          "metrics": "Desktop7,170visitsMobile4,293visitsLatest 3-month mean875.7visits",
+          "plot": {
+            "x": 29,
+            "y": 2463,
+            "width": 332,
+            "height": 230,
+            "top": 2463,
+            "right": 361,
+            "bottom": 2693,
+            "left": 29
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(96, 165, 250)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "composed",
+      "theme": "dark",
+      "width": 320,
+      "scrollWidth": 320,
+      "blocks": [
+        {
+          "id": "visits-and-trend",
+          "metrics": "Visits7,170visitsLatest 3-month mean535.3visits",
+          "plot": {
+            "x": 29,
+            "y": 457,
+            "width": 262,
+            "height": 230,
+            "top": 457,
+            "right": 291,
+            "bottom": 687,
+            "left": 29
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-visits-and-trend",
+          "metrics": "Desktop7,170visitsMobile4,293visitsLatest 3-month mean875.7visits",
+          "plot": {
+            "x": 29,
+            "y": 1169,
+            "width": 262,
+            "height": 230,
+            "top": 1169,
+            "right": 291,
+            "bottom": 1399,
+            "left": 29
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(96, 165, 250)"
+            }
+          ]
+        },
+        {
+          "id": "area-visits-and-trend",
+          "metrics": "Visits7,170visitsLatest 3-month mean535.3visits",
+          "plot": {
+            "x": 29,
+            "y": 1875,
+            "width": 262,
+            "height": 230,
+            "top": 1875,
+            "right": 291,
+            "bottom": 2105,
+            "left": 29
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-area-visits-and-trend",
+          "metrics": "Desktop7,170visitsMobile4,293visitsLatest 3-month mean875.7visits",
+          "plot": {
+            "x": 29,
+            "y": 2587,
+            "width": 262,
+            "height": 230,
+            "top": 2587,
+            "right": 291,
+            "bottom": 2817,
+            "left": 29
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(16, 185, 129)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(244, 63, 94)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(96, 165, 250)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "composed",
+      "theme": "light",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "blocks": [
+        {
+          "id": "visits-and-trend",
+          "metrics": "Visits7,170visitsLatest 3-month mean535.3visits",
+          "plot": {
+            "x": 413,
+            "y": 396,
+            "width": 598,
+            "height": 230,
+            "top": 396,
+            "right": 1011,
+            "bottom": 626,
+            "left": 413
+          },
+          "legend": [
+            {
+              "height": 34,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-visits-and-trend",
+          "metrics": "Desktop7,170visitsMobile4,293visitsLatest 3-month mean875.7visits",
+          "plot": {
+            "x": 413,
+            "y": 1086,
+            "width": 598,
+            "height": 230,
+            "top": 1086,
+            "right": 1011,
+            "bottom": 1316,
+            "left": 413
+          },
+          "legend": [
+            {
+              "height": 34,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(190, 18, 60)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(37, 99, 235)"
+            }
+          ]
+        },
+        {
+          "id": "area-visits-and-trend",
+          "metrics": "Visits7,170visitsLatest 3-month mean535.3visits",
+          "plot": {
+            "x": 413,
+            "y": 1723,
+            "width": 598,
+            "height": 230,
+            "top": 1723,
+            "right": 1011,
+            "bottom": 1953,
+            "left": 413
+          },
+          "legend": [
+            {
+              "height": 34,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-area-visits-and-trend",
+          "metrics": "Desktop7,170visitsMobile4,293visitsLatest 3-month mean875.7visits",
+          "plot": {
+            "x": 413,
+            "y": 2413,
+            "width": 598,
+            "height": 230,
+            "top": 2413,
+            "right": 1011,
+            "bottom": 2643,
+            "left": 413
+          },
+          "legend": [
+            {
+              "height": 34,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(190, 18, 60)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(37, 99, 235)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "composed",
+      "theme": "light",
+      "width": 768,
+      "scrollWidth": 768,
+      "blocks": [
+        {
+          "id": "visits-and-trend",
+          "metrics": "Visits7,170visitsLatest 3-month mean535.3visits",
+          "plot": {
+            "x": 57,
+            "y": 404,
+            "width": 654,
+            "height": 230,
+            "top": 404,
+            "right": 711,
+            "bottom": 634,
+            "left": 57
+          },
+          "legend": [
+            {
+              "height": 34,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-visits-and-trend",
+          "metrics": "Desktop7,170visitsMobile4,293visitsLatest 3-month mean875.7visits",
+          "plot": {
+            "x": 57,
+            "y": 1094,
+            "width": 654,
+            "height": 230,
+            "top": 1094,
+            "right": 711,
+            "bottom": 1324,
+            "left": 57
+          },
+          "legend": [
+            {
+              "height": 34,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(190, 18, 60)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(37, 99, 235)"
+            }
+          ]
+        },
+        {
+          "id": "area-visits-and-trend",
+          "metrics": "Visits7,170visitsLatest 3-month mean535.3visits",
+          "plot": {
+            "x": 57,
+            "y": 1731,
+            "width": 654,
+            "height": 230,
+            "top": 1731,
+            "right": 711,
+            "bottom": 1961,
+            "left": 57
+          },
+          "legend": [
+            {
+              "height": 34,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-area-visits-and-trend",
+          "metrics": "Desktop7,170visitsMobile4,293visitsLatest 3-month mean875.7visits",
+          "plot": {
+            "x": 57,
+            "y": 2421,
+            "width": 654,
+            "height": 230,
+            "top": 2421,
+            "right": 711,
+            "bottom": 2651,
+            "left": 57
+          },
+          "legend": [
+            {
+              "height": 34,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(190, 18, 60)"
+            },
+            {
+              "height": 34,
+              "color": "rgb(37, 99, 235)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "composed",
+      "theme": "light",
+      "width": 390,
+      "scrollWidth": 390,
+      "blocks": [
+        {
+          "id": "visits-and-trend",
+          "metrics": "Visits7,170visitsLatest 3-month mean535.3visits",
+          "plot": {
+            "x": 29,
+            "y": 437,
+            "width": 332,
+            "height": 230,
+            "top": 437,
+            "right": 361,
+            "bottom": 667,
+            "left": 29
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-visits-and-trend",
+          "metrics": "Desktop7,170visitsMobile4,293visitsLatest 3-month mean875.7visits",
+          "plot": {
+            "x": 29,
+            "y": 1129,
+            "width": 332,
+            "height": 230,
+            "top": 1129,
+            "right": 361,
+            "bottom": 1359,
+            "left": 29
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(37, 99, 235)"
+            }
+          ]
+        },
+        {
+          "id": "area-visits-and-trend",
+          "metrics": "Visits7,170visitsLatest 3-month mean535.3visits",
+          "plot": {
+            "x": 29,
+            "y": 1771,
+            "width": 332,
+            "height": 230,
+            "top": 1771,
+            "right": 361,
+            "bottom": 2001,
+            "left": 29
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-area-visits-and-trend",
+          "metrics": "Desktop7,170visitsMobile4,293visitsLatest 3-month mean875.7visits",
+          "plot": {
+            "x": 29,
+            "y": 2463,
+            "width": 332,
+            "height": 230,
+            "top": 2463,
+            "right": 361,
+            "bottom": 2693,
+            "left": 29
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(37, 99, 235)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "family": "composed",
+      "theme": "light",
+      "width": 320,
+      "scrollWidth": 320,
+      "blocks": [
+        {
+          "id": "visits-and-trend",
+          "metrics": "Visits7,170visitsLatest 3-month mean535.3visits",
+          "plot": {
+            "x": 29,
+            "y": 457,
+            "width": 262,
+            "height": 230,
+            "top": 457,
+            "right": 291,
+            "bottom": 687,
+            "left": 29
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-visits-and-trend",
+          "metrics": "Desktop7,170visitsMobile4,293visitsLatest 3-month mean875.7visits",
+          "plot": {
+            "x": 29,
+            "y": 1169,
+            "width": 262,
+            "height": 230,
+            "top": 1169,
+            "right": 291,
+            "bottom": 1399,
+            "left": 29
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(37, 99, 235)"
+            }
+          ]
+        },
+        {
+          "id": "area-visits-and-trend",
+          "metrics": "Visits7,170visitsLatest 3-month mean535.3visits",
+          "plot": {
+            "x": 29,
+            "y": 1875,
+            "width": 262,
+            "height": 230,
+            "top": 1875,
+            "right": 291,
+            "bottom": 2105,
+            "left": 29
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            }
+          ]
+        },
+        {
+          "id": "stacked-area-visits-and-trend",
+          "metrics": "Desktop7,170visitsMobile4,293visitsLatest 3-month mean875.7visits",
+          "plot": {
+            "x": 29,
+            "y": 2587,
+            "width": 262,
+            "height": 230,
+            "top": 2587,
+            "right": 291,
+            "bottom": 2817,
+            "left": 29
+          },
+          "legend": [
+            {
+              "height": 40,
+              "color": "rgb(4, 120, 87)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(190, 18, 60)"
+            },
+            {
+              "height": 40,
+              "color": "rgb(37, 99, 235)"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

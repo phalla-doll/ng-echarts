@@ -163,3 +163,8 @@ NG22 first public prerelease: [`@mantha911/ng-echarts@0.1.0-rc.18`](experiments/
 ## rc.19 delivery and NG17 named bar stacks
 
 The user approved all recommended follow-ups on 15 November. Preserve the exact rc.19 performance/Angular checkpoint, complete its artifact checks and registry delivery when authenticated, and reconcile the already-live demo identity. The [rc.19 report](experiments/RC19_RELEASE_REVIEW.md) records exact artifact evidence. The separate rc.20 [stacked-composition increment](experiments/NG17_STACKED_COMPOSED.md) adds optional bar stack names, same-sign accumulation, native raw values and independent supplied lines on the existing shared scale. Dual axes, horizontal composition and area composition remain subsequent work. The user explicitly continued the human deferral; use the [current sheet](experiments/RC20_HUMAN_REVIEW.md) without changing F09/R06/G2/G3/G4 until actual listening evidence exists.
+
+
+## NG17 composed-area follow-up
+
+The user authorized the [area composition increment](experiments/NG17_COMPOSED_AREAS.md) after publishing the preserved rc.21 archive. Local rc.22 adds typed area descriptors, gradient/solid fills and separate same-sign area stack groups on the existing shared category/value scale. Supplied lines and point/table values remain raw, missing observations remain missing, and immutable kind changes clear obsolete presentation. The pure area-fill helper is shared with standalone areas; no additional engine or dependency is introduced. The linked report owns actual source, consumer, browser, performance and candidate results. Public next is rc.21 until another verified publication; human F09/R06/G2/G3/G4 remain deferred/pending.

@@ -1,8 +1,8 @@
 # Published prerelease verification
 
-The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.19`; the current stacked-composition source candidate is separate. The user selected MIT for original library code on 13 November 2026. The user selected this experimental public identity and explicitly deferred the human listening session while requesting publication under `next`. Human gates remain pending. This checklist separates verified artifact behavior from release decisions and the deferred human interpretation review.
+The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.21`; the current area-composition source candidate is rc.22. The user selected MIT for original library code on 13 November 2026. The user selected this experimental public identity and explicitly deferred the human listening session while requesting publication under `next`. Human gates remain pending. This checklist separates verified artifact behavior from release decisions and the deferred human interpretation review.
 
-The rc.19 publication and registry-consumer status are recorded in its [receipt](experiments/public-rc19/registry-verification.json). Actual npm tags are `next: 0.1.0-rc.19` and `latest: 0.1.0-rc.18`; npm rejected deletion of the initial `latest` alias. See the [registry receipt](experiments/public-rc18/registry-verification.json) and [publication procedure](PUBLICATION.md). These results are separate from the pending human interpretation gates.
+The rc.21 publication and registry-consumer status are recorded in its [receipt](experiments/public-rc21/registry-verification.json). Actual npm tags are `next: 0.1.0-rc.21` and `latest: 0.1.0-rc.18`; npm rejected deletion of the initial `latest` alias. See the [registry receipt](experiments/public-rc18/registry-verification.json) and [publication procedure](PUBLICATION.md). These results are separate from the pending human interpretation gates.
 
 ## Prepare and verify one artifact
 
@@ -19,10 +19,10 @@ For an already retained archive, run `npm run release:check`; do not run prepara
 
 Outputs:
 
-- `dist/releases/mantha911-ng-echarts-0.1.0-rc.21.tgz` — local candidate.
+- `dist/releases/mantha911-ng-echarts-0.1.0-rc.21.tgz` — preserved published rc.21 archive.
 - `dist/releases/mantha911-ng-echarts-0.1.0-rc.21.tgz.sha256` — SHA-256 checksum.
 - `dist/releases/release-manifest.json` — inventory, hashes, metadata, source snapshot and verification results.
-- [Current candidate evidence](experiments/data/local-release-0.1.0-rc.21.json) — tracked copy of the verified manifest after the check.
+- [Preserved rc.21 evidence](experiments/data/local-release-0.1.0-rc.21.json) — tracked copy of the verified manifest after the check.
 
 Earlier rc.0 artifact results remain preserved in the [NG16 record](experiments/data/ng16-local-release.json). The [rc.1 manifest](experiments/data/local-release-0.1.0-rc.1.json), [rc.2 manifest](experiments/data/local-release-0.1.0-rc.2.json) and [rc.3 manifest](experiments/data/local-release-0.1.0-rc.3.json) are also preserved. Each version writes its own evidence filename. The [rc.4 manifest](experiments/data/local-release-0.1.0-rc.4.json) and archive are preserved; the [rc.5 manifest](experiments/data/local-release-0.1.0-rc.5.json) remains preserved too; the [rc.6 manifest](experiments/data/local-release-0.1.0-rc.6.json) and archive remain unchanged and the [rc.7 manifest](experiments/data/local-release-0.1.0-rc.7.json) and archive remain preserved with subsequent rc.8–rc.12 records retained separately below.
 
@@ -47,7 +47,7 @@ The `check:docs` and `check:runtime` scripts accept the same variables. Without 
 
 ## Verify the published registry package
 
-All three consumer scripts support exact registry installs. The helper verifies the fetched registry tarball before each consumer installs by its exact npm identity. Use the matching rc.19 source checkout (`fb6cb05e5c985bca7f2f06bddf6460795ab511a3`) and the digest from its committed [registry receipt](experiments/public-rc19/registry-verification.json); current rc.21 source intentionally rejects a mismatched registry identity:
+All three consumer scripts support exact registry installs. The helper verifies the fetched registry tarball before each consumer installs by its exact npm identity. Use the matching rc.19 source checkout (`fb6cb05e5c985bca7f2f06bddf6460795ab511a3`) and the digest from its committed [registry receipt](experiments/public-rc19/registry-verification.json); current rc.22 source intentionally rejects a mismatched registry identity:
 
 ```sh
 export CHART_LIBRARY_REGISTRY_SPEC="@mantha911/ng-echarts@0.1.0-rc.19"
@@ -119,4 +119,9 @@ The [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md) introduced `0.
 
 ## rc.20 named composed stacks
 
-Source now targets documentation-corrected `0.1.0-rc.21` for [named composed stacks](experiments/NG17_STACKED_COMPOSED.md). Preserve the verified rc.19 archive/checksum/versioned manifest; never repack or overwrite it for the new API. The rc.20 runtime is preserved in a documentation-only rc.21 successor; the report owns exact-artifact results. rc.21 is a local candidate, not a claimed registry publication. Human interpretation and G2/G3/G4 remain pending; the user explicitly continued the listening deferral on 15 November.
+That checkpoint targeted documentation-corrected `0.1.0-rc.21` for [named composed stacks](experiments/NG17_STACKED_COMPOSED.md). Preserve the verified rc.19 archive/checksum/versioned manifest; never repack or overwrite it for the new API. The rc.20 runtime is preserved in a documentation-only rc.21 successor; the report owns exact-artifact results. rc.21 was subsequently published; its registry receipt is linked above. Human interpretation and G2/G3/G4 remain pending; the user explicitly continued the listening deferral on 15 November.
+
+
+## rc.22 composed areas and trusted publishing
+
+The [area increment](experiments/NG17_COMPOSED_AREAS.md) owns the new local rc.22 contract and pending final results. Preserve the published rc.21 archive and all earlier candidates. Prepare rc.22 only after its packaged README/changelog and runtime are final. The [trusted publishing workflow](../.github/workflows/publish-prerelease.yml) can use only an exact reviewed artifact from fully successful CI for its own main commit; no push/tag automatically publishes a package. Record successful npm registration and an actual OIDC run before claiming automation is active. Human interpretation remains deferred.

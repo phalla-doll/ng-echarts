@@ -8,6 +8,7 @@ import {
   ComposedChart as RootComposedChart,
   type ComposedBarSeries,
   type ComposedLineSeries,
+  type ComposedAreaSeries,
 } from '@mantha911/ng-echarts';
 interface Row {
   id: string;
@@ -31,6 +32,7 @@ export class ComposedConsumer {
   readonly rows: readonly Row[] = [{ id: 'a', category: 'A', value: 0, trend: 1 }];
   readonly series: readonly ComposedSeries<Row>[] = [
     { id: 'v', key: 'value', label: 'V', kind: 'bar', stack: 'visits' },
+    { id: 'area', key: 'value', label: 'Area', kind: 'area', stack: 'total', gradient: true },
     { id: 't', key: 'trend', label: 'T', kind: 'line', smooth: true, showPoints: false },
   ];
   select(point: PointSelection<Row>) {
@@ -42,8 +44,8 @@ export class ComposedConsumer {
 const badKey: ComposedSeries<Row> = { id: 'v', key: 'category', label: 'V', kind: 'bar' };
 // @ts-expect-error The kind discriminator is required.
 const missingKind: ComposedSeries<Row> = { id: 'v', key: 'value', label: 'V' };
-// @ts-expect-error This increment accepts bar/line, not area.
-const badKind: ComposedSeries<Row> = { id: 'v', key: 'value', label: 'V', kind: 'area' };
+// @ts-expect-error Unsupported kinds are rejected.
+const badKind: ComposedSeries<Row> = { id: 'v', key: 'value', label: 'V', kind: 'scatter' };
 const badBar: ComposedBarSeries<Row> = {
   id: 'v',
   key: 'value',
@@ -78,3 +80,13 @@ const numericStack: ComposedBarSeries<Row> = {
   stack: 1,
 };
 void [stackedLine, numericStack];
+
+const invalidArea: ComposedAreaSeries<Row> = {
+  id: 'a',
+  key: 'value',
+  label: 'A',
+  kind: 'area',
+  // @ts-expect-error Area fills require booleans.
+  gradient: 'yes',
+};
+void invalidArea;

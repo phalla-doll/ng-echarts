@@ -34,7 +34,7 @@ it('retains native raw actions and recovers from invalid kind/settings across lo
     value: 0,
     source: 'table',
   });
-  fixture.componentRef.setInput('series', [{ ...series[0], kind: 'area' }]);
+  fixture.componentRef.setInput('series', [{ ...series[0], kind: 'scatter' }]);
   await fixture.whenStable();
   expect(host.querySelector('[role=alert]')?.textContent).toContain('kind');
   fixture.componentRef.setInput('loading', true);

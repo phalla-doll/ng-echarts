@@ -134,3 +134,8 @@ The user-authorized [follow-up](experiments/PERFORMANCE_FOLLOW_UP.md) adds opt-i
 ## Named composed stacks and delivery follow-up
 
 The [NG17 stacked-composition report](experiments/NG17_STACKED_COMPOSED.md) owns rc.20 checks for strict descriptors/runtime errors (F01), signed/grouped/hidden stacks and immutable updates (F02), raw formatted values (F03), state recovery (F04), raw plot/table actions and stable legend/focus behavior (F05), responsive rendering (F06), theme/motion (F07/F08), native alternatives (automated F09), and isolated package/hydration/teardown (F10). The [rc.19 checkpoint](experiments/RC19_RELEASE_REVIEW.md) preserves exact artifact evidence independently. Human F09/R06/G2/G3/G4 remain pending under the user's renewed deferral; the [current review sheet](experiments/RC20_HUMAN_REVIEW.md) includes pagination and stacked interpretation.
+
+
+## NG17 composed-area follow-up
+
+The user authorized the [area composition increment](experiments/NG17_COMPOSED_AREAS.md) after publishing the preserved rc.21 archive. Local rc.22 adds typed area descriptors, gradient/solid fills and separate same-sign area stack groups on the existing shared category/value scale. Supplied lines and point/table values remain raw, missing observations remain missing, and immutable kind changes clear obsolete presentation. The pure area-fill helper is shared with standalone areas; no additional engine or dependency is introduced. The linked report owns actual source, consumer, browser, performance and candidate results. Public next is rc.21 until another verified publication; human F09/R06/G2/G3/G4 remain deferred/pending.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-rc.22 — Composed areas
+
+- Add typed area series to shared-axis composed charts, with optional gradient/solid fills, named area stacks, raw events and existing curve settings.
+- Keep bar and area stack groups separate, preserve missing values and isolate area/bar/line presentation during kind changes.
+- Reuse shared area-fill construction without new renderer modules or dependencies; preserve rc.21 and all earlier artifacts. Human review remains deferred.
+
 ## 0.1.0-rc.21 — Documentation correction
 
 - Correct packaged availability/version guidance after rc.19 publication, and document pagination and named composed stacks by their introduction versions.

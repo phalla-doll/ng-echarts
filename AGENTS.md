@@ -2,7 +2,7 @@
 
 ## Project Structure and Scope
 
-Angular 22 chart library using Apache ECharts. Bar, line, area, pie/donut and the first shared-axis composed increment are implemented. NG20 adds linked charts with native and graphical month ranges. NG14 automated acceptance and NG15 documentation are recorded; human interpretation and release gates remain open. The demo is deployed to GitHub Pages. Experimental `@mantha911/ng-echarts@0.1.0-rc.19` is published on npm under `next` (`latest` retains rc.18); human F09/R06/G2/G3/G4 remain pending under the user’s explicit prerelease deferral.
+Angular 22 chart library using Apache ECharts. Bar, line, area, pie/donut and the first shared-axis composed increment are implemented. NG20 adds linked charts with native and graphical month ranges. NG14 automated acceptance and NG15 documentation are recorded; human interpretation and release gates remain open. The demo is deployed to GitHub Pages. Experimental `@mantha911/ng-echarts@0.1.0-rc.21` is published on npm under `next` (`latest` retains rc.18); human F09/R06/G2/G3/G4 remain pending under the user’s explicit prerelease deferral.
 
 - `README.md`: overview and document index.
 - `docs/PRODUCT_SPEC.md`: MVP scope and required behavior.
@@ -66,6 +66,11 @@ The rc.18 publication is complete. npm retains both `next` and its initial `late
 
 ## 15 November delivery follow-up
 
-The user authorized completing rc.19 delivery, reconciling deployment records and extending composed charts with named bar stacks, and explicitly continued the human-review deferral. rc.19 preserves the exact verified performance/Angular artifact and is published under `next`; the initial `latest` alias remains rc.18. Preserve both registry archives and all earlier candidates. Stacked composition has a separate rc.20 artifact and report. rc.21 corrects packaged documentation only after rc.19 publication, preserving rc.20 runtime/declarations and every archive. Current source/local candidate is rc.21; npm next remains rc.19. Do not change archived contents in place. Current human interpretation preparation is in `docs/experiments/RC20_HUMAN_REVIEW.md`; F09/R06/G2/G3/G4 remain pending. The prior rc.18 publication section remains historical evidence.
+The user authorized completing rc.19 delivery, reconciling deployment records and extending composed charts with named bar stacks, and explicitly continued the human-review deferral. rc.19 preserves the exact verified performance/Angular artifact and is published under `next`; the initial `latest` alias remains rc.18. Preserve both registry archives and all earlier candidates. Stacked composition has a separate rc.20 artifact and report. rc.21 corrects packaged documentation only after rc.19 publication, preserving rc.20 runtime/declarations and every archive. At that checkpoint source/local candidate was rc.21 and npm next remained rc.19. Do not change archived contents in place. Current human interpretation preparation is in `docs/experiments/RC20_HUMAN_REVIEW.md`; F09/R06/G2/G3/G4 remain pending. The prior rc.18 publication section remains historical evidence.
 
 Use `npm run benchmark:composed:stacked` to measure the named-stack variant separately from other workloads. It preserves the original composed benchmark record and asserts actual rendered stack membership.
+
+
+## Composed-area continuation — 15 November
+
+The user authorized completing CI verification, publishing the exact rc.21 artifact and implementing area/line composition, while retaining the human-review deferral. rc.21 is published under next (latest retains rc.18); its immutable archive is preserved. rc.22 adds composed areas, independent fills and named area stacks separate from bar groups, with shared pure area-fill construction and unchanged renderer registration. Keep the current increment evidence in `docs/experiments/NG17_COMPOSED_AREAS.md`. The manually dispatched trusted-publishing workflow requires exact main/CI/artifact identity and registry verification; registration/first OIDC delivery must have evidence before being called active. Human F09/R06/G2/G3/G4 remain pending.

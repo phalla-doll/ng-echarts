@@ -1,0 +1,76 @@
+name: Publish verified experimental prerelease
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Exact source version (0.1.0-rc.N)
+        required: true
+        type: string
+      sha256:
+        description: Reviewed canonical tarball SHA-256
+        required: true
+        type: string
+      ci_run_id:
+        description: Successful Workspace checks run for this exact main commit
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: npm-experimental-publication
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment: npm-prerelease
+    permissions:
+      contents: read
+      actions: read
+      id-token: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_VERSION: ${{ inputs.version }}
+      RELEASE_SHA256: ${{ inputs.sha256 }}
+      RELEASE_CI_RUN: ${{ inputs.ci_run_id }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+      - run: npm install --global npm@11.19.1
+      - run: npm ci
+      - run: node --test tools/prerelease-guards.spec.mjs
+      - run: node tools/publish-prerelease.mjs request
+      - uses: actions/download-artifact@v7
+        with:
+          name: release-candidate
+          run-id: ${{ inputs.ci_run_id }}
+          github-token: ${{ github.token }}
+          path: tmp/publish-artifact
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - run: node tools/publish-prerelease.mjs publish
+      - name: Verify fresh registry consumers
+        env:
+          CHART_LIBRARY_REGISTRY_SPEC: '@mantha911/ng-echarts@${{ inputs.version }}'
+          CHART_LIBRARY_TARBALL_SHA256: ${{ inputs.sha256 }}
+        run: |
+          npm run check:consumer
+          npm run check:docs
+          npm run check:runtime
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: published-release-${{ inputs.version }}
+          path: |
+            dist/published-release/
+            docs/experiments/data/ng15-documentation-consumer.json
+            docs/experiments/data/packed-runtime.json
+          if-no-files-found: ignore

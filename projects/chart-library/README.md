@@ -1,6 +1,6 @@
 # Angular chart library
 
-Experimental standalone Angular 22 components using Apache ECharts. Public prerelease identity: `@mantha911/ng-echarts`. Current candidate: `0.1.0-rc.21`. Public prereleases use the `next` tag; consult the repository publication record for the current registry version. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. The API is experimental; human screen-reader interpretation remains unreviewed at the user’s request.
+Experimental standalone Angular 22 components using Apache ECharts. Public prerelease identity: `@mantha911/ng-echarts`. Current candidate: `0.1.0-rc.22`. Public prereleases use the `next` tag; consult the repository publication record for the current registry version. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. The API is experimental; human screen-reader interpretation remains unreviewed at the user’s request.
 
 ## Installation
 
@@ -13,10 +13,10 @@ npm install @mantha911/ng-echarts@next echarts@6.1.0
 For a retained exact local candidate:
 
 ```sh
-npm install /absolute/path/to/mantha911-ng-echarts-0.1.0-rc.21.tgz echarts@6.1.0
+npm install /absolute/path/to/mantha911-ng-echarts-0.1.0-rc.22.tgz echarts@6.1.0
 ```
 
-Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes. Table pagination is available since rc.19. Named composed bar stacks require rc.20 or later. The exact local candidate includes both; a registry install must resolve a version containing the features you use.
+Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes. Table pagination is available since rc.19. Named composed bar stacks require rc.20 or later. Composed areas require rc.22 or later. The exact local candidate includes these features; a registry install must resolve a version containing the features you use.
 
 No global ECharts registration, library stylesheet, Angular provider or React runtime is required. The package supplies scoped styles and a lazy Canvas renderer. Give its containing card a nonzero width. Cartesian/radar/pie plot height defaults to 320 px, with native controls adding to total height; radial progress defaults to 240 px and calendar/Sankey use family-specific layouts.
 
@@ -68,7 +68,7 @@ The installed-declaration check compiles this exact packaged example, each API g
 | `PieChart<T>` | `@mantha911/ng-echarts/pie` | One measure across categories; innerRadius 0 for pie, 0.6 for donut; optional outside labels |
 | `RadialProgress` | `@mantha911/ng-echarts/radial` | Scalar completion with a positive maximum, native progress semantics and a decorative ring |
 | `RadarChart<T>` | `@mantha911/ng-echarts/radar` | 3–12 dimensions, 1–4 comparison series, explicit zero-to-maximum scales and native table controls |
-| `ComposedChart<T>` | `@mantha911/ng-echarts/composed` | Vertical unstacked bars and lines on one shared scale; typed per-series kind |
+| `ComposedChart<T>` | `@mantha911/ng-echarts/composed` | Bars, lines and areas on one shared scale; separate named bar/area stacks |
 | `CalendarHeatmap<T>` | `@mantha911/ng-echarts/calendar` | Single explicit year and maximum, strict date-only observations, native monthly tables and responsive year/quarter layout |
 | `SankeyChart<N, L>` | `@mantha911/ng-echarts/sankey` | Horizontal directed acyclic flows, up to 24 nodes/60 links, native node totals and link actions |
 | `ChartFrame` and shared types | `@mantha911/ng-echarts/core` | Presentation shell with required title, optional description and projected content; no engine runtime |
@@ -107,7 +107,7 @@ Raw ECharts options, custom tooltip templates, time/logarithmic axes, server plo
 
 ## Composed charts
 
-The post-MVP `ComposedChart` and `ComposedSeries<T>` exports in `/composed` combine vertical bars and lines on one category/value scale. Every descriptor adds `kind: 'bar' | 'line'` to the shared series fields; lines accept `smooth` and `showPoints`. Supply comparable units. The renderer uses supplied trend values; the demo computes its trailing mean separately. Bars optionally accept a nonempty `stack` name: equal names stack by sign; omitted names keep bars grouped. Lines remain independent supplied values. Dual axes and area composition remain outside this increment. Named composed stacks require rc.20 or later; published rc.18 does not contain this API.
+The post-MVP `ComposedChart` and `ComposedSeries<T>` exports in `/composed` combine vertical bars, lines and areas on one category/value scale. Every descriptor adds `kind: 'bar' | 'line' | 'area'` to the shared series fields; lines accept `smooth` and `showPoints`. Supply comparable units. The renderer uses supplied trend values; the demo computes its trailing mean separately. Bars optionally accept a nonempty `stack` name: equal names stack by sign; omitted names keep bars grouped. Lines remain independent supplied values. Area descriptors (rc.22+) accept smooth/showPoints, gradient (default true) and optional stack names. Bar and area stack groups are separate even when their public names match. Positive/negative values accumulate separately; a missing observation stays missing, with other observed series still available. Raw actions never return cumulative totals. Dual axes remain outside this increment. Named bar stacks are available in published rc.21. Composed areas require rc.22 or later.
 
 ## Controlled bar selection
 

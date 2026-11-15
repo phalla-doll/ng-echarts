@@ -36,6 +36,9 @@ const composedSeries: readonly ComposedSeries<Row>[] = series.map((item, index) 
 const stackedComposedSeries = composedSeries.map((item) =>
   item.kind === 'bar' ? { ...item, stack: 'visits' } : item,
 );
+const areaComposedSeries: readonly ComposedSeries<Row>[] = composedSeries.map((item) =>
+  item.kind === 'bar' ? { ...item, kind: 'area', gradient: true, stack: 'visits' } : item,
+);
 let onFinished: ((chart: EChartsType) => void) | undefined;
 // Public ECharts hook: subscribe before the library's first setOption, without changing its API.
 registerPostInit((chart) => chart.on('finished', () => onFinished?.(chart)));
@@ -95,6 +98,8 @@ export class Benchmark {
   private readonly destroy = inject(DestroyRef);
   private readonly route = inject(ActivatedRoute);
   private readonly family = this.route.snapshot.data['family'];
+  private readonly area =
+    this.family === 'composed' && this.route.snapshot.queryParamMap.get('area') === '1';
   private readonly stacked =
     this.family === 'composed' && this.route.snapshot.queryParamMap.get('stacked') === '1';
   protected readonly benchmarkTitle =
@@ -164,9 +169,11 @@ export class Benchmark {
         : {
             series:
               this.family === 'composed'
-                ? this.stacked
-                  ? stackedComposedSeries
-                  : composedSeries
+                ? this.area
+                  ? areaComposedSeries
+                  : this.stacked
+                    ? stackedComposedSeries
+                    : composedSeries
                 : series,
           }),
       rowIdKey: 'id',
@@ -191,7 +198,8 @@ export class Benchmark {
         if (!chart.getDom().closest('[data-benchmark-host]')) return;
         const options = chart.getOption();
         const renderedSeries = options['series'] as
-          { data?: { value?: number }[]; stack?: string; type?: string }[] | undefined;
+          | { data?: { value?: number }[]; stack?: string; type?: string; areaStyle?: unknown }[]
+          | undefined;
         if (
           renderedSeries?.[0]?.data?.length !== count ||
           renderedSeries[0]?.data?.[0]?.value !== phase
@@ -200,13 +208,22 @@ export class Benchmark {
         clearTimeout(timeout);
         onFinished = undefined;
         if (
-          this.stacked &&
-          (renderedSeries[0]?.stack !== 'visits' ||
-            renderedSeries[2]?.stack !== 'visits' ||
+          (this.stacked || this.area) &&
+          (renderedSeries[0]?.stack !== (this.area ? 'nec-area:visits' : 'nec-bar:visits') ||
+            renderedSeries[2]?.stack !== (this.area ? 'nec-area:visits' : 'nec-bar:visits') ||
             renderedSeries[1]?.type !== 'line' ||
             renderedSeries[1]?.stack != null)
         ) {
-          reject(new Error('Expected two stacked bars and an independent line'));
+          reject(new Error('Expected two named stacked series and an independent line'));
+          return;
+        }
+        if (
+          this.area &&
+          (!('areaStyle' in (renderedSeries[0] ?? {})) ||
+            !('areaStyle' in (renderedSeries[2] ?? {})) ||
+            'areaStyle' in (renderedSeries[1] ?? {}))
+        ) {
+          reject(new Error('Expected filled areas and an independent line'));
           return;
         }
         resolve(end - start);

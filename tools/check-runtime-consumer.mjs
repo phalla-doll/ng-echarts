@@ -262,7 +262,7 @@ async function exercise(engine, url, ssr) {
     await expect(page.locator('canvas')).toHaveCount(0);
     await navigation.getByRole('link', { name: 'Composed Blocks', exact: true }).click();
     await renderGallery(page);
-    await expect(page.locator('nec-composed-chart canvas')).toHaveCount(2);
+    await expect(page.locator('nec-composed-chart canvas')).toHaveCount(4);
     await navigation.getByRole('link', { name: 'Composed validation', exact: true }).click();
     const composed = page.locator('.primary-composed nec-composed-chart');
     await expect(composed.locator('canvas')).toHaveCount(1);
@@ -292,6 +292,15 @@ async function exercise(engine, url, ssr) {
     await expect(page.locator('.selection')).toHaveText('a/mobile/40/table');
     await page.getByRole('button', { name: 'Separate bar stacks', exact: true }).click();
     await page.getByRole('button', { name: 'Use unstacked bars', exact: true }).click();
+    await expect(composed.locator('canvas')).toHaveCount(1);
+    await page.getByRole('button', { name: 'Use stacked areas', exact: true }).click();
+    await composed
+      .getByRole('button', { name: 'Select Mobile for April: -20', exact: true })
+      .focus();
+    await page.keyboard.press('Enter');
+    await expect(page.locator('.selection')).toHaveText('d/mobile/-20/table');
+    await page.getByRole('button', { name: 'Use area series', exact: true }).click();
+    await page.getByRole('button', { name: 'Toggle area fill', exact: true }).click();
     await expect(composed.locator('canvas')).toHaveCount(1);
     if (ssr) {
       await page

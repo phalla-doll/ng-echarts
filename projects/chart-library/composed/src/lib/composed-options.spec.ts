@@ -79,8 +79,8 @@ it('retains category geometry and palette slots as bars/lines are hidden', () =>
 });
 it('supports descriptor reordering and switching kind without retaining obsolete line settings', () => {
   const swapped: readonly ComposedSeries<Row>[] = [
-    { ...series[1]!, kind: 'bar', smooth: undefined, showPoints: undefined },
-    { ...series[0]!, kind: 'line', stack: undefined, showPoints: true },
+    { ...series[1]!, kind: 'bar', smooth: undefined, showPoints: undefined, gradient: undefined },
+    { ...series[0]!, kind: 'line', stack: undefined, showPoints: true, gradient: undefined },
   ];
   const model = ɵnormalizeCartesianData(rows, 'id', 'category', swapped);
   if (model.kind === 'error') throw new Error(model.message);
@@ -99,7 +99,7 @@ it('supports descriptor reordering and switching kind without retaining obsolete
   ]);
 });
 it.each([
-  [{ kind: 'area' }, 'kind'],
+  [{ kind: 'scatter' }, 'kind'],
   [{ kind: 'bar', smooth: false }, 'bar series'],
   [{ kind: 'line', smooth: 'yes' }, 'booleans'],
   [{ kind: 'line', showPoints: 0 }, 'booleans'],
@@ -108,7 +108,7 @@ it.each([
   [{ kind: 'bar', stack: ' visits' }, 'stack names'],
   [{ kind: 'bar', stack: null }, 'stack names'],
   [{ kind: 'bar', stack: 1 }, 'stack names'],
-  [{ kind: 'line', stack: 'visits' }, 'line series'],
+  [{ kind: 'line', stack: 'nec-bar:visits' }, 'line series'],
 ])('rejects invalid mixed descriptors: %o', (settings, message) => {
   expect(
     composedSeriesError([
@@ -142,7 +142,7 @@ it('stacks only named bar groups and caps each visible signed end without changi
   expect(options.series).toMatchObject([
     {
       id: 'first',
-      stack: 'visits',
+      stack: 'nec-bar:visits',
       stackStrategy: 'samesign',
       data: [
         { value: 10, itemStyle: { borderRadius: 0 } },
@@ -154,7 +154,7 @@ it('stacks only named bar groups and caps each visible signed end without changi
     },
     {
       id: 'second',
-      stack: 'visits',
+      stack: 'nec-bar:visits',
       data: [
         { value: 20, itemStyle: { borderRadius: [2, 2, 0, 0] } },
         { value: -20, itemStyle: { borderRadius: [0, 0, 2, 2] } },
@@ -165,7 +165,7 @@ it('stacks only named bar groups and caps each visible signed end without changi
     },
     {
       id: 'other',
-      stack: 'comparison',
+      stack: 'nec-bar:comparison',
       data: expect.arrayContaining([
         expect.objectContaining({ value: 30, itemStyle: { borderRadius: [2, 2, 0, 0] } }),
       ]),
@@ -199,4 +199,104 @@ it('stacks only named bar groups and caps each visible signed end without changi
     data: expect.arrayContaining([expect.objectContaining({ id: 'positive', value: 10 })]),
     itemStyle: { borderRadius: 2 },
   });
+});
+
+for (const gradient of [false, true])
+  for (const smooth of [false, true])
+    for (const showPoints of [false, true])
+      for (const stacked of [false, true]) {
+        it(`builds independent raw composed areas gradient=${gradient} smooth=${smooth} points=${showPoints} stack=${stacked}`, () => {
+          const descriptors: readonly ComposedSeries<Row>[] = [
+            {
+              id: 'visits',
+              key: 'visits',
+              label: 'Visits',
+              kind: 'area',
+              gradient,
+              smooth,
+              showPoints,
+              ...(stacked ? { stack: 'shared' } : {}),
+            },
+            { id: 'trend', key: 'trend', label: 'Trend', kind: 'line' },
+          ];
+          const model = ɵnormalizeCartesianData(rows, 'id', 'category', descriptors);
+          if (model.kind === 'error') throw new Error(model.message);
+          const options = buildComposedOptions({ ...context(), model }, descriptors);
+          const rendered = options.series as {
+            stack?: string;
+            areaStyle?: unknown;
+            data?: unknown[];
+          }[];
+          expect(rendered[0]).toMatchObject({
+            id: 'visits',
+            type: 'line',
+            z: 1,
+            smooth,
+            showSymbol: showPoints,
+            stack: stacked ? 'nec-area:shared' : undefined,
+            connectNulls: false,
+            triggerEvent: true,
+            areaStyle: { opacity: 1 },
+            data: [
+              { id: 'a', value: 10 },
+              { id: 'b', value: '-' },
+              { id: 'c', value: 20 },
+            ],
+          });
+          expect(rendered[0]?.areaStyle).toMatchObject({
+            color: gradient
+              ? {
+                  type: 'linear',
+                  colorStops: [
+                    { offset: 0, color: 'rgba(16,185,129,0.22)' },
+                    { offset: 1, color: 'rgba(16,185,129,0.04)' },
+                  ],
+                }
+              : 'rgba(16,185,129,0.16)',
+          });
+          expect(rendered[1]?.areaStyle).toBeUndefined();
+          expect(rendered[1]?.stack).toBeUndefined();
+          expect(composedSeriesError(descriptors)).toBeNull();
+          const switched: readonly ComposedSeries<Row>[] = [
+            { id: 'visits', key: 'visits', label: 'Visits', kind: 'line' },
+            descriptors[1]!,
+          ];
+          const replacement = buildComposedOptions({ ...context(), model }, switched);
+          expect(
+            (replacement.series as { areaStyle?: unknown; stack?: unknown }[])[0]?.areaStyle,
+          ).toBeUndefined();
+          expect((replacement.series as { stack?: unknown }[])[0]?.stack).toBeUndefined();
+        });
+      }
+it('separates identically named area and bar stacks and excludes hidden areas without changing raw signs', () => {
+  const descriptors: readonly ComposedSeries<Row>[] = [
+    { id: 'visits', key: 'visits', label: 'Visits', kind: 'area', stack: 'same' },
+    { id: 'trend', key: 'trend', label: 'Trend', kind: 'bar', stack: 'same' },
+  ];
+  const model = ɵnormalizeCartesianData(rows, 'id', 'category', descriptors);
+  if (model.kind === 'error') throw new Error(model.message);
+  const options = buildComposedOptions({ ...context(), model }, descriptors);
+  expect(options.series).toMatchObject([
+    { stack: 'nec-area:same', data: [{ value: 10 }, { value: '-' }, { value: 20 }] },
+    { stack: 'nec-bar:same', data: [{ value: -3 }, { value: 0 }, { value: '-' }] },
+  ]);
+  const hidden = buildComposedOptions(
+    { ...context(), model, hiddenIds: new Set(['visits']) },
+    descriptors,
+  );
+  expect(hidden.series).toHaveLength(1);
+  expect(hidden.series).toMatchObject([{ id: 'trend' }]);
+});
+it.each([
+  { kind: 'area', gradient: 'yes' },
+  { kind: 'area', smooth: 1 },
+  { kind: 'area', stack: ' ' },
+  { kind: 'line', gradient: false },
+  { kind: 'bar', gradient: true },
+])('rejects invalid area/fill configuration %o', (settings) => {
+  expect(
+    composedSeriesError([
+      { id: 'v', key: 'visits', label: 'V', ...settings } as unknown as ComposedSeries<Row>,
+    ]),
+  ).not.toBeNull();
 });

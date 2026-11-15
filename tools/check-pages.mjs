@@ -135,7 +135,7 @@ async function checkPages() {
           ['line/', 4],
           ['area/', 4],
           ['pie/', 3],
-          ['composed/', 2],
+          ['composed/', 4],
           ['radar/', 1],
           ['radial/', 2],
         ]) {

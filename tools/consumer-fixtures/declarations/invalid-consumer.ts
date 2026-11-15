@@ -161,7 +161,7 @@ import { ComposedChart } from '@mantha911/ng-echarts/composed';
 })
 export class InvalidComposedKind {
   readonly rows = [{ id: 'a', category: 'A', count: 1 }];
-  readonly series = [{ id: 'v', key: 'count', label: 'V', kind: 'area' }] as const;
+  readonly series = [{ id: 'v', key: 'count', label: 'V', kind: 'scatter' }] as const;
 }
 @Component({
   imports: [ComposedChart],

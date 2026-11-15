@@ -2,7 +2,7 @@
 
 The experimental public identity is `@mantha911/ng-echarts`; prereleases use the `next` dist-tag. The exact-artifact procedure below uses a tarball from this checkout. Use Node **24.22.2** from `.nvmrc` and npm **11.19.1**. The [compatibility table](COMPATIBILITY.md) separates tested versions from declared peer ranges.
 
-As verified on 15 November 2026, npm `next` selects rc.19 and the initial `latest` alias remains rc.18. A bare install resolves rc.18. Use `@next` deliberately or pin `@0.1.0-rc.19` for a repeatable dependency, then retain the lockfile. The [publication receipt](experiments/public-rc18/registry-verification.json) records the exact registry integrity and the rejected attempt to remove the initial `latest` alias.
+As verified on 15 November 2026, npm `next` selects rc.21 and the initial `latest` alias remains rc.18. A bare install resolves rc.18. Use `@next` deliberately or pin `@0.1.0-rc.21` for a repeatable dependency, then retain the lockfile. The [publication receipt](experiments/public-rc18/registry-verification.json) records the exact registry integrity and the rejected attempt to remove the initial `latest` alias.
 
 
 Registry prerelease installation:
@@ -20,7 +20,7 @@ Run these commands in the repository root after selecting the toolchain:
 ```sh
 npm ci
 npm run pack:lib
-export CHART_LIBRARY_TARBALL="$PWD/dist/mantha911-ng-echarts-0.1.0-rc.21.tgz"
+export CHART_LIBRARY_TARBALL="$PWD/dist/mantha911-ng-echarts-0.1.0-rc.22.tgz"
 ```
 
 The `CHART_LIBRARY_TARBALL` variable is an absolute path for the commands below. If you open another terminal, set it to the actual tarball location. Keep the tarball available for subsequent installs, or copy it into the consuming project's `vendor/` directory before installing it. Commit the consumer's resulting lockfile and use `npm ci` for repeat installs. Rebuild/repack/reinstall when changing the library; a tarball installation does not watch the checkout.
@@ -118,4 +118,4 @@ The [API index and integration guide](INTEGRATION_GUIDE.md) cover shared types, 
 
 ## Unreleased source follow-up
 
-The current working tree targets `0.1.0-rc.21`; npm `next` identifies rc.19 and `latest` remains rc.18. Opt-in `tablePageSize` ships in published rc.19; named composed stacks require rc.20 or its documentation-corrected rc.21 successor. Use a local source build until a matching version is published. Run `npm run pack:lib`, then install `dist/mantha911-ng-echarts-0.1.0-rc.21.tgz` in the consumer instead of the registry version. Preserve published rc.19, rc.18 and all previous archives. The [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md) records the new behavior and source checks; it does not record a new publication.
+The current working tree targets `0.1.0-rc.22`; npm `next` identifies rc.21 and `latest` remains rc.18. Opt-in `tablePageSize` ships in published rc.19; named bar stacks ship in rc.21; composed areas require local rc.22. Use a local source build until a matching version is published. Run `npm run pack:lib`, then install `dist/mantha911-ng-echarts-0.1.0-rc.22.tgz` in the consumer instead of the registry version. Preserve published rc.19, rc.18 and all previous archives. The [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md) records the new behavior and source checks; it does not record a new publication.

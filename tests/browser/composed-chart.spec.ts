@@ -4,6 +4,134 @@ import { expect, test, type Locator } from '@playwright/test';
 import { firstGreenBarPoint } from './canvas-point';
 import { collectBrowserErrors, installResourceAudit } from './resource-audit';
 
+async function areaInterior(canvas: Locator, color: 'green' | 'rose' = 'green') {
+  await canvas.scrollIntoViewIfNeeded();
+  return canvas.evaluate((element: HTMLCanvasElement, color) => {
+    const { width, height } = element;
+    const pixels = element
+      .getContext('2d', { willReadFrequently: true })!
+      .getImageData(0, 0, width, height).data;
+    const fill = (x: number, y: number) => {
+      const at = (y * width + x) * 4;
+      return color === 'green'
+        ? pixels[at]! > 150 &&
+            pixels[at + 1]! - pixels[at]! > 8 &&
+            pixels[at + 1]! - pixels[at + 2]! > 3
+        : pixels[at]! > 180 &&
+            pixels[at]! - pixels[at + 1]! > 8 &&
+            pixels[at]! - pixels[at + 2]! > 3;
+    };
+    const box = element.getBoundingClientRect();
+    for (let x = Math.floor(width * 0.15); x < width * 0.35; x++)
+      for (let y = 10; y < height - 10; y++)
+        if (
+          fill(x, y) &&
+          fill(x - 3, y - 3) &&
+          fill(x + 3, y - 3) &&
+          fill(x - 3, y + 3) &&
+          fill(x + 3, y + 3)
+        )
+          return { x: box.x + (x * box.width) / width, y: box.y + (y * box.height) / height };
+    return null;
+  }, color);
+}
+
+test('selects raw observations from a real area interior and clears fill/stack state across kind changes', async ({
+  page,
+}) => {
+  const errors = collectBrowserErrors(page);
+  await page.goto('/composed-validation');
+  const light = page.getByRole('button', { name: 'Use light theme', exact: true });
+  if (await light.count()) await light.click();
+  const chart = page.locator('.primary-composed nec-composed-chart');
+  const canvas = chart.locator('canvas');
+  await expect(canvas).toHaveCount(1);
+  const instance = await chart.locator('.plot').getAttribute('_echarts_instance_');
+  await page.getByRole('button', { name: 'Use area series', exact: true }).click();
+  await expect.poll(() => areaInterior(canvas)).not.toBeNull();
+  const point = (await areaInterior(canvas))!;
+  await page.mouse.click(point.x, point.y);
+  await expect(page.locator('.selection')).toHaveText(/^[ab]\/visits\/(100|200)\/plot$/);
+  await chart.getByRole('button', { name: 'Show data table', exact: true }).click();
+  await chart.getByRole('button', { name: 'Select Visits for April: -60', exact: true }).focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('.selection')).toHaveText('d/visits/-60/table');
+  await expect(chart.locator('tbody')).toContainText('Missing');
+  await page.getByRole('button', { name: 'Toggle area fill', exact: true }).click();
+  await page.getByRole('button', { name: 'Switch series kind', exact: true }).click();
+  await expect.poll(() => areaInterior(canvas)).toBeNull();
+  await page.getByRole('button', { name: 'Switch series kind', exact: true }).click();
+  await expect.poll(() => areaInterior(canvas)).toBeNull();
+  await expect(chart.locator('.plot')).toHaveAttribute('_echarts_instance_', instance!);
+  await page.getByRole('button', { name: 'Use stacked areas', exact: true }).click();
+  await expect.poll(() => areaInterior(canvas, 'rose')).not.toBeNull();
+  const upper = (await areaInterior(canvas, 'rose'))!;
+  await page.mouse.click(upper.x, upper.y);
+  await expect(page.locator('.selection')).toHaveText('a/mobile/40/plot');
+  expect(errors).toEqual([]);
+});
+
+test('retains area legend/focus identities, raw signed/zero/missing values and recovers invalid fill settings', async ({
+  page,
+}) => {
+  const errors = collectBrowserErrors(page);
+  await page.goto('/composed-validation');
+  const chart = page.locator('.primary-composed nec-composed-chart');
+  await expect(chart.locator('canvas')).toHaveCount(1);
+  await page.getByRole('button', { name: 'Use stacked areas', exact: true }).click();
+  await chart.getByRole('button', { name: 'Show data table', exact: true }).click();
+  const legend = chart.locator('.legend button').filter({ hasText: 'Mobile' });
+  await legend.click();
+  const value = chart.getByRole('button', { name: 'Select Mobile for April: -20', exact: true });
+  await value.focus();
+  await page
+    .getByRole('button', { name: 'Reorder composed inputs', exact: true })
+    .evaluate((button: HTMLButtonElement) => button.click());
+  await expect(value).toBeFocused();
+  await expect(legend).toHaveAttribute('aria-pressed', 'false');
+  await page.keyboard.press('Enter');
+  await expect(page.locator('.selection')).toHaveText('d/mobile/-20/table');
+  await page.getByRole('button', { name: 'Separate bar stacks', exact: true }).click();
+  await expect(legend).toHaveAttribute('aria-pressed', 'false');
+  await chart.getByRole('button', { name: 'Select Mobile for March: 0', exact: true }).click();
+  await expect(page.locator('.selection')).toHaveText('c/mobile/0/table');
+  await page.getByRole('button', { name: 'Invalid area settings', exact: true }).click();
+  await expect(chart.getByRole('alert')).toContainText('gradient');
+  await expect(chart.locator('canvas')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Use stacked areas', exact: true }).click();
+  await expect(chart.locator('canvas')).toHaveCount(1);
+  await expect(legend).toHaveAttribute('aria-pressed', 'false');
+  await page.getByRole('link', { name: 'Navigate away', exact: true }).click();
+  await expect(page.locator('canvas')).toHaveCount(0);
+  expect(errors).toEqual([]);
+});
+
+test('renders copyable area and stacked-area examples at every responsive theme/width', async ({
+  page,
+}) => {
+  const errors = collectBrowserErrors(page);
+  await page.goto('/composed');
+  for (const theme of ['light', 'dark']) {
+    const toggle = page.getByRole('button', { name: `Use ${theme} theme`, exact: true });
+    if (await toggle.count()) await toggle.click();
+    for (const width of [320, 390, 768, 1440]) {
+      await page.setViewportSize({ width, height: 1000 });
+      for (const id of ['area-visits-and-trend', 'stacked-area-visits-and-trend']) {
+        const block = page.locator('#' + id);
+        await block.scrollIntoViewIfNeeded();
+        await expect(block.locator('canvas')).toHaveCount(1);
+        await block.getByRole('button', { name: 'Code', exact: true }).click();
+        await expect(block.locator('.block-code')).toContainText('"kind": "area"');
+        await block.getByRole('button', { name: 'Preview', exact: true }).click();
+      }
+      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+        width,
+      );
+    }
+  }
+  expect(errors).toEqual([]);
+});
+
 async function firstBarSegment(canvas: Locator, color: 'green' | 'rose') {
   await canvas.scrollIntoViewIfNeeded();
   return canvas.evaluate((element: HTMLCanvasElement, color) => {

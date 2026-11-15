@@ -166,3 +166,8 @@ The rc.10 loading correction uses ECharts 6.1.0 package.json exports for `echart
 ## Named composed stacks follow-up — 15 November 2026
 
 The [NG17 stacked-composition increment](experiments/NG17_STACKED_COMPOSED.md) is an original extension of this repository's composed/bar builders. It uses Apache ECharts' documented [bar stack and same-sign strategy](https://echarts.apache.org/en/option.html#series-bar.stack); no additional upstream source, fixture, palette or dependency is copied. Existing EvilCharts-derived monthly fixture/palette attribution and all package notice bytes remain intact. rc.21 changes only documentation/metadata after the preserved rc.20 runtime checkpoint.
+
+
+## NG17 composed-area follow-up
+
+The user authorized the [area composition increment](experiments/NG17_COMPOSED_AREAS.md) after publishing the preserved rc.21 archive. Local rc.22 adds typed area descriptors, gradient/solid fills and separate same-sign area stack groups on the existing shared category/value scale. Supplied lines and point/table values remain raw, missing observations remain missing, and immutable kind changes clear obsolete presentation. The pure area-fill helper is shared with standalone areas; no additional engine or dependency is introduced. The linked report owns actual source, consumer, browser, performance and candidate results. Public next is rc.21 until another verified publication; human F09/R06/G2/G3/G4 remain deferred/pending.

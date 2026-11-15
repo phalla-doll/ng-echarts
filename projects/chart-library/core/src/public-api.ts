@@ -55,3 +55,5 @@ export { ChartStage as ɵChartStage } from './lib/chart-stage';
 export { TablePagination as ɵTablePagination } from './lib/table-pagination';
 export { TablePager as ɵTablePager } from './lib/table-pager';
 export { tooltipStyle as ɵtooltipStyle, tooltipMarkup as ɵtooltipMarkup } from './lib/tooltip';
+
+export { buildAreaFill as ɵbuildAreaFill } from './lib/area-fill';

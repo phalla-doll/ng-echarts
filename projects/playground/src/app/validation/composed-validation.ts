@@ -54,6 +54,10 @@ export class DeferredComposed {
       <button type="button" (click)="switchKind()">Switch series kind</button>
       <button type="button" (click)="togglePoints()">Toggle trend points</button>
       <button type="button" (click)="stackBars()">Use stacked bars</button>
+      <button type="button" (click)="areaSeries()">Use area series</button>
+      <button type="button" (click)="stackAreas()">Use stacked areas</button>
+      <button type="button" (click)="invalidArea()">Invalid area settings</button>
+      <button type="button" (click)="toggleFill()">Toggle area fill</button>
       <button type="button" (click)="separateStacks()">Separate bar stacks</button>
       <button type="button" (click)="ungroupBars()">Use unstacked bars</button>
       <button type="button" (click)="invalidateStack()">Invalid composed stack</button>
@@ -78,7 +82,7 @@ export class DeferredComposed {
       @if (mounted()) {
         <nec-composed-chart
           title="Visits and trend"
-          description="Signed, zero, and missing values preserve their raw meaning. Visits and Mobile share the visits stack when enabled; Trend is an independent supplied visits value."
+          description="Signed, zero, and missing values preserve their raw meaning. Bar and area stacks have separate groups; missing values stay missing and Trend is an independent supplied visits value."
           [data]="rows()"
           rowIdKey="id"
           categoryKey="month"
@@ -159,14 +163,58 @@ export class ComposedValidation {
       { id: 'trend', key: 'trend', label: 'Trend', kind: 'line' },
     ]);
   }
+  protected areaSeries() {
+    this.series.set([
+      { id: 'visits', key: 'visits', label: 'Visits', kind: 'area', gradient: false },
+      { id: 'mobile', key: 'mobile', label: 'Mobile', kind: 'bar', stack: 'visits' },
+      { id: 'trend', key: 'trend', label: 'Trend', kind: 'line' },
+    ]);
+  }
+  protected stackAreas() {
+    this.series.set([
+      {
+        id: 'visits',
+        key: 'visits',
+        label: 'Visits',
+        kind: 'area',
+        stack: 'visits',
+        gradient: false,
+      },
+      {
+        id: 'mobile',
+        key: 'mobile',
+        label: 'Mobile',
+        kind: 'area',
+        stack: 'visits',
+        gradient: false,
+      },
+      { id: 'trend', key: 'trend', label: 'Trend', kind: 'line' },
+    ]);
+  }
+  protected invalidArea() {
+    this.series.update((series) =>
+      series.map((item) =>
+        item.id === 'visits'
+          ? ({ ...item, kind: 'area', gradient: 'bad' } as unknown as ComposedSeries<ComposedRow>)
+          : item,
+      ),
+    );
+  }
+  protected toggleFill() {
+    this.series.update((series) =>
+      series.map((item) =>
+        item.kind === 'area' ? { ...item, gradient: !(item.gradient ?? true) } : item,
+      ),
+    );
+  }
   protected separateStacks() {
     this.series.update((series) =>
-      series.map((item) => (item.kind === 'bar' ? { ...item, stack: item.id } : item)),
+      series.map((item) => (item.kind !== 'line' ? { ...item, stack: item.id } : item)),
     );
   }
   protected ungroupBars() {
     this.series.update((series) =>
-      series.map((item) => (item.kind === 'bar' ? { ...item, stack: undefined } : item)),
+      series.map((item) => (item.kind !== 'line' ? { ...item, stack: undefined } : item)),
     );
   }
   protected invalidateStack() {
@@ -185,7 +233,7 @@ export class ComposedValidation {
         id: 'visits',
         key: 'visits',
         label: 'Visits',
-        kind: 'area',
+        kind: 'scatter',
       } as unknown as ComposedSeries<ComposedRow>,
     ]);
   }

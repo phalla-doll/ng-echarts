@@ -1,7 +1,11 @@
 import type { BarSeriesOption, LineSeriesOption } from 'echarts/charts';
 import type { GridComponentOption, TooltipComponentOption } from 'echarts/components';
 import type { ComposeOption } from 'echarts/core';
-import { ɵbuildCartesianOptions, type ɵCartesianContext } from '@mantha911/ng-echarts/core';
+import {
+  ɵbuildCartesianOptions,
+  ɵbuildAreaFill,
+  type ɵCartesianContext,
+} from '@mantha911/ng-echarts/core';
 import type { ComposedSeries } from './composed-types';
 export type ComposedOption = ComposeOption<
   BarSeriesOption | LineSeriesOption | GridComponentOption | TooltipComponentOption
@@ -61,7 +65,7 @@ export function buildComposedOptions<T>(
             {
               ...identity,
               type: 'bar',
-              stack: item.stack,
+              stack: item.stack === undefined ? undefined : `nec-bar:${item.stack}`,
               stackStrategy: 'samesign',
               z: 2,
               barMaxWidth: 48,
@@ -72,15 +76,27 @@ export function buildComposedOptions<T>(
             {
               ...identity,
               type: 'line',
-              z: 3,
+              z: item.kind === 'area' ? 1 : 3,
+              ...(item.kind === 'area'
+                ? {
+                    stack: item.stack === undefined ? undefined : `nec-area:${item.stack}`,
+                    stackStrategy: 'samesign' as const,
+                    areaStyle: ɵbuildAreaFill(color, item.gradient ?? true),
+                  }
+                : {}),
               smooth: item.smooth ?? false,
               showSymbol: item.showPoints ?? true,
               connectNulls: false,
-              symbol: 'diamond',
+              symbol: item.kind === 'area' ? 'circle' : 'diamond',
               clip: false,
               symbolSize: 7,
-              triggerEvent: 'line',
-              lineStyle: { color, width: 2.5, type: 'dashed', cap: 'round' },
+              triggerEvent: item.kind === 'area' ? true : 'line',
+              lineStyle: {
+                color,
+                width: item.kind === 'area' ? 2 : 2.5,
+                type: item.kind === 'area' ? 'solid' : 'dashed',
+                cap: 'round',
+              },
               itemStyle: { color: tokens.background, borderColor: color, borderWidth: 2 },
             },
           ];

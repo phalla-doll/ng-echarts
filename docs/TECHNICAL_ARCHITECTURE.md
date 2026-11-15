@@ -371,3 +371,8 @@ rc.19 shares an internal signal-based `TablePagination` window and `TablePager` 
 ## Named bar stacks in composed charts
 
 The rc.20 composed descriptor union adds optional `stack?: string` only to bar series; lines declare `stack?: never`. Runtime family validation rejects empty/nontext/padded names and stack settings on lines before rendering. The pure option builder supplies named ECharts bar stacks and explicit same-sign accumulation, with per-row end corners based on visible bars in the same group/sign. Independent lines and unstacked bars cannot cover a stack end. Table construction and point resolution continue to use normalized raw points. Replacement options clear obsolete stack settings. The [increment report](experiments/NG17_STACKED_COMPOSED.md) records tests, package isolation and remaining scope.
+
+
+## NG17 composed-area follow-up
+
+The user authorized the [area composition increment](experiments/NG17_COMPOSED_AREAS.md) after publishing the preserved rc.21 archive. Local rc.22 adds typed area descriptors, gradient/solid fills and separate same-sign area stack groups on the existing shared category/value scale. Supplied lines and point/table values remain raw, missing observations remain missing, and immutable kind changes clear obsolete presentation. The pure area-fill helper is shared with standalone areas; no additional engine or dependency is introduced. The linked report owns actual source, consumer, browser, performance and candidate results. Public next is rc.21 until another verified publication; human F09/R06/G2/G3/G4 remain deferred/pending.
