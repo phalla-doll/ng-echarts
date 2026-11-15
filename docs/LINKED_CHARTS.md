@@ -420,3 +420,7 @@ The [follow-up record](experiments/NG20_MONTH_PREVIEWS.md) separates local verif
 
 
 The range button activates completed primary touch releases within its bounds and suppresses duplicate compatibility clicks. This preserves rapid re-arming after captured chart drags in Chromium and single activation in WebKit, while mouse/keyboard activation and canceled pan gestures keep their native path. See the [rc.17 touch follow-up](experiments/RC17_RELEASE_REVIEW.md#rapid-touch-activation-correction).
+
+## Composed overview and device breakdown
+
+The [composed dashboard guide](COMPOSED_DASHBOARD.md) adds a second example at `/linked-dashboard`: stacked bars or areas with an independent trend line drive a device breakdown through the existing raw `pointSelect` event and a native month field. It uses published rc.22 and keeps stable-ID selection through refresh/reordering, clears removed selections, reports partial observations, and retains independent legends and reset focus. Its complete source is generated from the actual app and verified in a fresh npm-installed consumer. This single-month example is separate from the range/preview integration above.

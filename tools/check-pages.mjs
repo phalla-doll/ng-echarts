@@ -1,4 +1,5 @@
 import { renderGallery, renderConcepts } from './browser-gallery.mjs';
+import { verifyDashboard } from './dashboard-flow.mjs';
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
 import { readFile, stat, rm as removeReceipt } from 'node:fs/promises';
@@ -80,6 +81,7 @@ async function checkPages() {
       'calendar/',
       'sankey/',
       'linked/',
+      'linked-dashboard/',
       'chart-possibilities/',
       'linked-validation/',
       'composed-validation/',
@@ -135,7 +137,7 @@ async function checkPages() {
           ['line/', 4],
           ['area/', 4],
           ['pie/', 3],
-          ['composed/', 4],
+          ['composed/', 5],
           ['radar/', 1],
           ['radial/', 2],
         ]) {
@@ -241,6 +243,9 @@ async function checkPages() {
         await page.reload();
         await expect(page.getByRole('combobox', { name: 'Period', exact: true })).toHaveValue('');
         await expect(page.locator('app-linked-visits canvas')).toHaveCount(2);
+        await page.goto(new URL('linked-dashboard/', site).href);
+        await verifyDashboard(page);
+        await page.setViewportSize({ width: 1440, height: 1000 });
         await page.goto(new URL('line/', site).href);
         await renderGallery(page);
         await expect(page.locator('canvas')).toHaveCount(4);

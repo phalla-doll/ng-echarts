@@ -47,4 +47,10 @@ it('retains native raw actions and recovers from invalid kind/settings across lo
   fixture.componentRef.setInput('series', series);
   await fixture.whenStable();
   expect(host.querySelector('table')).not.toBeNull();
+  fixture.componentRef.setInput('layout', 'diagonal');
+  await fixture.whenStable();
+  expect(host.querySelector('[role=alert]')?.textContent).toContain('layout');
+  fixture.componentRef.setInput('layout', 'horizontal');
+  await fixture.whenStable();
+  expect(host.querySelector('table')).not.toBeNull();
 });

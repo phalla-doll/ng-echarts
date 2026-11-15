@@ -71,7 +71,7 @@ try {
     await page.goto(new URL(route, base).href);
     await renderGallery(page);
     await expect(page.locator('.gallery canvas')).toHaveCount(
-      route === 'composed' ? 4 : route === 'pie' ? 3 : 4,
+      route === 'composed' ? 5 : route === 'pie' ? 3 : 4,
     );
     await page.evaluate(() => document.fonts.ready);
     for (const theme of ['dark', 'light']) {

@@ -71,7 +71,7 @@ States follow application error, loading, data/configuration/renderer error, emp
 
 Use `/composed` for `ComposedChart`, `ComposedSeries`, `ComposedBarSeries`, `ComposedLineSeries` and `ComposedAreaSeries`; root exports are compatible. Shared event/key/formatter types are reexported by `/composed` and `/core`. The focused entry lazily registers only bar, line, grid, tooltip and Canvas modules. Existing focused bar/line/area/pie entries do not acquire the composed component or additional engines.
 
-The current increment supports bar/line/area combinations on shared axes. Dual scales, horizontal composition, stacked ordinary lines, raw ECharts options and custom tooltip templates are outside this increment. Mixed units such as visits and percentages require a different design, not an unlabelled shared scale. Existing [compatibility and measured-envelope guidance](COMPATIBILITY.md) remains the starting point; the [NG17 report](experiments/NG17_COMPOSED_CHART.md) records composed-specific measurements and checks.
+The current increment supports bar/line/area combinations on shared axes. Dual scales, stacked ordinary lines, raw ECharts options and custom tooltip templates are outside this increment. Mixed units such as visits and percentages require a different design, not an unlabelled shared scale. Existing [compatibility and measured-envelope guidance](COMPATIBILITY.md) remains the starting point; the [NG17 report](experiments/NG17_COMPOSED_CHART.md) records composed-specific measurements and checks.
 
 The gallery at `/composed` keeps the approved neutral styling and copyable source; `/composed-validation` exposes engineering controls separately. Human interpretation and complete release gates retain their deferred status.
 
@@ -94,4 +94,12 @@ Named area stacks accumulate same-sign observations in supplied series order. Ba
 
 Areas render behind bars and ordinary lines; category centers and half-category edge gaps stay stable through kind/legend changes. Replacing a descriptor clears obsolete fill/stack settings. Whole-area and line clicks resolve the nearest observed category; missing observations cannot emit. The native table supplies exact keyboard actions.
 
-The third and fourth gallery examples provide compiled area+line and stacked-area+line source. Dual axes, horizontal composition and percentage normalization remain deferred. The [area increment report](experiments/NG17_COMPOSED_AREAS.md) owns current verification; human interpretation stays pending.
+The third and fourth gallery examples provide compiled area+line and stacked-area+line source. Dual axes and percentage normalization remain deferred. Horizontal composition is available in the local rc.23 candidate below. The [area increment report](experiments/NG17_COMPOSED_AREAS.md) owns current verification; human interpretation stays pending.
+
+## Horizontal layout in local rc.23
+
+`layout: 'vertical' | 'horizontal'` defaults to `vertical`; other values are rejected in strict templates and runtime configuration. Set `layout="horizontal"` for a numeric x-axis and a category y-axis. Supplied row order is retained from top to bottom, without sorting. Category centers and edge gaps remain stable when all bars or all series are hidden. Stacks keep their signed accumulation and separate bar/area namespaces; bar end caps and area gradients rotate with the geometry.
+
+The shared formatter formats numeric ticks, tooltips and tables in either layout. Use `categoryTickFormatter` to shorten long regional labels while retaining full tooltip/table labels. Choose a height appropriate to the supplied category count. Whole-line/area hits use the pointer y-coordinate and category y-axis in horizontal layout; direct marker/bar identities and raw values are unchanged. Layout replacement preserves the renderer and stable-ID legend/focus state; invalid layouts use the existing error/recovery policy. No new engine modules, raw ECharts options or dual-axis contract are added.
+
+The `/composed#horizontal-visits-and-target` example includes copyable horizontal source. The [linked dashboard](COMPOSED_DASHBOARD.md) uses existing rc.22 events and app-owned selection, independently of this new layout API. [Implementation and evidence](experiments/NG20_COMPOSED_DASHBOARD.md). Published rc.22 remains immutable; it does not expose this new input.

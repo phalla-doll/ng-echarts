@@ -1,6 +1,6 @@
 # Angular chart library
 
-Experimental standalone Angular 22 components using Apache ECharts. Public prerelease identity: `@mantha911/ng-echarts`. Current candidate: `0.1.0-rc.22`. Public prereleases use the `next` tag; consult the repository publication record for the current registry version. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. The API is experimental; human screen-reader interpretation remains unreviewed at the user’s request.
+Experimental standalone Angular 22 components using Apache ECharts. Public prerelease identity: `@mantha911/ng-echarts`. Current candidate: `0.1.0-rc.23`. Public prereleases use the `next` tag; consult the repository publication record for the current registry version. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. The API is experimental; human screen-reader interpretation remains unreviewed at the user’s request.
 
 ## Installation
 
@@ -13,10 +13,10 @@ npm install @mantha911/ng-echarts@next echarts@6.1.0
 For a retained exact local candidate:
 
 ```sh
-npm install /absolute/path/to/mantha911-ng-echarts-0.1.0-rc.22.tgz echarts@6.1.0
+npm install /absolute/path/to/mantha911-ng-echarts-0.1.0-rc.23.tgz echarts@6.1.0
 ```
 
-Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes. Table pagination is available since rc.19. Named composed bar stacks require rc.20 or later. Composed areas require rc.22 or later. The exact local candidate includes these features; a registry install must resolve a version containing the features you use.
+Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes. Table pagination is available since rc.19. Named composed bar stacks require rc.20 or later. Composed areas require rc.22 or later. Horizontal composed layout requires rc.23. The exact local candidate includes these features; a registry install must resolve a version containing the features you use.
 
 No global ECharts registration, library stylesheet, Angular provider or React runtime is required. The package supplies scoped styles and a lazy Canvas renderer. Give its containing card a nonzero width. Cartesian/radar/pie plot height defaults to 320 px, with native controls adding to total height; radial progress defaults to 240 px and calendar/Sankey use family-specific layouts.
 
@@ -150,3 +150,7 @@ The compatibility root reexports bar, line, area, pie/donut and composed compone
 ## Optional table pagination since rc.19
 
 Bar, line, area, composed and pie accept `[tablePageSize]="50"`. The default `null` renders the complete table. A positive safe integer limits table row creation to the current page while the plot retains every observation. Previous/Next buttons preserve keyboard focus and announce the visible row range. Replacing the data array or page size restarts at the first page; collapsing and reopening retains the page. Off-page rows remain available through paging, with original-row selection events and hidden-series values preserved. Radar, calendar and Sankey retain their existing bounded tables.
+
+## Horizontal composition in rc.23
+
+Set `layout="horizontal"` on `ComposedChart` for a numeric x-axis and top-to-bottom supplied categories on the y-axis. The default remains `vertical`. Bars, lines and areas share one comparable-unit scale; named bar/area stacks remain separate. Raw plot/table actions, missing observations, legends and updates follow the same contract in both layouts. Whole-line/area hits resolve along the active category axis. No additional renderer module or dependency is required. Dual axes remain outside this contract. The rc.23 source candidate is separate from the published rc.22 baseline; preserve every previous archive.

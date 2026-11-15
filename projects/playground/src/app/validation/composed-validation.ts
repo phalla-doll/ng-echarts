@@ -53,6 +53,14 @@ export class DeferredComposed {
       <button type="button" (click)="reorder()">Reorder composed inputs</button>
       <button type="button" (click)="switchKind()">Switch series kind</button>
       <button type="button" (click)="togglePoints()">Toggle trend points</button>
+      <button
+        type="button"
+        [attr.aria-pressed]="layout() === 'horizontal'"
+        (click)="toggleLayout()"
+      >
+        Horizontal composed
+      </button>
+      <button type="button" (click)="invalidLayout()">Invalid composed layout</button>
       <button type="button" (click)="stackBars()">Use stacked bars</button>
       <button type="button" (click)="areaSeries()">Use area series</button>
       <button type="button" (click)="stackAreas()">Use stacked areas</button>
@@ -87,6 +95,7 @@ export class DeferredComposed {
           rowIdKey="id"
           categoryKey="month"
           [series]="series()"
+          [layout]="layout()"
           [theme]="theme()"
           [themeRevision]="revision()"
           [style.--nec-series-1]="palette()"
@@ -114,6 +123,7 @@ export class ComposedValidation {
   protected readonly theme = inject(SiteAppearance).theme;
   protected readonly rows = signal<readonly ComposedRow[]>(composedValidationRows);
   protected readonly series = signal(composedValidationSeries);
+  protected readonly layout = signal<'vertical' | 'horizontal'>('vertical');
   protected readonly loading = signal(false);
   protected readonly failure = signal(false);
   protected readonly error = computed(() => (this.failure() ? 'Sample composed error.' : null));
@@ -155,6 +165,12 @@ export class ComposedValidation {
         item.kind === 'line' ? { ...item, showPoints: !(item.showPoints ?? true) } : item,
       ),
     );
+  }
+  protected toggleLayout() {
+    this.layout.update((layout) => (layout === 'horizontal' ? 'vertical' : 'horizontal'));
+  }
+  protected invalidLayout() {
+    this.layout.set('diagonal' as 'horizontal');
   }
   protected stackBars() {
     this.series.set([
@@ -238,6 +254,7 @@ export class ComposedValidation {
     ]);
   }
   protected restore() {
+    this.layout.set('vertical');
     this.rows.set(composedValidationRows);
     this.series.set(composedValidationSeries);
     this.loading.set(false);

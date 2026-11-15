@@ -23,6 +23,10 @@ export const routes: Routes = [
       import('./chart-possibilities/chart-possibilities').then((m) => m.ChartPossibilities),
   },
   {
+    path: 'linked-dashboard',
+    loadComponent: () => import('./linked/linked-dashboard').then((m) => m.LinkedDashboard),
+  },
+  {
     path: 'linked',
     loadComponent: () => import('./linked/linked-charts').then((m) => m.LinkedCharts),
   },

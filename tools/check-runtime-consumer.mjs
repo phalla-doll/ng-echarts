@@ -1,4 +1,5 @@
 import { consumerArtifact } from './consumer-artifact.mjs';
+import { verifyDashboard } from './dashboard-flow.mjs';
 import { renderConcepts, renderGallery } from './browser-gallery.mjs';
 import { prepareDemo } from './prepare-demo.mjs';
 import assert from 'node:assert/strict';
@@ -262,7 +263,7 @@ async function exercise(engine, url, ssr) {
     await expect(page.locator('canvas')).toHaveCount(0);
     await navigation.getByRole('link', { name: 'Composed Blocks', exact: true }).click();
     await renderGallery(page);
-    await expect(page.locator('nec-composed-chart canvas')).toHaveCount(4);
+    await expect(page.locator('nec-composed-chart canvas')).toHaveCount(5);
     await navigation.getByRole('link', { name: 'Composed validation', exact: true }).click();
     const composed = page.locator('.primary-composed nec-composed-chart');
     await expect(composed.locator('canvas')).toHaveCount(1);
@@ -394,6 +395,10 @@ async function exercise(engine, url, ssr) {
     await navigation.getByRole('link', { name: 'Navigate away', exact: true }).click();
     await expect(page.locator('iframe')).toHaveCount(0);
     await expect(page.locator('canvas')).toHaveCount(0);
+    await page.goto(`${url}/linked-dashboard`);
+    await verifyDashboard(page);
+    await page.goto(`${url}/away`);
+    await expect(page.locator('canvas')).toHaveCount(0);
     await Promise.all(diagnostics);
     assert.deepEqual(errors, []);
     return {
@@ -402,6 +407,7 @@ async function exercise(engine, url, ssr) {
       mode: ssr ? 'ssr-hydration' : 'client',
       conceptGallery: true,
       linkedMonthPreviews: true,
+      composedLinkedDashboard: true,
       passed: true,
     };
   } finally {

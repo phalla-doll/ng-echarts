@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-rc.23 — Horizontal composition
+
+- Add opt-in horizontal bar/line/area composition on one comparable-unit scale, with supplied-order categories, separate signed stacks, rotated bar caps and area gradients.
+- Resolve whole-line/area actions along the active category axis; retain raw point/table values and vertical defaults without new engine modules or dependencies.
+- Add a composed linked-dashboard example and a registry-installed rc.22 dashboard pilot in the repository. Preserve rc.22 and all earlier archives; human release gates remain pending.
+
 ## 0.1.0-rc.22 — Composed areas
 
 - Add typed area series to shared-axis composed charts, with optional gradient/solid fills, named area stacks, raw events and existing curve settings.

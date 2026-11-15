@@ -121,6 +121,56 @@ it('accepts defaults and empty series', () => {
   expect(composedSeriesError(series)).toBeNull();
 });
 
+it('rotates category order, signed stack caps and area gradients together without changing raw data', () => {
+  const descriptors: readonly ComposedSeries<Row>[] = [
+    { id: 'visits', key: 'visits', label: 'Visits', kind: 'bar', stack: 'same' },
+    { id: 'trend', key: 'trend', label: 'Trend', kind: 'bar', stack: 'same' },
+    { id: 'area', key: 'visits', label: 'Area', kind: 'area', stack: 'same' },
+  ];
+  const model = ɵnormalizeCartesianData(rows, 'id', 'category', descriptors);
+  if (model.kind === 'error') throw new Error(model.message);
+  const horizontal = buildComposedOptions({ ...context(), model }, descriptors, 'horizontal');
+  expect(horizontal.xAxis).toMatchObject({ type: 'value' });
+  expect(horizontal.yAxis).toMatchObject({
+    type: 'category',
+    inverse: true,
+    boundaryGap: true,
+    data: ['a', 'b', 'c'],
+  });
+  expect(horizontal.series).toMatchObject([
+    {
+      id: 'visits',
+      stack: 'nec-bar:same',
+      data: [
+        { value: 10, itemStyle: { borderRadius: [0, 2, 2, 0] } },
+        { value: '-' },
+        { value: 20 },
+      ],
+    },
+    {
+      id: 'trend',
+      data: [
+        { value: -3, itemStyle: { borderRadius: [2, 0, 0, 2] } },
+        { value: 0 },
+        { value: '-' },
+      ],
+    },
+    { id: 'area', stack: 'nec-area:same', areaStyle: { color: { x: 1, y: 0, x2: 0, y2: 0 } } },
+  ]);
+  const hidden = buildComposedOptions(
+    { ...context(), model, hiddenIds: new Set(['visits', 'trend', 'area']) },
+    descriptors,
+    'horizontal',
+  );
+  expect(hidden.yAxis).toMatchObject({ inverse: true, boundaryGap: true });
+  expect(hidden.series).toEqual([]);
+  const vertical = buildComposedOptions({ ...context(), model }, descriptors);
+  expect(vertical.xAxis).toMatchObject({ type: 'category', inverse: false });
+  expect((vertical.series as { data: unknown[] }[])[0]?.data[0]).toMatchObject({
+    itemStyle: { borderRadius: [2, 2, 0, 0] },
+  });
+});
+
 it('stacks only named bar groups and caps each visible signed end without changing raw observations', () => {
   const rows = [
     { id: 'positive', category: 'P', first: 10, second: 20, other: 30, line: 60 },

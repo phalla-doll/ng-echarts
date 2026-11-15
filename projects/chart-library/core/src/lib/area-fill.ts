@@ -10,16 +10,20 @@ function alphaColor(color: string, factor: number): string {
     ? `rgba(${rgba[1]},${rgba[2]},${rgba[3]},${Number(rgba[4] ?? 1) * factor})`
     : 'transparent';
 }
-export function buildAreaFill(color: string, gradient: boolean): LineSeriesOption['areaStyle'] {
+export function buildAreaFill(
+  color: string,
+  gradient: boolean,
+  horizontal = false,
+): LineSeriesOption['areaStyle'] {
   return {
     opacity: 1,
     color: gradient
       ? {
           type: 'linear',
-          x: 0,
+          x: horizontal ? 1 : 0,
           y: 0,
           x2: 0,
-          y2: 1,
+          y2: horizontal ? 0 : 1,
           colorStops: [
             { offset: 0, color: alphaColor(color, 0.22) },
             { offset: 1, color: alphaColor(color, 0.04) },

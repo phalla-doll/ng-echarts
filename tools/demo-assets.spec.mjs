@@ -64,6 +64,10 @@ test('warms only the requested renderer graph and preserves the Pages prefix', (
     ['bar.js', 'shared.js', 'pie.js'],
   );
   assert.deepEqual(
+    routes['linked-dashboard'].map((link) => link.href),
+    ['composed.js', 'shared.js', 'bar.js'],
+  );
+  assert.deepEqual(
     routes.calendar.map((link) => link.href),
     ['calendar.js', 'shared.js'],
   );

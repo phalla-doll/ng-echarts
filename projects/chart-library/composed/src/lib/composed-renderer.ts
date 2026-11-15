@@ -11,7 +11,15 @@ export const createComposedRenderer: ɵPlotRendererFactory<ComposedOption> = (ho
   const chart = init(host, undefined, { renderer: 'canvas' });
   let current: ComposedOption | null = null;
   const click = (event: unknown): void => {
-    const point = ɵcurvePoint(event, current, (x) => chart.convertFromPixel({ xAxisIndex: 0 }, x));
+    const axis = current?.yAxis;
+    const horizontal = !Array.isArray(axis) && axis?.type === 'category';
+    const point = ɵcurvePoint(
+      event,
+      current,
+      (coordinate) =>
+        chart.convertFromPixel(horizontal ? { yAxisIndex: 0 } : { xAxisIndex: 0 }, coordinate),
+      horizontal,
+    );
     if (point) onPoint(point);
   };
   chart.on('click', click);

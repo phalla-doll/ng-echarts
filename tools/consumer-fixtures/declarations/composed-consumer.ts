@@ -20,6 +20,7 @@ interface Row {
   imports: [ComposedChart, RootComposedChart],
   template: ` <nec-composed-chart
     [tablePageSize]="50"
+    layout="horizontal"
     title="Mixed"
     [data]="rows"
     rowIdKey="id"

@@ -1,0 +1,13 @@
+
+> ng-echarts-workspace@0.0.0 benchmark:composed:horizontal
+> node tools/benchmark-acceptance.mjs composed --stacked --horizontal
+
+composed 200 mount: p95 16.8 ms
+composed 200 update: p95 17.3 ms
+composed 200 legend: p95 18.5 ms
+composed 200 resize: p95 33.9 ms
+composed 2000 mount: p95 36.1 ms
+composed 2000 update: p95 37.1 ms
+composed 2000 legend: p95 36.4 ms
+composed 2000 resize: p95 43.0 ms
+PASS: selected families measured; normal mount/update meet the target.

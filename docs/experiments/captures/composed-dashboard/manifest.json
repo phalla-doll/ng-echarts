@@ -1,0 +1,201 @@
+{
+  "recordedAt": "2026-11-15T14:53:05.828Z",
+  "browser": "158.0.8127.18",
+  "method": "Cropped component captures; unrelated fixed shell controls hidden only during each screenshot; rendered chart/control layout unchanged.",
+  "captures": [
+    {
+      "name": "linked-dashboard-bar-light-320.png",
+      "route": "linked-dashboard",
+      "kind": "bar",
+      "theme": "light",
+      "width": 320,
+      "sha256": "2df67299a92738f61d92070a86a32f7be2e6b6fcf3c28581b8b98e3c15f63269"
+    },
+    {
+      "name": "linked-dashboard-bar-light-390.png",
+      "route": "linked-dashboard",
+      "kind": "bar",
+      "theme": "light",
+      "width": 390,
+      "sha256": "e2350766f672aae2469304bce569524a661f94dfc5d444a0be11e07ed04425df"
+    },
+    {
+      "name": "linked-dashboard-bar-light-768.png",
+      "route": "linked-dashboard",
+      "kind": "bar",
+      "theme": "light",
+      "width": 768,
+      "sha256": "fcc1089e96ab538cc79d7e6e013b72d02fd4a5c582366a633428acf12b0fb5e4"
+    },
+    {
+      "name": "linked-dashboard-bar-light-1440.png",
+      "route": "linked-dashboard",
+      "kind": "bar",
+      "theme": "light",
+      "width": 1440,
+      "sha256": "9e08b30e010b7294d5c075a105c0d40edbea3b15bd201895d8b5ed21dcad3ae3"
+    },
+    {
+      "name": "linked-dashboard-area-light-320.png",
+      "route": "linked-dashboard",
+      "kind": "area",
+      "theme": "light",
+      "width": 320,
+      "sha256": "f93020836caf0ecd4415ffa57949970e92dc087efbb7e44b9b74938ae1ef3a29"
+    },
+    {
+      "name": "linked-dashboard-area-light-390.png",
+      "route": "linked-dashboard",
+      "kind": "area",
+      "theme": "light",
+      "width": 390,
+      "sha256": "b53db842439042805f873a6df57dcb8a75d2c1341adb0cb5081743e5755e5c64"
+    },
+    {
+      "name": "linked-dashboard-area-light-768.png",
+      "route": "linked-dashboard",
+      "kind": "area",
+      "theme": "light",
+      "width": 768,
+      "sha256": "4a5a87b0e42e53524c4eef1b710887f5aa296c0c8a85ee1df9017e45ad447f85"
+    },
+    {
+      "name": "linked-dashboard-area-light-1440.png",
+      "route": "linked-dashboard",
+      "kind": "area",
+      "theme": "light",
+      "width": 1440,
+      "sha256": "2baee7746c6ce3d7e574e23b555e5edc0b88138ca86236f3517f3399a2fd49b8"
+    },
+    {
+      "name": "linked-dashboard-bar-dark-320.png",
+      "route": "linked-dashboard",
+      "kind": "bar",
+      "theme": "dark",
+      "width": 320,
+      "sha256": "6412884eb8b2b3bfa3f27045b06a899d059efb2e8438a3ccd42d00951429ed39"
+    },
+    {
+      "name": "linked-dashboard-bar-dark-390.png",
+      "route": "linked-dashboard",
+      "kind": "bar",
+      "theme": "dark",
+      "width": 390,
+      "sha256": "0520a4904691be4aba13c085e955743f57a10d361a6d3ec5a3b338d22595115a"
+    },
+    {
+      "name": "linked-dashboard-bar-dark-768.png",
+      "route": "linked-dashboard",
+      "kind": "bar",
+      "theme": "dark",
+      "width": 768,
+      "sha256": "7b551ba32cc4063dc8799eab625d8eb0da83fcd899fb176807d48983a621457b"
+    },
+    {
+      "name": "linked-dashboard-bar-dark-1440.png",
+      "route": "linked-dashboard",
+      "kind": "bar",
+      "theme": "dark",
+      "width": 1440,
+      "sha256": "1c9b1ee9dc42d34b7bc839e571695e76835b3b9abf07b70e787a4f71740a9e02"
+    },
+    {
+      "name": "linked-dashboard-area-dark-320.png",
+      "route": "linked-dashboard",
+      "kind": "area",
+      "theme": "dark",
+      "width": 320,
+      "sha256": "f76249da2a3c9b07a2492ff21d2b144534cbc5abfeb4bb14ceb5765d1cbf98c4"
+    },
+    {
+      "name": "linked-dashboard-area-dark-390.png",
+      "route": "linked-dashboard",
+      "kind": "area",
+      "theme": "dark",
+      "width": 390,
+      "sha256": "ea176a7ab8a6e87797cbd2b2b4361fa698f93015330eb6fb52e0f6a896f6d840"
+    },
+    {
+      "name": "linked-dashboard-area-dark-768.png",
+      "route": "linked-dashboard",
+      "kind": "area",
+      "theme": "dark",
+      "width": 768,
+      "sha256": "f67c713d674ecc7a3d09e1efd6b426d5b497b03025d2b861562388d82304a2e5"
+    },
+    {
+      "name": "linked-dashboard-area-dark-1440.png",
+      "route": "linked-dashboard",
+      "kind": "area",
+      "theme": "dark",
+      "width": 1440,
+      "sha256": "e11d7df5bc2fbdee3a3749a862ebdd9ab75678b38812d1e389b7377ea42ade14"
+    },
+    {
+      "name": "composed-horizontal-light-320.png",
+      "route": "composed",
+      "kind": "horizontal",
+      "theme": "light",
+      "width": 320,
+      "sha256": "0e36559c1e4608f44651a0b3cf3290893e19546597607e41c9c9d5d039b18311"
+    },
+    {
+      "name": "composed-horizontal-light-390.png",
+      "route": "composed",
+      "kind": "horizontal",
+      "theme": "light",
+      "width": 390,
+      "sha256": "7a68fa683e1a5e2420ee1023658f6d6a55066b491f2f1ac50bf6ccd7a99af9d4"
+    },
+    {
+      "name": "composed-horizontal-light-768.png",
+      "route": "composed",
+      "kind": "horizontal",
+      "theme": "light",
+      "width": 768,
+      "sha256": "5abdbac05f55d531096149f2cf854de40e83b8d947deb9b6ffd19ab3394454c5"
+    },
+    {
+      "name": "composed-horizontal-light-1440.png",
+      "route": "composed",
+      "kind": "horizontal",
+      "theme": "light",
+      "width": 1440,
+      "sha256": "f0f5309288c256bfbad6827616f8be27a153baa2241f64c83a660b8a761796f2"
+    },
+    {
+      "name": "composed-horizontal-dark-320.png",
+      "route": "composed",
+      "kind": "horizontal",
+      "theme": "dark",
+      "width": 320,
+      "sha256": "a5275ad841352a9c340176acef9b2cfab50e9328a003758ef62593954de50d56"
+    },
+    {
+      "name": "composed-horizontal-dark-390.png",
+      "route": "composed",
+      "kind": "horizontal",
+      "theme": "dark",
+      "width": 390,
+      "sha256": "79b7920449a9f1043b8303876586444b31723b5b1637b39ad5c1790195d49fc6"
+    },
+    {
+      "name": "composed-horizontal-dark-768.png",
+      "route": "composed",
+      "kind": "horizontal",
+      "theme": "dark",
+      "width": 768,
+      "sha256": "88131155cfef2207cfa1050f6d33b221b52678ad12b6de6b29ea810fee563d25"
+    },
+    {
+      "name": "composed-horizontal-dark-1440.png",
+      "route": "composed",
+      "kind": "horizontal",
+      "theme": "dark",
+      "width": 1440,
+      "sha256": "e4c4c1e7d7c4416c7a9a0c05df2d1c810cde206f476b7d8bbe02a4762345cbb5"
+    }
+  ],
+  "browserErrors": [],
+  "passed": true
+}

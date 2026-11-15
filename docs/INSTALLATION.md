@@ -20,7 +20,7 @@ Run these commands in the repository root after selecting the toolchain:
 ```sh
 npm ci
 npm run pack:lib
-export CHART_LIBRARY_TARBALL="$PWD/dist/mantha911-ng-echarts-0.1.0-rc.22.tgz"
+export CHART_LIBRARY_TARBALL="$PWD/dist/mantha911-ng-echarts-0.1.0-rc.23.tgz"
 ```
 
 The `CHART_LIBRARY_TARBALL` variable is an absolute path for the commands below. If you open another terminal, set it to the actual tarball location. Keep the tarball available for subsequent installs, or copy it into the consuming project's `vendor/` directory before installing it. Commit the consumer's resulting lockfile and use `npm ci` for repeat installs. Rebuild/repack/reinstall when changing the library; a tarball installation does not watch the checkout.
@@ -120,4 +120,6 @@ The [API index and integration guide](INTEGRATION_GUIDE.md) cover shared types, 
 
 ## Current feature availability
 
-The current source and npm `next` are `0.1.0-rc.22`; `latest` remains rc.18. Opt-in `tablePageSize` ships since published rc.19, named bar stacks since rc.21, and composed areas since rc.22. Install `@next` or pin rc.22, or run `npm run pack:lib` to create a local source archive. Preserve every earlier archive. The [area report](experiments/NG17_COMPOSED_AREAS.md) and [publication record](PUBLICATION.md#rc22-oidc-publication) own current artifact, CI and registry verification.
+The current source candidate is `0.1.0-rc.23`; npm `next` remains published rc.22 and `latest` remains rc.18. Horizontal composition requires the rc.23 local candidate; the composed linked dashboard also runs on published rc.22. Opt-in `tablePageSize` ships since published rc.19, named bar stacks since rc.21, and composed areas since rc.22. Install `@next` or pin rc.22, or run `npm run pack:lib` to create a local source archive. Preserve every earlier archive. The [area report](experiments/NG17_COMPOSED_AREAS.md) and [publication record](PUBLICATION.md#rc22-oidc-publication) own current artifact, CI and registry verification.
+
+The [composed dashboard guide](COMPOSED_DASHBOARD.md) provides a complete dashboard example and a digest-verified npm consumer check. The [rc.23 increment](experiments/NG20_COMPOSED_DASHBOARD.md) records local verification separately from rc.22 publication.

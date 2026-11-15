@@ -53,7 +53,11 @@ export class BarBlockExample {
   protected readonly metrics = computed(() => {
     const block = this.block();
     return block.series.map((series, index) => {
-      const latest = block.kind === 'composed' && 'kind' in series && series.kind === 'line';
+      const latest =
+        block.kind === 'composed' &&
+        block.lineSummary !== 'total' &&
+        'kind' in series &&
+        series.kind === 'line';
       const value = latest
         ? (block.rows.at(-1)?.[series.key] ?? 0)
         : block.rows.reduce((sum, row) => sum + (row[series.key] ?? 0), 0);

@@ -102,6 +102,8 @@ export class Benchmark {
     this.family === 'composed' && this.route.snapshot.queryParamMap.get('area') === '1';
   private readonly stacked =
     this.family === 'composed' && this.route.snapshot.queryParamMap.get('stacked') === '1';
+  private readonly horizontal =
+    this.family === 'composed' && this.route.snapshot.queryParamMap.get('horizontal') === '1';
   protected readonly benchmarkTitle =
     this.family === 'composed'
       ? 'Composed'
@@ -181,6 +183,9 @@ export class Benchmark {
       animation: false,
       height: 320,
       ...(this.family === 'area' ? { stacked: true, gradient: true } : {}),
+      ...(this.family === 'composed'
+        ? { layout: this.horizontal ? 'horizontal' : 'vertical' }
+        : {}),
     }))
       this.reference.setInput(key, value);
   }
@@ -207,6 +212,18 @@ export class Benchmark {
           return;
         clearTimeout(timeout);
         onFinished = undefined;
+        if (this.family === 'composed') {
+          const axis = options[this.horizontal ? 'yAxis' : 'xAxis'] as
+            { type?: string; inverse?: boolean }[] | undefined;
+          if (axis?.[0]?.type !== 'category' || Boolean(axis[0].inverse) !== this.horizontal) {
+            reject(
+              new Error(
+                'Composed benchmark category orientation does not match the requested layout',
+              ),
+            );
+            return;
+          }
+        }
         if (
           (this.stacked || this.area) &&
           (renderedSeries[0]?.stack !== (this.area ? 'nec-area:visits' : 'nec-bar:visits') ||

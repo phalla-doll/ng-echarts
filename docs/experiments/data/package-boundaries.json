@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-15T07:22:50.433Z",
+  "recordedAt": "2026-11-15T14:36:34.973Z",
   "method": "Resolve public package imports, Angular-link, bundle/minify/split with Angular/RxJS peers external; count only modules contributing bytes to output; traverse static imports separately from lazy chunks; sum independently compressed JavaScript chunks",
   "scenarios": [
     {
@@ -268,16 +268,16 @@
       "import": "@mantha911/ng-echarts/line",
       "exports": "LineChart",
       "files": [
-        { "name": "stdin.js", "raw": 20064, "gzip": 4760, "brotli": 4182 },
+        { "name": "stdin.js", "raw": 20064, "gzip": 4761, "brotli": 4184 },
         {
-          "name": "mantha911-ng-echarts-line-line-renderer-DbAVCM71-3LTYO5AC.js",
+          "name": "mantha911-ng-echarts-line-line-renderer-DbAVCM71-NEKZFST4.js",
           "raw": 502588,
           "gzip": 171735,
-          "brotli": 145982
+          "brotli": 146102
         },
-        { "name": "chunk-U5KXVA5F.js", "raw": 37556, "gzip": 10734, "brotli": 9528 }
+        { "name": "chunk-AHRTROKY.js", "raw": 37576, "gzip": 10747, "brotli": 9541 }
       ],
-      "total": { "raw": 560208, "gzip": 187229, "brotli": 159692 },
+      "total": { "raw": 560228, "gzip": 187243, "brotli": 159827 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 230,
@@ -527,16 +527,16 @@
       "import": "@mantha911/ng-echarts/area",
       "exports": "AreaChart",
       "files": [
-        { "name": "stdin.js", "raw": 20833, "gzip": 5021, "brotli": 4406 },
+        { "name": "stdin.js", "raw": 20833, "gzip": 5018, "brotli": 4408 },
         {
-          "name": "mantha911-ng-echarts-area-area-renderer-DQmIKv7N-TD3PAUAX.js",
+          "name": "mantha911-ng-echarts-area-area-renderer-DQmIKv7N-NR7MVNMF.js",
           "raw": 502588,
-          "gzip": 171735,
-          "brotli": 146063
+          "gzip": 171734,
+          "brotli": 146082
         },
-        { "name": "chunk-5NUJ4SY4.js", "raw": 38013, "gzip": 10953, "brotli": 9731 }
+        { "name": "chunk-4F7QW7OM.js", "raw": 38046, "gzip": 10978, "brotli": 9727 }
       ],
-      "total": { "raw": 561434, "gzip": 187709, "brotli": 160200 },
+      "total": { "raw": 561467, "gzip": 187730, "brotli": 160217 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 230,
@@ -786,16 +786,16 @@
       "import": "@mantha911/ng-echarts/composed",
       "exports": "ComposedChart",
       "files": [
-        { "name": "stdin.js", "raw": 22027, "gzip": 5610, "brotli": 4949 },
+        { "name": "stdin.js", "raw": 22422, "gzip": 5796, "brotli": 5104 },
         {
-          "name": "mantha911-ng-echarts-composed-composed-renderer-C9EFo56K-WHX4PJCQ.js",
-          "raw": 525404,
-          "gzip": 179543,
-          "brotli": 152427
+          "name": "mantha911-ng-echarts-composed-composed-renderer-pWJ8mx0q-RHYB32OZ.js",
+          "raw": 525476,
+          "gzip": 179584,
+          "brotli": 152311
         },
-        { "name": "chunk-JBOZSI2I.js", "raw": 37346, "gzip": 10676, "brotli": 9453 }
+        { "name": "chunk-4ZLNM6G2.js", "raw": 37379, "gzip": 10698, "brotli": 9477 }
       ],
-      "total": { "raw": 584777, "gzip": 195829, "brotli": 166829 },
+      "total": { "raw": 585277, "gzip": 196078, "brotli": 166892 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 242,
@@ -804,7 +804,7 @@
       "chartFamilies": ["bar", "line"],
       "sharedRegistryModules": ["node_modules/echarts/lib/chart/custom/customSeriesRegister.js"],
       "contributingInputs": [
-        "dist/chart-library/fesm2022/mantha911-ng-echarts-composed-composed-renderer-C9EFo56K.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-composed-composed-renderer-pWJ8mx0q.mjs",
         "dist/chart-library/fesm2022/mantha911-ng-echarts-composed.mjs",
         "dist/chart-library/fesm2022/mantha911-ng-echarts-core.mjs",
         "node_modules/echarts/lib/animation/basicTransition.js",
@@ -1285,16 +1285,16 @@
       "import": "@mantha911/ng-echarts/radar",
       "exports": "RadarChart",
       "files": [
-        { "name": "stdin.js", "raw": 23183, "gzip": 5614, "brotli": 4948 },
+        { "name": "stdin.js", "raw": 23183, "gzip": 5615, "brotli": 4946 },
         {
-          "name": "mantha911-ng-echarts-radar-radar-renderer-CEc2lKig-4MAC5GMC.js",
+          "name": "mantha911-ng-echarts-radar-radar-renderer-CEc2lKig-KNW6ZVOB.js",
           "raw": 446912,
           "gzip": 152675,
-          "brotli": 130341
+          "brotli": 130315
         },
-        { "name": "chunk-ECHMSUXJ.js", "raw": 36456, "gzip": 10399, "brotli": 9235 }
+        { "name": "chunk-PIQLWDH4.js", "raw": 36456, "gzip": 10399, "brotli": 9235 }
       ],
-      "total": { "raw": 506551, "gzip": 168688, "brotli": 144524 },
+      "total": { "raw": 506551, "gzip": 168689, "brotli": 144496 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 210,
@@ -1768,16 +1768,16 @@
       "import": "@mantha911/ng-echarts/sankey",
       "exports": "SankeyChart",
       "files": [
-        { "name": "stdin.js", "raw": 25746, "gzip": 6926, "brotli": 6049 },
+        { "name": "stdin.js", "raw": 25746, "gzip": 6925, "brotli": 6046 },
         {
-          "name": "mantha911-ng-echarts-sankey-sankey-renderer-DwLMFu-b-S7PHTJ62.js",
+          "name": "mantha911-ng-echarts-sankey-sankey-renderer-DwLMFu-b-2OWJHA7Y.js",
           "raw": 456835,
           "gzip": 155163,
-          "brotli": 132392
+          "brotli": 132453
         },
-        { "name": "chunk-VT2JIE4Y.js", "raw": 34961, "gzip": 9784, "brotli": 8643 }
+        { "name": "chunk-5UHVKLC2.js", "raw": 34961, "gzip": 9784, "brotli": 8643 }
       ],
-      "total": { "raw": 517542, "gzip": 171873, "brotli": 147084 },
+      "total": { "raw": 517542, "gzip": 171872, "brotli": 147142 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 205,
@@ -2002,7 +2002,7 @@
       "import": "@mantha911/ng-echarts/radial",
       "exports": "RadialProgress",
       "files": [
-        { "name": "stdin.js", "raw": 47728, "gzip": 11882, "brotli": 10435 },
+        { "name": "stdin.js", "raw": 47728, "gzip": 11882, "brotli": 10428 },
         {
           "name": "mantha911-ng-echarts-radial-radial-renderer-DlH2JDoC-KXPKWLIA.js",
           "raw": 358386,
@@ -2010,7 +2010,7 @@
           "brotli": 104667
         }
       ],
-      "total": { "raw": 406114, "gzip": 134307, "brotli": 115102 },
+      "total": { "raw": 406114, "gzip": 134307, "brotli": 115095 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 164,
@@ -2210,18 +2210,18 @@
       "import": "@mantha911/ng-echarts",
       "exports": "BarChart, LineChart, AreaChart, PieChart, ComposedChart, ChartFrame",
       "files": [
-        { "name": "stdin.js", "raw": 119064, "gzip": 15761, "brotli": 11895 },
+        { "name": "stdin.js", "raw": 119464, "gzip": 15885, "brotli": 11965 },
         {
-          "name": "mantha911-ng-echarts-area-area-renderer-DQmIKv7N-HBH5CUKB.js",
+          "name": "mantha911-ng-echarts-area-area-renderer-DQmIKv7N-JGADCFJ6.js",
           "raw": 525,
           "gzip": 360,
           "brotli": 342
         },
         {
-          "name": "mantha911-ng-echarts-line-line-renderer-DbAVCM71-DRRNSOZR.js",
+          "name": "mantha911-ng-echarts-line-line-renderer-DbAVCM71-6UTM3FAP.js",
           "raw": 525,
-          "gzip": 360,
-          "brotli": 332
+          "gzip": 361,
+          "brotli": 342
         },
         {
           "name": "mantha911-ng-echarts-bar-bar-renderer-B7Rupncx-Y5PY4UHS.js",
@@ -2236,20 +2236,20 @@
           "brotli": 6398
         },
         {
-          "name": "mantha911-ng-echarts-composed-composed-renderer-C9EFo56K-JWKZCPIG.js",
-          "raw": 585,
-          "gzip": 380,
-          "brotli": 355
+          "name": "mantha911-ng-echarts-composed-composed-renderer-pWJ8mx0q-R6Q5M2RU.js",
+          "raw": 657,
+          "gzip": 426,
+          "brotli": 377
         },
         { "name": "chunk-UDZLFUMF.js", "raw": 27346, "gzip": 10541, "brotli": 9530 },
-        { "name": "chunk-RVJYFXNR.js", "raw": 38007, "gzip": 10949, "brotli": 9690 },
+        { "name": "chunk-NXEK2GCA.js", "raw": 38040, "gzip": 10971, "brotli": 9728 },
         { "name": "chunk-PSL7FE2W.js", "raw": 22031, "gzip": 8447, "brotli": 7668 },
         { "name": "chunk-IAQXTS4P.js", "raw": 6037, "gzip": 2457, "brotli": 2268 },
         { "name": "chunk-MKRCKBDC.js", "raw": 262, "gzip": 211, "brotli": 191 },
         { "name": "chunk-SPBDDDDP.js", "raw": 475122, "gzip": 162325, "brotli": 138402 },
         { "name": "chunk-WOT6VMZA.js", "raw": 106, "gzip": 120, "brotli": 91 }
       ],
-      "total": { "raw": 710745, "gzip": 220888, "brotli": 188859 },
+      "total": { "raw": 711250, "gzip": 221081, "brotli": 188999 },
       "budget": { "gzip": 222000, "brotli": 190000 },
       "eagerEngineModules": 0,
       "engineModules": 253,
@@ -2262,7 +2262,7 @@
         "dist/chart-library/fesm2022/mantha911-ng-echarts-area.mjs",
         "dist/chart-library/fesm2022/mantha911-ng-echarts-bar-bar-renderer-B7Rupncx.mjs",
         "dist/chart-library/fesm2022/mantha911-ng-echarts-bar.mjs",
-        "dist/chart-library/fesm2022/mantha911-ng-echarts-composed-composed-renderer-C9EFo56K.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-composed-composed-renderer-pWJ8mx0q.mjs",
         "dist/chart-library/fesm2022/mantha911-ng-echarts-composed.mjs",
         "dist/chart-library/fesm2022/mantha911-ng-echarts-core.mjs",
         "dist/chart-library/fesm2022/mantha911-ng-echarts-line-line-renderer-DbAVCM71.mjs",
@@ -2532,13 +2532,13 @@
       "files": [
         { "name": "stdin.js", "raw": 93, "gzip": 95, "brotli": 95 },
         {
-          "name": "mantha911-ng-echarts-area-area-renderer-DQmIKv7N-FX7GOEHC.js",
+          "name": "mantha911-ng-echarts-area-area-renderer-DQmIKv7N-ILUEU7B5.js",
           "raw": 525,
           "gzip": 359,
-          "brotli": 320
+          "brotli": 342
         },
         {
-          "name": "mantha911-ng-echarts-line-line-renderer-DbAVCM71-XRL4MDEP.js",
+          "name": "mantha911-ng-echarts-line-line-renderer-DbAVCM71-ANEZKJKT.js",
           "raw": 525,
           "gzip": 359,
           "brotli": 319
@@ -2556,30 +2556,30 @@
           "brotli": 6398
         },
         {
-          "name": "mantha911-ng-echarts-composed-composed-renderer-C9EFo56K-2VHGY2SV.js",
-          "raw": 585,
-          "gzip": 379,
-          "brotli": 345
+          "name": "mantha911-ng-echarts-composed-composed-renderer-pWJ8mx0q-BT5CXGHQ.js",
+          "raw": 657,
+          "gzip": 426,
+          "brotli": 380
         },
         { "name": "chunk-UDZLFUMF.js", "raw": 27346, "gzip": 10541, "brotli": 9530 },
-        { "name": "chunk-6UBM4CDL.js", "raw": 34506, "gzip": 9490, "brotli": 8410 },
+        { "name": "chunk-YUMSJPZX.js", "raw": 34526, "gzip": 9501, "brotli": 8419 },
         { "name": "chunk-PSL7FE2W.js", "raw": 22031, "gzip": 8447, "brotli": 7668 },
         { "name": "chunk-IAQXTS4P.js", "raw": 6037, "gzip": 2457, "brotli": 2268 },
         { "name": "chunk-MKRCKBDC.js", "raw": 262, "gzip": 211, "brotli": 191 },
         { "name": "chunk-SPBDDDDP.js", "raw": 475122, "gzip": 162325, "brotli": 138402 },
         { "name": "chunk-WOT6VMZA.js", "raw": 106, "gzip": 120, "brotli": 91 }
       ],
-      "total": { "raw": 588273, "gzip": 203760, "brotli": 175734 },
+      "total": { "raw": 588365, "gzip": 203818, "brotli": 175800 },
       "budget": { "gzip": 206000, "brotli": 178000 },
       "eagerEngineModules": 0,
       "engineModules": 253,
       "reachableEngineModules": 0,
       "orphanFiles": [
-        "mantha911-ng-echarts-area-area-renderer-DQmIKv7N-FX7GOEHC.js",
-        "mantha911-ng-echarts-line-line-renderer-DbAVCM71-XRL4MDEP.js",
+        "mantha911-ng-echarts-area-area-renderer-DQmIKv7N-ILUEU7B5.js",
+        "mantha911-ng-echarts-line-line-renderer-DbAVCM71-ANEZKJKT.js",
         "mantha911-ng-echarts-bar-bar-renderer-B7Rupncx-Y5PY4UHS.js",
         "mantha911-ng-echarts-pie-pie-renderer-C8JrAbQD-LYE23VKU.js",
-        "mantha911-ng-echarts-composed-composed-renderer-C9EFo56K-2VHGY2SV.js",
+        "mantha911-ng-echarts-composed-composed-renderer-pWJ8mx0q-BT5CXGHQ.js",
         "chunk-UDZLFUMF.js",
         "chunk-PSL7FE2W.js",
         "chunk-IAQXTS4P.js",
@@ -2591,7 +2591,7 @@
       "contributingInputs": [
         "dist/chart-library/fesm2022/mantha911-ng-echarts-area-area-renderer-DQmIKv7N.mjs",
         "dist/chart-library/fesm2022/mantha911-ng-echarts-bar-bar-renderer-B7Rupncx.mjs",
-        "dist/chart-library/fesm2022/mantha911-ng-echarts-composed-composed-renderer-C9EFo56K.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-composed-composed-renderer-pWJ8mx0q.mjs",
         "dist/chart-library/fesm2022/mantha911-ng-echarts-core.mjs",
         "dist/chart-library/fesm2022/mantha911-ng-echarts-line-line-renderer-DbAVCM71.mjs",
         "dist/chart-library/fesm2022/mantha911-ng-echarts-pie-pie-renderer-C8JrAbQD.mjs",

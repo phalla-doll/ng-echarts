@@ -170,3 +170,7 @@ The user approved all recommended follow-ups on 15 November. Preserve the exact 
 ## NG17 composed-area follow-up
 
 The user authorized the [area composition increment](experiments/NG17_COMPOSED_AREAS.md) after publishing the preserved rc.21 archive. Published rc.22 adds typed area descriptors, gradient/solid fills and separate same-sign area stack groups on the existing shared category/value scale. Supplied lines and point/table values remain raw, missing observations remain missing, and immutable kind changes clear obsolete presentation. The pure area-fill helper is shared with standalone areas; no additional engine or dependency is introduced. The linked report owns actual source, consumer, browser, performance and candidate results. Public next is rc.22 after the exact OIDC publication; human F09/R06/G2/G3/G4 remain deferred/pending.
+
+## Composed dashboard and horizontal continuation
+
+The user approved the three recommended follow-ups: NG20 composed-to-detail integration, a realistic npm-installed dashboard pilot, and NG17 horizontal composition. The [dashboard guide](COMPOSED_DASHBOARD.md) defines the app-owned contract and source reproduction; the [increment record](experiments/NG20_COMPOSED_DASHBOARD.md) owns actual test/consumer/candidate evidence. The dashboard supports published rc.22; new library layout behavior belongs to local rc.23. Keep npm/deployment identities separate, preserve archived candidates and leave human release gates pending. Dual axes and broader linking remain subsequent work.

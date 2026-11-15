@@ -1,0 +1,9 @@
+
+> ng-echarts-workspace@0.0.0 check:dashboard
+> node tools/generate-dashboard-example.mjs --check && node tools/check-documentation-consumer.mjs --dashboard --keep
+
+Scaffolding the exact documented Angular application outside the workspace…
+Installing the documented version pins and registry package…
+Compiling and building the complete integration-guide example…
+PASS: documented installation and full application build, render and hydrate in all three engines.
+Retained dashboard consumer: /private/var/folders/ys/1jpmsjyn3wlcbsksk8hn4mdr0000gp/T/ng-echarts-docs-Bq8Uol/chart-consumer

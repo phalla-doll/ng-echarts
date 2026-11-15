@@ -1,3 +1,4 @@
+import { verifyDashboard } from './dashboard-flow.mjs';
 import { consumerArtifact } from './consumer-artifact.mjs';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
@@ -13,12 +14,30 @@ import { chromium, firefox, webkit } from 'playwright';
 import { expect } from '@playwright/test';
 import { format, resolveConfig } from 'prettier';
 
+const dashboard = process.argv.includes('--dashboard');
+const keep = dashboard && process.argv.includes('--keep');
+const dashboardRegistry = dashboard && !process.argv.includes('--candidate');
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const parent = await realpath(await mkdtemp(join(tmpdir(), 'ng-echarts-docs-')));
 const consumer = join(parent, 'chart-consumer');
 const installation = await readFile(join(root, 'docs/INSTALLATION.md'), 'utf8');
 const integration = await readFile(join(root, 'docs/INTEGRATION_GUIDE.md'), 'utf8');
-const app = integration.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
+const dashboardComponent = dashboard
+  ? await readFile(join(root, 'projects/playground/src/app/linked/composed-dashboard.ts'), 'utf8')
+  : null;
+const dashboardApp = dashboard
+  ? await readFile(join(root, 'projects/playground/src/app/linked/dashboard-app.ts'), 'utf8')
+  : null;
+const composedDashboardSource = dashboard
+  ? (
+      await import(
+        `data:text/javascript;base64,${Buffer.from(await readFile(join(root, 'projects/playground/src/app/linked/composed-dashboard-source.ts'))).toString('base64')}`
+      )
+    ).composedDashboardSource
+  : null;
+const app = dashboard
+  ? composedDashboardSource
+  : integration.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
 assert(app, 'Integration guide must contain the full application');
 const shell = (id) => {
   const code = installation.match(
@@ -45,7 +64,37 @@ const run = async (command, args, cwd, env = {}) => {
   return output;
 };
 try {
-  const packed = await consumerArtifact(root, parent);
+  let packed;
+  if (dashboardRegistry) {
+    // This pilot deliberately checks the immutable published baseline even when source advances.
+    const receipt = JSON.parse(
+      await readFile(join(root, 'docs/experiments/public-rc22/registry-verification.json'), 'utf8'),
+    );
+    const registrySpec = `@mantha911/ng-echarts@${receipt.version}`;
+    packed = JSON.parse(
+      await run(
+        'npm',
+        [
+          'pack',
+          registrySpec,
+          '--prefer-online',
+          '--registry=https://registry.npmjs.org/',
+          '--ignore-scripts',
+          '--pack-destination',
+          parent,
+          '--json',
+        ],
+        root,
+      ),
+    )[0];
+    const sha256 = createHash('sha256')
+      .update(await readFile(join(parent, packed.filename)))
+      .digest('hex');
+    assert.equal(sha256, receipt.sha256, 'Dashboard baseline registry digest changed');
+    packed = { ...packed, sha256, registrySpec, exactCandidate: true };
+  } else {
+    packed = await consumerArtifact(root, parent);
+  }
   console.log('Scaffolding the exact documented Angular application outside the workspace…');
   await run('sh', ['-eu', '-c', shell('scaffold')], parent);
   console.log(
@@ -140,7 +189,9 @@ try {
   const response = await fetch(url);
   const html = await response.text();
   assert.equal(response.status, 200, html);
-  for (const title of ['Monthly visits', 'Visit trends', 'Stacked visits', 'Desktop share'])
+  for (const title of dashboard
+    ? ['Visits dashboard', 'Monthly visits and trend', 'Recorded device visits']
+    : ['Monthly visits', 'Visit trends', 'Stacked visits', 'Desktop share'])
     assert(html.includes(title));
   assert(!html.includes('<canvas'));
   const results = [];
@@ -158,51 +209,65 @@ try {
           errors.push(message.text());
       });
       await page.goto(url);
-      await expect(page.locator('canvas')).toHaveCount(4);
-      for (const family of ['bar', 'line', 'area', 'pie']) {
-        const chart = page.locator(`nec-${family}-chart`);
-        await chart.getByRole('button', { name: 'Show data table', exact: true }).click();
-        const action = chart.getByRole('button', {
-          name: 'Select Desktop for January: 342',
-          exact: true,
-        });
-        await action.focus();
-        await page.keyboard.press('Enter');
-        await expect(page.locator('.selection')).toHaveText('jan/desktop/342/table');
-      }
-      const instances = await page
-        .locator('.plot')
-        .evaluateAll((plots) => plots.map((plot) => plot.getAttribute('_echarts_instance_')));
-      await page.getByRole('button', { name: 'Update values', exact: true }).click();
-      for (const family of ['bar', 'line', 'area', 'pie'])
-        await expect(
-          page
-            .locator(`nec-${family}-chart`)
-            .getByRole('button', { name: 'Select Desktop for January: 352', exact: true }),
-        ).toBeVisible();
-      await page.getByRole('button', { name: 'Dark theme', exact: true }).click();
-      for (const frame of await page.locator('.chart-frame').all())
-        await expect(frame).toHaveCSS('background-color', 'rgb(24, 32, 44)');
-      const desktop = page.locator('nec-bar-chart .legend button').first();
-      await desktop.focus();
-      await page.keyboard.press('Space');
-      await expect(desktop).toHaveAttribute('aria-pressed', 'false');
-      for (const width of [320, 768, 1440]) {
-        await page.setViewportSize({ width, height: 1000 });
-        await expect
-          .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
-          .toBeLessThanOrEqual(width);
-      }
-      expect(
-        await page
+      if (dashboard) {
+        await verifyDashboard(page);
+      } else {
+        await expect(page.locator('canvas')).toHaveCount(4);
+        for (const family of ['bar', 'line', 'area', 'pie']) {
+          const chart = page.locator(`nec-${family}-chart`);
+          await chart.getByRole('button', { name: 'Show data table', exact: true }).click();
+          const action = chart.getByRole('button', {
+            name: 'Select Desktop for January: 342',
+            exact: true,
+          });
+          await action.focus();
+          await page.keyboard.press('Enter');
+          await expect(page.locator('.selection')).toHaveText('jan/desktop/342/table');
+        }
+        const instances = await page
           .locator('.plot')
-          .evaluateAll((plots) => plots.map((plot) => plot.getAttribute('_echarts_instance_'))),
-      ).toEqual(instances);
+          .evaluateAll((plots) => plots.map((plot) => plot.getAttribute('_echarts_instance_')));
+        await page.getByRole('button', { name: 'Update values', exact: true }).click();
+        for (const family of ['bar', 'line', 'area', 'pie'])
+          await expect(
+            page
+              .locator(`nec-${family}-chart`)
+              .getByRole('button', { name: 'Select Desktop for January: 352', exact: true }),
+          ).toBeVisible();
+        await page.getByRole('button', { name: 'Dark theme', exact: true }).click();
+        for (const frame of await page.locator('.chart-frame').all())
+          await expect(frame).toHaveCSS('background-color', 'rgb(24, 32, 44)');
+        const desktop = page.locator('nec-bar-chart .legend button').first();
+        await desktop.focus();
+        await page.keyboard.press('Space');
+        await expect(desktop).toHaveAttribute('aria-pressed', 'false');
+        for (const width of [320, 768, 1440]) {
+          await page.setViewportSize({ width, height: 1000 });
+          await expect
+            .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
+            .toBeLessThanOrEqual(width);
+        }
+        expect(
+          await page
+            .locator('.plot')
+            .evaluateAll((plots) => plots.map((plot) => plot.getAttribute('_echarts_instance_'))),
+        ).toEqual(instances);
+      }
       assert.deepEqual(errors, []);
       results.push({
         engine: engine.name(),
         version: browser.version(),
-        charts: 4,
+        charts: dashboard ? 2 : 4,
+        ...(dashboard
+          ? {
+              applicationOwnedSelection: true,
+              rawZeroKeyboardAction: true,
+              partialObservations: true,
+              stableIdReplacement: true,
+              independentLegends: true,
+              emptyRecovery: true,
+            }
+          : {}),
         keyboardEvents: true,
         immutableUpdates: true,
         themes: true,
@@ -225,11 +290,21 @@ try {
     },
     node: process.version,
     npm: (await run('npm', ['--version'], consumer)).trim(),
-    method: `Fresh pinned CLI scaffold outside workspace; execute INSTALLATION.md shell blocks; install ${packed.registrySpec ? 'exact registry package' : 'local tarball'}; copy exact INTEGRATION_GUIDE.md App; strict ngc and production build; generated server HTML then three-engine hydration/actions/updates/themes/resize.`,
+    ...(keep ? { retainedConsumer: consumer } : {}),
+    ...(dashboard ? { displayedSourceSha256: createHash('sha256').update(app).digest('hex') } : {}),
+    method: dashboard
+      ? `Fresh pinned CLI scaffold outside workspace; npm ${dashboardRegistry ? 'registry rc.22 digest-verified installation' : 'candidate installation'}; exact dashboard component/App; strict ngc, production SSR, three-engine dashboard flow.`
+      : `Fresh pinned CLI scaffold outside workspace; execute INSTALLATION.md shell blocks; install ${packed.registrySpec ? 'exact registry package' : 'local tarball'}; copy exact INTEGRATION_GUIDE.md App; strict ngc and production build; generated server HTML then three-engine hydration/actions/updates/themes/resize.`,
     sources: Object.fromEntries(
       [
         ['docs/INSTALLATION.md', installation],
         ['docs/INTEGRATION_GUIDE.md', integration],
+        ...(dashboard
+          ? [
+              ['projects/playground/src/app/linked/composed-dashboard.ts', dashboardComponent],
+              ['projects/playground/src/app/linked/dashboard-app.ts', dashboardApp],
+            ]
+          : []),
       ].map(([name, text]) => [name, createHash('sha256').update(text).digest('hex')]),
     ),
     installedOutsideWorkspace: true,
@@ -241,13 +316,18 @@ try {
       Object.entries(resolved.dependencies).map(([name, value]) => [name, value.version]),
     ),
     generatedPackage: manifest.name,
-    ssrHeadings: 4,
+    ssrHeadings: dashboard ? 3 : 4,
     serverCanvasCount: 0,
     results,
     passed: true,
   };
   await writeFile(
-    join(root, 'docs/experiments/data/ng15-documentation-consumer.json'),
+    join(
+      root,
+      dashboard
+        ? `docs/experiments/data/ng20-dashboard-${dashboardRegistry ? 'registry' : 'candidate'}-consumer.json`
+        : 'docs/experiments/data/ng15-documentation-consumer.json',
+    ),
     await format(JSON.stringify(evidence), {
       ...(await resolveConfig(join(root, '.prettierrc'))),
       parser: 'json',
@@ -258,5 +338,6 @@ try {
   );
 } finally {
   server?.kill('SIGTERM');
-  await rm(parent, { recursive: true, force: true });
+  if (keep) console.log(`Retained dashboard consumer: ${consumer}`);
+  else await rm(parent, { recursive: true, force: true });
 }

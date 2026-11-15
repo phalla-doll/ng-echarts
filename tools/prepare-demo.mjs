@@ -15,6 +15,7 @@ export const rendererRoutes = {
   calendar: ['calendar'],
   sankey: ['sankey'],
   linked: ['bar', 'pie'],
+  'linked-dashboard': ['composed', 'bar'],
   playground: ['bar'],
   formatting: ['bar'],
 };
@@ -30,6 +31,7 @@ const routeComponents = {
   calendar: 'gallery/calendar/calendar-blocks',
   sankey: 'gallery/sankey/sankey-blocks',
   linked: 'linked/linked-charts',
+  'linked-dashboard': 'linked/linked-dashboard',
   playground: 'validation/app',
   formatting: 'validation/formatting',
 };

@@ -32,3 +32,12 @@ it('accepts marker identities and ignores malformed chart events', () => {
     curvePoint({ selfType: 'grid', seriesIndex: 0, event: { offsetX: 1 } }, options, () => 0),
   ).toBeUndefined();
 });
+
+it('uses only the vertical pointer coordinate for horizontal curves and rejects missing cells', () => {
+  const convert = vi.fn(() => 2);
+  const event = { selfType: 'area', seriesIndex: 0, event: { offsetX: NaN, offsetY: 42 } };
+  expect(curvePoint(event, options, convert, true)).toEqual({ rowId: 'c', seriesId: 'visible' });
+  expect(convert).toHaveBeenCalledWith(42);
+  expect(curvePoint(event, options, () => 1, true)).toBeUndefined();
+  expect(curvePoint({ ...event, event: { offsetX: 42 } }, options, convert, true)).toBeUndefined();
+});

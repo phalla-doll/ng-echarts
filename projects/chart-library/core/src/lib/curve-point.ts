@@ -5,7 +5,8 @@ function record(value: unknown): value is Record<string, unknown> {
 export function curvePoint(
   event: unknown,
   options: unknown,
-  convert: (x: number) => unknown,
+  convert: (coordinate: number) => unknown,
+  horizontal = false,
 ): PlotPoint | undefined {
   if (!record(event) || !record(options)) return;
   if (
@@ -23,9 +24,9 @@ export function curvePoint(
     !record(event['event'])
   )
     return;
-  const x = event['event']['offsetX'];
-  if (typeof x !== 'number' || !Number.isFinite(x)) return;
-  const category = convert(x);
+  const coordinate = event['event'][horizontal ? 'offsetY' : 'offsetX'];
+  if (typeof coordinate !== 'number' || !Number.isFinite(coordinate)) return;
+  const category = convert(coordinate);
   if (typeof category !== 'number' || !Number.isFinite(category)) return;
   const series =
     record(options) && Array.isArray(options['series'])

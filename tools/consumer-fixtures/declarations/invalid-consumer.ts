@@ -207,6 +207,22 @@ export class InvalidComposedMissingKind {
 }
 
 @Component({
+  imports: [ComposedChart],
+  template: `<nec-composed-chart
+    title="Invalid layout"
+    [data]="rows"
+    rowIdKey="id"
+    categoryKey="category"
+    [series]="series"
+    [layout]="'diagonal'"
+  />`,
+})
+export class InvalidComposedLayout {
+  readonly rows = [{ id: 'a', category: 'A', count: 1 }];
+  readonly series = [{ id: 'v', key: 'count', label: 'V', kind: 'bar' }] as const;
+}
+
+@Component({
   imports: [RadarChart],
   template: `<nec-radar-chart
     title="Invalid radar scale"

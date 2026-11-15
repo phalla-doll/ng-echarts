@@ -4,6 +4,8 @@
 
 Published experimental release: **`@mantha911/ng-echarts@0.1.0-rc.22`**. Install with `npm install @mantha911/ng-echarts@next echarts@6.1.0`, or pin `@0.1.0-rc.22`. npm `next` selects rc.22; its initial `latest` alias remains on rc.18; neither the alias nor publication declares a stable API. The user deferred VoiceOver review, so human F09/R06/G2/G3/G4 remain pending. See [publication status and evidence](docs/PUBLICATION.md#rc22-oidc-publication).
 
+Current development: **local `0.1.0-rc.23` candidate** adds horizontal composition and a [composed linked dashboard](docs/COMPOSED_DASHBOARD.md). The dashboard also runs on published rc.22; this source work does not change npm tags or the deployed demo.
+
 An Angular 22 chart component library inspired by EvilCharts, using Apache ECharts for rendering and TypeScript for its public API.
 
 Preview: **[Live demo on GitHub Pages](https://phalla-doll.github.io/ng-echarts/)**. See [deployment instructions](docs/GITHUB_PAGES.md) to rebuild and publish the current demo snapshot.

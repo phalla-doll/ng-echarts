@@ -139,3 +139,7 @@ The [NG17 stacked-composition report](experiments/NG17_STACKED_COMPOSED.md) owns
 ## NG17 composed-area follow-up
 
 The user authorized the [area composition increment](experiments/NG17_COMPOSED_AREAS.md) after publishing the preserved rc.21 archive. Published rc.22 adds typed area descriptors, gradient/solid fills and separate same-sign area stack groups on the existing shared category/value scale. Supplied lines and point/table values remain raw, missing observations remain missing, and immutable kind changes clear obsolete presentation. The pure area-fill helper is shared with standalone areas; no additional engine or dependency is introduced. The linked report owns actual source, consumer, browser, performance and candidate results. Public next is rc.22 after the exact OIDC publication; human F09/R06/G2/G3/G4 remain deferred/pending.
+
+## Composed dashboard and horizontal continuation
+
+The [NG20/NG17 increment record](experiments/NG20_COMPOSED_DASHBOARD.md) tracks raw composed selection, current-data detail derivation, stable-ID replacement, independent legends, reset focus, explicit missing/partial totals, exact displayed-source npm consumer checks and horizontal path/stack/format behavior. Its evidence supplements existing family acceptance; it does not close human F09/R06/G2/G3/G4.

@@ -6,6 +6,8 @@ export interface ComposedBlock extends Omit<
   'kind' | 'layout' | 'stacked' | 'gradient' | 'series'
 > {
   readonly kind: 'composed';
+  readonly layout?: 'vertical' | 'horizontal';
+  readonly lineSummary?: 'latest' | 'total';
   readonly series: readonly ComposedSeries<DeviceRow>[];
 }
 // Original trailing three-observation mean derived from the attributed monthly fixture.
@@ -85,6 +87,26 @@ export const composedBlocks: readonly ComposedBlock[] = [
       { id: 'trend', key: 'trend', label: '3-month mean', kind: 'line' },
     ],
   },
+  {
+    kind: 'composed',
+    id: 'horizontal-visits-and-target',
+    title: 'Regional Visits & Target',
+    description:
+      'Regional desktop and mobile visits share a horizontal bar stack. The line shows supplied targets in visits. The first supplied region stays at the top. Horizontal composition requires the local rc.23 candidate.',
+    layout: 'horizontal',
+    lineSummary: 'total',
+    rows: [
+      { id: 'north', month: 'Northern Europe', desktop: 180, mobile: 80, trend: 300 },
+      { id: 'southeast', month: 'Southeast Asia', desktop: 140, mobile: 110, trend: 280 },
+      { id: 'south', month: 'South America', desktop: 120, mobile: 90, trend: 240 },
+      { id: 'oceania', month: 'Oceania', desktop: 100, mobile: 60, trend: 200 },
+    ],
+    series: [
+      { id: 'desktop', key: 'desktop', label: 'Desktop', kind: 'bar', stack: 'visits' },
+      { id: 'mobile', key: 'mobile', label: 'Mobile', kind: 'bar', stack: 'visits' },
+      { id: 'trend', key: 'trend', label: 'Target', kind: 'line' },
+    ],
+  },
 ];
 export function composedExampleSource(block: ComposedBlock, dark: boolean): string {
   return [
@@ -101,7 +123,8 @@ export function composedExampleSource(block: ComposedBlock, dark: boolean): stri
     `    description="${block.description}"`,
     '    [data]="visits" rowIdKey="id" categoryKey="month" [series]="series"',
     `    theme="${dark ? 'dark' : 'light'}" [height]="230" [showDataTable]="false"`,
-    '    [categoryTickFormatter]="monthTick"',
+    ...(block.layout ? [`    layout="${block.layout}"`] : []),
+    ...(block.layout === 'horizontal' ? [] : ['    [categoryTickFormatter]="monthTick"']),
     '  />`,',
     '})',
     'export class VisitsAndTrend {',

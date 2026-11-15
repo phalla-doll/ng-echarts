@@ -18,6 +18,16 @@ import { linkedExampleSource } from './linked-example-source';
         </div>
       </header>
       <app-linked-visits [data]="rows" [theme]="theme()" />
+      <section class="linking-guide">
+        <h2>Composed dashboard</h2>
+        <p>
+          Connect stacked bars or areas and a trend line to a device breakdown, with refresh and
+          data replacement controls.
+        </p>
+        <a routerLink="/linked-dashboard"
+          >Open the composed linked dashboard<app-site-icon name="arrow"
+        /></a>
+      </section>
       <section class="linking-guide" id="linking-pattern" aria-labelledby="linking-title">
         <h2 id="linking-title">Linking pattern</h2>
         <p>

@@ -1,0 +1,5 @@
+
+> ng-echarts-workspace@0.0.0 capture:dashboard
+> node tools/capture-dashboard.mjs
+
+PASS: 24 dashboard/horizontal captures; all widths fit; no browser/HTTP errors.

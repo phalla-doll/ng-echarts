@@ -1,12 +1,12 @@
 {
-  "recordedAt": "2026-11-15T07:30:13.751Z",
+  "recordedAt": "2026-11-15T14:53:39.166Z",
   "node": "v24.22.2",
   "package": "@mantha911/ng-echarts",
-  "version": "0.1.0-rc.22",
+  "version": "0.1.0-rc.23",
   "artifact": {
     "name": "@mantha911/ng-echarts",
-    "version": "0.1.0-rc.22",
-    "sha256": "d1e9d2afdb720293ead15274b8302363b4dab86f14bf2d9c637f992b0e2f0a87",
+    "version": "0.1.0-rc.23",
+    "sha256": "5b658b17816fbb36c3e79a69410548fddbb2e24a8a5b15dc188931c9407ac92f",
     "exactCandidate": true
   },
   "skipLibCheck": false,
@@ -35,6 +35,7 @@
       "mode": "client",
       "conceptGallery": true,
       "linkedMonthPreviews": true,
+      "composedLinkedDashboard": true,
       "passed": true
     },
     {
@@ -43,6 +44,7 @@
       "mode": "ssr-hydration",
       "conceptGallery": true,
       "linkedMonthPreviews": true,
+      "composedLinkedDashboard": true,
       "passed": true
     },
     {
@@ -51,6 +53,7 @@
       "mode": "client",
       "conceptGallery": true,
       "linkedMonthPreviews": true,
+      "composedLinkedDashboard": true,
       "passed": true
     },
     {
@@ -59,6 +62,7 @@
       "mode": "ssr-hydration",
       "conceptGallery": true,
       "linkedMonthPreviews": true,
+      "composedLinkedDashboard": true,
       "passed": true
     },
     {
@@ -67,6 +71,7 @@
       "mode": "client",
       "conceptGallery": true,
       "linkedMonthPreviews": true,
+      "composedLinkedDashboard": true,
       "passed": true
     },
     {
@@ -75,6 +80,7 @@
       "mode": "ssr-hydration",
       "conceptGallery": true,
       "linkedMonthPreviews": true,
+      "composedLinkedDashboard": true,
       "passed": true
     }
   ]

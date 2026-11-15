@@ -14,23 +14,27 @@ export type ComposedOption = ComposeOption<
 export function buildComposedOptions<T>(
   context: ɵCartesianContext<T>,
   series: readonly ComposedSeries<T>[],
+  layout: 'vertical' | 'horizontal' = 'vertical',
 ): ComposedOption {
+  const horizontal = layout === 'horizontal';
   const { model, hiddenIds, tokens, animation, format, categoryTicks } = context;
   const common = ɵbuildCartesianOptions(
     model,
     hiddenIds,
     tokens,
-    false,
+    horizontal,
     animation,
     format,
     categoryTicks,
   );
-  const categoryAxis = common.xAxis;
+  const categoryAxis = horizontal ? common.yAxis : common.xAxis;
   if (categoryAxis.type !== 'category') throw new Error('Expected category axis');
   return {
     ...common,
     // Keep category centers stable even while every bar is hidden.
-    xAxis: { ...categoryAxis, boundaryGap: true },
+    ...(horizontal
+      ? { yAxis: { ...categoryAxis, boundaryGap: true } }
+      : { xAxis: { ...categoryAxis, boundaryGap: true } }),
     series: series.flatMap((item, index): (BarSeriesOption | LineSeriesOption)[] => {
       if (hiddenIds.has(item.id)) return [];
       const color = tokens.series[index % tokens.series.length] ?? '#047857';
@@ -49,7 +53,14 @@ export function buildComposedOptions<T>(
               Math.sign(other) === Math.sign(value)
             );
           });
-          if (!covered) borderRadius = value < 0 ? [0, 0, 2, 2] : [2, 2, 0, 0];
+          if (!covered)
+            borderRadius = horizontal
+              ? value < 0
+                ? [2, 0, 0, 2]
+                : [0, 2, 2, 0]
+              : value < 0
+                ? [0, 0, 2, 2]
+                : [2, 2, 0, 0];
         }
         return {
           id: row.id,
@@ -81,7 +92,7 @@ export function buildComposedOptions<T>(
                 ? {
                     stack: item.stack === undefined ? undefined : `nec-area:${item.stack}`,
                     stackStrategy: 'samesign' as const,
-                    areaStyle: ɵbuildAreaFill(color, item.gradient ?? true),
+                    areaStyle: ɵbuildAreaFill(color, item.gradient ?? true, horizontal),
                   }
                 : {}),
               smooth: item.smooth ?? false,

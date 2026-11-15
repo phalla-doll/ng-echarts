@@ -1,0 +1,94 @@
+{
+  "recordedAt": "2026-11-15T14:55:33.189229+00:00",
+  "sourceBaseCommit": "1236ae3656f7a051d492310feb002e6bb23e2321",
+  "includesWorkingTree": true,
+  "scope": "Local working-tree verification; no new CI, npm upload or Pages deployment claimed.",
+  "toolchain": {
+    "node": "v24.22.2",
+    "npm": "11.19.1",
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "checks": {
+    "check": {
+      "passed": true,
+      "log": "check.txt",
+      "sha256": "415608897e4d7970801dd38e046594e0234e7fc26ad393199c6c205aa12e0026"
+    },
+    "release-check": {
+      "passed": true,
+      "log": "release-check.txt",
+      "sha256": "0d9bfa9133be8135279438bdb513046b10820dae1c465c267149e715e17ab236"
+    },
+    "immutability": {
+      "passed": true,
+      "log": "immutability.txt",
+      "sha256": "4591deffb35cd6ba5dd491b8de73f48dc901ec7b77acc70d9333553b615275ca"
+    },
+    "registry-dashboard": {
+      "passed": true,
+      "log": "registry-dashboard.txt",
+      "sha256": "ba2be48871fe62ac7e82ecffb5bd68a788538cc00981bf82c0a5923de9893887"
+    },
+    "captures": {
+      "passed": true,
+      "log": "captures.txt",
+      "sha256": "f3261d9f0105287fd7ec4199c2fb7eb7990a7fa3bd571a4099fd2a44b301549d"
+    },
+    "horizontal-bars": {
+      "passed": true,
+      "log": "horizontal-bars.txt",
+      "sha256": "5872655df6d733f53e35a8c4eae5fa1acdd9c566da790190c8548dfc270ca709"
+    },
+    "horizontal-areas": {
+      "passed": true,
+      "log": "horizontal-areas.txt",
+      "sha256": "01debcb6d0c293d3013c988f03aa4651f3e2986c607060c714f53672aeb8f7a5"
+    }
+  },
+  "unitTests": 330,
+  "publicationGuardTests": 22,
+  "pagesProvenanceTests": 20,
+  "assetTests": 5,
+  "browser": {
+    "passed": 470,
+    "skipped": 4,
+    "engines": ["chromium", "firefox", "webkit"]
+  },
+  "candidate": {
+    "filename": "mantha911-ng-echarts-0.1.0-rc.23.tgz",
+    "version": "0.1.0-rc.23",
+    "bytes": 164910,
+    "sha256": "5b658b17816fbb36c3e79a69410548fddbb2e24a8a5b15dc188931c9407ac92f"
+  },
+  "registryTagsObserved": {
+    "latest": "0.1.0-rc.18",
+    "next": "0.1.0-rc.22"
+  },
+  "unchangedEarlierArtifactFiles": 79,
+  "sourceCodeSha256": {
+    "projects/chart-library/composed/src/lib/composed-browser.ts": "26e2a79b044875e3ca89bab9331bd246c8c208d40bc3b0250a6a8f64673631c6",
+    "projects/chart-library/composed/src/lib/composed-chart.spec.ts": "e4c1ce20ef848b6996e82ec0729795eb0a99fd0fa6347abeca6a8d4ea315d05e",
+    "projects/chart-library/composed/src/lib/composed-chart.ts": "51fa3edc21f01e9899c793d476b35398d84ccb9a1a066d3c3d31cb1fb87780f1",
+    "projects/chart-library/composed/src/lib/composed-motion.spec.ts": "6f725fc532c261f8ae2d7910e9512379c572376734600f2718b76ac6bf02de49",
+    "projects/chart-library/composed/src/lib/composed-options.spec.ts": "713696369c6647ed4c7838ad3745b5ff4633a8e20b44b467e5a732b78e32e67a",
+    "projects/chart-library/composed/src/lib/composed-options.ts": "34bed1d7d7dfea1d8a6feaa40a285fe7a46d2d986121713dca49f7f412f882c4",
+    "projects/chart-library/composed/src/lib/composed-renderer.ts": "6a069590c627e757e04d6ec6ac815554665f2eb8bb74aab2c6616102ed9f29e8",
+    "projects/chart-library/composed/src/lib/composed-types.ts": "dd3dd16694a775964de7bb1ad36aa30c2cf10e761504e13bddf2fde39a4cae85",
+    "projects/chart-library/composed/src/public-api.ts": "ee43c906e103fddb9bd6ff3d8af83e486e9c0b221a3fbe833221aa451e8ab582",
+    "projects/chart-library/core/src/lib/area-fill.ts": "4d0094992323c3053dba5208ac6357ca39f73d472bd9d85083da0378a7af466a",
+    "projects/chart-library/core/src/lib/curve-point.ts": "0cd1aeea88d8c9b5a6c063c667a4ef71589e3e4ab70dd120fe5be0e9787ba0d8",
+    "projects/playground/src/app/gallery/bar-block.ts": "061721565f50cc9633243d9218e3e1346a7eb0df363d1bfd5899c99a5f01c90a",
+    "projects/playground/src/app/gallery/composed/composed-blocks.ts": "3f4493a1fad85748b5ff2c36c2a5a823ebaaf1c192d8ca9eb0653de54cd85224",
+    "projects/playground/src/app/linked/composed-dashboard-source.ts": "0785415430d65e402cd9573c817375f87c5cfa80929c3c54ce4cd1afa0b4254a",
+    "projects/playground/src/app/linked/composed-dashboard.ts": "444c516103a0673eef165286bc8b72afcc7bde26c17d21c05a62a5789807d7fb",
+    "projects/playground/src/app/linked/dashboard-app.ts": "77ec895130ae8943223931ea25ffae3f33a0bc0fdc1a7129f2f6d8ccf7b271fe",
+    "tools/dashboard-flow.mjs": "1b4b88385f088b856823f7b4a54e30082ec9d01eb27328374b877403ad32fa81"
+  },
+  "humanInterpretation": "pending",
+  "F09": "pending",
+  "R06": "pending",
+  "G2": "pending",
+  "G3": "pending",
+  "G4": "pending"
+}

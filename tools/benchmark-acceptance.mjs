@@ -9,6 +9,8 @@ import { format, resolveConfig } from 'prettier';
 const selected = process.argv[2];
 const area = process.argv.includes('--area');
 const stacked = process.argv.includes('--stacked');
+const horizontal = process.argv.includes('--horizontal');
+assert(!horizontal || selected === 'composed');
 assert(!selected || selected === 'composed', 'Optional family must be composed');
 assert(!area || selected === 'composed');
 assert(!(area && stacked));
@@ -52,7 +54,7 @@ try {
         observer.observe(document, { childList: true, subtree: true });
       }, family);
       await page.goto(
-        `http://localhost:${port}/${family === 'bar' ? '' : `${family}-`}benchmark${area ? '?area=1' : stacked ? '?stacked=1' : ''}`,
+        `http://localhost:${port}/${family === 'bar' ? '' : `${family}-`}benchmark?${new URLSearchParams({ ...(area ? { area: '1' } : stacked ? { stacked: '1' } : {}), ...(horizontal ? { horizontal: '1' } : {}) })}`,
       );
       await page.waitForFunction(() => window.angularBarBenchmark);
       const results = [],
@@ -107,6 +109,9 @@ try {
     },
     browser: browser.version(),
     method: {
+      orientation: horizontal
+        ? 'horizontal composition; categories on inverse y-axis'
+        : 'default vertical',
       build: 'production SSR playground, actual Angular components, lazy Canvas renderer',
       fixture:
         '768x320 plot profile; resize alternates host width 768/640; DPR 1; animation disabled; reduced motion; table collapsed',
@@ -134,7 +139,7 @@ try {
   };
   await writeFile(
     new URL(
-      `docs/experiments/data/${area ? 'ng17-area-composed-benchmark' : stacked ? 'ng17-stacked-composed-benchmark' : selected ? 'ng17-composed-benchmark' : 'ng14-benchmark'}.json`,
+      `docs/experiments/data/${horizontal ? `ng17-horizontal-${area ? 'area-' : stacked ? 'stacked-' : ''}composed-benchmark` : area ? 'ng17-area-composed-benchmark' : stacked ? 'ng17-stacked-composed-benchmark' : selected ? 'ng17-composed-benchmark' : 'ng14-benchmark'}.json`,
       root,
     ),
     await format(JSON.stringify(evidence), {

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import {
   ChartFrame,
   ɵChartStage,
@@ -24,17 +24,20 @@ export class ComposedChart<T extends object> extends ɵCartesianChart<
   ComposedOption,
   ComposedSeries<T>
 > {
+  readonly layout = input<'vertical' | 'horizontal'>('vertical');
   private readonly loader = inject(COMPOSED_RENDERER_LOADER);
   protected override renderer() {
     return this.loader();
   }
   protected override familyConfiguration() {
-    return this.series();
+    return { series: this.series(), layout: this.layout() };
   }
   protected override familyError() {
-    return composedSeriesError(this.series());
+    return ['vertical', 'horizontal'].includes(this.layout())
+      ? composedSeriesError(this.series())
+      : 'Chart layout is invalid.';
   }
   protected override buildOptions(context: ɵCartesianContext<T>): ComposedOption {
-    return buildComposedOptions(context, this.series());
+    return buildComposedOptions(context, this.series(), this.layout());
   }
 }

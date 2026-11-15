@@ -24,6 +24,7 @@ const pageTitles: Readonly<Record<string, string>> = {
   '/calendar': 'Calendar Heatmap',
   '/sankey': 'Sankey Flow',
   '/linked': 'Linked Charts',
+  '/linked-dashboard': 'Visits dashboard',
   '/chart-possibilities': 'Chart possibilities',
   '/linked-validation': 'Linked validation',
   '/composed-benchmark': 'Composed benchmark',
@@ -84,6 +85,7 @@ export class Root {
       '/calendar',
       '/sankey',
       '/linked',
+      '/linked-dashboard',
       '/chart-possibilities',
     ].includes(this.routePath()),
   );
