@@ -118,7 +118,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'local-package',
         title: 'Use a packed local build',
         paragraphs: [
-          'Published 0.1.0-rc.22 includes composed areas, named bar stacks and table pagination. npm next selects rc.22. You can also create an exact local source build. Create a production tarball from the workspace root. Install that file and the tested ECharts peer in a separate Angular 22 application. Replace the example path with the location of your checkout. Keep the file at the lockfile’s recorded path, or copy it into the consumer’s vendor directory first; commit the lockfile and use npm ci for repeat installs.',
+          'The experimental public 0.1.0-rc.22 candidate includes composed areas, named bar stacks and table pagination. npm next selects rc.22. You can also create an exact local source build. Create a production tarball from the workspace root. Install that file and the tested ECharts peer in a separate Angular 22 application. Replace the example path with the location of your checkout. Keep the file at the lockfile’s recorded path, or copy it into the consumer’s vendor directory first; commit the lockfile and use npm ci for repeat installs.',
         ],
         source:
           'npm run pack:lib\n\n# In your Angular 22 application:\nnpm install /path/to/ng-echarts/dist/mantha911-ng-echarts-0.1.0-rc.22.tgz echarts@6.1.0',
