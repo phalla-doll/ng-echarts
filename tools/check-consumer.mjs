@@ -198,9 +198,13 @@ try {
   );
   assert(
     documentationPages.installation.sections.some((section) =>
-      section.paragraphs.some((text) => text.includes(`public ${packed.version} candidate`)),
+      section.paragraphs.some(
+        (text) =>
+          text.includes(`public ${packed.version} candidate`) ||
+          text.includes(`unreleased ${packed.version} source candidate`),
+      ),
     ),
-    'The public Installation status must name the actual public candidate',
+    'The Installation status must identify the tested source or published candidate',
   );
   await writeFile(join(consumer, 'quick-start-example.ts'), quickStartExample);
   config.files.push('quick-start-example.ts');
@@ -356,6 +360,7 @@ try {
     ['InvalidBarSelection', '[selectedRowIds]="[12]"'],
     ['InvalidBarSelection', '[rangeSelection]="\'yes\'"'],
     ['InvalidBarSelection', '[previewEnabled]="\'yes\'"'],
+    ['InvalidBarSelection', '[tablePageSize]="\'50\'"'],
     ['InvalidSeriesConsumer', '[series]="badSeries"'],
     ['InvalidLine', '[series]="series"'],
     ['InvalidLine', '[smooth]="\'yes\'"'],

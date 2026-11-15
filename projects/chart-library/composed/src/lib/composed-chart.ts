@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
   ChartFrame,
   ɵChartStage,
+  ɵTablePager,
   ɵCartesianChart,
   type ɵCartesianContext,
 } from '@mantha911/ng-echarts/core';
@@ -10,7 +11,7 @@ import { buildComposedOptions, type ComposedOption } from './composed-options';
 import { composedSeriesError, type ComposedSeries } from './composed-types';
 @Component({
   selector: 'nec-composed-chart',
-  imports: [ChartFrame, ɵChartStage],
+  imports: [ChartFrame, ɵChartStage, ɵTablePager],
   templateUrl: '../../../core/src/lib/cartesian-chart.html',
   styleUrls: [
     '../../../core/src/lib/cartesian-chart.css',

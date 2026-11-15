@@ -8,6 +8,7 @@ interface Row {
 @Component({
   imports: [LineChart],
   template: `<nec-line-chart
+    [tablePageSize]="50"
     title="Packed line"
     [data]="rows"
     rowIdKey="id"

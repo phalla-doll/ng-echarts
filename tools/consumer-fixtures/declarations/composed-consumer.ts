@@ -18,6 +18,7 @@ interface Row {
 @Component({
   imports: [ComposedChart, RootComposedChart],
   template: ` <nec-composed-chart
+    [tablePageSize]="50"
     title="Mixed"
     [data]="rows"
     rowIdKey="id"

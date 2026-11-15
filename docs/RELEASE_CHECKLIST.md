@@ -111,3 +111,7 @@ The [verified rc.15 preview-only artifact](experiments/data/local-release-0.1.0-
 
 
 The [first public prerelease](experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) is verified against registry bytes and fresh registry consumers. npm retained its initial `latest` alias alongside `next`; the [publication record](PUBLICATION.md#first-publication-result) records the rejected removal. Human F09/R06/G2/G3/G4 remain pending under the user’s explicit experimental-prerelease exception.
+
+## Unreleased rc.19 working tree
+
+The [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md) advances source metadata to `0.1.0-rc.19`. Source build and consumer commands now exercise that version; the rc.18 filenames and receipts above remain historical published evidence. No rc.19 release archive or publication is claimed. Preserve rc.18 and all earlier archives, and prepare a distinct new artifact before any future publication. To recheck the published rc.18 registry receipt with the exact-source-identity guard, use the matching rc.18 source checkout.

@@ -115,3 +115,7 @@ For a client-only application, use `--ssr=false` in the scaffold command and omi
 | Hydration mismatch | Keep initial data, locale, formatter behavior, titles and identifiers deterministic; retain Angular hydration and let the adapter own only its plot surface |
 
 The [API index and integration guide](INTEGRATION_GUIDE.md) cover shared types, updates, events and states. The [compatibility and limits](COMPATIBILITY.md) document records measured envelopes, exclusions, and open release evidence.
+
+## Unreleased source follow-up
+
+The current working tree targets `0.1.0-rc.19`; npm `next` and `latest` still identify published rc.18. Opt-in `tablePageSize` requires a local rc.19 source build. Run `npm run pack:lib`, then install `dist/mantha911-ng-echarts-0.1.0-rc.19.tgz` in the consumer instead of the registry version. Preserve published rc.18 and all previous archives. The [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md) records the new behavior and source checks; it does not record a new publication.

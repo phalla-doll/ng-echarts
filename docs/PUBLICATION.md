@@ -45,3 +45,7 @@ npm accepted the upload with HTTP 202 before it became installable. [Publish-tim
 The observed tags are `next: 0.1.0-rc.18` and `latest: 0.1.0-rc.18`. Despite publishing explicitly with `--tag next`, npm bootstrapped `latest` for this first version and rejected `npm dist-tag rm ... latest` with HTTP 400 after authentication. This [first-publication behavior is recorded in npm’s issue tracker](https://github.com/npm/cli/issues/8490). No substitute stable version was created. This remains an experimental prerelease; install `@next` or pin the exact version. Future publishing must inspect actual tags rather than assume the initial `latest` alias can be removed.
 
 Human F09/R06/G2/G3/G4 remain pending under the user’s explicit deferral. This publication does not claim a stable API or completed human interpretation. Trusted-publishing automation remains an optional future setup; this first publication used interactive npm authentication.
+
+## Unreleased source after rc.18
+
+The working tree now targets `0.1.0-rc.19` for the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). It is unpublished source; this does not change the rc.18 registry receipt, tags or archived bytes above. New package contents must use the new version and receive their own artifact checks and publication decision.

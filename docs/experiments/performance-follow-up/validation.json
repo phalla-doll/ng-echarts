@@ -1,0 +1,64 @@
+{
+  "baseCommit": "979bf7dd8bd775245b0ff799957e5f74e8312cae",
+  "sourceVersion": "0.1.0-rc.19",
+  "method": "Isolated source snapshot of base commit plus only performance follow-up files; excludes concurrent demo icon edits. Shared node_modules, isolated dist and consumer applications.",
+  "files": {
+    "package.json": "ecdbc74b7de82dc09d1f0859d290921a01af4dbee3b60fc20ea410fce59bb753",
+    "projects/chart-library/area/src/lib/area-chart.ts": "cc4518c1cd8cc14f456e77d8757d83f51321366b872504c3245138ea81783215",
+    "projects/chart-library/bar/src/lib/bar-chart.spec.ts": "7262850d108f09a4bd121efdb174a20cece7fc5da4cc7611c3cf47e95c0800ac",
+    "projects/chart-library/bar/src/lib/bar-chart.ts": "d6b198b12fba32459c39bde9f9a854aaf2fcbf27da40118eabeb77ec51e7c086",
+    "projects/chart-library/bar/src/lib/bar-options.ts": "36f95dd8ab3653766dfa38a2dbbdb4cbfaf6f76373c0b1439b6b70af4fbeea6a",
+    "projects/chart-library/composed/src/lib/composed-chart.ts": "9b9f3f21a61840e5ccc359052c233acde9abaadc5f2ed9e0a258b75bcf4932c9",
+    "projects/chart-library/core/src/lib/cartesian-chart.html": "2a2dcfd6789efecb6ad4bf322d7f91ba39a545b39b7a7ac8ae30fd50b6bda519",
+    "projects/chart-library/core/src/lib/cartesian-chart.ts": "e8890673fd8f716e052088bdcbace8c2520811211482bc37e682347c60d81979",
+    "projects/chart-library/core/src/lib/family-acceptance.spec.ts": "df8698858908c029d14d064ee388bfd9e93b71b7fd96dc433a4e50d6ff311402",
+    "projects/chart-library/core/src/public-api.ts": "f1e7fbd2d5417337a609f2c99e9341122a704bebd187b4b54caacd0aee2f3db4",
+    "projects/chart-library/line/src/lib/line-chart.ts": "0e8a4fb30e27bbfdcc1d08474b12e520aac4495d1f0f37b494e3a2ab196f1a7c",
+    "projects/chart-library/package.json": "be39258411837bb735a1c24c080711d765bcaaac91213aea975f6cf910af6be1",
+    "projects/chart-library/pie/src/lib/pie-chart.html": "bc38fa80e98d85bd3238c1750ac7fe319d47e7ef246d90d331aaf1222ed24840",
+    "projects/chart-library/pie/src/lib/pie-chart.ts": "77ef49a791875bb845d6303c80e98185d01b0f06c1bbf8c8fc5da38d7567c770",
+    "projects/playground/src/app/benchmark.ts": "b6a511b508ec74a268d93d8ba2b7c0a70cf0eedef636710a1abdda5c93f0cd51",
+    "projects/playground/src/app/documentation-content.ts": "165fe3f1a0dd5342d0a1777165188485ca01ba47accf179016800a5dffb49c72",
+    "tools/check-bundle-size.mjs": "47bb55a1728ca88da965c68cecdc7c8f470b7994fa8d2952cefe09f8261c054d",
+    "tools/check-consumer.mjs": "c934a90d00a89e810670eade721d0146f7027336c57a4a5fea0a5da06f8116d0",
+    "tools/consumer-fixtures/declarations/area-consumer.ts": "869ac004de083ce1c021dfe5dc252b1ded52f876b7346bcabb8d6c6b5b521dde",
+    "tools/consumer-fixtures/declarations/composed-consumer.ts": "b05191e4b950c4bc3a78bdf7c4be0f6cfa013111d8f07a6a295fdb0c63673f41",
+    "tools/consumer-fixtures/declarations/consumer.ts": "965aead07f9fae8eaba15aba43e7426e8b5c5b6c74872182c79e4ef3cec426d8",
+    "tools/consumer-fixtures/declarations/invalid-consumer.ts": "bdfd31a8ccf27c02d3f92896d13640f0c59712e42ba3b9f3f8a2a84fd2b0365f",
+    "tools/consumer-fixtures/declarations/line-consumer.ts": "9de6ab29ecdf86a16ebad83736d43b49808487c2cd7f7e72040dd30ac82bc6e4",
+    "tools/consumer-fixtures/declarations/pie-consumer.ts": "f52a1ebb8a504902f075815986b74809383a16482bbc19f4d176ff7b4fc8494c",
+    "projects/chart-library/core/src/lib/table-pagination.ts": "64a2b2a660b60a67111a4609e89bb0b4720d839be5734b84a7e30c36ea7c7bdd",
+    "projects/chart-library/core/src/lib/table-pager.ts": "a5fc2a198b477a366767337e777c75609fecef845a567c0d9b5926ca8f919336",
+    "tests/browser/table-pagination.spec.ts": "e9df6f0219a3ac6c251e2b20d7cb4da020ea8c388339246ea7dbaaa6ba52bd23",
+    "tools/benchmark-table-pagination.mjs": "b34e7b98a1b2d702563f95ed3b3445b104d06f896ad4fb82abc98f913a03b97f"
+  },
+  "workspaceCheck": {
+    "command": "npm run check:workspace",
+    "passed": true,
+    "unitAndIntegrationTests": 283,
+    "pinnedNode": "24.22.2",
+    "pinnedNpm": "11.19.1"
+  },
+  "browserCheck": {
+    "command": "PLAYWRIGHT_PORT=4188 npm run test:browser",
+    "passed": true,
+    "passedScenarios": 434,
+    "expectedSkips": 4,
+    "engines": ["chromium", "firefox", "webkit"]
+  },
+  "integratedWorkingTree": {
+    "baseCommit": "582309bea442687396e6279d541665445f429394",
+    "productionBuildPassed": true,
+    "strictCompilationPassed": true,
+    "notes": "Includes the concurrent demo icon commit; chart source files match the isolated validation snapshot."
+  },
+  "tableBenchmark": {
+    "command": "npm run benchmark:tables",
+    "passed": true,
+    "record": "../data/table-pagination-performance.json",
+    "samplesPerModePerFamily": 30,
+    "pageSize": 50
+  },
+  "documentationLinksAndAnchorsChecked": true,
+  "diffWhitespaceChecked": true
+}

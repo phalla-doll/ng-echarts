@@ -18,6 +18,7 @@ import type { EChartsCoreOption } from 'echarts/core';
       <p>Projected consumer content</p>
     </nec-chart-frame>
     <nec-bar-chart
+      [tablePageSize]="50"
       title="Packed bar"
       [data]="rows"
       rowIdKey="id"

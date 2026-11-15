@@ -14,6 +14,7 @@ interface Reading {
   selector: 'consumer-pie',
   imports: [PieChart],
   template: `<nec-pie-chart
+    [tablePageSize]="50"
     title="Pie"
     [data]="data"
     rowIdKey="id"

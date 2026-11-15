@@ -32,6 +32,27 @@ async function setup() {
 }
 
 describe('bar Angular controls', () => {
+  it('clears a focused table preview when its page is replaced', async () => {
+    const { fixture, element } = await setup();
+    const previews = vi.fn();
+    fixture.componentInstance.pointPreview.subscribe(previews);
+    fixture.componentRef.setInput('previewEnabled', true);
+    fixture.componentRef.setInput('tablePageSize', 1);
+    await fixture.whenStable();
+    element.querySelector<HTMLButtonElement>('.table-toggle')!.click();
+    await fixture.whenStable();
+    fixture.componentInstance['previewPoint'](
+      { rowId: 'first', seriesId: 'value' },
+      'table',
+      'focus',
+    );
+    expect(previews.mock.lastCall?.[0].row).toBe(data[0]);
+    element.querySelector<HTMLButtonElement>('[aria-label="Next table page"]')!.click();
+    await fixture.whenStable();
+    expect(previews.mock.lastCall?.[0]).toBeNull();
+    expect(element.querySelector('tbody')?.textContent).toContain('Missing');
+    expect(element.querySelector('tbody button')).toBeNull();
+  });
   it('previews real zero values without selecting, restores focused context after hover, and clears on changes', async () => {
     const { fixture, element } = await setup();
     const previews = vi.fn(),

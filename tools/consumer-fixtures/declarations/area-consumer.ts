@@ -8,6 +8,7 @@ interface Row {
 @Component({
   imports: [AreaChart],
   template: `<nec-area-chart
+    [tablePageSize]="50"
     title="Packed area"
     [data]="rows"
     rowIdKey="id"

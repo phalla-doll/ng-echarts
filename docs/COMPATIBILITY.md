@@ -89,3 +89,7 @@ The preserved [combined rc.16 checkpoint](experiments/COMBINED_PREVIEW_PERFORMAN
 
 
 NG22 first public prerelease: [`@mantha911/ng-echarts@0.1.0-rc.18`](experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) is published and verified from the registry in strict/docs/client/SSR consumers across all three engines. The [registry receipt](experiments/public-rc18/registry-verification.json) preserves actual tags (`next` plus npm’s initial `latest` alias). Human F09/R06/G2/G3/G4 remain pending under the user’s explicit deferral; no stable API acceptance is claimed.
+
+## Unreleased rc.19 source follow-up
+
+Opt-in `tablePageSize` bounds native table-row creation for bar, line, area, composed and pie; it leaves the plot and complete-table default unchanged. The [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md) records the measured table improvement and package delta. The source allowances for combined root and emitted root-frame chunks are now 222,000/190,000 and 206,000/178,000 gzip/Brotli bytes respectively. Focused-family/core limits and engine isolation are unchanged. These source allowances do not alter the published rc.18 package or its historical measurements; human gates remain pending.

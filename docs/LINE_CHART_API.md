@@ -67,3 +67,9 @@ Tested versions remain Angular/CLI 22.2.6, TypeScript 6.0.3, ECharts 6.1.0, Node
 Use `/line` for the gallery, `/line-validation` for engineering behavior checks, and `/line-comparison` for pinned-reference conditions. `npm run benchmark:line` measures the actual Angular component on a fixed visible 768 px host; `npm run capture:line` reproduces the comparison captures after preparing the reference harness.
 
 Series alternate solid/circle and dashed/diamond outlines/markers, with identity-based palette and style slots retained when filtering. Endpoint markers are not clipped at the grid edge. Loading, empty and error states reserve the plot height and keep unavailable controls inert.
+
+## Optional table pagination in unreleased rc.19 source
+
+Set `[tablePageSize]="50"` to create at most 50 native table rows at once. The default `null` retains the complete table. The size must be a positive safe integer; invalid values produce a configuration error. The plot continues to show all observations. Previous/Next buttons announce the visible row range and retain keyboard focus at either boundary. Every row remains available through paging, including hidden-series values, zero and missing observations.
+
+Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is not in published rc.18; use a local rc.19 source build.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-rc.19 — Unreleased source
+
+- Add opt-in `tablePageSize` to bar, line, area, composed and pie tables, with keyboard paging, bounded row creation and original-row selection events. The default remains a complete table.
+- Skip stack-end scans for unstacked bars.
+- Preserve the published rc.18 archive and all earlier artifacts. Publication and deferred human release gates are unchanged.
+
 ## 0.1.0-rc.18 — 14 November 2026
 
 - Prepare the first experimental public prerelease as `@mantha911/ng-echarts`, with matching focused imports, guides and isolated consumers.

@@ -60,6 +60,7 @@
         {{ tableExpanded() ? 'Hide data table' : 'Show data table' }}
       </button>
       @if (tableExpanded() && currentState.kind === 'ready') {
+        <nec-table-pager [pagination]="tablePagination" [label]="title()" />
         <div
           class="table-scroll"
           tabindex="0"

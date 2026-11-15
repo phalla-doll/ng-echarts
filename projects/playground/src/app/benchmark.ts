@@ -15,7 +15,7 @@ import { PieChart } from '@mantha911/ng-echarts/pie';
 import { AreaChart } from '@mantha911/ng-echarts/area';
 import { LineChart } from '@mantha911/ng-echarts/line';
 import { BarChart, type ChartSeries } from '@mantha911/ng-echarts/bar';
-import { registerPostInit, type EChartsType } from 'echarts/core';
+import { registerPostInit, registerPostUpdate, type EChartsType } from 'echarts/core';
 
 interface Row {
   id: string;
@@ -36,13 +36,19 @@ const composedSeries: readonly ComposedSeries<Row>[] = series.map((item, index) 
 let onFinished: ((chart: EChartsType) => void) | undefined;
 // Public ECharts hook: subscribe before the library's first setOption, without changing its API.
 registerPostInit((chart) => chart.on('finished', () => onFinished?.(chart)));
+let plotUpdates = 0;
+registerPostUpdate((_model, api) => {
+  if (api.getDom().closest('[data-benchmark-host]')) plotUpdates++;
+});
 
 declare global {
   interface Window {
     angularBarBenchmark?: {
       run(mode: 'mount' | 'update', count: number): Promise<number[]>;
       profile(mode: 'legend' | 'resize', count: number): Promise<number[]>;
-      table(count: number): Promise<number[]>;
+      table(count: number, pageSize?: number | null): Promise<number[]>;
+      prepareTable(count: number, pageSize: number | null): Promise<void>;
+      plotUpdates(): number;
       clear(): void;
     };
   }
@@ -100,7 +106,9 @@ export class Benchmark {
       window.angularBarBenchmark = {
         run: (mode, count) => this.run(mode, count),
         profile: (mode, count) => this.profile(mode, count),
-        table: (count) => this.table(count),
+        table: (count, pageSize) => this.table(count, pageSize),
+        prepareTable: (count, pageSize) => this.prepareTable(count, pageSize),
+        plotUpdates: () => plotUpdates,
         clear: () => this.clear(),
       };
     });
@@ -247,9 +255,15 @@ export class Benchmark {
       host.style.removeProperty('width');
     }
   }
-  private async table(count: number): Promise<number[]> {
+  private async prepareTable(count: number, pageSize: number | null): Promise<void> {
     this.clear();
     await this.sample('mount', count, 1);
+    const painted = this.rendered();
+    this.reference!.setInput('tablePageSize', pageSize);
+    await painted;
+  }
+  private async table(count: number, pageSize: number | null = null): Promise<number[]> {
+    await this.prepareTable(count, pageSize);
     const samples: number[] = [];
     for (let index = 0; index < 4; index++) {
       const host = this.reference!.location.nativeElement as HTMLElement;
@@ -258,7 +272,10 @@ export class Benchmark {
       const start = performance.now();
       toggle.click();
       await painted;
-      if (host.querySelectorAll('tbody td').length !== count * (this.family === 'pie' ? 1 : 3))
+      if (
+        host.querySelectorAll('tbody td').length !==
+        Math.min(count, pageSize ?? count) * (this.family === 'pie' ? 1 : 3)
+      )
         throw new Error('Expanded table is incomplete');
       if (index > 0) samples.push(performance.now() - start);
       painted = this.rendered();

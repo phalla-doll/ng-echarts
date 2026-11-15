@@ -148,3 +148,7 @@ The next NG19 increment adds a focused experimental `/sankey` entry and visitor-
 ## Presentation refinement after rc.10
 
 The user-authorized [chart presentation refinement](experiments/PREMIUM_CHART_REFINEMENT.md) improves all implemented families without expanding chart-family scope: stable state geometry, simpler native legends, consistent escaped tooltip rows, visible gradient bases and area bands, redundant line cues, quantitative donut context, radar scales, calendar interval labels, Sankey stage colors/totals and responsive linked panels. Calendar/Sankey `valueLabel` names the measure in tooltips. Archived candidates and human release gates retain their original status.
+
+## Opt-in table pagination follow-up
+
+The user authorized the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). Unreleased rc.19 source adds optional `tablePageSize: number | null` to bar, line, area, composed and pie. The default remains a complete native table. A positive safe integer bounds visible table-row creation, with keyboard paging and announced ranges; all supplied rows remain reachable and chart data is unchanged. New immutable data or a changed page size resets the page; table collapse/reopen retains it. Original-row point events, missing/zero values, hidden-series table access and focus recovery remain required. Radar, calendar and Sankey retain their bounded native tables. Published rc.18, earlier archives and pending human F09/R06/G2/G3/G4 gates remain unchanged.

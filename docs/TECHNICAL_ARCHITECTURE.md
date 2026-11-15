@@ -343,3 +343,7 @@ The user-authorized [month-preview follow-up](experiments/NG20_MONTH_PREVIEWS.md
 
 
 The [combined rc.16 checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) verifies the month-preview behavior together with the completed resize/animation/navigation changes: 266 unit tests, 380 browser passes with four expected skips, exact artifact consumers and unchanged focused/core/route guards. Earlier archives and human release gates remain unchanged.
+
+## Table pagination and bar preparation follow-up
+
+Unreleased rc.19 source shares an internal signal-based `TablePagination` window and `TablePager` between Cartesian and pie charts. `tablePageSize` defaults to null and rejects non-positive, fractional or unsafe integer sizes. Row slicing precedes cell construction and numeric table formatting. A linked page signal resets when the immutable data array or page size changes; collapsing the table retains the page. Native Previous/Next controls use `aria-disabled` with clamped no-op actions at boundaries so keyboard focus remains on the control. A status announces the visible range. Page changes invalidate transient bar previews but do not invalidate chart options or resize the canvas. These internal helpers use no engine code or new dependencies. Unstacked bar options bypass the later-series scan used for exposed stack corners. The [follow-up evidence](experiments/PERFORMANCE_FOLLOW_UP.md) records checks and the measured delivery tradeoff; the published rc.18 artifact remains unchanged.

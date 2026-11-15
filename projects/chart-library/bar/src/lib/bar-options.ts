@@ -101,6 +101,7 @@ export function buildBarOptions<T>(
           data: model.rows.map((row) => {
             const value = row.points[index]?.value ?? null;
             const outer =
+              stacked &&
               value !== null &&
               value !== 0 &&
               !model.series.some((later, laterIndex) => {

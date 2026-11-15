@@ -1,6 +1,6 @@
 {
   "name": "@mantha911/ng-echarts",
-  "version": "0.1.0-rc.18",
+  "version": "0.1.0-rc.19",
   "peerDependencies": {
     "@angular/common": "^22.2.6",
     "@angular/core": "^22.2.6",

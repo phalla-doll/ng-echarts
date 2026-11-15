@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core
 import {
   ChartFrame,
   ɵChartStage,
+  ɵTablePager,
   ɵCartesianChart,
   type ɵCartesianContext,
 } from '@mantha911/ng-echarts/core';
@@ -9,7 +10,7 @@ import { LINE_RENDERER_LOADER } from './line-browser';
 import { buildLineOptions, type LineOption } from './line-options';
 @Component({
   selector: 'nec-line-chart',
-  imports: [ChartFrame, ɵChartStage],
+  imports: [ChartFrame, ɵChartStage, ɵTablePager],
   templateUrl: '../../../core/src/lib/cartesian-chart.html',
   styleUrls: [
     '../../../core/src/lib/cartesian-chart.css',

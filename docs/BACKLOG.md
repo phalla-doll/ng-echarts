@@ -133,3 +133,7 @@ The [NG22 public prerelease](experiments/NG22_PUBLIC_PRERELEASE.md) uses `@manth
 
 
 NG22 first public prerelease: [`@mantha911/ng-echarts@0.1.0-rc.18`](experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) is published and verified from the registry in strict/docs/client/SSR consumers across all three engines. The [registry receipt](experiments/public-rc18/registry-verification.json) preserves actual tags (`next` plus npm’s initial `latest` alias). Human F09/R06/G2/G3/G4 remain pending under the user’s explicit deferral; no stable API acceptance is claimed.
+
+## Chart performance follow-up
+
+The user-authorized [follow-up](experiments/PERFORMANCE_FOLLOW_UP.md) adds opt-in native table pagination to five families and skips unnecessary unstacked-bar preparation in unreleased rc.19 source. The linked report owns current validation and measured package costs. The complete-table default, original-row actions and published rc.18 remain unchanged; human F09/R06/G2/G3/G4 remain pending.

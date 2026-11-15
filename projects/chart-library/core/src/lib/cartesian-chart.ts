@@ -32,6 +32,7 @@ import type { PlotRendererFactory } from './plot-controller';
 import { formatCategoryTicks } from './category-ticks';
 import { createValueFormatting } from './value-formatting';
 import { ChartFocusKeeper } from './chart-focus';
+import { TablePagination } from './table-pagination';
 import type {
   CategoryTickFormatter,
   ChartSeries,
@@ -81,6 +82,7 @@ export abstract class CartesianChart<
     this.categoryTicks(),
     this.tokens(),
     this.tableExpanded(),
+    this.tablePagination.page(),
   ]);
   private readonly plotPreview = signal<{ point: PlotPoint; context: readonly unknown[] } | null>(
     null,
@@ -97,6 +99,7 @@ export abstract class CartesianChart<
     this.settings(),
     this.hiddenIds(),
     this.tableExpanded(),
+    this.tablePagination.page(),
     this.state(),
   ]);
   readonly title = input.required<string>();
@@ -113,6 +116,7 @@ export abstract class CartesianChart<
   readonly valueFormatter = input<ValueFormatter>();
   readonly categoryTickFormatter = input<CategoryTickFormatter>();
   readonly showDataTable = input(true);
+  readonly tablePageSize = input<number | null>(null);
   readonly loading = input(false);
   readonly error = input<string | null>(null);
   readonly animation = input(true);
@@ -135,6 +139,7 @@ export abstract class CartesianChart<
 
   protected readonly rendererError = signal(false);
   protected readonly tableExpanded = signal(false);
+  protected readonly tablePagination = new TablePagination(this.data, this.tablePageSize);
   protected readonly model = computed(() =>
     normalizeCartesianData(this.data(), this.rowIdKey(), this.categoryKey(), this.series()),
   );
@@ -164,6 +169,7 @@ export abstract class CartesianChart<
     animation: this.animation(),
     loading: this.loading(),
     error: this.error(),
+    tablePageSize: this.tablePageSize(),
   }));
   protected readonly tokens = computed(
     () => this.measuredTheme() ?? defaultCartesianTheme(this.theme()),
@@ -178,7 +184,10 @@ export abstract class CartesianChart<
         ? 'Chart height must be a positive, finite number.'
         : !['light', 'dark'].includes(settings.theme) || !Number.isFinite(settings.themeRevision)
           ? 'Chart theme configuration is invalid.'
-          : (this.familyError() ?? this.formatting().error ?? this.categoryTicks().error);
+          : (this.familyError() ??
+            this.tablePagination.error() ??
+            this.formatting().error ??
+            this.categoryTicks().error);
     return resolveCartesianState(
       settings.error,
       settings.loading,
@@ -222,7 +231,7 @@ export abstract class CartesianChart<
       model.kind === 'error'
     )
       return [];
-    return model.rows.map((row) => ({
+    return this.tablePagination.rows(model.rows).map((row) => ({
       id: row.id,
       category: row.category,
       selected: this.rowIsSelected(row.id),

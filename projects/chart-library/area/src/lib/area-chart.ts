@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core
 import {
   ChartFrame,
   ɵChartStage,
+  ɵTablePager,
   ɵCartesianChart,
   type ɵCartesianContext,
 } from '@mantha911/ng-echarts/core';
@@ -9,7 +10,7 @@ import { AREA_RENDERER_LOADER } from './area-browser';
 import { buildAreaOptions, type AreaOption } from './area-options';
 @Component({
   selector: 'nec-area-chart',
-  imports: [ChartFrame, ɵChartStage],
+  imports: [ChartFrame, ɵChartStage, ɵTablePager],
   templateUrl: '../../../core/src/lib/cartesian-chart.html',
   styleUrls: [
     '../../../core/src/lib/cartesian-chart.css',

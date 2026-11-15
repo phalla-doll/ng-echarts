@@ -1,6 +1,6 @@
 # Angular chart library
 
-Experimental standalone Angular 22 components using Apache ECharts. Public prerelease identity: `@mantha911/ng-echarts`. Candidate: `0.1.0-rc.18`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. The API is experimental; human screen-reader interpretation remains unreviewed at the user’s request.
+Experimental standalone Angular 22 components using Apache ECharts. Public prerelease identity: `@mantha911/ng-echarts`. Working source: `0.1.0-rc.19` (unpublished); the public prerelease remains `0.1.0-rc.18`. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. The API is experimental; human screen-reader interpretation remains unreviewed at the user’s request.
 
 ## Installation
 
@@ -13,10 +13,10 @@ npm install @mantha911/ng-echarts@next echarts@6.1.0
 For a retained exact local candidate:
 
 ```sh
-npm install /absolute/path/to/mantha911-ng-echarts-0.1.0-rc.18.tgz echarts@6.1.0
+npm install /absolute/path/to/mantha911-ng-echarts-0.1.0-rc.19.tgz echarts@6.1.0
 ```
 
-Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes.
+Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes. The registry `next` tag still points to rc.18; table pagination requires a local rc.19 source build until a new version is published.
 
 No global ECharts registration, library stylesheet, Angular provider or React runtime is required. The package supplies scoped styles and a lazy Canvas renderer. Give its containing card a nonzero width. Cartesian/radar/pie plot height defaults to 320 px, with native controls adding to total height; radial progress defaults to 240 px and calendar/Sankey use family-specific layouts.
 
@@ -146,3 +146,7 @@ Experimental Sankey flows: `SankeyChart`, `SankeyNode`, `SankeyLink` and `Sankey
 Charts reserve plot space during loading, empty and error states and retain unavailable controls as inert layout space. Pie legends include raw values and locale-formatted visible shares; opt into `[showTotal]="true"` for a center total when `innerRadius >= 0.4`. Calendar and Sankey accept `valueLabel` (default `Value`) to name the measure in tooltips. These features ship in private rc.11 and the docs-only rc.12 successor. Earlier archives retain their original bytes; no public registry release is implied.
 
 The compatibility root reexports bar, line, area, pie/donut and composed components plus `ChartFrame` and applicable types. Radar, radial progress, calendar and Sankey require their focused entries. Original API documentation is at [the repository docs index](https://github.com/phalla-doll/ng-echarts#documents). Private rc.15 includes opt-in bar `previewEnabled` / `pointPreview` for transient pointer/table-focus context, settled-input reconciliation and Escape cancellation. Earlier archives, including rc.13/rc.14 and the documentation-only rc.12, retain their original bytes and scoped evidence.
+
+## Optional table pagination in rc.19 source
+
+Bar, line, area, composed and pie accept `[tablePageSize]="50"`. The default `null` renders the complete table. A positive safe integer limits table row creation to the current page while the plot retains every observation. Previous/Next buttons preserve keyboard focus and announce the visible row range. Replacing the data array or page size restarts at the first page; collapsing and reopening retains the page. Off-page rows remain available through paging, with original-row selection events and hidden-series values preserved. Radar, calendar and Sankey retain their existing bounded tables.

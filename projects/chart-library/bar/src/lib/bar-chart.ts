@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, input, output } f
 import {
   ChartFrame,
   ɵChartStage,
+  ɵTablePager,
   ɵCartesianChart,
   type BarLayout,
   type PointPreview,
@@ -19,7 +20,7 @@ export interface BarRangeSelection<T> {
 }
 @Component({
   selector: 'nec-bar-chart',
-  imports: [ChartFrame, ɵChartStage],
+  imports: [ChartFrame, ɵChartStage, ɵTablePager],
   templateUrl: '../../../core/src/lib/cartesian-chart.html',
   styleUrls: [
     '../../../core/src/lib/cartesian-chart.css',

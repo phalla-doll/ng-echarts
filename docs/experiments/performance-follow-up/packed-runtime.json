@@ -1,0 +1,81 @@
+{
+  "recordedAt": "2026-11-15T03:54:27.047Z",
+  "node": "v24.22.2",
+  "package": "@mantha911/ng-echarts",
+  "version": "0.1.0-rc.19",
+  "artifact": {
+    "name": "@mantha911/ng-echarts",
+    "version": "0.1.0-rc.19",
+    "sha256": "b56ddf398040a8a4e9387df79b1ed7d822c68f5ac44714940e2f651102e1c6fe",
+    "exactCandidate": false
+  },
+  "skipLibCheck": false,
+  "workspaceAliases": false,
+  "installedOutsideWorkspace": true,
+  "entryPoints": [
+    ".",
+    "./core",
+    "./bar",
+    "./line",
+    "./area",
+    "./pie",
+    "./calendar",
+    "./composed",
+    "./radar",
+    "./radial",
+    "./sankey"
+  ],
+  "compatibilityIdentity": true,
+  "privateImportsBlocked": true,
+  "reactRuntime": false,
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "158.0.8127.18",
+      "mode": "client",
+      "conceptGallery": true,
+      "linkedMonthPreviews": true,
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "158.0.8127.18",
+      "mode": "ssr-hydration",
+      "conceptGallery": true,
+      "linkedMonthPreviews": true,
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "mode": "client",
+      "conceptGallery": true,
+      "linkedMonthPreviews": true,
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "mode": "ssr-hydration",
+      "conceptGallery": true,
+      "linkedMonthPreviews": true,
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "mode": "client",
+      "conceptGallery": true,
+      "linkedMonthPreviews": true,
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "mode": "ssr-hydration",
+      "conceptGallery": true,
+      "linkedMonthPreviews": true,
+      "passed": true
+    }
+  ]
+}

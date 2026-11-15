@@ -71,3 +71,9 @@ Use `/area` for the gallery, `/area-validation` for behavior checks, and `/area-
 The starting measured envelope is 200 categories and three series; 2,000 categories is stress evidence. [NG14](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md) records current automated acceptance; human interpretation and final release gates remain pending.
 
 Series alternate solid/circle and dashed/diamond outlines/markers, retaining these cues when another series is hidden. Non-ready states reserve the plot height and keep unavailable controls inert.
+
+## Optional table pagination in unreleased rc.19 source
+
+Set `[tablePageSize]="50"` to create at most 50 native table rows at once. The default `null` retains the complete table. The size must be a positive safe integer; invalid values produce a configuration error. The plot continues to show all observations. Previous/Next buttons announce the visible row range and retain keyboard focus at either boundary. Every row remains available through paging, including hidden-series values, zero and missing observations.
+
+Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is not in published rc.18; use a local rc.19 source build.

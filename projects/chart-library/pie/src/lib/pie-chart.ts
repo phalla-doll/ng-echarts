@@ -20,6 +20,8 @@ import {
 import {
   ChartFrame,
   ɵChartStage,
+  ɵTablePager,
+  ɵTablePagination,
   ɵbrowserPlotEnvironment as browserPlotEnvironment,
   ɵreadCartesianTheme as readCartesianTheme,
   ɵresolveCartesianState as resolveCartesianState,
@@ -42,7 +44,7 @@ import { buildPieOptions, type PieOption } from './pie-options';
 
 @Component({
   selector: 'nec-pie-chart',
-  imports: [ChartFrame, ɵChartStage],
+  imports: [ChartFrame, ɵChartStage, ɵTablePager],
   templateUrl: './pie-chart.html',
   styleUrls: [
     '../../../core/src/lib/cartesian-chart.css',
@@ -68,6 +70,7 @@ export class PieChart<T extends object> {
   readonly numberFormatOptions = input<Intl.NumberFormatOptions>();
   readonly valueFormatter = input<ValueFormatter>();
   readonly showDataTable = input(true);
+  readonly tablePageSize = input<number | null>(null);
   readonly loading = input(false);
   readonly error = input<string | null>(null);
   readonly animation = input(true);
@@ -89,6 +92,7 @@ export class PieChart<T extends object> {
 
   protected readonly rendererError = signal(false);
   protected readonly tableExpanded = signal(false);
+  protected readonly tablePagination = new ɵTablePagination(this.data, this.tablePageSize);
   protected readonly model = computed(() =>
     normalizePieData(this.data(), this.rowIdKey(), this.categoryKey(), this.measure()),
   );
@@ -116,6 +120,7 @@ export class PieChart<T extends object> {
     animation: this.animation(),
     loading: this.loading(),
     error: this.error(),
+    tablePageSize: this.tablePageSize(),
   }));
   protected readonly tokens = computed(
     () => this.measuredTheme() ?? defaultCartesianTheme(this.theme()),
@@ -136,7 +141,7 @@ export class PieChart<T extends object> {
             ? 'Inner radius must be a finite ratio from 0 to 0.9.'
             : typeof settings.showLabels !== 'boolean' || typeof settings.showTotal !== 'boolean'
               ? 'Show labels and show total must be booleans.'
-              : this.formatting().error;
+              : (this.tablePagination.error() ?? this.formatting().error);
     return resolveCartesianState(
       settings.error,
       settings.loading,
@@ -212,7 +217,7 @@ export class PieChart<T extends object> {
       model.kind === 'error'
     )
       return [];
-    return model.rows.map((row) => ({
+    return this.tablePagination.rows(model.rows).map((row) => ({
       id: row.id,
       category: row.category,
       cells: row.points.map((point, index) => {

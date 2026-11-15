@@ -73,6 +73,100 @@ describe.each(families)('$family cross-family acceptance', ({ family, component 
     });
   });
 
+  it('pages before creating table cells and retains raw zero/missing/hidden values', async () => {
+    const { fixture, host } = await setup();
+    expect(host.querySelectorAll('tbody tr')).toHaveLength(3);
+    expect(host.querySelector('nec-table-pager nav')).toBeNull();
+    fixture.componentRef.setInput('tablePageSize', 1);
+    await fixture.whenStable();
+    const next = host.querySelector<HTMLButtonElement>('[aria-label="Next table page"]')!;
+    const previous = host.querySelector<HTMLButtonElement>('[aria-label="Previous table page"]')!;
+    expect(host.querySelectorAll('tbody tr')).toHaveLength(1);
+    expect(previous.getAttribute('aria-disabled')).toBe('true');
+    expect(host.querySelector('nec-table-pager [role=status]')?.textContent).toContain(
+      'Rows 1–1 of 3',
+    );
+    host.querySelector<HTMLButtonElement>('.legend button')!.click();
+    next.click();
+    await fixture.whenStable();
+    expect(host.querySelectorAll('tbody tr')).toHaveLength(1);
+    expect(host.querySelector('tbody button')?.textContent?.trim()).toBe('0');
+    const selected = vi.fn();
+    fixture.componentInstance.pointSelect.subscribe(selected);
+    host.querySelector<HTMLButtonElement>('tbody button')!.click();
+    expect(selected.mock.lastCall?.[0]).toEqual({
+      rowId: 'b',
+      seriesId: 'value',
+      row: rows[1],
+      value: 0,
+      source: 'table',
+    });
+    expect(selected.mock.lastCall?.[0].row).toBe(rows[1]);
+    next.click();
+    await fixture.whenStable();
+    expect(host.querySelector('tbody')?.textContent).toContain('Missing');
+    expect(host.querySelector('tbody button')).toBeNull();
+    expect(next.getAttribute('aria-disabled')).toBe('true');
+    next.click();
+    await fixture.whenStable();
+    expect(host.querySelector('nec-table-pager [role=status]')?.textContent).toContain(
+      'Rows 3–3 of 3',
+    );
+    previous.click();
+    await fixture.whenStable();
+    expect(host.querySelector('tbody button')?.textContent?.trim()).toBe('0');
+  });
+
+  it('resets paging on immutable data/page-size changes and restores the complete table with null', async () => {
+    const { fixture, host } = await setup();
+    fixture.componentRef.setInput('tablePageSize', 1);
+    await fixture.whenStable();
+    host.querySelector<HTMLButtonElement>('[aria-label="Next table page"]')!.click();
+    await fixture.whenStable();
+    host.querySelector<HTMLButtonElement>('.table-toggle')!.click();
+    await fixture.whenStable();
+    host.querySelector<HTMLButtonElement>('.table-toggle')!.click();
+    await fixture.whenStable();
+    expect(host.querySelector('tbody button')?.textContent?.trim()).toBe('0');
+    fixture.componentRef.setInput('data', [...rows].reverse());
+    await fixture.whenStable();
+    expect(host.querySelector('nec-table-pager [role=status]')?.textContent).toContain(
+      'Rows 1–1 of 3',
+    );
+    expect(host.querySelector('tbody')?.textContent).toContain('Missing');
+    fixture.componentRef.setInput('tablePageSize', 2);
+    await fixture.whenStable();
+    expect(host.querySelectorAll('tbody tr')).toHaveLength(2);
+    fixture.componentRef.setInput('tablePageSize', null);
+    await fixture.whenStable();
+    expect(host.querySelectorAll('tbody tr')).toHaveLength(3);
+    expect(host.querySelector('nec-table-pager nav')).toBeNull();
+  });
+
+  it('rejects invalid page sizes and recovers without hiding configuration errors', async () => {
+    const { fixture, host } = await setup();
+    for (const value of [
+      0,
+      -1,
+      1.5,
+      Number.NaN,
+      Number.POSITIVE_INFINITY,
+      Number.MAX_SAFE_INTEGER + 1,
+      '2',
+      undefined,
+    ]) {
+      fixture.componentRef.setInput('tablePageSize', value);
+      await fixture.whenStable();
+      expect(host.querySelector('[role=alert]')?.textContent).toContain('Table page size must be');
+      expect(host.querySelector('tbody')).toBeNull();
+    }
+    fixture.componentRef.setInput('tablePageSize', 20);
+    await fixture.whenStable();
+    expect(host.querySelector('[role=alert]')).toBeNull();
+    expect(host.querySelectorAll('tbody tr')).toHaveLength(3);
+    expect(host.querySelector('nec-table-pager nav')).toBeNull();
+  });
+
   it('honors error/loading/validation precedence and recovers the latest immutable inputs', async () => {
     const { fixture, host } = await setup();
     fixture.componentRef.setInput('valueFormatter', () => {

@@ -52,4 +52,6 @@ export type { CurveOption as ɵCurveOption } from './lib/curve-options';
 export { curvePoint as ɵcurvePoint } from './lib/curve-point';
 
 export { ChartStage as ɵChartStage } from './lib/chart-stage';
+export { TablePagination as ɵTablePagination } from './lib/table-pagination';
+export { TablePager as ɵTablePager } from './lib/table-pager';
 export { tooltipStyle as ɵtooltipStyle, tooltipMarkup as ɵtooltipMarkup } from './lib/tooltip';

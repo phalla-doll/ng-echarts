@@ -118,10 +118,10 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'local-package',
         title: 'Use a packed local build',
         paragraphs: [
-          'Create a production tarball from the workspace root. Install that file and the tested ECharts peer in a separate Angular 22 application. Replace the example path with the location of your checkout. Keep the file at the lockfile’s recorded path, or copy it into the consumer’s vendor directory first; commit the lockfile and use npm ci for repeat installs.',
+          'The unreleased 0.1.0-rc.19 source candidate adds opt-in table pagination and skips unnecessary unstacked-bar calculations. The public registry remains on rc.18. Create a production tarball from the workspace root. Install that file and the tested ECharts peer in a separate Angular 22 application. Replace the example path with the location of your checkout. Keep the file at the lockfile’s recorded path, or copy it into the consumer’s vendor directory first; commit the lockfile and use npm ci for repeat installs.',
         ],
         source:
-          'npm run pack:lib\n\n# In your Angular 22 application:\nnpm install /path/to/ng-echarts/dist/mantha911-ng-echarts-0.1.0-rc.18.tgz echarts@6.1.0',
+          'npm run pack:lib\n\n# In your Angular 22 application:\nnpm install /path/to/ng-echarts/dist/mantha911-ng-echarts-0.1.0-rc.19.tgz echarts@6.1.0',
         language: 'Terminal',
       },
       {

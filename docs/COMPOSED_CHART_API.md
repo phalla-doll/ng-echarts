@@ -71,3 +71,9 @@ This initial increment supports bar/line combinations on shared axes. Dual scale
 The gallery at `/composed` keeps the approved neutral styling and copyable source; `/composed-validation` exposes engineering controls separately. Human interpretation and complete release gates retain their deferred status.
 
 The line layer uses a 2.5 px dashed stroke and 7 px diamond markers; the bar layer uses 2 px corners. These presentation cues do not change raw events, series identity or comparable-unit requirements. Nonready states preserve plot geometry and retain inert control space.
+
+## Optional table pagination in unreleased rc.19 source
+
+Set `[tablePageSize]="50"` to create at most 50 native table rows at once. The default `null` retains the complete table. The size must be a positive safe integer; invalid values produce a configuration error. The plot continues to show all observations. Previous/Next buttons announce the visible row range and retain keyboard focus at either boundary. Every row remains available through paging, including hidden-series values, zero and missing observations.
+
+Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is not in published rc.18; use a local rc.19 source build.

@@ -38,6 +38,7 @@ export class InvalidConsumer {
     [selectedRowIds]="[12]"
     [rangeSelection]="'yes'"
     [previewEnabled]="'yes'"
+    [tablePageSize]="'50'"
   />`,
 })
 export class InvalidBarSelection {
