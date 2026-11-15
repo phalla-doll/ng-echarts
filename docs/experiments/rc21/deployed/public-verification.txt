@@ -1,0 +1,4 @@
+Checking 138 sealed files from a4e6cfdccbe32c264273d38ce27fc8fc3c14b7d8 on public Pages.
+PASS: chromium static routes, reloads, lazy charts/fonts, anchors, focus, themes and mobile navigation at https://phalla-doll.github.io/ng-echarts/
+PASS: firefox static routes, reloads, lazy charts/fonts, anchors, focus, themes and mobile navigation at https://phalla-doll.github.io/ng-echarts/
+PASS: webkit static routes, reloads, lazy charts/fonts, anchors, focus, themes and mobile navigation at https://phalla-doll.github.io/ng-echarts/

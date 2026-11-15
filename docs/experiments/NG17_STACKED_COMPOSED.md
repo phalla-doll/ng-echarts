@@ -53,3 +53,8 @@ The build prerenders 34 routes and seals 138 files, artifact SHA-256 `3c18186fa0
 A byte-preserving copy is retained in ignored `dist/review-pages-rc21-3c18186fa009/`. This is a local-only dirty snapshot, not a demo deployment or npm publication. The live Pages marker was rechecked and still identifies `fb6cb05e5c985bca7f2f06bddf6460795ab511a3`; the deployment guide retains that public identity. Future deployment must use the normal clean/pushed-source and fresh-receipt workflow.
 
 The [current human review sheet](RC20_HUMAN_REVIEW.md) includes stacked composition and pagination, with actual listening results still pending.
+
+
+## Committed demo delivery
+
+After the user authorized commit and redeployment, the completed follow-ups were committed as `a4e6cfdccbe32c264273d38ce27fc8fc3c14b7d8` and pushed to main. The normal guarded workflow rebuilt and checked clean source, then published `gh-pages` commit `ee9e493b8f309351c8524b7405c78682c46abf9a`. The [deployment receipt](rc21/deployed/deployment.json) records the exact artifact, successful GitHub deployment, all public byte checks and three-engine browser verification. A live keyboard action returned the raw stacked value `a/mobile/40/table`. The [current deployment guide](../GITHUB_PAGES.md#current-deployment--15-november-follow-up) records the deployed identity. npm remains rc.19 under next; rc.21 remains a local library candidate. Human interpretation and release gates remain deferred/pending.

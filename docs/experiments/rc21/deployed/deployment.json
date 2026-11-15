@@ -1,0 +1,42 @@
+{
+  "verifiedAt": "2026-11-15T06:56:26.777086+00:00",
+  "url": "https://phalla-doll.github.io/ng-echarts/",
+  "sourceCommit": "a4e6cfdccbe32c264273d38ce27fc8fc3c14b7d8",
+  "sourceTree": "734a658a150a65105d4c0021e3b3e57339cb0fa8",
+  "sourceSha256": "0627981901a71a5efdfd6cfd11fb55bbe5864f9995470bb1208d4f7a83a48863",
+  "ghPagesCommit": "ee9e493b8f309351c8524b7405c78682c46abf9a",
+  "workflow": "https://github.com/phalla-doll/ng-echarts/actions/runs/43687383219",
+  "workflowConclusion": "success",
+  "builtAt": "2026-11-15T06:50:21.839Z",
+  "artifactSha256": "20f63e6a7d0964202938d2bef724904ba35f40ad154a0483ecc3aae320edfc70",
+  "sealedFiles": 138,
+  "localVerification": {
+    "engines": ["chromium", "firefox", "webkit"],
+    "checkedAt": "2026-11-15T06:50:49.341Z",
+    "markerSha256": "f693f10d514baa2a0ba0045e35a885ec75bdfb77682632a20a312a0e96e6f00b",
+    "passed": true
+  },
+  "publicVerification": {
+    "allSealedFileDigests": "passed",
+    "engines": ["chromium", "firefox", "webkit"],
+    "routesReloadsThemesFontsFocusMobile": "passed",
+    "nativeStackedKeyboardSelection": {
+      "route": "composed-validation/",
+      "point": "January / Mobile",
+      "rawValue": 40,
+      "observedOutput": "a/mobile/40/table",
+      "passed": true
+    }
+  },
+  "performance": {
+    "mode": "enforced",
+    "routeBudgets": 16,
+    "controlledMobileMedians": 6,
+    "normalMotionNavigation": "passed"
+  },
+  "npmDistTags": {
+    "next": "0.1.0-rc.19",
+    "latest": "0.1.0-rc.18"
+  },
+  "humanInterpretation": "deferred; F09/R06/G2/G3/G4 pending"
+}

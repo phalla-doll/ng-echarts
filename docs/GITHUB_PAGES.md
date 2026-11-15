@@ -4,6 +4,23 @@ The demo is published from the root of the dedicated `gh-pages` branch at **http
 
 ## Current deployment — 15 November follow-up
 
+Verified 15 November 2026 after the user authorized committing and redeploying the completed follow-ups. The [live composed gallery](https://phalla-doll.github.io/ng-echarts/composed/) now includes named stacked bars with an independent supplied line. The demo uses rc.21 source; npm `next` remains rc.19 and `latest` remains rc.18. This deployment does not publish another package or close human release gates.
+
+| Identity / check | Verified result |
+| --- | --- |
+| Source commit | `a4e6cfdccbe32c264273d38ce27fc8fc3c14b7d8` |
+| `gh-pages` commit | `ee9e493b8f309351c8524b7405c78682c46abf9a` |
+| Sealed artifact SHA-256 | `20f63e6a7d0964202938d2bef724904ba35f40ad154a0483ecc3aae320edfc70` |
+| Pages workflow | [Successful deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43687383219) |
+| Clean local verification | 34 prerendered routes and 138 sealed files; Chromium/Firefox/WebKit passed |
+| Performance guards | All 16 route payload budgets, six controlled mobile medians and normal-motion navigation checks passed |
+| Public verification | Every sealed file hash and all three browser route/reload/font/theme/focus/mobile flows passed |
+| Live stacked action | Keyboard activation returned `a/mobile/40/table`, preserving the raw segment value |
+
+The [deployment receipt](experiments/rc21/deployed/deployment.json), exact [public build marker](experiments/rc21/deployed/preview-build.txt), exact [public verification receipt](experiments/rc21/deployed/preview-verification.txt), [public check log](experiments/rc21/deployed/public-verification.txt) and [performance record](experiments/rc21/deployed/performance.json) preserve this delivery. The deployment was rebuilt from clean pushed source through `npm run deploy:pages`; the earlier dirty review artifact was not promoted. Later documentation-only commits retain this deployed source identity.
+
+## Earlier deployment — rc.19 source
+
 The live build marker identifies clean source `fb6cb05e5c985bca7f2f06bddf6460795ab511a3`, including table pagination, Angular state/render-phase changes, Heroicons navigation and persistent demo theme selection. Its build completed on 15 November 2026 at 05:23:39 UTC with 138 sealed files and artifact SHA-256 `e6655e1b7cb957ec637405c744ef9f14d8857c260cdf2c2815331401a0ebd46d`. The published verification receipt records Chromium, Firefox and WebKit at 05:24:06 UTC. The [successful deployment](https://github.com/phalla-doll/ng-echarts/actions/runs/43681021701) used `gh-pages` commit `989786aa867b9beba18e05ba7b769730c6f55263`. A fresh `node tools/check-pages.mjs https://phalla-doll.github.io/ng-echarts/` rechecked every sealed file and all three engines on 15 November. This demo uses local rc.19 source; npm publication remains separate. The public rc.18 deployment below is preserved as historical evidence.
 
 <a id="latest-verified-deployment--public-rc18"></a>

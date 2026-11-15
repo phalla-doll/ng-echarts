@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-15T06:50:49.341Z",
+  "markerSha256": "f693f10d514baa2a0ba0045e35a885ec75bdfb77682632a20a312a0e96e6f00b",
+  "browsers": [
+    "chromium",
+    "firefox",
+    "webkit"
+  ]
+}

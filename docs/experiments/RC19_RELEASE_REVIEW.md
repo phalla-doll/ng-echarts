@@ -14,6 +14,6 @@ The same exact archive was published on 15 November. Its [release-source CI](htt
 
 ## Demo and human review
 
-The current demo already includes rc.19 source and theme persistence, verified through its sealed marker/receipt and a fresh three-engine public check. The [deployment record](../GITHUB_PAGES.md#current-deployment--15-november-follow-up) now identifies it accurately. Stacked composed charts require the separate rc.20 source/candidate and are not in that deployed build.
+The current demo already includes rc.19 source and theme persistence, verified through its sealed marker/receipt and a fresh three-engine public check. The [deployment record](../GITHUB_PAGES.md#earlier-deployment--rc19-source) now identifies it accurately. Stacked composed charts require the separate rc.20 source/candidate and are not in that deployed build.
 
 The user explicitly continued the human-review deferral on 15 November. The [current result sheet](RC20_HUMAN_REVIEW.md) extends the original cross-family review to pagination, stacked composition and theme persistence; all listening results remain pending.
