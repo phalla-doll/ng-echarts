@@ -38,6 +38,10 @@
     "upload": "passed",
     "run": "https://github.com/phalla-doll/ng-echarts/actions/runs/43691186511",
     "workflowConclusion": "failure after successful upload: npm metadata propagation at first consumer",
-    "recoveryVerification": "pending"
+    "recoveryVerification": {
+      "result": "passed",
+      "run": "https://github.com/phalla-doll/ng-echarts/actions/runs/43691971304",
+      "uploads": 0
+    }
   }
 }

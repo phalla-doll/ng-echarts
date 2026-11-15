@@ -1,0 +1,24 @@
+{
+  "verifiedAt": "2026-11-15T07:57:54.300Z",
+  "sourceCommit": "1cef86b909455af7d2a89ef04c348dde289bd700",
+  "cases": [
+    {
+      "browser": "chromium",
+      "stackedAreaAction": "d/mobile/-20/table",
+      "independentAreaAction": "d/visits/-60/table",
+      "errors": []
+    },
+    {
+      "browser": "firefox",
+      "stackedAreaAction": "d/mobile/-20/table",
+      "independentAreaAction": "d/visits/-60/table",
+      "errors": []
+    },
+    {
+      "browser": "webkit",
+      "stackedAreaAction": "d/mobile/-20/table",
+      "independentAreaAction": "d/visits/-60/table",
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "verifiedAt": "2026-11-15T07:59:11.076464+00:00",
+  "url": "https://phalla-doll.github.io/ng-echarts/",
+  "sourceCommit": "1cef86b909455af7d2a89ef04c348dde289bd700",
+  "staticCommit": "2a8e1832f4b40a24d826d4065ae9d2eb49941c89",
+  "artifactSha256": "1a9d98d1467b2844dece86af57ffc3480b7229eb9fa23b5229c19eaa398e2e54",
+  "workflow": "https://github.com/phalla-doll/ng-echarts/actions/runs/43692133202",
+  "workflowConclusion": "success",
+  "routes": 34,
+  "sealedFiles": 138,
+  "publicFileHashes": "passed",
+  "localAndPublicBrowsers": ["chromium", "firefox", "webkit"],
+  "routePayloadBudgets": 16,
+  "controlledMobileMedians": 6,
+  "normalMotionNavigation": "passed",
+  "humanInterpretation": "pending; user deferral"
+}

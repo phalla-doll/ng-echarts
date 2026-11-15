@@ -2,9 +2,27 @@
 
 The demo is published from the root of the dedicated `gh-pages` branch at **https://phalla-doll.github.io/ng-echarts/**. Source and deployment are separate commits. Publication requires a clean, pushed `main` source, an unchanged sealed artifact and successful local checks in all three browsers.
 
-## Current deployment — 15 November follow-up
+## Current deployment — composed areas
 
-Verified 15 November 2026 after the user authorized committing and redeploying the completed follow-ups. The [live composed gallery](https://phalla-doll.github.io/ng-echarts/composed/) now includes named stacked bars with an independent supplied line. The demo uses rc.21 source; npm `next` remains rc.19 and `latest` remains rc.18. This deployment does not publish another package or close human release gates.
+The [live composed gallery](https://phalla-doll.github.io/ng-echarts/composed/) includes independent area+line and stacked-area+line examples alongside the bar examples. Its installation guidance identifies published rc.22. npm `next` is rc.22; `latest` retains rc.18. Human F09/R06/G2/G3/G4 remain deferred/pending.
+
+| Identity / check | Verified result |
+| --- | --- |
+| Clean pushed source | `1cef86b909455af7d2a89ef04c348dde289bd700` |
+| Static commit | `2a8e1832f4b40a24d826d4065ae9d2eb49941c89` |
+| Sealed SHA-256 | `1a9d98d1467b2844dece86af57ffc3480b7229eb9fa23b5229c19eaa398e2e54` |
+| Pages workflow | [Succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/43692133202) |
+| Local and public checks | 34 routes, 138 byte-verified files; Chromium/Firefox/WebKit pass |
+| Performance | 16 payload budgets, six controlled mobile medians and normal-motion navigation pass |
+| Live area keyboard actions | Independent `d/visits/-60/table` and stacked `d/mobile/-20/table` in all three engines |
+
+[Deployment receipt](experiments/rc22/deployed/deployment.json), [marker](experiments/rc22/deployed/preview-build.txt), [verification receipt](experiments/rc22/deployed/preview-verification.txt), [public log](experiments/rc22/deployed/public-verification.txt), [performance](experiments/rc22/deployed/performance.json) and [live actions](experiments/rc22/deployed/live-area-actions.json) preserve this delivery. The [area report](experiments/NG17_COMPOSED_AREAS.md) records package, source and registry evidence independently. Later receipt-only documentation commits retain this deployed source identity.
+
+<a id="current-deployment--15-november-follow-up"></a>
+
+## Earlier deployment — rc.21 source
+
+Verified 15 November 2026 after the user authorized committing and redeploying the completed follow-ups. The [live composed gallery](https://phalla-doll.github.io/ng-echarts/composed/) now includes named stacked bars with an independent supplied line. At that checkpoint the demo used rc.21 source; npm `next` remained rc.19 and `latest` remained rc.18. This deployment does not publish another package or close human release gates.
 
 | Identity / check | Verified result |
 | --- | --- |

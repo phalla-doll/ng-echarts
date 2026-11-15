@@ -10,5 +10,15 @@
     "next": "0.1.0-rc.22"
   },
   "exactRegistryBytes": true,
-  "humanInterpretation": "pending"
+  "humanInterpretation": "pending",
+  "consumersVerifiedAt": "2026-11-15T07:59:11.076464+00:00",
+  "verificationRun": "https://github.com/phalla-doll/ng-echarts/actions/runs/43691971304",
+  "verificationSourceCommit": "1cef86b909455af7d2a89ef04c348dde289bd700",
+  "consumerResults": {
+    "strictDeclarationsAndNegativeBindings": "passed",
+    "documentationAndHydrationThreeEngines": "passed",
+    "clientAndSSRThreeEngines": "passed"
+  },
+  "recoveryUploads": 0,
+  "provenance": "npm registry SLSA statement identifies reviewed digest/source/workflow"
 }

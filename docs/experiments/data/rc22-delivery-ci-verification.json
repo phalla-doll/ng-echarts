@@ -1,0 +1,54 @@
+{
+  "verifiedAt": "2026-11-15T08:04:29.264Z",
+  "runId": "43691952570",
+  "commit": "1cef86b909455af7d2a89ef04c348dde289bd700",
+  "version": "0.1.0-rc.22",
+  "sha256": "d1e9d2afdb720293ead15274b8302363b4dab86f14bf2d9c637f992b0e2f0a87",
+  "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/43691952570",
+  "conclusion": "success",
+  "checks": [
+    {
+      "name": "browser (firefox)",
+      "conclusion": "success"
+    },
+    {
+      "name": "workspace",
+      "conclusion": "success"
+    },
+    {
+      "name": "pages",
+      "conclusion": "success"
+    },
+    {
+      "name": "browser (webkit)",
+      "conclusion": "success"
+    },
+    {
+      "name": "browser (chromium)",
+      "conclusion": "success"
+    },
+    {
+      "name": "check",
+      "conclusion": "success"
+    }
+  ],
+  "browserResults": {
+    "chromium": {
+      "passed": 154,
+      "skipped": 0
+    },
+    "firefox": {
+      "passed": 152,
+      "skipped": 2
+    },
+    "webkit": {
+      "passed": 152,
+      "skipped": 2
+    }
+  },
+  "unitTests": 326,
+  "publicationAndReadinessGuardTests": 22,
+  "exactArchiveReproduction": "passed",
+  "runAndCandidateGuards": "passed",
+  "humanInterpretation": "pending; user deferral"
+}
