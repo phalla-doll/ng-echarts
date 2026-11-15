@@ -1,22 +1,22 @@
 {
-  "recordedAt": "2026-11-14T09:54:02.711Z",
+  "recordedAt": "2026-11-15T04:35:36.811Z",
   "method": "Resolve public package imports, Angular-link, bundle/minify/split with Angular/RxJS peers external; count only modules contributing bytes to output; traverse static imports separately from lazy chunks; sum independently compressed JavaScript chunks",
   "scenarios": [
     {
       "name": "bar",
-      "import": "@ng-echarts/chart-library/bar",
+      "import": "@mantha911/ng-echarts/bar",
       "exports": "BarChart",
       "files": [
-        { "name": "stdin.js", "raw": 53560, "gzip": 13986, "brotli": 12384 },
+        { "name": "stdin.js", "raw": 60467, "gzip": 15327, "brotli": 13533 },
         {
-          "name": "ng-echarts-chart-library-bar-bar-renderer-B7Rupncx-XRGZMETR.js",
+          "name": "mantha911-ng-echarts-bar-bar-renderer-B7Rupncx-B62KCGQG.js",
           "raw": 501393,
           "gzip": 171309,
           "brotli": 145709
         },
         { "name": "chunk-WOT6VMZA.js", "raw": 106, "gzip": 120, "brotli": 91 }
       ],
-      "total": { "raw": 555059, "gzip": 185415, "brotli": 158184 },
+      "total": { "raw": 561966, "gzip": 186756, "brotli": 159333 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 232,
@@ -25,9 +25,9 @@
       "chartFamilies": ["bar"],
       "sharedRegistryModules": ["node_modules/echarts/lib/chart/custom/customSeriesRegister.js"],
       "contributingInputs": [
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-bar-bar-renderer-B7Rupncx.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-bar.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-core.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-bar-bar-renderer-B7Rupncx.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-bar.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-core.mjs",
         "node_modules/echarts/lib/animation/basicTransition.js",
         "node_modules/echarts/lib/chart/bar.js",
         "node_modules/echarts/lib/chart/bar/BarSeries.js",
@@ -265,19 +265,19 @@
     },
     {
       "name": "line",
-      "import": "@ng-echarts/chart-library/line",
+      "import": "@mantha911/ng-echarts/line",
       "exports": "LineChart",
       "files": [
-        { "name": "stdin.js", "raw": 19748, "gzip": 4670, "brotli": 4088 },
+        { "name": "stdin.js", "raw": 20064, "gzip": 4759, "brotli": 4177 },
         {
-          "name": "ng-echarts-chart-library-line-line-renderer-LmCzqHhD-UP3W2DQK.js",
+          "name": "mantha911-ng-echarts-line-line-renderer-DbAVCM71-6PDAQ7NX.js",
           "raw": 502588,
-          "gzip": 171734,
-          "brotli": 146104
+          "gzip": 171733,
+          "brotli": 146103
         },
-        { "name": "chunk-E2DMOSS4.js", "raw": 30952, "gzip": 9458, "brotli": 8386 }
+        { "name": "chunk-2WVTI4DR.js", "raw": 37556, "gzip": 10732, "brotli": 9497 }
       ],
-      "total": { "raw": 553288, "gzip": 185862, "brotli": 158578 },
+      "total": { "raw": 560208, "gzip": 187224, "brotli": 159777 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 230,
@@ -286,9 +286,9 @@
       "chartFamilies": ["line"],
       "sharedRegistryModules": ["node_modules/echarts/lib/chart/custom/customSeriesRegister.js"],
       "contributingInputs": [
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-core.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-line-line-renderer-LmCzqHhD.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-line.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-core.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-line-line-renderer-DbAVCM71.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-line.mjs",
         "node_modules/echarts/lib/animation/basicTransition.js",
         "node_modules/echarts/lib/chart/custom/customSeriesRegister.js",
         "node_modules/echarts/lib/chart/helper/Symbol.js",
@@ -524,19 +524,19 @@
     },
     {
       "name": "area",
-      "import": "@ng-echarts/chart-library/area",
+      "import": "@mantha911/ng-echarts/area",
       "exports": "AreaChart",
       "files": [
-        { "name": "stdin.js", "raw": 20932, "gzip": 5156, "brotli": 4512 },
+        { "name": "stdin.js", "raw": 21248, "gzip": 5248, "brotli": 4596 },
         {
-          "name": "ng-echarts-chart-library-area-area-renderer-qEXwzXQS-ID3R6SQH.js",
+          "name": "mantha911-ng-echarts-area-area-renderer-DQmIKv7N-ZQKZA4XX.js",
           "raw": 502588,
-          "gzip": 171734,
-          "brotli": 146006
+          "gzip": 171733,
+          "brotli": 146019
         },
-        { "name": "chunk-E2DMOSS4.js", "raw": 30952, "gzip": 9458, "brotli": 8386 }
+        { "name": "chunk-2WVTI4DR.js", "raw": 37556, "gzip": 10732, "brotli": 9497 }
       ],
-      "total": { "raw": 554472, "gzip": 186348, "brotli": 158904 },
+      "total": { "raw": 561392, "gzip": 187713, "brotli": 160112 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 230,
@@ -545,9 +545,9 @@
       "chartFamilies": ["line"],
       "sharedRegistryModules": ["node_modules/echarts/lib/chart/custom/customSeriesRegister.js"],
       "contributingInputs": [
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-area-area-renderer-qEXwzXQS.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-area.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-core.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-area-area-renderer-DQmIKv7N.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-area.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-core.mjs",
         "node_modules/echarts/lib/animation/basicTransition.js",
         "node_modules/echarts/lib/chart/custom/customSeriesRegister.js",
         "node_modules/echarts/lib/chart/helper/Symbol.js",
@@ -783,19 +783,19 @@
     },
     {
       "name": "composed",
-      "import": "@ng-echarts/chart-library/composed",
+      "import": "@mantha911/ng-echarts/composed",
       "exports": "ComposedChart",
       "files": [
-        { "name": "stdin.js", "raw": 20557, "gzip": 5120, "brotli": 4493 },
+        { "name": "stdin.js", "raw": 20868, "gzip": 5205, "brotli": 4582 },
         {
-          "name": "ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu-2FZ2RZMD.js",
+          "name": "mantha911-ng-echarts-composed-composed-renderer-C9EFo56K-ILMLZ523.js",
           "raw": 525404,
-          "gzip": 179545,
-          "brotli": 152353
+          "gzip": 179543,
+          "brotli": 152506
         },
-        { "name": "chunk-7XLG5VP5.js", "raw": 30285, "gzip": 9181, "brotli": 8116 }
+        { "name": "chunk-OAJG5X4H.js", "raw": 36889, "gzip": 10453, "brotli": 9277 }
       ],
-      "total": { "raw": 576246, "gzip": 193846, "brotli": 164962 },
+      "total": { "raw": 583161, "gzip": 195201, "brotli": 166365 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 242,
@@ -804,9 +804,9 @@
       "chartFamilies": ["bar", "line"],
       "sharedRegistryModules": ["node_modules/echarts/lib/chart/custom/customSeriesRegister.js"],
       "contributingInputs": [
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-composed.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-core.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-composed-composed-renderer-C9EFo56K.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-composed.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-core.mjs",
         "node_modules/echarts/lib/animation/basicTransition.js",
         "node_modules/echarts/lib/chart/bar.js",
         "node_modules/echarts/lib/chart/bar/BarSeries.js",
@@ -1054,19 +1054,19 @@
     },
     {
       "name": "pie",
-      "import": "@ng-echarts/chart-library/pie",
+      "import": "@mantha911/ng-echarts/pie",
       "exports": "PieChart",
       "files": [
-        { "name": "stdin.js", "raw": 59161, "gzip": 13909, "brotli": 12090 },
+        { "name": "stdin.js", "raw": 66408, "gzip": 15256, "brotli": 13279 },
         {
-          "name": "ng-echarts-chart-library-pie-pie-renderer-C8JrAbQD-62GVBFUP.js",
+          "name": "mantha911-ng-echarts-pie-pie-renderer-C8JrAbQD-G32U5XZH.js",
           "raw": 433428,
           "gzip": 148417,
           "brotli": 126686
         },
         { "name": "chunk-WOT6VMZA.js", "raw": 106, "gzip": 120, "brotli": 91 }
       ],
-      "total": { "raw": 492695, "gzip": 162446, "brotli": 138867 },
+      "total": { "raw": 499942, "gzip": 163793, "brotli": 140056 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 199,
@@ -1075,9 +1075,9 @@
       "chartFamilies": ["pie"],
       "sharedRegistryModules": ["node_modules/echarts/lib/chart/custom/customSeriesRegister.js"],
       "contributingInputs": [
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-core.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-pie-pie-renderer-C8JrAbQD.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-pie.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-core.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-pie-pie-renderer-C8JrAbQD.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-pie.mjs",
         "node_modules/echarts/lib/animation/basicTransition.js",
         "node_modules/echarts/lib/chart/custom/customSeriesRegister.js",
         "node_modules/echarts/lib/chart/helper/createRenderPlanner.js",
@@ -1282,19 +1282,19 @@
     },
     {
       "name": "radar",
-      "import": "@ng-echarts/chart-library/radar",
+      "import": "@mantha911/ng-echarts/radar",
       "exports": "RadarChart",
       "files": [
-        { "name": "stdin.js", "raw": 23115, "gzip": 5601, "brotli": 4918 },
+        { "name": "stdin.js", "raw": 23183, "gzip": 5614, "brotli": 4932 },
         {
-          "name": "ng-echarts-chart-library-radar-radar-renderer-COb9pmPG-LRSVWXZP.js",
+          "name": "mantha911-ng-echarts-radar-radar-renderer-CEc2lKig-KZYQ2L44.js",
           "raw": 446912,
           "gzip": 152675,
-          "brotli": 130378
+          "brotli": 130504
         },
-        { "name": "chunk-CLILP2C3.js", "raw": 29861, "gzip": 9123, "brotli": 8075 }
+        { "name": "chunk-BUP4EQ5C.js", "raw": 36456, "gzip": 10398, "brotli": 9232 }
       ],
-      "total": { "raw": 499888, "gzip": 167399, "brotli": 143371 },
+      "total": { "raw": 506551, "gzip": 168687, "brotli": 144668 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 210,
@@ -1303,10 +1303,10 @@
       "chartFamilies": ["radar"],
       "sharedRegistryModules": ["node_modules/echarts/lib/chart/custom/customSeriesRegister.js"],
       "contributingInputs": [
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-core.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-radar-radar-options-WzYf5n3w.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-radar-radar-renderer-COb9pmPG.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-radar.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-core.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-radar-radar-options-BiRUTJSJ.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-radar-radar-renderer-CEc2lKig.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-radar.mjs",
         "node_modules/echarts/lib/animation/basicTransition.js",
         "node_modules/echarts/lib/chart/custom/customSeriesRegister.js",
         "node_modules/echarts/lib/chart/helper/createRenderPlanner.js",
@@ -1522,19 +1522,19 @@
     },
     {
       "name": "calendar",
-      "import": "@ng-echarts/chart-library/calendar",
+      "import": "@mantha911/ng-echarts/calendar",
       "exports": "CalendarHeatmap",
       "files": [
-        { "name": "stdin.js", "raw": 25258, "gzip": 6519, "brotli": 5688 },
+        { "name": "stdin.js", "raw": 25344, "gzip": 6552, "brotli": 5732 },
         {
-          "name": "ng-echarts-chart-library-calendar-calendar-renderer-DVs0ASXM-7NGROXGR.js",
+          "name": "mantha911-ng-echarts-calendar-calendar-renderer-OB5QQybA-AQHMVRGZ.js",
           "raw": 462308,
-          "gzip": 156701,
-          "brotli": 133725
+          "gzip": 156700,
+          "brotli": 133723
         },
-        { "name": "chunk-UMLC32J7.js", "raw": 31877, "gzip": 10029, "brotli": 8832 }
+        { "name": "chunk-2MSC72EK.js", "raw": 38473, "gzip": 11311, "brotli": 9993 }
       ],
-      "total": { "raw": 519443, "gzip": 173249, "brotli": 148245 },
+      "total": { "raw": 526125, "gzip": 174563, "brotli": 149448 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 213,
@@ -1543,10 +1543,10 @@
       "chartFamilies": ["heatmap"],
       "sharedRegistryModules": ["node_modules/echarts/lib/chart/custom/customSeriesRegister.js"],
       "contributingInputs": [
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-calendar-calendar-options-D-scjnSG.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-calendar-calendar-renderer-DVs0ASXM.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-calendar.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-core.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-calendar-calendar-options-HP6gA6Ig.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-calendar-calendar-renderer-OB5QQybA.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-calendar.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-core.mjs",
         "node_modules/echarts/lib/animation/basicTransition.js",
         "node_modules/echarts/lib/chart/custom/customSeriesRegister.js",
         "node_modules/echarts/lib/chart/heatmap.js",
@@ -1765,19 +1765,19 @@
     },
     {
       "name": "sankey",
-      "import": "@ng-echarts/chart-library/sankey",
+      "import": "@mantha911/ng-echarts/sankey",
       "exports": "SankeyChart",
       "files": [
-        { "name": "stdin.js", "raw": 25655, "gzip": 6892, "brotli": 6019 },
+        { "name": "stdin.js", "raw": 25746, "gzip": 6925, "brotli": 6049 },
         {
-          "name": "ng-echarts-chart-library-sankey-sankey-renderer-L8C_YWa7-V643NDHF.js",
+          "name": "mantha911-ng-echarts-sankey-sankey-renderer-DwLMFu-b-5FKUFLXT.js",
           "raw": 456835,
           "gzip": 155163,
-          "brotli": 132393
+          "brotli": 132409
         },
-        { "name": "chunk-RF4BAC6N.js", "raw": 28364, "gzip": 8513, "brotli": 7510 }
+        { "name": "chunk-PO5N6A2S.js", "raw": 34961, "gzip": 9784, "brotli": 8646 }
       ],
-      "total": { "raw": 510854, "gzip": 170568, "brotli": 145922 },
+      "total": { "raw": 517542, "gzip": 171872, "brotli": 147104 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 205,
@@ -1786,9 +1786,9 @@
       "chartFamilies": ["sankey"],
       "sharedRegistryModules": ["node_modules/echarts/lib/chart/custom/customSeriesRegister.js"],
       "contributingInputs": [
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-core.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-sankey-sankey-renderer-L8C_YWa7.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-sankey.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-core.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-sankey-sankey-renderer-DwLMFu-b.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-sankey.mjs",
         "node_modules/echarts/lib/animation/basicTransition.js",
         "node_modules/echarts/lib/chart/custom/customSeriesRegister.js",
         "node_modules/echarts/lib/chart/helper/createGraphFromNodeEdge.js",
@@ -1999,18 +1999,18 @@
     },
     {
       "name": "radial",
-      "import": "@ng-echarts/chart-library/radial",
+      "import": "@mantha911/ng-echarts/radial",
       "exports": "RadialProgress",
       "files": [
-        { "name": "stdin.js", "raw": 41047, "gzip": 10583, "brotli": 9286 },
+        { "name": "stdin.js", "raw": 47728, "gzip": 11882, "brotli": 10428 },
         {
-          "name": "ng-echarts-chart-library-radial-radial-renderer-DlH2JDoC-BBAFLZPW.js",
+          "name": "mantha911-ng-echarts-radial-radial-renderer-DlH2JDoC-KXPKWLIA.js",
           "raw": 358386,
           "gzip": 122425,
           "brotli": 104667
         }
       ],
-      "total": { "raw": 399433, "gzip": 133008, "brotli": 113953 },
+      "total": { "raw": 406114, "gzip": 134307, "brotli": 115095 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 164,
@@ -2019,9 +2019,9 @@
       "chartFamilies": ["pie"],
       "sharedRegistryModules": ["node_modules/echarts/lib/chart/custom/customSeriesRegister.js"],
       "contributingInputs": [
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-core.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-radial-radial-renderer-DlH2JDoC.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-radial.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-core.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-radial-radial-renderer-DlH2JDoC.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-radial.mjs",
         "node_modules/echarts/lib/animation/basicTransition.js",
         "node_modules/echarts/lib/chart/custom/customSeriesRegister.js",
         "node_modules/echarts/lib/chart/helper/createRenderPlanner.js",
@@ -2191,10 +2191,10 @@
     },
     {
       "name": "core",
-      "import": "@ng-echarts/chart-library/core",
+      "import": "@mantha911/ng-echarts/core",
       "exports": "ChartFrame",
-      "files": [{ "name": "stdin.js", "raw": 27142, "gzip": 7973, "brotli": 7016 }],
-      "total": { "raw": 27142, "gzip": 7973, "brotli": 7016 },
+      "files": [{ "name": "stdin.js", "raw": 33737, "gzip": 9254, "brotli": 8212 }],
+      "total": { "raw": 33737, "gzip": 9254, "brotli": 8212 },
       "budget": { "gzip": 10000, "brotli": 9000 },
       "eagerEngineModules": 0,
       "engineModules": 0,
@@ -2202,55 +2202,55 @@
       "orphanFiles": [],
       "chartFamilies": [],
       "sharedRegistryModules": [],
-      "contributingInputs": ["dist/chart-library/fesm2022/ng-echarts-chart-library-core.mjs"],
+      "contributingInputs": ["dist/chart-library/fesm2022/mantha911-ng-echarts-core.mjs"],
       "passed": true
     },
     {
       "name": "root",
-      "import": "@ng-echarts/chart-library",
+      "import": "@mantha911/ng-echarts",
       "exports": "BarChart, LineChart, AreaChart, PieChart, ComposedChart, ChartFrame",
       "files": [
-        { "name": "stdin.js", "raw": 116418, "gzip": 15322, "brotli": 11420 },
+        { "name": "stdin.js", "raw": 118326, "gzip": 15600, "brotli": 11586 },
         {
-          "name": "ng-echarts-chart-library-area-area-renderer-qEXwzXQS-EZIPU7BA.js",
+          "name": "mantha911-ng-echarts-area-area-renderer-DQmIKv7N-JKM55LCU.js",
           "raw": 525,
           "gzip": 360,
-          "brotli": 345
+          "brotli": 320
         },
         {
-          "name": "ng-echarts-chart-library-line-line-renderer-LmCzqHhD-5WAZ3XBH.js",
+          "name": "mantha911-ng-echarts-line-line-renderer-DbAVCM71-CLGN2JGX.js",
           "raw": 525,
           "gzip": 360,
           "brotli": 319
         },
         {
-          "name": "ng-echarts-chart-library-bar-bar-renderer-B7Rupncx-DGNMMKOW.js",
+          "name": "mantha911-ng-echarts-bar-bar-renderer-B7Rupncx-Y5PY4UHS.js",
           "raw": 4351,
           "gzip": 1930,
           "brotli": 1697
         },
         {
-          "name": "ng-echarts-chart-library-pie-pie-renderer-C8JrAbQD-T4MW5I33.js",
+          "name": "mantha911-ng-echarts-pie-pie-renderer-C8JrAbQD-LYE23VKU.js",
           "raw": 16784,
           "gzip": 7047,
           "brotli": 6398
         },
         {
-          "name": "ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu-NHP76FBD.js",
+          "name": "mantha911-ng-echarts-composed-composed-renderer-C9EFo56K-PYBL66B6.js",
           "raw": 585,
-          "gzip": 384,
-          "brotli": 344
+          "gzip": 380,
+          "brotli": 350
         },
         { "name": "chunk-UDZLFUMF.js", "raw": 27346, "gzip": 10541, "brotli": 9530 },
-        { "name": "chunk-6AV3Y7H5.js", "raw": 30936, "gzip": 9453, "brotli": 8363 },
+        { "name": "chunk-4B63LPL5.js", "raw": 37549, "gzip": 10726, "brotli": 9515 },
         { "name": "chunk-PSL7FE2W.js", "raw": 22031, "gzip": 8447, "brotli": 7668 },
         { "name": "chunk-IAQXTS4P.js", "raw": 6037, "gzip": 2457, "brotli": 2268 },
         { "name": "chunk-MKRCKBDC.js", "raw": 262, "gzip": 211, "brotli": 191 },
         { "name": "chunk-SPBDDDDP.js", "raw": 475122, "gzip": 162325, "brotli": 138402 },
         { "name": "chunk-WOT6VMZA.js", "raw": 106, "gzip": 120, "brotli": 91 }
       ],
-      "total": { "raw": 701028, "gzip": 218957, "brotli": 187036 },
-      "budget": { "gzip": 219500, "brotli": 187500 },
+      "total": { "raw": 709549, "gzip": 220504, "brotli": 188335 },
+      "budget": { "gzip": 222000, "brotli": 190000 },
       "eagerEngineModules": 0,
       "engineModules": 253,
       "reachableEngineModules": 253,
@@ -2258,17 +2258,17 @@
       "chartFamilies": ["bar", "line", "pie"],
       "sharedRegistryModules": ["node_modules/echarts/lib/chart/custom/customSeriesRegister.js"],
       "contributingInputs": [
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-area-area-renderer-qEXwzXQS.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-area.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-bar-bar-renderer-B7Rupncx.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-bar.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-composed.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-core.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-line-line-renderer-LmCzqHhD.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-line.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-pie-pie-renderer-C8JrAbQD.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-pie.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-area-area-renderer-DQmIKv7N.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-area.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-bar-bar-renderer-B7Rupncx.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-bar.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-composed-composed-renderer-C9EFo56K.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-composed.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-core.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-line-line-renderer-DbAVCM71.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-line.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-pie-pie-renderer-C8JrAbQD.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-pie.mjs",
         "node_modules/echarts/lib/animation/basicTransition.js",
         "node_modules/echarts/lib/chart/bar.js",
         "node_modules/echarts/lib/chart/bar/BarSeries.js",
@@ -2527,59 +2527,59 @@
     },
     {
       "name": "root-frame",
-      "import": "@ng-echarts/chart-library",
+      "import": "@mantha911/ng-echarts",
       "exports": "ChartFrame",
       "files": [
-        { "name": "stdin.js", "raw": 93, "gzip": 95, "brotli": 96 },
+        { "name": "stdin.js", "raw": 93, "gzip": 95, "brotli": 95 },
         {
-          "name": "ng-echarts-chart-library-area-area-renderer-qEXwzXQS-MVLA65AY.js",
+          "name": "mantha911-ng-echarts-area-area-renderer-DQmIKv7N-KHSQOD73.js",
           "raw": 525,
           "gzip": 358,
           "brotli": 344
         },
         {
-          "name": "ng-echarts-chart-library-line-line-renderer-LmCzqHhD-GFG4D7RJ.js",
+          "name": "mantha911-ng-echarts-line-line-renderer-DbAVCM71-GICO7DHX.js",
           "raw": 525,
-          "gzip": 359,
-          "brotli": 320
+          "gzip": 358,
+          "brotli": 333
         },
         {
-          "name": "ng-echarts-chart-library-bar-bar-renderer-B7Rupncx-DGNMMKOW.js",
+          "name": "mantha911-ng-echarts-bar-bar-renderer-B7Rupncx-Y5PY4UHS.js",
           "raw": 4351,
           "gzip": 1930,
           "brotli": 1697
         },
         {
-          "name": "ng-echarts-chart-library-pie-pie-renderer-C8JrAbQD-T4MW5I33.js",
+          "name": "mantha911-ng-echarts-pie-pie-renderer-C8JrAbQD-LYE23VKU.js",
           "raw": 16784,
           "gzip": 7047,
           "brotli": 6398
         },
         {
-          "name": "ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu-LWHULE6K.js",
+          "name": "mantha911-ng-echarts-composed-composed-renderer-C9EFo56K-MAK5H7PR.js",
           "raw": 585,
           "gzip": 379,
           "brotli": 356
         },
         { "name": "chunk-UDZLFUMF.js", "raw": 27346, "gzip": 10541, "brotli": 9530 },
-        { "name": "chunk-FIEDITTD.js", "raw": 27911, "gzip": 8206, "brotli": 7237 },
+        { "name": "chunk-QQBZ7SXF.js", "raw": 34506, "gzip": 9492, "brotli": 8413 },
         { "name": "chunk-PSL7FE2W.js", "raw": 22031, "gzip": 8447, "brotli": 7668 },
         { "name": "chunk-IAQXTS4P.js", "raw": 6037, "gzip": 2457, "brotli": 2268 },
         { "name": "chunk-MKRCKBDC.js", "raw": 262, "gzip": 211, "brotli": 191 },
         { "name": "chunk-SPBDDDDP.js", "raw": 475122, "gzip": 162325, "brotli": 138402 },
         { "name": "chunk-WOT6VMZA.js", "raw": 106, "gzip": 120, "brotli": 91 }
       ],
-      "total": { "raw": 581678, "gzip": 202475, "brotli": 174598 },
-      "budget": { "gzip": 203000, "brotli": 175000 },
+      "total": { "raw": 588273, "gzip": 203760, "brotli": 175786 },
+      "budget": { "gzip": 206000, "brotli": 178000 },
       "eagerEngineModules": 0,
       "engineModules": 253,
       "reachableEngineModules": 0,
       "orphanFiles": [
-        "ng-echarts-chart-library-area-area-renderer-qEXwzXQS-MVLA65AY.js",
-        "ng-echarts-chart-library-line-line-renderer-LmCzqHhD-GFG4D7RJ.js",
-        "ng-echarts-chart-library-bar-bar-renderer-B7Rupncx-DGNMMKOW.js",
-        "ng-echarts-chart-library-pie-pie-renderer-C8JrAbQD-T4MW5I33.js",
-        "ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu-LWHULE6K.js",
+        "mantha911-ng-echarts-area-area-renderer-DQmIKv7N-KHSQOD73.js",
+        "mantha911-ng-echarts-line-line-renderer-DbAVCM71-GICO7DHX.js",
+        "mantha911-ng-echarts-bar-bar-renderer-B7Rupncx-Y5PY4UHS.js",
+        "mantha911-ng-echarts-pie-pie-renderer-C8JrAbQD-LYE23VKU.js",
+        "mantha911-ng-echarts-composed-composed-renderer-C9EFo56K-MAK5H7PR.js",
         "chunk-UDZLFUMF.js",
         "chunk-PSL7FE2W.js",
         "chunk-IAQXTS4P.js",
@@ -2589,12 +2589,12 @@
       "chartFamilies": ["bar", "line", "pie"],
       "sharedRegistryModules": ["node_modules/echarts/lib/chart/custom/customSeriesRegister.js"],
       "contributingInputs": [
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-area-area-renderer-qEXwzXQS.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-bar-bar-renderer-B7Rupncx.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-composed-composed-renderer-Cjy05ZYu.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-core.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-line-line-renderer-LmCzqHhD.mjs",
-        "dist/chart-library/fesm2022/ng-echarts-chart-library-pie-pie-renderer-C8JrAbQD.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-area-area-renderer-DQmIKv7N.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-bar-bar-renderer-B7Rupncx.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-composed-composed-renderer-C9EFo56K.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-core.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-line-line-renderer-DbAVCM71.mjs",
+        "dist/chart-library/fesm2022/mantha911-ng-echarts-pie-pie-renderer-C8JrAbQD.mjs",
         "node_modules/echarts/lib/animation/basicTransition.js",
         "node_modules/echarts/lib/chart/bar.js",
         "node_modules/echarts/lib/chart/bar/BarSeries.js",

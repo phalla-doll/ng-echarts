@@ -70,7 +70,10 @@ export async function checkConceptEngine(generate = false) {
         `<!-- concept-engine:start -->\n    <!-- prettier-ignore -->\n    <script>\n${engine}\n    </script>\n    <!-- concept-engine:end -->`,
     );
     await writeFile(path, source);
-    const wrapper = join(root, 'projects/playground/src/app/chart-possibilities.ts');
+    const wrapper = join(
+      root,
+      'projects/playground/src/app/chart-possibilities/chart-possibilities.ts',
+    );
     await writeFile(
       wrapper,
       (await readFile(wrapper, 'utf8')).replace(
@@ -86,7 +89,7 @@ export async function checkConceptEngine(generate = false) {
     );
   }
   const wrapper = await readFile(
-    join(root, 'projects/playground/src/app/chart-possibilities.ts'),
+    join(root, 'projects/playground/src/app/chart-possibilities/chart-possibilities.ts'),
     'utf8',
   );
   assert(

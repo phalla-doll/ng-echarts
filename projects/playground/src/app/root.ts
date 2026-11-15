@@ -10,9 +10,9 @@ import {
 import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map } from 'rxjs';
-import { SiteIcon } from './site-icon';
-import { SiteAppearance } from './site-appearance';
-import { DemoRendererPreloads } from './demo-preloads';
+import { SiteIcon } from './shell/site-icon';
+import { SiteAppearance } from './shell/site-appearance';
+import { DemoRendererPreloads } from './shell/demo-preloads';
 
 const pageTitles: Readonly<Record<string, string>> = {
   '/': 'Bar Blocks',

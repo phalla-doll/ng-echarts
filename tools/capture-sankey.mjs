@@ -117,7 +117,7 @@ try {
     .map((file) => `projects/chart-library/sankey/src/lib/${file}`)
     .concat(
       ['sankey-blocks.ts', 'sankey-blocks.html', 'sankey-blocks.css', 'sankey-examples.ts'].map(
-        (file) => `projects/playground/src/app/${file}`,
+        (file) => `projects/playground/src/app/gallery/sankey/${file}`,
       ),
     );
   const source = Object.fromEntries(

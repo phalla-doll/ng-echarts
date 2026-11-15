@@ -20,18 +20,18 @@ export const rendererRoutes = {
 };
 
 const routeComponents = {
-  '': 'gallery',
-  line: 'gallery',
-  area: 'gallery',
-  pie: 'gallery',
-  composed: 'gallery',
-  radar: 'radar-blocks',
-  radial: 'radial-blocks',
-  calendar: 'calendar-blocks',
-  sankey: 'sankey-blocks',
-  linked: 'linked-charts',
-  playground: 'app',
-  formatting: 'formatting',
+  '': 'gallery/gallery',
+  line: 'gallery/gallery',
+  area: 'gallery/gallery',
+  pie: 'gallery/gallery',
+  composed: 'gallery/gallery',
+  radar: 'gallery/radar/radar-blocks',
+  radial: 'gallery/radial/radial-blocks',
+  calendar: 'gallery/calendar/calendar-blocks',
+  sankey: 'gallery/sankey/sankey-blocks',
+  linked: 'linked/linked-charts',
+  playground: 'validation/app',
+  formatting: 'validation/formatting',
 };
 
 const familyCharts = {

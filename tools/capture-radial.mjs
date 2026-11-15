@@ -112,9 +112,9 @@ try {
       [
         'projects/chart-library/radial/src/lib/radial-progress.ts',
         'projects/chart-library/radial/src/lib/radial-options.ts',
-        'projects/playground/src/app/radial-block.html',
-        'projects/playground/src/app/radial-blocks.html',
-        'projects/playground/src/app/radial-examples.ts',
+        'projects/playground/src/app/gallery/radial/radial-block.html',
+        'projects/playground/src/app/gallery/radial/radial-blocks.html',
+        'projects/playground/src/app/gallery/radial/radial-examples.ts',
       ].map(async (path) => [path, hash(await readFile(path))]),
     ),
   );

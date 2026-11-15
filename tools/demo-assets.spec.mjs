@@ -124,7 +124,7 @@ test('warms the destination component graph while keeping deferred families inde
     };
   }
   outputs['gallery.js'] = {
-    entryPoint: 'projects/playground/src/app/gallery.ts',
+    entryPoint: 'projects/playground/src/app/gallery/gallery.ts',
     imports: [
       { path: 'shared.js', kind: 'import-statement' },
       { path: 'line-component.js', kind: 'dynamic-import' },

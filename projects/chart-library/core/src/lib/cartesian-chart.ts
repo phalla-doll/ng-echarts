@@ -11,6 +11,7 @@ import {
   ElementRef,
   inject,
   input,
+  linkedSignal,
   output,
   PLATFORM_ID,
   signal,
@@ -44,6 +45,11 @@ import type {
   ValueFormatter,
 } from './chart-types';
 import { PlotController, type PlotPoint } from './plot-controller';
+
+interface PlotPreviewSnapshot {
+  readonly point: PlotPoint;
+  readonly context: readonly unknown[];
+}
 
 /** Internal Cartesian behavior shared by the Cartesian entries; not a supported consumer API. */
 @Directive()
@@ -84,15 +90,18 @@ export abstract class CartesianChart<
     this.tableExpanded(),
     this.tablePagination.page(),
   ]);
-  private readonly plotPreview = signal<{ point: PlotPoint; context: readonly unknown[] } | null>(
-    null,
-    {
-      equal: (a, b) =>
-        a?.context === b?.context &&
-        a?.point.rowId === b?.point.rowId &&
-        a?.point.seriesId === b?.point.seriesId,
-    },
-  );
+  private readonly plotPreview = linkedSignal<
+    { readonly context: readonly unknown[]; readonly ready: boolean },
+    PlotPreviewSnapshot | null
+  >({
+    source: () => ({ context: this.plotContext(), ready: this.state().kind === 'ready' }),
+    computation: ({ context, ready }, previous) =>
+      ready && previous?.value?.context === context ? previous.value : null,
+    equal: (a, b) =>
+      a?.context === b?.context &&
+      a?.point.rowId === b?.point.rowId &&
+      a?.point.seriesId === b?.point.seriesId,
+  });
   private previewSnapshot: readonly unknown[] | null = null;
   private readonly previewContext = computed(() => [
     this.model(),
@@ -130,14 +139,43 @@ export abstract class CartesianChart<
   private readonly plot = viewChild.required<ElementRef<HTMLElement>>('plot');
   private readonly browserReady = signal(false);
   private readonly reducedMotion = signal(false);
-  private readonly hiddenIds = signal<ReadonlySet<string>>(new Set());
+  private readonly hiddenIds = linkedSignal<readonly Series[], ReadonlySet<string>>({
+    source: this.series,
+    computation: (series, previous) => {
+      const hidden = previous?.value ?? new Set<string>();
+      // Valid removals still count while row data is loading or invalid.
+      if (
+        !Array.isArray(series) ||
+        !series.every(
+          (item) =>
+            item &&
+            typeof item.id === 'string' &&
+            item.id &&
+            typeof item.key === 'string' &&
+            typeof item.label === 'string',
+        )
+      )
+        return hidden;
+      const validIds = new Set(series.map((item) => item.id));
+      if (validIds.size !== series.length) return hidden;
+      const retained = new Set([...hidden].filter((id) => validIds.has(id)));
+      return retained.size === hidden.size ? hidden : retained;
+    },
+  });
   private readonly measuredTheme = signal<CartesianThemeTokens | null>(null);
   private controller: PlotController<Option> | null = null;
   private removeMotionListener: (() => void) | null = null;
   private focusKeeper: ChartFocusKeeper | null = null;
   private removePreviewListeners: (() => void) | null = null;
 
-  protected readonly rendererError = signal(false);
+  // A failed renderer stays failed until retry or a relevant input changes.
+  protected readonly rendererError = linkedSignal(() => {
+    this.model();
+    this.settings();
+    this.formatting();
+    this.categoryTicks();
+    return false;
+  });
   protected readonly tableExpanded = signal(false);
   protected readonly tablePagination = new TablePagination(this.data, this.tablePageSize);
   protected readonly model = computed(() =>
@@ -197,12 +235,14 @@ export abstract class CartesianChart<
     );
   });
   protected readonly legendItems = computed(() => {
+    // Reconcile removals even when invalid rows leave the legend empty.
+    const hiddenIds = this.hiddenIds();
     const model = this.model();
     if (model.kind === 'error') return [];
     return model.series.map((item, index) => ({
       id: item.id,
       label: item.label,
-      visible: !this.hiddenIds().has(item.id),
+      visible: !hiddenIds.has(item.id),
       color: this.tokens().series[index % this.tokens().series.length],
     }));
   });
@@ -248,14 +288,6 @@ export abstract class CartesianChart<
   });
 
   constructor() {
-    // Input changes permit recovery; changes to rendererError itself never trigger this effect.
-    effect(() => {
-      this.model();
-      this.settings();
-      this.formatting();
-      this.categoryTicks();
-      this.rendererError.set(false);
-    });
     effect(() => {
       const context = this.previewContext();
       // An event can already describe the new inputs before this scheduled effect
@@ -266,41 +298,10 @@ export abstract class CartesianChart<
     });
     effect(() => {
       const current = this.plotPreview();
-      const context = this.plotContext();
-      const ready = this.state().kind === 'ready';
-      const hidden = this.hiddenIds();
       const enabled = this.canPreview();
-      if (
-        current &&
-        (current.context !== context || !ready || hidden.has(current.point.seriesId))
-      ) {
-        this.plotPreview.set(null);
-        return;
-      }
       // Native pointer events can arrive before Angular propagates an enabling
       // input. Reconcile the latest hit after inputs settle, without a new move.
       if (enabled) untracked(() => this.previewPoint(current?.point ?? null, 'plot', 'pointer'));
-    });
-    effect(() => {
-      // Valid series removals still count while row data is loading or invalid.
-      const series = this.series();
-      if (
-        !Array.isArray(series) ||
-        !series.every(
-          (item) =>
-            item &&
-            typeof item.id === 'string' &&
-            item.id &&
-            typeof item.key === 'string' &&
-            typeof item.label === 'string',
-        )
-      )
-        return;
-      const validIds = new Set(series.map((item) => item.id));
-      if (validIds.size !== series.length) return;
-      const previous = untracked(this.hiddenIds);
-      const retained = new Set([...previous].filter((id) => validIds.has(id)));
-      if (retained.size !== previous.size) this.hiddenIds.set(retained);
     });
     afterNextRender(() => {
       if (!isPlatformBrowser(this.platform)) return;
@@ -328,50 +329,62 @@ export abstract class CartesianChart<
         }
       });
     });
-    afterRenderEffect(() => {
-      if (!this.browserReady()) return;
-      const series = this.series();
-      const theme = this.theme();
-      this.themeRevision();
-      if (
-        !Array.isArray(series) ||
-        !series.every(
-          (item) =>
-            item &&
-            typeof item.id === 'string' &&
-            typeof item.key === 'string' &&
-            typeof item.label === 'string',
+    // Resolving CSS colors writes a probe and immediately reads its computed color.
+    afterRenderEffect({
+      mixedReadWrite: () => {
+        if (!this.browserReady()) return;
+        const series = this.series();
+        const theme = this.theme();
+        this.themeRevision();
+        if (
+          !Array.isArray(series) ||
+          !series.every(
+            (item) =>
+              item &&
+              typeof item.id === 'string' &&
+              typeof item.key === 'string' &&
+              typeof item.label === 'string',
+          )
         )
-      )
-        return;
-      try {
-        this.measuredTheme.set(
-          readCartesianTheme(this.host.nativeElement, theme, series, this.plot().nativeElement),
-        );
-      } catch {
-        this.rendererError.set(true);
-      }
+          return;
+        try {
+          this.measuredTheme.set(
+            readCartesianTheme(this.host.nativeElement, theme, series, this.plot().nativeElement),
+          );
+        } catch {
+          this.rendererError.set(true);
+        }
+      },
     });
-    afterRenderEffect(() => {
-      this.browserReady();
-      this.controller?.update(this.options());
+    // Option updates only schedule rendering or dispose the previous plot.
+    afterRenderEffect({
+      write: () => {
+        this.browserReady();
+        this.controller?.update(this.options());
+      },
     });
-    afterRenderEffect(() => {
-      if (this.browserReady() && this.observePreviews()) {
-        this.removePreviewListeners ??= observeTablePreviews(
-          this.host.nativeElement,
-          (point, trigger) => this.previewPoint(point, 'table', trigger),
-        );
-      } else {
-        this.removePreviewListeners?.();
-        this.removePreviewListeners = null;
-      }
+    // Listener attachment also reconciles the control that currently owns focus.
+    afterRenderEffect({
+      mixedReadWrite: () => {
+        if (this.browserReady() && this.observePreviews()) {
+          this.removePreviewListeners ??= observeTablePreviews(
+            this.host.nativeElement,
+            (point, trigger) => this.previewPoint(point, 'table', trigger),
+          );
+        } else {
+          this.removePreviewListeners?.();
+          this.removePreviewListeners = null;
+        }
+      },
     });
-    afterRenderEffect(() => {
-      this.state();
-      this.tableRows();
-      this.legendItems();
-      this.focusKeeper?.restore();
+    // Focus restoration checks current DOM ownership before changing focus.
+    afterRenderEffect({
+      mixedReadWrite: () => {
+        this.state();
+        this.tableRows();
+        this.legendItems();
+        this.focusKeeper?.restore();
+      },
     });
     this.destroyRef.onDestroy(() => {
       this.removeMotionListener?.();

@@ -137,3 +137,7 @@ NG22 first public prerelease: [`@mantha911/ng-echarts@0.1.0-rc.18`](experiments/
 ## Chart performance follow-up
 
 The user-authorized [follow-up](experiments/PERFORMANCE_FOLLOW_UP.md) adds opt-in native table pagination to five families and skips unnecessary unstacked-bar preparation in unreleased rc.19 source. The linked report owns current validation and measured package costs. The complete-table default, original-row actions and published rc.18 remain unchanged; human F09/R06/G2/G3/G4 remain pending.
+
+## Angular practices follow-up
+
+The user-authorized [Angular practices follow-up](experiments/ANGULAR_PRACTICES_FOLLOW_UP.md) reconciles writable dependent state with `linkedSignal`, declares browser render phases and organizes the playground by feature. The report owns regression and final-check evidence. This is unreleased rc.19 source work; publication and human release gates remain unchanged.

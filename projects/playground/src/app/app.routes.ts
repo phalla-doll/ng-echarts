@@ -1,134 +1,158 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  { path: 'sankey', loadComponent: () => import('./sankey-blocks').then((m) => m.SankeyBlocks) },
+  {
+    path: 'sankey',
+    loadComponent: () => import('./gallery/sankey/sankey-blocks').then((m) => m.SankeyBlocks),
+  },
   {
     path: 'calendar',
-    loadComponent: () => import('./calendar-blocks').then((m) => m.CalendarBlocks),
+    loadComponent: () => import('./gallery/calendar/calendar-blocks').then((m) => m.CalendarBlocks),
   },
-  { path: 'radial', loadComponent: () => import('./radial-blocks').then((m) => m.RadialBlocks) },
-  { path: 'radar', loadComponent: () => import('./radar-blocks').then((m) => m.RadarBlocks) },
+  {
+    path: 'radial',
+    loadComponent: () => import('./gallery/radial/radial-blocks').then((m) => m.RadialBlocks),
+  },
+  {
+    path: 'radar',
+    loadComponent: () => import('./gallery/radar/radar-blocks').then((m) => m.RadarBlocks),
+  },
   {
     path: 'chart-possibilities',
-    loadComponent: () => import('./chart-possibilities').then((m) => m.ChartPossibilities),
+    loadComponent: () =>
+      import('./chart-possibilities/chart-possibilities').then((m) => m.ChartPossibilities),
   },
-  { path: 'linked', loadComponent: () => import('./linked-charts').then((m) => m.LinkedCharts) },
+  {
+    path: 'linked',
+    loadComponent: () => import('./linked/linked-charts').then((m) => m.LinkedCharts),
+  },
   {
     path: 'linked-validation',
-    loadComponent: () => import('./linked-validation').then((m) => m.LinkedValidation),
+    loadComponent: () => import('./validation/linked-validation').then((m) => m.LinkedValidation),
   },
   {
     path: 'composed-benchmark',
     data: { family: 'composed' },
-    loadComponent: () => import('./benchmark').then((m) => m.Benchmark),
+    loadComponent: () => import('./validation/benchmark').then((m) => m.Benchmark),
   },
   {
     path: 'composed',
     data: { family: 'composed' },
-    loadComponent: () => import('./gallery').then((m) => m.Gallery),
+    loadComponent: () => import('./gallery/gallery').then((m) => m.Gallery),
   },
   {
     path: 'composed-validation',
-    loadComponent: () => import('./composed-validation').then((m) => m.ComposedValidation),
+    loadComponent: () =>
+      import('./validation/composed-validation').then((m) => m.ComposedValidation),
   },
   {
     path: 'pie',
     data: { family: 'pie' },
-    loadComponent: () => import('./gallery').then((m) => m.Gallery),
+    loadComponent: () => import('./gallery/gallery').then((m) => m.Gallery),
   },
   {
     path: 'pie-validation',
-    loadComponent: () => import('./pie-validation').then((m) => m.PieValidation),
+    loadComponent: () => import('./validation/pie-validation').then((m) => m.PieValidation),
   },
   {
     path: 'pie-comparison',
-    loadComponent: () => import('./pie-comparison').then((m) => m.PieComparison),
+    loadComponent: () => import('./comparison/pie-comparison').then((m) => m.PieComparison),
   },
   {
     path: 'pie-benchmark',
     data: { family: 'pie' },
-    loadComponent: () => import('./benchmark').then((m) => m.Benchmark),
+    loadComponent: () => import('./validation/benchmark').then((m) => m.Benchmark),
   },
   {
     path: 'area',
     data: { family: 'area' },
-    loadComponent: () => import('./gallery').then((module) => module.Gallery),
+    loadComponent: () => import('./gallery/gallery').then((module) => module.Gallery),
   },
   {
     path: 'area-validation',
-    loadComponent: () => import('./area-validation').then((module) => module.AreaValidation),
+    loadComponent: () =>
+      import('./validation/area-validation').then((module) => module.AreaValidation),
   },
   {
     path: 'area-comparison',
-    loadComponent: () => import('./area-comparison').then((module) => module.AreaComparison),
+    loadComponent: () =>
+      import('./comparison/area-comparison').then((module) => module.AreaComparison),
   },
   {
     path: 'area-benchmark',
     data: { family: 'area' },
-    loadComponent: () => import('./benchmark').then((module) => module.Benchmark),
+    loadComponent: () => import('./validation/benchmark').then((module) => module.Benchmark),
   },
   {
     path: 'line-comparison',
-    loadComponent: () => import('./line-comparison').then((module) => module.LineComparison),
+    loadComponent: () =>
+      import('./comparison/line-comparison').then((module) => module.LineComparison),
   },
   {
     path: 'line-benchmark',
     data: { family: 'line' },
-    loadComponent: () => import('./benchmark').then((module) => module.Benchmark),
+    loadComponent: () => import('./validation/benchmark').then((module) => module.Benchmark),
   },
   {
     path: 'line',
     data: { family: 'line' },
-    loadComponent: () => import('./gallery').then((module) => module.Gallery),
+    loadComponent: () => import('./gallery/gallery').then((module) => module.Gallery),
   },
   {
     path: 'line-validation',
-    loadComponent: () => import('./line-validation').then((module) => module.LineValidation),
+    loadComponent: () =>
+      import('./validation/line-validation').then((module) => module.LineValidation),
   },
   {
     path: 'get-started',
     data: { page: 'get-started' },
-    loadComponent: () => import('./documentation').then((module) => module.Documentation),
+    loadComponent: () =>
+      import('./documentation/documentation').then((module) => module.Documentation),
   },
   {
     path: 'installation',
     data: { page: 'installation' },
-    loadComponent: () => import('./documentation').then((module) => module.Documentation),
+    loadComponent: () =>
+      import('./documentation/documentation').then((module) => module.Documentation),
   },
   {
     path: 'components',
     data: { page: 'components' },
-    loadComponent: () => import('./documentation').then((module) => module.Documentation),
+    loadComponent: () =>
+      import('./documentation/documentation').then((module) => module.Documentation),
   },
   {
     path: 'formatting',
-    loadComponent: () => import('./formatting').then((module) => module.Formatting),
+    loadComponent: () => import('./validation/formatting').then((module) => module.Formatting),
   },
   {
     path: 'retention',
-    loadComponent: () => import('./retention').then((module) => module.Retention),
+    loadComponent: () => import('./validation/retention').then((module) => module.Retention),
   },
   {
     path: 'benchmark',
-    loadComponent: () => import('./benchmark').then((module) => module.Benchmark),
+    loadComponent: () => import('./validation/benchmark').then((module) => module.Benchmark),
   },
-  { path: 'updates', loadComponent: () => import('./updates').then((module) => module.Updates) },
+  {
+    path: 'updates',
+    loadComponent: () => import('./validation/updates').then((module) => module.Updates),
+  },
   {
     path: '',
     pathMatch: 'full',
-    loadComponent: () => import('./gallery').then((module) => module.Gallery),
+    loadComponent: () => import('./gallery/gallery').then((module) => module.Gallery),
   },
   {
     path: 'playground',
-    loadComponent: () => import('./app').then((module) => module.App),
+    loadComponent: () => import('./validation/app').then((module) => module.App),
   },
   {
     path: 'comparison',
-    loadComponent: () => import('./comparison').then((module) => module.Comparison),
+    loadComponent: () => import('./comparison/comparison').then((module) => module.Comparison),
   },
   {
     path: 'validation',
-    loadComponent: () => import('./validation').then((module) => module.Validation),
+    loadComponent: () => import('./validation/validation').then((module) => module.Validation),
   },
-  { path: 'away', loadComponent: () => import('./away').then((module) => module.Away) },
+  { path: 'away', loadComponent: () => import('./validation/away').then((module) => module.Away) },
 ];

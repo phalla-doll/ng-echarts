@@ -153,7 +153,7 @@ try {
     'projects/chart-library/core/src/lib/cartesian-chart.ts',
     'projects/chart-library/line/src/lib/line-options.ts',
     'projects/chart-library/line/src/lib/line-renderer.ts',
-    'projects/playground/src/app/line-blocks.ts',
+    'projects/playground/src/app/gallery/line/line-blocks.ts',
   ])
     sourceHashes[path] = createHash('sha256')
       .update(await readFile(new URL(path, root)))

@@ -81,7 +81,7 @@ try {
           'projects/chart-library/radar/src/lib/radar-chart.ts',
           'projects/chart-library/radar/src/lib/radar-options.ts',
           'projects/chart-library/radar/src/lib/radar-renderer.ts',
-          'projects/playground/src/app/radar-blocks.html',
+          'projects/playground/src/app/gallery/radar/radar-blocks.html',
         ].map(async (path) => [path, hash(await readFile(path))]),
       ),
     ),

@@ -343,10 +343,13 @@ test('concept asset validation catches stale URL revisions and mismatched bundle
   const root = await fixture();
   const source = Buffer.from('<html>concept source</html>');
   await mkdir(join(root, 'docs/experiments'), { recursive: true });
-  await mkdir(join(root, 'projects/playground/src/app'), { recursive: true });
+  await mkdir(join(root, 'projects/playground/src/app/chart-possibilities'), { recursive: true });
   await mkdir(join(directory(root), 'concepts'), { recursive: true });
   await writeFile(join(root, 'docs/experiments/chart-style-gallery.html'), source);
-  const wrapper = join(root, 'projects/playground/src/app/chart-possibilities.ts'),
+  const wrapper = join(
+      root,
+      'projects/playground/src/app/chart-possibilities/chart-possibilities.ts',
+    ),
     asset = join(directory(root), 'concepts/chart-style-gallery.html');
   await writeFile(wrapper, "const url='concepts/chart-style-gallery.html?v=000000000000';");
   await writeFile(asset, source);
@@ -365,11 +368,11 @@ test('concept validation also rejects tampered generated engines and embedded do
   const source =
     '<style>src:url(data:font/woff2;base64,YWJj)</style><!-- concept-engine:start --><script>const engine = "$&";</script><!-- concept-engine:end --><script>application()</script>';
   await mkdir(join(root, 'docs/experiments'), { recursive: true });
-  await mkdir(join(root, 'projects/playground/src/app'), { recursive: true });
+  await mkdir(join(root, 'projects/playground/src/app/chart-possibilities'), { recursive: true });
   await mkdir(join(directory(root), 'concepts'), { recursive: true });
   await writeFile(join(root, 'docs/experiments/chart-style-gallery.html'), source);
   await writeFile(
-    join(root, 'projects/playground/src/app/chart-possibilities.ts'),
+    join(root, 'projects/playground/src/app/chart-possibilities/chart-possibilities.ts'),
     `const url='concepts/chart-style-gallery.html?v=${digest(source).slice(0, 12)}';`,
   );
   const assets = conceptAssets(source);

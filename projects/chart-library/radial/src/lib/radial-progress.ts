@@ -7,10 +7,10 @@ import {
   Component,
   computed,
   DestroyRef,
-  effect,
   ElementRef,
   inject,
   input,
+  linkedSignal,
   PLATFORM_ID,
   signal,
   viewChild,
@@ -66,7 +66,13 @@ export class RadialProgress {
   private controller: ɵPlotController<RadialOption> | null = null;
   private focusKeeper: ɵChartFocusKeeper | null = null;
   private removeMotionListener: (() => void) | null = null;
-  protected readonly rendererError = signal(false);
+  // A failed renderer stays failed until retry or a relevant input changes.
+  protected readonly rendererError = linkedSignal(() => {
+    this.model();
+    this.settings();
+    this.formatting();
+    return false;
+  });
   protected readonly model = computed(() => normalizeRadialProgress(this.value(), this.max()));
   private readonly formatting = computed(() => {
     const model = this.model();
@@ -149,12 +155,6 @@ export class RadialProgress {
       : null;
   });
   constructor() {
-    effect(() => {
-      this.model();
-      this.settings();
-      this.formatting();
-      this.rendererError.set(false);
-    });
     afterNextRender(() => {
       if (!isPlatformBrowser(this.platform)) return;
       void this.application.whenStable().then(() => {
@@ -178,30 +178,39 @@ export class RadialProgress {
         }
       });
     });
-    afterRenderEffect(() => {
-      if (!this.browserReady()) return;
-      const theme = this.theme();
-      this.themeRevision();
-      try {
-        this.measuredTheme.set(
-          ɵreadCartesianTheme<{ value: number }>(
-            this.host.nativeElement,
-            theme,
-            [{ id: 'progress', key: 'value', label: this.title() }],
-            this.plot().nativeElement,
-          ),
-        );
-      } catch {
-        this.rendererError.set(true);
-      }
+    // Resolving CSS colors writes a probe and immediately reads its computed color.
+    afterRenderEffect({
+      mixedReadWrite: () => {
+        if (!this.browserReady()) return;
+        const theme = this.theme();
+        this.themeRevision();
+        try {
+          this.measuredTheme.set(
+            ɵreadCartesianTheme<{ value: number }>(
+              this.host.nativeElement,
+              theme,
+              [{ id: 'progress', key: 'value', label: this.title() }],
+              this.plot().nativeElement,
+            ),
+          );
+        } catch {
+          this.rendererError.set(true);
+        }
+      },
     });
-    afterRenderEffect(() => {
-      this.browserReady();
-      this.controller?.update(this.options());
+    // Option updates only schedule rendering or dispose the previous plot.
+    afterRenderEffect({
+      write: () => {
+        this.browserReady();
+        this.controller?.update(this.options());
+      },
     });
-    afterRenderEffect(() => {
-      this.state();
-      this.focusKeeper?.restore();
+    // Focus restoration checks current DOM ownership before changing focus.
+    afterRenderEffect({
+      mixedReadWrite: () => {
+        this.state();
+        this.focusKeeper?.restore();
+      },
     });
     this.destroyRef.onDestroy(() => {
       this.removeMotionListener?.();

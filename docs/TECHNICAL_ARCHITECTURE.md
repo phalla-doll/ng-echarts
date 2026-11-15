@@ -61,6 +61,25 @@ Computed builders must be deterministic: no DOM reads, signal writes, output emi
 
 Review these boundaries in the bar prototype and preserve them as other chart families are added. There is no arbitrary template line limit or blanket ban on function calls.
 
+### Dependent state and render phases
+
+Renderer failures use `linkedSignal`: a failure remains writable by the browser adapter or retry action and resets when its model, settings or formatting inputs change. Cartesian and pie legend visibility also use dependent signals, retaining hidden identities through invalid input and pruning valid removals before reintroduction. Cartesian legends read that dependent state even when invalid rows produce no legend items, so removals during loading or invalid-data states are still reconciled. Transient plot previews are tied to their current data/visibility context; effects only bridge that state to preview outputs and imperative pointer/focus bookkeeping. See Angular's [dependent-state](https://angular.dev/guide/signals/linked-signal) and [effect](https://angular.dev/guide/signals/effect) guidance.
+
+Browser chart effects declare their phases explicitly. Controller option updates use `write`: they schedule the adapter's dimension-aware animation frame or dispose a previous plot. CSS color resolution stays in `mixedReadWrite` because it writes a temporary probe and reads its computed color. Focus restoration and preview-listener attachment also retain mixed phases to inspect current focus ownership immediately before restoring or reconciling it. Those operations must not be mislabeled as pure reads or writes. Initialization continues to wait for browser rendering and application stability; cleanup remains registered with `DestroyRef`. See the [render-phase contract](https://angular.dev/api/core/afterRenderEffect).
+
+### Playground feature organization
+
+`projects/playground/src/app/` keeps application configuration, routes and the root shell entry together. Related implementation, templates, styles and tests live in feature directories:
+
+- `gallery/`: shared gallery presentation, with chart examples grouped under `bar/`, `line/`, `area/`, `composed/`, `pie/`, `radar/`, `radial/`, `calendar/` and `sankey/`.
+- `linked/`, `documentation/`, `comparison/` and `chart-possibilities/`: their respective pages and supporting transformations.
+- `code-examples/`: source highlighting, snippets, import examples and clipboard controls shared by the pages.
+- `shell/`: site appearance, icons, print mode and destination preloads.
+- `validation/`: settings playground, lifecycle/update/formatting scenarios and benchmarks.
+- `fixtures/`: attributed datasets shared across examples and acceptance scenarios.
+
+Routes retain their public URLs and lazy loading. Build-derived preload mappings, source captures and isolated example consumers follow these feature paths; historical capture manifests retain their original paths and hashes. This follows Angular's [feature-organization guidance](https://angular.dev/style-guide#organize-your-project-by-feature-areas). Validation for this refactor is recorded in the [Angular practices follow-up](experiments/ANGULAR_PRACTICES_FOLLOW_UP.md).
+
 ## Current public contract
 
 Use the exported types rather than copying their mapped-type definitions. The installed API remains experimental; the [bar](BAR_CHART_API.md), [line](LINE_CHART_API.md), [area](AREA_CHART_API.md), and [pie/donut](PIE_CHART_API.md) guides own exact inputs/defaults and each includes an integration example compiled against the packed artifact.

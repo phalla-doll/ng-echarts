@@ -1,11 +1,13 @@
 {
-  "recordedAt": "2026-11-14T09:57:10.861Z",
+  "recordedAt": "2026-11-15T04:35:26.016Z",
   "node": "v24.22.2",
-  "package": "@ng-echarts/chart-library",
-  "version": "0.1.0-rc.16",
+  "package": "@mantha911/ng-echarts",
+  "version": "0.1.0-rc.19",
   "artifact": {
-    "sha256": "b2796c4e12ae2a4349d1f4b5cd6e5a9726150d3f454079472f9c6a56a8944c0e",
-    "exactCandidate": true
+    "name": "@mantha911/ng-echarts",
+    "version": "0.1.0-rc.19",
+    "sha256": "85fd51a061557f6a33255c77581add6d1868ca47f45334f182d178953f5d38ba",
+    "exactCandidate": false
   },
   "skipLibCheck": false,
   "workspaceAliases": false,

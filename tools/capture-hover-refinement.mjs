@@ -364,11 +364,11 @@ try {
     'projects/playground/src/gallery-shell.css',
     'projects/playground/src/documentation.css',
     'projects/playground/src/app/root.css',
-    'projects/playground/src/app/gallery.css',
-    'projects/playground/src/app/bar-block.css',
-    'projects/playground/src/app/copy-button.ts',
-    'projects/playground/src/app/linked-visits.css',
-    'projects/playground/src/app/comparison.css',
+    'projects/playground/src/app/gallery/gallery.css',
+    'projects/playground/src/app/gallery/bar-block.css',
+    'projects/playground/src/app/code-examples/copy-button.ts',
+    'projects/playground/src/app/linked/linked-visits.css',
+    'projects/playground/src/app/comparison/comparison.css',
     'tools/capture-hover-refinement.mjs',
   ])
     sources.push({ path, sha256: hash(await readFile(path)) });

@@ -7,10 +7,10 @@ import {
   Component,
   computed,
   DestroyRef,
-  effect,
   ElementRef,
   inject,
   input,
+  linkedSignal,
   output,
   PLATFORM_ID,
   signal,
@@ -74,7 +74,13 @@ export class SankeyChart<N extends SankeyNode = SankeyNode, L extends SankeyLink
   private focusKeeper: ɵChartFocusKeeper | null = null;
   private removeMotionListener: (() => void) | null = null;
   protected readonly scrollViewport = scrollFlowViewport;
-  protected readonly rendererError = signal(false);
+  // A failed renderer stays failed until retry or a relevant input changes.
+  protected readonly rendererError = linkedSignal(() => {
+    this.model();
+    this.settings();
+    this.formatting();
+    return false;
+  });
   protected readonly model = computed(() => normalizeSankey(this.nodes(), this.links()));
   private readonly formatting = computed(() => {
     const model = this.model();
@@ -195,12 +201,6 @@ export class SankeyChart<N extends SankeyNode = SankeyNode, L extends SankeyLink
     }
   }
   constructor() {
-    effect(() => {
-      this.model();
-      this.settings();
-      this.formatting();
-      this.rendererError.set(false);
-    });
     afterNextRender(() => {
       if (!isPlatformBrowser(this.platform)) return;
       void this.application.whenStable().then(() => {
@@ -224,36 +224,45 @@ export class SankeyChart<N extends SankeyNode = SankeyNode, L extends SankeyLink
         }
       });
     });
-    afterRenderEffect(() => {
-      if (!this.browserReady()) return;
-      const theme = this.theme();
-      this.themeRevision();
-      try {
-        this.measuredTheme.set(
-          ɵreadCartesianTheme<{ value: number }>(
-            this.host.nativeElement,
-            theme,
-            Array.from({ length: 4 }, (_, index) => ({
-              id: `stage-${index}`,
-              key: 'value' as const,
-              label: `Stage ${index + 1}`,
-            })),
-            this.plot().nativeElement,
-          ),
-        );
-      } catch {
-        this.rendererError.set(true);
-      }
+    // Resolving CSS colors writes a probe and immediately reads its computed color.
+    afterRenderEffect({
+      mixedReadWrite: () => {
+        if (!this.browserReady()) return;
+        const theme = this.theme();
+        this.themeRevision();
+        try {
+          this.measuredTheme.set(
+            ɵreadCartesianTheme<{ value: number }>(
+              this.host.nativeElement,
+              theme,
+              Array.from({ length: 4 }, (_, index) => ({
+                id: `stage-${index}`,
+                key: 'value' as const,
+                label: `Stage ${index + 1}`,
+              })),
+              this.plot().nativeElement,
+            ),
+          );
+        } catch {
+          this.rendererError.set(true);
+        }
+      },
     });
-    afterRenderEffect(() => {
-      this.browserReady();
-      this.controller?.update(this.options());
+    // Option updates only schedule rendering or dispose the previous plot.
+    afterRenderEffect({
+      write: () => {
+        this.browserReady();
+        this.controller?.update(this.options());
+      },
     });
-    afterRenderEffect(() => {
-      this.state();
-      this.nodeRows();
-      this.linkRows();
-      this.focusKeeper?.restore();
+    // Focus restoration checks current DOM ownership before changing focus.
+    afterRenderEffect({
+      mixedReadWrite: () => {
+        this.state();
+        this.nodeRows();
+        this.linkRows();
+        this.focusKeeper?.restore();
+      },
     });
     this.destroyRef.onDestroy(() => {
       this.removeMotionListener?.();

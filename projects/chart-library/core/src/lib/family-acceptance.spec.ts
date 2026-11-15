@@ -216,4 +216,29 @@ describe.each(families)('$family cross-family acceptance', ({ family, component 
     expect(host.querySelector('.legend button')?.getAttribute('aria-pressed')).toBe('true');
     expect(host.querySelectorAll('tbody tr')).toHaveLength(3);
   });
+
+  it('preserves legend choices through invalid data but reconciles valid removals while loading', async () => {
+    const { fixture, host } = await setup();
+    host.querySelector<HTMLButtonElement>('.legend button')!.click();
+    await fixture.whenStable();
+    fixture.componentRef.setInput('data', [
+      { id: 'invalid', category: 'Invalid', value: Infinity },
+    ]);
+    await fixture.whenStable();
+    expect(host.querySelector('[role=alert]')).not.toBeNull();
+    fixture.componentRef.setInput('data', rows);
+    await fixture.whenStable();
+    expect(host.querySelector('.legend button')?.getAttribute('aria-pressed')).toBe('false');
+
+    fixture.componentRef.setInput('loading', true);
+    fixture.componentRef.setInput('data', family === 'pie' ? rows.slice(1) : [{ value: Infinity }]);
+    if (family !== 'pie') fixture.componentRef.setInput('series', []);
+    await fixture.whenStable();
+    expect(host.querySelector('[role=status]')?.textContent).toContain('Loading');
+    fixture.componentRef.setInput('data', rows);
+    if (family !== 'pie') fixture.componentRef.setInput('series', [descriptor]);
+    fixture.componentRef.setInput('loading', false);
+    await fixture.whenStable();
+    expect(host.querySelector('.legend button')?.getAttribute('aria-pressed')).toBe('true');
+  });
 });

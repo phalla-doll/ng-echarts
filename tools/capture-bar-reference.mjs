@@ -215,7 +215,7 @@ try {
         comparisonThemeSha256: createHash('sha256')
           .update(
             await readFile(
-              new URL('../projects/playground/src/app/comparison.css', import.meta.url),
+              new URL('../projects/playground/src/app/comparison/comparison.css', import.meta.url),
             ),
           )
           .digest('hex'),

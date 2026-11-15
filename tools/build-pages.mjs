@@ -65,7 +65,7 @@ export async function validateConceptAsset(root, browser) {
   }
   const expected = digest(source);
   const wrapper = await readFile(
-    join(root, 'projects/playground/src/app/chart-possibilities.ts'),
+    join(root, 'projects/playground/src/app/chart-possibilities/chart-possibilities.ts'),
     'utf8',
   );
   const revision = wrapper.match(/concepts\/chart-style-gallery\.html\?v=([a-f0-9]{12})/u)?.[1];

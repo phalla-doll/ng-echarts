@@ -38,6 +38,10 @@ The registry count includes every entry in `items`. The ECharts example count fi
 | S18 | [ECharts donut](https://echarts.apache.org/handbook/en/how-to/chart-types/pie/doughnut/) | Inner/outer radii and label-overlap behavior |
 | S22 | [ECharts calendar options](https://github.com/apache/echarts-doc/blob/master/en/option/component/calendar.md) and [6.1.0 calendar implementation](https://github.com/apache/echarts/blob/6.1.0/src/coord/calendar/Calendar.ts) | Date ranges, calendar sizing/first-day semantics and local date arithmetic; NG19 retains pure date identity and native-table fallback |
 | S23 | [IANA timezone source, Australasia](https://github.com/eggert/tz/blob/main/australasia) | Pacific/Apia's skipped civil date; verified native fallback in the calendar browser scenarios |
+| S24 | [Angular dependent state with linkedSignal](https://angular.dev/guide/signals/linked-signal) | Writable state derived from changing inputs, with previous-value reconciliation; checked 15 November 2026 |
+| S25 | [Angular effects](https://angular.dev/guide/signals/effect) | Prefer computed/dependent signals for state derivation; effects bridge imperative APIs; checked 15 November 2026 |
+| S26 | [Angular afterRenderEffect](https://angular.dev/api/core/afterRenderEffect) | Explicit render phases and justified mixed DOM reads/writes; checked 15 November 2026 |
+| S27 | [Angular feature organization](https://angular.dev/style-guide#organize-your-project-by-feature-areas) | Feature directories with colocated source, styles, templates and tests; checked 15 November 2026 |
 
 Recheck platform documentation when development begins and when compatibility ranges change. Preserve the pinned upstream revision for reproducible comparisons, even if a later revision is evaluated separately.
 

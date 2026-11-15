@@ -252,10 +252,10 @@ try {
     'projects/playground/src/styles.css',
     'projects/playground/src/site-controls.css',
     'projects/playground/src/gallery-shell.css',
-    'projects/playground/src/app/linked-visits.css',
-    'projects/playground/src/app/linked-charts.css',
-    'projects/playground/src/app/comparison.css',
-    'projects/playground/src/app/source-snippet.ts',
+    'projects/playground/src/app/linked/linked-visits.css',
+    'projects/playground/src/app/linked/linked-charts.css',
+    'projects/playground/src/app/comparison/comparison.css',
+    'projects/playground/src/app/code-examples/source-snippet.ts',
     'tools/capture-focus-refinement.mjs',
   ]) {
     sources.push({ path, sha256: hash(await readFile(path)) });

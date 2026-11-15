@@ -220,3 +220,5 @@ The [NG22 public prerelease](docs/experiments/NG22_PUBLIC_PRERELEASE.md) uses `@
 [The first public prerelease](docs/experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) is available on npm. Registry bytes match the verified archive and fresh registry consumers pass. npm retains both `next` and its initial `latest` alias for rc.18; this is an experimental prerelease, with human listening still deferred at the user’s request.
 
 The unreleased rc.19 [performance follow-up](docs/experiments/PERFORMANCE_FOLLOW_UP.md) adds optional `[tablePageSize]="50"` for bar, line, area, composed and pie, and skips stack-end scans in unstacked bars. Default tables remain complete; the published rc.18 package is unchanged.
+
+The [Angular practices follow-up](docs/experiments/ANGULAR_PRACTICES_FOLLOW_UP.md) records dependent-state reconciliation, explicit browser render phases and the playground's feature directories in unreleased rc.19 source.

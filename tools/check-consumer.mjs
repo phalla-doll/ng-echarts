@@ -33,7 +33,7 @@ try {
   await cp(join(root, 'tools/consumer-fixtures/declarations'), consumer, { recursive: true });
   // Compile the actual copied gallery examples, not a second hand-maintained template.
   const examples = await build({
-    entryPoints: [join(root, 'projects/playground/src/app/bar-blocks.ts')],
+    entryPoints: [join(root, 'projects/playground/src/app/gallery/bar/bar-blocks.ts')],
     bundle: true,
     write: false,
     platform: 'node',
@@ -43,7 +43,7 @@ try {
     `data:text/javascript;base64,${Buffer.from(examples.outputFiles[0].contents).toString('base64')}`
   );
   const lines = await build({
-    entryPoints: [join(root, 'projects/playground/src/app/line-blocks.ts')],
+    entryPoints: [join(root, 'projects/playground/src/app/gallery/line/line-blocks.ts')],
     bundle: true,
     write: false,
     platform: 'node',
@@ -53,7 +53,7 @@ try {
     `data:text/javascript;base64,${Buffer.from(lines.outputFiles[0].contents).toString('base64')}`
   );
   const areas = await build({
-    entryPoints: [join(root, 'projects/playground/src/app/area-blocks.ts')],
+    entryPoints: [join(root, 'projects/playground/src/app/gallery/area/area-blocks.ts')],
     bundle: true,
     write: false,
     platform: 'node',
@@ -63,7 +63,7 @@ try {
     `data:text/javascript;base64,${Buffer.from(areas.outputFiles[0].contents).toString('base64')}`
   );
   const composedBuild = await build({
-    entryPoints: [join(root, 'projects/playground/src/app/composed-blocks.ts')],
+    entryPoints: [join(root, 'projects/playground/src/app/gallery/composed/composed-blocks.ts')],
     bundle: true,
     write: false,
     platform: 'node',
@@ -77,7 +77,7 @@ try {
   const sankeyGuide = await readFile(join(root, 'docs/SANKEY_CHART_API.md'), 'utf8');
   const sankeyExample = sankeyGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
   const sankeyBuild = await build({
-    entryPoints: [join(root, 'projects/playground/src/app/sankey-examples.ts')],
+    entryPoints: [join(root, 'projects/playground/src/app/gallery/sankey/sankey-examples.ts')],
     bundle: true,
     write: false,
     platform: 'node',
@@ -100,7 +100,7 @@ try {
   const calendarExample = calendarGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
   assert(calendarExample, 'Calendar guide must contain its standalone example');
   const calendarBuild = await build({
-    entryPoints: [join(root, 'projects/playground/src/app/calendar-examples.ts')],
+    entryPoints: [join(root, 'projects/playground/src/app/gallery/calendar/calendar-examples.ts')],
     bundle: true,
     write: false,
     platform: 'node',
@@ -126,7 +126,7 @@ try {
   await writeFile(join(consumer, 'radial-api-example.ts'), radialExample);
   config.files.push('radial-api-example.ts');
   const radialBuild = await build({
-    entryPoints: [join(root, 'projects/playground/src/app/radial-examples.ts')],
+    entryPoints: [join(root, 'projects/playground/src/app/gallery/radial/radial-examples.ts')],
     bundle: true,
     write: false,
     platform: 'node',
@@ -163,7 +163,7 @@ try {
       config.files.push(file);
     }
   const linkedBuild = await build({
-    entryPoints: [join(root, 'projects/playground/src/app/linked-example-source.ts')],
+    entryPoints: [join(root, 'projects/playground/src/app/linked/linked-example-source.ts')],
     bundle: true,
     write: false,
     platform: 'node',
@@ -181,7 +181,7 @@ try {
   await writeFile(join(consumer, 'linked-example.ts'), linkedExampleSource);
   config.files.push('linked-example.ts');
   const documentation = await build({
-    entryPoints: [join(root, 'projects/playground/src/app/documentation-content.ts')],
+    entryPoints: [join(root, 'projects/playground/src/app/documentation/documentation-content.ts')],
     bundle: true,
     write: false,
     platform: 'node',
@@ -248,7 +248,7 @@ try {
       config.files.push(file);
     }
   const pies = await build({
-    entryPoints: [join(root, 'projects/playground/src/app/pie-blocks.ts')],
+    entryPoints: [join(root, 'projects/playground/src/app/gallery/pie/pie-blocks.ts')],
     bundle: true,
     write: false,
     platform: 'node',

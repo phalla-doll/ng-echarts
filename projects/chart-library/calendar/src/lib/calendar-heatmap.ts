@@ -7,10 +7,10 @@ import {
   Component,
   computed,
   DestroyRef,
-  effect,
   ElementRef,
   inject,
   input,
+  linkedSignal,
   output,
   PLATFORM_ID,
   signal,
@@ -77,7 +77,13 @@ export class CalendarHeatmap<T extends object> {
   private controller: ɵPlotController<CalendarView> | null = null;
   private focusKeeper: ɵChartFocusKeeper | null = null;
   private removeMotionListener: (() => void) | null = null;
-  protected readonly rendererError = signal(false);
+  // A failed renderer stays failed until retry or a relevant input changes.
+  protected readonly rendererError = linkedSignal(() => {
+    this.model();
+    this.settings();
+    this.formatting();
+    return false;
+  });
   protected readonly model = computed(() =>
     normalizeCalendarData(this.data(), this.dateKey(), this.valueKey(), this.year(), this.max()),
   );
@@ -202,12 +208,6 @@ export class CalendarHeatmap<T extends object> {
     this.pointSelect.emit({ date, value: day.value, row: day.row, source });
   }
   constructor() {
-    effect(() => {
-      this.model();
-      this.settings();
-      this.formatting();
-      this.rendererError.set(false);
-    });
     afterNextRender(() => {
       if (!isPlatformBrowser(this.platform)) return;
       void this.application.whenStable().then(() => {
@@ -231,31 +231,40 @@ export class CalendarHeatmap<T extends object> {
         }
       });
     });
-    afterRenderEffect(() => {
-      if (!this.browserReady()) return;
-      const theme = this.theme();
-      this.themeRevision();
-      try {
-        this.measuredTheme.set(
-          ɵreadCartesianTheme<{ value: number }>(
-            this.host.nativeElement,
-            theme,
-            [{ id: 'calendar', key: 'value', label: this.title() }],
-            this.plot().nativeElement,
-          ),
-        );
-      } catch {
-        this.rendererError.set(true);
-      }
+    // Resolving CSS colors writes a probe and immediately reads its computed color.
+    afterRenderEffect({
+      mixedReadWrite: () => {
+        if (!this.browserReady()) return;
+        const theme = this.theme();
+        this.themeRevision();
+        try {
+          this.measuredTheme.set(
+            ɵreadCartesianTheme<{ value: number }>(
+              this.host.nativeElement,
+              theme,
+              [{ id: 'calendar', key: 'value', label: this.title() }],
+              this.plot().nativeElement,
+            ),
+          );
+        } catch {
+          this.rendererError.set(true);
+        }
+      },
     });
-    afterRenderEffect(() => {
-      this.browserReady();
-      this.controller?.update(this.options());
+    // Option updates only schedule rendering or dispose the previous plot.
+    afterRenderEffect({
+      write: () => {
+        this.browserReady();
+        this.controller?.update(this.options());
+      },
     });
-    afterRenderEffect(() => {
-      this.state();
-      this.months();
-      this.focusKeeper?.restore();
+    // Focus restoration checks current DOM ownership before changing focus.
+    afterRenderEffect({
+      mixedReadWrite: () => {
+        this.state();
+        this.months();
+        this.focusKeeper?.restore();
+      },
     });
     this.destroyRef.onDestroy(() => {
       this.removeMotionListener?.();

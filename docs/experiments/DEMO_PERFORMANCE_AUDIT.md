@@ -62,7 +62,7 @@ A later web-specific build could externalize a hashed modular engine and reuse t
 
 ### 2 The browser discovers the iframe after Angular startup
 
-**High impact, confirmed.** The [iframe template](../../projects/playground/src/app/chart-possibilities.html) binds its source only when `browserReady()` is true. The [wrapper](../../projects/playground/src/app/chart-possibilities.ts) sets that flag in `afterNextRender`. Consequently the prerendered HTML cannot start the real document request during initial parsing.
+**High impact, confirmed.** The [iframe template](../../projects/playground/src/app/chart-possibilities/chart-possibilities.html) binds its source only when `browserReady()` is true. The [wrapper](../../projects/playground/src/app/chart-possibilities/chart-possibilities.ts) sets that flag in `afterNextRender`. Consequently the prerendered HTML cannot start the real document request during initial parsing.
 
 In the controlled mobile sample, the main document responds at 151 ms but the gallery request starts at 1,282 ms. That is about 1.13 seconds of delayed discovery after the response, before transferring the gallery itself. Public observations show an even longer dependency wait when application scripts download slowly.
 
@@ -76,9 +76,9 @@ In the controlled mobile sample, the main document responds at 151 ms but the ga
 
 ### 4 Offscreen plots and code examples compete with visible content
 
-**Medium impact, confirmed; savings need measurement after implementation.** The concept's `render()` loop initializes all 14 plots immediately, although only the calendar is initially visible on a narrow screen. A theme change applies another 14 option updates, about 172 ms in the instrumented 4× CPU run. The ordinary [gallery loop](../../projects/playground/src/app/gallery.html) similarly mounts every block immediately.
+**Medium impact, confirmed; savings need measurement after implementation.** The concept's `render()` loop initializes all 14 plots immediately, although only the calendar is initially visible on a narrow screen. A theme change applies another 14 option updates, about 172 ms in the instrumented 4× CPU run. The ordinary [gallery loop](../../projects/playground/src/app/gallery/gallery.html) similarly mounts every block immediately.
 
-The [bar block](../../projects/playground/src/app/bar-block.html) and pie equivalent retain the complete code view under `[hidden]`. The [highlighting directive](../../projects/playground/src/app/highlight-code.ts) still computes and binds highlighted HTML at startup. The shared highlighter chunk adds about 13 kB compressed and code-bearing pages also request a 35 kB code font. Some import snippets are intentionally visible below the fold, so removing the highlighter wholesale would change the product.
+The [bar block](../../projects/playground/src/app/gallery/bar-block.html) and pie equivalent retain the complete code view under `[hidden]`. The [highlighting directive](../../projects/playground/src/app/code-examples/highlight-code.ts) still computes and binds highlighted HTML at startup. The shared highlighter chunk adds about 13 kB compressed and code-bearing pages also request a 35 kB code font. Some import snippets are intentionally visible below the fold, so removing the highlighter wholesale would change the product.
 
 **Recommended change:** prioritize the visible plot, initialize later plots near the viewport, and defer full code highlighting until Code is opened. Preserve card dimensions, data-table access, fragment navigation, printing and theme state for plots created later. Account for the concept's expanding iframe when defining visibility. [Angular's defer guide](https://angular.dev/guide/templates/defer) covers supported viewport and interaction triggers for Angular blocks.
 

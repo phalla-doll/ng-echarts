@@ -190,15 +190,15 @@ try {
   assert.deepEqual(errors, []);
   const sourcePaths = [
     'projects/playground/src/gallery-shell.css',
-    'projects/playground/src/app/bar-block.css',
-    'projects/playground/src/app/bar-block.html',
-    'projects/playground/src/app/pie-block.html',
+    'projects/playground/src/app/gallery/bar-block.css',
+    'projects/playground/src/app/gallery/bar-block.html',
+    'projects/playground/src/app/gallery/pie-block.html',
     'projects/chart-library/core/src/lib/cartesian-options.ts',
     'tools/capture-visual-audit.mjs',
     ...(composed
       ? [
           'projects/chart-library/composed/src/lib/composed-options.ts',
-          'projects/playground/src/app/composed-blocks.ts',
+          'projects/playground/src/app/gallery/composed/composed-blocks.ts',
         ]
       : []),
   ];

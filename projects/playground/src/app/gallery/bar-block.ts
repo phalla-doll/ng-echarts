@@ -1,0 +1,88 @@
+import { NgTemplateOutlet } from '@angular/common';
+import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import {
+  BarChart,
+  type CategoryTickFormatter,
+  type PointSelection,
+} from '@mantha911/ng-echarts/bar';
+import { LineChart } from '@mantha911/ng-echarts/line';
+import { AreaChart } from '@mantha911/ng-echarts/area';
+import { ComposedChart } from '@mantha911/ng-echarts/composed';
+import { chartExampleSource, type CartesianBlock } from './chart-blocks';
+import type { DeviceRow } from '../fixtures/evilcharts-bar-fixture';
+import { SiteIcon } from '../shell/site-icon';
+import { HighlightCode } from '../code-examples/highlight-code';
+import { ChartImport } from '../code-examples/chart-import';
+import { DemoPrintMode } from '../shell/demo-print-mode';
+
+@Component({
+  selector: 'app-bar-block',
+  imports: [
+    NgTemplateOutlet,
+    BarChart,
+    LineChart,
+    AreaChart,
+    ComposedChart,
+    SiteIcon,
+    HighlightCode,
+    ChartImport,
+    RouterLink,
+  ],
+  templateUrl: './bar-block.html',
+  styleUrl: './bar-block.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class BarBlockExample {
+  protected readonly printMode = inject(DemoPrintMode);
+  readonly block = input.required<CartesianBlock>();
+  readonly dark = input.required<boolean>();
+  protected readonly theme = computed(() => (this.dark() ? 'dark' : 'light'));
+  protected readonly color = computed(() =>
+    this.block().color ? (this.dark() ? this.block().color : '#2563eb') : null,
+  );
+  protected readonly view = signal<'preview' | 'code'>('preview');
+  private readonly generation = signal(0);
+  protected readonly instances = computed(() => [this.generation()]);
+  private readonly copiedText = signal<string | null>(null);
+  protected readonly copyFailed = signal(false);
+  protected readonly source = computed(() => chartExampleSource(this.block(), this.dark()));
+  protected readonly copied = computed(() => this.copiedText() === this.source());
+  protected readonly selection = signal('');
+  protected readonly monthTick: CategoryTickFormatter = (month) => month.slice(0, 3);
+  protected readonly metrics = computed(() => {
+    const block = this.block();
+    return block.series.map((series) => {
+      const latest = block.kind === 'composed' && 'kind' in series && series.kind === 'line';
+      const value = latest
+        ? (block.rows.at(-1)?.[series.key] ?? 0)
+        : block.rows.reduce((sum, row) => sum + (row[series.key] ?? 0), 0);
+      return {
+        id: series.id,
+        label: latest ? 'Latest 3-month mean' : series.label,
+        total: new Intl.NumberFormat('en-US', { maximumFractionDigits: 1 }).format(value),
+      };
+    });
+  });
+  protected showView(view: 'preview' | 'code'): void {
+    this.view.set(view);
+  }
+  protected resetPreview(): void {
+    this.generation.update((value) => value + 1);
+    this.selection.set('');
+    this.view.set('preview');
+  }
+  protected select(point: PointSelection<DeviceRow>): void {
+    this.selection.set(`${point.row.month}: ${point.seriesId} = ${point.value} (${point.source})`);
+  }
+  protected async copySource(): Promise<void> {
+    const source = this.source();
+    try {
+      await navigator.clipboard.writeText(source);
+      this.copiedText.set(source);
+      this.copyFailed.set(false);
+    } catch {
+      this.copyFailed.set(true);
+    }
+  }
+}

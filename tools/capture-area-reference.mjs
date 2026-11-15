@@ -155,7 +155,7 @@ try {
     'projects/chart-library/core/src/lib/curve-point.ts',
     'projects/chart-library/area/src/lib/area-options.ts',
     'projects/chart-library/area/src/lib/area-renderer.ts',
-    'projects/playground/src/app/area-blocks.ts',
+    'projects/playground/src/app/gallery/area/area-blocks.ts',
   ])
     sourceHashes[path] = createHash('sha256')
       .update(await readFile(new URL(path, root)))

@@ -166,7 +166,7 @@ try {
     'projects/chart-library/pie/src/lib/pie-chart.html',
     'projects/chart-library/pie/src/lib/pie-options.ts',
     'projects/chart-library/pie/src/lib/pie-renderer.ts',
-    'projects/playground/src/app/pie-blocks.ts',
+    'projects/playground/src/app/gallery/pie/pie-blocks.ts',
   ])
     sourceHashes[path] = createHash('sha256')
       .update(await readFile(new URL(path, root)))

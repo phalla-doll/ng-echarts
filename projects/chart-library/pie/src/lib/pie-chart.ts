@@ -7,14 +7,13 @@ import {
   Component,
   computed,
   DestroyRef,
-  effect,
   ElementRef,
   inject,
   input,
+  linkedSignal,
   output,
   PLATFORM_ID,
   signal,
-  untracked,
   viewChild,
 } from '@angular/core';
 import {
@@ -84,13 +83,32 @@ export class PieChart<T extends object> {
   private readonly plot = viewChild.required<ElementRef<HTMLElement>>('plot');
   private readonly browserReady = signal(false);
   private readonly reducedMotion = signal(false);
-  private readonly hiddenIds = signal<ReadonlySet<string>>(new Set());
+  private readonly hiddenIds = linkedSignal<
+    ReturnType<typeof normalizePieData<T>>,
+    ReadonlySet<string>
+  >({
+    source: () => this.model(),
+    computation: (model, previous) => {
+      const hidden = previous?.value ?? new Set<string>();
+      // Invalid data must not erase the user's last valid legend choices.
+      if (model.kind === 'error') return hidden;
+      const validIds = new Set(model.rows.map((row) => row.id));
+      const retained = new Set([...hidden].filter((id) => validIds.has(id)));
+      return retained.size === hidden.size ? hidden : retained;
+    },
+  });
   private readonly measuredTheme = signal<CartesianThemeTokens | null>(null);
   private controller: PlotController<PieOption> | null = null;
   private removeMotionListener: (() => void) | null = null;
   private focusKeeper: ChartFocusKeeper | null = null;
 
-  protected readonly rendererError = signal(false);
+  // A failed renderer stays failed until retry or a relevant input changes.
+  protected readonly rendererError = linkedSignal(() => {
+    this.model();
+    this.settings();
+    this.formatting();
+    return false;
+  });
   protected readonly tableExpanded = signal(false);
   protected readonly tablePagination = new ɵTablePagination(this.data, this.tablePageSize);
   protected readonly model = computed(() =>
@@ -169,11 +187,12 @@ export class PieChart<T extends object> {
   });
   protected readonly totalText = computed(() => this.formatting().format(this.visibleTotal()));
   protected readonly legendItems = computed(() => {
+    const hiddenIds = this.hiddenIds();
     const model = this.model();
     if (model.kind === 'error') return [];
     return model.rows.map((item, index) => {
       const value = item.points[0]?.value ?? null;
-      const visible = !this.hiddenIds().has(item.id);
+      const visible = !hiddenIds.has(item.id);
       return {
         id: item.id,
         label: item.category,
@@ -232,21 +251,6 @@ export class PieChart<T extends object> {
   });
 
   constructor() {
-    // Input changes permit recovery; changes to rendererError itself never trigger this effect.
-    effect(() => {
-      this.model();
-      this.settings();
-      this.formatting();
-      this.rendererError.set(false);
-    });
-    effect(() => {
-      const model = this.model();
-      if (model.kind === 'error') return;
-      const validIds = new Set(model.rows.map((row) => row.id));
-      const previous = untracked(this.hiddenIds);
-      const retained = new Set([...previous].filter((id) => validIds.has(id)));
-      if (retained.size !== previous.size) this.hiddenIds.set(retained);
-    });
     afterNextRender(() => {
       if (!isPlatformBrowser(this.platform)) return;
       void this.application.whenStable().then(() => {
@@ -271,34 +275,43 @@ export class PieChart<T extends object> {
         }
       });
     });
-    afterRenderEffect(() => {
-      if (!this.browserReady()) return;
-      const model = this.model();
-      const theme = this.theme();
-      this.themeRevision();
-      if (model.kind === 'error') return;
-      const palette = model.rows.map((row) => ({
-        id: row.id,
-        key: this.measure().key,
-        label: row.category,
-      }));
-      try {
-        this.measuredTheme.set(
-          readCartesianTheme(this.host.nativeElement, theme, palette, this.plot().nativeElement),
-        );
-      } catch {
-        this.rendererError.set(true);
-      }
+    // Resolving CSS colors writes a probe and immediately reads its computed color.
+    afterRenderEffect({
+      mixedReadWrite: () => {
+        if (!this.browserReady()) return;
+        const model = this.model();
+        const theme = this.theme();
+        this.themeRevision();
+        if (model.kind === 'error') return;
+        const palette = model.rows.map((row) => ({
+          id: row.id,
+          key: this.measure().key,
+          label: row.category,
+        }));
+        try {
+          this.measuredTheme.set(
+            readCartesianTheme(this.host.nativeElement, theme, palette, this.plot().nativeElement),
+          );
+        } catch {
+          this.rendererError.set(true);
+        }
+      },
     });
-    afterRenderEffect(() => {
-      this.browserReady();
-      this.controller?.update(this.options());
+    // Option updates only schedule rendering or dispose the previous plot.
+    afterRenderEffect({
+      write: () => {
+        this.browserReady();
+        this.controller?.update(this.options());
+      },
     });
-    afterRenderEffect(() => {
-      this.state();
-      this.tableRows();
-      this.legendItems();
-      this.focusKeeper?.restore();
+    // Focus restoration checks current DOM ownership before changing focus.
+    afterRenderEffect({
+      mixedReadWrite: () => {
+        this.state();
+        this.tableRows();
+        this.legendItems();
+        this.focusKeeper?.restore();
+      },
     });
     this.destroyRef.onDestroy(() => {
       this.removeMotionListener?.();
