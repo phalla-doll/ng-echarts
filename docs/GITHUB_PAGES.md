@@ -2,7 +2,26 @@
 
 The demo is published from the root of the dedicated `gh-pages` branch at **https://phalla-doll.github.io/ng-echarts/**. Source and deployment are separate commits. Publication requires a clean, pushed `main` source, an unchanged sealed artifact and successful local checks in all three browsers.
 
-## Current deployment — composed areas
+## Current deployment — composed dashboard and horizontal charts
+
+The [composed linked dashboard](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) and [horizontal regional composition](https://phalla-doll.github.io/ng-echarts/composed/#horizontal-visits-and-target) are deployed and verified. The dashboard example supports published rc.22; horizontal composed layout requires the local rc.23 source candidate. npm `next` remains rc.22 and `latest` rc.18. Human F09/R06/G2/G3/G4 remain deferred/pending.
+
+| Identity / check | Verified result |
+| --- | --- |
+| Clean pushed source | `8dd761922b8b9548a5c2bac67a40cc7f80b8075e` |
+| Static commit | `787baedfc6390e44f239472513061eeb9b78a6d2` |
+| Sealed SHA-256 | `2dc9d8aed95d1b7f07f592324aa26021ce8a76ce85c274b85299fbe00637403f` |
+| Pages workflow | [Succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/43727674959) |
+| Source CI | [All jobs succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/43727454898) |
+| Local and public checks | 35 routes, 140 byte-verified files; Chromium/Firefox/WebKit pass |
+| Performance | 17 payload budgets, six controlled mobile medians and normal-motion navigation pass |
+| Composed linked flow | Raw zero keyboard action, independent legends, bar/area switching, month replacement/reset focus, partial data and theme/width checks pass in all three engines |
+
+[Deployment receipt](experiments/rc23/deployed/deployment.json), exact [marker](experiments/rc23/deployed/preview-build.txt), exact [verification receipt](experiments/rc23/deployed/preview-verification.txt), [public log](experiments/rc23/deployed/public-verification.txt) and [performance](experiments/rc23/deployed/performance.json) preserve this clean deployment. The [increment report](experiments/NG20_COMPOSED_DASHBOARD.md) separately records 330 local unit tests, 470 browser passes/four skips, exact rc.23 artifact consumers, horizontal benchmarks and preserved archives. Receipt-only documentation commits retain this deployed source identity; no artifact is restamped and npm publication remains separate.
+
+<a id="current-deployment--composed-areas"></a>
+
+## Earlier deployment — composed areas
 
 The [live composed gallery](https://phalla-doll.github.io/ng-echarts/composed/) includes independent area+line and stacked-area+line examples alongside the bar examples. Its installation guidance identifies published rc.22. npm `next` is rc.22; `latest` retains rc.18. Human F09/R06/G2/G3/G4 remain deferred/pending.
 

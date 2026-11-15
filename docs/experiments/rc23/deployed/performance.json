@@ -1,0 +1,3780 @@
+{
+  "sourceCommit": "8dd761922b8b9548a5c2bac67a40cc7f80b8075e",
+  "sourceSha256": "3a652fce9e7da6a8186d8748840cd83213d90cc4f0c2c4bcdf8bbe1cff40c768",
+  "artifactSha256": "2dc9d8aed95d1b7f07f592324aa26021ce8a76ce85c274b85299fbe00637403f",
+  "checkedAt": "2026-11-15T15:02:45.207Z",
+  "mode": "enforced",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "mobile": {
+    "cpuRate": 4,
+    "latencyMs": 150,
+    "downloadBytesPerSecond": 200000,
+    "uploadBytesPerSecond": 93750
+  },
+  "results": [
+    {
+      "route": "/",
+      "throttled": true,
+      "byteBudget": 445000,
+      "readinessBudgetMs": 5000,
+      "medianFirstVisibleMs": 2799.7999999821186,
+      "samples": [
+        {
+          "readyMs": 2799.7999999821186,
+          "conceptNavigations": 0,
+          "compressedBytes": 429777,
+          "canvases": 1,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BgBOd7dw.js",
+              "startMs": 168.2999999821186,
+              "encodedBytes": 1946,
+              "transferBytes": 2246
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CYaL5I5P.js",
+              "startMs": 168.90000000596046,
+              "encodedBytes": 8522,
+              "transferBytes": 8822
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-nGnb0wDD.js",
+              "startMs": 169.09999999403954,
+              "encodedBytes": 1363,
+              "transferBytes": 1663
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 169.09999999403954,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 169.19999998807907,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DxMTn5bz.js",
+              "startMs": 169.19999998807907,
+              "encodedBytes": 134,
+              "transferBytes": 434
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CGs9NOTs.js",
+              "startMs": 169.7999999821186,
+              "encodedBytes": 1315,
+              "transferBytes": 1615
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-fm48qzA9.js",
+              "startMs": 169.90000000596046,
+              "encodedBytes": 219,
+              "transferBytes": 519
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 169.90000000596046,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 169.90000000596046,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-D_4sIR13.js",
+              "startMs": 170,
+              "encodedBytes": 117,
+              "transferBytes": 417
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BwUyPQXe.js",
+              "startMs": 170.40000000596046,
+              "encodedBytes": 4776,
+              "transferBytes": 5076
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 170.5,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 170.5,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CbnTubju.js",
+              "startMs": 170.90000000596046,
+              "encodedBytes": 8808,
+              "transferBytes": 9108
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 170.90000000596046,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BNUP_Aw8.js",
+              "startMs": 171,
+              "encodedBytes": 920,
+              "transferBytes": 1220
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CR1wtMk0.js",
+              "startMs": 171,
+              "encodedBytes": 786,
+              "transferBytes": 1086
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-c2vN3ifn.js",
+              "startMs": 171.09999999403954,
+              "encodedBytes": 1296,
+              "transferBytes": 1596
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6S8MXp7.js",
+              "startMs": 171.69999998807907,
+              "encodedBytes": 196,
+              "transferBytes": 496
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7Ng-UbO.js",
+              "startMs": 171.69999998807907,
+              "encodedBytes": 313,
+              "transferBytes": 613
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/google-sans-code-latin.woff2",
+              "startMs": 175,
+              "encodedBytes": 34948,
+              "transferBytes": 35248
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 175,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 179.7999999821186,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 203,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 217.59999999403954,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            }
+          ]
+        },
+        {
+          "readyMs": 2799.4000000059605,
+          "conceptNavigations": 0,
+          "compressedBytes": 429777,
+          "canvases": 1,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BgBOd7dw.js",
+              "startMs": 168.7000000178814,
+              "encodedBytes": 1946,
+              "transferBytes": 2246
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CYaL5I5P.js",
+              "startMs": 169.30000001192093,
+              "encodedBytes": 8522,
+              "transferBytes": 8822
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-nGnb0wDD.js",
+              "startMs": 169.40000000596046,
+              "encodedBytes": 1363,
+              "transferBytes": 1663
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 169.5,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DxMTn5bz.js",
+              "startMs": 169.5,
+              "encodedBytes": 134,
+              "transferBytes": 434
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CGs9NOTs.js",
+              "startMs": 169.5,
+              "encodedBytes": 1315,
+              "transferBytes": 1615
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 169.5,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 170.2000000178814,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 170.30000001192093,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-fm48qzA9.js",
+              "startMs": 170.5,
+              "encodedBytes": 219,
+              "transferBytes": 519
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-D_4sIR13.js",
+              "startMs": 170.60000002384186,
+              "encodedBytes": 117,
+              "transferBytes": 417
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BwUyPQXe.js",
+              "startMs": 170.80000001192093,
+              "encodedBytes": 4776,
+              "transferBytes": 5076
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 170.90000000596046,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 170.90000000596046,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 171,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BNUP_Aw8.js",
+              "startMs": 171.10000002384186,
+              "encodedBytes": 920,
+              "transferBytes": 1220
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CbnTubju.js",
+              "startMs": 171.10000002384186,
+              "encodedBytes": 8808,
+              "transferBytes": 9108
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CR1wtMk0.js",
+              "startMs": 171.80000001192093,
+              "encodedBytes": 786,
+              "transferBytes": 1086
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6S8MXp7.js",
+              "startMs": 171.80000001192093,
+              "encodedBytes": 196,
+              "transferBytes": 496
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-c2vN3ifn.js",
+              "startMs": 171.80000001192093,
+              "encodedBytes": 1296,
+              "transferBytes": 1596
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7Ng-UbO.js",
+              "startMs": 172.2000000178814,
+              "encodedBytes": 313,
+              "transferBytes": 613
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 174.7000000178814,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/google-sans-code-latin.woff2",
+              "startMs": 175.40000000596046,
+              "encodedBytes": 34948,
+              "transferBytes": 35248
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 180.5,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 202.30000001192093,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 218.40000000596046,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            }
+          ]
+        },
+        {
+          "readyMs": 2799.800000011921,
+          "conceptNavigations": 0,
+          "compressedBytes": 429777,
+          "canvases": 1,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BgBOd7dw.js",
+              "startMs": 170.30000001192093,
+              "encodedBytes": 1946,
+              "transferBytes": 2246
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CYaL5I5P.js",
+              "startMs": 170.7000000178814,
+              "encodedBytes": 8522,
+              "transferBytes": 8822
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-nGnb0wDD.js",
+              "startMs": 170.80000001192093,
+              "encodedBytes": 1363,
+              "transferBytes": 1663
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 171.30000001192093,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DxMTn5bz.js",
+              "startMs": 171.30000001192093,
+              "encodedBytes": 134,
+              "transferBytes": 434
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 171.30000001192093,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CGs9NOTs.js",
+              "startMs": 171.7000000178814,
+              "encodedBytes": 1315,
+              "transferBytes": 1615
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 171.7000000178814,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 171.7000000178814,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-fm48qzA9.js",
+              "startMs": 171.80000001192093,
+              "encodedBytes": 219,
+              "transferBytes": 519
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-D_4sIR13.js",
+              "startMs": 171.80000001192093,
+              "encodedBytes": 117,
+              "transferBytes": 417
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BwUyPQXe.js",
+              "startMs": 171.80000001192093,
+              "encodedBytes": 4776,
+              "transferBytes": 5076
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 172.5,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 172.5,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 172.5,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CbnTubju.js",
+              "startMs": 172.60000002384186,
+              "encodedBytes": 8808,
+              "transferBytes": 9108
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BNUP_Aw8.js",
+              "startMs": 173.10000002384186,
+              "encodedBytes": 920,
+              "transferBytes": 1220
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CR1wtMk0.js",
+              "startMs": 173.10000002384186,
+              "encodedBytes": 786,
+              "transferBytes": 1086
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6S8MXp7.js",
+              "startMs": 173.60000002384186,
+              "encodedBytes": 196,
+              "transferBytes": 496
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-c2vN3ifn.js",
+              "startMs": 173.60000002384186,
+              "encodedBytes": 1296,
+              "transferBytes": 1596
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7Ng-UbO.js",
+              "startMs": 173.60000002384186,
+              "encodedBytes": 313,
+              "transferBytes": 613
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/google-sans-code-latin.woff2",
+              "startMs": 177,
+              "encodedBytes": 34948,
+              "transferBytes": 35248
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 177,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 181.60000002384186,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 203.2000000178814,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 219,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "line",
+      "throttled": false,
+      "byteBudget": 445000,
+      "readinessBudgetMs": null,
+      "medianFirstVisibleMs": 157.80000001192093,
+      "samples": [
+        {
+          "readyMs": 157.80000001192093,
+          "conceptNavigations": 0,
+          "compressedBytes": 428525,
+          "canvases": 1,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DOHNRU5Q.js",
+              "startMs": 4.199999988079071,
+              "encodedBytes": 411,
+              "transferBytes": 711
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CjzMog8N.js",
+              "startMs": 4.199999988079071,
+              "encodedBytes": 10584,
+              "transferBytes": 10884
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-nGnb0wDD.js",
+              "startMs": 4.300000011920929,
+              "encodedBytes": 1363,
+              "transferBytes": 1663
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 4.300000011920929,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 4.300000011920929,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DxMTn5bz.js",
+              "startMs": 4.4000000059604645,
+              "encodedBytes": 134,
+              "transferBytes": 434
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CGs9NOTs.js",
+              "startMs": 4.4000000059604645,
+              "encodedBytes": 1315,
+              "transferBytes": 1615
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 4.4000000059604645,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 4.4000000059604645,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 4.4000000059604645,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CLxRH45_.js",
+              "startMs": 4.5,
+              "encodedBytes": 118,
+              "transferBytes": 418
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 4.5,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 4.5,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B62x9Xl9.js",
+              "startMs": 4.5999999940395355,
+              "encodedBytes": 3241,
+              "transferBytes": 3541
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BNUP_Aw8.js",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 920,
+              "transferBytes": 1220
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-c2vN3ifn.js",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 1296,
+              "transferBytes": 1596
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CR1wtMk0.js",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 786,
+              "transferBytes": 1086
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CbnTubju.js",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 8808,
+              "transferBytes": 9108
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6S8MXp7.js",
+              "startMs": 4.800000011920929,
+              "encodedBytes": 196,
+              "transferBytes": 496
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7Ng-UbO.js",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 313,
+              "transferBytes": 613
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 5,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 5,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/google-sans-code-latin.woff2",
+              "startMs": 5,
+              "encodedBytes": 34948,
+              "transferBytes": 35248
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 6.699999988079071,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "area",
+      "throttled": false,
+      "byteBudget": 445000,
+      "readinessBudgetMs": null,
+      "medianFirstVisibleMs": 139.19999998807907,
+      "samples": [
+        {
+          "readyMs": 139.19999998807907,
+          "conceptNavigations": 0,
+          "compressedBytes": 428785,
+          "canvases": 1,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-D0qiEY5p.js",
+              "startMs": 4.5,
+              "encodedBytes": 411,
+              "transferBytes": 711
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-nGnb0wDD.js",
+              "startMs": 4.5999999940395355,
+              "encodedBytes": 1363,
+              "transferBytes": 1663
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CjzMog8N.js",
+              "startMs": 4.5999999940395355,
+              "encodedBytes": 10584,
+              "transferBytes": 10884
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DxMTn5bz.js",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 134,
+              "transferBytes": 434
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CGs9NOTs.js",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 1315,
+              "transferBytes": 1615
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-COSU5qbg.js",
+              "startMs": 4.799999982118607,
+              "encodedBytes": 119,
+              "transferBytes": 419
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CCBxMqqD.js",
+              "startMs": 4.799999982118607,
+              "encodedBytes": 3493,
+              "transferBytes": 3793
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BNUP_Aw8.js",
+              "startMs": 4.799999982118607,
+              "encodedBytes": 920,
+              "transferBytes": 1220
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CbnTubju.js",
+              "startMs": 4.799999982118607,
+              "encodedBytes": 8808,
+              "transferBytes": 9108
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 4.799999982118607,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-c2vN3ifn.js",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 1296,
+              "transferBytes": 1596
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CR1wtMk0.js",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 786,
+              "transferBytes": 1086
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7Ng-UbO.js",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 313,
+              "transferBytes": 613
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6S8MXp7.js",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 196,
+              "transferBytes": 496
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 5,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 5,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/google-sans-code-latin.woff2",
+              "startMs": 5,
+              "encodedBytes": 34948,
+              "transferBytes": 35248
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 6.799999982118607,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "pie",
+      "throttled": false,
+      "byteBudget": 445000,
+      "readinessBudgetMs": null,
+      "medianFirstVisibleMs": 191.2999999821186,
+      "samples": [
+        {
+          "readyMs": 191.2999999821186,
+          "conceptNavigations": 0,
+          "compressedBytes": 425372,
+          "canvases": 1,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-ChiLzkOy.js",
+              "startMs": 4.199999988079071,
+              "encodedBytes": 440,
+              "transferBytes": 740
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 4.4000000059604645,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 4.4000000059604645,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 4.4000000059604645,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-bMy_vjaX.js",
+              "startMs": 4.4000000059604645,
+              "encodedBytes": 6506,
+              "transferBytes": 6806
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 4.4000000059604645,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CKv4O5SJ.js",
+              "startMs": 4.5,
+              "encodedBytes": 518,
+              "transferBytes": 818
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-fm48qzA9.js",
+              "startMs": 4.5,
+              "encodedBytes": 219,
+              "transferBytes": 519
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BngBiLlS.js",
+              "startMs": 4.5,
+              "encodedBytes": 117,
+              "transferBytes": 417
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DkH2RPEU.js",
+              "startMs": 4.5,
+              "encodedBytes": 6202,
+              "transferBytes": 6502
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 4.5999999940395355,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CbnTubju.js",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 8808,
+              "transferBytes": 9108
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BNUP_Aw8.js",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 920,
+              "transferBytes": 1220
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CR1wtMk0.js",
+              "startMs": 4.799999982118607,
+              "encodedBytes": 786,
+              "transferBytes": 1086
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-c2vN3ifn.js",
+              "startMs": 4.799999982118607,
+              "encodedBytes": 1296,
+              "transferBytes": 1596
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6S8MXp7.js",
+              "startMs": 4.799999982118607,
+              "encodedBytes": 196,
+              "transferBytes": 496
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7Ng-UbO.js",
+              "startMs": 4.799999982118607,
+              "encodedBytes": 313,
+              "transferBytes": 613
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/google-sans-code-latin.woff2",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 34948,
+              "transferBytes": 35248
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 6.799999982118607,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "composed",
+      "throttled": false,
+      "byteBudget": 445000,
+      "readinessBudgetMs": null,
+      "medianFirstVisibleMs": 173.7000000178814,
+      "samples": [
+        {
+          "readyMs": 173.7000000178814,
+          "conceptNavigations": 0,
+          "compressedBytes": 439009,
+          "canvases": 1,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CvXebzaI.js",
+              "startMs": 5.300000011920929,
+              "encodedBytes": 472,
+              "transferBytes": 772
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-nGnb0wDD.js",
+              "startMs": 5.4000000059604645,
+              "encodedBytes": 1363,
+              "transferBytes": 1663
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CjzMog8N.js",
+              "startMs": 5.4000000059604645,
+              "encodedBytes": 10584,
+              "transferBytes": 10884
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DxMTn5bz.js",
+              "startMs": 5.5,
+              "encodedBytes": 134,
+              "transferBytes": 434
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 5.5,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CGs9NOTs.js",
+              "startMs": 5.5,
+              "encodedBytes": 1315,
+              "transferBytes": 1615
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 5.5,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CYaL5I5P.js",
+              "startMs": 5.5999999940395355,
+              "encodedBytes": 8522,
+              "transferBytes": 8822
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 5.5999999940395355,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 5.5999999940395355,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-fm48qzA9.js",
+              "startMs": 5.700000017881393,
+              "encodedBytes": 219,
+              "transferBytes": 519
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 5.700000017881393,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 5.700000017881393,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-C5oSjJnl.js",
+              "startMs": 5.700000017881393,
+              "encodedBytes": 123,
+              "transferBytes": 423
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-_dQvDox5.js",
+              "startMs": 5.700000017881393,
+              "encodedBytes": 4322,
+              "transferBytes": 4622
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 5.700000017881393,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CbnTubju.js",
+              "startMs": 5.9000000059604645,
+              "encodedBytes": 8808,
+              "transferBytes": 9108
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BNUP_Aw8.js",
+              "startMs": 5.9000000059604645,
+              "encodedBytes": 920,
+              "transferBytes": 1220
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CR1wtMk0.js",
+              "startMs": 5.9000000059604645,
+              "encodedBytes": 786,
+              "transferBytes": 1086
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-c2vN3ifn.js",
+              "startMs": 5.9000000059604645,
+              "encodedBytes": 1296,
+              "transferBytes": 1596
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6S8MXp7.js",
+              "startMs": 6,
+              "encodedBytes": 196,
+              "transferBytes": 496
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7Ng-UbO.js",
+              "startMs": 6,
+              "encodedBytes": 313,
+              "transferBytes": 613
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 6.0999999940395355,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 6.0999999940395355,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/google-sans-code-latin.woff2",
+              "startMs": 6.0999999940395355,
+              "encodedBytes": 34948,
+              "transferBytes": 35248
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 6.200000017881393,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 8.300000011920929,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "radar",
+      "throttled": false,
+      "byteBudget": 445000,
+      "readinessBudgetMs": null,
+      "medianFirstVisibleMs": 122.69999998807907,
+      "samples": [
+        {
+          "readyMs": 122.69999998807907,
+          "conceptNavigations": 0,
+          "compressedBytes": 375287,
+          "canvases": 1,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Bq6cyrZT.js",
+              "startMs": 4,
+              "encodedBytes": 3140,
+              "transferBytes": 3440
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-iFHrdlAn.js",
+              "startMs": 4,
+              "encodedBytes": 8735,
+              "transferBytes": 9035
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 4,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 4.0999999940395355,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 4.0999999940395355,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 4.199999988079071,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 4.199999988079071,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CKv4O5SJ.js",
+              "startMs": 4.199999988079071,
+              "encodedBytes": 518,
+              "transferBytes": 818
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 4.199999988079071,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 4.199999988079071,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 4.300000011920929,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 4.4000000059604645,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 4.4000000059604645,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 5.800000011920929,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "radial",
+      "throttled": false,
+      "byteBudget": 445000,
+      "readinessBudgetMs": null,
+      "medianFirstVisibleMs": 121.89999997615814,
+      "samples": [
+        {
+          "readyMs": 121.89999997615814,
+          "conceptNavigations": 0,
+          "compressedBytes": 335756,
+          "canvases": 2,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CWuvW_o4.js",
+              "startMs": 4.0999999940395355,
+              "encodedBytes": 268,
+              "transferBytes": 568
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CKv4O5SJ.js",
+              "startMs": 4.299999982118607,
+              "encodedBytes": 518,
+              "transferBytes": 818
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-bMy_vjaX.js",
+              "startMs": 4.299999982118607,
+              "encodedBytes": 6506,
+              "transferBytes": 6806
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 4.399999976158142,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-fm48qzA9.js",
+              "startMs": 4.399999976158142,
+              "encodedBytes": 219,
+              "transferBytes": 519
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 4.399999976158142,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Ho9q89s4.js",
+              "startMs": 4.399999976158142,
+              "encodedBytes": 7479,
+              "transferBytes": 7779
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 4.399999976158142,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 4.399999976158142,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 4.5,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 4.5,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 4.5999999940395355,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 4.5999999940395355,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 6.0999999940395355,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "calendar",
+      "throttled": true,
+      "byteBudget": 445000,
+      "readinessBudgetMs": 5000,
+      "medianFirstVisibleMs": 2518.0999999940395,
+      "samples": [
+        {
+          "readyMs": 2504.699999988079,
+          "conceptNavigations": 0,
+          "compressedBytes": 382805,
+          "canvases": 3,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DxMTn5bz.js",
+              "startMs": 170.30000001192093,
+              "encodedBytes": 134,
+              "transferBytes": 434
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-D10bihJT.js",
+              "startMs": 170.30000001192093,
+              "encodedBytes": 3281,
+              "transferBytes": 3581
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CGs9NOTs.js",
+              "startMs": 170.40000000596046,
+              "encodedBytes": 1315,
+              "transferBytes": 1615
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 171.19999998807907,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 171.19999998807907,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 171.19999998807907,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-PnHWEpSE.js",
+              "startMs": 171.5,
+              "encodedBytes": 10600,
+              "transferBytes": 10900
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 171.5,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 171.59999999403954,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 171.59999999403954,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 171.69999998807907,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 175.30000001192093,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 176.5,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 199.80000001192093,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 219,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            }
+          ]
+        },
+        {
+          "readyMs": 2534.2999999821186,
+          "conceptNavigations": 0,
+          "compressedBytes": 382805,
+          "canvases": 3,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-D10bihJT.js",
+              "startMs": 169.09999999403954,
+              "encodedBytes": 3281,
+              "transferBytes": 3581
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DxMTn5bz.js",
+              "startMs": 169.19999998807907,
+              "encodedBytes": 134,
+              "transferBytes": 434
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CGs9NOTs.js",
+              "startMs": 169.2999999821186,
+              "encodedBytes": 1315,
+              "transferBytes": 1615
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 170,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 170.19999998807907,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 170.19999998807907,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 170.2999999821186,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-PnHWEpSE.js",
+              "startMs": 170.2999999821186,
+              "encodedBytes": 10600,
+              "transferBytes": 10900
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 170.2999999821186,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 170.2999999821186,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 171,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 174.39999997615814,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 175.5,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 199.39999997615814,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 217.59999999403954,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            }
+          ]
+        },
+        {
+          "readyMs": 2518.0999999940395,
+          "conceptNavigations": 0,
+          "compressedBytes": 382805,
+          "canvases": 3,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-D10bihJT.js",
+              "startMs": 169.19999998807907,
+              "encodedBytes": 3281,
+              "transferBytes": 3581
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DxMTn5bz.js",
+              "startMs": 169.69999998807907,
+              "encodedBytes": 134,
+              "transferBytes": 434
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CGs9NOTs.js",
+              "startMs": 169.7999999821186,
+              "encodedBytes": 1315,
+              "transferBytes": 1615
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 169.7999999821186,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 170.19999998807907,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 170.2999999821186,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-PnHWEpSE.js",
+              "startMs": 170.2999999821186,
+              "encodedBytes": 10600,
+              "transferBytes": 10900
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 170.2999999821186,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 170.69999998807907,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 170.69999998807907,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 170.90000000596046,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 174.19999998807907,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 175.5,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 198.19999998807907,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 218.19999998807907,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "sankey",
+      "throttled": true,
+      "byteBudget": 445000,
+      "readinessBudgetMs": 5000,
+      "medianFirstVisibleMs": 2417.5999999940395,
+      "samples": [
+        {
+          "readyMs": 2432.5,
+          "conceptNavigations": 0,
+          "compressedBytes": 385925,
+          "canvases": 1,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CGs9NOTs.js",
+              "startMs": 169.30000001192093,
+              "encodedBytes": 1315,
+              "transferBytes": 1615
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DX-G2p_Y.js",
+              "startMs": 169.30000001192093,
+              "encodedBytes": 12082,
+              "transferBytes": 12382
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 169.40000000596046,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 169.40000000596046,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 169.40000000596046,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 170.2000000178814,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 170.40000000596046,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BTb4vqv9.js",
+              "startMs": 170.40000000596046,
+              "encodedBytes": 9335,
+              "transferBytes": 9635
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 170.40000000596046,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 170.40000000596046,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 173.40000000596046,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 174.80000001192093,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 197.60000002384186,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 221.40000000596046,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            }
+          ]
+        },
+        {
+          "readyMs": 2417.199999988079,
+          "conceptNavigations": 0,
+          "compressedBytes": 385925,
+          "canvases": 1,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DX-G2p_Y.js",
+              "startMs": 169.19999998807907,
+              "encodedBytes": 12082,
+              "transferBytes": 12382
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CGs9NOTs.js",
+              "startMs": 170,
+              "encodedBytes": 1315,
+              "transferBytes": 1615
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 170,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 170.2999999821186,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 170.2999999821186,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 170.59999999403954,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 170.69999998807907,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 170.69999998807907,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BTb4vqv9.js",
+              "startMs": 170.7999999821186,
+              "encodedBytes": 9335,
+              "transferBytes": 9635
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 170.7999999821186,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 173.59999999403954,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 175.19999998807907,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 198.19999998807907,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 221.90000000596046,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            }
+          ]
+        },
+        {
+          "readyMs": 2417.5999999940395,
+          "conceptNavigations": 0,
+          "compressedBytes": 385925,
+          "canvases": 1,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DX-G2p_Y.js",
+              "startMs": 169.09999999403954,
+              "encodedBytes": 12082,
+              "transferBytes": 12382
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CGs9NOTs.js",
+              "startMs": 169.90000000596046,
+              "encodedBytes": 1315,
+              "transferBytes": 1615
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 169.90000000596046,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 170.30000001192093,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 170.30000001192093,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 170.30000001192093,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 170.30000001192093,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 170.40000000596046,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BTb4vqv9.js",
+              "startMs": 171,
+              "encodedBytes": 9335,
+              "transferBytes": 9635
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 171,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 173,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 173.90000000596046,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 199.80000001192093,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 221.5,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "linked",
+      "throttled": true,
+      "byteBudget": 455000,
+      "readinessBudgetMs": 5000,
+      "medianFirstVisibleMs": 2800,
+      "samples": [
+        {
+          "readyMs": 2800.5999999940395,
+          "conceptNavigations": 0,
+          "compressedBytes": 447430,
+          "canvases": 2,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BgBOd7dw.js",
+              "startMs": 167,
+              "encodedBytes": 1946,
+              "transferBytes": 2246
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CYaL5I5P.js",
+              "startMs": 167.09999999403954,
+              "encodedBytes": 8522,
+              "transferBytes": 8822
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-nGnb0wDD.js",
+              "startMs": 167.7000000178814,
+              "encodedBytes": 1363,
+              "transferBytes": 1663
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 167.7000000178814,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 167.80000001192093,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DxMTn5bz.js",
+              "startMs": 167.80000001192093,
+              "encodedBytes": 134,
+              "transferBytes": 434
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CGs9NOTs.js",
+              "startMs": 167.90000000596046,
+              "encodedBytes": 1315,
+              "transferBytes": 1615
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 167.90000000596046,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 167.90000000596046,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-fm48qzA9.js",
+              "startMs": 168.59999999403954,
+              "encodedBytes": 219,
+              "transferBytes": 519
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-D_4sIR13.js",
+              "startMs": 168.59999999403954,
+              "encodedBytes": 117,
+              "transferBytes": 417
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BwUyPQXe.js",
+              "startMs": 168.59999999403954,
+              "encodedBytes": 4776,
+              "transferBytes": 5076
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 168.59999999403954,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 168.59999999403954,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-ChiLzkOy.js",
+              "startMs": 168.7000000178814,
+              "encodedBytes": 440,
+              "transferBytes": 740
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 168.7000000178814,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-bMy_vjaX.js",
+              "startMs": 169.2000000178814,
+              "encodedBytes": 6506,
+              "transferBytes": 6806
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CKv4O5SJ.js",
+              "startMs": 169.30000001192093,
+              "encodedBytes": 518,
+              "transferBytes": 818
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BngBiLlS.js",
+              "startMs": 169.40000000596046,
+              "encodedBytes": 117,
+              "transferBytes": 417
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DkH2RPEU.js",
+              "startMs": 169.40000000596046,
+              "encodedBytes": 6202,
+              "transferBytes": 6502
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-C7r4KmCh.js",
+              "startMs": 169.5,
+              "encodedBytes": 6271,
+              "transferBytes": 6571
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7Ng-UbO.js",
+              "startMs": 170.30000001192093,
+              "encodedBytes": 313,
+              "transferBytes": 613
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-OjUPLiSa.js",
+              "startMs": 170.40000000596046,
+              "encodedBytes": 5586,
+              "transferBytes": 5886
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/google-sans-code-latin.woff2",
+              "startMs": 177.40000000596046,
+              "encodedBytes": 34948,
+              "transferBytes": 35248
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 177.40000000596046,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 178.30000001192093,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 205.09999999403954,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 217.59999999403954,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            }
+          ]
+        },
+        {
+          "readyMs": 2799.7999999821186,
+          "conceptNavigations": 0,
+          "compressedBytes": 447430,
+          "canvases": 2,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BgBOd7dw.js",
+              "startMs": 169.5,
+              "encodedBytes": 1946,
+              "transferBytes": 2246
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-nGnb0wDD.js",
+              "startMs": 169.69999998807907,
+              "encodedBytes": 1363,
+              "transferBytes": 1663
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CYaL5I5P.js",
+              "startMs": 169.69999998807907,
+              "encodedBytes": 8522,
+              "transferBytes": 8822
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 169.69999998807907,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 170.2999999821186,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DxMTn5bz.js",
+              "startMs": 170.2999999821186,
+              "encodedBytes": 134,
+              "transferBytes": 434
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CGs9NOTs.js",
+              "startMs": 170.2999999821186,
+              "encodedBytes": 1315,
+              "transferBytes": 1615
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 170.2999999821186,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 170.2999999821186,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-fm48qzA9.js",
+              "startMs": 170.40000000596046,
+              "encodedBytes": 219,
+              "transferBytes": 519
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-D_4sIR13.js",
+              "startMs": 170.5,
+              "encodedBytes": 117,
+              "transferBytes": 417
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BwUyPQXe.js",
+              "startMs": 171.19999998807907,
+              "encodedBytes": 4776,
+              "transferBytes": 5076
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 171.40000000596046,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 171.40000000596046,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 171.5,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-ChiLzkOy.js",
+              "startMs": 171.59999999403954,
+              "encodedBytes": 440,
+              "transferBytes": 740
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-bMy_vjaX.js",
+              "startMs": 172,
+              "encodedBytes": 6506,
+              "transferBytes": 6806
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CKv4O5SJ.js",
+              "startMs": 172,
+              "encodedBytes": 518,
+              "transferBytes": 818
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BngBiLlS.js",
+              "startMs": 172.09999999403954,
+              "encodedBytes": 117,
+              "transferBytes": 417
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DkH2RPEU.js",
+              "startMs": 172.40000000596046,
+              "encodedBytes": 6202,
+              "transferBytes": 6502
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7Ng-UbO.js",
+              "startMs": 172.40000000596046,
+              "encodedBytes": 313,
+              "transferBytes": 613
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-C7r4KmCh.js",
+              "startMs": 172.40000000596046,
+              "encodedBytes": 6271,
+              "transferBytes": 6571
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-OjUPLiSa.js",
+              "startMs": 172.40000000596046,
+              "encodedBytes": 5586,
+              "transferBytes": 5886
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 175.7999999821186,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/google-sans-code-latin.woff2",
+              "startMs": 175.90000000596046,
+              "encodedBytes": 34948,
+              "transferBytes": 35248
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 177,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 205.59999999403954,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 217,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            }
+          ]
+        },
+        {
+          "readyMs": 2800,
+          "conceptNavigations": 0,
+          "compressedBytes": 447430,
+          "canvases": 2,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BgBOd7dw.js",
+              "startMs": 170.40000000596046,
+              "encodedBytes": 1946,
+              "transferBytes": 2246
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CYaL5I5P.js",
+              "startMs": 170.5,
+              "encodedBytes": 8522,
+              "transferBytes": 8822
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-nGnb0wDD.js",
+              "startMs": 170.59999999403954,
+              "encodedBytes": 1363,
+              "transferBytes": 1663
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 170.59999999403954,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 171.30000001192093,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DxMTn5bz.js",
+              "startMs": 171.40000000596046,
+              "encodedBytes": 134,
+              "transferBytes": 434
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CGs9NOTs.js",
+              "startMs": 171.40000000596046,
+              "encodedBytes": 1315,
+              "transferBytes": 1615
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-fm48qzA9.js",
+              "startMs": 171.5,
+              "encodedBytes": 219,
+              "transferBytes": 519
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-D_4sIR13.js",
+              "startMs": 171.5,
+              "encodedBytes": 117,
+              "transferBytes": 417
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BwUyPQXe.js",
+              "startMs": 171.5,
+              "encodedBytes": 4776,
+              "transferBytes": 5076
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 171.5,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 171.5,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 171.59999999403954,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 171.59999999403954,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-ChiLzkOy.js",
+              "startMs": 172.30000001192093,
+              "encodedBytes": 440,
+              "transferBytes": 740
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-bMy_vjaX.js",
+              "startMs": 172.30000001192093,
+              "encodedBytes": 6506,
+              "transferBytes": 6806
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CKv4O5SJ.js",
+              "startMs": 172.30000001192093,
+              "encodedBytes": 518,
+              "transferBytes": 818
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BngBiLlS.js",
+              "startMs": 172.30000001192093,
+              "encodedBytes": 117,
+              "transferBytes": 417
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 172.30000001192093,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DkH2RPEU.js",
+              "startMs": 172.90000000596046,
+              "encodedBytes": 6202,
+              "transferBytes": 6502
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7Ng-UbO.js",
+              "startMs": 173,
+              "encodedBytes": 313,
+              "transferBytes": 613
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-C7r4KmCh.js",
+              "startMs": 173,
+              "encodedBytes": 6271,
+              "transferBytes": 6571
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-OjUPLiSa.js",
+              "startMs": 173,
+              "encodedBytes": 5586,
+              "transferBytes": 5886
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 176.5,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/google-sans-code-latin.woff2",
+              "startMs": 176.90000000596046,
+              "encodedBytes": 34948,
+              "transferBytes": 35248
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 178.30000001192093,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 206,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 219,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "linked-dashboard",
+      "throttled": false,
+      "byteBudget": 455000,
+      "readinessBudgetMs": null,
+      "medianFirstVisibleMs": 157.30000001192093,
+      "samples": [
+        {
+          "readyMs": 157.30000001192093,
+          "conceptNavigations": 0,
+          "compressedBytes": 443675,
+          "canvases": 2,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CvXebzaI.js",
+              "startMs": 4.5999999940395355,
+              "encodedBytes": 472,
+              "transferBytes": 772
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-nGnb0wDD.js",
+              "startMs": 4.700000017881393,
+              "encodedBytes": 1363,
+              "transferBytes": 1663
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CjzMog8N.js",
+              "startMs": 4.700000017881393,
+              "encodedBytes": 10584,
+              "transferBytes": 10884
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 4.700000017881393,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 4.800000011920929,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DxMTn5bz.js",
+              "startMs": 4.800000011920929,
+              "encodedBytes": 134,
+              "transferBytes": 434
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CGs9NOTs.js",
+              "startMs": 4.800000011920929,
+              "encodedBytes": 1315,
+              "transferBytes": 1615
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 4.800000011920929,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CYaL5I5P.js",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 8522,
+              "transferBytes": 8822
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-fm48qzA9.js",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 219,
+              "transferBytes": 519
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 5,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-C5oSjJnl.js",
+              "startMs": 5.0999999940395355,
+              "encodedBytes": 123,
+              "transferBytes": 423
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 5.0999999940395355,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-_dQvDox5.js",
+              "startMs": 5.200000017881393,
+              "encodedBytes": 4322,
+              "transferBytes": 4622
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BgBOd7dw.js",
+              "startMs": 5.200000017881393,
+              "encodedBytes": 1946,
+              "transferBytes": 2246
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-D_4sIR13.js",
+              "startMs": 5.300000011920929,
+              "encodedBytes": 117,
+              "transferBytes": 417
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BwUyPQXe.js",
+              "startMs": 5.300000011920929,
+              "encodedBytes": 4776,
+              "transferBytes": 5076
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 5.300000011920929,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BloYYte6.js",
+              "startMs": 5.300000011920929,
+              "encodedBytes": 8047,
+              "transferBytes": 8347
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/google-sans-code-latin.woff2",
+              "startMs": 5.4000000059604645,
+              "encodedBytes": 34948,
+              "transferBytes": 35248
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 5.5,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 5.5,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 7.0999999940395355,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "chart-possibilities",
+      "throttled": true,
+      "byteBudget": 465000,
+      "readinessBudgetMs": 5000,
+      "medianFirstVisibleMs": 2765.9000000059605,
+      "samples": [
+        {
+          "readyMs": 3150.399999976158,
+          "conceptNavigations": 1,
+          "compressedBytes": 439798,
+          "canvases": 0,
+          "conceptPlots": 1,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/concepts/chart-gallery-engine-5514d89c1f79467b.js",
+              "startMs": 168.7999999821186,
+              "encodedBytes": 244455,
+              "transferBytes": 244755
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 171.69999998807907,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 172.89999997615814,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 188,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 204.2999999821186,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 213.19999998807907,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 213.19999998807907,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BNaX-2XW.js",
+              "startMs": 213.2999999821186,
+              "encodedBytes": 1901,
+              "transferBytes": 2201
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 213.2999999821186,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 441.19999998807907,
+              "encodedBytes": 48432,
+              "transferBytes": 0
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/concepts/chart-gallery-engine-5514d89c1f79467b.js",
+              "startMs": 591.0999999940395,
+              "encodedBytes": 244455,
+              "transferBytes": 0
+            }
+          ]
+        },
+        {
+          "readyMs": 2764.9000000059605,
+          "conceptNavigations": 1,
+          "compressedBytes": 439798,
+          "canvases": 0,
+          "conceptPlots": 1,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/concepts/chart-gallery-engine-5514d89c1f79467b.js",
+              "startMs": 168.2000000178814,
+              "encodedBytes": 244455,
+              "transferBytes": 244755
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 172.2000000178814,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 173.5,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 188,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 204.2000000178814,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 212.10000002384186,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 212.2000000178814,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 212.2000000178814,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BNaX-2XW.js",
+              "startMs": 212.7000000178814,
+              "encodedBytes": 1901,
+              "transferBytes": 2201
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 442.2000000178814,
+              "encodedBytes": 48432,
+              "transferBytes": 0
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/concepts/chart-gallery-engine-5514d89c1f79467b.js",
+              "startMs": 592.2000000178814,
+              "encodedBytes": 244455,
+              "transferBytes": 0
+            }
+          ]
+        },
+        {
+          "readyMs": 2765.9000000059605,
+          "conceptNavigations": 1,
+          "compressedBytes": 439798,
+          "canvases": 0,
+          "conceptPlots": 1,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/concepts/chart-gallery-engine-5514d89c1f79467b.js",
+              "startMs": 168.90000000596046,
+              "encodedBytes": 244455,
+              "transferBytes": 244755
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 173.19999998807907,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 174.59999999403954,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 187.69999998807907,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 202.7999999821186,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 212.69999998807907,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 212.7999999821186,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BNaX-2XW.js",
+              "startMs": 213.09999999403954,
+              "encodedBytes": 1901,
+              "transferBytes": 2201
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 213.09999999403954,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 283.39999997615814,
+              "encodedBytes": 48432,
+              "transferBytes": 0
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/concepts/chart-gallery-engine-5514d89c1f79467b.js",
+              "startMs": 389.2999999821186,
+              "encodedBytes": 244455,
+              "transferBytes": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "get-started",
+      "throttled": false,
+      "byteBudget": 240000,
+      "readinessBudgetMs": null,
+      "medianFirstVisibleMs": 73.5,
+      "samples": [
+        {
+          "readyMs": 73.5,
+          "conceptNavigations": 0,
+          "compressedBytes": 230853,
+          "canvases": 0,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 4.199999988079071,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/google-sans-code-latin.woff2",
+              "startMs": 4.4000000059604645,
+              "encodedBytes": 34948,
+              "transferBytes": 35248
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 4.5,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 4.5,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 4.5,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 4.5999999940395355,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Cm1oYMmp.js",
+              "startMs": 4.5999999940395355,
+              "encodedBytes": 8751,
+              "transferBytes": 9051
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 4.5999999940395355,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Dr3H5Qd6.js",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 13339,
+              "transferBytes": 13639
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 6.199999988079071,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "installation",
+      "throttled": true,
+      "byteBudget": 240000,
+      "readinessBudgetMs": 5000,
+      "medianFirstVisibleMs": 1615.2000000178814,
+      "samples": [
+        {
+          "readyMs": 1611.5999999940395,
+          "conceptNavigations": 0,
+          "compressedBytes": 231851,
+          "canvases": 0,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 172,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/google-sans-code-latin.woff2",
+              "startMs": 173,
+              "encodedBytes": 34948,
+              "transferBytes": 35248
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 181.2000000178814,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 191.09999999403954,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 211.5,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 227.40000000596046,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Cm1oYMmp.js",
+              "startMs": 227.40000000596046,
+              "encodedBytes": 8751,
+              "transferBytes": 9051
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 227.40000000596046,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 227.40000000596046,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Dr3H5Qd6.js",
+              "startMs": 228.09999999403954,
+              "encodedBytes": 13339,
+              "transferBytes": 13639
+            }
+          ]
+        },
+        {
+          "readyMs": 1618.0999999940395,
+          "conceptNavigations": 0,
+          "compressedBytes": 231851,
+          "canvases": 0,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 174.40000000596046,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/google-sans-code-latin.woff2",
+              "startMs": 175,
+              "encodedBytes": 34948,
+              "transferBytes": 35248
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 180.2999999821186,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 192.2999999821186,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 210.09999999403954,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 225.7999999821186,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 225.90000000596046,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 226.69999998807907,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Cm1oYMmp.js",
+              "startMs": 227,
+              "encodedBytes": 8751,
+              "transferBytes": 9051
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Dr3H5Qd6.js",
+              "startMs": 227,
+              "encodedBytes": 13339,
+              "transferBytes": 13639
+            }
+          ]
+        },
+        {
+          "readyMs": 1615.2000000178814,
+          "conceptNavigations": 0,
+          "compressedBytes": 231851,
+          "canvases": 0,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 173.7000000178814,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/google-sans-code-latin.woff2",
+              "startMs": 174.40000000596046,
+              "encodedBytes": 34948,
+              "transferBytes": 35248
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 181.90000000596046,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 190,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 210.7000000178814,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 226.2000000178814,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 226.30000001192093,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Cm1oYMmp.js",
+              "startMs": 226.40000000596046,
+              "encodedBytes": 8751,
+              "transferBytes": 9051
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Dr3H5Qd6.js",
+              "startMs": 226.40000000596046,
+              "encodedBytes": 13339,
+              "transferBytes": 13639
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 226.40000000596046,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "components",
+      "throttled": false,
+      "byteBudget": 210000,
+      "readinessBudgetMs": null,
+      "medianFirstVisibleMs": 73.40000000596046,
+      "samples": [
+        {
+          "readyMs": 73.40000000596046,
+          "conceptNavigations": 0,
+          "compressedBytes": 197341,
+          "canvases": 0,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 4.5999999940395355,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 4.800000011920929,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 4.800000011920929,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 4.800000011920929,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 4.800000011920929,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 4.800000011920929,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Cm1oYMmp.js",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 8751,
+              "transferBytes": 9051
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Dr3H5Qd6.js",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 13339,
+              "transferBytes": 13639
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 6.300000011920929,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "formatting",
+      "throttled": false,
+      "byteBudget": 400000,
+      "readinessBudgetMs": null,
+      "medianFirstVisibleMs": 142.40000000596046,
+      "samples": [
+        {
+          "readyMs": 142.40000000596046,
+          "conceptNavigations": 0,
+          "compressedBytes": 381199,
+          "canvases": 1,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BgBOd7dw.js",
+              "startMs": 4.0999999940395355,
+              "encodedBytes": 1946,
+              "transferBytes": 2246
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CYaL5I5P.js",
+              "startMs": 4.199999988079071,
+              "encodedBytes": 8522,
+              "transferBytes": 8822
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-nGnb0wDD.js",
+              "startMs": 4.199999988079071,
+              "encodedBytes": 1363,
+              "transferBytes": 1663
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 4.299999982118607,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DxMTn5bz.js",
+              "startMs": 4.299999982118607,
+              "encodedBytes": 134,
+              "transferBytes": 434
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CGs9NOTs.js",
+              "startMs": 4.299999982118607,
+              "encodedBytes": 1315,
+              "transferBytes": 1615
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 4.299999982118607,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-D_4sIR13.js",
+              "startMs": 4.299999982118607,
+              "encodedBytes": 117,
+              "transferBytes": 417
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-fm48qzA9.js",
+              "startMs": 4.299999982118607,
+              "encodedBytes": 219,
+              "transferBytes": 519
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 4.299999982118607,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BwUyPQXe.js",
+              "startMs": 4.299999982118607,
+              "encodedBytes": 4776,
+              "transferBytes": 5076
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 4.299999982118607,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 4.299999982118607,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 4.4000000059604645,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 4.4000000059604645,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BKgFJSEh.js",
+              "startMs": 4.5999999940395355,
+              "encodedBytes": 1597,
+              "transferBytes": 1897
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 4.5999999940395355,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 4.699999988079071,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 6.199999988079071,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "playground",
+      "throttled": false,
+      "byteBudget": 445000,
+      "readinessBudgetMs": null,
+      "medianFirstVisibleMs": 139.60000002384186,
+      "samples": [
+        {
+          "readyMs": 139.60000002384186,
+          "conceptNavigations": 0,
+          "compressedBytes": 386902,
+          "canvases": 1,
+          "conceptPlots": 0,
+          "resources": [
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BgBOd7dw.js",
+              "startMs": 4.4000000059604645,
+              "encodedBytes": 1946,
+              "transferBytes": 2246
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-nGnb0wDD.js",
+              "startMs": 4.5,
+              "encodedBytes": 1363,
+              "transferBytes": 1663
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CYaL5I5P.js",
+              "startMs": 4.5,
+              "encodedBytes": 8522,
+              "transferBytes": 8822
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-5tkH_LWN.js",
+              "startMs": 4.5,
+              "encodedBytes": 114159,
+              "transferBytes": 114459
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B6Fy8hbW.js",
+              "startMs": 4.600000023841858,
+              "encodedBytes": 507,
+              "transferBytes": 807
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DxMTn5bz.js",
+              "startMs": 4.600000023841858,
+              "encodedBytes": 134,
+              "transferBytes": 434
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-CGs9NOTs.js",
+              "startMs": 4.600000023841858,
+              "encodedBytes": 1315,
+              "transferBytes": 1615
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-DI1Tmhid.js",
+              "startMs": 4.700000017881393,
+              "encodedBytes": 22795,
+              "transferBytes": 23095
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-D_4sIR13.js",
+              "startMs": 4.700000017881393,
+              "encodedBytes": 117,
+              "transferBytes": 417
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-fm48qzA9.js",
+              "startMs": 4.700000017881393,
+              "encodedBytes": 219,
+              "transferBytes": 519
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BwUyPQXe.js",
+              "startMs": 4.700000017881393,
+              "encodedBytes": 4776,
+              "transferBytes": 5076
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7-dQp2d.js",
+              "startMs": 4.700000017881393,
+              "encodedBytes": 41551,
+              "transferBytes": 41851
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-Be_6K6TY.js",
+              "startMs": 4.800000011920929,
+              "encodedBytes": 9616,
+              "transferBytes": 9916
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCu6wpcn.js",
+              "startMs": 4.800000011920929,
+              "encodedBytes": 4842,
+              "transferBytes": 5142
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/main-5X3MIAUU.js",
+              "startMs": 4.800000011920929,
+              "encodedBytes": 42089,
+              "transferBytes": 42389
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-B7Ng-UbO.js",
+              "startMs": 4.800000011920929,
+              "encodedBytes": 313,
+              "transferBytes": 613
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/fonts/inter-latin.woff2",
+              "startMs": 4.800000011920929,
+              "encodedBytes": 48432,
+              "transferBytes": 48732
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/chunk-BCV1fTjr.js",
+              "startMs": 4.800000011920929,
+              "encodedBytes": 64755,
+              "transferBytes": 65055
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/brand/orbit-e-light.svg",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 188,
+              "transferBytes": 488
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/third-party/github-dark.svg",
+              "startMs": 4.9000000059604645,
+              "encodedBytes": 494,
+              "transferBytes": 794
+            },
+            {
+              "url": "http://127.0.0.1:59962/ng-echarts/styles-OP4GT3XP.css",
+              "startMs": 6.600000023841858,
+              "encodedBytes": 4458,
+              "transferBytes": 4758
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "navigation": {
+    "conditions": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "deviceScaleFactor": 1,
+      "reducedMotion": "no-preference",
+      "cpuRate": 4,
+      "latencyMs": 150,
+      "downloadBytesPerSecond": 200000,
+      "uploadBytesPerSecond": 93750
+    },
+    "iterations": 3,
+    "results": [
+      {
+        "route": "line",
+        "label": "Line Blocks",
+        "revisit": false,
+        "budgetMs": 1500,
+        "samples": [
+          {
+            "firstChartMs": 335.2000000178814,
+            "downloadedBytes": 14354
+          },
+          {
+            "firstChartMs": 330.19999998807907,
+            "downloadedBytes": 14354
+          },
+          {
+            "firstChartMs": 333.19999998807907,
+            "downloadedBytes": 14354
+          }
+        ],
+        "medianFirstChartMs": 333.19999998807907
+      },
+      {
+        "route": "pie",
+        "label": "Pie & Donut Blocks",
+        "revisit": false,
+        "budgetMs": 1500,
+        "samples": [
+          {
+            "firstChartMs": 328.5,
+            "downloadedBytes": 13783
+          },
+          {
+            "firstChartMs": 328.09999999403954,
+            "downloadedBytes": 13783
+          },
+          {
+            "firstChartMs": 326.90000000596046,
+            "downloadedBytes": 13783
+          }
+        ],
+        "medianFirstChartMs": 328.09999999403954
+      },
+      {
+        "route": "calendar",
+        "label": "Calendar Heatmap",
+        "revisit": false,
+        "budgetMs": 1500,
+        "samples": [
+          {
+            "firstChartMs": 395.10000002384186,
+            "downloadedBytes": 13881
+          },
+          {
+            "firstChartMs": 400,
+            "downloadedBytes": 13881
+          },
+          {
+            "firstChartMs": 389.90000000596046,
+            "downloadedBytes": 13881
+          }
+        ],
+        "medianFirstChartMs": 395.10000002384186
+      },
+      {
+        "route": "sankey",
+        "label": "Sankey Flow",
+        "revisit": false,
+        "budgetMs": 1500,
+        "samples": [
+          {
+            "firstChartMs": 344.30000001192093,
+            "downloadedBytes": 21417
+          },
+          {
+            "firstChartMs": 350.30000001192093,
+            "downloadedBytes": 21417
+          },
+          {
+            "firstChartMs": 350.7000000178814,
+            "downloadedBytes": 21417
+          }
+        ],
+        "medianFirstChartMs": 350.30000001192093
+      },
+      {
+        "route": "/",
+        "label": "Bar Blocks",
+        "revisit": true,
+        "budgetMs": 750,
+        "samples": [
+          {
+            "firstChartMs": 113.5,
+            "downloadedBytes": 0
+          },
+          {
+            "firstChartMs": 115.59999999403954,
+            "downloadedBytes": 0
+          },
+          {
+            "firstChartMs": 112.5,
+            "downloadedBytes": 0
+          }
+        ],
+        "medianFirstChartMs": 113.5
+      },
+      {
+        "route": "line",
+        "label": "Line Blocks",
+        "revisit": true,
+        "budgetMs": 750,
+        "samples": [
+          {
+            "firstChartMs": 111.10000002384186,
+            "downloadedBytes": 0
+          },
+          {
+            "firstChartMs": 127.7999999821186,
+            "downloadedBytes": 0
+          },
+          {
+            "firstChartMs": 109.69999998807907,
+            "downloadedBytes": 0
+          }
+        ],
+        "medianFirstChartMs": 111.10000002384186
+      },
+      {
+        "route": "pie",
+        "label": "Pie & Donut Blocks",
+        "revisit": true,
+        "budgetMs": 750,
+        "samples": [
+          {
+            "firstChartMs": 109.90000000596046,
+            "downloadedBytes": 0
+          },
+          {
+            "firstChartMs": 93.2999999821186,
+            "downloadedBytes": 0
+          },
+          {
+            "firstChartMs": 110,
+            "downloadedBytes": 0
+          }
+        ],
+        "medianFirstChartMs": 109.90000000596046
+      },
+      {
+        "route": "calendar",
+        "label": "Calendar Heatmap",
+        "revisit": true,
+        "budgetMs": 750,
+        "samples": [
+          {
+            "firstChartMs": 116.7000000178814,
+            "downloadedBytes": 0
+          },
+          {
+            "firstChartMs": 123.09999999403954,
+            "downloadedBytes": 0
+          },
+          {
+            "firstChartMs": 112,
+            "downloadedBytes": 0
+          }
+        ],
+        "medianFirstChartMs": 116.7000000178814
+      }
+    ]
+  }
+}

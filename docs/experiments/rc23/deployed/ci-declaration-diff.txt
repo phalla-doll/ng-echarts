@@ -1,0 +1,17 @@
+--- preserved local candidate
++++ CI candidate
+@@ -31,12 +31,12 @@
+ type ComposedOption = ComposeOption<BarSeriesOption | LineSeriesOption | GridComponentOption | TooltipComponentOption>;
+ declare function buildComposedOptions<T>(context: ɵCartesianContext<T>, series: readonly ComposedSeries<T>[], layout?: 'vertical' | 'horizontal'): ComposedOption;
+ export declare class ComposedChart<T extends object> extends ɵCartesianChart<T, ComposedOption, ComposedSeries<T>> {
+-  readonly layout: import("@angular/core").InputSignal<"vertical" | "horizontal">;
++  readonly layout: import("@angular/core").InputSignal<"horizontal" | "vertical">;
+   private readonly loader;
+   protected renderer(): Promise<import("@mantha911/ng-echarts/core").ɵPlotRendererFactory<ComposedOption>>;
+   protected familyConfiguration(): {
+     series: readonly ComposedSeries<T>[];
+-    layout: "vertical" | "horizontal";
++    layout: "horizontal" | "vertical";
+   };
+   protected familyError(): string | null;
+   protected buildOptions(context: ɵCartesianContext<T>): ComposedOption;

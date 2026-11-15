@@ -71,7 +71,7 @@ The `/comparison` route exercises pure category-tick formatting and maps pinned 
 
 ## Gate status and next action
 
-Current delivery: [published rc.22](PUBLICATION.md#rc22-oidc-publication) includes named composed bar/area stacks and independent supplied lines; its exact-artifact consumers, manual OIDC upload and [live demo](GITHUB_PAGES.md#current-deployment--composed-areas) are verified. [Final CI](experiments/data/rc22-delivery-ci-verification.json) passes 326 unit tests, 22 publication/readiness guards and 458 browser cases with four skips. Remaining composed scope is dual axes/horizontal composition; human F09/R06/G2/G3/G4 remain deferred/pending.
+Current delivery: [published rc.22](PUBLICATION.md#rc22-oidc-publication) includes named composed bar/area stacks and independent supplied lines; its exact-artifact consumers, manual OIDC upload and [live demo](GITHUB_PAGES.md#current-deployment--composed-areas) are verified. [Final CI](experiments/data/rc22-delivery-ci-verification.json) passes 326 unit tests, 22 publication/readiness guards and 458 browser cases with four skips. Horizontal composition and the composed linked dashboard are added in local rc.23 below; remaining composed scope includes dual axes; human F09/R06/G2/G3/G4 remain deferred/pending.
 
 The [playground layout review](experiments/PLAYGROUND_LAYOUT_REVIEW.md) adds a responsive navigation shell, grouped chart settings, preview/code views, and local typography without expanding the library scope. It includes before/after captures and three-engine interface checks. Comparison and benchmark fixtures preserve their full-width measurement conditions.
 

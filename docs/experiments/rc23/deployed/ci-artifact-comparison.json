@@ -1,0 +1,21 @@
+{
+  "recordedAt": "2026-11-15T15:12:30.432453+00:00",
+  "sourceCommit": "8dd761922b8b9548a5c2bac67a40cc7f80b8075e",
+  "ciRun": "https://github.com/phalla-doll/ng-echarts/actions/runs/43727454898",
+  "ciWorkspaceJob": "success",
+  "packageVersion": "0.1.0-rc.23",
+  "localSha256": "5b658b17816fbb36c3e79a69410548fddbb2e24a8a5b15dc188931c9407ac92f",
+  "ciSha256": "6a68ccc06bf76b6f92803198f23dc4207444fe165c3f7ec4a6b39cc0ace1f246",
+  "bytes": {
+    "local": 164910,
+    "ci": 164910
+  },
+  "fileCount": 68,
+  "changedFiles": ["package/types/mantha911-ng-echarts-composed.d.ts"],
+  "difference": "Only the inferred layout InputSignal and protected familyConfiguration layout union member order differs; vertical|horizontal versus horizontal|vertical. The public accepted values are equivalent. Runtime files and every other package member are byte-identical.",
+  "exactTarballBytesMatch": false,
+  "runtimeFilesByteIdentical": true,
+  "originalLocalArchivePreserved": true,
+  "retainedCiArchive": "dist/releases/ci-43727454898/mantha911-ng-echarts-0.1.0-rc.23.tgz",
+  "publication": "No upload requested or performed. Preserve both digests; any later exact-artifact operation must select and review its own digest, without substituting the other archive hash."
+}

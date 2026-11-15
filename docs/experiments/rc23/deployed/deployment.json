@@ -1,0 +1,29 @@
+{
+  "url": "https://phalla-doll.github.io/ng-echarts/",
+  "branch": "gh-pages",
+  "commit": "787baedfc6390e44f239472513061eeb9b78a6d2",
+  "sourceBaseCommit": "8dd761922b8b9548a5c2bac67a40cc7f80b8075e",
+  "builtAt": "2026-11-15T15:01:04.417Z",
+  "artifactSha256": "2dc9d8aed95d1b7f07f592324aa26021ce8a76ce85c274b85299fbe00637403f",
+  "verifiedAt": "2026-11-15T15:09:42.667164+00:00",
+  "pagesWorkflow": {
+    "conclusion": "success",
+    "createdAt": "2026-11-15T15:03:00Z",
+    "databaseId": 43727674959,
+    "headSha": "787baedfc6390e44f239472513061eeb9b78a6d2",
+    "status": "completed",
+    "updatedAt": "2026-11-15T15:03:27Z",
+    "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/43727674959"
+  },
+  "publicFilesByteVerified": 140,
+  "routes": 35,
+  "browsers": ["chromium", "firefox", "webkit"],
+  "performance": "17 payload budgets, six controlled mobile medians and normal-motion navigation passed",
+  "npmPublication": "unchanged; next rc.22/latest rc.18",
+  "humanInterpretation": "pending",
+  "F09": "pending",
+  "R06": "pending",
+  "G2": "pending",
+  "G3": "pending",
+  "G4": "pending"
+}
