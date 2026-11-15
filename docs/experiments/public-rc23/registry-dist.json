@@ -1,0 +1,23 @@
+{
+  "shasum": "fe9bee6d6779c8bbfe740406328da3a2d8570b5b",
+  "tarball": "https://registry.npmjs.org/@mantha911/ng-echarts/-/ng-echarts-0.1.0-rc.23.tgz",
+  "fileCount": 68,
+  "integrity": "sha512-Sky8z5SxhRGmlXrg9jYfAxbi0je/ixWjg06/0fXoFsKYWk2gfL67VT65J2VBEu/I4eo7qblaKhFTu/P9AAREDQ==",
+  "signatures": [
+    {
+      "sig": "MEUCIADmnHpUJ7pmfOFgz0Xdydds0pqvqekNMtJt7PBQvBIGAiEA5oMKHMCbhZFHaiLvsvDfBF3HdgkIZ3m2wn68WICMt58=",
+      "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+    },
+    {
+      "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+      "sig": "MEYCIQDSX4YWHT+uLzh22TonBxaBnmJsP1ZrgWilfuySNuR0SAIhAMbX+1i7RKrDNDASdQUG+WeI1DJKb284STr+JXS9TfmW"
+    }
+  ],
+  "attestations": {
+    "url": "https://registry.npmjs.org/-/npm/v1/attestations/@mantha911%2fng-echarts@0.1.0-rc.23",
+    "provenance": {
+      "predicateType": "https://slsa.dev/provenance/v1"
+    }
+  },
+  "unpackedSize": 780998
+}
