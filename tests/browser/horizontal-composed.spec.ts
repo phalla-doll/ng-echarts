@@ -21,7 +21,9 @@ async function paintedPoint(chart: Locator, seriesIndex: number, interior = fals
       };
       const inset = interior ? 4 : 0;
       const box = canvas.getBoundingClientRect();
-      for (let y = 8 + inset; y < canvas.height - 8 - inset; y++) {
+      // This fixture has five categories. Stay in January's band so a later
+      // painted row cannot satisfy readiness while the first row is updating.
+      for (let y = 8 + inset; y < canvas.height * 0.28; y++) {
         for (let x = 12 + inset; x < canvas.width - 12 - inset; x++) {
           if (
             matches(x, y) &&

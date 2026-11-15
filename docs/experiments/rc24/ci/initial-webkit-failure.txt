@@ -1,0 +1,53 @@
+Initial CI run 43732761291 failed one WebKit horizontal pixel-probe assertion; workspace/Pages/Chromium/Firefox passed. This failed run is excluded from complete-CI passing evidence.
+
+  1) [webkit] › tests/browser/horizontal-composed.spec.ts:92:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer 
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7581855Z 
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7582245Z     Error: expect(locator).toHaveText(expected) failed
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7582879Z 
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7583140Z     Locator:  locator('.selection')
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7583741Z     Expected: "a/mobile/40/plot"
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7584296Z     Received: "b/mobile/-30/plot"
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7584815Z     Timeout:  5000ms
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7585071Z 
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7585239Z     Call log:
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7585873Z       - Expect "toHaveText" locator('.selection') with timeout 5000ms
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7586536Z       - waiting for locator('.selection')
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7587665Z         14 × locator resolved to <p role="status" class="selection">b/mobile/-30/plot</p>
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7588576Z            - unexpected value "b/mobile/-30/plot"
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7588971Z 
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7588985Z 
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7589392Z       103 |   const segment = (await paintedPoint(chart, 1, true))!;
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7590203Z       104 |   await page.mouse.click(segment.x, segment.y);
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7591173Z     > 105 |   await expect(page.locator('.selection')).toHaveText('a/mobile/40/plot');
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7592065Z           |                                            ^
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7593830Z       106 |   await chart.getByRole('button', { name: 'Show data table', exact: true }).click();
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7594802Z       107 |   for (const [label, result] of [
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7595559Z       108 |     ['Select Visits for April: -60', 'd/visits/-60/table'],
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7596666Z         at /home/runner/work/ng-echarts/ng-echarts/tests/browser/horizontal-composed.spec.ts:105:44
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7597405Z 
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7598288Z     Error Context: test-results/horizontal-composed-rotate-23f83-es-legends-and-the-renderer-webkit/error-context.md
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7599249Z 
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7600084Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7601320Z     test-results/horizontal-composed-rotate-23f83-es-legends-and-the-renderer-webkit/trace.zip
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7602250Z     Usage:
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7602438Z 
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7603557Z         npx playwright show-trace test-results/horizontal-composed-rotate-23f83-es-legends-and-the-renderer-webkit/trace.zip
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7604782Z 
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7605440Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7605952Z 
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7606100Z   1 failed
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7607649Z     [webkit] › tests/browser/horizontal-composed.spec.ts:92:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer 
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7608537Z   2 skipped
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7608801Z   157 passed (12.5m)
+browser (webkit)	Run npm run test:browser -- --project=webkit	2026-11-15T16:11:43.7882497Z ##[error]Process completed with exit code 1.
+check	Require all workspace, Pages and browser jobs	﻿2026-11-15T16:11:51.1497318Z ##[group]Run test "$WORKSPACE_RESULT" = success
+check	Require all workspace, Pages and browser jobs	2026-11-15T16:11:51.1498211Z ^[[36;1mtest "$WORKSPACE_RESULT" = success^[[0m
+check	Require all workspace, Pages and browser jobs	2026-11-15T16:11:51.1498873Z ^[[36;1mtest "$PAGES_RESULT" = success^[[0m
+check	Require all workspace, Pages and browser jobs	2026-11-15T16:11:51.1499614Z ^[[36;1mtest "$BROWSER_RESULT" = success^[[0m
+check	Require all workspace, Pages and browser jobs	2026-11-15T16:11:51.2602403Z shell: /usr/bin/bash -e {0}
+check	Require all workspace, Pages and browser jobs	2026-11-15T16:11:51.2603388Z env:
+check	Require all workspace, Pages and browser jobs	2026-11-15T16:11:51.2604062Z   WORKSPACE_RESULT: success
+check	Require all workspace, Pages and browser jobs	2026-11-15T16:11:51.2604616Z   PAGES_RESULT: success
+check	Require all workspace, Pages and browser jobs	2026-11-15T16:11:51.2605209Z   BROWSER_RESULT: failure
+check	Require all workspace, Pages and browser jobs	2026-11-15T16:11:51.2605748Z ##[endgroup]
+check	Require all workspace, Pages and browser jobs	2026-11-15T16:11:51.2804788Z ##[error]Process completed with exit code 1.

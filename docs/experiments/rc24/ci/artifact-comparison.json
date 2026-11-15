@@ -1,0 +1,16 @@
+{
+  "recordedAt": "2026-11-15T16:06:36.542002+00:00",
+  "sourceCommit": "cccf649627d7c6387ad2d44b610d7f0def3cd7c6",
+  "ciRunId": 43732761291,
+  "version": "0.1.0-rc.24",
+  "bytes": 170430,
+  "localSha256": "6dd89361c4f6482b28b9a3f28d88bddf28a71eac9123ec1a8412517995d4c46f",
+  "ciSha256": "6dd89361c4f6482b28b9a3f28d88bddf28a71eac9123ec1a8412517995d4c46f",
+  "archiveBytesIdentical": true,
+  "packageFilesCompared": 68,
+  "declarationsCompared": 11,
+  "allMembersIdentical": true,
+  "cleanBuildsCompared": 4,
+  "warmBuildsCompared": 2,
+  "passed": true
+}
