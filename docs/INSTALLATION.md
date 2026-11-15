@@ -1,8 +1,8 @@
-# Install the local package
+# Install ng-echarts
 
-The experimental public identity is `@mantha911/ng-echarts`; prereleases use the `next` dist-tag. The exact-artifact procedure below uses a tarball from this checkout. Use Node **24.22.2** from `.nvmrc` and npm **11.19.1**. The [compatibility table](COMPATIBILITY.md) separates tested versions from declared peer ranges.
+The experimental public identity is `@mantha911/ng-echarts`; prereleases use the `next` dist-tag. Install the registry package below, or use the exact local-tarball procedure to test a checkout. Use Node **24.22.2** from `.nvmrc` and npm **11.19.1**. The [compatibility table](COMPATIBILITY.md) separates tested versions from declared peer ranges.
 
-As verified on 15 November 2026, npm `next` selects rc.22 and the initial `latest` alias remains rc.18. A bare install resolves rc.18. Use `@next` deliberately or pin `@0.1.0-rc.22` for a repeatable dependency, then retain the lockfile. The [publication receipt](experiments/public-rc18/registry-verification.json) records the exact registry integrity and the rejected attempt to remove the initial `latest` alias.
+As verified on 15 November 2026, npm `next` selects rc.22 and the initial `latest` alias remains rc.18. A bare install resolves rc.18. Use `@next` deliberately or pin `@0.1.0-rc.22` for a repeatable dependency, then retain the lockfile. The [rc.22 receipt](experiments/public-rc22/registry-verification.json) records the current archive integrity and registry-consumer checks. The [first-publication record](PUBLICATION.md#first-publication-result) preserves npm’s rejected attempt to remove the initial `latest` alias.
 
 
 Registry prerelease installation:
@@ -116,6 +116,8 @@ For a client-only application, use `--ssr=false` in the scaffold command and omi
 
 The [API index and integration guide](INTEGRATION_GUIDE.md) cover shared types, updates, events and states. The [compatibility and limits](COMPATIBILITY.md) document records measured envelopes, exclusions, and open release evidence.
 
-## Unreleased source follow-up
+<a id="unreleased-source-follow-up"></a>
+
+## Current feature availability
 
 The current source and npm `next` are `0.1.0-rc.22`; `latest` remains rc.18. Opt-in `tablePageSize` ships since published rc.19, named bar stacks since rc.21, and composed areas since rc.22. Install `@next` or pin rc.22, or run `npm run pack:lib` to create a local source archive. Preserve every earlier archive. The [area report](experiments/NG17_COMPOSED_AREAS.md) and [publication record](PUBLICATION.md#rc22-oidc-publication) own current artifact, CI and registry verification.

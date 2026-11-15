@@ -1,6 +1,6 @@
 # ng-echarts research findings
 
-Checked 12 November 2026. Upstream reference: EvilCharts commit [`4c2dd7c9bae780703244265c9a4b509d40c055ad`](https://github.com/legions-developer/evilcharts/commit/4c2dd7c9bae780703244265c9a4b509d40c055ad), committed 29 October 2026. Pin this revision for initial comparisons; review later upstream changes separately.
+Initial upstream research checked 12 November 2026; implementation-status links reconciled 15 November 2026. This update does not broaden the tested toolchain or re-evaluate the pinned upstream baseline. Upstream reference: EvilCharts commit [`4c2dd7c9bae780703244265c9a4b509d40c055ad`](https://github.com/legions-developer/evilcharts/commit/4c2dd7c9bae780703244265c9a4b509d40c055ad), committed 29 October 2026. Pin this revision for initial comparisons; review later upstream changes separately.
 
 ## Framework compatibility
 
@@ -10,7 +10,7 @@ The ECharts implementation path is the better starting hypothesis because chart 
 
 ## Angular 22 toolchain
 
-The official compatibility table currently lists these ranges for Angular 22.x ([S6](SOURCES.md#platform-sources)):
+The official compatibility table listed these ranges at the recorded toolchain review for Angular 22.x ([S6](SOURCES.md#platform-sources)):
 
 | Dependency | Supported range |
 | --- | --- |
@@ -37,11 +37,11 @@ The pinned registry has 302 entries overall, including 125 examples whose names 
 | `echarts-line-chart` | MVP |
 | `echarts-area-chart` | MVP |
 | `echarts-pie-chart` | MVP, including donut configuration |
-| `echarts-composed-chart` | Outside MVP; local bar/line extension now recorded in [NG17](experiments/NG17_COMPOSED_CHART.md), without copying its React implementation |
-| `echarts-radar-chart` | Subsequent scope |
-| `echarts-radial-chart` | Subsequent scope |
-| `echarts-sankey-chart` | Subsequent scope |
-| `echarts-heatmap-chart` | Subsequent scope |
+| `echarts-composed-chart` | Outside MVP; implemented shared-axis bar/line/area extension with named stacks; [current NG17 evidence](experiments/NG17_COMPOSED_AREAS.md), without copying its React implementation |
+| `echarts-radar-chart` | Focused experimental [radar API](RADAR_CHART_API.md) implemented |
+| `echarts-radial-chart` | Focused scalar [radial progress](RADIAL_PROGRESS_API.md) implemented; general meters deferred |
+| `echarts-sankey-chart` | Focused bounded acyclic [Sankey API](SANKEY_CHART_API.md) implemented |
+| `echarts-heatmap-chart` | Separate focused [calendar heatmap](CALENDAR_HEATMAP_API.md) implemented; broader heatmaps deferred |
 
 ## Reuse assessment
 

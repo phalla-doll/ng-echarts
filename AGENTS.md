@@ -2,7 +2,7 @@
 
 ## Project Structure and Scope
 
-Angular 22 chart library using Apache ECharts. Bar, line, area, pie/donut and the first shared-axis composed increment are implemented. NG20 adds linked charts with native and graphical month ranges. NG14 automated acceptance and NG15 documentation are recorded; human interpretation and release gates remain open. The demo is deployed to GitHub Pages. Experimental `@mantha911/ng-echarts@0.1.0-rc.22` is published on npm under `next` (`latest` retains rc.18); human F09/R06/G2/G3/G4 remain pending under the user’s explicit prerelease deferral.
+Angular 22 chart library using Apache ECharts. Bar, line, area, pie/donut and shared-axis composed bar/line/area charts with separate named bar/area stacks are implemented. NG20 adds linked charts with native and graphical month ranges. NG14 automated acceptance and NG15 documentation are recorded; human interpretation and release gates remain open. The demo is deployed to GitHub Pages. Experimental `@mantha911/ng-echarts@0.1.0-rc.22` is published on npm under `next` (`latest` retains rc.18); human F09/R06/G2/G3/G4 remain pending under the user’s explicit prerelease deferral.
 
 - `README.md`: overview and document index.
 - `docs/PRODUCT_SPEC.md`: MVP scope and required behavior.
@@ -34,6 +34,8 @@ Use Node from `.nvmrc` and npm 11.19.1; install with `npm ci`.
 - `npm run release:local`: build/pack one local candidate, verify metadata/notices and pass byte-identical copies to strict/docs/client/SSR consumers. `release:prepare` and `release:check` run separate phases; keep human gates pending.
 - `npm run check:release-immutability`: after preparing an artifact, verify that repeated preparation cannot overwrite its archive, checksum or manifest. Registry consumers use `CHART_LIBRARY_REGISTRY_SPEC` plus the recorded `CHART_LIBRARY_TARBALL_SHA256`; see `docs/RELEASE_CHECKLIST.md`.
 - `npm run capture:visual`: capture the four MVP gallery families/themes at 320/390/768/1440 px, including tooltip bounds and narrow label/control evidence; first run `npm run build`.
+- `npm run benchmark:composed:stacked` / `npm run benchmark:composed:area`: measure named bar stacks and named area stacks separately; preserve the original composed benchmark and existing limits.
+- `npm run test:prerelease-guards`: check publication source/run/artifact guards and bounded read-only registry propagation recovery.
 - `npm run capture:composed` / `npm run capture:linked`: capture post-MVP composed and linked examples using the same responsive themes.
 - `npm run test:pages-provenance`: test source/build integrity, receipts, stale/tampered artifact rejection and operation locks.
 - `npm run format`: apply Prettier.

@@ -130,6 +130,8 @@ The site includes [Get Started](http://localhost:4310/get-started), [Installatio
 | `npm run check:runtime` | Build/run isolated client and SSR consumers in all three browser engines |
 | `npm run benchmark:bar` | Measure actual Angular mount/update and compare production Canvas/SVG harnesses |
 | `npm run benchmark:acceptance` | Measure all four Angular families: normal/stress mount, update, legend interaction, resize, cold loading, and tables |
+| `npm run benchmark:composed:stacked` / `npm run benchmark:composed:area` | Measure named bar-stack and area-stack variants separately without replacing the original composed benchmark |
+| `npm run test:prerelease-guards` | Verify manual publication guards and bounded read-only npm propagation recovery |
 | `npm run check:bundle` | Check core/bar/root module boundaries and size budgets, excluding Angular/RxJS peers |
 | `npm run check:ssr` | Check production server markup and hydration metadata after a build |
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |

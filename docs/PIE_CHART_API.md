@@ -40,6 +40,7 @@ Supply immutable `data`, unique stable string row IDs, string category labels, a
 | `theme`, `themeRevision` | `'light'`, `0` | Explicit theme and CSS/font refresh revision |
 | `locale`, `numberFormatOptions`, `valueFormatter` | `'en-US'`, `undefined`, `undefined` | Shared numeric text in tooltips and table actions |
 | `showDataTable` | `true` | Initially collapsed, complete native table with keyboard point actions |
+| `tablePageSize` | `null` | Positive safe integer bounds native table rows per page; null retains the complete table; plot data is unchanged |
 | `loading`, `error`, `animation` | `false`, `null`, `true` | Shared state precedence and motion behavior; OS reduced motion overrides animation |
 
 The outer radius is 80% of half the shorter plot dimension, reduced to 60% when labels are enabled. Labels follow short leader lines near the ring, with edge bounds and overlap suppression on narrow hosts. Ratios keep donuts responsive; this differs from the upstream example's fixed 60 px inner radius. Labels are category text rather than numeric percentages. Long/colliding labels may be shortened or hidden; the native legend and table retain complete text. No category-axis formatter applies to radial charts.
@@ -68,4 +69,4 @@ The starting measured envelope is 12 categories; 100 categories is stress eviden
 
 Set `[tablePageSize]="50"` to create at most 50 native table rows at once. The default `null` retains the complete table. The size must be a positive safe integer; invalid values produce a configuration error. The plot continues to show all observations. Previous/Next buttons announce the visible row range and retain keyboard focus at either boundary. Every row remains available through paging, including hidden-series values, zero and missing observations.
 
-Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. The current local rc.21 candidate also includes it.
+Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. Current published rc.22 also includes it; see [installation](INSTALLATION.md#current-feature-availability).

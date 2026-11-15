@@ -1,6 +1,6 @@
 # ng-echarts technical architecture
 
-Status: implemented experimental architecture for bar, line, area, and pie/donut. Automated cross-family evidence is reconciled in [NG14](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md); human interpretation and [release gates](RND_PLAN.md#decision-gates) remain open. Updated 13 November 2026.
+Status: implemented experimental architecture for bar, line, area, pie/donut, composed, radar, radial progress, calendar and Sankey. Published rc.22 includes the shared-axis bar/line/area composition and named stacks. Automated cross-family evidence is reconciled in [NG14](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md); human interpretation and [release gates](RND_PLAN.md#decision-gates) remain open. Updated 15 November 2026.
 
 ## Architecture direction
 
@@ -278,9 +278,9 @@ The [NG13 report](experiments/NG13_PIE_CHART.md) records the cumulative root bud
 
 ## NG17 composed Cartesian extension
 
-`ComposedChart<T>` uses `CartesianChart<T, Option, Series>` with a default-compatible third generic parameter. The mixed series union refines the required input without changing existing component contracts. Normalization, stable identity, visibility, focus, formatting, state precedence, theme/motion and plot coordination remain shared. The pure composed builder maps each validated descriptor to a bar or line, retains category centers when bars are hidden, renders lines above bars and replaces options on every update. No sibling family internals are imported.
+`ComposedChart<T>` uses `CartesianChart<T, Option, Series>` with a default-compatible third generic parameter. The mixed series union refines the required input without changing existing component contracts. Normalization, stable identity, visibility, focus, formatting, state precedence, theme/motion and plot coordination remain shared. The pure composed builder maps each validated descriptor to a bar or line-engine series, adding area fill for area descriptors. It retains category centers through kind/visibility changes, draws areas behind bars and ordinary lines, and replaces options on every update. Bar and area stack names have separate internal namespaces; the shared pure area-fill helper preserves standalone fill behavior. No sibling family internals are imported.
 
-The focused `/composed` entry owns its browser loader and registers Bar/Line/Grid/Tooltip/Canvas lazily. The shared curve point decoder handles direct bar/marker events and nearest-category whole-line events. Root exports preserve class identity. All component/engine boundaries retain existing size caps. The [API](COMPOSED_CHART_API.md) and [NG17 report](experiments/NG17_COMPOSED_CHART.md) cover the initial one-scale, vertical, unstacked scope and its validation.
+The focused `/composed` entry owns its browser loader and registers Bar/Line/Grid/Tooltip/Canvas lazily. The shared curve point decoder handles direct bar/marker events and nearest-observed-category whole-line/area events with raw values. Root exports preserve class identity. All component/engine boundaries retain existing size caps. The [API](COMPOSED_CHART_API.md) and [NG17 report](experiments/NG17_COMPOSED_CHART.md) cover the initial one-scale, vertical, unstacked scope and its validation.
 
 
 ## NG20 application-owned links

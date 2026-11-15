@@ -1,6 +1,6 @@
 # ng-echarts product specification
 
-Status: implementation baseline; all four selected chart families are present and automated cross-family evidence is reconciled. Human interpretation and release acceptance remain pending. Updated 14 November 2026. See the [current evidence index](ACCEPTANCE_MATRIX.md#implemented-family-evidence).
+Status: implementation baseline; all four selected chart families are present and automated cross-family evidence is reconciled. Human interpretation and release acceptance remain pending. Updated 15 November 2026. Published rc.22 also includes the implemented post-MVP composed, radar, radial-progress, calendar and Sankey extensions described below; their bounded contracts retain the deferred human gates. See the [current evidence index](ACCEPTANCE_MATRIX.md#implemented-family-evidence).
 
 ## Purpose and users
 
@@ -27,7 +27,7 @@ Shared features include tooltips, legends, theme tokens, loading and empty state
 
 The demo's `/chart-possibilities` route presents twelve interactive design proposals using the approved [standalone gallery](experiments/chart-style-gallery.html). The existing site owns navigation and theme selection. Calendar heatmap, waterfall, scatter/bubble, bullet, dumbbell, Sankey, treemap, radial progress, radar, KPI sparklines, 100% stacked bars and ranked lollipop examples use illustrative data. This preview does not add public Angular chart APIs or establish family acceptance. See the [integration record](experiments/CHART_POSSIBILITIES.md).
 
-Composed charts, radar, radial charts, Sankey, calendar heatmaps, advanced patterns, glow effects, custom tooltip templates, and additional animation variants follow after the shared architecture is stable. Each receives a separate parity checklist before implementation.
+Post-MVP composed charts, radar, scalar radial progress, Sankey and calendar heatmaps are implemented with their own bounded APIs and evidence below. Advanced patterns, glow effects, custom tooltip templates and additional animation variants remain subsequent work. New increments require separate acceptance checklists.
 
 The user authorized NG17 development after the verified private candidate. Its first increment is vertical, unstacked bars plus straight/smooth lines on shared category/linear axes, with comparable units, stable series IDs, optional line points and the existing shared controls/events/states. The [composed API](COMPOSED_CHART_API.md) owns the exact contract; [NG17 evidence](experiments/NG17_COMPOSED_CHART.md) records implementation checks. The rc.20 follow-up adds optional named bar stacks on the same shared scale. The rc.22 follow-up adds area composition; dual axes, horizontal composition and advanced tooltips remain subsequent work. The original four-family MVP and deferred human gates retain their scope.
 
@@ -124,7 +124,7 @@ Deliver installation instructions, typed examples, an API reference, data limits
 
 Use the [acceptance matrix](ACCEPTANCE_MATRIX.md) to track F01 through F10, visual parity, and quality targets. Every required check must pass against its current criterion. A revised target needs a recorded rationale, an aligned specification, and a successful rerun before its gate can pass.
 
-The local project name is fixed by the user. Original library code is MIT licensed under the user’s 13 November 2026 decision; upstream/dependency notices remain separate. The user selected the public identity `@mantha911/ng-echarts`; experimental `0.1.0-rc.18` is published and verified. Private rc.4 and later private candidates remain preserved. The [release checklist](RELEASE_CHECKLIST.md) records exact-artifact and registry checks, actual npm tags and open human acceptance under the explicit prerelease deferral.
+The local project name is fixed by the user. Original library code is MIT licensed under the user’s 13 November 2026 decision; upstream/dependency notices remain separate. The user selected the public identity `@mantha911/ng-echarts`; experimental `0.1.0-rc.22` is published and verified under `next`, while `latest` retains rc.18. Private rc.4 and later private candidates remain preserved. The [release checklist](RELEASE_CHECKLIST.md) records exact-artifact and registry checks, actual npm tags and open human acceptance under the explicit prerelease deferral.
 
 
 ## NG18 radar first increment

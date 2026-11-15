@@ -1,6 +1,8 @@
 # NG17 stacked composed bars
 
-Date: 15 November 2026. User-authorized follow-up after the rc.19 performance and Angular checkpoint. Named-stack implementation and automated verification are complete; the current rc.21 artifact remains a local candidate. Human F09/R06/G2/G3/G4 remain pending.
+Date: 15 November 2026. User-authorized follow-up after the rc.19 performance and Angular checkpoint. Named-stack implementation and automated verification were complete at this checkpoint; rc.21 was then a local candidate. Human F09/R06/G2/G3/G4 remain pending.
+
+Subsequent delivery: rc.21 was published from its preserved archive; current npm `next` is rc.22 and `latest` remains rc.18. The [current publication record](../PUBLICATION.md#rc22-oidc-publication) and [area increment](NG17_COMPOSED_AREAS.md) own later OIDC, area and live-demo results. Publication/deployment statements below describe this earlier checkpoint.
 
 ## Contract
 
@@ -10,7 +12,7 @@ Within a stack, positive and negative observations accumulate separately from ze
 
 The demo adds desktop/mobile stacks with a supplied trailing mean of their combined monthly visits. Comparable units and explicit descriptions remain required. Horizontal composition, dual scales, stacked lines/areas, percentage normalization and tooltip templates remain outside this increment.
 
-Apache ECharts documents named stacks and sign-aware stacking in its [bar series options](https://echarts.apache.org/en/option.html#series-bar.stack). No additional engine modules or dependencies are required. Preserve rc.19 and all earlier archives; this new public contract has a separate verified rc.20 candidate. A documentation-only rc.21 successor corrects packaged registry-availability text after rc.19 publication; it preserves rc.20 runtime/declarations. npm next remains rc.19 until a separate future publication decision.
+Apache ECharts documents named stacks and sign-aware stacking in its [bar series options](https://echarts.apache.org/en/option.html#series-bar.stack). No additional engine modules or dependencies are required. Preserve rc.19 and all earlier archives; this new public contract has a separate verified rc.20 candidate. A documentation-only rc.21 successor corrects packaged registry-availability text after rc.19 publication; it preserves rc.20 runtime/declarations. At this checkpoint npm next remained rc.19 pending a separate publication decision.
 
 ## Validation
 
@@ -23,7 +25,7 @@ Using Node 24.22.2 and npm 11.19.1:
 - The final [rc.21 source validation](rc21/source-validation.json) passes the same complete workspace check and reproduces the prepared rc.21 bytes. Its [package budgets](rc21/source-package-boundaries.json) measure combined root at 220,764 gzip / 188,615 Brotli bytes, core at 9,254 / 8,212, and root-frame emitted chunks at 203,777 / 175,819. All existing caps pass without adjustment; per-family engine isolation remains intact. No general latency improvement is claimed.
 - The [rc.20 candidate](data/local-release-0.1.0-rc.20.json) passes exact metadata/notices, strict declarations, documented installation and all six independently installed client/SSR engine modes, plus overwrite refusal. Archive: 162,637 bytes, SHA-256 `ac0834cf4aef51c33e7f76f3c22bccdb8a1a2c9456ef0eb4ab1d85ee690ab333`.
 - The [rc.21 documentation correction](data/local-release-0.1.0-rc.21.json) independently passes the same exact-artifact checks and overwrite refusal. Archive: 162,701 bytes, SHA-256 `3b7b4af12f77af6065c10f27e175a84763c22a9409b9317c4711f114b691af11`. Retained [documentation](rc21/documentation-consumer.json) and [runtime](rc21/packed-runtime.json) receipts identify its exact bytes. The [package comparison](rc21/package-comparison.json) confirms that only `package.json`, `README.md` and `CHANGELOG.md` differ from rc.20; runtime, declarations and notices are byte-identical. All 47 earlier archived files/checksums/retained manifests keep their [recorded digests](rc21/preserved-artifacts.json); the mutable current-manifest pointer is excluded.
-- Current npm publication remains rc.19 under `next`, with `latest` on rc.18. rc.20/rc.21 are verified local candidates. The already-live rc.19 demo identity is recorded independently; no new demo deployment is claimed by these local results.
+- At this checkpoint npm publication remained rc.19 under `next`, with `latest` on rc.18. rc.20/rc.21 are verified local candidates. The already-live rc.19 demo identity is recorded independently; no new demo deployment is claimed by these local results.
 
 ## Visual and interpretation evidence
 
@@ -57,4 +59,4 @@ The [current human review sheet](RC20_HUMAN_REVIEW.md) includes stacked composit
 
 ## Committed demo delivery
 
-After the user authorized commit and redeployment, the completed follow-ups were committed as `a4e6cfdccbe32c264273d38ce27fc8fc3c14b7d8` and pushed to main. The normal guarded workflow rebuilt and checked clean source, then published `gh-pages` commit `ee9e493b8f309351c8524b7405c78682c46abf9a`. The [deployment receipt](rc21/deployed/deployment.json) records the exact artifact, successful GitHub deployment, all public byte checks and three-engine browser verification. A live keyboard action returned the raw stacked value `a/mobile/40/table`. The [current deployment guide](../GITHUB_PAGES.md#current-deployment--15-november-follow-up) records the deployed identity. npm remains rc.19 under next; rc.21 remains a local library candidate. Human interpretation and release gates remain deferred/pending.
+After the user authorized commit and redeployment, the completed follow-ups were committed as `a4e6cfdccbe32c264273d38ce27fc8fc3c14b7d8` and pushed to main. The normal guarded workflow rebuilt and checked clean source, then published `gh-pages` commit `ee9e493b8f309351c8524b7405c78682c46abf9a`. The [deployment receipt](rc21/deployed/deployment.json) records the exact artifact, successful GitHub deployment, all public byte checks and three-engine browser verification. A live keyboard action returned the raw stacked value `a/mobile/40/table`. The [current deployment guide](../GITHUB_PAGES.md#current-deployment--15-november-follow-up) records the deployed identity. At this deployment checkpoint npm remained rc.19 under next and rc.21 was still a local library candidate. Human interpretation and release gates remain deferred/pending.

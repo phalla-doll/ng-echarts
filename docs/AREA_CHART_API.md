@@ -2,7 +2,7 @@
 
 Use [installation](INSTALLATION.md), the [complete application example](INTEGRATION_GUIDE.md), and the [tested compatibility/limits table](COMPATIBILITY.md) with this API.
 
-Experimental native Angular 22 area charts. Import from `@mantha911/ng-echarts/area` after installing the experimental public rc.18 through `@next` or an exact version. The retained packed-artifact workflow is also supported; see [installation](INSTALLATION.md). Human interpretation and release gates remain pending.
+Experimental native Angular 22 area charts. Import from `@mantha911/ng-echarts/area` after installing the experimental public rc.22 through `@next` or an exact version. The retained packed-artifact workflow is also supported; see [installation](INSTALLATION.md). Human interpretation and release gates remain pending.
 
 ```ts
 import { ChangeDetectionStrategy, Component } from '@angular/core';
@@ -50,6 +50,7 @@ Area shares the [bar API's](BAR_CHART_API.md) typed Cartesian data, formatting, 
 | `locale`, `numberFormatOptions`, `valueFormatter` | `'en-US'`, `undefined`, `undefined` | Same numeric text in axes, tooltips, tables, and action labels |
 | `categoryTickFormatter` | `undefined` | Axis labels only; retain full text in tooltips/tables/events |
 | `showDataTable` | `true` | Include the initially collapsed table and its labeled toggle |
+| `tablePageSize` | `null` | Positive safe integer bounds native table rows per page; null retains the complete table; plot data is unchanged |
 | `loading`, `error`, `animation` | `false`, `null`, `true` | Shared state precedence; reduced motion overrides decorative animation |
 
 Each series owns its fill object and original palette slot; filtering one series does not recolor the others. Fill alpha multiplies any existing CSS/series color alpha. Gradient coordinates are relative to each painted area and fade from screen top to bottom, including negative areas. Use solid fills when a uniform tint is preferable.
@@ -64,7 +65,7 @@ Area uses 2 px outlines, theme-aware independent fills, the same host-font loadi
 
 `/area` lazily registers ECharts Line, Grid, Tooltip, and Canvas: ECharts implements area fill through its line engine. Focused area imports exclude Bar/SVG and other component entries. Focused line imports exclude the AreaChart component; both intentionally use the line engine. The package root reexports AreaChart alongside existing components. Core's `ɵ` exports are unsupported implementation APIs.
 
-Area covers multi-series gradient/solid fills, grouping/stacking, straight/smooth curves, optional points, and gaps. Latency/portfolio compositions, dotted/hatched textures, brush, normalized/expanded stacks, step/bump curves, decorative strokes, custom tooltip templates, and raw ECharts option overrides remain outside this API.
+Area covers multi-series gradient/solid fills, grouping/stacking, straight/smooth curves, optional points, and gaps. For area+line or bar/line/area combinations and separate named stack groups, use [ComposedChart](COMPOSED_CHART_API.md#area-composition-in-rc22) in rc.22 or later. Latency/portfolio compositions, dotted/hatched textures, brush, normalized/expanded stacks, step/bump curves, decorative strokes, custom tooltip templates, and raw ECharts option overrides remain outside this API.
 
 Use `/area` for the gallery, `/area-validation` for behavior checks, and `/area-comparison` for pinned reference conditions. `npm run benchmark:area` measures the actual Angular component; `npm run capture:area` reproduces the source comparisons after preparing the reference harness. Tested toolchain versions remain Angular/CLI 22.2.6, TypeScript 6.0.3, ECharts 6.1.0, Node 24.22.2, and npm 11.19.1. See the [NG12 report](experiments/NG12_AREA_CHART.md) for validation, measurements, supported envelope, and release limitations.
 
@@ -78,4 +79,4 @@ Series alternate solid/circle and dashed/diamond outlines/markers, retaining the
 
 Set `[tablePageSize]="50"` to create at most 50 native table rows at once. The default `null` retains the complete table. The size must be a positive safe integer; invalid values produce a configuration error. The plot continues to show all observations. Previous/Next buttons announce the visible row range and retain keyboard focus at either boundary. Every row remains available through paging, including hidden-series values, zero and missing observations.
 
-Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. The current local rc.21 candidate also includes it.
+Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. Current published rc.22 also includes it; see [installation](INSTALLATION.md#current-feature-availability).

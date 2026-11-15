@@ -2,7 +2,7 @@
 
 Use [installation](INSTALLATION.md), the [complete application example](INTEGRATION_GUIDE.md), and the [tested compatibility/limits table](COMPATIBILITY.md) with this API.
 
-Implemented Angular 22 bar API, updated 14 November 2026. Import from `@mantha911/ng-echarts/bar`; install the experimental public `0.1.0-rc.18` release through `@next` or use the exact retained tarball. See [installation](INSTALLATION.md) and [publication status](PUBLICATION.md#first-publication-result). The API remains experimental; human interpretation is deferred at the user’s request.
+Implemented Angular 22 bar API, updated 15 November 2026. Import from `@mantha911/ng-echarts/bar`; install the experimental public `0.1.0-rc.22` release through `@next` or use the exact retained tarball. See [installation](INSTALLATION.md) and [publication status](PUBLICATION.md#rc22-oidc-publication). The API remains experimental; human interpretation is deferred at the user’s request.
 
 ## Minimal integration
 
@@ -69,6 +69,7 @@ Bind booleans and numbers as Angular properties, for example `[stacked]="true"` 
 | `valueFormatter` | `ValueFormatter \| undefined` | Pure synchronous `(value: number) => string`; overrides generated numeric text |
 | `categoryTickFormatter` | `CategoryTickFormatter \| undefined` | Pure synchronous `(category: string, index: number) => string`; axis text only |
 | `showDataTable` | `boolean`, `true` | Include table toggle and expandable values; initially collapsed |
+| `tablePageSize` | `number \| null`, `null` | Positive safe integer bounds native table rows per page; null retains the complete table; plot data is unchanged |
 | `loading` | `boolean`, `false` | Show loading state and remove stale plot actions |
 | `error` | `string \| null`, `null` | Supplied application error; empty string uses a generic message |
 | `animation` | `boolean`, `true` | Decorative plot animation; reduced motion always disables it |
@@ -128,4 +129,4 @@ On a vertical bar chart, horizontal touch movement can select while vertical pag
 
 Set `[tablePageSize]="50"` to create at most 50 native table rows at once. The default `null` retains the complete table. The size must be a positive safe integer; invalid values produce a configuration error. The plot continues to show all observations. Previous/Next buttons announce the visible row range and retain keyboard focus at either boundary. Every row remains available through paging, including hidden-series values, zero and missing observations.
 
-Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. The current local rc.21 candidate also includes it.
+Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. Current published rc.22 also includes it; see [installation](INSTALLATION.md#current-feature-availability).

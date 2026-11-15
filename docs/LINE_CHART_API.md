@@ -46,6 +46,7 @@ export class Readings {
 | `locale`, `numberFormatOptions`, `valueFormatter` | `'en-US'`, `undefined`, `undefined` | Consistent numeric text across ticks, tooltips, table values, and action labels |
 | `categoryTickFormatter` | `undefined` | Shorten axis labels while preserving full labels elsewhere |
 | `showDataTable` | `true` | Include the initially collapsed native table and its toggle |
+| `tablePageSize` | `null` | Positive safe integer bounds native table rows per page; null retains the complete table; plot data is unchanged |
 | `loading`, `error`, `animation` | `false`, `null`, `true` | Shared state/motion rules; reduced motion overrides animation |
 
 `pointSelect` emits the original row, stable row/series IDs, raw numeric value, and `source: 'plot' | 'table'`. Clicking a marker selects its observation. Clicking the painted line, including with persistent markers disabled, selects the nearest category on that series; missing values never emit. A lone observation with hidden markers has no line segment to click, so retain its table action. `legendChange` emits `{ seriesId, visible }`.
@@ -58,7 +59,7 @@ Lines use 2 px strokes with theme-colored, 2 px bordered markers. Stable series 
 
 Import `/line` for a line-only consumer. It lazily registers Line, Grid, Tooltip, and Canvas modules and excludes Bar/SVG implementations. `/bar` continues to exclude Line. The compatibility root reexports bar, line, area, pie/donut and composed components; radar, radial progress, calendar and Sankey remain focused-only. Shared `ɵ`-prefixed exports exist only for package implementation; they are unsupported consumer APIs. Do not import renderer classes or package source internals.
 
-Line supports category/linear-value axes, multiple series, straight/smooth interpolation, optional markers, gaps, numeric formatting, and shared controls. Area fills, line stacks, step/bump/monotone-specific interpolation controls, brushes, animated/decorative strokes, custom tooltips, and raw ECharts options are outside this API.
+Line supports category/linear-value axes, multiple series, straight/smooth interpolation, optional markers, gaps, numeric formatting, and shared controls. Area fills, line stacks, step/bump/monotone-specific interpolation controls, brushes, animated/decorative strokes, custom tooltips, and raw ECharts options are outside this standalone line API. Use [ComposedChart](COMPOSED_CHART_API.md#area-composition-in-rc22) for independent lines alongside filled areas and named area stacks.
 
 ## Validation and limits
 
@@ -74,4 +75,4 @@ Series alternate solid/circle and dashed/diamond outlines/markers, with identity
 
 Set `[tablePageSize]="50"` to create at most 50 native table rows at once. The default `null` retains the complete table. The size must be a positive safe integer; invalid values produce a configuration error. The plot continues to show all observations. Previous/Next buttons announce the visible row range and retain keyboard focus at either boundary. Every row remains available through paging, including hidden-series values, zero and missing observations.
 
-Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. The current local rc.21 candidate also includes it.
+Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. Current published rc.22 also includes it; see [installation](INSTALLATION.md#current-feature-availability).

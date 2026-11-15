@@ -1,6 +1,6 @@
 # Linked charts
 
-NG20 links a monthly visits overview to device share for one month or an inclusive range, with optional transient month previews in private rc.15. Selection belongs to the application: `pointSelect` supplies a stable row ID, native period fields or a graphical drag edit the bounds, and signals derive the companion chart's data. The bar chart's controlled `selectedRowIds` input reflects every included month. No ECharts instance connection or global selection bus is required. The complete graphical example requires private rc.4 or later; native ranges require rc.3; the scalar `selectedRowId` input remains supported from rc.2.
+NG20 links a monthly visits overview to device share for one month or an inclusive range, with optional transient month previews introduced in private rc.15. The complete example is included in published rc.22; see [installation](INSTALLATION.md#current-feature-availability). Selection belongs to the application: `pointSelect` supplies a stable row ID, native period fields or a graphical drag edit the bounds, and signals derive the companion chart's data. The bar chart's controlled `selectedRowIds` input reflects every included month. No ECharts instance connection or global selection bus is required. The complete graphical example was introduced in private rc.4; native ranges require rc.3; the scalar `selectedRowId` input remains supported from rc.2.
 
 ## Complete standalone example
 

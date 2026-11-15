@@ -1,6 +1,6 @@
 # Radial progress API
 
-Experimental NG18 component, introduced in private `0.1.0-rc.6` and now included in public `0.1.0-rc.18`. Import `RadialProgress` from `@mantha911/ng-echarts/radial`. The focused entry leaves the compatibility root and its existing engines unchanged. Original code is MIT licensed; the experimental npm prerelease is available under `next`.
+Experimental NG18 component, introduced in private `0.1.0-rc.6` first published in `0.1.0-rc.18` and included in current `0.1.0-rc.22`. Import `RadialProgress` from `@mantha911/ng-echarts/radial`. The focused entry leaves the compatibility root and its existing engines unchanged. Original code is MIT licensed; the experimental npm prerelease is available under `next`.
 
 ## Example
 

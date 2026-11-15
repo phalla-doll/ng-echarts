@@ -1,8 +1,8 @@
 # Integrate Angular charts
 
-Follow [installation](INSTALLATION.md) first. Every component is standalone. Prefer focused imports; `/core` supplies shared public types and `ChartFrame` without ECharts runtime. Root imports remain compatible for existing exports; radar and radial progress use their focused entries only; `ɵ` exports and deep source paths are unsupported implementation APIs.
+Follow [installation](INSTALLATION.md) first. Every component is standalone. Prefer focused imports; `/core` supplies shared public types and `ChartFrame` without ECharts runtime. Root imports remain compatible for existing exports; radar, radial progress, calendar and Sankey use their focused entries only; `ɵ` exports and deep source paths are unsupported implementation APIs.
 
-The examples target the published experimental `@mantha911/ng-echarts@0.1.0-rc.18` release. Follow [installation](INSTALLATION.md) for `@next`, exact-version or retained-tarball installs. [Publication status](PUBLICATION.md#first-publication-result) records npm’s initial `latest` alias and the deferred human interpretation review; a registry release does not close F09/R06/G2/G3/G4.
+The examples target the published experimental `@mantha911/ng-echarts@0.1.0-rc.22` release. Follow [installation](INSTALLATION.md) for `@next`, exact-version or retained-tarball installs. [Publication status](PUBLICATION.md#rc22-oidc-publication) records rc.22 under `next`, npm’s retained rc.18 `latest` alias and the deferred human interpretation review; a registry release does not close F09/R06/G2/G3/G4.
 
 ## API index
 
@@ -131,7 +131,11 @@ The declaration check compiles this exact block against the installed tarball; t
 | `ValueFormatter` | Pure synchronous `(value: number) => string`; called for observations and generated numeric axis ticks |
 | `CategoryTickFormatter` | Pure synchronous `(category: string, index: number) => string`; Cartesian axis text only |
 
-The shared key/measure/event/formatting types above are available from `/core`; `BarRangeSelection<T>` belongs to `/bar` or the compatibility root. Family entries reexport their applicable shared types. `ComposedSeries<T>` belongs to `/composed` or root, `CalendarPointSelection<T>` to `/calendar`, and `SankeyNode`, `SankeyLink` and `SankeySelection<N,L>` to `/sankey`. Calendar/Sankey types are not exported by `/core`. A point action does not mutate persistent selection: bind the optional controlled bar feedback inputs to application state when needed. Handle legend outputs with the family-specific payload above.
+The shared key/measure/event/formatting types above are available from `/core`; `BarRangeSelection<T>` belongs to `/bar` or the compatibility root. Family entries reexport their applicable shared types. `ComposedSeries<T>` and its bar/line/area descriptor types belong to `/composed` or root, `CalendarPointSelection<T>` to `/calendar`, and `SankeyNode`, `SankeyLink` and `SankeySelection<N,L>` to `/sankey`. Calendar/Sankey types are not exported by `/core`. A point action does not mutate persistent selection: bind the optional controlled bar feedback inputs to application state when needed. Handle legend outputs with the family-specific payload above.
+
+## Composed areas and named stacks
+
+Use `ComposedChart` with `ComposedSeries<T>` for comparable measures on one category/value scale. A descriptor’s `kind` selects bar, line or area; area accepts `smooth`, `showPoints`, `gradient` and an optional `stack` name. Equal names stack same-sign areas together; bar groups stay separate even if their public names match. Ordinary lines remain independent supplied values. Missing values remain missing and point actions return raw observations. The [composed API](COMPOSED_CHART_API.md) and four copyable `/composed` gallery examples cover the complete contract. All variants are available in published rc.22; dual axes and horizontal composition remain deferred.
 
 ## Updates, formatting and state
 
