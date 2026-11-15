@@ -262,6 +262,18 @@ async function checkPages() {
         await page.keyboard.press('Enter');
         await expect(page.locator('#page-content')).toBeFocused();
         await page.getByRole('button', { name: 'Use light theme', exact: true }).click();
+        await page.reload();
+        await expect(
+          page.getByRole('button', { name: 'Use dark theme', exact: true }),
+        ).toBeVisible();
+        await expect(page.locator('.site-shell')).not.toHaveClass(/\bdark\b/);
+        await page.getByRole('button', { name: 'Use dark theme', exact: true }).click();
+        await page.reload();
+        await expect(
+          page.getByRole('button', { name: 'Use light theme', exact: true }),
+        ).toBeVisible();
+        await expect(page.locator('.site-shell')).toHaveClass(/\bdark\b/);
+        await page.getByRole('button', { name: 'Use light theme', exact: true }).click();
         await page.setViewportSize({ width: 390, height: 844 });
         await page.getByRole('button', { name: 'Open navigation', exact: true }).click();
         await page

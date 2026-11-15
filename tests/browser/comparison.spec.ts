@@ -184,7 +184,8 @@ for (const route of ['/comparison', '/line-comparison', '/area-comparison', '/pi
     await expect.poll(frameBackground).toEqual([255, 255, 255, 255]);
     await page.getByRole('button', { name: /Toggle .*comparison theme/ }).click();
     await expect.poll(frameBackground).not.toEqual([255, 255, 255, 255]);
-    await expect(page.locator('.site-shell')).toHaveClass(/\bdark\b/);
+    // The reference plot toggle is isolated from the saved light site preference.
+    await expect(page.locator('.site-shell')).not.toHaveClass(/\bdark\b/);
     expect(errors).toEqual([]);
   });
 }

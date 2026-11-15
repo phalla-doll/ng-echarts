@@ -115,7 +115,7 @@ test('preserves site theme across docs and tools and applies it when deferred ch
     await expect(page.locator('.site-shell')).toHaveClass(/\bdark\b/);
     await expect(page.locator('.site-shell')).toHaveCSS('background-color', 'rgb(10, 10, 10)');
   }
-  // A fresh document has the deterministic dark initial theme; change it before hydrating a block.
+  // The saved dark selection is restored on a fresh document; change it before hydrating a block.
   await page.goto('/validation');
   await expect(page.getByTestId('primary').locator('canvas')).toHaveCount(1);
   await expect(page.getByTestId('deferred').locator('canvas')).toHaveCount(0);
@@ -163,7 +163,11 @@ test('keeps every documentation and tool page usable at narrow widths in both th
     await page.goto(route);
     await expect(page.locator('h1')).toBeVisible();
     for (const light of [false, true]) {
-      if (light) await page.getByRole('button', { name: 'Use light theme', exact: true }).click();
+      const toggle = page.getByRole('button', {
+        name: light ? 'Use light theme' : 'Use dark theme',
+        exact: true,
+      });
+      if (await toggle.count()) await toggle.click();
       for (const width of [320, 768, 1440]) {
         await page.setViewportSize({ width, height: 1000 });
         await expect

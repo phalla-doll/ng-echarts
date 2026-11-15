@@ -45,8 +45,9 @@ try {
       await page.setViewportSize({ width, height: 1000 });
       await page.goto(new URL('radar/', base).href);
       await expect(page.locator('nec-radar-chart canvas')).toHaveCount(1);
+      const toggle = page.getByRole('button', { name: `Use ${theme} theme`, exact: true });
+      if (await toggle.count()) await toggle.click();
       if (theme === 'light') {
-        await page.getByRole('button', { name: 'Use light theme', exact: true }).click();
         await expect(page.locator('.site-shell')).not.toHaveClass(/dark/);
       }
       await page.evaluate(() => document.fonts.ready);

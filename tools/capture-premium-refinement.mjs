@@ -40,8 +40,8 @@ try {
       await card.locator('canvas').first().waitFor();
     }
     for (const theme of ['dark', 'light']) {
-      if (theme === 'light')
-        await page.getByRole('button', { name: 'Use light theme', exact: true }).click();
+      const toggle = page.getByRole('button', { name: `Use ${theme} theme`, exact: true });
+      if (await toggle.count()) await toggle.click();
       for (const width of [1440, 390, 320]) {
         await page.setViewportSize({ width, height: 1000 });
         await page.waitForTimeout(350);
