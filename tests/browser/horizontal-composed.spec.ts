@@ -3,7 +3,7 @@ import { collectBrowserErrors } from './resource-audit';
 
 /** First painted observation in top-to-bottom category order, without engine internals. */
 async function paintedPoint(chart: Locator, seriesIndex: number, interior = false) {
-  await chart.locator('canvas').evaluate((canvas) => canvas.scrollIntoView({ block: 'center' }));
+  await chart.locator('canvas').scrollIntoViewIfNeeded();
   return chart.evaluate(
     (host, { seriesIndex, interior }) => {
       const canvas = host.querySelector('canvas')!;
@@ -23,15 +23,15 @@ async function paintedPoint(chart: Locator, seriesIndex: number, interior = fals
       const box = canvas.getBoundingClientRect();
       // This fixture has five categories. Stay in January's band so a later
       // painted row cannot satisfy readiness while the first row is updating.
-      for (let y = 8 + inset; y < canvas.height * 0.28; y++) {
+      for (let y = 8 + inset; y < canvas.height * 0.2; y++) {
         for (let x = 12 + inset; x < canvas.width - 12 - inset; x++) {
           if (
             matches(x, y) &&
             (!interior || (matches(x - inset, y - inset) && matches(x + inset, y + inset)))
           ) {
             return {
-              x: box.x + (x * box.width) / canvas.width,
-              y: box.y + (y * box.height) / canvas.height,
+              x: (x * box.width) / canvas.width,
+              y: (y * box.height) / canvas.height,
             };
           }
         }
@@ -103,7 +103,7 @@ test('rotates stacked bars and unmarked line hits while preserving native raw va
   await page.getByRole('button', { name: 'Use stacked bars', exact: true }).click();
   await expect.poll(() => paintedPoint(chart, 1, true)).not.toBeNull();
   const segment = (await paintedPoint(chart, 1, true))!;
-  await page.mouse.click(segment.x, segment.y);
+  await chart.locator('canvas').click({ position: segment });
   await expect(page.locator('.selection')).toHaveText('a/mobile/40/plot');
   await chart.getByRole('button', { name: 'Show data table', exact: true }).click();
   for (const [label, result] of [
@@ -122,7 +122,7 @@ test('rotates stacked bars and unmarked line hits while preserving native raw va
   await expect.poll(() => paintedPoint(chart, 0, true)).toBeNull();
   await expect.poll(() => paintedPoint(chart, 1)).not.toBeNull();
   const line = (await paintedPoint(chart, 1))!;
-  await page.mouse.click(line.x, line.y);
+  await chart.locator('canvas').click({ position: line });
   await expect(page.locator('.selection')).toHaveText('a/trend/80/plot');
   await page.getByRole('button', { name: 'Horizontal composed', exact: true }).click();
   await expect(visits).toHaveAttribute('aria-pressed', 'false');

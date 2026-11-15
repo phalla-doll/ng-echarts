@@ -70,7 +70,10 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps ${{ matrix.browser }}
       - run: npm run build
-      - run: npm run test:browser -- --project=${{ matrix.browser }}
+      - name: Verify WebKit horizontal hit targets before the full suite
+        if: matrix.browser == 'webkit'
+        run: npm run test:browser -- tests/browser/horizontal-composed.spec.ts --project=webkit --max-failures=1
+      - run: npm run test:browser -- --project=${{ matrix.browser }} --max-failures=1
       - name: Retain browser failure evidence
         if: failure() || cancelled()
         uses: actions/upload-artifact@v7

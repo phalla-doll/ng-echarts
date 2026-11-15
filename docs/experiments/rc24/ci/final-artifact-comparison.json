@@ -1,0 +1,16 @@
+{
+  "recordedAt": "2026-11-15T16:24:36.925389+00:00",
+  "sourceCommit": "24c87a838340f7ca6c8ed79d06169ed7140ace64",
+  "ciRunId": 43734385110,
+  "ciManifestIncludesWorkingTree": true,
+  "ciWorkingTreeNote": "CI starts from checkout; workspace checks refresh tracked verification evidence before release preparation. Preserve this true flag; complete archive bytes match the immutable local candidate.",
+  "version": "0.1.0-rc.24",
+  "bytes": 170430,
+  "localSha256": "6dd89361c4f6482b28b9a3f28d88bddf28a71eac9123ec1a8412517995d4c46f",
+  "ciSha256": "6dd89361c4f6482b28b9a3f28d88bddf28a71eac9123ec1a8412517995d4c46f",
+  "archiveBytesIdentical": true,
+  "packageFilesCompared": 68,
+  "declarationsCompared": 11,
+  "allMembersIdentical": true,
+  "passed": true
+}

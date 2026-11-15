@@ -1,0 +1,67 @@
+[WebServer] (node:99426) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 30 tests using 1 worker
+
+(node:99428) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/browser/horizontal-composed.spec.ts:94:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer (1.1s)
+  ✓   2 [chromium] › tests/browser/horizontal-composed.spec.ts:138:1 › renders horizontal areas and long regional labels at all responsive widths and themes (1.3s)
+(node:99437) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [chromium] › tests/browser/horizontal-composed.spec.ts:94:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer (1.1s)
+  ✓   4 [chromium] › tests/browser/horizontal-composed.spec.ts:138:1 › renders horizontal areas and long regional labels at all responsive widths and themes (1.2s)
+(node:99447) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [chromium] › tests/browser/horizontal-composed.spec.ts:94:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer (1.1s)
+  ✓   6 [chromium] › tests/browser/horizontal-composed.spec.ts:138:1 › renders horizontal areas and long regional labels at all responsive widths and themes (1.2s)
+(node:99457) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [chromium] › tests/browser/horizontal-composed.spec.ts:94:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer (1.1s)
+  ✓   8 [chromium] › tests/browser/horizontal-composed.spec.ts:138:1 › renders horizontal areas and long regional labels at all responsive widths and themes (1.2s)
+(node:99466) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [chromium] › tests/browser/horizontal-composed.spec.ts:94:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer (1.1s)
+  ✓  10 [chromium] › tests/browser/horizontal-composed.spec.ts:138:1 › renders horizontal areas and long regional labels at all responsive widths and themes (1.2s)
+(node:99483) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  11 [firefox] › tests/browser/horizontal-composed.spec.ts:94:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer (1.8s)
+  ✓  12 [firefox] › tests/browser/horizontal-composed.spec.ts:138:1 › renders horizontal areas and long regional labels at all responsive widths and themes (1.3s)
+(node:99496) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  13 [firefox] › tests/browser/horizontal-composed.spec.ts:94:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer (1.8s)
+  ✓  14 [firefox] › tests/browser/horizontal-composed.spec.ts:138:1 › renders horizontal areas and long regional labels at all responsive widths and themes (1.3s)
+(node:99532) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  15 [firefox] › tests/browser/horizontal-composed.spec.ts:94:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer (1.8s)
+  ✓  16 [firefox] › tests/browser/horizontal-composed.spec.ts:138:1 › renders horizontal areas and long regional labels at all responsive widths and themes (1.3s)
+(node:99547) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  17 [firefox] › tests/browser/horizontal-composed.spec.ts:94:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer (1.8s)
+  ✓  18 [firefox] › tests/browser/horizontal-composed.spec.ts:138:1 › renders horizontal areas and long regional labels at all responsive widths and themes (1.3s)
+(node:99577) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  19 [firefox] › tests/browser/horizontal-composed.spec.ts:94:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer (1.8s)
+  ✓  20 [firefox] › tests/browser/horizontal-composed.spec.ts:138:1 › renders horizontal areas and long regional labels at all responsive widths and themes (1.3s)
+(node:99633) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  21 [webkit] › tests/browser/horizontal-composed.spec.ts:94:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer (1.4s)
+  ✓  22 [webkit] › tests/browser/horizontal-composed.spec.ts:138:1 › renders horizontal areas and long regional labels at all responsive widths and themes (1.4s)
+(node:99650) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  23 [webkit] › tests/browser/horizontal-composed.spec.ts:94:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer (1.4s)
+  ✓  24 [webkit] › tests/browser/horizontal-composed.spec.ts:138:1 › renders horizontal areas and long regional labels at all responsive widths and themes (1.5s)
+(node:99668) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  25 [webkit] › tests/browser/horizontal-composed.spec.ts:94:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer (1.4s)
+  ✓  26 [webkit] › tests/browser/horizontal-composed.spec.ts:138:1 › renders horizontal areas and long regional labels at all responsive widths and themes (1.5s)
+(node:99695) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  27 [webkit] › tests/browser/horizontal-composed.spec.ts:94:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer (1.3s)
+  ✓  28 [webkit] › tests/browser/horizontal-composed.spec.ts:138:1 › renders horizontal areas and long regional labels at all responsive widths and themes (1.5s)
+(node:99755) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  29 [webkit] › tests/browser/horizontal-composed.spec.ts:94:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer (1.4s)
+  ✓  30 [webkit] › tests/browser/horizontal-composed.spec.ts:138:1 › renders horizontal areas and long regional labels at all responsive widths and themes (1.6s)
+
+  30 passed (50.6s)
