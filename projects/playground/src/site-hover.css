@@ -74,11 +74,11 @@
     text-underline-offset: 4px;
   }
 
-  .site-shell nav a[href]:not([aria-disabled='true']):hover {
+  .site-shell nav:not(.doc-pagination) a[href]:not([aria-disabled='true']):hover {
     color: var(--site-text);
     background-color: var(--site-hover);
   }
-  .site-shell nav a[aria-current='page']:not([aria-disabled='true']):hover {
+  .site-shell nav:not(.doc-pagination) a[aria-current='page']:not([aria-disabled='true']):hover {
     background-color: var(--site-pressed);
   }
   .site-shell :is(.page-outline, .documentation-outline) a[href]:not([aria-disabled='true']):hover {
@@ -110,7 +110,7 @@
 /* A tap gets transient press feedback without a persistent touch hover. */
 .site-shell button:enabled:not([aria-disabled='true']):active,
 .site-shell summary:not([aria-disabled='true']):active,
-.site-shell nav a[href]:not([aria-disabled='true']):active,
+.site-shell nav:not(.doc-pagination) a[href]:not([aria-disabled='true']):active,
 .site-shell a.component-card:not([aria-disabled='true']):active {
   background-color: var(--site-pressed);
 }
@@ -139,7 +139,7 @@
     :is(button, select):enabled:not([aria-disabled='true']):hover,
   .site-shell .chart-frame .legend button:enabled:not([aria-disabled='true']):hover,
   .site-shell summary:not([aria-disabled='true']):hover,
-  .site-shell nav a[href]:not([aria-disabled='true']):hover {
+  .site-shell nav:not(.doc-pagination) a[href]:not([aria-disabled='true']):hover {
     color: HighlightText;
     background-color: Highlight;
   }
