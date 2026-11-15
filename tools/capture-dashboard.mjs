@@ -9,7 +9,13 @@ import { expect } from '@playwright/test';
 import { format, resolveConfig } from 'prettier';
 
 const root = resolve(import.meta.dirname, '..');
-const output = resolve(root, 'docs/experiments/captures/composed-dashboard');
+const dualAxes = process.argv.includes('--dual-axes');
+const output = resolve(
+  root,
+  dualAxes
+    ? 'docs/experiments/captures/composed-axes'
+    : 'docs/experiments/captures/composed-dashboard',
+);
 const server = spawn(process.execPath, ['dist/playground/server/server.mjs'], {
   cwd: root,
   env: { ...process.env, PORT: '0' },
@@ -42,10 +48,14 @@ try {
     if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`);
   });
   await mkdir(output, { recursive: true });
-  for (const route of ['linked-dashboard', 'composed']) {
+  for (const route of dualAxes ? ['composed'] : ['linked-dashboard', 'composed']) {
     await page.goto(`http://localhost:${port}/${route}`);
     const region = page.locator(
-      route === 'composed' ? '#horizontal-visits-and-target' : 'app-dashboard-pilot',
+      route === 'composed'
+        ? dualAxes
+          ? '#revenue-and-conversion'
+          : '#horizontal-visits-and-target'
+        : 'app-dashboard-pilot',
     );
     await region.scrollIntoViewIfNeeded();
     await expect(region.locator('canvas')).toHaveCount(route === 'composed' ? 1 : 2);
@@ -53,7 +63,9 @@ try {
     for (const theme of ['light', 'dark']) {
       const toggle = page.getByRole('button', { name: `Use ${theme} theme`, exact: true });
       if (await toggle.count()) await toggle.click();
-      for (const kind of route === 'composed' ? ['horizontal'] : ['bar', 'area']) {
+      for (const kind of route === 'composed'
+        ? [dualAxes ? 'dual-axis' : 'horizontal']
+        : ['bar', 'area']) {
         if (route !== 'composed') {
           await region
             .getByRole('combobox', { name: 'Overview style', exact: true })

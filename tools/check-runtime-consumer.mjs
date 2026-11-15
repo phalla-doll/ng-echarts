@@ -263,7 +263,7 @@ async function exercise(engine, url, ssr) {
     await expect(page.locator('canvas')).toHaveCount(0);
     await navigation.getByRole('link', { name: 'Composed Blocks', exact: true }).click();
     await renderGallery(page);
-    await expect(page.locator('nec-composed-chart canvas')).toHaveCount(5);
+    await expect(page.locator('nec-composed-chart canvas')).toHaveCount(6);
     await navigation.getByRole('link', { name: 'Composed validation', exact: true }).click();
     const composed = page.locator('.primary-composed nec-composed-chart');
     await expect(composed.locator('canvas')).toHaveCount(1);

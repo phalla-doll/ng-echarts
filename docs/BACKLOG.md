@@ -54,12 +54,12 @@ The [Chart possibilities gallery](experiments/CHART_POSSIBILITIES.md) previews t
 
 | ID | Priority | Work | Start condition |
 | --- | --- | --- | --- |
-| NG17 | P2 | Composed Cartesian charts: bar/line/area composition and named stacks implemented; horizontal composition implemented in local rc.23; dual-axis extension deferred | [API](COMPOSED_CHART_API.md), [initial evidence](experiments/NG17_COMPOSED_CHART.md) and [rc.22 delivery](experiments/NG17_COMPOSED_AREAS.md); user-authorized experimental continuation |
+| NG17 | P2 | Composed Cartesian charts: bar/line/area composition and named stacks implemented; horizontal composition published in rc.23; independent value axes implemented in local rc.24 | [API](COMPOSED_CHART_API.md), [initial evidence](experiments/NG17_COMPOSED_CHART.md) and [rc.22 delivery](experiments/NG17_COMPOSED_AREAS.md); user-authorized experimental continuation |
 | NG18 | P2 | First radar and radial progress increments implemented; human interpretation pending | [Radar contract and verification](experiments/NG18_RADAR_CHART.md); human interpretation remains pending |
 | NG19 | P2 | First single-year calendar heatmap and bounded Sankey implemented; broader windows and flow variants deferred | [Calendar contract and evidence](experiments/NG19_CALENDAR_HEATMAP.md); family-specific human interpretation pending |
 | NG20 | P2 | Composed overview/detail dashboard added with a published-rc.22 consumer; application-owned overview/detail link, inclusive native/graphical month ranges and controlled bar feedback implemented; opt-in one-way hover/focus preview added in rc.13; shared zoom, disjoint and two-way selection deferred | [Initial contract](experiments/NG20_LINKED_CHARTS.md) and [selection feedback](experiments/LINKED_SELECTION_FEEDBACK.md); user prioritized linked charts after NG17 |
 | NG21 | P2 | Patterns, glow, advanced animations, and tooltip templates | Per-variant visual and performance targets agreed |
-| NG22 | P2 | Experimental package published through rc.22; exact registry bytes/consumers and manual trusted publishing verified | [Current publication](PUBLICATION.md#rc22-oidc-publication), preserved [first prerelease](experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication); manual trusted publishing is active; human gates remain pending |
+| NG22 | P2 | Experimental package published through rc.23; exact registry bytes/consumers and manual trusted publishing verified | [Current publication](PUBLICATION.md#rc22-oidc-publication), preserved [first prerelease](experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication); manual trusted publishing is active; human gates remain pending |
 
 ## Definition of done
 
@@ -159,3 +159,5 @@ The user authorized the [area composition increment](experiments/NG17_COMPOSED_A
 The user authorized all three recommended follow-ups: a composed-to-detail dashboard, a realistic npm-installed consumer, and horizontal composition. The [dashboard guide](COMPOSED_DASHBOARD.md) and [increment record](experiments/NG20_COMPOSED_DASHBOARD.md) separate the rc.22-compatible app example from the rc.23 layout contract and its actual checks. Shared zoom, bidirectional selection, dual axes and NG21 decorative work remain subsequent scope. Human F09/R06/G2/G3/G4 remain deferred/pending.
 
 The [committed dashboard/horizontal demo delivery](experiments/NG20_COMPOSED_DASHBOARD.md#committed-source-and-public-demo-delivery) is verified from clean source `8dd7619` in all three browsers: 35 routes, 140 sealed files and all 17 route payload guards pass. npm publication remains rc.22; human release gates remain pending.
+
+[rc.23 registry delivery](experiments/RC23_PUBLICATION.md) passes exact-main OIDC and all registry consumers. The [rc.24 value-axis/declaration increment](experiments/NG17_DUAL_AXES.md) owns new implementation and actual pending/completed checks. Future zoom, two-way linking, tooltip templates and human release acceptance remain separate.

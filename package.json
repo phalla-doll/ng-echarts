@@ -55,7 +55,7 @@
     "capture:calendar": "node tools/capture-calendar.mjs",
     "capture:sankey": "node tools/capture-sankey.mjs",
     "capture:premium": "node tools/capture-premium-refinement.mjs",
-    "check:workspace": "npm run format:check && npm run test:prerelease-guards && npm run test:pages-provenance && npm run test:demo-assets && npm run build && npm run typecheck && npm test && npm run check:consumer && npm run check:docs && npm run check:dashboard && npm run check:ssr && npm run check:runtime && npm run check:bundle",
+    "check:workspace": "npm run format:check && npm run test:prerelease-guards && npm run test:pages-provenance && npm run test:demo-assets && npm run build && npm run check:reproducibility && npm run typecheck && npm test && npm run check:consumer && npm run check:docs && npm run check:dashboard && npm run check:ssr && npm run check:runtime && npm run check:bundle",
     "check:release-immutability": "node tools/check-release-immutability.mjs",
     "benchmark:composed:stacked": "node tools/benchmark-acceptance.mjs composed --stacked",
     "benchmark:composed:area": "node tools/benchmark-acceptance.mjs composed --area",
@@ -64,7 +64,9 @@
     "check:dashboard": "node tools/generate-dashboard-example.mjs --check && node tools/check-documentation-consumer.mjs --dashboard",
     "benchmark:composed:horizontal": "node tools/benchmark-acceptance.mjs composed --stacked --horizontal",
     "benchmark:composed:horizontal-area": "node tools/benchmark-acceptance.mjs composed --area --horizontal",
-    "capture:dashboard": "node tools/capture-dashboard.mjs"
+    "capture:dashboard": "node tools/capture-dashboard.mjs",
+    "check:reproducibility": "node tools/check-library-reproducibility.mjs",
+    "capture:composed:axes": "node tools/capture-dashboard.mjs --dual-axes"
   },
   "private": true,
   "packageManager": "npm@11.19.1",

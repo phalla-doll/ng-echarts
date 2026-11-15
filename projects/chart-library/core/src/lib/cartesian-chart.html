@@ -7,6 +7,9 @@
   [style.--_nec-default-border]="tokens().border"
 >
   @let currentState = state();
+  @if (valueAxisDescription()) {
+    <p class="scale-context">{{ valueAxisDescription() }}</p>
+  }
 
   <nec-chart-stage
     [state]="currentState"

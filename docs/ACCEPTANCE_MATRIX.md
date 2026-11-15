@@ -143,3 +143,7 @@ The user authorized the [area composition increment](experiments/NG17_COMPOSED_A
 ## Composed dashboard and horizontal continuation
 
 The [NG20/NG17 increment record](experiments/NG20_COMPOSED_DASHBOARD.md) tracks raw composed selection, current-data detail derivation, stable-ID replacement, independent legends, reset focus, explicit missing/partial totals, exact displayed-source npm consumer checks and horizontal path/stack/format behavior. Its evidence supplements existing family acceptance; it does not close human F09/R06/G2/G3/G4.
+
+## Independent composed value axes
+
+The [rc.24 report](experiments/NG17_DUAL_AXES.md) tracks native scale meaning, raw versus formatted values, per-axis failures, cross-axis stack rejection, focus/legend retention, layout replacement, SSR, clean-build declaration bytes and unchanged size/engine limits. [rc.23 publication](experiments/RC23_PUBLICATION.md) is independently verified. Human F09/R06/G2/G3/G4 remain pending.

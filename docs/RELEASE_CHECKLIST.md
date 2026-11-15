@@ -1,8 +1,8 @@
 # Published prerelease verification
 
-The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.22`. The user selected MIT for original library code on 13 November 2026. The user selected this experimental public identity and explicitly deferred the human listening session while requesting publication under `next`. Human gates remain pending. This checklist separates verified artifact behavior from release decisions and the deferred human interpretation review.
+The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.23`; local rc.24 is a separate unpublished increment. The user selected MIT for original library code on 13 November 2026. The user selected this experimental public identity and explicitly deferred the human listening session while requesting publication under `next`. Human gates remain pending. This checklist separates verified artifact behavior from release decisions and the deferred human interpretation review.
 
-The rc.22 publication and registry-consumer status are recorded in its [receipt](experiments/public-rc22/registry-verification.json). Actual npm tags are `next: 0.1.0-rc.22` and `latest: 0.1.0-rc.18`; npm rejected deletion of the initial `latest` alias. See the [registry receipt](experiments/public-rc18/registry-verification.json) and [publication procedure](PUBLICATION.md). These results are separate from the pending human interpretation gates.
+The rc.23 publication and registry-consumer status are recorded in its [receipt](experiments/public-rc23/registry-verification.json). Actual npm tags are `next: 0.1.0-rc.23` and `latest: 0.1.0-rc.18`; npm rejected deletion of the initial `latest` alias. See the [registry receipt](experiments/public-rc18/registry-verification.json) and [publication procedure](PUBLICATION.md). These results are separate from the pending human interpretation gates.
 
 ## Prepare and verify one artifact
 
@@ -17,12 +17,12 @@ For an already retained archive, run `npm run release:check`; do not run prepara
 
 `release:local` builds the production library, packs it once into `dist/releases/`, inspects its contents, then supplies byte-identical copies of that tarball to strict declarations, the fresh documentation application, and client/SSR runtime consumers. It does not repack a replacement between checks. Preparation refuses to overwrite an existing candidate archive; recheck it with `release:check` or use a new version for changed package contents. Every consumer receives the candidate SHA-256; a mismatch fails before copying/installing. The release checker verifies the digest again between stages and requires the documentation/runtime reports to identify that exact artifact.
 
-Outputs:
+Preserved rc.22 output example (new candidates use their own version):
 
 - `dist/releases/mantha911-ng-echarts-0.1.0-rc.22.tgz` — published rc.22 archive.
 - `dist/releases/mantha911-ng-echarts-0.1.0-rc.22.tgz.sha256` — SHA-256 checksum.
 - `dist/releases/release-manifest.json` — inventory, hashes, metadata, source snapshot and verification results.
-- [Current rc.22 evidence](experiments/data/local-release-0.1.0-rc.22.json) — tracked copy of the verified manifest after the check.
+- [Preserved rc.22 evidence](experiments/data/local-release-0.1.0-rc.22.json) — tracked copy of the verified manifest after the check.
 
 Earlier rc.0 artifact results remain preserved in the [NG16 record](experiments/data/ng16-local-release.json). The [rc.1 manifest](experiments/data/local-release-0.1.0-rc.1.json), [rc.2 manifest](experiments/data/local-release-0.1.0-rc.2.json) and [rc.3 manifest](experiments/data/local-release-0.1.0-rc.3.json) are also preserved. Each version writes its own evidence filename. The [rc.4 manifest](experiments/data/local-release-0.1.0-rc.4.json) and archive are preserved; the [rc.5 manifest](experiments/data/local-release-0.1.0-rc.5.json) remains preserved too; the [rc.6 manifest](experiments/data/local-release-0.1.0-rc.6.json) and archive remain unchanged and the [rc.7 manifest](experiments/data/local-release-0.1.0-rc.7.json) and archive remain preserved with subsequent rc.8–rc.12 records retained separately below.
 
@@ -47,11 +47,11 @@ The `check:docs` and `check:runtime` scripts accept the same variables. Without 
 
 ## Verify the published registry package
 
-All three consumer scripts support exact registry installs. The helper verifies the fetched registry tarball before each consumer installs by its exact npm identity. Use rc.22 source (verified feature commit `dc283159dedd8677f04198d7cedb671553395d6b`) and the digest from its [registry receipt](experiments/public-rc22/registry-verification.json). Current source intentionally rejects a mismatched registry identity:
+All three consumer scripts support exact registry installs. The helper verifies the fetched registry tarball before each consumer installs by its exact npm identity. Use rc.23 source (verified publication commit `9ea7c866bf0bf8e9f6ae3551cab0cf08d32218d9`) and the digest from its [registry receipt](experiments/public-rc23/registry-verification.json). Current source intentionally rejects a mismatched registry identity:
 
 ```sh
-export CHART_LIBRARY_REGISTRY_SPEC="@mantha911/ng-echarts@0.1.0-rc.22"
-export CHART_LIBRARY_TARBALL_SHA256="d1e9d2afdb720293ead15274b8302363b4dab86f14bf2d9c637f992b0e2f0a87"
+export CHART_LIBRARY_REGISTRY_SPEC="@mantha911/ng-echarts@0.1.0-rc.23"
+export CHART_LIBRARY_TARBALL_SHA256="6a68ccc06bf76b6f92803198f23dc4207444fe165c3f7ec4a6b39cc0ace1f246"
 npm run check:consumer
 npm run check:docs
 npm run check:runtime
@@ -78,11 +78,11 @@ The recorded dependency versions describe verified inputs, not every version adm
 
 | Item | Status / evidence |
 | --- | --- |
-| Local candidate automated checks | Passed exact-artifact verification and full CI for `0.1.0-rc.22`; [manifest](experiments/data/local-release-0.1.0-rc.22.json), [area report](experiments/NG17_COMPOSED_AREAS.md), [rc.20/rc.21 report](experiments/NG17_STACKED_COMPOSED.md) and published [rc.19 evidence](experiments/RC19_RELEASE_REVIEW.md); rc.16 results remain preserved in the [combined checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) |
+| Local candidate automated checks | rc.24 exact-artifact checks and workspace phase pass; full browsers and Linux CI remain pending in the [current increment](experiments/NG17_DUAL_AXES.md). Preserved full CI for `0.1.0-rc.22`; [manifest](experiments/data/local-release-0.1.0-rc.22.json), [area report](experiments/NG17_COMPOSED_AREAS.md), [rc.20/rc.21 report](experiments/NG17_STACKED_COMPOSED.md) and published [rc.19 evidence](experiments/RC19_RELEASE_REVIEW.md); rc.16 results remain preserved in the [combined checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) |
 | Original library license | MIT selected by the user; full text ships in the candidate |
 | Human interpretation, F09/R06 | Pending; complete the [current result sheet](experiments/RC20_HUMAN_REVIEW.md) following the [manual review](experiments/R06_MANUAL_REVIEW.md) across every family |
 | NG14/G2/G3/G4 acceptance | Pending until the required human evidence exists; successful artifact checks do not close these gates |
-| Public package name/namespace | Published `@mantha911/ng-echarts@0.1.0-rc.22`; [NG22 execution](PUBLICATION.md) |
+| Public package name/namespace | Published `@mantha911/ng-echarts@0.1.0-rc.23`; [NG22 execution](PUBLICATION.md) |
 | Registry destination/publishing credentials | Authenticated as `mantha911` after interactive npm login ([record](PUBLICATION.md)) |
 | Public API stability/versioning promise | Experimental; no stable API freeze is declared by this candidate |
 
@@ -125,3 +125,8 @@ That checkpoint targeted documentation-corrected `0.1.0-rc.21` for [named compos
 ## rc.22 composed areas and trusted publishing
 
 The [area increment](experiments/NG17_COMPOSED_AREAS.md) records the published rc.22 contract and passing exact-artifact consumers; [manifest](experiments/data/local-release-0.1.0-rc.22.json). Full CI, OIDC upload and verification-only registry consumer recovery pass. Preserve published rc.22, rc.21 and all earlier archives. rc.22 was prepared after its packaged README/changelog and runtime were finalized. The publish mode of the [trusted publishing workflow](../.github/workflows/publish-prerelease.yml) can use only an exact reviewed artifact from fully successful CI for its own main commit; no push/tag automatically publishes a package. npm registration is read back, OIDC upload succeeds and verification-only registry consumers pass; [publication record](PUBLICATION.md#rc22-oidc-publication). Human interpretation remains deferred.
+
+
+## rc.23 publication and rc.24 preparation
+
+[rc.23 publication](experiments/RC23_PUBLICATION.md) completes exact CI-artifact OIDC delivery and fresh registry consumers. Both differing rc.23 archives remain preserved. [rc.24](experiments/NG17_DUAL_AXES.md) adds explicit declaration types and independent value axes; prepare it once after packaged content and clean-build checks are final. Compare warm/two clean builds and the Linux CI archive before claiming cross-platform reproducibility. rc.24 is not authorized for npm publication by this increment. Human interpretation remains pending.

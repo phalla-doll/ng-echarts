@@ -175,3 +175,7 @@ The user authorized the [area composition increment](experiments/NG17_COMPOSED_A
 ## Composed dashboard and horizontal composition
 
 The rc.23 orientation/gradient/hit-decoder changes and composed linked dashboard are original project code using existing ECharts Cartesian/areaStyle APIs. The four-region values and targets and the consumer month sample are original illustrative fixtures; no upstream dataset or implementation was copied. The dashboard on `/linked-dashboard` has explicit incomplete-data semantics and works with published rc.22. Existing Apache/EvilCharts notices and archived artifacts remain unchanged. [Contract and evidence](experiments/NG20_COMPOSED_DASHBOARD.md).
+
+## Independent composed value axes
+
+The [rc.24 increment](experiments/NG17_DUAL_AXES.md) is original code using Apache ECharts documented multiple Cartesian value axes and series-axis indexes. The revenue/conversion fixture is original illustrative data. Shared curve coordination reuses existing project code; lazy family registration, peer versions and all notice bytes remain unchanged. No upstream implementation was copied.

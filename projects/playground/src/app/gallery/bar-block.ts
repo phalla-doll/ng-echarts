@@ -50,6 +50,11 @@ export class BarBlockExample {
   protected readonly copied = computed(() => this.copiedText() === this.source());
   protected readonly selection = signal('');
   protected readonly monthTick: CategoryTickFormatter = (month) => month.slice(0, 3);
+  protected readonly metricDescription = computed(() =>
+    this.block().kind === 'composed' && 'valueAxes' in this.block()
+      ? 'Sample measures in their own units'
+      : 'Total visits in this sample',
+  );
   protected readonly metrics = computed(() => {
     const block = this.block();
     return block.series.map((series, index) => {
@@ -61,10 +66,22 @@ export class BarBlockExample {
       const value = latest
         ? (block.rows.at(-1)?.[series.key] ?? 0)
         : block.rows.reduce((sum, row) => sum + (row[series.key] ?? 0), 0);
+      const axes = block.kind === 'composed' ? block.valueAxes : undefined;
+      const axis =
+        axes?.find((axis) => axis.id === ('axisId' in series ? series.axisId : undefined)) ??
+        axes?.[0];
       return {
         id: series.id,
-        label: latest ? 'Latest 3-month mean' : series.label,
-        total: new Intl.NumberFormat('en-US', { maximumFractionDigits: 1 }).format(value),
+        label: axis
+          ? `${latest ? 'Latest ' : 'Recorded '}${series.label} (${axis.unit})`
+          : latest
+            ? 'Latest 3-month mean'
+            : series.label,
+        total: new Intl.NumberFormat(
+          'en-US',
+          axis?.numberFormatOptions ?? { maximumFractionDigits: 1 },
+        ).format(value),
+        unit: axis ? '' : 'visits',
         color: series.color ?? (index === 2 ? (this.dark() ? '#60a5fa' : '#2563eb') : null),
       };
     });

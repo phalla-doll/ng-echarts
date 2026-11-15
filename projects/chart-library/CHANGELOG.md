@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-rc.24 — Explicit composed value axes
+
+- Add opt-in one/two labeled linear value axes, axis-ID series assignment and independent numeric formatting for ticks, tooltips and native actions. Keep raw observations and reject named stacks spanning axes.
+- Export explicit composed layout/axis types and annotate configuration declarations for reproducible clean builds.
+- Share curve-renderer coordination across line, area and composed entries without eager engine imports or higher package budgets. Preserve both rc.23 archives and all earlier candidates. Human release gates remain pending.
+
 ## 0.1.0-rc.23 — Horizontal composition
 
 - Add opt-in horizontal bar/line/area composition on one comparable-unit scale, with supplied-order categories, separate signed stacks, rotated bar caps and area gradients.

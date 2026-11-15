@@ -166,3 +166,7 @@ The user authorized the [area composition increment](experiments/NG17_COMPOSED_A
 ## Composed dashboard and horizontal layout
 
 The user-authorized [next increment](experiments/NG20_COMPOSED_DASHBOARD.md) adds an rc.22-compatible composed linked dashboard with application-owned single-month selection and current-data detail derivation. Explicit missing/partial aggregate and complete-window trend semantics, stable-ID replacement, independent legends and keyboard/reset behavior are required. Local rc.23 adds optional horizontal composition: numeric x-axis, supplied-order top-to-bottom category y-axis, rotated signed bar caps/area gradients and category-axis-aware path hits. Vertical defaults, separate stack namespaces and raw events remain unchanged. Dual axes, shared zoom and bidirectional selection remain deferred; human F09/R06/G2/G3/G4 remain pending.
+
+## Explicit independent composed value axes
+
+The user-authorized [rc.24 increment](experiments/NG17_DUAL_AXES.md) adds one/two explicit labeled linear axes, per-axis numeric text and series axis IDs. Units and positions must be discoverable in native descriptions, legends, tables and tooltip rows; actions retain raw values. Named stacks cannot span axes/units within one geometry. Default shared-scale behavior, gaps, zeros, stable identities, focus, motion, resizing and SSR remain required. Shared locale is retained; axis options own formatting when configured. Arbitrary ECharts options and percentage normalization remain outside scope. Human review remains deferred.

@@ -368,6 +368,7 @@ try {
     ['InvalidArea', '[stacked]="\'yes\'"'],
     ['InvalidPie', '[measure]="{'],
     ['InvalidPie', '[innerRadius]="\'wrong\'"'],
+    ['InvalidComposedAxes', '[valueAxes]="axes"'],
     ['InvalidComposedLayout', '[layout]="\'diagonal\'"'],
     ...['Kind', 'Options', 'Measure', 'MissingKind'].map((name) => [
       `InvalidComposed${name}`,

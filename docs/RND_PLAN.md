@@ -118,3 +118,7 @@ Each report must identify the experiment ID, chart family, affected F01 through 
 
 
 The user-authorized [NG17 composed extension](experiments/NG17_COMPOSED_CHART.md) applies the shared-axis architecture to mixed vertical bars and lines. Its automated regression, isolated consumers, bundle boundaries and actual-component measurements are recorded independently of the historical four-family MVP evidence. Its first scope excluded dual scales/stacking/area composition. The subsequent [bar-stack](experiments/NG17_STACKED_COMPOSED.md) and [area-stack](experiments/NG17_COMPOSED_AREAS.md) increments are implemented in current rc.22; local rc.23 adds horizontal composition and the [composed linked dashboard](experiments/NG20_COMPOSED_DASHBOARD.md), while dual scales remain deferred. These extensions retain the existing human release deferral.
+
+## Explicit composed value axes and declaration repeatability
+
+[rc.23 npm delivery](experiments/RC23_PUBLICATION.md) is complete. The user-authorized [rc.24 increment](experiments/NG17_DUAL_AXES.md) checks independent linear scale/formatter semantics, native unit/position mapping, raw fractions, stack boundaries and stable identities. Warm versus two cache-free roots exercises declaration ordering; Linux CI remains a separate comparison. No human interpretation gate is closed by these automated results.

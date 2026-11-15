@@ -27,7 +27,7 @@
       </div>
     </header>
     <div #surface class="block-surface" [hidden]="view() !== 'preview'">
-      <div class="block-metrics" aria-label="Total visits in this sample">
+      <div class="block-metrics" [attr.aria-label]="metricDescription()">
         @for (metric of metrics(); track metric.id; let index = $index) {
           <div class="block-metric">
             <span class="metric-label"
@@ -40,7 +40,7 @@
               >{{ metric.label }}</span
             >
             <span class="metric-total"
-              >{{ metric.total }}<span class="metric-unit">visits</span></span
+              >{{ metric.total }}<span class="metric-unit">{{ metric.unit }}</span></span
             >
           </div>
         }
@@ -79,6 +79,7 @@
                 categoryKey="month"
                 [series]="example.series"
                 [layout]="example.layout ?? 'vertical'"
+                [valueAxes]="example.valueAxes ?? null"
                 [theme]="theme()"
                 [categoryTickFormatter]="example.layout === 'horizontal' ? undefined : monthTick"
                 [showDataTable]="false"

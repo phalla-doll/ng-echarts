@@ -26,4 +26,6 @@ export {
   type ComposedBarSeries,
   type ComposedLineSeries,
   type ComposedAreaSeries,
+  type ComposedLayout,
+  type ComposedValueAxis,
 } from '@mantha911/ng-echarts/composed';

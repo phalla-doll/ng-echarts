@@ -1,6 +1,18 @@
-import type { ChartSeries } from '@mantha911/ng-echarts/core';
+import type { ChartSeries, ValueFormatter } from '@mantha911/ng-echarts/core';
 
-export interface ComposedBarSeries<T> extends ChartSeries<T> {
+export type ComposedLayout = 'vertical' | 'horizontal';
+export interface ComposedValueAxis {
+  readonly id: string;
+  readonly label: string;
+  readonly unit: string;
+  readonly numberFormatOptions?: Intl.NumberFormatOptions;
+  readonly valueFormatter?: ValueFormatter;
+}
+interface AxisAssignment {
+  readonly axisId?: string;
+}
+
+export interface ComposedBarSeries<T> extends ChartSeries<T>, AxisAssignment {
   readonly kind: 'bar';
   readonly gradient?: never;
   /** Bars with the same nonempty name stack by sign; omission keeps a grouped bar. */
@@ -8,21 +20,21 @@ export interface ComposedBarSeries<T> extends ChartSeries<T> {
   readonly smooth?: never;
   readonly showPoints?: never;
 }
-export interface ComposedLineSeries<T> extends ChartSeries<T> {
+export interface ComposedLineSeries<T> extends ChartSeries<T>, AxisAssignment {
   readonly kind: 'line';
   readonly gradient?: never;
   readonly stack?: never;
   readonly smooth?: boolean;
   readonly showPoints?: boolean;
 }
-export interface ComposedAreaSeries<T> extends ChartSeries<T> {
+export interface ComposedAreaSeries<T> extends ChartSeries<T>, AxisAssignment {
   readonly kind: 'area';
   readonly stack?: string;
   readonly smooth?: boolean;
   readonly showPoints?: boolean;
   readonly gradient?: boolean;
 }
-/** Series share one category axis and one numeric scale; measures must use comparable units. */
+/** Series share categories; each value axis requires comparable units. */
 export type ComposedSeries<T> =
   ComposedBarSeries<T> | ComposedLineSeries<T> | ComposedAreaSeries<T>;
 

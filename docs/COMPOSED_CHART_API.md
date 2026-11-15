@@ -1,6 +1,6 @@
 # Composed chart API
 
-NG17 combines vertical bars, lines and areas on one category axis and one linear value axis. Named bar stacks ship in published rc.21 and later; composed areas and named area stacks ship in rc.22 and later. Use comparable units for all measures. It inherits the Cartesian formatting, states, stable identities, native legends/tables, motion, resizing, and SSR behavior.
+NG17 combines vertical bars, lines and areas on one category axis and one linear value axis. Named bar stacks ship in published rc.21 and later; composed areas and named area stacks ship in rc.22 and later. Use comparable units for all measures on a shared axis. Local rc.24 adds explicit independent value axes below. It inherits the Cartesian formatting, states, stable identities, native legends/tables, motion, resizing, and SSR behavior.
 
 ## Complete example
 
@@ -71,7 +71,7 @@ States follow application error, loading, data/configuration/renderer error, emp
 
 Use `/composed` for `ComposedChart`, `ComposedSeries`, `ComposedBarSeries`, `ComposedLineSeries` and `ComposedAreaSeries`; root exports are compatible. Shared event/key/formatter types are reexported by `/composed` and `/core`. The focused entry lazily registers only bar, line, grid, tooltip and Canvas modules. Existing focused bar/line/area/pie entries do not acquire the composed component or additional engines.
 
-The current increment supports bar/line/area combinations on shared axes. Dual scales, stacked ordinary lines, raw ECharts options and custom tooltip templates are outside this increment. Mixed units such as visits and percentages require a different design, not an unlabelled shared scale. Existing [compatibility and measured-envelope guidance](COMPATIBILITY.md) remains the starting point; the [NG17 report](experiments/NG17_COMPOSED_CHART.md) records composed-specific measurements and checks.
+The current increment supports bar/line/area combinations on shared axes. Stacked ordinary lines, raw ECharts options and custom tooltip templates remain outside this API. Local rc.24 adds explicit independent linear value axes below. Mixed units such as visits and percentages require a different design, not an unlabelled shared scale. Existing [compatibility and measured-envelope guidance](COMPATIBILITY.md) remains the starting point; the [NG17 report](experiments/NG17_COMPOSED_CHART.md) records composed-specific measurements and checks.
 
 The gallery at `/composed` keeps the approved neutral styling and copyable source; `/composed-validation` exposes engineering controls separately. Human interpretation and complete release gates retain their deferred status.
 
@@ -83,7 +83,7 @@ The ordinary line layer uses a 2.5 px dashed stroke and 7 px diamond markers; th
 
 Set `[tablePageSize]="50"` to create at most 50 native table rows at once. The default `null` retains the complete table. The size must be a positive safe integer; invalid values produce a configuration error. The plot continues to show all observations. Previous/Next buttons announce the visible row range and retain keyboard focus at either boundary. Every row remains available through paging, including hidden-series values, zero and missing observations.
 
-Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. Current rc.22 also includes it.
+Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. Published rc.23 also includes it.
 
 
 ## Area composition in rc.22
@@ -94,7 +94,7 @@ Named area stacks accumulate same-sign observations in supplied series order. Ba
 
 Areas render behind bars and ordinary lines; category centers and half-category edge gaps stay stable through kind/legend changes. Replacing a descriptor clears obsolete fill/stack settings. Whole-area and line clicks resolve the nearest observed category; missing observations cannot emit. The native table supplies exact keyboard actions.
 
-The third and fourth gallery examples provide compiled area+line and stacked-area+line source. Dual axes and percentage normalization remain deferred. Horizontal composition is available in the local rc.23 candidate below. The [area increment report](experiments/NG17_COMPOSED_AREAS.md) owns current verification; human interpretation stays pending.
+The third and fourth gallery examples provide compiled area+line and stacked-area+line source. Percentage normalization remains deferred. Horizontal composition ships in rc.23; rc.24 adds the explicit value-axis contract below. The [area increment report](experiments/NG17_COMPOSED_AREAS.md) owns current verification; human interpretation stays pending.
 
 ## Horizontal layout in local rc.23
 
@@ -102,4 +102,43 @@ The third and fourth gallery examples provide compiled area+line and stacked-are
 
 The shared formatter formats numeric ticks, tooltips and tables in either layout. Use `categoryTickFormatter` to shorten long regional labels while retaining full tooltip/table labels. Choose a height appropriate to the supplied category count. Whole-line/area hits use the pointer y-coordinate and category y-axis in horizontal layout; direct marker/bar identities and raw values are unchanged. Layout replacement preserves the renderer and stable-ID legend/focus state; invalid layouts use the existing error/recovery policy. No new engine modules, raw ECharts options or dual-axis contract are added.
 
-The `/composed#horizontal-visits-and-target` example includes copyable horizontal source. The [linked dashboard](COMPOSED_DASHBOARD.md) uses existing rc.22 events and app-owned selection, independently of this new layout API. [Implementation and evidence](experiments/NG20_COMPOSED_DASHBOARD.md). Published rc.22 remains immutable; it does not expose this new input.
+The `/composed#horizontal-visits-and-target` example includes copyable horizontal source. The [linked dashboard](COMPOSED_DASHBOARD.md) uses existing rc.22 events and app-owned selection, independently of this new layout API. [Implementation and evidence](experiments/NG20_COMPOSED_DASHBOARD.md). Horizontal layout ships in published rc.23. Published rc.22 remains immutable and does not expose that input.
+
+## Explicit value axes in local rc.24
+
+`valueAxes: readonly ComposedValueAxis[] | null` defaults to `null` (the existing shared scale). When set, supply one or two axes, each with unique nonempty unpadded `id`, `label` and `unit` strings. Set `axisId?: string` on bar, line or area descriptors; omission uses the first supplied axis. Explicit IDs retain assignment when axes are reordered. Unknown IDs, duplicate/invalid descriptors, zero or more than two axes are configuration errors. Values must be comparable within an axis. Vertical axes are left/right; horizontal axes are bottom/top. Both scales are linear and automatic. Only the first draws grid lines. Equal screen heights on independent scales do not establish equal quantities.
+
+Each axis accepts optional `numberFormatOptions` and `valueFormatter`. It uses shared `locale`, with its own Intl defaults or pure formatter; explicit axes replace shared `numberFormatOptions`/`valueFormatter`. Formatting and caching are isolated by axis for ticks, tooltips and native table/actions. Missing observations do not call formatters. Invalid options or known-observation callback failures produce the normal error state; unexpected tick failures use renderer recovery. Callback/data/config replacement permits recovery. Null `valueAxes` restores ordinary shared formatting.
+
+A native scale description names each position, full label and unit. Legends, tooltip rows, table headers and action labels include unit and position. Point events retain original numbers: `12%` text still emits `0.12`. Zero, missing data, immutable replacement, local legend state and keyboard focus follow existing rules. Options are replaced so removing axes clears obsolete indexes. Within either bar or area geometry a named stack must stay on one axis/unit; the two geometry namespaces remain distinct. The library does not normalize percentages, combine units or calculate supplied rates.
+
+```ts
+import { Component } from '@angular/core';
+import { ComposedChart, type ComposedSeries, type ComposedValueAxis } from '@mantha911/ng-echarts/composed';
+
+interface Month { id: string; month: string; revenue: number | null; conversion: number | null; }
+@Component({
+  selector: 'app-root',
+  imports: [ComposedChart],
+  template: `<nec-composed-chart title="Revenue and conversion"
+    description="Independent USD and percentage scales."
+    [data]="rows" rowIdKey="id" categoryKey="month" [series]="series"
+    [valueAxes]="axes" />`,
+})
+export class App {
+  readonly rows: readonly Month[] = [
+    { id: 'jan', month: 'January', revenue: 1200, conversion: 0.12 },
+    { id: 'feb', month: 'February', revenue: 0, conversion: null },
+  ];
+  readonly series: readonly ComposedSeries<Month>[] = [
+    { id: 'revenue', key: 'revenue', label: 'Revenue', kind: 'bar', axisId: 'money' },
+    { id: 'conversion', key: 'conversion', label: 'Conversion', kind: 'line', axisId: 'rate' },
+  ];
+  readonly axes: readonly ComposedValueAxis[] = [
+    { id: 'money', label: 'Revenue', unit: 'USD', numberFormatOptions: { style: 'currency', currency: 'USD' } },
+    { id: 'rate', label: 'Conversion', unit: '%', numberFormatOptions: { style: 'percent' } },
+  ];
+}
+```
+
+The `/composed#revenue-and-conversion` gallery provides complete compiled source; `/composed-validation` exercises replacement and invalid states. This feature requires the local rc.24 candidate and is outside published rc.23. [Implementation and actual verification](experiments/NG17_DUAL_AXES.md). Human interpretation remains deferred.

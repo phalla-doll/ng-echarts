@@ -2,13 +2,19 @@ import type { ValueFormatter } from './chart-types';
 
 const formatterError = 'Value formatting failed. Use a pure function that returns text.';
 
+export interface ValueFormatting {
+  readonly format: ValueFormatter;
+  readonly pointFormat?: (value: number, seriesId: string) => string;
+  readonly error: string | null;
+}
+
 /** Shared numeric text; missing observations never reach consumer callbacks. */
 export function createValueFormatting(
   locale: string,
   options: Intl.NumberFormatOptions | undefined,
   formatter: ValueFormatter | undefined,
   values: readonly (number | null)[],
-): { readonly format: ValueFormatter; readonly error: string | null } {
+): ValueFormatting {
   let numberFormat: Intl.NumberFormat;
   try {
     if (

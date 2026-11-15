@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {
   ComposedChart,
   type ComposedSeries,
+  type ComposedValueAxis,
+  type ComposedLayout,
   type PointSelection,
 } from '@mantha911/ng-echarts/composed';
 import {
@@ -20,7 +22,8 @@ interface Row {
   imports: [ComposedChart, RootComposedChart],
   template: ` <nec-composed-chart
     [tablePageSize]="50"
-    layout="horizontal"
+    [layout]="layout"
+    [valueAxes]="axes"
     title="Mixed"
     [data]="rows"
     rowIdKey="id"
@@ -30,11 +33,24 @@ interface Row {
   />`,
 })
 export class ComposedConsumer {
+  readonly layout: ComposedLayout = 'horizontal';
+  readonly axes: readonly ComposedValueAxis[] = [
+    { id: 'value', label: 'Value', unit: 'visits' },
+    { id: 'trend', label: 'Trend', unit: '%', numberFormatOptions: { style: 'percent' } },
+  ];
   readonly rows: readonly Row[] = [{ id: 'a', category: 'A', value: 0, trend: 1 }];
   readonly series: readonly ComposedSeries<Row>[] = [
     { id: 'v', key: 'value', label: 'V', kind: 'bar', stack: 'visits' },
     { id: 'area', key: 'value', label: 'Area', kind: 'area', stack: 'total', gradient: true },
-    { id: 't', key: 'trend', label: 'T', kind: 'line', smooth: true, showPoints: false },
+    {
+      id: 't',
+      key: 'trend',
+      label: 'T',
+      kind: 'line',
+      axisId: 'trend',
+      smooth: true,
+      showPoints: false,
+    },
   ];
   select(point: PointSelection<Row>) {
     const row: Row = point.row;

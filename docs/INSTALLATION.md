@@ -2,7 +2,7 @@
 
 The experimental public identity is `@mantha911/ng-echarts`; prereleases use the `next` dist-tag. Install the registry package below, or use the exact local-tarball procedure to test a checkout. Use Node **24.22.2** from `.nvmrc` and npm **11.19.1**. The [compatibility table](COMPATIBILITY.md) separates tested versions from declared peer ranges.
 
-As verified on 15 November 2026, npm `next` selects rc.22 and the initial `latest` alias remains rc.18. A bare install resolves rc.18. Use `@next` deliberately or pin `@0.1.0-rc.22` for a repeatable dependency, then retain the lockfile. The [rc.22 receipt](experiments/public-rc22/registry-verification.json) records the current archive integrity and registry-consumer checks. The [first-publication record](PUBLICATION.md#first-publication-result) preserves npm’s rejected attempt to remove the initial `latest` alias.
+As verified on 15 November 2026, npm `next` selects rc.23 and the initial `latest` alias remains rc.18. A bare install resolves rc.18. Use `@next` deliberately or pin `@0.1.0-rc.23` for a repeatable dependency, then retain the lockfile. The [rc.23 receipt](experiments/public-rc23/registry-verification.json) records the current archive integrity and registry-consumer checks. The [first-publication record](PUBLICATION.md#first-publication-result) preserves npm’s rejected attempt to remove the initial `latest` alias.
 
 
 Registry prerelease installation:
@@ -20,7 +20,7 @@ Run these commands in the repository root after selecting the toolchain:
 ```sh
 npm ci
 npm run pack:lib
-export CHART_LIBRARY_TARBALL="$PWD/dist/mantha911-ng-echarts-0.1.0-rc.23.tgz"
+export CHART_LIBRARY_TARBALL="$PWD/dist/mantha911-ng-echarts-0.1.0-rc.24.tgz"
 ```
 
 The `CHART_LIBRARY_TARBALL` variable is an absolute path for the commands below. If you open another terminal, set it to the actual tarball location. Keep the tarball available for subsequent installs, or copy it into the consuming project's `vendor/` directory before installing it. Commit the consumer's resulting lockfile and use `npm ci` for repeat installs. Rebuild/repack/reinstall when changing the library; a tarball installation does not watch the checkout.
@@ -120,6 +120,6 @@ The [API index and integration guide](INTEGRATION_GUIDE.md) cover shared types, 
 
 ## Current feature availability
 
-The current source candidate is `0.1.0-rc.23`; npm `next` remains published rc.22 and `latest` remains rc.18. Horizontal composition requires the rc.23 local candidate; the composed linked dashboard also runs on published rc.22. Opt-in `tablePageSize` ships since published rc.19, named bar stacks since rc.21, and composed areas since rc.22. Install `@next` or pin rc.22, or run `npm run pack:lib` to create a local source archive. Preserve every earlier archive. The [area report](experiments/NG17_COMPOSED_AREAS.md) and [publication record](PUBLICATION.md#rc22-oidc-publication) own current artifact, CI and registry verification.
+The current source candidate is `0.1.0-rc.24`; npm `next` is published rc.23 and `latest` remains rc.18. Horizontal composition ships in rc.23; explicit independent value axes require rc.24 source. The composed linked dashboard also runs on rc.22. Table pagination ships since rc.19, named bar stacks since rc.21 and composed areas since rc.22. Preserve every earlier archive. The [rc.23 publication](experiments/RC23_PUBLICATION.md) and [rc.24 increment](experiments/NG17_DUAL_AXES.md) separate registry delivery from current source checks.
 
 The [composed dashboard guide](COMPOSED_DASHBOARD.md) provides a complete dashboard example and a digest-verified npm consumer check. The [rc.23 increment](experiments/NG20_COMPOSED_DASHBOARD.md) records local verification separately from rc.22 publication.

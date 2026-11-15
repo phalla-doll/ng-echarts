@@ -174,3 +174,7 @@ The user authorized the [area composition increment](experiments/NG17_COMPOSED_A
 ## Composed dashboard and horizontal continuation
 
 The user approved the three recommended follow-ups: NG20 composed-to-detail integration, a realistic npm-installed dashboard pilot, and NG17 horizontal composition. The [dashboard guide](COMPOSED_DASHBOARD.md) defines the app-owned contract and source reproduction; the [increment record](experiments/NG20_COMPOSED_DASHBOARD.md) owns actual test/consumer/candidate evidence. The dashboard supports published rc.22; new library layout behavior belongs to local rc.23. Keep npm/deployment identities separate, preserve archived candidates and leave human release gates pending. Dual axes and broader linking remain subsequent work.
+
+## rc.23 registry delivery and rc.24 explicit axes
+
+The user approved rc.23 npm delivery, declaration stability and bounded dual axes. [rc.23](experiments/RC23_PUBLICATION.md) is published and verified with next rc.23/latest rc.18. The separate [rc.24 increment](experiments/NG17_DUAL_AXES.md) implements labeled independent value axes, isolated numeric formatting, raw native actions and stack validation, with explicit declaration types and warm/clean/cross-platform artifact checks. Preserve prior archives, budget limits, engine boundaries and pending human gates.

@@ -32,6 +32,7 @@ jobs:
           path: |
             dist/releases/
             docs/experiments/data/local-release-*.json
+            docs/experiments/data/reproducibility-*.json
           if-no-files-found: ignore
           retention-days: 14
 

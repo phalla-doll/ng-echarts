@@ -1,0 +1,25 @@
+# NG17 independent composed value axes and stable declarations
+
+Date: 15 November 2026. The user authorized rc.23 npm delivery, declaration reproducibility and bounded dual-axis composition. [rc.23 publication](RC23_PUBLICATION.md) is complete; this new contract belongs to rc.24. Preserve both rc.23 archives and every earlier artifact. Human F09/R06/G2/G3/G4 remain deferred/pending.
+
+## Contract
+
+Opt-in `valueAxes` supplies one or two unique nonempty IDs, labels and units. Series refer to an axis ID, with the first axis as the default. Vertical charts place numeric axes left/right; horizontal charts use bottom/top. A native scale description names positions, labels and units, and legends/table/tooltip labels identify the relevant unit and position. Scales remain independently automatic and linear; equal plot heights do not establish equal quantities. Only the first axis draws grid lines.
+
+Per-axis Intl options or pure formatter functions use the shared locale. Explicit axes own formatting rather than inheriting shared currency/percent options. Known observations are cached independently by axis; missing values never call formatters. Raw point events preserve the original numeric observation, including a `0.12` fraction displayed as `12%`. Invalid formatter/configuration state uses existing error/recovery behavior. Null `valueAxes` retains the previous shared-scale behavior and default text.
+
+Bar and area stacks keep distinct namespaces and same-sign accumulation. Within one geometry, a named stack cannot span axes/units. Unknown assignments, duplicate IDs, empty/padded labels or units and more than two axes are rejected. Replacing axes or returning to a shared scale clears obsolete ECharts options while preserving series IDs, local legends and native focus. The revenue/conversion example uses original illustrative data and reports recorded revenue independently from the latest conversion observation.
+
+Explicit `ComposedLayout`, input signal annotations and a named configuration return type replace inferred unions implicated in rc.23 ordering variation. `check:reproducibility` compares complete package bytes from the warm build and two cache-free roots with the same pinned dependencies. Cross-platform CI comparison remains separate evidence.
+
+## Implementation and provenance
+
+The shared Cartesian adapter gains optional series-aware formatting, labels and a native axis description; other families keep defaults. A browser-only curve-renderer helper reuses line/area/composed click coordination, option replacement, resize and disposal. Each family still initializes and registers its own lazy modules. Core has no eager engine import; the helper's ECharts dependency is type-only. No raw chart instance or ECharts option input is exposed.
+
+Original code consumes the documented Apache ECharts [multiple value axes and series-axis assignment](https://echarts.apache.org/handbook/en/concepts/axis/). Existing peer versions and upstream notices remain unchanged. No upstream implementation or dataset was copied.
+
+## Verification
+
+Final verification is in progress. The 63 targeted line/area/composed cases pass across Chromium, Firefox and WebKit, including real secondary-axis line selection, raw fractional values, native table focus, layout replacement and recovery. All 335 unit tests and strict external declaration/negative-binding checks pass. [Eight new captures](captures/composed-axes/manifest.json) cover both themes at 320/390/768/1440 px; mobile light and desktop dark captures were visually inspected.
+
+The prepared rc.24 archive is 170,430 bytes, SHA-256 `6dd89361c4f6482b28b9a3f28d88bddf28a71eac9123ec1a8412517995d4c46f`. The [macOS reproduction record](data/reproducibility-0.1.0-rc.24-darwin.json) confirms identical complete bytes from the warm build and two independent clean builds using Node 24.22.2/npm 11.19.1. All 84 pre-existing archives/checksums/versioned manifests remain unchanged. The complete workspace phase passes formatting, 22 publication/readiness guards, 20 Pages provenance guards, five asset checks, strict compilation, all 335 unit tests, external declarations, fresh documented install, the npm rc.22 dashboard pilot, production SSR and all six installed client/SSR modes. The [exact rc.24 manifest](data/local-release-0.1.0-rc.24.json), [consumer log](rc24/local/release-check.txt) and [immutability check](rc24/local/immutability.txt) pass for the prepared digest. All twelve [module budgets](data/package-boundaries.json) pass without changed caps; root is 221,985 gzip / 189,639 Brotli bytes (only 15 gzip bytes below its cap), and core has zero eager engine modules. Further library features will need payload reduction before growing the root entry. The full 480-case browser suite and Linux cross-platform comparison are still running/pending and will be recorded separately. Initial typing/configuration errors in the development fixtures are excluded from passing evidence. The initial package budget exceeded the root cap; the shared renderer and lean native scale descriptions retain the existing limits rather than increasing them.

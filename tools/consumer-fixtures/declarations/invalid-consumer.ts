@@ -331,3 +331,20 @@ export class InvalidSankeyNode {
 export class InvalidSankeyLink {
   readonly links = [{ id: 'ab', source: 'a', target: 'b', value: null }];
 }
+
+@Component({
+  imports: [ComposedChart],
+  template: `<nec-composed-chart
+    title="Invalid axes"
+    [data]="rows"
+    rowIdKey="id"
+    categoryKey="category"
+    [series]="series"
+    [valueAxes]="axes"
+  />`,
+})
+export class InvalidComposedAxes {
+  readonly rows = [{ id: 'a', category: 'A', count: 1 }];
+  readonly series = [{ id: 'v', key: 'count', label: 'V', kind: 'bar' }] as const;
+  readonly axes = [{ id: 'value', label: 'Value' }];
+}

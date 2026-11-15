@@ -44,12 +44,14 @@ export {
   readCartesianTheme as ɵreadCartesianTheme,
 } from './lib/cartesian-browser';
 export { createValueFormatting as ɵcreateValueFormatting } from './lib/value-formatting';
+export type { ValueFormatting as ɵValueFormatting } from './lib/value-formatting';
 export { formatCategoryTicks as ɵformatCategoryTicks } from './lib/category-ticks';
 export { ChartFocusKeeper as ɵChartFocusKeeper } from './lib/chart-focus';
 
 export { buildCurveOptions as ɵbuildCurveOptions } from './lib/curve-options';
 export type { CurveOption as ɵCurveOption } from './lib/curve-options';
 export { curvePoint as ɵcurvePoint } from './lib/curve-point';
+export { createCurveRenderer as ɵcreateCurveRenderer } from './lib/curve-renderer';
 
 export { ChartStage as ɵChartStage } from './lib/chart-stage';
 export { TablePagination as ɵTablePagination } from './lib/table-pagination';

@@ -4,6 +4,8 @@ export type {
   ComposedBarSeries,
   ComposedLineSeries,
   ComposedAreaSeries,
+  ComposedLayout,
+  ComposedValueAxis,
 } from './lib/composed-types';
 export type {
   CategoryTickFormatter,

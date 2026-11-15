@@ -4,7 +4,7 @@ The demo is published from the root of the dedicated `gh-pages` branch at **http
 
 ## Current deployment — composed dashboard and horizontal charts
 
-The [composed linked dashboard](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) and [horizontal regional composition](https://phalla-doll.github.io/ng-echarts/composed/#horizontal-visits-and-target) are deployed and verified. The dashboard example supports published rc.22; horizontal composed layout requires the local rc.23 source candidate. npm `next` remains rc.22 and `latest` rc.18. Human F09/R06/G2/G3/G4 remain deferred/pending.
+The [composed linked dashboard](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) and [horizontal regional composition](https://phalla-doll.github.io/ng-echarts/composed/#horizontal-visits-and-target) are deployed and verified. The dashboard example supports published rc.22; horizontal composed layout now ships in published rc.23. npm `next` is rc.23 and `latest` rc.18. New local rc.24 independent axes are not in this deployed build. Human F09/R06/G2/G3/G4 remain deferred/pending.
 
 | Identity / check | Verified result |
 | --- | --- |
@@ -23,7 +23,7 @@ The [composed linked dashboard](https://phalla-doll.github.io/ng-echarts/linked-
 
 ## Earlier deployment — composed areas
 
-The [live composed gallery](https://phalla-doll.github.io/ng-echarts/composed/) includes independent area+line and stacked-area+line examples alongside the bar examples. Its installation guidance identifies published rc.22. npm `next` is rc.22; `latest` retains rc.18. Human F09/R06/G2/G3/G4 remain deferred/pending.
+The [live composed gallery](https://phalla-doll.github.io/ng-echarts/composed/) includes independent area+line and stacked-area+line examples alongside the bar examples. At that checkpoint, installation guidance identified published rc.22 and npm `next` was rc.22; `latest` retained rc.18. Human F09/R06/G2/G3/G4 remain deferred/pending.
 
 | Identity / check | Verified result |
 | --- | --- |

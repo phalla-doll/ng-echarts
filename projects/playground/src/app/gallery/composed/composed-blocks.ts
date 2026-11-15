@@ -1,4 +1,4 @@
-import type { ComposedSeries } from '@mantha911/ng-echarts/composed';
+import type { ComposedSeries, ComposedValueAxis } from '@mantha911/ng-echarts/composed';
 import { deviceRows, type DeviceRow } from '../../fixtures/evilcharts-bar-fixture';
 import type { BarBlock } from '../bar/bar-blocks';
 export interface ComposedBlock extends Omit<
@@ -8,6 +8,7 @@ export interface ComposedBlock extends Omit<
   readonly kind: 'composed';
   readonly layout?: 'vertical' | 'horizontal';
   readonly lineSummary?: 'latest' | 'total';
+  readonly valueAxes?: readonly ComposedValueAxis[];
   readonly series: readonly ComposedSeries<DeviceRow>[];
 }
 // Original trailing three-observation mean derived from the attributed monthly fixture.
@@ -107,11 +108,42 @@ export const composedBlocks: readonly ComposedBlock[] = [
       { id: 'trend', key: 'trend', label: 'Target', kind: 'line' },
     ],
   },
+  {
+    kind: 'composed',
+    id: 'revenue-and-conversion',
+    title: 'Revenue & Conversion',
+    description:
+      'Revenue uses the left USD axis; conversion is a supplied fraction on the right percentage axis. The scales are independent. Requires the local rc.24 candidate.',
+    rows: [
+      { id: 'jan', month: 'January', desktop: 1200, mobile: null, trend: 0.12 },
+      { id: 'feb', month: 'February', desktop: 1800, mobile: null, trend: 0.18 },
+      { id: 'mar', month: 'March', desktop: 0, mobile: null, trend: 0 },
+      { id: 'apr', month: 'April', desktop: null, mobile: null, trend: 0.2 },
+    ],
+    valueAxes: [
+      {
+        id: 'revenue',
+        label: 'Revenue',
+        unit: 'USD',
+        numberFormatOptions: { style: 'currency', currency: 'USD', maximumFractionDigits: 0 },
+      },
+      {
+        id: 'conversion',
+        label: 'Conversion',
+        unit: '%',
+        numberFormatOptions: { style: 'percent', maximumFractionDigits: 0 },
+      },
+    ],
+    series: [
+      { id: 'revenue', key: 'desktop', label: 'Revenue', kind: 'bar' },
+      { id: 'conversion', key: 'trend', label: 'Conversion', kind: 'line', axisId: 'conversion' },
+    ],
+  },
 ];
 export function composedExampleSource(block: ComposedBlock, dark: boolean): string {
   return [
     "import { ChangeDetectionStrategy, Component } from '@angular/core';",
-    "import { ComposedChart, type ComposedSeries } from '@mantha911/ng-echarts/composed';",
+    `import { ComposedChart, type ComposedSeries${block.valueAxes ? ', type ComposedValueAxis' : ''} } from '@mantha911/ng-echarts/composed';`,
     '',
     'interface Visit { id: string; month: string; desktop: number | null; mobile: number | null; trend?: number | null; }',
     '@Component({',
@@ -124,12 +156,18 @@ export function composedExampleSource(block: ComposedBlock, dark: boolean): stri
     '    [data]="visits" rowIdKey="id" categoryKey="month" [series]="series"',
     `    theme="${dark ? 'dark' : 'light'}" [height]="230" [showDataTable]="false"`,
     ...(block.layout ? [`    layout="${block.layout}"`] : []),
+    ...(block.valueAxes ? ['    [valueAxes]="valueAxes"'] : []),
     ...(block.layout === 'horizontal' ? [] : ['    [categoryTickFormatter]="monthTick"']),
     '  />`,',
     '})',
     'export class VisitsAndTrend {',
     `  readonly visits: readonly Visit[] = ${JSON.stringify(block.rows, null, 2)};`,
     `  readonly series: readonly ComposedSeries<Visit>[] = ${JSON.stringify(block.series, null, 2)};`,
+    ...(block.valueAxes
+      ? [
+          `  readonly valueAxes: readonly ComposedValueAxis[] = ${JSON.stringify(block.valueAxes, null, 2)};`,
+        ]
+      : []),
     '  readonly monthTick = (month: string) => month.slice(0, 3);',
     '}',
   ].join('\n');

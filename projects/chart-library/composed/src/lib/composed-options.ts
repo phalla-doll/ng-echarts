@@ -5,8 +5,10 @@ import {
   ɵbuildCartesianOptions,
   ɵbuildAreaFill,
   type ɵCartesianContext,
+  type ɵValueFormatting,
 } from '@mantha911/ng-echarts/core';
-import type { ComposedSeries } from './composed-types';
+import type { ComposedSeries, ComposedLayout, ComposedValueAxis } from './composed-types';
+import { axisPosition, composedSeriesLabel } from './composed-axes';
 export type ComposedOption = ComposeOption<
   BarSeriesOption | LineSeriesOption | GridComponentOption | TooltipComponentOption
 >;
@@ -14,27 +16,60 @@ export type ComposedOption = ComposeOption<
 export function buildComposedOptions<T>(
   context: ɵCartesianContext<T>,
   series: readonly ComposedSeries<T>[],
-  layout: 'vertical' | 'horizontal' = 'vertical',
+  layout: ComposedLayout = 'vertical',
+  axes: readonly ComposedValueAxis[] | null = null,
+  axisFormats: readonly ɵValueFormatting[] = [],
 ): ComposedOption {
   const horizontal = layout === 'horizontal';
   const { model, hiddenIds, tokens, animation, format, categoryTicks } = context;
   const common = ɵbuildCartesianOptions(
-    model,
+    axes
+      ? {
+          ...model,
+          series: model.series.map((item) => ({
+            ...item,
+            label: composedSeriesLabel(item, axes, layout),
+          })),
+        }
+      : model,
     hiddenIds,
     tokens,
     horizontal,
     animation,
     format,
     categoryTicks,
+    context.pointFormat,
   );
   const categoryAxis = horizontal ? common.yAxis : common.xAxis;
   if (categoryAxis.type !== 'category') throw new Error('Expected category axis');
+  const valueAxis = horizontal ? common.xAxis : common.yAxis;
+  if (valueAxis.type !== 'value') throw new Error('Expected value axis');
+  const values = axes?.map((axis, index) => {
+    const visible = series.some(
+      (item) => !hiddenIds.has(item.id) && (item.axisId ?? axes[0]!.id) === axis.id,
+    );
+    return {
+      ...valueAxis,
+      position: axisPosition(index, layout) as 'top' | 'bottom' | 'left' | 'right',
+      axisLabel: {
+        ...valueAxis.axisLabel,
+        show: visible,
+        formatter: axisFormats[index]?.format ?? format,
+      },
+      splitLine: { ...valueAxis.splitLine, show: index === 0 && visible },
+    };
+  });
   return {
     ...common,
     // Keep category centers stable even while every bar is hidden.
     ...(horizontal
       ? { yAxis: { ...categoryAxis, boundaryGap: true } }
       : { xAxis: { ...categoryAxis, boundaryGap: true } }),
+    ...(values
+      ? {
+          ...(horizontal ? { xAxis: values } : { yAxis: values }),
+        }
+      : {}),
     series: series.flatMap((item, index): (BarSeriesOption | LineSeriesOption)[] => {
       if (hiddenIds.has(item.id)) return [];
       const color = tokens.series[index % tokens.series.length] ?? '#047857';
@@ -70,7 +105,18 @@ export function buildComposedOptions<T>(
             : {}),
         };
       });
-      const identity = { id: item.id, name: item.label, data };
+      const axisIndex = axes
+        ? Math.max(
+            0,
+            axes.findIndex((axis) => axis.id === (item.axisId ?? axes[0]!.id)),
+          )
+        : 0;
+      const identity = {
+        id: item.id,
+        name: composedSeriesLabel(item, axes, layout),
+        data,
+        ...(axes ? (horizontal ? { xAxisIndex: axisIndex } : { yAxisIndex: axisIndex }) : {}),
+      };
       return item.kind === 'bar'
         ? [
             {

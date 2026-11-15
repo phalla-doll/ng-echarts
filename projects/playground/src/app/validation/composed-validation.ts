@@ -3,6 +3,7 @@ import {
   ComposedChart,
   type ComposedSeries,
   type PointSelection,
+  type ComposedValueAxis,
 } from '@mantha911/ng-echarts/composed';
 import { SiteAppearance } from '../shell/site-appearance';
 export interface ComposedRow {
@@ -61,6 +62,9 @@ export class DeferredComposed {
         Horizontal composed
       </button>
       <button type="button" (click)="invalidLayout()">Invalid composed layout</button>
+      <button type="button" (click)="dualAxes()">Use dual axes</button>
+      <button type="button" (click)="crossAxisStack()">Cross-axis stack</button>
+      <button type="button" (click)="invalidAxisFormatter()">Invalid axis formatter</button>
       <button type="button" (click)="stackBars()">Use stacked bars</button>
       <button type="button" (click)="areaSeries()">Use area series</button>
       <button type="button" (click)="stackAreas()">Use stacked areas</button>
@@ -96,6 +100,7 @@ export class DeferredComposed {
           categoryKey="month"
           [series]="series()"
           [layout]="layout()"
+          [valueAxes]="valueAxes()"
           [theme]="theme()"
           [themeRevision]="revision()"
           [style.--nec-series-1]="palette()"
@@ -124,6 +129,65 @@ export class ComposedValidation {
   protected readonly rows = signal<readonly ComposedRow[]>(composedValidationRows);
   protected readonly series = signal(composedValidationSeries);
   protected readonly layout = signal<'vertical' | 'horizontal'>('vertical');
+  protected readonly valueAxes = signal<readonly ComposedValueAxis[] | null>(null);
+  protected dualAxes(): void {
+    this.rows.set([
+      { id: 'a', month: 'January', visits: 1200, trend: 0.12 },
+      { id: 'b', month: 'February', visits: 1800, trend: 0.18 },
+      { id: 'c', month: 'March', visits: 0, trend: 0 },
+      { id: 'd', month: 'April', visits: null, trend: null },
+      { id: 'e', month: 'May', visits: -60, trend: 0.2 },
+    ]);
+    this.series.set([
+      { id: 'visits', key: 'visits', label: 'Revenue', kind: 'bar', stack: 'income' },
+      { id: 'trend', key: 'trend', label: 'Conversion', kind: 'line', axisId: 'conversion' },
+    ]);
+    this.valueAxes.set([
+      {
+        id: 'revenue',
+        label: 'Revenue',
+        unit: 'USD',
+        numberFormatOptions: { style: 'currency', currency: 'USD', maximumFractionDigits: 0 },
+      },
+      {
+        id: 'conversion',
+        label: 'Conversion',
+        unit: '%',
+        numberFormatOptions: { style: 'percent', maximumFractionDigits: 0 },
+      },
+    ]);
+  }
+  protected crossAxisStack(): void {
+    this.series.update((series) =>
+      series.map((item) =>
+        item.id === 'trend'
+          ? {
+              id: item.id,
+              key: item.key,
+              label: item.label,
+              axisId: item.axisId,
+              kind: 'bar',
+              stack: 'income',
+            }
+          : item,
+      ),
+    );
+  }
+  protected invalidAxisFormatter(): void {
+    this.valueAxes.update(
+      (axes) =>
+        axes?.map((axis, index) =>
+          index
+            ? {
+                ...axis,
+                valueFormatter: () => {
+                  throw Error('Invalid formatter');
+                },
+              }
+            : axis,
+        ) ?? null,
+    );
+  }
   protected readonly loading = signal(false);
   protected readonly failure = signal(false);
   protected readonly error = computed(() => (this.failure() ? 'Sample composed error.' : null));
@@ -254,6 +318,7 @@ export class ComposedValidation {
     ]);
   }
   protected restore() {
+    this.valueAxes.set(null);
     this.layout.set('vertical');
     this.rows.set(composedValidationRows);
     this.series.set(composedValidationSeries);

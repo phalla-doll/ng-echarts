@@ -45,6 +45,7 @@ export function buildCartesianOptions<T>(
   animation: boolean,
   format: (value: number) => string,
   categoryTicks: readonly string[] = model.rows.map((row) => row.category),
+  pointFormat?: (value: number, seriesId: string) => string,
 ) {
   const hasVisibleSeries = model.series.some((series) => !hiddenIds.has(series.id));
   const categoryAxis = {
@@ -105,11 +106,14 @@ export function buildCartesianOptions<T>(
         if (!row) return '';
         const values = row.points.flatMap((point, index) => {
           if (hiddenIds.has(point.seriesId)) return [];
-          const label = model.series.find((item) => item.id === point.seriesId)?.label ?? '';
+          const label = model.series[index]?.label ?? '';
           return [
             {
               label,
-              value: point.value === null ? 'Missing' : format(point.value),
+              value:
+                point.value === null
+                  ? 'Missing'
+                  : (pointFormat?.(point.value, point.seriesId) ?? format(point.value)),
               color: tokens.series[index % tokens.series.length] ?? '#047857',
             },
           ];

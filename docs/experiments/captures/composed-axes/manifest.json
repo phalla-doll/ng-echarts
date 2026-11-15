@@ -1,0 +1,73 @@
+{
+  "recordedAt": "2026-11-15T15:52:47.011Z",
+  "browser": "158.0.8127.18",
+  "method": "Cropped component captures; unrelated fixed shell controls hidden only during each screenshot; rendered chart/control layout unchanged.",
+  "captures": [
+    {
+      "name": "composed-dual-axis-light-320.png",
+      "route": "composed",
+      "kind": "dual-axis",
+      "theme": "light",
+      "width": 320,
+      "sha256": "2a0a4ab372ff35650c60e496cb33aac7fd4a65ceb064cd06036abf4169dd16ff"
+    },
+    {
+      "name": "composed-dual-axis-light-390.png",
+      "route": "composed",
+      "kind": "dual-axis",
+      "theme": "light",
+      "width": 390,
+      "sha256": "37e3860a2a75292df08700302945f0d142da63be8118a232f40afe7f3149ab9c"
+    },
+    {
+      "name": "composed-dual-axis-light-768.png",
+      "route": "composed",
+      "kind": "dual-axis",
+      "theme": "light",
+      "width": 768,
+      "sha256": "f6e8bf304589a755316f81d26d40d925ba5910302e73dd15eb4617f36f6f2bc8"
+    },
+    {
+      "name": "composed-dual-axis-light-1440.png",
+      "route": "composed",
+      "kind": "dual-axis",
+      "theme": "light",
+      "width": 1440,
+      "sha256": "1fcc85533b824675598e0b825179b23f558deb214b5ea37a3d8b8becd0f91c8c"
+    },
+    {
+      "name": "composed-dual-axis-dark-320.png",
+      "route": "composed",
+      "kind": "dual-axis",
+      "theme": "dark",
+      "width": 320,
+      "sha256": "54845d2bd38ac099005960441ff25f43236321201602df57fce75e43f6272477"
+    },
+    {
+      "name": "composed-dual-axis-dark-390.png",
+      "route": "composed",
+      "kind": "dual-axis",
+      "theme": "dark",
+      "width": 390,
+      "sha256": "e6a5bf69276027f03905d4c31a87d3d1bdec8f5dc2f888a5540c594ee0b8c4ac"
+    },
+    {
+      "name": "composed-dual-axis-dark-768.png",
+      "route": "composed",
+      "kind": "dual-axis",
+      "theme": "dark",
+      "width": 768,
+      "sha256": "fc690cff028f478c7b69cdfcd526bb1271ccf0efabb8d17a1c114ed1f0c23f04"
+    },
+    {
+      "name": "composed-dual-axis-dark-1440.png",
+      "route": "composed",
+      "kind": "dual-axis",
+      "theme": "dark",
+      "width": 1440,
+      "sha256": "8936bbe1f4dd0e112ab77100281bdd38a0ab6dde09996ce67c33f18892780401"
+    }
+  ],
+  "browserErrors": [],
+  "passed": true
+}
