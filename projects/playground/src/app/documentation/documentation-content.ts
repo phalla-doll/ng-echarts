@@ -99,7 +99,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'registry-package',
         title: 'Install the prerelease',
         paragraphs: [
-          'The next tag selects the experimental public rc.21 prerelease. Human screen-reader interpretation remains unreviewed at the user’s request; the API is not declared stable.',
+          'The next tag selects the experimental public rc.22 prerelease. Human screen-reader interpretation remains unreviewed at the user’s request; the API is not declared stable.',
         ],
         source: 'npm install @mantha911/ng-echarts@next echarts@6.1.0',
         language: 'Terminal',
@@ -118,7 +118,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'local-package',
         title: 'Use a packed local build',
         paragraphs: [
-          'The unreleased 0.1.0-rc.22 source candidate adds composed areas. npm next selects published rc.21, which includes named bar stacks and table pagination; composed areas require this local candidate. Create a production tarball from the workspace root. Install that file and the tested ECharts peer in a separate Angular 22 application. Replace the example path with the location of your checkout. Keep the file at the lockfile’s recorded path, or copy it into the consumer’s vendor directory first; commit the lockfile and use npm ci for repeat installs.',
+          'Published 0.1.0-rc.22 includes composed areas, named bar stacks and table pagination. npm next selects rc.22. You can also create an exact local source build. Create a production tarball from the workspace root. Install that file and the tested ECharts peer in a separate Angular 22 application. Replace the example path with the location of your checkout. Keep the file at the lockfile’s recorded path, or copy it into the consumer’s vendor directory first; commit the lockfile and use npm ci for repeat installs.',
         ],
         source:
           'npm run pack:lib\n\n# In your Angular 22 application:\nnpm install /path/to/ng-echarts/dist/mantha911-ng-echarts-0.1.0-rc.22.tgz echarts@6.1.0',
@@ -185,7 +185,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'data-contracts',
         title: 'Choose the data contract',
         paragraphs: [
-          'ComposedChart accepts ComposedSeries<T> with a bar/line/area kind per measure in local rc.22 on one shared axis pair. Bar, line, and area charts accept a typed array of ChartSeries<T> measures. PieChart accepts one ChartMeasure<T> and turns category rows into slices. Import each component from its focused @mantha911/ng-echarts/bar, /line, /area, /pie, /composed, or /radar entry. RadarChart uses comparison series and an explicit maxKey for each dimension. RadialProgress uses scalar value/max inputs from /radial, CalendarHeatmap uses one year/date/value contract from /calendar, and SankeyChart uses separate node/link arrays from /sankey. The last four families require focused imports.',
+          'ComposedChart accepts ComposedSeries<T> with a bar/line/area kind per measure in rc.22 on one shared axis pair. Bar, line, and area charts accept a typed array of ChartSeries<T> measures. PieChart accepts one ChartMeasure<T> and turns category rows into slices. Import each component from its focused @mantha911/ng-echarts/bar, /line, /area, /pie, /composed, or /radar entry. RadarChart uses comparison series and an explicit maxKey for each dimension. RadialProgress uses scalar value/max inputs from /radial, CalendarHeatmap uses one year/date/value contract from /calendar, and SankeyChart uses separate node/link arrays from /sankey. The last four families require focused imports.',
           'Use innerRadius 0 for a pie or 0.6 for a donut. Optional outside labels may shorten or hide collisions, while category controls retain full labels. Pie measures must be nonnegative; all-zero totals show an empty state. Optional showTotal displays the visible sum in donuts with innerRadius at least 0.4. Calendar and Sankey valueLabel names the tooltip measure and defaults to Value.',
           'Pie legend changes emit rowId and visible; Cartesian legend changes emit seriesId and visible. Cartesian, radar and pie pointSelect events include the original row and raw value. Calendar selects an original date/value row. Sankey emits a select event for an original node or link with raw totals/values. Radial progress has no selection event. Native tables provide keyboard actions where applicable; gallery chart previews may opt out of the optional table.',
         ],

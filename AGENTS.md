@@ -2,7 +2,7 @@
 
 ## Project Structure and Scope
 
-Angular 22 chart library using Apache ECharts. Bar, line, area, pie/donut and the first shared-axis composed increment are implemented. NG20 adds linked charts with native and graphical month ranges. NG14 automated acceptance and NG15 documentation are recorded; human interpretation and release gates remain open. The demo is deployed to GitHub Pages. Experimental `@mantha911/ng-echarts@0.1.0-rc.21` is published on npm under `next` (`latest` retains rc.18); human F09/R06/G2/G3/G4 remain pending under the user’s explicit prerelease deferral.
+Angular 22 chart library using Apache ECharts. Bar, line, area, pie/donut and the first shared-axis composed increment are implemented. NG20 adds linked charts with native and graphical month ranges. NG14 automated acceptance and NG15 documentation are recorded; human interpretation and release gates remain open. The demo is deployed to GitHub Pages. Experimental `@mantha911/ng-echarts@0.1.0-rc.22` is published on npm under `next` (`latest` retains rc.18); human F09/R06/G2/G3/G4 remain pending under the user’s explicit prerelease deferral.
 
 - `README.md`: overview and document index.
 - `docs/PRODUCT_SPEC.md`: MVP scope and required behavior.
@@ -74,3 +74,5 @@ Use `npm run benchmark:composed:stacked` to measure the named-stack variant sepa
 ## Composed-area continuation — 15 November
 
 The user authorized completing CI verification, publishing the exact rc.21 artifact and implementing area/line composition, while retaining the human-review deferral. rc.21 is published under next (latest retains rc.18); its immutable archive is preserved. rc.22 adds composed areas, independent fills and named area stacks separate from bar groups, with shared pure area-fill construction and unchanged renderer registration. Keep the current increment evidence in `docs/experiments/NG17_COMPOSED_AREAS.md`. The manually dispatched trusted-publishing workflow requires exact main/CI/artifact identity and registry verification; registration/first OIDC delivery must have evidence before being called active. Human F09/R06/G2/G3/G4 remain pending.
+
+rc.22 was published via the registered GitHub OIDC workflow from fully successful CI for dc283159dedd8677f04198d7cedb671553395d6b. Preserve its archive and packaged documentation. The first post-upload consumer step hit registry propagation (ETARGET); the workflow now waits for normal npm resolution and offers an explicit verification-only recovery operation that never uploads. Its follow-up result belongs in the area increment report.

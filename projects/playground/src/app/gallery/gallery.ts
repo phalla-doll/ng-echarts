@@ -37,7 +37,7 @@ export class Gallery {
     [
       '# ' + this.heading,
       'Native Angular ' + this.config.noun + ' examples, powered by Apache ECharts.',
-      'Install the experimental @mantha911/ng-echarts package from npm using @next. Named bar stacks are available since rc.21; composed areas require the local rc.22 candidate.',
+      'Install the experimental @mantha911/ng-echarts package from npm using @next. Named bar stacks are available since rc.21; composed areas are available since rc.22.',
       ...this.blocks.map(
         (block) =>
           `## ${block.title}\n\n${block.description}\n\n\`\`\`ts\n${chartExampleSource(block, this.dark())}\n\`\`\``,

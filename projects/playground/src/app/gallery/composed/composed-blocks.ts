@@ -51,7 +51,7 @@ export const composedBlocks: readonly ComposedBlock[] = [
     id: 'area-visits-and-trend',
     title: 'Area Visits & Trend',
     description:
-      'Desktop visits as a gradient area with an independent supplied three-month mean. Missing observations remain gaps. Requires local rc.22 source.',
+      'Desktop visits as a gradient area with an independent supplied three-month mean. Missing observations remain gaps. Available in rc.22 and later.',
     rows: composedRows,
     series: [
       { id: 'visits', key: 'desktop', label: 'Visits', kind: 'area', gradient: true },
@@ -63,7 +63,7 @@ export const composedBlocks: readonly ComposedBlock[] = [
     id: 'stacked-area-visits-and-trend',
     title: 'Stacked Areas & Trend',
     description:
-      'Desktop and mobile visits share an area stack; the line is a separately supplied trailing mean of combined visits on the same scale. Requires local rc.22 source.',
+      'Desktop and mobile visits share an area stack; the line is a separately supplied trailing mean of combined visits on the same scale. Available in rc.22 and later.',
     rows: combinedComposedRows,
     series: [
       {

@@ -1,0 +1,14 @@
+{
+  "verifiedAt": "2026-11-15T07:45:36.191Z",
+  "version": "0.1.0-rc.22",
+  "sha256": "d1e9d2afdb720293ead15274b8302363b4dab86f14bf2d9c637f992b0e2f0a87",
+  "runId": "43690113895",
+  "commit": "dc283159dedd8677f04198d7cedb671553395d6b",
+  "integrity": "sha512-ZewIiDuiHaTTXhGQgA5J8/ftgaNcavAeetc6BH6Sg5MNEZHOOM06KhnJtvGYVvUcopcJciDK60gOny5ivMu1LA==",
+  "distTags": {
+    "latest": "0.1.0-rc.18",
+    "next": "0.1.0-rc.22"
+  },
+  "exactRegistryBytes": true,
+  "humanInterpretation": "pending"
+}

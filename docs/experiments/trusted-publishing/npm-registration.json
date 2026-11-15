@@ -1,0 +1,19 @@
+{
+  "registeredAt": "2026-11-15T07:36:15.254Z",
+  "configuration": {
+    "id": "67e3a8af-d32c-4719-a53f-fb018fc79373",
+    "type": "github",
+    "file": "publish-prerelease.yml",
+    "repository": "phalla-doll/ng-echarts",
+    "environment": "npm-prerelease",
+    "permissions": ["createPackage", "createStagedPackage"]
+  },
+  "readBack": "passed",
+  "firstOidcPublication": {
+    "upload": "passed",
+    "run": "https://github.com/phalla-doll/ng-echarts/actions/runs/43691186511",
+    "workflowConclusion": "failure after successful upload: npm metadata propagation at first consumer",
+    "recoveryVerification": "pending"
+  },
+  "npmRegistration": "confirmed by read-back"
+}

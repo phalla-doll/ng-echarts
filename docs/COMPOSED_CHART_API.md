@@ -53,7 +53,7 @@ A missing/unknown kind, nonboolean line settings, or line settings on a bar prod
 
 `stack` must be a nonempty string without surrounding whitespace. Equal names group bars into the same stack; different names form separate stacks next to unstacked bars. Lines reject stack settings in strict types and at runtime. Supplied series order defines segment order. Positive and negative values stack separately from zero; null/undefined remain missing and zero remains observed. Hiding a segment recalculates the visible stack and exposed end corners; its original table values remain accessible. Tooltips, tables and point events report raw segment values. The library does not calculate a cumulative line or percentage normalization.
 
-For example, supply descriptors `{ id: 'desktop', key: 'desktop', label: 'Desktop', kind: 'bar', stack: 'visits' }` and `{ id: 'mobile', key: 'mobile', label: 'Mobile', kind: 'bar', stack: 'visits' }`, plus a line descriptor for your own total/target/trend field. See the copyable second `/composed` gallery example. Named bar stacks ship in published rc.21; composed areas require the local rc.22 candidate. The earlier rc.19 artifact remains preserved.
+For example, supply descriptors `{ id: 'desktop', key: 'desktop', label: 'Desktop', kind: 'bar', stack: 'visits' }` and `{ id: 'mobile', key: 'mobile', label: 'Mobile', kind: 'bar', stack: 'visits' }`, plus a line descriptor for your own total/target/trend field. See the copyable second `/composed` gallery example. Named bar stacks ship in published rc.21; composed areas ship in rc.22. The earlier rc.19 artifact remains preserved.
 
 Bars and lines use the same category centers, with a half-category edge gap retained even when all bars are hidden. Lines render above bars and preserve missing-observation gaps. A line path without persistent markers remains clickable and resolves the nearest valid category on that series. Negative and zero values remain raw numeric values. Null/undefined values are missing; all-zero data is valid.
 
@@ -83,7 +83,7 @@ The line layer uses a 2.5 px dashed stroke and 7 px diamond markers; the bar lay
 
 Set `[tablePageSize]="50"` to create at most 50 native table rows at once. The default `null` retains the complete table. The size must be a positive safe integer; invalid values produce a configuration error. The plot continues to show all observations. Previous/Next buttons announce the visible row range and retain keyboard focus at either boundary. Every row remains available through paging, including hidden-series values, zero and missing observations.
 
-Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. The current local rc.21 candidate also includes it.
+Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. Current rc.22 also includes it.
 
 
 ## Area composition in rc.22

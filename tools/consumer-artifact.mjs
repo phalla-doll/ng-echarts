@@ -36,6 +36,7 @@ export async function consumerArtifact(root, destination) {
         [
           'pack',
           registrySpec,
+          '--prefer-online',
           '--registry=https://registry.npmjs.org/',
           '--ignore-scripts',
           '--pack-destination',

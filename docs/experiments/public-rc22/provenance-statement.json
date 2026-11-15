@@ -1,0 +1,51 @@
+{
+  "retrievedFrom": "https://registry.npmjs.org/-/npm/v1/attestations/@mantha911%2fng-echarts@0.1.0-rc.22",
+  "interpretation": "Decoded registry statement; certificate/signature bundle retained by npm. This file is not an independent cryptographic verifier.",
+  "statement": {
+    "_type": "https://in-toto.io/Statement/v1",
+    "subject": [
+      {
+        "name": "pkg:npm/%40mantha911/ng-echarts@0.1.0-rc.22",
+        "digest": {
+          "sha512": "65ec08883ba21da4d35e1190800e49f3f7ed81a35c6af01e7ad73a047e9283930d1191ce38cd3a2a19c9b6f19856f51ca297097220caeb480e9f2e62bccbb52c"
+        }
+      }
+    ],
+    "predicateType": "https://slsa.dev/provenance/v1",
+    "predicate": {
+      "buildDefinition": {
+        "buildType": "https://slsa-framework.github.io/github-actions-buildtypes/workflow/v1",
+        "externalParameters": {
+          "workflow": {
+            "ref": "refs/heads/main",
+            "repository": "https://github.com/phalla-doll/ng-echarts",
+            "path": ".github/workflows/publish-prerelease.yml"
+          }
+        },
+        "internalParameters": {
+          "github": {
+            "event_name": "workflow_dispatch",
+            "repository_id": "1454983049",
+            "repository_owner_id": "55537405"
+          }
+        },
+        "resolvedDependencies": [
+          {
+            "uri": "git+https://github.com/phalla-doll/ng-echarts@refs/heads/main",
+            "digest": {
+              "gitCommit": "dc283159dedd8677f04198d7cedb671553395d6b"
+            }
+          }
+        ]
+      },
+      "runDetails": {
+        "builder": {
+          "id": "https://github.com/actions/runner/github-hosted"
+        },
+        "metadata": {
+          "invocationId": "https://github.com/phalla-doll/ng-echarts/actions/runs/43691186511/attempts/1"
+        }
+      }
+    }
+  }
+}

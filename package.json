@@ -59,7 +59,7 @@
     "check:release-immutability": "node tools/check-release-immutability.mjs",
     "benchmark:composed:stacked": "node tools/benchmark-acceptance.mjs composed --stacked",
     "benchmark:composed:area": "node tools/benchmark-acceptance.mjs composed --area",
-    "test:prerelease-guards": "node --test tools/prerelease-guards.spec.mjs"
+    "test:prerelease-guards": "node --test tools/prerelease-guards.spec.mjs tools/wait-for-registry.spec.mjs"
   },
   "private": true,
   "packageManager": "npm@11.19.1",

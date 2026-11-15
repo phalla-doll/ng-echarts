@@ -3,6 +3,12 @@ name: Publish verified experimental prerelease
 on:
   workflow_dispatch:
     inputs:
+      operation:
+        description: Publish once, or verify an already published version without uploading
+        required: true
+        default: publish
+        type: choice
+        options: [publish, verify]
       version:
         description: Exact source version (0.1.0-rc.N)
         required: true
@@ -12,8 +18,8 @@ on:
         required: true
         type: string
       ci_run_id:
-        description: Successful Workspace checks run for this exact main commit
-        required: true
+        description: Required for publish; successful Workspace checks for this exact main commit
+        required: false
         type: string
 
 permissions:
@@ -47,9 +53,11 @@ jobs:
           package-manager-cache: false
       - run: npm install --global npm@11.19.1
       - run: npm ci
-      - run: node --test tools/prerelease-guards.spec.mjs
+      - run: node --test tools/prerelease-guards.spec.mjs tools/wait-for-registry.spec.mjs
       - run: node tools/publish-prerelease.mjs request
+        if: inputs.operation == 'publish'
       - uses: actions/download-artifact@v7
+        if: inputs.operation == 'publish'
         with:
           name: release-candidate
           run-id: ${{ inputs.ci_run_id }}
@@ -57,6 +65,8 @@ jobs:
           path: tmp/publish-artifact
       - run: npx playwright install --with-deps chromium firefox webkit
       - run: node tools/publish-prerelease.mjs publish
+        if: inputs.operation == 'publish'
+      - run: node tools/wait-for-registry.mjs
       - name: Verify fresh registry consumers
         env:
           CHART_LIBRARY_REGISTRY_SPEC: '@mantha911/ng-echarts@${{ inputs.version }}'

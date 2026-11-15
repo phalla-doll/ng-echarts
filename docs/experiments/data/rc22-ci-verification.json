@@ -1,0 +1,65 @@
+{
+  "verifiedAt": "2026-11-15T07:43:33.755497+00:00",
+  "run": "https://github.com/phalla-doll/ng-echarts/actions/runs/43690113895",
+  "sourceCommit": "dc283159dedd8677f04198d7cedb671553395d6b",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "conclusion": "success",
+      "databaseId": 132738804784,
+      "name": "pages"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 132738804937,
+      "name": "workspace"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 132738804962,
+      "name": "browser (firefox)"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 132738804970,
+      "name": "browser (chromium)"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 132738804977,
+      "name": "browser (webkit)"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 132741755814,
+      "name": "check"
+    }
+  ],
+  "browserResults": {
+    "chromium": {
+      "passed": 154,
+      "skipped": 0
+    },
+    "firefox": {
+      "passed": 152,
+      "skipped": 2
+    },
+    "webkit": {
+      "passed": 152,
+      "skipped": 2
+    }
+  },
+  "candidate": {
+    "version": "0.1.0-rc.22",
+    "sha256": "d1e9d2afdb720293ead15274b8302363b4dab86f14bf2d9c637f992b0e2f0a87",
+    "downloadedFromCi": true,
+    "matchesReviewedLocalBytes": true,
+    "sourceAndConsumerGuards": "passed"
+  },
+  "sealedPages": {
+    "routes": 34,
+    "browsers": ["chromium", "firefox", "webkit"],
+    "performance": "passed"
+  },
+  "humanInterpretation": "pending; continued user deferral"
+}

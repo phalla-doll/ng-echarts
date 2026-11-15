@@ -1,6 +1,6 @@
 # Public package publication and verification (NG22)
 
-Status: `@mantha911/ng-echarts@0.1.0-rc.21` is published on npm under `next`; `latest` retains rc.18. The rc.21 receipt and consumer status are recorded below. The user selected `@mantha911/ng-echarts`, authenticated as npm user `mantha911`, and requested completing the experimental prerelease while skipping the guided VoiceOver session. Human F09/R06/G2/G3/G4 remain pending; that explicit deferral permits this prerelease without claiming completed human interpretation. Private `@ng-echarts/chart-library@0.1.0-rc.17` and earlier archives retain their identities.
+Status: `@mantha911/ng-echarts@0.1.0-rc.22` is published on npm under `next`; `latest` retains rc.18. The rc.22 receipt and consumer status are recorded below. The user selected `@mantha911/ng-echarts`, authenticated as npm user `mantha911`, and requested completing the experimental prerelease while skipping the guided VoiceOver session. Human F09/R06/G2/G3/G4 remain pending; that explicit deferral permits this prerelease without claiming completed human interpretation. Private `@ng-echarts/chart-library@0.1.0-rc.17` and earlier archives retain their identities.
 
 ## Historical checks before publication
 
@@ -48,7 +48,7 @@ Human F09/R06/G2/G3/G4 remain pending under the user’s explicit deferral. This
 
 ## Unreleased source after rc.18
 
-The working tree now targets `0.1.0-rc.22` for [composed areas](experiments/NG17_COMPOSED_AREAS.md), after the preserved [rc.19 delivery checkpoint](experiments/RC19_RELEASE_REVIEW.md). These follow-up reports own their actual publication status; this does not change the rc.18 registry receipt, tags or archived bytes above. New package contents must use the new version and receive their own artifact checks and publication decision.
+The current source is `0.1.0-rc.22` for [composed areas](experiments/NG17_COMPOSED_AREAS.md), after the preserved [rc.19 delivery checkpoint](experiments/RC19_RELEASE_REVIEW.md). These follow-up reports own their actual publication status; this does not change the rc.18 registry receipt, tags or archived bytes above. New package contents must use the new version and receive their own artifact checks and publication decision.
 
 
 ## rc.19 publication
@@ -64,6 +64,12 @@ The user authorized publishing the already verified rc.21 archive on 15 November
 
 The manual [workflow](../.github/workflows/publish-prerelease.yml) accepts an exact version, reviewed SHA-256 and successful Workspace checks run ID. It requires the checked-out main commit to match that run, downloads its retained verified artifact, inspects source metadata/notices and exact consumer-stage results, and publishes those bytes with OIDC/provenance under `next`. It never repacks a replacement. Registry bytes/tags and fresh consumers are verified afterward; an already readable version cannot be republished. An accepted upload awaiting registry scanning is never retried automatically.
 
-The publishing job uses GitHub-hosted Ubuntu with `id-token: write`, no stored npm publishing token, and the `npm-prerelease` environment. The intended npm trust mapping is repository `phalla-doll/ng-echarts`, filename `publish-prerelease.yml`, environment `npm-prerelease`, direct publishing allowed. The environment is intended to allow main only. Manual dispatch does not run on pushes or pull requests. [Guard tests](../tools/prerelease-guards.spec.mjs) cover unaccepted sources/runs, altered hashes and incomplete candidate evidence. Registration and first OIDC publication remain pending until their actual results are recorded; a workflow file alone does not establish working trust.
+The publishing job uses GitHub-hosted Ubuntu with `id-token: write`, no stored npm publishing token, and the `npm-prerelease` environment. The registered npm trust mapping is repository `phalla-doll/ng-echarts`, filename `publish-prerelease.yml`, environment `npm-prerelease`, direct publishing allowed. The environment permits main only. Manual dispatch does not run on pushes or pull requests. [Guard tests](../tools/prerelease-guards.spec.mjs) cover unaccepted sources/runs, altered hashes and incomplete candidate evidence. [npm registration](experiments/trusted-publishing/npm-registration.json) was read back, and the first OIDC upload succeeded. The first post-upload consumer step encountered metadata propagation; verification recovery is recorded below.
 
 Official references: [npm trusted publishing](https://docs.npmjs.com/trusted-publishers/), [npm trust CLI](https://docs.npmjs.com/cli/v11/commands/npm-trust/). The pinned CLI supports trust commands; an authenticated listing returned no configured publisher before setup.
+
+## rc.22 OIDC publication
+
+[Publishing run](https://github.com/phalla-doll/ng-echarts/actions/runs/43691186511) published the reviewed rc.22 archive exactly once with GitHub OIDC and npm provenance, after the full [CI run](https://github.com/phalla-doll/ng-echarts/actions/runs/43690113895) passed for the same source commit. The [registry receipt](experiments/public-rc22/registry-verification.json) records SHA-256 `d1e9d2afdb720293ead15274b8302363b4dab86f14bf2d9c637f992b0e2f0a87`, `next: rc.22` and unchanged `latest: rc.18`.
+
+The upload and exact-byte checks passed; the run then failed when the normal npm packument still returned ETARGET to the first consumer. No second upload was attempted. The workflow now waits for bounded read-only npm resolution, validates the downloaded digest and supports `operation=verify` to rerun consumers without calling the publisher. Unexpected authentication/other errors fail immediately. The separate recovery run and consumer results remain pending until recorded. Human F09/R06/G2/G3/G4 remain pending under the continued deferral.

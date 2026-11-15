@@ -2,7 +2,7 @@
 
 # ng-echarts
 
-Published experimental release: **`@mantha911/ng-echarts@0.1.0-rc.21`**. Install with `npm install @mantha911/ng-echarts@next echarts@6.1.0`, or pin `@0.1.0-rc.21`. npm `next` selects rc.21; its initial `latest` alias remains on rc.18; neither the alias nor publication declares a stable API. The user deferred VoiceOver review, so human F09/R06/G2/G3/G4 remain pending. See [publication status and evidence](docs/PUBLICATION.md#rc19-publication).
+Published experimental release: **`@mantha911/ng-echarts@0.1.0-rc.22`**. Install with `npm install @mantha911/ng-echarts@next echarts@6.1.0`, or pin `@0.1.0-rc.22`. npm `next` selects rc.22; its initial `latest` alias remains on rc.18; neither the alias nor publication declares a stable API. The user deferred VoiceOver review, so human F09/R06/G2/G3/G4 remain pending. See [publication status and evidence](docs/PUBLICATION.md#rc22-oidc-publication).
 
 An Angular 22 chart component library inspired by EvilCharts, using Apache ECharts for rendering and TypeScript for its public API.
 
@@ -224,6 +224,6 @@ The published rc.19 [performance follow-up](docs/experiments/PERFORMANCE_FOLLOW_
 The [Angular practices follow-up](docs/experiments/ANGULAR_PRACTICES_FOLLOW_UP.md) records dependent-state reconciliation, explicit browser render phases and the playground's feature directories in rc.19.
 
 
-The [rc.19 delivery checkpoint](docs/experiments/RC19_RELEASE_REVIEW.md) preserves exact-artifact verification of the performance and Angular follow-ups. The rc.20 [stacked-composition increment](docs/experiments/NG17_STACKED_COMPOSED.md) adds named bar stacks with independent supplied lines; use its documentation-corrected, verified local rc.21 candidate. See the [composed API](docs/COMPOSED_CHART_API.md). The [current human review sheet](docs/experiments/RC20_HUMAN_REVIEW.md) retains the user's deferral.
+The [rc.19 delivery checkpoint](docs/experiments/RC19_RELEASE_REVIEW.md) preserves exact-artifact verification of the performance and Angular follow-ups. The rc.20 [stacked-composition increment](docs/experiments/NG17_STACKED_COMPOSED.md) adds named bar stacks with independent supplied lines; its documentation-corrected rc.21 successor is published and preserved. See the [composed API](docs/COMPOSED_CHART_API.md). The [current human review sheet](docs/experiments/RC20_HUMAN_REVIEW.md) retains the user's deferral.
 
-The [composed area increment](docs/experiments/NG17_COMPOSED_AREAS.md) adds area+line and named-area-stack examples in local rc.22. Published rc.21 supplies the preceding named bar stacks.
+The [composed area increment](docs/experiments/NG17_COMPOSED_AREAS.md) adds area+line and named-area-stack examples in published rc.22. Published rc.21 supplies the preceding named bar stacks.
