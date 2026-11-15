@@ -1,0 +1,6 @@
+browser (chromium)	Run npm run test:browser -- --project=chromium --max-failures=1	2026-11-15T16:38:56.3873213Z   160 passed (6.1m)
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-15T16:40:10.4644442Z   2 skipped
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-15T16:40:10.4644795Z   158 passed (7.2m)
+browser (webkit)	Verify WebKit horizontal hit targets before the full suite	2026-11-15T16:33:13.0988295Z   2 passed (9.8s)
+browser (webkit)	Run npm run test:browser -- --project=webkit --max-failures=1	2026-11-15T16:42:21.6611965Z   2 skipped
+browser (webkit)	Run npm run test:browser -- --project=webkit --max-failures=1	2026-11-15T16:42:21.6612228Z   158 passed (9.1m)

@@ -1,0 +1,14 @@
+{
+  "recordedAt": "2026-11-15T16:34:07.200Z",
+  "node": "v24.22.2",
+  "npm": "11.19.1",
+  "platform": "linux",
+  "version": "0.1.0-rc.24",
+  "method": "Pack the current build, then compile/pack in two independent roots without build caches, sharing only the pinned installed dependencies. Compare complete tarball SHA-256; cross-platform CI comparison is separate.",
+  "warmSha256": "6dd89361c4f6482b28b9a3f28d88bddf28a71eac9123ec1a8412517995d4c46f",
+  "clean": [
+    { "index": 1, "sha256": "6dd89361c4f6482b28b9a3f28d88bddf28a71eac9123ec1a8412517995d4c46f" },
+    { "index": 2, "sha256": "6dd89361c4f6482b28b9a3f28d88bddf28a71eac9123ec1a8412517995d4c46f" }
+  ],
+  "passed": true
+}

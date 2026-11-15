@@ -109,3 +109,6 @@ At that checkpoint, published rc.22 retained the registry evidence above and loc
 ## Published rc.23 and local rc.24
 
 [rc.23 publication](experiments/RC23_PUBLICATION.md) verifies horizontal composition from the selected exact CI archive; next is rc.23 and latest remains rc.18. The original differing macOS declaration-order candidate remains preserved. The separate [rc.24 source increment](experiments/NG17_DUAL_AXES.md) adds named declaration types and optional one/two independent linear value axes without a broader Angular/ECharts/browser support claim or higher bundle limits. Actual clean-build and CI evidence is recorded separately; human release gates remain pending.
+
+
+The rc.24 increment passes [full Linux CI](https://github.com/phalla-doll/ng-echarts/actions/runs/43736006909): 335 unit tests and 476 browser passes/four expected skips. Complete package bytes match macOS arm64 and Linux x64 warm/clean builds with pinned Node/npm; [comparison](experiments/rc24/ci/verified-source-artifact-comparison.json). This evidence does not broaden the dependency/browser support matrix or close human interpretation gates. rc.24 remains unpublished.

@@ -1,0 +1,17 @@
+{
+  "recordedAt": "2026-11-15T16:42:38.012942+00:00",
+  "sourceCommit": "c30bad62a663626b820b0b9f03c87e27d70c1b2c",
+  "ciRunId": 43736006909,
+  "ciManifestIncludesWorkingTree": true,
+  "ciWorkingTreeNote": "CI verification refreshes tracked evidence before release preparation. The recorded working-tree flag is retained.",
+  "libraryTree": "c3256ecd2ee7bb797163ffe71f48d458e7fb0d7e",
+  "version": "0.1.0-rc.24",
+  "bytes": 170430,
+  "localSha256": "6dd89361c4f6482b28b9a3f28d88bddf28a71eac9123ec1a8412517995d4c46f",
+  "ciSha256": "6dd89361c4f6482b28b9a3f28d88bddf28a71eac9123ec1a8412517995d4c46f",
+  "archiveBytesIdentical": true,
+  "packageFilesCompared": 68,
+  "declarationsCompared": 11,
+  "allMembersIdentical": true,
+  "passed": true
+}

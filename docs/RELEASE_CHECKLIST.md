@@ -78,7 +78,7 @@ The recorded dependency versions describe verified inputs, not every version adm
 
 | Item | Status / evidence |
 | --- | --- |
-| Local candidate automated checks | rc.24 exact-artifact checks, full local browsers and cross-platform byte comparisons pass; final aggregate Linux CI remains pending in the [current increment](experiments/NG17_DUAL_AXES.md). Preserved full CI for `0.1.0-rc.22`; [manifest](experiments/data/local-release-0.1.0-rc.22.json), [area report](experiments/NG17_COMPOSED_AREAS.md), [rc.20/rc.21 report](experiments/NG17_STACKED_COMPOSED.md) and published [rc.19 evidence](experiments/RC19_RELEASE_REVIEW.md); rc.16 results remain preserved in the [combined checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) |
+| Local candidate automated checks | rc.24 exact-artifact checks, full local browsers, cross-platform byte comparisons and aggregate Linux CI pass in the [current increment](experiments/NG17_DUAL_AXES.md). Preserved full CI for `0.1.0-rc.22`; [manifest](experiments/data/local-release-0.1.0-rc.22.json), [area report](experiments/NG17_COMPOSED_AREAS.md), [rc.20/rc.21 report](experiments/NG17_STACKED_COMPOSED.md) and published [rc.19 evidence](experiments/RC19_RELEASE_REVIEW.md); rc.16 results remain preserved in the [combined checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) |
 | Original library license | MIT selected by the user; full text ships in the candidate |
 | Human interpretation, F09/R06 | Pending; complete the [current result sheet](experiments/RC20_HUMAN_REVIEW.md) following the [manual review](experiments/R06_MANUAL_REVIEW.md) across every family |
 | NG14/G2/G3/G4 acceptance | Pending until the required human evidence exists; successful artifact checks do not close these gates |

@@ -96,7 +96,9 @@ Areas render behind bars and ordinary lines; category centers and half-category 
 
 The third and fourth gallery examples provide compiled area+line and stacked-area+line source. Percentage normalization remains deferred. Horizontal composition ships in rc.23; rc.24 adds the explicit value-axis contract below. The [area increment report](experiments/NG17_COMPOSED_AREAS.md) owns current verification; human interpretation stays pending.
 
-## Horizontal layout in local rc.23
+<a id="horizontal-layout-in-local-rc23"></a>
+
+## Horizontal layout in published rc.23
 
 `layout: 'vertical' | 'horizontal'` defaults to `vertical`; other values are rejected in strict templates and runtime configuration. Set `layout="horizontal"` for a numeric x-axis and a category y-axis. Supplied row order is retained from top to bottom, without sorting. Category centers and edge gaps remain stable when all bars or all series are hidden. Stacks keep their signed accumulation and separate bar/area namespaces; bar end caps and area gradients rotate with the geometry.
 

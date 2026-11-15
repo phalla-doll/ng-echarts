@@ -139,6 +139,8 @@ The site includes [Get Started](http://localhost:4310/get-started), [Installatio
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
 | `npm run check` | Run formatting, builds, compilation, unit, declaration/runtime consumers, SSR, browser, and size checks |
 
+Current rc.24 verification: **335 unit tests and 476 browser passes, with four expected skips**; [full Linux CI passes](https://github.com/phalla-doll/ng-echarts/actions/runs/43736006909), and complete macOS/Linux package bytes match. The [increment report](docs/experiments/NG17_DUAL_AXES.md) records exact-artifact checks, visual evidence and preserved failed-run corrections. rc.24 remains unpublished.
+
 Preserved rc.22 verification: **326 unit tests and 458 browser passes, with four expected skips**; [all delivery-source CI jobs passed](https://github.com/phalla-doll/ng-echarts/actions/runs/43691952570). The [area report](docs/experiments/NG17_COMPOSED_AREAS.md) records 22 publishing/readiness guard tests, exact registry consumers, OIDC provenance and the verified live deployment. Human interpretation remains deferred.
 
 Historical rc.18 verification: **267 unit tests and 416 browser passes, with four expected skips**; [all release-source CI jobs passed](https://github.com/phalla-doll/ng-echarts/actions/runs/43607829796). The published registry bytes match the canonical archive, with fresh strict/docs and six client/SSR consumer modes verified. See [publication evidence](docs/experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) and the [last verified demo deployment](docs/GITHUB_PAGES.md#current-deployment--composed-dashboard-and-horizontal-charts). The older checkpoints below retain their original counts and scope.

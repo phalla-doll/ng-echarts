@@ -156,7 +156,7 @@ The user authorized the [area composition increment](experiments/NG17_COMPOSED_A
 
 ## Composed dashboard and horizontal continuation
 
-The user authorized all three recommended follow-ups: a composed-to-detail dashboard, a realistic npm-installed consumer, and horizontal composition. The [dashboard guide](COMPOSED_DASHBOARD.md) and [increment record](experiments/NG20_COMPOSED_DASHBOARD.md) separate the rc.22-compatible app example from the rc.23 layout contract and its actual checks. Shared zoom, bidirectional selection, dual axes and NG21 decorative work remain subsequent scope. Human F09/R06/G2/G3/G4 remain deferred/pending.
+The user authorized all three recommended follow-ups: a composed-to-detail dashboard, a realistic npm-installed consumer, and horizontal composition. The [dashboard guide](COMPOSED_DASHBOARD.md) and [increment record](experiments/NG20_COMPOSED_DASHBOARD.md) separate the rc.22-compatible app example from the rc.23 layout contract and its actual checks. At that checkpoint, shared zoom, bidirectional selection, dual axes and NG21 decorative work remained subsequent scope; rc.24 implements the bounded value-axis increment below. Human F09/R06/G2/G3/G4 remain deferred/pending.
 
 The [committed dashboard/horizontal demo delivery](experiments/NG20_COMPOSED_DASHBOARD.md#committed-source-and-public-demo-delivery) is verified from clean source `8dd7619` in all three browsers: 35 routes, 140 sealed files and all 17 route payload guards pass. npm publication remains rc.22; human release gates remain pending.
 
