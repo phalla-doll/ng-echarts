@@ -1,0 +1,31 @@
+{
+  "source": "b26039763eb496f7a88d02df9d1e989b5ebec9ba",
+  "ciRun": 43904655587,
+  "ciUrl": "https://github.com/phalla-doll/ng-echarts/actions/runs/43904655587",
+  "conclusion": "success",
+  "unitTests": 342,
+  "browsers": [
+    {
+      "engine": "chromium",
+      "passed": 193,
+      "skipped": 0
+    },
+    {
+      "engine": "firefox",
+      "passed": 191,
+      "skipped": 2
+    },
+    {
+      "engine": "webkit",
+      "passed": 191,
+      "skipped": 2
+    }
+  ],
+  "webkitHorizontalProbePasses": 2,
+  "archive": {
+    "name": "mantha911-ng-echarts-0.1.0-rc.29.tgz",
+    "bytes": 169791,
+    "sha256": "e290db1ad3de9b18b83de79552039b2698d633aa8fc28b155a4b8fa8c990ffda",
+    "matchesPreservedRc29": true
+  }
+}

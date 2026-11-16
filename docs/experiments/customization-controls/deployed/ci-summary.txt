@@ -1,0 +1,36 @@
+2026-11-16T16:18:20.1888740Z   193 passed (6.5m)
+2026-11-16T16:21:28.3783007Z   2 skipped
+2026-11-16T16:21:28.3783819Z   191 passed (9.3m)
+2026-11-16T16:12:29.2687544Z   2 passed (12.8s)
+2026-11-16T16:25:14.4484961Z   2 skipped
+2026-11-16T16:25:14.4485293Z   191 passed (12.7m)
+2026-11-16T16:12:51.5457605Z Sealed 2 Pages files; SHA-256 cad76d4f616a819e9e3fe5c5898e9392bb4d255c4631f9c82ae80b418956e97e.
+2026-11-16T16:12:51.8235223Z Sealed 2 Pages files; SHA-256 cad76d4f616a819e9e3fe5c5898e9392bb4d255c4631f9c82ae80b418956e97e.
+2026-11-16T16:12:52.4459404Z Sealed 2 Pages files; SHA-256 cad76d4f616a819e9e3fe5c5898e9392bb4d255c4631f9c82ae80b418956e97e.
+2026-11-16T16:12:54.1059748Z Sealed 2 Pages files; SHA-256 cad76d4f616a819e9e3fe5c5898e9392bb4d255c4631f9c82ae80b418956e97e.
+2026-11-16T16:13:34.5940246Z PASS: warm and two independent clean 0.1.0-rc.29 packages match e290db1ad3de9b18b83de79552039b2698d633aa8fc28b155a4b8fa8c990ffda.
+2026-11-16T16:13:53.5467618Z       Tests  322 passed (322)
+2026-11-16T16:14:00.2938555Z       Tests  20 passed (20)
+2026-11-16T16:14:13.1041432Z PASS: packed library and ECharts declarations compile in isolation; invalid keys and formatters/options are rejected (skipLibCheck=false).
+2026-11-16T16:15:03.9844763Z PASS: documented installation and full application build, render and hydrate in all three engines.
+2026-11-16T16:15:46.5286777Z PASS: documented installation and full application build, render and hydrate in all three engines.
+2026-11-16T16:15:47.4824061Z PASS: production SSR returns library markup and hydration metadata. Browser hydration remains a separate check.
+2026-11-16T16:17:52.6763805Z PASS: independently installed tarball builds and runs in client and SSR/hydration applications across all three engines.
+2026-11-16T16:17:55.3783247Z PASS: bar 186735 gzip / 159389 Brotli bytes; 232 engine modules, none eager.
+2026-11-16T16:17:56.6001750Z PASS: line 186502 gzip / 159352 Brotli bytes; 230 engine modules, none eager.
+2026-11-16T16:17:57.8378043Z PASS: area 186993 gzip / 159608 Brotli bytes; 230 engine modules, none eager.
+2026-11-16T16:17:59.0738513Z PASS: composed 196345 gzip / 167201 Brotli bytes; 242 engine modules, none eager.
+2026-11-16T16:18:00.1891689Z PASS: pie 163209 gzip / 139691 Brotli bytes; 199 engine modules, none eager.
+2026-11-16T16:18:01.2975946Z PASS: radar 167811 gzip / 143865 Brotli bytes; 210 engine modules, none eager.
+2026-11-16T16:18:02.4321346Z PASS: calendar 173948 gzip / 148894 Brotli bytes; 213 engine modules, none eager.
+2026-11-16T16:18:03.5409360Z PASS: sankey 171274 gzip / 146504 Brotli bytes; 205 engine modules, none eager.
+2026-11-16T16:18:04.3628438Z PASS: radial 133809 gzip / 114651 Brotli bytes; 164 engine modules, none eager.
+2026-11-16T16:18:04.4349451Z PASS: core 8616 gzip / 7601 Brotli bytes; 0 engine modules, none eager.
+2026-11-16T16:18:05.8994865Z PASS: root 221664 gzip / 189538 Brotli bytes; 253 engine modules, none eager.
+2026-11-16T16:18:07.2557180Z PASS: root-frame 202823 gzip / 174878 Brotli bytes; 253 engine modules, none eager.
+2026-11-16T16:18:18.0272494Z Prepared mantha911-ng-echarts-0.1.0-rc.29.tgz (169791 bytes), SHA-256 e290db1ad3de9b18b83de79552039b2698d633aa8fc28b155a4b8fa8c990ffda
+2026-11-16T16:18:29.9841395Z PASS: packed library and ECharts declarations compile in isolation; invalid keys and formatters/options are rejected (skipLibCheck=false).
+2026-11-16T16:19:06.4610527Z PASS: documented installation and full application build, render and hydrate in all three engines.
+2026-11-16T16:21:10.1847679Z PASS: independently installed tarball builds and runs in client and SSR/hydration applications across all three engines.
+2026-11-16T16:21:11.6093356Z PASS: exact mantha911-ng-echarts-0.1.0-rc.29.tgz metadata/notices, strict declarations, fresh docs and three-engine CSR/SSR consumers. Human release gates remain pending.
+2026-11-16T16:21:12.9516457Z PASS: repeated preparation refuses to replace the archive, checksum or manifest.
