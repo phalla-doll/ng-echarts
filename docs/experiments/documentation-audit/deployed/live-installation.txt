@@ -1,0 +1,181 @@
+Skip to contentng-echartsCharts for Angular
+
+## Documentation
+
+- Get Started
+
+- Installation
+
+- Components
+
+## Chart blocks
+
+- Bar Blocks
+
+- Line Blocks
+
+- Area Blocks
+
+- Pie & Donut Blocks
+
+- Composed Blocks
+
+- Radar Blocks
+
+- Radial Progress
+
+- Calendar Heatmap
+
+- Sankey Flow
+
+- Linked Charts
+
+- Visits dashboard
+
+## Tools
+
+- Chart possibilities
+
+- Playground
+
+- Visual comparison
+
+## Validation
+
+- Value formatting
+
+- Input updates
+
+- Lifecycle validation
+
+- Line validation
+
+- Area validation
+
+- Pie validation
+
+- Composed validation
+
+- Linked validation
+
+- Retention checks
+
+- Render benchmark
+
+- Navigate away
+
+Work in progress
+
+Public API may change.
+
+View source on GitHub
+
+ng-echartsInstallation
+
+# Installation
+
+Build the local library and start exploring its Angular examples.
+
+Copy Page
+
+## Requirements
+
+Use the Node version in .nvmrc (24.22.2) and npm 11.19.1. This workspace pins Angular 22.2.6, TypeScript 6.0.3, and ECharts 6.1.0.
+
+Install the experimental @mantha911/ng-echarts prerelease through the next tag, or use a retained local tarball. Pin the resolved version and commit your lockfile.
+
+## Install the prerelease
+
+The next tag selects the experimental public rc.28 prerelease; latest retains rc.18. Human screen-reader interpretation remains unreviewed at the user’s request; the API is not declared stable.
+
+Terminal
+
+```
+npm install @mantha911/ng-echarts@next echarts@6.1.0
+```
+
+## Run the workspace
+
+Clone the repository, install the locked dependencies, and build the library before starting the site. Port 4310 keeps Angular’s default port free.
+
+Terminal
+
+```
+git clone https://github.com/phalla-doll/ng-echarts.git
+cd ng-echarts
+npm ci
+npm run build:lib
+npm start -- --port 4310
+```
+
+## Use a packed local build
+
+The experimental public 0.1.0-rc.28 candidate includes chip/list legends, gallery table opt-outs, independent value axes and the reviewed payload fixes; npm next selects rc.28. The unreleased 0.1.0-rc.29 source candidate isolates bar previews and internal private state. The shared-window dashboard also runs on rc.22. Create a production tarball from the workspace root and install it with the tested ECharts peer in a separate Angular 22 application. Replace the example path with your checkout location. Keep the archive at the lockfile path or in a vendor directory; commit the lockfile and use npm ci for repeat installs.
+
+Terminal
+
+```
+npm run pack:lib
+
+# In your Angular 22 application:
+npm install /path/to/ng-echarts/dist/mantha911-ng-echarts-0.1.0-rc.29.tgz echarts@6.1.0
+```
+
+## Bootstrap your chart
+
+Copy the complete App example from Get Started into src/app/app.ts in a CLI standalone application. Keep its generated main.ts and app configuration; they already bootstrap the App export and app-root selector. Import the chart in the component’s imports array. No library-specific providers, global ECharts registration or library stylesheet is required.
+
+Merge these explicit settings into tsconfig.json while retaining its other options. A chart needs a visible, nonzero-width parent; height controls its plot, while titles and native controls add to the total height.
+
+JSON
+
+```
+{
+  "compilerOptions": { "strict": true, "skipLibCheck": false },
+  "angularCompilerOptions": { "strictTemplates": true }
+}
+```
+
+## Server rendering
+
+Keep the generated hydration configuration and identical initial data/formatting on server and client. Server output provides titles, controls and fallback surfaces; Canvas rendering begins in the browser. Consumer code should not initialize ECharts or disable hydration for the chart.
+
+For a local production SSR build, merge this security setting into the application build options in angular.json. Angular’s SSR host check otherwise rejects localhost. Use the actual serving hostnames for an existing application.
+
+JSON
+
+```
+{
+  "security": { "allowedHosts": ["localhost", "127.0.0.1"] }
+}
+```
+
+## Compatibility and limits
+
+Exact tests use Angular/CLI 22.2.6, TypeScript 6.0.3, RxJS 7.8.2 and ECharts 6.1.0 with Node 24.22.2/npm 11.19.1. Library peers declare Angular common/core ^22.2.6 and ECharts ^6.1.0; wider allowed ranges are not a test of every version. Chromium 158.0.8127.18, Firefox 159.0 and WebKit 27.2 cover client and SSR/hydration paths.
+
+The measured starting envelope is 200 categories and three Cartesian series, or 12 pie/donut categories, on the recorded M2 Pro reference machine. Stress fixtures use 2,000 and 100 categories respectively. These are measured inputs rather than hard API limits or portable latency promises. Crowded outside labels may be shortened or hidden; native controls retain complete text.
+
+The APIs remain experimental. Automated tests pass; human screen-reader interpretation remains unreviewed at the user’s request. The public 0.1.0-rc.18 candidate uses MIT for original library code and includes third-party notices. Human release acceptance and registry publication remain separate.
+
+## Development and checks
+
+Run the library watcher in a second terminal when editing library source. The site consumes built /bar, /line, /area, /pie, /composed, /radar, /radial, /calendar, /sankey and /core package entries from dist/chart-library. Existing root imports remain compatible.
+
+The full check builds the library and site, verifies strict templates and declarations, exercises isolated consumers, and runs browser scenarios in Chromium, Firefox, and WebKit.
+
+Terminal
+
+```
+npm run watch:lib
+
+# Install test browsers once, then run the checks:
+npx playwright install chromium firefox webkit
+npm run check
+```
+
+PreviousGet StartedNextComponents
+
+On this page
+
+RequirementsInstall the prereleaseRun the workspaceUse a packed local buildBootstrap your chartServer renderingCompatibility and limitsDevelopment and checks

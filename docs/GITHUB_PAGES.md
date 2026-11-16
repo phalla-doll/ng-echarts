@@ -2,22 +2,26 @@
 
 The demo is published from the root of the dedicated `gh-pages` branch at **https://phalla-doll.github.io/ng-echarts/**. Source and deployment are separate commits. Publication requires a clean, pushed `main` source, an unchanged sealed artifact and successful local checks in all three browsers.
 
-## Current deployment — shared dashboard window
+<a id="current-deployment--shared-dashboard-window"></a>
+
+## Current deployment — documentation reconciliation
+
+The live installation/component documentation now names published rc.28, the rc.29 candidate and the radar chip-only limitation. The [documentation audit](experiments/RC29_DOCUMENTATION_AUDIT.md) records related guide coverage, strict consumers and preserved archives.
 
 The [visits dashboard](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) now shares one visible-month window between overview and device detail. Native From/To and zoom/pan/reset controls preserve stable IDs; either chart can commit a month. The complete standalone example still runs against published rc.22. npm next is rc.28/latest rc.18; rc.29 payload source is separately verified and unpublished. Human gates remain pending.
 
 | Identity / check | Verified result |
 | --- | --- |
-| Clean pushed source | `0e8f84be952ea5f37474379ab386f1b552618ce3` |
-| Static commit | `3addf08ca5ed015aef964ca1ea400ecf35a56d38` |
-| Sealed SHA-256 | `373fe55f7a2cca2b56677f98ca6859c8161454821fb1cb9b5da3b514e87b257e` |
-| Pages workflow | [Succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/43823070624) |
-| Source CI | [UI source passes](https://github.com/phalla-doll/ng-echarts/actions/runs/43822315582); [verifier/receipt follow-up also passes all six jobs](https://github.com/phalla-doll/ng-echarts/actions/runs/43825201013) |
+| Clean pushed source | `d188d59f07d299424814b39024160651ba7e0a5d` |
+| Static commit | `8e29fd8eeee03ba83d1dbacc72faa3d634a906a6` |
+| Sealed SHA-256 | `5dac8b379fda6c2fc60ab780d4d63ca821b143d7562a3246e71c260b1c452801` |
+| Pages workflow | [Succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/43831211803) |
+| Source CI | [All six documentation-source jobs pass](https://github.com/phalla-doll/ng-echarts/actions/runs/43830706126) |
 | Local/public static checks | 40 routes/145 files; all three engines pass |
 | Regression | 342 unit tests, 488 browser passes/four expected skips; separate WebKit probe passes |
 | Performance | All 17 route guards and normal-motion navigation pass |
 
-The [continuation report](experiments/RC29_LINKED_WINDOW.md#completed-verification-and-delivery) preserves exact receipts, live controls and the public Firefox diagnostic. Its verification correction waits for charts before table-absence checks, avoiding navigation during unfinished imports; it retains every assertion and the same sealed deployment. Receipt/test-only commits preserve source `0e8f84b`.
+The [continuation report](experiments/RC29_LINKED_WINDOW.md#completed-verification-and-delivery) preserves exact receipts, live controls and the public Firefox diagnostic. Its verification correction waits for charts before table-absence checks, avoiding navigation during unfinished imports; it retains every assertion and the same sealed deployment. The earlier functional dashboard delivery retains source `0e8f84b` in its report; the current [documentation deployment receipts](experiments/RC29_DOCUMENTATION_AUDIT.md#documentation-deployment) own source `d188d59`. Receipt-only commits preserve that new sealed identity.
 
 <a id="current-deployment--validation-layout-refinement"></a>
 
