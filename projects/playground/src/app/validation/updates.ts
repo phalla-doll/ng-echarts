@@ -6,15 +6,26 @@ import { SiteAppearance } from '../shell/site-appearance';
 @Component({
   selector: 'app-updates',
   imports: [BarChart],
-  template: `<main class="utility-page">
+  template: `<main class="utility-page validation-page">
     <h1>Input update validation</h1>
-    <div class="controls">
-      <button type="button" (click)="reorder()">Reorder rows and series</button>
-      <button type="button" (click)="rename()">Rename labels</button>
-      <button type="button" (click)="replace()">Replace rows and series</button>
-      <button type="button" (click)="invalidate()">Invalidate data</button>
-      <button type="button" (click)="restore()">Restore inputs</button>
-    </div>
+    <p>Change rows, labels, and series to check that selections follow stable identities.</p>
+    <section class="validation-controls" aria-label="Chart controls">
+      <div class="control-group" role="group" aria-labelledby="updates-controls-0">
+        <h2 id="updates-controls-0">Data</h2>
+        <div class="control-actions">
+          <button type="button" (click)="reorder()">Reorder rows and series</button>
+          <button type="button" (click)="rename()">Rename labels</button>
+          <button type="button" (click)="replace()">Replace rows and series</button>
+          <button class="control-restore" type="button" (click)="restore()">Restore inputs</button>
+        </div>
+      </div>
+      <div class="control-group" role="group" aria-labelledby="updates-controls-1">
+        <h2 id="updates-controls-1">States</h2>
+        <div class="control-actions">
+          <button type="button" (click)="invalidate()">Invalidate data</button>
+        </div>
+      </div>
+    </section>
     <nec-bar-chart
       title="Updated visits"
       [theme]="theme()"
@@ -26,7 +37,12 @@ import { SiteAppearance } from '../shell/site-appearance';
       [animation]="false"
       (pointSelect)="select($event)"
     />
-    <p role="status" class="selection">{{ selection() }}</p>
+    <div class="validation-results">
+      <div>
+        <h2>Point selection</h2>
+        <p role="status" class="selection">{{ selection() }}</p>
+      </div>
+    </div>
   </main>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

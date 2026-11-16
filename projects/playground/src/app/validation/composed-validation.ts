@@ -46,50 +46,87 @@ export class DeferredComposed {
 @Component({
   selector: 'app-composed-validation',
   imports: [ComposedChart, DeferredComposed],
-  template: `<main class="utility-page">
+  template: `<main class="utility-page validation-page">
     <h1>Composed behavior validation</h1>
     <p>Bars and lines share one visits scale, native controls, and data identities.</p>
-    <div class="controls">
-      <button type="button" (click)="update()">Update composed values</button>
-      <button type="button" (click)="reorder()">Reorder composed inputs</button>
-      <button type="button" (click)="switchKind()">Switch series kind</button>
-      <button type="button" (click)="togglePoints()">Toggle trend points</button>
-      <button
-        type="button"
-        [attr.aria-pressed]="layout() === 'horizontal'"
-        (click)="toggleLayout()"
-      >
-        Horizontal composed
-      </button>
-      <button type="button" (click)="invalidLayout()">Invalid composed layout</button>
-      <button type="button" (click)="dualAxes()">Use dual axes</button>
-      <button type="button" (click)="crossAxisStack()">Cross-axis stack</button>
-      <button type="button" (click)="invalidAxisFormatter()">Invalid axis formatter</button>
-      <button type="button" (click)="stackBars()">Use stacked bars</button>
-      <button type="button" (click)="areaSeries()">Use area series</button>
-      <button type="button" (click)="stackAreas()">Use stacked areas</button>
-      <button type="button" (click)="invalidArea()">Invalid area settings</button>
-      <button type="button" (click)="toggleFill()">Toggle area fill</button>
-      <button type="button" (click)="separateStacks()">Separate bar stacks</button>
-      <button type="button" (click)="ungroupBars()">Use unstacked bars</button>
-      <button type="button" (click)="invalidateStack()">Invalid composed stack</button>
-      <button type="button" (click)="refreshPalette()">Refresh palette</button>
-      <button type="button" [attr.aria-pressed]="loading()" (click)="loading.set(!loading())">
-        Loading composed
-      </button>
-      <button type="button" [attr.aria-pressed]="failure()" (click)="failure.set(!failure())">
-        Error composed
-      </button>
-      <button type="button" (click)="empty()">Empty composed data</button>
-      <button type="button" (click)="invalidate()">Invalid composed settings</button>
-      <button type="button" (click)="restore()">Restore composed data</button>
-      <button type="button" [attr.aria-pressed]="hidden()" (click)="hidden.set(!hidden())">
-        Hide composed host
-      </button>
-      <button type="button" [attr.aria-pressed]="mounted()" (click)="mounted.set(!mounted())">
-        Mount composed
-      </button>
-    </div>
+    <section class="validation-controls" aria-label="Chart controls">
+      <div class="control-group" role="group" aria-labelledby="composed-validation-controls-0">
+        <h2 id="composed-validation-controls-0">Appearance</h2>
+        <div class="control-actions">
+          <button
+            type="button"
+            [attr.aria-pressed]="layout() === 'horizontal'"
+            (click)="toggleLayout()"
+          >
+            Horizontal composed
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <button type="button" (click)="refreshPalette()">Refresh palette</button>
+        </div>
+      </div>
+      <div class="control-group" role="group" aria-labelledby="composed-validation-controls-1">
+        <h2 id="composed-validation-controls-1">Series</h2>
+        <div class="control-actions">
+          <button type="button" (click)="switchKind()">Switch series kind</button>
+          <button type="button" (click)="togglePoints()">Toggle trend points</button>
+          <button type="button" (click)="stackBars()">Use stacked bars</button>
+          <button type="button" (click)="areaSeries()">Use area series</button>
+          <button type="button" (click)="stackAreas()">Use stacked areas</button>
+          <button type="button" (click)="toggleFill()">Toggle area fill</button>
+          <button type="button" (click)="separateStacks()">Separate bar stacks</button>
+          <button type="button" (click)="ungroupBars()">Use unstacked bars</button>
+          <button type="button" (click)="dualAxes()">Use dual axes</button>
+        </div>
+      </div>
+      <div class="control-group" role="group" aria-labelledby="composed-validation-controls-2">
+        <h2 id="composed-validation-controls-2">Data</h2>
+        <div class="control-actions">
+          <button type="button" (click)="update()">Update composed values</button>
+          <button type="button" (click)="reorder()">Reorder composed inputs</button>
+          <button class="control-restore" type="button" (click)="restore()">
+            Restore composed data
+          </button>
+        </div>
+      </div>
+      <div class="control-group" role="group" aria-labelledby="composed-validation-controls-3">
+        <h2 id="composed-validation-controls-3">States</h2>
+        <div class="control-actions">
+          <button type="button" [attr.aria-pressed]="loading()" (click)="loading.set(!loading())">
+            Loading composed
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <button type="button" [attr.aria-pressed]="failure()" (click)="failure.set(!failure())">
+            Error composed
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <button type="button" (click)="empty()">Empty composed data</button>
+        </div>
+      </div>
+      <div class="control-group" role="group" aria-labelledby="composed-validation-controls-4">
+        <h2 id="composed-validation-controls-4">Invalid inputs</h2>
+        <div class="control-actions">
+          <button type="button" (click)="invalidLayout()">Invalid composed layout</button>
+          <button type="button" (click)="crossAxisStack()">Cross-axis stack</button>
+          <button type="button" (click)="invalidAxisFormatter()">Invalid axis formatter</button>
+          <button type="button" (click)="invalidArea()">Invalid area settings</button>
+          <button type="button" (click)="invalidateStack()">Invalid composed stack</button>
+          <button type="button" (click)="invalidate()">Invalid composed settings</button>
+        </div>
+      </div>
+      <div class="control-group" role="group" aria-labelledby="composed-validation-controls-5">
+        <h2 id="composed-validation-controls-5">Lifecycle</h2>
+        <div class="control-actions">
+          <button type="button" [attr.aria-pressed]="hidden()" (click)="hidden.set(!hidden())">
+            Hide composed host
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <button type="button" [attr.aria-pressed]="mounted()" (click)="mounted.set(!mounted())">
+            Mount composed
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </section>
     <div class="primary-composed" [style.width]="hidden() ? '0px' : '100%'" style="overflow:hidden">
       @if (mounted()) {
         <nec-composed-chart
@@ -111,12 +148,26 @@ export class DeferredComposed {
           (pointSelect)="select($event)"
           (legendChange)="legend.set($event.seriesId + '/' + $event.visible)"
         />
+      } @else {
+        <div class="validation-empty">
+          <h2>Chart unmounted</h2>
+          <p>Use “Mount composed” to bring the chart back.</p>
+        </div>
       }
     </div>
-    <p class="selection" role="status">{{ selection() }}</p>
-    <p class="legend-result" role="status">{{ legend() }}</p>
-    <section class="deferred-composed">
+    <div class="validation-results">
+      <div>
+        <h2>Point selection</h2>
+        <p class="selection" role="status">{{ selection() }}</p>
+      </div>
+      <div>
+        <h2>Legend change</h2>
+        <p class="legend-result" role="status">{{ legend() }}</p>
+      </div>
+    </div>
+    <section class="deferred-composed validation-scenario">
       <h2>Deferred hydration</h2>
+      <p>Interact with the chart below to activate its server-rendered controls.</p>
       @defer (hydrate on interaction) {
         <app-deferred-composed />
       }

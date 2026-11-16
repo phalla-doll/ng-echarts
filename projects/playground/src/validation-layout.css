@@ -1,0 +1,186 @@
+/* Validation fixtures share the shell palette without changing chart measurement styles. */
+.validation-page > h1 {
+  max-width: 24ch;
+  text-wrap: balance;
+}
+.validation-page > p {
+  max-width: 65ch;
+}
+.validation-controls {
+  margin: 28px 0 24px;
+  padding: 4px 20px;
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-panel-radius);
+  background: var(--site-surface);
+}
+.control-group {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+}
+.control-group + .control-group {
+  border-top: 1px solid var(--site-border);
+}
+.control-group h2,
+.validation-results h2 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 550;
+  line-height: 20px;
+}
+.control-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+.control-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 36px;
+  max-width: 100%;
+  padding: 7px 10px;
+  border: 1px solid var(--site-border);
+  border-radius: var(--site-inset-radius);
+  background: var(--site-bg);
+  color: var(--site-text);
+  font-size: 12px;
+  font-weight: 450;
+  line-height: 20px;
+  text-align: left;
+}
+.control-actions button[aria-pressed='true'] {
+  border-color: var(--site-control-border);
+  background: var(--site-active-soft);
+}
+.control-actions .control-restore {
+  border-style: dashed;
+}
+.toggle-indicator {
+  position: relative;
+  flex: none;
+  width: 26px;
+  height: 16px;
+  border: 1px solid var(--site-control-border);
+  border-radius: 10px;
+  background: var(--site-subtle);
+}
+.toggle-indicator::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--site-switch);
+}
+[aria-pressed='true'] > .toggle-indicator {
+  border-color: var(--site-text);
+  background: var(--site-text);
+}
+[aria-pressed='true'] > .toggle-indicator::after {
+  left: 12px;
+  background: var(--site-bg);
+}
+.validation-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 40px;
+  margin-top: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--site-border);
+}
+.validation-results > div {
+  min-width: 0;
+}
+.validation-results p {
+  margin: 4px 0 0;
+  color: var(--site-muted);
+  font-size: 12px;
+  line-height: 20px;
+  overflow-wrap: anywhere;
+}
+.validation-scenario {
+  margin-top: 32px;
+}
+.validation-scenario > h2,
+.validation-empty > h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 550;
+  line-height: 26px;
+  letter-spacing: -0.3px;
+}
+.validation-scenario > p,
+.validation-empty > p {
+  margin: 6px 0 20px;
+  max-width: 60ch;
+  color: var(--site-muted);
+  font-size: 13px;
+  line-height: 22px;
+}
+.validation-empty {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  min-height: 240px;
+  padding: 32px 24px;
+  border: 1px dashed var(--site-control-border);
+  border-radius: var(--site-panel-radius);
+  text-align: center;
+}
+.validation-page > .validation-empty {
+  margin-top: 28px;
+}
+.validation-empty > p:last-child {
+  margin-bottom: 0;
+}
+.validation-page > .validation-note {
+  margin: -8px 0 16px;
+  font-size: 12px;
+  line-height: 20px;
+}
+.validation-note strong {
+  color: var(--site-text);
+  font-weight: 500;
+}
+@media (max-width: 600px) {
+  .validation-controls {
+    padding: 0 16px;
+    margin-top: 24px;
+  }
+  .control-group {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    padding: 16px 0;
+  }
+  .control-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .control-actions button {
+    min-height: 44px;
+    width: 100%;
+  }
+}
+/* The open sidebar leaves a phone-sized column at these tablet widths. */
+@media (min-width: 801px) and (max-width: 1000px) {
+  .control-group {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+}
+@media (forced-colors: active) {
+  .control-actions button[aria-pressed='true'],
+  [aria-pressed='true'] > .toggle-indicator {
+    border-color: Highlight;
+  }
+  .toggle-indicator::after {
+    background: ButtonText;
+  }
+}

@@ -5,12 +5,19 @@ import { SiteAppearance } from '../shell/site-appearance';
 @Component({
   selector: 'app-retention',
   imports: [BarChart],
-  template: `<main class="utility-page">
+  template: `<main class="utility-page validation-page">
     <h1>Retention validation</h1>
     <p>Exercise chart removal and verify that previous data can be collected.</p>
-    <div class="controls">
-      <button type="button" (click)="toggle()">Toggle retained chart</button>
-    </div>
+    <section class="validation-controls" aria-label="Chart controls">
+      <div class="control-group" role="group" aria-labelledby="retention-controls-0">
+        <h2 id="retention-controls-0">Lifecycle</h2>
+        <div class="control-actions">
+          <button type="button" [attr.aria-pressed]="mounted()" (click)="toggle()">
+            Toggle retained chart<span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </section>
     @if (mounted()) {
       <nec-bar-chart
         title="Retention sample"
@@ -21,6 +28,13 @@ import { SiteAppearance } from '../shell/site-appearance';
         [series]="series"
         [animation]="false"
       />
+    } @else {
+      <div class="validation-empty">
+        <h2>No chart mounted</h2>
+        <p>
+          Use “Toggle retained chart” to create a sample, then toggle it again to check removal.
+        </p>
+      </div>
     }
   </main>`,
   styles: `

@@ -19,26 +19,85 @@ interface Row {
 @Component({
   selector: 'app-formatting',
   imports: [BarChart],
-  template: `<main class="utility-page">
+  template: `<main class="utility-page validation-page">
     <h1>Value formatting</h1>
     <p>Compare the same numeric text in axis ticks, tooltips, and the data table.</p>
-    <div class="controls" aria-label="Formatting examples">
-      <button type="button" (click)="show('default')">Default numbers</button>
-      <button type="button" (click)="show('currency')">Euro currency</button>
-      <button type="button" (click)="show('custom')">Custom value labels</button>
-      <button type="button" (click)="toggleLocale()">Toggle German locale</button>
-      <button type="button" (click)="show('bad-value')">Invalid value formatter</button>
-      <button type="button" (click)="show('bad-axis')">Invalid axis formatter</button>
-      <button type="button" (click)="show('bad-options')">Invalid number options</button>
-      <button type="button" (click)="show('bad-locale')">Invalid locale</button>
-      <button type="button" (click)="toggleLoading()" [attr.aria-pressed]="loading()">
-        Loading state
-      </button>
-      <button type="button" (click)="toggleError()" [attr.aria-pressed]="failure()">
-        Application error
-      </button>
-    </div>
-    <p>Locale: {{ locale() }}</p>
+    <section class="validation-controls" aria-label="Chart controls">
+      <div class="control-group" role="group" aria-labelledby="formatting-controls-0">
+        <h2 id="formatting-controls-0">Number format</h2>
+        <div class="control-actions">
+          <button
+            type="button"
+            [attr.aria-pressed]="mode() === 'default'"
+            (click)="show('default')"
+          >
+            Default numbers
+          </button>
+          <button
+            type="button"
+            [attr.aria-pressed]="mode() === 'currency'"
+            (click)="show('currency')"
+          >
+            Euro currency
+          </button>
+          <button type="button" [attr.aria-pressed]="mode() === 'custom'" (click)="show('custom')">
+            Custom value labels
+          </button>
+          <button type="button" [attr.aria-pressed]="german()" (click)="toggleLocale()">
+            Toggle German locale<span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <div class="control-group" role="group" aria-labelledby="formatting-controls-1">
+        <h2 id="formatting-controls-1">Invalid inputs</h2>
+        <div class="control-actions">
+          <button
+            type="button"
+            [attr.aria-pressed]="mode() === 'bad-value'"
+            (click)="show('bad-value')"
+          >
+            Invalid value formatter
+          </button>
+          <button
+            type="button"
+            [attr.aria-pressed]="mode() === 'bad-axis'"
+            (click)="show('bad-axis')"
+          >
+            Invalid axis formatter
+          </button>
+          <button
+            type="button"
+            [attr.aria-pressed]="mode() === 'bad-options'"
+            (click)="show('bad-options')"
+          >
+            Invalid number options
+          </button>
+          <button
+            type="button"
+            [attr.aria-pressed]="mode() === 'bad-locale'"
+            (click)="show('bad-locale')"
+          >
+            Invalid locale
+          </button>
+        </div>
+      </div>
+      <div class="control-group" role="group" aria-labelledby="formatting-controls-2">
+        <h2 id="formatting-controls-2">States</h2>
+        <div class="control-actions">
+          <button type="button" (click)="toggleLoading()" [attr.aria-pressed]="loading()">
+            Loading state
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <button type="button" (click)="toggleError()" [attr.aria-pressed]="failure()">
+            Application error
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <p class="validation-note" role="status">
+      Locale: <strong>{{ locale() }}</strong>
+    </p>
     <nec-bar-chart
       title="Formatted values"
       [theme]="theme()"
@@ -55,17 +114,22 @@ interface Row {
       [animation]="false"
       (pointSelect)="select($event)"
     />
-    <p class="selection" role="status">{{ selection() }}</p>
+    <div class="validation-results">
+      <div>
+        <h2>Point selection</h2>
+        <p class="selection" role="status">{{ selection() }}</p>
+      </div>
+    </div>
   </main>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Formatting {
   protected readonly theme = inject(SiteAppearance).theme;
   private readonly route = inject(ActivatedRoute);
-  private readonly mode = signal<FormatMode>(
+  protected readonly mode = signal<FormatMode>(
     this.route.snapshot.queryParamMap.get('invalid') === 'locale' ? 'bad-locale' : 'default',
   );
-  private readonly german = signal(false);
+  protected readonly german = signal(false);
   protected readonly loading = signal(false);
   protected readonly failure = signal(false);
   protected readonly error = computed(() => (this.failure() ? 'Sample application error.' : null));

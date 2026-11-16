@@ -4,6 +4,7 @@
 @import './syntax-highlighting.css';
 @import './site-focus.css';
 @import './site-hover.css';
+@import './validation-layout.css';
 
 @font-face {
   font-family: 'Inter';

@@ -1,17 +1,29 @@
-<main class="utility-page">
+<main class="utility-page validation-page">
   <h1>Bar lifecycle validation</h1>
   <p>Fixtures for server rendering, hydration, hidden surfaces, updates, and cleanup.</p>
-  <div class="controls">
-    <button type="button" (click)="toggleMount()" [attr.aria-pressed]="mounted()">
-      Mount regular charts
-    </button>
-    <button type="button" (click)="revealHidden()">Reveal hidden chart</button>
-    <button type="button" (click)="finishLoading()">Finish loading</button>
-    <button type="button" (click)="toggleMobile()" [attr.aria-pressed]="mobile()">
-      Mobile series
-    </button>
-    <button type="button" (click)="refreshPalette()">Refresh palette</button>
-  </div>
+  <section class="validation-controls" aria-label="Chart controls">
+    <div class="control-group" role="group" aria-labelledby="validation-controls-0">
+      <h2 id="validation-controls-0">Appearance</h2>
+      <div class="control-actions">
+        <button type="button" (click)="toggleMobile()" [attr.aria-pressed]="mobile()">
+          Mobile series
+          <span class="toggle-indicator" aria-hidden="true"></span>
+        </button>
+        <button type="button" (click)="refreshPalette()">Refresh palette</button>
+      </div>
+    </div>
+    <div class="control-group" role="group" aria-labelledby="validation-controls-1">
+      <h2 id="validation-controls-1">Lifecycle</h2>
+      <div class="control-actions">
+        <button type="button" (click)="toggleMount()" [attr.aria-pressed]="mounted()">
+          Mount regular charts
+          <span class="toggle-indicator" aria-hidden="true"></span>
+        </button>
+        <button type="button" (click)="revealHidden()">Reveal hidden chart</button>
+        <button type="button" (click)="finishLoading()">Finish loading</button>
+      </div>
+    </div>
+  </section>
   <div class="charts" [style.--nec-series-1]="palette() ? '#2563eb' : '#047857'">
     @if (mounted()) {
       <nec-bar-chart
@@ -51,7 +63,13 @@
         [animation]="false"
       />
     }
-    <section data-testid="deferred" aria-label="Deferred hydration fixture">
+    <section
+      class="validation-scenario"
+      data-testid="deferred"
+      aria-label="Deferred hydration fixture"
+    >
+      <h2>Deferred hydration</h2>
+      <p>Interact with the chart below to activate its server-rendered controls.</p>
       @defer (hydrate on interaction) {
         <app-deferred-chart />
       } @placeholder {

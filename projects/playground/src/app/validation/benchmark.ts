@@ -62,10 +62,12 @@ declare global {
 
 @Component({
   selector: 'app-benchmark',
-  template: `<main class="measurement-page">
+  template: `<main class="measurement-page validation-page">
     <h1>{{ benchmarkTitle }} benchmark fixture</h1>
     <p>Automated measurements run through the benchmark command.</p>
-    <button type="button" (click)="showPaginatedSample()">Show paginated sample</button>
+    <button class="ui-button" type="button" (click)="showPaginatedSample()">
+      Show paginated sample
+    </button>
     <p>
       The preview keeps its fixed 768 px measurement width and reference theme. Scroll inside the
       preview on a narrow screen.

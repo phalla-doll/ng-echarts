@@ -40,38 +40,71 @@ export class DeferredLine {
 @Component({
   selector: 'app-line-validation',
   imports: [LineChart, DeferredLine],
-  template: `<main class="utility-page">
+  template: `<main class="utility-page validation-page">
     <h1>Line behavior validation</h1>
     <p>Exercise gaps, numeric formatting, immutable updates, hydration, and lifecycle behavior.</p>
-    <div class="controls">
-      <button type="button" [attr.aria-pressed]="smooth()" (click)="smooth.set(!smooth())">
-        Smooth lines
-      </button>
-      <button type="button" [attr.aria-pressed]="points()" (click)="points.set(!points())">
-        Show points
-      </button>
-      <button type="button" (click)="update()">Update line values</button>
-      <button type="button" (click)="refreshPalette()">Refresh palette</button>
-      <button type="button" (click)="reorder()">Reorder line inputs</button>
-      <button type="button" [attr.aria-pressed]="currency()" (click)="currency.set(!currency())">
-        Currency values
-      </button>
-      <button type="button" [attr.aria-pressed]="loading()" (click)="loading.set(!loading())">
-        Loading line
-      </button>
-      <button type="button" [attr.aria-pressed]="failure()" (click)="failure.set(!failure())">
-        Error line
-      </button>
-      <button type="button" (click)="empty()">Empty line data</button>
-      <button type="button" (click)="invalidate()">Invalid line data</button>
-      <button type="button" (click)="restore()">Restore line data</button>
-      <button type="button" [attr.aria-pressed]="hidden()" (click)="hidden.set(!hidden())">
-        Hide line host
-      </button>
-      <button type="button" [attr.aria-pressed]="mounted()" (click)="mounted.set(!mounted())">
-        Mount line
-      </button>
-    </div>
+    <section class="validation-controls" aria-label="Chart controls">
+      <div class="control-group" role="group" aria-labelledby="line-validation-controls-0">
+        <h2 id="line-validation-controls-0">Appearance</h2>
+        <div class="control-actions">
+          <button type="button" [attr.aria-pressed]="smooth()" (click)="smooth.set(!smooth())">
+            Smooth lines
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <button type="button" [attr.aria-pressed]="points()" (click)="points.set(!points())">
+            Show points
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <button
+            type="button"
+            [attr.aria-pressed]="currency()"
+            (click)="currency.set(!currency())"
+          >
+            Currency values
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <div class="control-group" role="group" aria-labelledby="line-validation-controls-1">
+        <h2 id="line-validation-controls-1">Data</h2>
+        <div class="control-actions">
+          <button type="button" (click)="update()">Update line values</button>
+          <button type="button" (click)="refreshPalette()">Refresh palette</button>
+          <button type="button" (click)="reorder()">Reorder line inputs</button>
+          <button class="control-restore" type="button" (click)="restore()">
+            Restore line data
+          </button>
+        </div>
+      </div>
+      <div class="control-group" role="group" aria-labelledby="line-validation-controls-2">
+        <h2 id="line-validation-controls-2">States</h2>
+        <div class="control-actions">
+          <button type="button" [attr.aria-pressed]="loading()" (click)="loading.set(!loading())">
+            Loading line
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <button type="button" [attr.aria-pressed]="failure()" (click)="failure.set(!failure())">
+            Error line
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <button type="button" (click)="empty()">Empty line data</button>
+          <button type="button" (click)="invalidate()">Invalid line data</button>
+        </div>
+      </div>
+      <div class="control-group" role="group" aria-labelledby="line-validation-controls-3">
+        <h2 id="line-validation-controls-3">Lifecycle</h2>
+        <div class="control-actions">
+          <button type="button" [attr.aria-pressed]="hidden()" (click)="hidden.set(!hidden())">
+            Hide line host
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <button type="button" [attr.aria-pressed]="mounted()" (click)="mounted.set(!mounted())">
+            Mount line
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </section>
     <div class="primary-line" [style.width]="hidden() ? '0px' : '100%'" style="overflow:hidden">
       @if (mounted()) {
         <nec-line-chart
@@ -94,12 +127,26 @@ export class DeferredLine {
           (pointSelect)="select($event)"
           (legendChange)="legend($event)"
         />
+      } @else {
+        <div class="validation-empty">
+          <h2>Chart unmounted</h2>
+          <p>Use “Mount line” to bring the chart back.</p>
+        </div>
       }
     </div>
-    <p class="selection" role="status">{{ selection() }}</p>
-    <p class="legend-result" role="status">{{ legendResult() }}</p>
-    <section class="deferred-line">
+    <div class="validation-results">
+      <div>
+        <h2>Point selection</h2>
+        <p class="selection" role="status">{{ selection() }}</p>
+      </div>
+      <div>
+        <h2>Legend change</h2>
+        <p class="legend-result" role="status">{{ legendResult() }}</p>
+      </div>
+    </div>
+    <section class="deferred-line validation-scenario">
       <h2>Deferred hydration</h2>
+      <p>Interact with the chart below to activate its server-rendered controls.</p>
       @defer (hydrate on interaction) {
         <app-deferred-line />
       }

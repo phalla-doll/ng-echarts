@@ -1,0 +1,2356 @@
+{
+  "views": 110,
+  "passed": true,
+  "checks": [
+    {
+      "theme": "light",
+      "route": "formatting",
+      "bad": [],
+      "buttons": 10,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Number format"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "light",
+      "route": "formatting",
+      "bad": [],
+      "buttons": 10,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Number format"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "light",
+      "route": "formatting",
+      "bad": [],
+      "buttons": 10,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Number format"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "light",
+      "route": "formatting",
+      "bad": [],
+      "buttons": 10,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Number format"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "light",
+      "route": "formatting",
+      "bad": [],
+      "buttons": 10,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Number format"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "light",
+      "route": "updates",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "light",
+      "route": "updates",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "light",
+      "route": "updates",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "light",
+      "route": "updates",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "light",
+      "route": "updates",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "light",
+      "route": "validation",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "light",
+      "route": "validation",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "light",
+      "route": "validation",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "light",
+      "route": "validation",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "light",
+      "route": "validation",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "light",
+      "route": "line-validation",
+      "bad": [],
+      "buttons": 13,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "light",
+      "route": "line-validation",
+      "bad": [],
+      "buttons": 13,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "light",
+      "route": "line-validation",
+      "bad": [],
+      "buttons": 13,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "light",
+      "route": "line-validation",
+      "bad": [],
+      "buttons": 13,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "light",
+      "route": "line-validation",
+      "bad": [],
+      "buttons": 13,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "light",
+      "route": "area-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "light",
+      "route": "area-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "light",
+      "route": "area-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "light",
+      "route": "area-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "light",
+      "route": "area-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "light",
+      "route": "pie-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "light",
+      "route": "pie-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "light",
+      "route": "pie-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "light",
+      "route": "pie-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "light",
+      "route": "pie-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "light",
+      "route": "composed-validation",
+      "bad": [],
+      "buttons": 25,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Series"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "light",
+      "route": "composed-validation",
+      "bad": [],
+      "buttons": 25,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Series"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "light",
+      "route": "composed-validation",
+      "bad": [],
+      "buttons": 25,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Series"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "light",
+      "route": "composed-validation",
+      "bad": [],
+      "buttons": 25,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Series"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "light",
+      "route": "composed-validation",
+      "bad": [],
+      "buttons": 25,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Series"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "light",
+      "route": "linked-validation",
+      "bad": [],
+      "buttons": 9,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "light",
+      "route": "linked-validation",
+      "bad": [],
+      "buttons": 9,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "light",
+      "route": "linked-validation",
+      "bad": [],
+      "buttons": 9,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "light",
+      "route": "linked-validation",
+      "bad": [],
+      "buttons": 9,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "light",
+      "route": "linked-validation",
+      "bad": [],
+      "buttons": 9,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "light",
+      "route": "retention",
+      "bad": [],
+      "buttons": 1,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "light",
+      "route": "retention",
+      "bad": [],
+      "buttons": 1,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "light",
+      "route": "retention",
+      "bad": [],
+      "buttons": 1,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "light",
+      "route": "retention",
+      "bad": [],
+      "buttons": 1,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "light",
+      "route": "retention",
+      "bad": [],
+      "buttons": 1,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "light",
+      "route": "benchmark",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": 768,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "light",
+      "route": "benchmark",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": 768,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "light",
+      "route": "benchmark",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": 768,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "light",
+      "route": "benchmark",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": 768,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "light",
+      "route": "benchmark",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": 768,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "light",
+      "route": "away",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "light",
+      "route": "away",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "light",
+      "route": "away",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "light",
+      "route": "away",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "light",
+      "route": "away",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "dark",
+      "route": "formatting",
+      "bad": [],
+      "buttons": 10,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Number format"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "dark",
+      "route": "formatting",
+      "bad": [],
+      "buttons": 10,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Number format"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "dark",
+      "route": "formatting",
+      "bad": [],
+      "buttons": 10,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Number format"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "dark",
+      "route": "formatting",
+      "bad": [],
+      "buttons": 10,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Number format"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "dark",
+      "route": "formatting",
+      "bad": [],
+      "buttons": 10,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Number format"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "dark",
+      "route": "updates",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "dark",
+      "route": "updates",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "dark",
+      "route": "updates",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "dark",
+      "route": "updates",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "dark",
+      "route": "updates",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "dark",
+      "route": "validation",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "dark",
+      "route": "validation",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "dark",
+      "route": "validation",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "dark",
+      "route": "validation",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "dark",
+      "route": "validation",
+      "bad": [],
+      "buttons": 5,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "dark",
+      "route": "line-validation",
+      "bad": [],
+      "buttons": 13,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "dark",
+      "route": "line-validation",
+      "bad": [],
+      "buttons": 13,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "dark",
+      "route": "line-validation",
+      "bad": [],
+      "buttons": 13,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "dark",
+      "route": "line-validation",
+      "bad": [],
+      "buttons": 13,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "dark",
+      "route": "line-validation",
+      "bad": [],
+      "buttons": 13,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "dark",
+      "route": "area-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "dark",
+      "route": "area-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "dark",
+      "route": "area-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "dark",
+      "route": "area-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "dark",
+      "route": "area-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "dark",
+      "route": "pie-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "dark",
+      "route": "pie-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "dark",
+      "route": "pie-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "dark",
+      "route": "pie-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "dark",
+      "route": "pie-validation",
+      "bad": [],
+      "buttons": 15,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "dark",
+      "route": "composed-validation",
+      "bad": [],
+      "buttons": 25,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Series"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "dark",
+      "route": "composed-validation",
+      "bad": [],
+      "buttons": 25,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Series"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "dark",
+      "route": "composed-validation",
+      "bad": [],
+      "buttons": 25,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Series"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "dark",
+      "route": "composed-validation",
+      "bad": [],
+      "buttons": 25,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Series"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "dark",
+      "route": "composed-validation",
+      "bad": [],
+      "buttons": 25,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Series"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        },
+        {
+          "labelled": true,
+          "name": "Invalid inputs"
+        },
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "dark",
+      "route": "linked-validation",
+      "bad": [],
+      "buttons": 9,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "dark",
+      "route": "linked-validation",
+      "bad": [],
+      "buttons": 9,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "dark",
+      "route": "linked-validation",
+      "bad": [],
+      "buttons": 9,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "dark",
+      "route": "linked-validation",
+      "bad": [],
+      "buttons": 9,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "dark",
+      "route": "linked-validation",
+      "bad": [],
+      "buttons": 9,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Appearance"
+        },
+        {
+          "labelled": true,
+          "name": "Data"
+        },
+        {
+          "labelled": true,
+          "name": "States"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "dark",
+      "route": "retention",
+      "bad": [],
+      "buttons": 1,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "dark",
+      "route": "retention",
+      "bad": [],
+      "buttons": 1,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "dark",
+      "route": "retention",
+      "bad": [],
+      "buttons": 1,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "dark",
+      "route": "retention",
+      "bad": [],
+      "buttons": 1,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "dark",
+      "route": "retention",
+      "bad": [],
+      "buttons": 1,
+      "groups": [
+        {
+          "labelled": true,
+          "name": "Lifecycle"
+        }
+      ],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "dark",
+      "route": "benchmark",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": 768,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "dark",
+      "route": "benchmark",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": 768,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "dark",
+      "route": "benchmark",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": 768,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "dark",
+      "route": "benchmark",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": 768,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "dark",
+      "route": "benchmark",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": 768,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "theme": "dark",
+      "route": "away",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": null,
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "theme": "dark",
+      "route": "away",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": null,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "theme": "dark",
+      "route": "away",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": null,
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "theme": "dark",
+      "route": "away",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": null,
+      "scrollWidth": 900,
+      "width": 900
+    },
+    {
+      "theme": "dark",
+      "route": "away",
+      "bad": [],
+      "buttons": 0,
+      "groups": [],
+      "measurementWidth": null,
+      "scrollWidth": 1440,
+      "width": 1440
+    }
+  ]
+}

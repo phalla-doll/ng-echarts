@@ -1,0 +1,77 @@
+{
+  "recordedAt": "2026-11-16",
+  "baseCommit": "6e04ff6a376e99c3d19863f03fdc13df24476e36",
+  "scope": "Local demo refinement for all eleven routes linked under Validation; no package publication or demo deployment.",
+  "toolchain": {
+    "node": "24.22.2",
+    "npm": "11.19.1"
+  },
+  "sourceFiles": {
+    "projects/playground/src/app/validation/area-validation.ts": "431f9b614292ae0742f0a0b6a2b068db5b215690dcb3207949ade57ebc56adda",
+    "projects/playground/src/app/validation/away.ts": "701c25fd3eff545bd5a51c3df51f5d4106856edc2f90742e443696986755f8c6",
+    "projects/playground/src/app/validation/benchmark.ts": "662be2d249c463a1db901aace2af4465ec8319dfe2daece19899ccc7ce6cb95a",
+    "projects/playground/src/app/validation/composed-validation.ts": "02d8f0319d1d8d86f0b5c813e4186af6f0b3f6f7649683aea54d09722a724f7a",
+    "projects/playground/src/app/validation/formatting.ts": "3baa3ddda2b6c32aece8cc92bc0d5aeb786860aee0cb9e496fbd763d11d78916",
+    "projects/playground/src/app/validation/line-validation.ts": "76449c93d98647f084dc31bf2276ce4843db7d7a60dd2e7741513463901bbbe8",
+    "projects/playground/src/app/validation/linked-validation.ts": "4c43286842f54b09d2b4225822311c8fa0095d3d61e153b1eb8d7668a1658228",
+    "projects/playground/src/app/validation/pie-validation.ts": "9d6575b36e7d6a525c2ce2b3f62ad8fab90849dead6f80de33a7dfc3a4d5f775",
+    "projects/playground/src/app/validation/retention.ts": "67ce327282ca352d1df0fe010048e8a04ed046675593bf7dcbc7a97f165386e4",
+    "projects/playground/src/app/validation/updates.ts": "7e6df3ab7bc4d3adae98d2424126819054970469fc54ede727587bc702fca77d",
+    "projects/playground/src/app/validation/validation.html": "026394d0eb98a75ec4b7b43009ece76d270c4ade9ec3175bd7aad09f661fb4ee",
+    "projects/playground/src/styles.css": "2b39108f77e3a1d5d0cb11862e5dffe2937a01b22725d6e3f0bf9c0acf3021b6",
+    "projects/playground/src/validation-layout.css": "552e2403a3f6eab5fef61034fcc03b668cf0410414116150583cdd88dc445d58"
+  },
+  "checks": [
+    {
+      "command": "npm run build:playground",
+      "result": "passed"
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "passed"
+    },
+    {
+      "command": "npm run format:check",
+      "result": "passed"
+    },
+    {
+      "command": "npm run check:bundle",
+      "result": "passed all twelve unchanged scenarios/caps; root gzip 221792 bytes, core gzip 9531 bytes; no eager engine modules"
+    },
+    {
+      "command": "PLAYWRIGHT_PORT=4290 npx playwright test tests/browser/site-pages.spec.ts tests/browser/value-formatting.spec.ts tests/browser/updates.spec.ts tests/browser/lifecycle.spec.ts tests/browser/retention.spec.ts tests/browser/area-chart.spec.ts tests/browser/line-chart.spec.ts tests/browser/pie-chart.spec.ts tests/browser/composed-chart.spec.ts tests/browser/composed-axes.spec.ts tests/browser/horizontal-composed.spec.ts tests/browser/linked-charts.spec.ts",
+      "result": "148 passed, 2 expected skips, 0 failures in 6.3 minutes",
+      "engines": ["chromium", "firefox", "webkit"],
+      "skipReason": "Heap snapshots use Chromium CDP; native cleanup runs in all engines."
+    },
+    {
+      "method": "agent-browser geometry checks after responsive ResizeObserver updates",
+      "result": "110 passed: eleven routes, both themes, widths 320/390/768/900/1440; no page overflow or clipped controls; minimum control heights 44px on phones and 36px elsewhere; benchmark sample host remains 768px",
+      "evidence": "validation-layout-responsive.json"
+    },
+    {
+      "method": "agent-browser keyboard review on area-validation",
+      "result": "Space and Enter change Stack areas aria-pressed false/true; focus remains on the button with a solid visible outline"
+    },
+    {
+      "method": "agent-browser a11y --selector .validation-controls on area-validation",
+      "result": "axe-core 4.12.1: 17 passes, 0 violations, 0 incomplete checks"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "screenshots": {
+    "docs/experiments/screenshots/validation-layout/area-user-reference.png": "6023b2305161c50c4054193817f1d15da7f5041675191279789b16df3aefdfb6",
+    "docs/experiments/screenshots/validation-layout/area-validation-after-dark-1440.png": "b99f8831f762cf4ed5d2ada9b3e9aceb22ebe244fc4a7802ee012d296705e6a9",
+    "docs/experiments/screenshots/validation-layout/area-validation-after-dark-390.png": "83603e0d9ba98606b9f748fcbebd79e2b05d89ac66ffa1437eba533a9940d69e",
+    "docs/experiments/screenshots/validation-layout/area-validation-after-light-1440.png": "afb600b2da21e4e1b6b7d1d4387b51dc75dfb4c3eba8f68067705f1c484fd265",
+    "docs/experiments/screenshots/validation-layout/area-validation-after-light-390.png": "ae8e31d9beb18771269a7b099d3efbc29b81d67bae30ceb922a8e0b4d66f548d",
+    "docs/experiments/screenshots/validation-layout/composed-validation-after-dark-390.png": "f5528821e02671cd8cca7d2d90b68a644511210e49613924eb60f9b319531533",
+    "docs/experiments/screenshots/validation-layout/composed-validation-after-light-1440.png": "528aba4f2aafa4408284b3d667d992871ccb5c0967a876dbec45f46a48a7ac6c",
+    "docs/experiments/screenshots/validation-layout/formatting-after-light-1440.png": "f899af64d4e1cb564def756501a18fd701ac101a55f2452430ba2b66f240b3a0",
+    "docs/experiments/screenshots/validation-layout/validation-after-light-1440.png": "7b4b9e954e22c739bd1f10746e1db82e935358c4048f6d7239ae7a12bd8a7e6e"
+  },
+  "reference": "area-user-reference.png is the user-supplied screenshot; remaining images capture the local refined demo."
+}

@@ -37,43 +37,76 @@ export class DeferredPie {
 @Component({
   selector: 'app-pie-validation',
   imports: [PieChart, DeferredPie],
-  template: `<main class="utility-page">
+  template: `<main class="utility-page validation-page">
     <h1>Pie behavior validation</h1>
     <p>
       Exercise category visibility, zero totals, numeric formatting, hydration, and lifecycle
       behavior.
     </p>
-    <div class="controls">
-      <button type="button" [attr.aria-pressed]="donut()" (click)="donut.set(!donut())">
-        Donut view
-      </button>
-      <button type="button" [attr.aria-pressed]="labels()" (click)="labels.set(!labels())">
-        Category labels
-      </button>
-      <button type="button" (click)="zero()">Zero pie data</button>
-      <button type="button" (click)="negative()">Negative pie data</button>
-      <button type="button" (click)="update()">Update pie values</button>
-      <button type="button" (click)="refreshPalette()">Refresh palette</button>
-      <button type="button" (click)="reorder()">Reorder pie inputs</button>
-      <button type="button" [attr.aria-pressed]="currency()" (click)="currency.set(!currency())">
-        Currency values
-      </button>
-      <button type="button" [attr.aria-pressed]="loading()" (click)="loading.set(!loading())">
-        Loading pie
-      </button>
-      <button type="button" [attr.aria-pressed]="failure()" (click)="failure.set(!failure())">
-        Error pie
-      </button>
-      <button type="button" (click)="empty()">Empty pie data</button>
-      <button type="button" (click)="invalidate()">Invalid pie data</button>
-      <button type="button" (click)="restore()">Restore pie data</button>
-      <button type="button" [attr.aria-pressed]="hidden()" (click)="hidden.set(!hidden())">
-        Hide pie host
-      </button>
-      <button type="button" [attr.aria-pressed]="mounted()" (click)="mounted.set(!mounted())">
-        Mount pie
-      </button>
-    </div>
+    <section class="validation-controls" aria-label="Chart controls">
+      <div class="control-group" role="group" aria-labelledby="pie-validation-controls-0">
+        <h2 id="pie-validation-controls-0">Appearance</h2>
+        <div class="control-actions">
+          <button type="button" [attr.aria-pressed]="donut()" (click)="donut.set(!donut())">
+            Donut view
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <button type="button" [attr.aria-pressed]="labels()" (click)="labels.set(!labels())">
+            Category labels
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <button
+            type="button"
+            [attr.aria-pressed]="currency()"
+            (click)="currency.set(!currency())"
+          >
+            Currency values
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <div class="control-group" role="group" aria-labelledby="pie-validation-controls-1">
+        <h2 id="pie-validation-controls-1">Data</h2>
+        <div class="control-actions">
+          <button type="button" (click)="update()">Update pie values</button>
+          <button type="button" (click)="refreshPalette()">Refresh palette</button>
+          <button type="button" (click)="reorder()">Reorder pie inputs</button>
+          <button class="control-restore" type="button" (click)="restore()">
+            Restore pie data
+          </button>
+        </div>
+      </div>
+      <div class="control-group" role="group" aria-labelledby="pie-validation-controls-2">
+        <h2 id="pie-validation-controls-2">States</h2>
+        <div class="control-actions">
+          <button type="button" [attr.aria-pressed]="loading()" (click)="loading.set(!loading())">
+            Loading pie
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <button type="button" [attr.aria-pressed]="failure()" (click)="failure.set(!failure())">
+            Error pie
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <button type="button" (click)="zero()">Zero pie data</button>
+          <button type="button" (click)="negative()">Negative pie data</button>
+          <button type="button" (click)="empty()">Empty pie data</button>
+          <button type="button" (click)="invalidate()">Invalid pie data</button>
+        </div>
+      </div>
+      <div class="control-group" role="group" aria-labelledby="pie-validation-controls-3">
+        <h2 id="pie-validation-controls-3">Lifecycle</h2>
+        <div class="control-actions">
+          <button type="button" [attr.aria-pressed]="hidden()" (click)="hidden.set(!hidden())">
+            Hide pie host
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+          <button type="button" [attr.aria-pressed]="mounted()" (click)="mounted.set(!mounted())">
+            Mount pie
+            <span class="toggle-indicator" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </section>
     <div class="primary-pie" [style.width]="hidden() ? '0px' : '100%'" style="overflow:hidden">
       @if (mounted()) {
         <nec-pie-chart
@@ -96,12 +129,26 @@ export class DeferredPie {
           (pointSelect)="select($event)"
           (legendChange)="legend($event)"
         />
+      } @else {
+        <div class="validation-empty">
+          <h2>Chart unmounted</h2>
+          <p>Use “Mount pie” to bring the chart back.</p>
+        </div>
       }
     </div>
-    <p class="selection" role="status">{{ selection() }}</p>
-    <p class="legend-result" role="status">{{ legendResult() }}</p>
-    <section class="deferred-pie">
+    <div class="validation-results">
+      <div>
+        <h2>Point selection</h2>
+        <p class="selection" role="status">{{ selection() }}</p>
+      </div>
+      <div>
+        <h2>Legend change</h2>
+        <p class="legend-result" role="status">{{ legendResult() }}</p>
+      </div>
+    </div>
+    <section class="deferred-pie validation-scenario">
       <h2>Deferred hydration</h2>
+      <p>Interact with the chart below to activate its server-rendered controls.</p>
       @defer (hydrate on interaction) {
         <app-deferred-pie />
       }
