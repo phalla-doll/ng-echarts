@@ -62,28 +62,28 @@ export class SankeyChart<N extends SankeyNode = SankeyNode, L extends SankeyLink
   readonly error = input<string | null>(null);
   readonly animation = input(true);
 
-  private readonly loader = inject(SANKEY_RENDERER_LOADER);
-  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
-  private readonly destroyRef = inject(DestroyRef);
-  private readonly application = inject(ApplicationRef);
-  private readonly platform = inject(PLATFORM_ID);
+  readonly #loader = inject(SANKEY_RENDERER_LOADER);
+  readonly #host = inject<ElementRef<HTMLElement>>(ElementRef);
+  readonly #destroyRef = inject(DestroyRef);
+  readonly #application = inject(ApplicationRef);
+  readonly #platform = inject(PLATFORM_ID);
   private readonly plot = viewChild.required<ElementRef<HTMLElement>>('plot');
-  private readonly browserReady = signal(false);
-  private readonly reducedMotion = signal(false);
-  private readonly measuredTheme = signal<ɵCartesianThemeTokens | null>(null);
-  private controller: ɵPlotController<SankeyView> | null = null;
-  private focusKeeper: ɵChartFocusKeeper | null = null;
-  private removeMotionListener: (() => void) | null = null;
+  readonly #browserReady = signal(false);
+  readonly #reducedMotion = signal(false);
+  readonly #measuredTheme = signal<ɵCartesianThemeTokens | null>(null);
+  #controller: ɵPlotController<SankeyView> | null = null;
+  #focusKeeper: ɵChartFocusKeeper | null = null;
+  #removeMotionListener: (() => void) | null = null;
   protected readonly scrollViewport = scrollFlowViewport;
   // A failed renderer stays failed until retry or a relevant input changes.
   protected readonly rendererError = linkedSignal(() => {
     this.model();
-    this.settings();
-    this.formatting();
+    this.#settings();
+    this.#formatting();
     return false;
   });
   protected readonly model = computed(() => normalizeSankey(this.nodes(), this.links()));
-  private readonly formatting = computed(() => {
+  readonly #formatting = computed(() => {
     const model = this.model();
     return ɵcreateValueFormatting(
       this.locale(),
@@ -97,7 +97,7 @@ export class SankeyChart<N extends SankeyNode = SankeyNode, L extends SankeyLink
           ],
     );
   });
-  private readonly settings = computed(() => ({
+  readonly #settings = computed(() => ({
     title: this.title(),
     valueLabel: this.valueLabel(),
     theme: this.theme(),
@@ -107,7 +107,7 @@ export class SankeyChart<N extends SankeyNode = SankeyNode, L extends SankeyLink
     error: this.error(),
   }));
   protected readonly tokens = computed(
-    () => this.measuredTheme() ?? ɵdefaultCartesianTheme(this.theme()),
+    () => this.#measuredTheme() ?? ɵdefaultCartesianTheme(this.theme()),
   );
   protected readonly hasFlow = computed(() => {
     const model = this.model();
@@ -129,8 +129,8 @@ export class SankeyChart<N extends SankeyNode = SankeyNode, L extends SankeyLink
       ? []
       : model.nodes.map((node) => ({
           ...node,
-          incomingText: this.formatting().format(node.incoming),
-          outgoingText: this.formatting().format(node.outgoing),
+          incomingText: this.#formatting().format(node.incoming),
+          outgoingText: this.#formatting().format(node.outgoing),
         }));
   });
   protected readonly linkRows = computed(() => {
@@ -141,11 +141,11 @@ export class SankeyChart<N extends SankeyNode = SankeyNode, L extends SankeyLink
           ...link,
           sourceLabel: model.nodes.find((n) => n.id === link.source)!.label,
           targetLabel: model.nodes.find((n) => n.id === link.target)!.label,
-          text: this.formatting().format(link.value),
+          text: this.#formatting().format(link.value),
         }));
   });
   protected readonly state = computed(() => {
-    const settings = this.settings();
+    const settings = this.#settings();
     const configurationError =
       typeof settings.valueLabel !== 'string' || !settings.valueLabel.trim()
         ? 'Value label must be nonempty text.'
@@ -155,7 +155,7 @@ export class SankeyChart<N extends SankeyNode = SankeyNode, L extends SankeyLink
             ? 'Sankey theme configuration is invalid.'
             : typeof settings.animation !== 'boolean' || typeof settings.loading !== 'boolean'
               ? 'Sankey animation and loading settings must be booleans.'
-              : this.formatting().error;
+              : this.#formatting().error;
     const state = ɵresolveCartesianState(
       settings.error,
       typeof settings.loading === 'boolean' && settings.loading,
@@ -169,7 +169,7 @@ export class SankeyChart<N extends SankeyNode = SankeyNode, L extends SankeyLink
         ? { ...state, message: 'No flow nodes available.' }
         : state;
   });
-  private readonly options = computed<SankeyView | null>(() => {
+  readonly #options = computed<SankeyView | null>(() => {
     const model = this.model();
     return this.state().kind === 'ready' && model.kind === 'ready' && this.hasFlow()
       ? {
@@ -177,8 +177,8 @@ export class SankeyChart<N extends SankeyNode = SankeyNode, L extends SankeyLink
           links: model.links,
           maximum: model.maximum,
           tokens: this.tokens(),
-          animation: this.animation() && !this.reducedMotion(),
-          format: this.formatting().format,
+          animation: this.animation() && !this.#reducedMotion(),
+          format: this.#formatting().format,
           valueLabel: this.valueLabel(),
         }
       : null;
@@ -203,23 +203,23 @@ export class SankeyChart<N extends SankeyNode = SankeyNode, L extends SankeyLink
   }
   constructor() {
     afterNextRender(() => {
-      if (!isPlatformBrowser(this.platform)) return;
-      void this.application.whenStable().then(() => {
-        if (this.destroyRef.destroyed) return;
+      if (!isPlatformBrowser(this.#platform)) return;
+      void this.#application.whenStable().then(() => {
+        if (this.#destroyRef.destroyed) return;
         try {
           const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-          this.reducedMotion.set(preference.matches);
-          const onMotion = (event: MediaQueryListEvent) => this.reducedMotion.set(event.matches);
+          this.#reducedMotion.set(preference.matches);
+          const onMotion = (event: MediaQueryListEvent) => this.#reducedMotion.set(event.matches);
           preference.addEventListener('change', onMotion);
-          this.removeMotionListener = () => preference.removeEventListener('change', onMotion);
-          this.controller = new ɵPlotController(
+          this.#removeMotionListener = () => preference.removeEventListener('change', onMotion);
+          this.#controller = new ɵPlotController(
             this.plot().nativeElement,
-            ɵbrowserPlotEnvironment(() => this.loader(), this.host.nativeElement),
+            ɵbrowserPlotEnvironment(() => this.#loader(), this.#host.nativeElement),
             (point) => this.selectItem(point.rowId, point.seriesId, 'plot'),
             () => this.rendererError.set(true),
           );
-          this.focusKeeper = new ɵChartFocusKeeper(this.host.nativeElement);
-          this.browserReady.set(true);
+          this.#focusKeeper = new ɵChartFocusKeeper(this.#host.nativeElement);
+          this.#browserReady.set(true);
         } catch {
           this.rendererError.set(true);
         }
@@ -228,13 +228,13 @@ export class SankeyChart<N extends SankeyNode = SankeyNode, L extends SankeyLink
     // Resolving CSS colors writes a probe and immediately reads its computed color.
     afterRenderEffect({
       mixedReadWrite: () => {
-        if (!this.browserReady()) return;
+        if (!this.#browserReady()) return;
         const theme = this.theme();
         this.themeRevision();
         try {
-          this.measuredTheme.set(
+          this.#measuredTheme.set(
             ɵreadCartesianTheme<{ value: number }>(
-              this.host.nativeElement,
+              this.#host.nativeElement,
               theme,
               Array.from({ length: 4 }, (_, index) => ({
                 id: `stage-${index}`,
@@ -252,8 +252,8 @@ export class SankeyChart<N extends SankeyNode = SankeyNode, L extends SankeyLink
     // Option updates only schedule rendering or dispose the previous plot.
     afterRenderEffect({
       write: () => {
-        this.browserReady();
-        this.controller?.update(this.options());
+        this.#browserReady();
+        this.#controller?.update(this.#options());
       },
     });
     // Focus restoration checks current DOM ownership before changing focus.
@@ -262,13 +262,13 @@ export class SankeyChart<N extends SankeyNode = SankeyNode, L extends SankeyLink
         this.state();
         this.nodeRows();
         this.linkRows();
-        this.focusKeeper?.restore();
+        this.#focusKeeper?.restore();
       },
     });
-    this.destroyRef.onDestroy(() => {
-      this.removeMotionListener?.();
-      this.controller?.destroy();
-      this.focusKeeper?.destroy();
+    this.#destroyRef.onDestroy(() => {
+      this.#removeMotionListener?.();
+      this.#controller?.destroy();
+      this.#focusKeeper?.destroy();
     });
   }
   protected retryRenderer(): void {

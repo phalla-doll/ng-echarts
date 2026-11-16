@@ -2,11 +2,11 @@
 
 # ng-echarts
 
-Published experimental release: **`@mantha911/ng-echarts@0.1.0-rc.24`**. Install with `npm install @mantha911/ng-echarts@next echarts@6.1.0`, or pin `@0.1.0-rc.24`. npm `next` selects rc.24; its initial `latest` alias remains on rc.18; neither the alias nor publication declares a stable API. The user deferred VoiceOver review, so human F09/R06/G2/G3/G4 remain pending. See [publication status and evidence](docs/PUBLICATION.md#rc24-oidc-publication).
+Published experimental release: **`@mantha911/ng-echarts@0.1.0-rc.28`**. Install with `npm install @mantha911/ng-echarts@next echarts@6.1.0`, or pin `@0.1.0-rc.28`. npm `next` selects rc.28; `latest` retains rc.18. Human F09/R06/G2/G3/G4 remain deferred/pending. See [exact publication evidence](docs/PUBLICATION.md#rc28-oidc-publication).
 
-Current release: **published `0.1.0-rc.24`** adds [independent composed value axes and deterministic declarations](docs/experiments/NG17_DUAL_AXES.md). Horizontal composition ships since npm rc.23, alongside the [composed linked dashboard](docs/COMPOSED_DASHBOARD.md) integration. The dashboard also runs on published rc.22; the [live demo](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) includes horizontal composition and the dashboard; the [rc.24 independent-axis example](https://phalla-doll.github.io/ng-echarts/composed/#revenue-and-conversion) is deployed and verified.
+Current release: **published `0.1.0-rc.28`** combines chip/list legends, gallery table opt-outs and the reviewed payload/radar/declaration fixes. It includes the independent composed value axes, horizontal composition, areas and named stacks from earlier releases. The [publication report](docs/experiments/RC28_PUBLICATION.md) preserves the exact archive and fresh registry-consumer results.
 
-Current development: **local `0.1.0-rc.28` source candidate** combines default inline chip legends, opt-in aligned lists and gallery table opt-outs with the verified payload, declaration and radar styling fixes. The [integration record](docs/experiments/RC28_LEGEND_INTEGRATION.md) distinguishes current source from immutable earlier candidates. npm retains rc.24; the [live demo marker](https://phalla-doll.github.io/ng-echarts/preview-build.json) identifies its separately deployed source.
+Current development: **local `0.1.0-rc.29` source candidate** moves bar-only previews out of the shared base and uses native private state. The [continuation report](docs/experiments/RC29_LINKED_WINDOW.md) records payload checks and the application-owned shared month window and bidirectional month/device dashboard. The complete displayed dashboard still supports published rc.22; the [live marker](https://phalla-doll.github.io/ng-echarts/preview-build.json) identifies the separately deployed source.
 
 An Angular 22 chart component library inspired by EvilCharts, using Apache ECharts for rendering and TypeScript for its public API.
 
@@ -175,7 +175,7 @@ Package entries below follow `@mantha911/ng-echarts`. All chart entries are expe
 
 Cartesian charts take `series: readonly ChartSeries<T>[]`; pie/donut takes one `measure: ChartMeasure<T>`. Cartesian legend events identify a `seriesId`; pie legend events identify a `rowId`. Both point events retain the original row and numeric value. See the guides for zero/missing/negative rules and optional keyboard table actions.
 
-Focused families keep the 200,000 gzip / 175,000 Brotli byte cap; `/core` keeps 10,000/9,000. The combined compatibility root uses 219,500/187,500; its frame-only emitted-orphan scenario keeps 203,000/175,000. [Current measured boundaries](docs/experiments/public-rc18/package-boundaries.json) include all lazy chunks; prefer focused imports.
+Focused families keep the 200,000 gzip / 175,000 Brotli byte cap; `/core` keeps 10,000/9,000. The combined compatibility root keeps 222,000/190,000; its frame-only emitted-orphan scenario keeps 206,000/178,000. [Current measured boundaries](docs/experiments/data/package-boundaries.json) include all lazy chunks; prefer focused imports.
 
 ## Bar feasibility baseline
 

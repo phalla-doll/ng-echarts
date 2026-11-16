@@ -21,9 +21,9 @@ import { buildLineOptions, type LineOption } from './line-options';
 export class LineChart<T extends object> extends ɵCartesianChart<T, LineOption> {
   readonly smooth = input(false);
   readonly showPoints = input(true);
-  private readonly loader = inject(LINE_RENDERER_LOADER);
+  readonly #loader = inject(LINE_RENDERER_LOADER);
   protected override renderer() {
-    return this.loader();
+    return this.#loader();
   }
   protected override familyConfiguration() {
     return { smooth: this.smooth(), showPoints: this.showPoints() };

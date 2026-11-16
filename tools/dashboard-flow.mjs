@@ -95,4 +95,107 @@ export async function verifyDashboard(page) {
       .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
       .toBeLessThanOrEqual(width);
   }
+  await verifyDashboardWindow(page);
+}
+
+/** Shared window and two-way month selection, also run against the displayed npm example. */
+export async function verifyDashboardWindow(page) {
+  const dashboard = page.locator('app-composed-dashboard');
+  const overview = dashboard.locator('nec-composed-chart');
+  const detail = dashboard.locator('nec-bar-chart');
+  const month = dashboard.getByRole('combobox', { name: 'Month', exact: true });
+  const device = dashboard.getByRole('combobox', { name: 'Device', exact: true });
+  const from = dashboard.getByRole('combobox', { name: 'From', exact: true });
+  const to = dashboard.getByRole('combobox', { name: 'To', exact: true });
+  await expect(dashboard.locator('canvas')).toHaveCount(2);
+  const instances = await dashboard
+    .locator('.plot')
+    .evaluateAll((plots) => plots.map((plot) => plot.getAttribute('_echarts_instance_')));
+  // Native keyboard bounds, inclusive supplied order, and aggregate scope.
+  await from.focus();
+  await page.keyboard.press('f');
+  await page.keyboard.press('Tab');
+  await expect(from).toHaveValue('feb');
+  await to.selectOption('mar');
+  await expect(dashboard.locator('.dashboard-window')).toHaveText(
+    'Viewing February–March · 2 of 4 months.',
+  );
+  await expect(overview.locator('tbody')).not.toContainText('January');
+  await expect(month.locator('option')).toHaveCount(3);
+  await detail.getByRole('button', { name: 'Select Visits for Desktop: 200', exact: true }).click();
+  await expect(device).toHaveValue('desktop');
+  await expect(
+    detail.getByRole('heading', { name: 'Desktop visits by month', exact: true }),
+  ).toBeVisible();
+  await expect(detail.locator('tbody')).toContainText('Missing');
+  const february = detail.getByRole('button', {
+    name: 'Select Visits for February: 200',
+    exact: true,
+  });
+  await february.focus();
+  await page.keyboard.press('Enter');
+  await expect(february).toBeFocused();
+  await expect(month).toHaveValue('feb');
+  await expect(detail.locator('tr[aria-current="true"]')).toContainText('February');
+  await month.selectOption('mar');
+  await expect(detail.locator('tr[aria-current="true"]')).toContainText('March');
+  // Reordering keeps endpoint/selection IDs and normalizes the inclusive window.
+  await page.getByRole('button', { name: 'Reverse months', exact: true }).click();
+  await expect(from).toHaveValue('mar');
+  await expect(to).toHaveValue('feb');
+  await expect(month).toHaveValue('mar');
+  // Crossing a bound collapses to the chosen month, never an inverted window.
+  await from.selectOption('jan');
+  await expect(to).toHaveValue('jan');
+  await expect(month).toHaveValue('');
+  const zoomIn = dashboard.getByRole('button', { name: 'Zoom in', exact: true });
+  await expect(zoomIn).toHaveAttribute('aria-disabled', 'true');
+  await zoomIn.focus();
+  await page.keyboard.press('Enter');
+  await expect(from).toHaveValue('jan');
+  const reset = dashboard.getByRole('button', { name: 'Reset zoom', exact: true });
+  await reset.focus();
+  await page.keyboard.press('Enter');
+  await expect(reset).toBeFocused();
+  await expect(from).toHaveValue('apr');
+  await expect(to).toHaveValue('jan');
+  await zoomIn.click();
+  await expect(dashboard.locator('.dashboard-window')).toHaveText(
+    'Viewing March–February · 2 of 4 months.',
+  );
+  await dashboard.getByRole('button', { name: 'Next window', exact: true }).click();
+  await expect(from).toHaveValue('feb');
+  await expect(to).toHaveValue('jan');
+  await dashboard.getByRole('button', { name: 'Previous window', exact: true }).click();
+  await expect(from).toHaveValue('apr');
+  await expect(to).toHaveValue('mar');
+  await dashboard.getByRole('button', { name: 'Zoom out', exact: true }).click();
+  await expect(from).toHaveValue('apr');
+  await expect(to).toHaveValue('jan');
+  await from.selectOption('feb');
+  await month.selectOption('feb');
+  await page.getByRole('button', { name: 'Remove February', exact: true }).click();
+  await expect(month).toHaveValue('');
+  await expect(from).toHaveValue('apr');
+  await expect(to).toHaveValue('jan');
+  await expect(reset).toHaveAttribute('aria-disabled', 'true');
+  expect(
+    await dashboard
+      .locator('.plot')
+      .evaluateAll((plots) => plots.map((plot) => plot.getAttribute('_echarts_instance_'))),
+  ).toEqual(instances);
+  await page.getByRole('button', { name: 'Clear months', exact: true }).click();
+  await expect(dashboard.locator('canvas')).toHaveCount(0);
+  await expect(from).toBeDisabled();
+  await expect(to).toBeDisabled();
+  await expect(dashboard.locator('.dashboard-window')).toHaveText('No months to display.');
+  await page.getByRole('button', { name: 'Restore months', exact: true }).click();
+  await expect(dashboard.locator('canvas')).toHaveCount(2);
+  await device.selectOption('');
+  for (const width of [320, 390, 768, 1440]) {
+    await page.setViewportSize({ width, height: 1000 });
+    await expect
+      .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
+      .toBeLessThanOrEqual(width);
+  }
 }

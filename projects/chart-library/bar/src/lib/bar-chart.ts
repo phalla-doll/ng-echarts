@@ -1,9 +1,22 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  input,
+  output,
+  DestroyRef,
+  effect,
+  linkedSignal,
+  untracked,
+} from '@angular/core';
 import {
   ChartFrame,
   ɵChartStage,
   ɵTablePager,
   ɵCartesianChart,
+  ɵobserveTablePreviews,
+  type ɵPlotPoint,
   type BarLayout,
   type PointPreview,
   type ɵCartesianContext,
@@ -18,6 +31,11 @@ export interface BarRangeSelection<T> {
   readonly rows: readonly T[];
   readonly source: 'plot';
 }
+interface PlotPreviewSnapshot {
+  readonly point: ɵPlotPoint;
+  readonly context: readonly unknown[];
+}
+
 @Component({
   selector: 'nec-bar-chart',
   imports: [ChartFrame, ɵChartStage, ɵTablePager],
@@ -39,7 +57,7 @@ export class BarChart<T extends object> extends ɵCartesianChart<T, BarRenderOpt
   readonly gradient = input(false);
   readonly selectedRowId = input<string | null>(null);
   readonly selectedRowIds = input<readonly string[] | null>(null);
-  private readonly selectedIds = computed<ReadonlySet<string>>(() => {
+  readonly #selectedIds = computed<ReadonlySet<string>>(() => {
     const model = this.model();
     const available = new Set(model.kind === 'error' ? [] : model.rows.map((row) => row.id));
     const multiple = this.selectedRowIds();
@@ -49,18 +67,141 @@ export class BarChart<T extends object> extends ɵCartesianChart<T, BarRenderOpt
       requested.filter((id): id is string => typeof id === 'string' && available.has(id)),
     );
   });
-  private readonly loader = inject(BAR_RENDERER_LOADER);
-  protected override renderer() {
-    return this.loader();
+  readonly #destroyRef = inject(DestroyRef);
+  #removePreviewListeners: (() => void) | null = null;
+  #pointerPreview: { point: ɵPlotPoint; source: 'plot' | 'table' } | null = null;
+  #focusPreview: ɵPlotPoint | null = null;
+  #lastPreview: PointPreview<T> | null = null;
+  readonly #plotContext = computed(() => [
+    this.model(),
+    this.settings(),
+    this.hiddenIds(),
+    this.formatting(),
+    this.categoryTicks(),
+    this.tokens(),
+    this.tableExpanded(),
+    this.tablePagination.page(),
+  ]);
+  readonly #plotPreview = linkedSignal<
+    { readonly context: readonly unknown[]; readonly ready: boolean },
+    PlotPreviewSnapshot | null
+  >({
+    source: () => ({ context: this.#plotContext(), ready: this.state().kind === 'ready' }),
+    computation: ({ context, ready }, previous) =>
+      ready && previous?.value?.context === context ? previous.value : null,
+    equal: (a, b) =>
+      a?.context === b?.context &&
+      a?.point.rowId === b?.point.rowId &&
+      a?.point.seriesId === b?.point.seriesId,
+  });
+  #previewSnapshot: readonly unknown[] | null = null;
+  readonly #previewContext = computed(() => [
+    this.model(),
+    this.settings(),
+    this.hiddenIds(),
+    this.tableExpanded(),
+    this.tablePagination.page(),
+    this.state(),
+  ]);
+  constructor() {
+    super();
+    effect(() => {
+      const context = this.#previewContext();
+      // An event can already describe the new inputs before this scheduled effect
+      // runs. Invalidate only previews captured against an older context.
+      untracked(() => {
+        if (this.#previewSnapshot !== context) this.#clearPreview();
+      });
+    });
+    effect(() => {
+      const current = this.#plotPreview();
+      const enabled = this.canPreview();
+      // Native pointer events can arrive before Angular propagates an enabling
+      // input. Reconcile the latest hit after inputs settle, without a new move.
+      if (enabled) untracked(() => this.previewPoint(current?.point ?? null, 'plot', 'pointer'));
+    });
   }
-  protected override canPreview(): boolean {
+  protected override previewPlotPoint(point: ɵPlotPoint | null): void {
+    this.#plotPreview.set(point ? { point, context: this.#plotContext() } : null);
+  }
+  protected override observeTablePreviews(): void {
+    if (this.browserReady() && this.observePreviews()) {
+      this.#removePreviewListeners ??= ɵobserveTablePreviews(
+        this.host.nativeElement,
+        (point, trigger) => this.previewPoint(point, 'table', trigger),
+      );
+    } else {
+      this.#removePreviewListeners?.();
+      this.#removePreviewListeners = null;
+    }
+  }
+  protected override cleanupPreviews(): void {
+    this.#removePreviewListeners?.();
+  }
+  protected previewPoint(
+    point: ɵPlotPoint | null,
+    source: 'plot' | 'table',
+    trigger: 'pointer' | 'focus',
+  ): void {
+    if (this.#destroyRef.destroyed || !this.canPreview()) return;
+    const context = this.#previewContext();
+    if (this.#previewSnapshot !== context) this.#clearPreview();
+    if (trigger === 'focus') this.#focusPreview = point;
+    else this.#pointerPreview = point ? { point, source } : null;
+    const pointer = this.#pointerPreview;
+    const candidate = pointer?.point ?? this.#focusPreview;
+    const origin = pointer?.source ?? 'table';
+    const model = this.model();
+    const value =
+      candidate &&
+      model.kind !== 'error' &&
+      this.state().kind === 'ready' &&
+      !(origin === 'plot' && this.hiddenIds().has(candidate.seriesId))
+        ? model.rows
+            .find((row) => row.id === candidate.rowId)
+            ?.points.find((cell) => cell.seriesId === candidate.seriesId)
+        : null;
+    const next: PointPreview<T> | null =
+      value && value.value !== null
+        ? { ...value, value: value.value, source: origin, trigger: pointer ? 'pointer' : 'focus' }
+        : null;
+    this.#previewSnapshot = context;
+    if (
+      next?.row === this.#lastPreview?.row &&
+      next?.seriesId === this.#lastPreview?.seriesId &&
+      next?.value === this.#lastPreview?.value &&
+      next?.source === this.#lastPreview?.source &&
+      next?.trigger === this.#lastPreview?.trigger
+    )
+      return;
+    this.#lastPreview = next;
+    this.emitPreview(next);
+  }
+
+  #clearPreview(): void {
+    this.#previewSnapshot = null;
+    this.#pointerPreview = this.#focusPreview = null;
+    if (this.#lastPreview === null) return;
+    this.#lastPreview = null;
+    this.emitPreview(null);
+  }
+
+  protected override resetPointPreview(): void {
+    this.#plotPreview.set(null);
+    this.#clearPreview();
+  }
+  readonly #loader = inject(BAR_RENDERER_LOADER);
+  protected override renderer() {
+    return this.#loader();
+  }
+  protected canPreview(): boolean {
     return this.previewEnabled() && !this.rangeSelection();
   }
-  protected override observePreviews(): boolean {
+  protected observePreviews(): boolean {
     // Range mode suppresses events without replaying focused values on Escape.
     return this.previewEnabled();
   }
-  protected override emitPreview(point: PointPreview<T> | null): void {
+  protected emitPreview(point: PointPreview<T> | null): void {
     this.pointPreview.emit(point);
   }
   protected override familyConfiguration() {
@@ -74,11 +215,11 @@ export class BarChart<T extends object> extends ɵCartesianChart<T, BarRenderOpt
     };
   }
   protected override rowSelectionId(): string | null {
-    const ids = this.selectedIds();
+    const ids = this.#selectedIds();
     return ids.size === 1 ? (ids.values().next().value ?? null) : null;
   }
   protected override rowIsSelected(id: string): boolean {
-    return this.selectedIds().has(id);
+    return this.#selectedIds().has(id);
   }
   protected override familyError() {
     if (typeof this.previewEnabled() !== 'boolean') return 'Preview enabled must be a boolean.';
@@ -127,7 +268,7 @@ export class BarChart<T extends object> extends ɵCartesianChart<T, BarRenderOpt
         context.animation,
         context.format,
         context.categoryTicks,
-        this.selectedIds(),
+        this.#selectedIds(),
       ),
       range: this.rangeSelection()
         ? {

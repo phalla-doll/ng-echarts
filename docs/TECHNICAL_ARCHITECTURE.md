@@ -1,6 +1,6 @@
 # ng-echarts technical architecture
 
-Status: implemented experimental architecture for bar, line, area, pie/donut, composed, radar, radial progress, calendar and Sankey. Published rc.22 includes the shared-axis bar/line/area composition and named stacks. Automated cross-family evidence is reconciled in [NG14](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md); human interpretation and [release gates](RND_PLAN.md#decision-gates) remain open. Updated 15 November 2026.
+Status: implemented experimental architecture for bar, line, area, pie/donut, composed, radar, radial progress, calendar and Sankey. Published rc.28 includes chip/list legends, gallery table opt-outs and the prior composition/value-axis features. Current rc.29 source isolates bar preview behavior from the shared Cartesian base and uses native private slots for internal state. Automated cross-family evidence is reconciled in [NG14](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md); human interpretation and [release gates](RND_PLAN.md#decision-gates) remain open. Updated 16 November 2026.
 
 ## Architecture direction
 
@@ -400,3 +400,7 @@ Shared Cartesian/control CSS contains common rules; pie/donut and bar row feedba
 `ChartPresentation.legendLayout` defaults to `'chips'` and accepts `'list'`, typed by public `LegendLayout`. The Cartesian and pie templates bind a layout class without adding the input to renderer dependencies. Existing keyed buttons retain visibility and focus; pie keeps the same formatted value/share derivation and uses a column subgrid for aligned category/measure/share rows. Shared rules own chips, list rows and hidden cues; pie-specific rules own numeric columns. Playground overrides preserve those layouts, and the pie gallery mirrors its selector into generated source. The [increment report](experiments/RC26_LEGEND_LAYOUTS.md) owns browser, visual and payload evidence. Published rc.24 and archived rc.25 remain unchanged.
 
 The rc.28 gallery follow-up binds `showDataTable=false` consistently across radar and linked previews and adds the same default-true input to calendar/Sankey to omit native disclosures, rather than hiding controls with CSS. Route-owned presentation flags opt explicit `*-validation` pages back into table behavior while normal gallery routes omit all table DOM. Existing table/SSR/keyboard/lifecycle scenarios run on those validation routes, and a separate three-engine audit checks all eleven public gallery routes. Copyable calendar/Sankey source reflects the opt-out; dashboard source is regenerated from the actual component/App. This does not change published artifacts or human release status.
+
+## Application-owned category windows
+
+The [dashboard](COMPOSED_DASHBOARD.md) keeps one stable-ID inclusive window in Angular signals. Compute the trailing mean over full supplied data before slicing; feed the same visible rows to overview/device-month charts and aggregate scope. Either chart’s native/raw action commits the same selected ID. Window removal/reorder/reset reconciliation stays in pure application helpers; ECharts registration, library public inputs and independent legends remain unchanged.

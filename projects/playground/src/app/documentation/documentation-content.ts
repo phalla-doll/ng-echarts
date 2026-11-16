@@ -118,10 +118,10 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'local-package',
         title: 'Use a packed local build',
         paragraphs: [
-          'The experimental public 0.1.0-rc.24 candidate adds independent labeled value axes and stable declarations, alongside horizontal composition, composed areas, named bar stacks and table pagination; npm next selects rc.24. The composed linked dashboard also runs on rc.22. The unreleased 0.1.0-rc.28 source candidate adds default inline chip legends and optional aligned lists after the preserved rc.25 payload refactor. You can create a local rc.28 source build. Create a production tarball from the workspace root. Install that file and the tested ECharts peer in a separate Angular 22 application. Replace the example path with the location of your checkout. Keep the file at the lockfile’s recorded path, or copy it into the consumer’s vendor directory first; commit the lockfile and use npm ci for repeat installs.',
+          'The experimental public 0.1.0-rc.28 candidate includes chip/list legends, gallery table opt-outs, independent value axes and the reviewed payload fixes; npm next selects rc.28. The unreleased 0.1.0-rc.29 source candidate isolates bar previews and internal private state. The shared-window dashboard also runs on rc.22. Create a production tarball from the workspace root and install it with the tested ECharts peer in a separate Angular 22 application. Replace the example path with your checkout location. Keep the archive at the lockfile path or in a vendor directory; commit the lockfile and use npm ci for repeat installs.',
         ],
         source:
-          'npm run pack:lib\n\n# In your Angular 22 application:\nnpm install /path/to/ng-echarts/dist/mantha911-ng-echarts-0.1.0-rc.28.tgz echarts@6.1.0',
+          'npm run pack:lib\n\n# In your Angular 22 application:\nnpm install /path/to/ng-echarts/dist/mantha911-ng-echarts-0.1.0-rc.29.tgz echarts@6.1.0',
         language: 'Terminal',
       },
       {

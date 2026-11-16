@@ -26,111 +26,125 @@ export interface PlotEnvironment<Option> {
 
 /** Coordinates browser work; builders and Angular templates never own chart instances. */
 export class PlotController<Option> {
-  private options: Option | null = null;
-  private renderer: PlotRenderer<Option> | null = null;
-  private frame: number | null = null;
-  private loading = false;
-  private dirty = false;
-  private generation = 0;
-  private destroyed = false;
-  private width = 0;
-  private height = 0;
-  private readonly disconnect: () => void;
+  #options: Option | null = null;
+  #renderer: PlotRenderer<Option> | null = null;
+  #frame: number | null = null;
+  #loading = false;
+  #dirty = false;
+  #generation = 0;
+  #destroyed = false;
+  #width = 0;
+  #height = 0;
+  readonly #disconnect: () => void;
+
+  readonly #host: HTMLElement;
+  readonly #environment: PlotEnvironment<Option>;
+  readonly #onPoint: (point: PlotPoint) => void;
+  readonly #onError: () => void;
+  readonly #onRange: (rowIds: readonly string[], snapshot: unknown) => void;
+  readonly #onPreview: (point: PlotPoint | null) => void;
 
   constructor(
-    private readonly host: HTMLElement,
-    private readonly environment: PlotEnvironment<Option>,
-    private readonly onPoint: (point: PlotPoint) => void,
-    private readonly onError: () => void,
-    private readonly onRange: (rowIds: readonly string[], snapshot: unknown) => void = () => {},
-    private readonly onPreview: (point: PlotPoint | null) => void = () => {},
+    host: HTMLElement,
+    environment: PlotEnvironment<Option>,
+    onPoint: (point: PlotPoint) => void,
+    onError: () => void,
+    onRange: (rowIds: readonly string[], snapshot: unknown) => void = () => {},
+    onPreview: (point: PlotPoint | null) => void = () => {},
   ) {
-    this.disconnect = environment.observe(host, () => this.schedule());
+    this.#host = host;
+    this.#environment = environment;
+    this.#onPoint = onPoint;
+    this.#onError = onError;
+    this.#onRange = onRange;
+    this.#onPreview = onPreview;
+
+    this.#disconnect = environment.observe(host, () => this.#schedule());
   }
 
   update(options: Option | null): void {
-    if (this.destroyed) return;
-    this.options = options;
-    this.dirty = true;
+    if (this.#destroyed) return;
+    this.#options = options;
+    this.#dirty = true;
     if (options === null) {
-      this.generation++;
-      this.loading = false;
-      this.cancelFrame();
-      this.disposeRenderer();
+      this.#generation++;
+      this.#loading = false;
+      this.#cancelFrame();
+      this.#disposeRenderer();
       return;
     }
-    this.schedule();
+    this.#schedule();
   }
 
   destroy(): void {
-    if (this.destroyed) return;
-    this.destroyed = true;
-    this.generation++;
-    this.cancelFrame();
-    this.disconnect();
-    this.disposeRenderer();
+    if (this.#destroyed) return;
+    this.#destroyed = true;
+    this.#generation++;
+    this.#cancelFrame();
+    this.#disconnect();
+    this.#disposeRenderer();
   }
 
-  private schedule(): void {
-    if (this.destroyed || !this.options || this.frame !== null) return;
-    this.frame = this.environment.schedule(() => {
-      this.frame = null;
-      void this.render();
+  #schedule(): void {
+    if (this.#destroyed || !this.#options || this.#frame !== null) return;
+    this.#frame = this.#environment.schedule(() => {
+      this.#frame = null;
+      void this.#render();
     });
   }
 
-  private async render(): Promise<void> {
-    if (this.destroyed || !this.options || !this.host.clientWidth || !this.host.clientHeight)
+  async #render(): Promise<void> {
+    if (this.#destroyed || !this.#options || !this.#host.clientWidth || !this.#host.clientHeight)
       return;
     // A queued observer delivery must not clear another render's pending import.
-    if (!this.renderer && this.loading) return;
-    const generation = this.generation;
+    if (!this.#renderer && this.#loading) return;
+    const generation = this.#generation;
     try {
-      if (!this.renderer) {
-        this.loading = true;
-        const factory = await this.environment.load();
-        if (this.destroyed || generation !== this.generation || !this.options) return;
+      if (!this.#renderer) {
+        this.#loading = true;
+        const factory = await this.#environment.load();
+        if (this.#destroyed || generation !== this.#generation || !this.#options) return;
         // Measure again after asynchronous loading; a formerly visible host may now be hidden.
-        if (!this.host.clientWidth || !this.host.clientHeight) return;
-        this.width = this.host.clientWidth;
-        this.height = this.host.clientHeight;
+        if (!this.#host.clientWidth || !this.#host.clientHeight) return;
+        this.#width = this.#host.clientWidth;
+        this.#height = this.#host.clientHeight;
         // Renderer factories initialize at the host's current size.
-        this.renderer = factory(this.host, this.onPoint, this.onRange, this.onPreview);
-        this.dirty = true;
+        this.#renderer = factory(this.#host, this.#onPoint, this.#onRange, this.#onPreview);
+        this.#dirty = true;
       }
-      const width = this.host.clientWidth;
-      const height = this.host.clientHeight;
-      if (width !== this.width || height !== this.height) {
-        this.renderer.resize({ optionsPending: this.dirty });
-        this.width = width;
-        this.height = height;
+      const width = this.#host.clientWidth;
+      const height = this.#host.clientHeight;
+      if (width !== this.#width || height !== this.#height) {
+        this.#renderer.resize({ optionsPending: this.#dirty });
+        this.#width = width;
+        this.#height = height;
       }
-      if (this.dirty && this.options) {
-        this.renderer.update(this.options);
-        this.dirty = false;
+      if (this.#dirty && this.#options) {
+        this.#renderer.update(this.#options);
+        this.#dirty = false;
       }
     } catch {
-      if (!this.destroyed && generation === this.generation) {
-        this.options = null;
-        this.generation++;
-        this.loading = false;
-        this.cancelFrame();
-        this.disposeRenderer();
-        this.onError();
+      if (!this.#destroyed && generation === this.#generation) {
+        this.#options = null;
+        this.#generation++;
+        this.#loading = false;
+        this.#cancelFrame();
+        this.#disposeRenderer();
+        this.#onError();
       }
     } finally {
-      if (generation === this.generation) this.loading = false;
+      if (generation === this.#generation) this.#loading = false;
     }
   }
 
-  private disposeRenderer(): void {
-    this.renderer?.dispose();
-    this.renderer = null;
-    this.width = this.height = 0;
+  #disposeRenderer(): void {
+    this.#renderer?.dispose();
+    this.#renderer = null;
+    this.#width = this.#height = 0;
   }
 
-  private cancelFrame(): void {
-    if (this.frame !== null) this.environment.cancel(this.frame);
-    this.frame = null;
+  #cancelFrame(): void {
+    if (this.#frame !== null) this.#environment.cancel(this.#frame);
+    this.#frame = null;
   }
 }

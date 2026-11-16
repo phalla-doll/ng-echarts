@@ -66,29 +66,29 @@ export class CalendarHeatmap<T extends object> {
   readonly error = input<string | null>(null);
   readonly animation = input(true);
 
-  private readonly loader = inject(CALENDAR_RENDERER_LOADER);
-  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
-  private readonly destroyRef = inject(DestroyRef);
-  private readonly application = inject(ApplicationRef);
-  private readonly platform = inject(PLATFORM_ID);
+  readonly #loader = inject(CALENDAR_RENDERER_LOADER);
+  readonly #host = inject<ElementRef<HTMLElement>>(ElementRef);
+  readonly #destroyRef = inject(DestroyRef);
+  readonly #application = inject(ApplicationRef);
+  readonly #platform = inject(PLATFORM_ID);
   private readonly plot = viewChild.required<ElementRef<HTMLElement>>('plot');
-  private readonly browserReady = signal(false);
-  private readonly reducedMotion = signal(false);
-  private readonly measuredTheme = signal<ɵCartesianThemeTokens | null>(null);
-  private controller: ɵPlotController<CalendarView> | null = null;
-  private focusKeeper: ɵChartFocusKeeper | null = null;
-  private removeMotionListener: (() => void) | null = null;
+  readonly #browserReady = signal(false);
+  readonly #reducedMotion = signal(false);
+  readonly #measuredTheme = signal<ɵCartesianThemeTokens | null>(null);
+  #controller: ɵPlotController<CalendarView> | null = null;
+  #focusKeeper: ɵChartFocusKeeper | null = null;
+  #removeMotionListener: (() => void) | null = null;
   // A failed renderer stays failed until retry or a relevant input changes.
   protected readonly rendererError = linkedSignal(() => {
     this.model();
-    this.settings();
-    this.formatting();
+    this.#settings();
+    this.#formatting();
     return false;
   });
   protected readonly model = computed(() =>
     normalizeCalendarData(this.data(), this.dateKey(), this.valueKey(), this.year(), this.max()),
   );
-  private readonly formatting = computed(() => {
+  readonly #formatting = computed(() => {
     const model = this.model();
     return ɵcreateValueFormatting(
       this.locale(),
@@ -106,7 +106,7 @@ export class CalendarHeatmap<T extends object> {
           ],
     );
   });
-  private readonly settings = computed(() => ({
+  readonly #settings = computed(() => ({
     title: this.title(),
     valueLabel: this.valueLabel(),
     theme: this.theme(),
@@ -116,12 +116,12 @@ export class CalendarHeatmap<T extends object> {
     error: this.error(),
   }));
   protected readonly tokens = computed(
-    () => this.measuredTheme() ?? ɵdefaultCartesianTheme(this.theme()),
+    () => this.#measuredTheme() ?? ɵdefaultCartesianTheme(this.theme()),
   );
   protected readonly localDatesAvailable = computed(() => {
     const model = this.model();
     return (
-      !this.browserReady() ||
+      !this.#browserReady() ||
       model.kind !== 'ready' ||
       calendarDatesExistLocally(model.days.map((day) => day.date))
     );
@@ -136,8 +136,8 @@ export class CalendarHeatmap<T extends object> {
             upper = model.max * ((i + 1) / 4);
           return {
             color: this.colors()[i]!,
-            upperText: this.formatting().format(upper),
-            label: `More than ${this.formatting().format(lower)} to ${this.formatting().format(upper)}`,
+            upperText: this.#formatting().format(upper),
+            label: `More than ${this.#formatting().format(lower)} to ${this.#formatting().format(upper)}`,
           };
         });
   });
@@ -156,14 +156,14 @@ export class CalendarHeatmap<T extends object> {
             .filter((day) => day.month === index + 1)
             .map((day) => ({
               ...day,
-              text: day.value === null ? 'No data' : this.formatting().format(day.value),
+              text: day.value === null ? 'No data' : this.#formatting().format(day.value),
             })),
         }));
   });
-  protected readonly zeroLabel = computed(() => this.formatting().format(0));
-  protected readonly maximumLabel = computed(() => this.formatting().format(this.max()));
+  protected readonly zeroLabel = computed(() => this.#formatting().format(0));
+  protected readonly maximumLabel = computed(() => this.#formatting().format(this.max()));
   protected readonly state = computed(() => {
-    const settings = this.settings();
+    const settings = this.#settings();
     const configurationError =
       typeof settings.valueLabel !== 'string' || !settings.valueLabel.trim()
         ? 'Value label must be nonempty text.'
@@ -173,7 +173,7 @@ export class CalendarHeatmap<T extends object> {
             ? 'Calendar theme configuration is invalid.'
             : typeof settings.animation !== 'boolean' || typeof settings.loading !== 'boolean'
               ? 'Calendar animation and loading settings must be booleans.'
-              : this.formatting().error;
+              : this.#formatting().error;
     const state = ɵresolveCartesianState(
       settings.error,
       typeof settings.loading === 'boolean' && settings.loading,
@@ -187,7 +187,7 @@ export class CalendarHeatmap<T extends object> {
         ? { ...state, message: 'No calendar observations available.' }
         : state;
   });
-  private readonly options = computed<CalendarView | null>(() => {
+  readonly #options = computed<CalendarView | null>(() => {
     const model = this.model();
     return this.state().kind === 'ready' && model.kind === 'ready' && this.localDatesAvailable()
       ? {
@@ -195,8 +195,8 @@ export class CalendarHeatmap<T extends object> {
           max: model.max,
           days: model.days,
           tokens: this.tokens(),
-          animation: this.animation() && !this.reducedMotion(),
-          format: this.formatting().format,
+          animation: this.animation() && !this.#reducedMotion(),
+          format: this.#formatting().format,
           valueLabel: this.valueLabel(),
         }
       : null;
@@ -210,23 +210,23 @@ export class CalendarHeatmap<T extends object> {
   }
   constructor() {
     afterNextRender(() => {
-      if (!isPlatformBrowser(this.platform)) return;
-      void this.application.whenStable().then(() => {
-        if (this.destroyRef.destroyed) return;
+      if (!isPlatformBrowser(this.#platform)) return;
+      void this.#application.whenStable().then(() => {
+        if (this.#destroyRef.destroyed) return;
         try {
           const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-          this.reducedMotion.set(preference.matches);
-          const onMotion = (event: MediaQueryListEvent) => this.reducedMotion.set(event.matches);
+          this.#reducedMotion.set(preference.matches);
+          const onMotion = (event: MediaQueryListEvent) => this.#reducedMotion.set(event.matches);
           preference.addEventListener('change', onMotion);
-          this.removeMotionListener = () => preference.removeEventListener('change', onMotion);
-          this.controller = new ɵPlotController(
+          this.#removeMotionListener = () => preference.removeEventListener('change', onMotion);
+          this.#controller = new ɵPlotController(
             this.plot().nativeElement,
-            ɵbrowserPlotEnvironment(() => this.loader(), this.host.nativeElement),
+            ɵbrowserPlotEnvironment(() => this.#loader(), this.#host.nativeElement),
             (point) => this.selectDate(point.rowId, 'plot'),
             () => this.rendererError.set(true),
           );
-          this.focusKeeper = new ɵChartFocusKeeper(this.host.nativeElement);
-          this.browserReady.set(true);
+          this.#focusKeeper = new ɵChartFocusKeeper(this.#host.nativeElement);
+          this.#browserReady.set(true);
         } catch {
           this.rendererError.set(true);
         }
@@ -235,13 +235,13 @@ export class CalendarHeatmap<T extends object> {
     // Resolving CSS colors writes a probe and immediately reads its computed color.
     afterRenderEffect({
       mixedReadWrite: () => {
-        if (!this.browserReady()) return;
+        if (!this.#browserReady()) return;
         const theme = this.theme();
         this.themeRevision();
         try {
-          this.measuredTheme.set(
+          this.#measuredTheme.set(
             ɵreadCartesianTheme<{ value: number }>(
-              this.host.nativeElement,
+              this.#host.nativeElement,
               theme,
               [{ id: 'calendar', key: 'value', label: this.title() }],
               this.plot().nativeElement,
@@ -255,8 +255,8 @@ export class CalendarHeatmap<T extends object> {
     // Option updates only schedule rendering or dispose the previous plot.
     afterRenderEffect({
       write: () => {
-        this.browserReady();
-        this.controller?.update(this.options());
+        this.#browserReady();
+        this.#controller?.update(this.#options());
       },
     });
     // Focus restoration checks current DOM ownership before changing focus.
@@ -264,13 +264,13 @@ export class CalendarHeatmap<T extends object> {
       mixedReadWrite: () => {
         this.state();
         this.months();
-        this.focusKeeper?.restore();
+        this.#focusKeeper?.restore();
       },
     });
-    this.destroyRef.onDestroy(() => {
-      this.removeMotionListener?.();
-      this.controller?.destroy();
-      this.focusKeeper?.destroy();
+    this.#destroyRef.onDestroy(() => {
+      this.#removeMotionListener?.();
+      this.#controller?.destroy();
+      this.#focusKeeper?.destroy();
     });
   }
   protected retryRenderer(): void {

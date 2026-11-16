@@ -15,10 +15,10 @@ import { SiteAppearance } from '../shell/site-appearance';
       <section class="linking-guide" aria-labelledby="dashboard-pattern">
         <h2 id="dashboard-pattern">Use this dashboard</h2>
         <p>
-          Activate a bar, area or trend value, or choose a month. Switch the overview style without
-          changing the selection. Reset returns to all months. Refreshing and reordering retain the
-          selected month by ID; removing it returns to all months. Each legend affects its own
-          chart.
+          Choose visible months with From/To or the zoom controls. Select a device to explore its
+          monthly detail, then choose a month in either chart or the Month field. Reset month clears
+          selection; Reset zoom restores the full window. Refreshing and reordering retain available
+          IDs. Each legend affects its own chart.
         </p>
         <p>
           Missing observations remain missing. Recorded device sums may be partial, and the trend
@@ -32,8 +32,8 @@ import { SiteAppearance } from '../shell/site-appearance';
           >@defer (on interaction(sourceDetails)) {<code [appHighlight]="source"></code>} @placeholder {<code>{{ source }}</code>} @error {<code>{{ source }}</code>}</pre>
         </details>
         <p>
-          Install the experimental rc.22 package to use this example. Horizontal composed charts are
-          a separate rc.23 source feature.
+          This complete example also runs on the preserved rc.22 package. The current experimental
+          package is rc.28; install it with the next tag.
         </p>
         <a routerLink="/linked">Explore month ranges and previews</a>
       </section>

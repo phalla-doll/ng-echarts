@@ -55,15 +55,15 @@ export class ComposedChart<T extends object> extends ɵCartesianChart<
   readonly valueAxes: InputSignal<readonly ComposedValueAxis[] | null> = input<
     readonly ComposedValueAxis[] | null
   >(null);
-  private readonly axisFormats = computed(() => {
+  readonly #axisFormats = computed(() => {
     const axes = this.valueAxes();
     return axes && Array.isArray(this.series()) && !composedAxesError(axes, this.series())
       ? composedAxisFormatting(axes, this.series(), this.model(), this.locale())
       : [];
   });
-  private readonly loader = inject(COMPOSED_RENDERER_LOADER);
+  readonly #loader = inject(COMPOSED_RENDERER_LOADER);
   protected override renderer() {
-    return this.loader();
+    return this.#loader();
   }
   protected override familyConfiguration(): ComposedConfiguration<T> {
     return { series: this.series(), layout: this.layout(), valueAxes: this.valueAxes() };
@@ -90,7 +90,7 @@ export class ComposedChart<T extends object> extends ɵCartesianChart<
   protected override valueFormatting(model: ɵCartesianModel<T>): ɵValueFormatting {
     if (this.valueAxes() === null) return super.valueFormatting(model);
     if (model.kind === 'error') return super.valueFormatting(model);
-    const formats = this.axisFormats();
+    const formats = this.#axisFormats();
     if (!formats.length) return { format: () => '', error: null };
     const axes = this.valueAxes()!;
     const bySeries = new Map(
@@ -111,7 +111,7 @@ export class ComposedChart<T extends object> extends ɵCartesianChart<
       this.series(),
       this.layout(),
       this.valueAxes(),
-      this.axisFormats(),
+      this.#axisFormats(),
     );
   }
 }

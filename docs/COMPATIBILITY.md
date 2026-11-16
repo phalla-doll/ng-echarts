@@ -1,6 +1,6 @@
 # Compatibility and limits
 
-Recorded 16 November 2026 for published `@mantha911/ng-echarts@0.1.0-rc.24`. npm `next` selects rc.24; `latest` retains rc.18. [Publication evidence](PUBLICATION.md#rc24-oidc-publication) records exact registry bytes and consumer verification. The package is an experimental public prerelease. This table describes the tested build, not a guarantee for every version admitted by a dependency range. [Research findings](RESEARCH_FINDINGS.md#angular-22-toolchain) own upstream compatibility research; the current library manifest owns its peer contract.
+Recorded 16 November 2026 for published `@mantha911/ng-echarts@0.1.0-rc.28`. npm `next` selects rc.28; `latest` retains rc.18. [Publication evidence](PUBLICATION.md#rc28-oidc-publication) records exact registry bytes and consumer verification. The package is an experimental public prerelease. This table describes the tested build, not a guarantee for every version admitted by a dependency range. [Research findings](RESEARCH_FINDINGS.md#angular-22-toolchain) own upstream compatibility research; the current library manifest owns its peer contract.
 
 ## Exact tested toolchain
 
@@ -118,3 +118,7 @@ The rc.24 increment passes [full Linux CI](https://github.com/phalla-doll/ng-ech
 The [rc.26 candidate](experiments/RC26_PAYLOAD_REDUCTION.md) retains the rc.24 chart APIs, pinned peers, rendering features and module-budget caps. Common presentation/lifecycle code and scoped family styles reduce combined-root gzip to 221,060 bytes; all twelve module scenarios pass with identical engine membership. Exact candidate, browser and clean-build evidence is recorded in that report. This increment does not broaden the support matrix; npm next remains rc.24 and human release acceptance remains pending.
 
 Current rc.28 source integrates legend layouts and default-true calendar/Sankey table opt-outs on top of the preserved rc.27 radar/declaration fixes. See [the integration record](experiments/RC28_LEGEND_INTEGRATION.md) for actual combined-source verification. No broader support or human release acceptance is claimed.
+
+## rc.28 delivery and rc.29 application window
+
+[rc.28 publication](experiments/RC28_PUBLICATION.md) preserves the tested peers, eleven entry identities and lazy registration. The [rc.29 continuation](experiments/RC29_LINKED_WINDOW.md) retains the same measurement/caps. Shared zoom is an application-owned inclusive category slice, with native fields/buttons and a monthly device view; it does not register ECharts DataZoom or introduce a general-purpose library zoom API. The exact standalone dashboard remains tested against digest-verified published rc.22. Human release acceptance remains pending.

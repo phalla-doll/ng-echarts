@@ -1,0 +1,199 @@
+{
+  "baselineSource": "c192030f75551ff1625055ae85ee545e062a5f04",
+  "recordedAt": "2026-11-16T07:06:41.868Z",
+  "scenarios": [
+    {
+      "name": "bar",
+      "before": {
+        "raw": 562311,
+        "gzip": 186992,
+        "brotli": 159539
+      },
+      "after": {
+        "raw": 560924,
+        "gzip": 186735,
+        "brotli": 159389
+      },
+      "engineModules": 232,
+      "engineSetIdentical": true,
+      "capUnchanged": true
+    },
+    {
+      "name": "line",
+      "before": {
+        "raw": 560014,
+        "gzip": 187435,
+        "brotli": 160092
+      },
+      "after": {
+        "raw": 556013,
+        "gzip": 186502,
+        "brotli": 159352
+      },
+      "engineModules": 230,
+      "engineSetIdentical": true,
+      "capUnchanged": true
+    },
+    {
+      "name": "area",
+      "before": {
+        "raw": 561253,
+        "gzip": 187921,
+        "brotli": 160665
+      },
+      "after": {
+        "raw": 557252,
+        "gzip": 186993,
+        "brotli": 159608
+      },
+      "engineModules": 230,
+      "engineSetIdentical": true,
+      "capUnchanged": true
+    },
+    {
+      "name": "composed",
+      "before": {
+        "raw": 587948,
+        "gzip": 197281,
+        "brotli": 168045
+      },
+      "after": {
+        "raw": 583921,
+        "gzip": 196345,
+        "brotli": 167201
+      },
+      "engineModules": 242,
+      "engineSetIdentical": true,
+      "capUnchanged": true
+    },
+    {
+      "name": "pie",
+      "before": {
+        "raw": 499462,
+        "gzip": 164125,
+        "brotli": 140490
+      },
+      "after": {
+        "raw": 495224,
+        "gzip": 163209,
+        "brotli": 139691
+      },
+      "engineModules": 199,
+      "engineSetIdentical": true,
+      "capUnchanged": true
+    },
+    {
+      "name": "radar",
+      "before": {
+        "raw": 505717,
+        "gzip": 168737,
+        "brotli": 144615
+      },
+      "after": {
+        "raw": 501673,
+        "gzip": 167811,
+        "brotli": 143865
+      },
+      "engineModules": 210,
+      "engineSetIdentical": true,
+      "capUnchanged": true
+    },
+    {
+      "name": "calendar",
+      "before": {
+        "raw": 527394,
+        "gzip": 174920,
+        "brotli": 149721
+      },
+      "after": {
+        "raw": 522980,
+        "gzip": 173948,
+        "brotli": 148894
+      },
+      "engineModules": 213,
+      "engineSetIdentical": true,
+      "capUnchanged": true
+    },
+    {
+      "name": "sankey",
+      "before": {
+        "raw": 518876,
+        "gzip": 172255,
+        "brotli": 147363
+      },
+      "after": {
+        "raw": 514496,
+        "gzip": 171274,
+        "brotli": 146504
+      },
+      "engineModules": 205,
+      "engineSetIdentical": true,
+      "capUnchanged": true
+    },
+    {
+      "name": "radial",
+      "before": {
+        "raw": 406904,
+        "gzip": 134772,
+        "brotli": 115516
+      },
+      "after": {
+        "raw": 402496,
+        "gzip": 133809,
+        "brotli": 114651
+      },
+      "engineModules": 164,
+      "engineSetIdentical": true,
+      "capUnchanged": true
+    },
+    {
+      "name": "core",
+      "before": {
+        "raw": 34527,
+        "gzip": 9531,
+        "brotli": 8447
+      },
+      "after": {
+        "raw": 30534,
+        "gzip": 8616,
+        "brotli": 7601
+      },
+      "engineModules": 0,
+      "engineSetIdentical": true,
+      "capUnchanged": true
+    },
+    {
+      "name": "root",
+      "before": {
+        "raw": 709525,
+        "gzip": 221792,
+        "brotli": 189578
+      },
+      "after": {
+        "raw": 707863,
+        "gzip": 221664,
+        "brotli": 189538
+      },
+      "engineModules": 253,
+      "engineSetIdentical": true,
+      "capUnchanged": true
+    },
+    {
+      "name": "root-frame",
+      "before": {
+        "raw": 588683,
+        "gzip": 203742,
+        "brotli": 175707
+      },
+      "after": {
+        "raw": 584690,
+        "gzip": 202823,
+        "brotli": 174878
+      },
+      "engineModules": 253,
+      "engineSetIdentical": true,
+      "capUnchanged": true
+    }
+  ],
+  "passed": true
+}

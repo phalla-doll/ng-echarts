@@ -63,3 +63,5 @@ export { buildAreaFill as ɵbuildAreaFill } from './lib/area-fill';
 
 export { bindBrowserPlot as ɵbindBrowserPlot } from './lib/browser-plot';
 export { ChartPresentation as ɵChartPresentation } from './lib/chart-presentation';
+
+export { observeTablePreviews as ɵobserveTablePreviews } from './lib/cartesian-browser';

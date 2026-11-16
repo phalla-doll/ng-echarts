@@ -1,6 +1,6 @@
 # Published prerelease verification
 
-The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.24`, including independent composed value axes and deterministic declarations. The preserved rc.27 [payload-reduction candidate](experiments/RC27_FINAL_REVIEW.md) precedes current rc.28 [legend integration source](experiments/RC28_LEGEND_INTEGRATION.md); no rc.28 archive or publication is claimed. The user selected MIT for original library code on 13 November 2026. The user selected this experimental public identity and explicitly deferred the human listening session while requesting publication under `next`. Human gates remain pending. This checklist separates verified artifact behavior from release decisions and the deferred human interpretation review.
+The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.28`, including chip/list legends, gallery table opt-outs and the earlier composed value-axis/declaration features. [Exact CI and registry evidence](experiments/RC28_PUBLICATION.md) records complete delivery. Current rc.29 runtime/source work has separate [continuation evidence](experiments/RC29_LINKED_WINDOW.md). Preserve every archive. Human F09/R06/G2/G3/G4 remain deferred/pending; experimental publication does not claim complete human interpretation or a stable API.
 
 The rc.24 publication and registry-consumer status are recorded in its [receipt](experiments/public-rc24/registry-verification.json). Actual npm tags are `next: 0.1.0-rc.24` and `latest: 0.1.0-rc.18`; npm rejected deletion of the initial `latest` alias. See the [registry receipt](experiments/public-rc18/registry-verification.json) and [publication procedure](PUBLICATION.md). These results are separate from the pending human interpretation gates.
 
@@ -47,11 +47,11 @@ The `check:docs` and `check:runtime` scripts accept the same variables. Without 
 
 ## Verify the published registry package
 
-All three consumer scripts support exact registry installs. The helper verifies the fetched registry tarball before each consumer installs by its exact npm identity. Use rc.23 source (verified publication commit `9ea7c866bf0bf8e9f6ae3551cab0cf08d32218d9`) and the digest from its [registry receipt](experiments/public-rc23/registry-verification.json). Current source intentionally rejects a mismatched registry identity:
+All three consumer scripts support exact registry installs. The helper verifies the fetched registry tarball before each consumer installs by its exact npm identity. Use rc.28 source (verified publication commit `c192030f75551ff1625055ae85ee545e062a5f04`) and the digest from its [registry receipt](experiments/public-rc28/registry-verification.json). Current source intentionally rejects a mismatched registry identity:
 
 ```sh
-export CHART_LIBRARY_REGISTRY_SPEC="@mantha911/ng-echarts@0.1.0-rc.23"
-export CHART_LIBRARY_TARBALL_SHA256="6a68ccc06bf76b6f92803198f23dc4207444fe165c3f7ec4a6b39cc0ace1f246"
+export CHART_LIBRARY_REGISTRY_SPEC="@mantha911/ng-echarts@0.1.0-rc.28"
+export CHART_LIBRARY_TARBALL_SHA256="f556a3d25e766a4c4fb2ec343ae0bad6d57d868a0d97fd393c27e206c485d396"
 npm run check:consumer
 npm run check:docs
 npm run check:runtime
@@ -82,7 +82,7 @@ The recorded dependency versions describe verified inputs, not every version adm
 | Original library license | MIT selected by the user; full text ships in the candidate |
 | Human interpretation, F09/R06 | Pending; complete the [current result sheet](experiments/RC20_HUMAN_REVIEW.md) following the [manual review](experiments/R06_MANUAL_REVIEW.md) across every family |
 | NG14/G2/G3/G4 acceptance | Pending until the required human evidence exists; successful artifact checks do not close these gates |
-| Public package name/namespace | Published `@mantha911/ng-echarts@0.1.0-rc.24`; [NG22 execution](PUBLICATION.md) |
+| Public package name/namespace | Published `@mantha911/ng-echarts@0.1.0-rc.28`; [NG22 execution](PUBLICATION.md) |
 | Registry destination/publishing credentials | Authenticated as `mantha911` after interactive npm login ([record](PUBLICATION.md)) |
 | Public API stability/versioning promise | Experimental; no stable API freeze is declared by this candidate |
 
@@ -130,3 +130,7 @@ The [area increment](experiments/NG17_COMPOSED_AREAS.md) records the published r
 ## rc.23 publication and rc.24 preparation
 
 [rc.23 publication](experiments/RC23_PUBLICATION.md) completes exact CI-artifact OIDC delivery and fresh registry consumers. Both differing rc.23 archives remain preserved. [rc.24](experiments/NG17_DUAL_AXES.md) adds explicit declaration types and independent value axes; its warm/two-clean/cross-platform comparisons pass. The original implementation increment did not authorize publication; the user's 16 November continuation authorizes the separate [rc.24 delivery](experiments/RC24_PUBLICATION.md). Preserve the exact archive. Human interpretation remains pending.
+
+## rc.28 delivery and rc.29 continuation
+
+The [rc.28 report](experiments/RC28_PUBLICATION.md) records complete exact-main CI and successful OIDC/fresh registry consumers with next rc.28/latest rc.18. Preserve the canonical archive and all earlier candidates. New [rc.29 source work](experiments/RC29_LINKED_WINDOW.md) receives separate reproducibility, consumer, browser and payload evidence; no rc.29 publication is implied. Human F09/R06/G2/G3/G4 remain deferred/pending.

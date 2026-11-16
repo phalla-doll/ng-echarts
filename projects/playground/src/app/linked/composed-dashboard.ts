@@ -21,6 +21,65 @@ export interface DashboardMonth {
   readonly mobile: number | null;
 }
 
+export type DashboardWindow = { readonly from: string; readonly to: string } | null;
+
+/** Stable endpoint IDs follow supplied order; removing either endpoint restores the full window. */
+export function reconcileDashboardWindow(
+  rows: readonly DashboardMonth[],
+  window: DashboardWindow,
+): DashboardWindow {
+  if (window === null) return null;
+  const from = rows.findIndex((row) => row.id === window.from);
+  const to = rows.findIndex((row) => row.id === window.to);
+  if (from < 0 || to < 0) return null;
+  const start = Math.min(from, to);
+  const end = Math.max(from, to);
+  if (start === 0 && end === rows.length - 1) return null;
+  return from <= to ? window : { from: window.to, to: window.from };
+}
+
+export function dashboardWindowRows<T extends DashboardMonth>(
+  rows: readonly T[],
+  window: DashboardWindow,
+): readonly T[] {
+  const current = reconcileDashboardWindow(rows, window);
+  return current === null
+    ? rows
+    : rows.slice(
+        rows.findIndex((row) => row.id === current.from),
+        rows.findIndex((row) => row.id === current.to) + 1,
+      );
+}
+
+/** Zoom/pan clamp to supplied rows, preserving size at either boundary. */
+export function moveDashboardWindow(
+  rows: readonly DashboardMonth[],
+  window: DashboardWindow,
+  action: 'in' | 'out' | 'previous' | 'next',
+  anchor: string | null = null,
+): DashboardWindow {
+  if (!rows.length) return null;
+  const current = dashboardWindowRows(rows, window);
+  const first = rows.findIndex((row) => row.id === current[0]!.id);
+  const size = current.length;
+  const count =
+    action === 'in'
+      ? Math.max(1, Math.ceil(size / 2))
+      : action === 'out'
+        ? Math.min(rows.length, size * 2)
+        : size;
+  const selected = current.findIndex((row) => row.id === anchor);
+  const center = first + (selected < 0 ? Math.floor((size - 1) / 2) : selected);
+  const requested =
+    action === 'previous'
+      ? first - size
+      : action === 'next'
+        ? first + size
+        : center - Math.floor((count - 1) / 2);
+  const start = Math.max(0, Math.min(rows.length - count, requested));
+  return count === rows.length ? null : { from: rows[start]!.id, to: rows[start + count - 1]!.id };
+}
+
 /** A trailing mean requires every device observation in its supplied-order window. */
 export function dashboardRows(data: readonly DashboardMonth[]) {
   return data.map((row, index) => {
@@ -53,6 +112,75 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
   imports: [ComposedChart, BarChart],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
+    <fieldset class="dashboard-window-controls">
+      <legend>Visible months</legend>
+      <label
+        >From
+        <select
+          #from
+          [value]="visibleRows()[0]?.id ?? ''"
+          [disabled]="!data().length"
+          [style.color-scheme]="theme()"
+          (change)="changeWindowBound('from', from.value)"
+        >
+          @for (row of data(); track row.id) {
+            <option [value]="row.id">{{ row.month }}</option>
+          }
+        </select>
+      </label>
+      <label
+        >To
+        <select
+          #to
+          [value]="visibleRows().at(-1)?.id ?? ''"
+          [disabled]="!data().length"
+          [style.color-scheme]="theme()"
+          (change)="changeWindowBound('to', to.value)"
+        >
+          @for (row of data(); track row.id) {
+            <option [value]="row.id">{{ row.month }}</option>
+          }
+        </select>
+      </label>
+      <div class="dashboard-window-actions">
+        <button
+          type="button"
+          [attr.aria-disabled]="visibleRows().length <= 1 ? 'true' : null"
+          (click)="moveWindow('in')"
+        >
+          Zoom in
+        </button>
+        <button
+          type="button"
+          [attr.aria-disabled]="fullWindow() ? 'true' : null"
+          (click)="moveWindow('out')"
+        >
+          Zoom out
+        </button>
+        <button
+          type="button"
+          [attr.aria-disabled]="!canMovePrevious() ? 'true' : null"
+          (click)="moveWindow('previous')"
+        >
+          Previous window
+        </button>
+        <button
+          type="button"
+          [attr.aria-disabled]="!canMoveNext() ? 'true' : null"
+          (click)="moveWindow('next')"
+        >
+          Next window
+        </button>
+        <button
+          type="button"
+          [attr.aria-disabled]="fullWindow() ? 'true' : null"
+          (click)="resetWindow()"
+        >
+          Reset zoom
+        </button>
+      </div>
+    </fieldset>
+    <p class="dashboard-window" role="status">{{ windowContext() }}</p>
     <div class="dashboard-controls">
       <label
         >Month
@@ -62,10 +190,23 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
           [style.color-scheme]="theme()"
           (change)="selectMonth(month.value)"
         >
-          <option value="">All months</option>
-          @for (row of data(); track row.id) {
+          <option value="">{{ fullWindow() ? 'All months' : 'All visible months' }}</option>
+          @for (row of visibleRows(); track row.id) {
             <option [value]="row.id">{{ row.month }}</option>
           }
+        </select>
+      </label>
+      <label
+        >Device
+        <select
+          #device
+          [value]="selectedDevice() ?? ''"
+          [style.color-scheme]="theme()"
+          (change)="selectDevice(device.value)"
+        >
+          <option value="">All devices</option>
+          <option value="desktop">Desktop</option>
+          <option value="mobile">Mobile</option>
         </select>
       </label>
       <label
@@ -88,7 +229,7 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
     <div class="dashboard-pair">
       <nec-composed-chart
         title="Monthly visits and trend"
-        description="Desktop and mobile share a stack. The line is the trailing mean of combined visits over up to three supplied months. Incomplete windows have no mean. Choose a month from any plotted series or the Month field."
+        description="Desktop and mobile share a stack. The line uses up to three supplied months, including observations before the visible window. Incomplete windows have no mean. Choose a month from either chart or the Month field."
         [data]="overview()"
         rowIdKey="id"
         categoryKey="month"
@@ -101,11 +242,17 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
       />
       <nec-bar-chart
         [title]="detailTitle()"
-        description="Recorded device visits for the selected period. Missing observations are excluded from recorded sums and reported below. Legends are independent."
+        [description]="
+          selectedDevice() === null
+            ? 'Recorded visits for the selected period. Choose a device to explore its months. Missing observations are excluded from sums. Legends are independent.'
+            : 'Monthly recorded visits for the chosen device in the visible window. Choose a month here to update the overview selection. Missing values stay missing.'
+        "
         [data]="detail()"
         rowIdKey="id"
         categoryKey="device"
         [series]="detailSeries"
+        [selectedRowId]="selectedDevice() === null ? null : selectedId()"
+        (pointSelect)="selectDetailPoint($event)"
         layout="horizontal"
         [theme]="theme()"
         [showDataTable]="showDataTable()"
@@ -136,6 +283,36 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
       --site-text: #edf2fa;
       --site-muted: #b2bfd2;
       --site-border: #3b4a61;
+    }
+    .dashboard-window-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      gap: 12px 20px;
+      margin: 0;
+      padding: 16px;
+      border: 1px solid var(--site-border, #d6dce5);
+      border-radius: 8px;
+      min-width: 0;
+    }
+    legend {
+      padding: 0 6px;
+      font-size: 14px;
+    }
+    .dashboard-window-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    button:disabled,
+    button[aria-disabled='true'] {
+      opacity: 0.5;
+      cursor: default;
+    }
+    .dashboard-window {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--site-muted, #536176);
     }
     .dashboard-controls {
       display: flex;
@@ -205,12 +382,34 @@ export class ComposedDashboard {
   private readonly monthField = viewChild.required<ElementRef<HTMLSelectElement>>('month');
   private readonly resetButton = viewChild<ElementRef<HTMLButtonElement>>('resetMonth');
   protected readonly kind = signal<'bar' | 'area'>('bar');
-  protected readonly selectedId = linkedSignal<readonly DashboardMonth[], string | null>({
+  protected readonly window = linkedSignal<readonly DashboardMonth[], DashboardWindow>({
     source: this.data,
+    computation: (rows, previous) => reconcileDashboardWindow(rows, previous?.value ?? null),
+  });
+  protected readonly visibleRows = computed(() => dashboardWindowRows(this.data(), this.window()));
+  protected readonly fullWindow = computed(() => this.visibleRows().length === this.data().length);
+  protected readonly canMovePrevious = computed(
+    () => this.visibleRows()[0]?.id !== this.data()[0]?.id,
+  );
+  protected readonly canMoveNext = computed(
+    () => this.visibleRows().at(-1)?.id !== this.data().at(-1)?.id,
+  );
+  protected readonly windowContext = computed(() => {
+    const rows = this.visibleRows();
+    return rows.length
+      ? `Viewing ${rows[0]!.month}–${rows.at(-1)!.month} · ${rows.length} of ${this.data().length} months.`
+      : 'No months to display.';
+  });
+  protected readonly selectedDevice = signal<'desktop' | 'mobile' | null>(null);
+  protected readonly selectedId = linkedSignal<readonly DashboardMonth[], string | null>({
+    source: this.visibleRows,
     computation: (rows, previous) =>
       rows.some((row) => row.id === previous?.value) ? previous!.value : null,
   });
-  protected readonly overview = computed(() => dashboardRows(this.data()));
+  // Calculate the trailing mean before slicing so zoom does not change its meaning.
+  protected readonly overview = computed(() =>
+    dashboardWindowRows(dashboardRows(this.data()), this.window()),
+  );
   protected readonly series = computed<
     readonly ComposedSeries<ReturnType<typeof dashboardRows>[number]>[]
   >(() => [
@@ -220,20 +419,33 @@ export class ComposedDashboard {
   ]);
   protected readonly scope = computed(() =>
     this.selectedId() === null
-      ? this.data()
-      : this.data().filter((row) => row.id === this.selectedId()),
+      ? this.visibleRows()
+      : this.visibleRows().filter((row) => row.id === this.selectedId()),
   );
-  protected readonly detail = computed(() => dashboardBreakdown(this.scope()));
+  protected readonly detail = computed(() => {
+    const device = this.selectedDevice();
+    return device === null
+      ? dashboardBreakdown(this.scope())
+      : this.visibleRows().map((row) => ({
+          id: row.id,
+          device: row.month,
+          visits: row[device],
+          missing: row[device] === null ? 1 : 0,
+        }));
+  });
   protected readonly context = computed(() =>
     !this.data().length
       ? 'No months available.'
       : this.selectedId() === null
-        ? 'All months selected.'
+        ? this.fullWindow()
+          ? 'All months selected.'
+          : 'All visible months selected.'
         : `${this.scope()[0]!.month} selected.`,
   );
-  protected readonly detailTitle = computed(
-    () =>
-      `Recorded device visits · ${this.selectedId() === null ? 'All months' : this.scope()[0]!.month}`,
+  protected readonly detailTitle = computed(() =>
+    this.selectedDevice() === null
+      ? `Recorded device visits · ${this.selectedId() === null ? (this.fullWindow() ? 'All months' : 'Visible months') : this.scope()[0]!.month}`
+      : `${this.selectedDevice() === 'desktop' ? 'Desktop' : 'Mobile'} visits by month`,
   );
   protected readonly completeness = computed(() => {
     if (!this.data().length) return 'No device observations available.';
@@ -243,12 +455,15 @@ export class ComposedDashboard {
       : 'All device observations are recorded for this period.';
   });
   protected readonly action = linkedSignal({
-    source: () => [this.data(), this.selectedId()],
+    source: () => [this.data(), this.selectedId(), this.window(), this.selectedDevice()],
     computation: () => '',
   });
-  protected readonly detailSeries: readonly ChartSeries<
-    ReturnType<typeof dashboardBreakdown>[number]
-  >[] = [{ id: 'visits', key: 'visits', label: 'Visits' }];
+  protected readonly detailSeries: readonly ChartSeries<{
+    id: string;
+    device: string;
+    visits: number | null;
+    missing: number;
+  }>[] = [{ id: 'visits', key: 'visits', label: 'Visits' }];
   protected readonly monthTick = (month: string) => month.slice(0, 3);
   constructor() {
     effect(() => {
@@ -262,8 +477,48 @@ export class ComposedDashboard {
     });
   }
   protected selectMonth(id: string): void {
-    this.selectedId.set(this.data().some((row) => row.id === id) ? id : null);
+    this.selectedId.set(this.visibleRows().some((row) => row.id === id) ? id : null);
     this.action.set('');
+  }
+  protected changeWindowBound(bound: 'from' | 'to', id: string): void {
+    const rows = this.data();
+    const current = this.visibleRows();
+    if (!rows.some((row) => row.id === id) || !current.length) return;
+    const next = { from: current[0]!.id, to: current.at(-1)!.id, [bound]: id };
+    if (
+      rows.findIndex((row) => row.id === next.from) > rows.findIndex((row) => row.id === next.to)
+    ) {
+      next.from = next.to = id;
+    }
+    this.window.set(reconcileDashboardWindow(rows, next));
+  }
+  protected moveWindow(action: 'in' | 'out' | 'previous' | 'next'): void {
+    if (
+      !this.data().length ||
+      (action === 'in' && this.visibleRows().length <= 1) ||
+      (action === 'out' && this.fullWindow()) ||
+      (action === 'previous' && !this.canMovePrevious()) ||
+      (action === 'next' && !this.canMoveNext())
+    )
+      return;
+    this.window.set(moveDashboardWindow(this.data(), this.window(), action, this.selectedId()));
+  }
+  protected resetWindow(): void {
+    if (!this.fullWindow()) this.window.set(null);
+  }
+  protected selectDevice(id: string): void {
+    this.selectedDevice.set(id === 'desktop' || id === 'mobile' ? id : null);
+    this.action.set('');
+  }
+  protected selectDetailPoint(point: PointSelection<{ readonly id: string }>): void {
+    if (this.selectedDevice() === null) {
+      this.selectDevice(point.rowId);
+    } else {
+      this.selectMonth(point.rowId);
+      this.action.set(
+        `${this.data().find((row) => row.id === point.rowId)?.month}: ${this.selectedDevice()}, ${new Intl.NumberFormat('en-US').format(point.value)} visits (${point.source}).`,
+      );
+    }
   }
   protected selectPoint(point: PointSelection<DashboardMonth>): void {
     this.selectMonth(point.rowId);

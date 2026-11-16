@@ -25,7 +25,7 @@ import type { RadarIdentityOption } from './radar-point';
 export class RadarChart<T extends object> extends ɵCartesianChart<T, RadarOption> {
   readonly maxKey = input.required<NumericKey<T>>();
   readonly filled = input(true);
-  private readonly loader = inject(RADAR_RENDERER_LOADER);
+  readonly #loader = inject(RADAR_RENDERER_LOADER);
   protected override readonly model = computed(() =>
     normalizeRadarData(
       this.data(),
@@ -35,7 +35,7 @@ export class RadarChart<T extends object> extends ɵCartesianChart<T, RadarOptio
       this.maxKey(),
     ),
   );
-  private readonly maxFormatting = computed(() => {
+  readonly #maxFormatting = computed(() => {
     const model = this.model();
     return ɵcreateValueFormatting(
       this.locale(),
@@ -51,7 +51,7 @@ export class RadarChart<T extends object> extends ɵCartesianChart<T, RadarOptio
         ? []
         : model.rows.map((row, i) => [
             row.id,
-            `${this.maxFormatting().format(0)} – ${this.maxFormatting().format(model.maxima[i]!)}`,
+            `${this.#maxFormatting().format(0)} – ${this.#maxFormatting().format(model.maxima[i]!)}`,
           ]),
     );
   });
@@ -81,14 +81,14 @@ export class RadarChart<T extends object> extends ɵCartesianChart<T, RadarOptio
           .join(', ');
   });
   protected override renderer() {
-    return this.loader();
+    return this.#loader();
   }
   protected override familyConfiguration() {
     return { maxKey: this.maxKey(), filled: this.filled() };
   }
   protected override familyError() {
     return typeof this.filled() === 'boolean'
-      ? this.maxFormatting().error
+      ? this.#maxFormatting().error
       : 'Radar fill must be a boolean.';
   }
   protected override buildOptions(context: ɵCartesianContext<T>): RadarIdentityOption {

@@ -1,8 +1,8 @@
 {
-  "recordedAt": "2026-11-16T04:30:11.512Z",
+  "recordedAt": "2026-11-16T06:59:18.591Z",
   "method": "Resolve public package imports, Angular-link, bundle/minify/split with Angular/RxJS peers external; count only modules contributing bytes to output; traverse static imports separately from lazy chunks; sum independently compressed JavaScript chunks",
   "files": [
-    { "name": "stdin.js", "raw": 65928, "gzip": 15588, "brotli": 13713 },
+    { "name": "stdin.js", "raw": 61690, "gzip": 14672, "brotli": 12914 },
     {
       "name": "mantha911-ng-echarts-pie-pie-renderer-C8JrAbQD-G32U5XZH.js",
       "raw": 433428,
@@ -11,7 +11,7 @@
     },
     { "name": "chunk-WOT6VMZA.js", "raw": 106, "gzip": 120, "brotli": 91 }
   ],
-  "total": { "raw": 499462, "gzip": 164125, "brotli": 140490 },
+  "total": { "raw": 495224, "gzip": 163209, "brotli": 139691 },
   "budget": { "gzip": 200000, "brotli": 175000 },
   "passed": true
 }

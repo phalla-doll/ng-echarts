@@ -1,6 +1,6 @@
 # Public package publication and verification (NG22)
 
-Status: `@mantha911/ng-echarts@0.1.0-rc.24` is published on npm under `next`; `latest` retains rc.18. The rc.24 receipt and consumer status are recorded below. The user selected `@mantha911/ng-echarts`, authenticated as npm user `mantha911`, and requested completing the experimental prerelease while skipping the guided VoiceOver session. Human F09/R06/G2/G3/G4 remain pending; that explicit deferral permits this prerelease without claiming completed human interpretation. Private `@ng-echarts/chart-library@0.1.0-rc.17` and earlier archives retain their identities.
+Status: `@mantha911/ng-echarts@0.1.0-rc.28` is published on npm under `next`; `latest` retains rc.18. The [rc.28 publication](#rc28-oidc-publication) records exact bytes and passing fresh registry consumers. Human F09/R06/G2/G3/G4 remain pending under the user’s continued prerelease deferral. Current rc.29 source is separate; preserve every published/private archive.
 
 ## Historical checks before publication
 
@@ -48,7 +48,7 @@ Human F09/R06/G2/G3/G4 remain pending under the user’s explicit deferral. This
 
 ## Source follow-up after rc.18
 
-The current published source is `0.1.0-rc.24` for [explicit value axes](experiments/NG17_DUAL_AXES.md), following [rc.23](experiments/RC23_PUBLICATION.md) horizontal composition, after the preserved [rc.19 delivery checkpoint](experiments/RC19_RELEASE_REVIEW.md). These follow-up reports own their actual publication status; this does not change the rc.18 registry receipt, tags or archived bytes above. New package contents must use the new version and receive their own artifact checks and publication decision.
+The rc.24 checkpoint published `0.1.0-rc.24` for [explicit value axes](experiments/NG17_DUAL_AXES.md), following [rc.23](experiments/RC23_PUBLICATION.md) horizontal composition, after the preserved [rc.19 delivery checkpoint](experiments/RC19_RELEASE_REVIEW.md). These follow-up reports own their actual publication status; this does not change the rc.18 registry receipt, tags or archived bytes above. New package contents must use the new version and receive their own artifact checks and publication decision.
 
 
 ## rc.19 publication
@@ -93,3 +93,7 @@ The preserved macOS rc.23 candidate has a distinct digest because two inferred d
 ## rc.24 OIDC publication
 
 The user authorized rc.24 delivery on 16 November. The [publication report](experiments/RC24_PUBLICATION.md) records exact-main CI `43737237117`, source `0593f344c904b11373c2c93ed5da117ed91258bb`, and [OIDC run 43788004335](https://github.com/phalla-doll/ng-echarts/actions/runs/43788004335). The reviewed 170,430-byte archive has SHA-256 `6dd89361c4f6482b28b9a3f28d88bddf28a71eac9123ec1a8412517995d4c46f`; registry bytes match, next selects rc.24 and latest retains rc.18. The [registry receipt](experiments/public-rc24/registry-verification.json) and [delivery report](experiments/RC24_PUBLICATION.md) record passing strict declarations, documentation and all six client/SSR runtime consumers. Runtime/declarations, packaged documentation and all earlier archives remain immutable. Demo delivery is separate; human F09/R06/G2/G3/G4 remain deferred/pending.
+
+## rc.28 OIDC publication
+
+The user authorized delivering all recommended follow-ups on 16 November. [Source CI 43807733564](https://github.com/phalla-doll/ng-echarts/actions/runs/43807733564) passes all six jobs for `c192030f75551ff1625055ae85ee545e062a5f04`, including the WebKit theme-matrix correction. [Publishing run 43818350441](https://github.com/phalla-doll/ng-echarts/actions/runs/43818350441) passes one OIDC upload, exact registry bytes, normal npm resolution and fresh strict/docs/client/SSR consumers. The 169,180-byte archive has SHA-256 `f556a3d25e766a4c4fb2ec343ae0bad6d57d868a0d97fd393c27e206c485d396`; next is rc.28 and latest remains rc.18. [Report](experiments/RC28_PUBLICATION.md), [registry receipt](experiments/public-rc28/registry-verification.json). Packaged README/changelog/notices remain immutable. New rc.29 payload work and application-owned dashboard interaction are separate source changes; human gates remain pending.

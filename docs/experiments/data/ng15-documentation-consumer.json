@@ -1,16 +1,16 @@
 {
-  "recordedAt": "2026-11-16T04:26:41.913Z",
+  "recordedAt": "2026-11-16T07:08:37.412Z",
   "artifact": {
     "name": "@mantha911/ng-echarts",
-    "version": "0.1.0-rc.28",
-    "sha256": "f556a3d25e766a4c4fb2ec343ae0bad6d57d868a0d97fd393c27e206c485d396",
-    "exactCandidate": false
+    "version": "0.1.0-rc.29",
+    "sha256": "e290db1ad3de9b18b83de79552039b2698d633aa8fc28b155a4b8fa8c990ffda",
+    "exactCandidate": true
   },
   "node": "v24.22.2",
   "npm": "11.19.1",
   "method": "Fresh pinned CLI scaffold outside workspace; execute INSTALLATION.md shell blocks; install local tarball; copy exact INTEGRATION_GUIDE.md App; strict ngc and production build; generated server HTML then three-engine hydration/actions/updates/themes/resize.",
   "sources": {
-    "docs/INSTALLATION.md": "7ad27aa0094e2c51b0cc9d0ece65b3b1e7e27700b95c0e1436e61e74ded2d123",
+    "docs/INSTALLATION.md": "48e9865cbeae6919a45c4b0d67520e350198252b1e138d69a08cb53ffd8900cc",
     "docs/INTEGRATION_GUIDE.md": "ae529384abe222c98bc0a9744f132db1e6f33c65ef56f908f52118486b91acfb"
   },
   "installedOutsideWorkspace": true,
@@ -30,7 +30,7 @@
     "@angular/platform-server": "22.2.6",
     "@angular/router": "22.2.6",
     "@angular/ssr": "22.2.6",
-    "@mantha911/ng-echarts": "0.1.0-rc.28",
+    "@mantha911/ng-echarts": "0.1.0-rc.29",
     "@types/express": "5.0.6",
     "@types/node": "22.20.5",
     "echarts": "6.1.0",

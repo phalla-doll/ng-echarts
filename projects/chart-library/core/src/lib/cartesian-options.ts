@@ -12,23 +12,24 @@ export interface CartesianThemeTokens {
 }
 
 export function defaultCartesianTheme(theme: ChartTheme): CartesianThemeTokens {
-  return theme === 'dark'
-    ? {
-        fontFamily: 'system-ui, sans-serif',
-        background: '#18202c',
-        text: '#edf2fa',
-        muted: '#b2bfd2',
-        border: '#3b4a61',
-        series: ['#10b981', '#f43f5e', '#60a5fa', '#fbbf24'],
-      }
-    : {
-        fontFamily: 'system-ui, sans-serif',
-        background: '#ffffff',
-        text: '#18202c',
-        muted: '#536176',
-        border: '#d6dce5',
-        series: ['#047857', '#be123c', '#2563eb', '#a16207'],
-      };
+  return {
+    fontFamily: 'system-ui, sans-serif',
+    ...(theme === 'dark'
+      ? {
+          background: '#18202c',
+          text: '#edf2fa',
+          muted: '#b2bfd2',
+          border: '#3b4a61',
+          series: ['#10b981', '#f43f5e', '#60a5fa', '#fbbf24'],
+        }
+      : {
+          background: '#ffffff',
+          text: '#18202c',
+          muted: '#536176',
+          border: '#d6dce5',
+          series: ['#047857', '#be123c', '#2563eb', '#a16207'],
+        }),
+  };
 }
 
 export { escapeTooltipText } from './tooltip';

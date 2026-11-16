@@ -23,9 +23,9 @@ export class AreaChart<T extends object> extends ɵCartesianChart<T, AreaOption>
   readonly showPoints = input(false);
   readonly stacked = input(false);
   readonly gradient = input(true);
-  private readonly loader = inject(AREA_RENDERER_LOADER);
+  readonly #loader = inject(AREA_RENDERER_LOADER);
   protected override renderer() {
-    return this.loader();
+    return this.#loader();
   }
   protected override familyConfiguration() {
     return {

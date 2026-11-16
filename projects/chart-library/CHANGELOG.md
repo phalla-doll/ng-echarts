@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.0-rc.29 — Cartesian presentation payload
+
+Move bar-only previews out of the shared Cartesian base and use native private slots for internal lifecycle and component state. Keep public inputs, keyboard controls, focused entry points and lazy engine registration with unchanged payload budgets. Preserve rc.28 and all earlier archives.
+
 ## 0.1.0-rc.28 — Chip and aligned-list legends
 
 - Omit table controls from every gallery family and linked example; calendar/Sankey add the existing opt-out pattern with `showDataTable` defaulting to true. Keep table acceptance on explicit validation routes.
