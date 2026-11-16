@@ -1,0 +1,9 @@
+{
+  "checkedAt": "2026-11-16T01:59:47.562Z",
+  "focused": "Select Conversion (%, right axis) for January: 12%",
+  "passed": true,
+  "scale": "left axis: Revenue (USD). right axis: Conversion (%)",
+  "selection": "a/trend/0.12/table",
+  "sourceBaseCommit": "42b27aa63841184467d97b17fec63f8c2c4d6644",
+  "url": "https://phalla-doll.github.io/ng-echarts/composed-validation"
+}

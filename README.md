@@ -4,7 +4,7 @@
 
 Published experimental release: **`@mantha911/ng-echarts@0.1.0-rc.24`**. Install with `npm install @mantha911/ng-echarts@next echarts@6.1.0`, or pin `@0.1.0-rc.24`. npm `next` selects rc.24; its initial `latest` alias remains on rc.18; neither the alias nor publication declares a stable API. The user deferred VoiceOver review, so human F09/R06/G2/G3/G4 remain pending. See [publication status and evidence](docs/PUBLICATION.md#rc24-oidc-publication).
 
-Current release: **published `0.1.0-rc.24`** adds [independent composed value axes and deterministic declarations](docs/experiments/NG17_DUAL_AXES.md). Horizontal composition now ships in npm rc.23, alongside the [composed linked dashboard](docs/COMPOSED_DASHBOARD.md) integration. The dashboard also runs on published rc.22; the [live demo](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) includes horizontal composition and the dashboard; the new rc.24 axes await a separate demo deployment.
+Current release: **published `0.1.0-rc.24`** adds [independent composed value axes and deterministic declarations](docs/experiments/NG17_DUAL_AXES.md). Horizontal composition ships since npm rc.23, alongside the [composed linked dashboard](docs/COMPOSED_DASHBOARD.md) integration. The dashboard also runs on published rc.22; the [live demo](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) includes horizontal composition and the dashboard; the [rc.24 independent-axis example](https://phalla-doll.github.io/ng-echarts/composed/#revenue-and-conversion) is deployed and verified.
 
 An Angular 22 chart component library inspired by EvilCharts, using Apache ECharts for rendering and TypeScript for its public API.
 
@@ -62,7 +62,7 @@ npm install @mantha911/ng-echarts@next echarts@6.1.0
 | [Linked charts guide](docs/LINKED_CHARTS.md) | Application-owned month/range selection, keyboard actions, resets, updates and a complete compiled example |
 | [Graphical range selection](docs/experiments/GRAPHICAL_RANGE_SELECTION.md) | Snapped pointer selection, native equivalence, cancellation, touch/focus review and rc.4 evidence |
 | [Native month ranges](docs/experiments/NG20_MONTH_RANGE.md) | Inclusive range contract, multi-row feedback, visual review and rc.3 verification |
-| [Composed API reference](docs/COMPOSED_CHART_API.md) | Shared-axis vertical bars and lines, typed descriptors and stable controls |
+| [Composed API reference](docs/COMPOSED_CHART_API.md) | Bar/line/area composition, layouts, named stacks and independent value axes |
 | [Pie/donut API reference](docs/PIE_CHART_API.md) | Single-measure categories, responsive radii, labels, visibility, and raw events |
 | [NG13 pie/donut implementation](docs/experiments/NG13_PIE_CHART.md) | Pie/donut source comparisons, package isolation, browser behavior, and performance |
 | [Area API reference](docs/AREA_CHART_API.md) | Independent gradient/solid fills, same-sign stacks, gap/event semantics, and integration |

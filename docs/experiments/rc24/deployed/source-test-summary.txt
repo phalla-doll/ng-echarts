@@ -1,0 +1,10 @@
+workspace	Run npm run check:workspace	2026-11-16T01:57:44.9696296Z  Test Files  47 passed (47)
+workspace	Run npm run check:workspace	2026-11-16T01:57:44.9697991Z       Tests  317 passed (317)
+workspace	Run npm run check:workspace	2026-11-16T01:57:49.6129290Z  Test Files  7 passed (7)
+workspace	Run npm run check:workspace	2026-11-16T01:57:49.6129663Z       Tests  18 passed (18)
+browser (chromium)	Run npm run test:browser -- --project=chromium --max-failures=1	2026-11-16T02:04:01.9870633Z   160 passed (6.8m)
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-16T02:03:36.6207353Z   2 skipped
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-16T02:03:36.6207558Z   158 passed (6.8m)
+browser (webkit)	Verify WebKit horizontal hit targets before the full suite	2026-11-16T01:57:51.0890219Z   2 passed (15.4s)
+browser (webkit)	Run npm run test:browser -- --project=webkit --max-failures=1	2026-11-16T02:06:56.4908050Z   2 skipped
+browser (webkit)	Run npm run test:browser -- --project=webkit --max-failures=1	2026-11-16T02:06:56.4908271Z   158 passed (9.1m)

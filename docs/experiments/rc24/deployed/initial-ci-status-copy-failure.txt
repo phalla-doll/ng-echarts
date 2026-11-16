@@ -1,0 +1,22 @@
+2026-11-16T01:53:47.1915046Z 
+2026-11-16T01:53:47.1915587Z > ng-echarts-workspace@0.0.0 check:consumer
+2026-11-16T01:53:47.1915899Z > node tools/check-consumer.mjs
+2026-11-16T01:53:47.1916028Z 
+2026-11-16T01:53:47.4933546Z node:internal/modules/run_main:107
+2026-11-16T01:53:47.4933941Z     triggerUncaughtException(
+2026-11-16T01:53:47.4934201Z     ^
+2026-11-16T01:53:47.4934307Z 
+2026-11-16T01:53:47.4934672Z AssertionError [ERR_ASSERTION]: The Installation status must identify the tested source or published candidate
+2026-11-16T01:53:47.4935316Z     at file:///home/runner/work/ng-echarts/ng-echarts/tools/check-consumer.mjs:199:3
+2026-11-16T01:53:47.4936268Z     at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+2026-11-16T01:53:47.4936653Z   generatedMessage: false,
+2026-11-16T01:53:47.4936877Z   code: 'ERR_ASSERTION',
+2026-11-16T01:53:47.4937081Z   actual: false,
+2026-11-16T01:53:47.4937275Z   expected: true,
+2026-11-16T01:53:47.4937459Z   operator: '==',
+2026-11-16T01:53:47.4937656Z   diff: 'simple'
+2026-11-16T01:53:47.4937845Z }
+2026-11-16T01:53:47.4937933Z 
+2026-11-16T01:53:47.4938019Z Node.js v24.22.2
+2026-11-16T01:53:47.5116674Z ##[error]Process completed with exit code 1.
+2026-11-16T01:53:47.5195822Z ##[group]Run actions/upload-artifact@v7

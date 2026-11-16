@@ -1,0 +1,31 @@
+{
+  "checkedAt": "2026-11-16T02:03:36.163Z",
+  "ciRun": "43789117814",
+  "sourceBaseCommit": "42b27aa63841184467d97b17fec63f8c2c4d6644",
+  "includesWorkingTree": true,
+  "canonicalPublicationCI": "43737237117",
+  "version": "0.1.0-rc.24",
+  "sha256": "6dd89361c4f6482b28b9a3f28d88bddf28a71eac9123ec1a8412517995d4c46f",
+  "bytes": 170430,
+  "comparedMembers": 68,
+  "completeArchiveIdentical": true,
+  "allMemberDigestsIdentical": true,
+  "exactConsumers": [
+    {
+      "script": "check-consumer.mjs",
+      "candidateSha256": "6dd89361c4f6482b28b9a3f28d88bddf28a71eac9123ec1a8412517995d4c46f",
+      "passed": true
+    },
+    {
+      "script": "check-documentation-consumer.mjs",
+      "candidateSha256": "6dd89361c4f6482b28b9a3f28d88bddf28a71eac9123ec1a8412517995d4c46f",
+      "passed": true
+    },
+    {
+      "script": "check-runtime-consumer.mjs",
+      "candidateSha256": "6dd89361c4f6482b28b9a3f28d88bddf28a71eac9123ec1a8412517995d4c46f",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

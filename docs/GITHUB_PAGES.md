@@ -2,9 +2,28 @@
 
 The demo is published from the root of the dedicated `gh-pages` branch at **https://phalla-doll.github.io/ng-echarts/**. Source and deployment are separate commits. Publication requires a clean, pushed `main` source, an unchanged sealed artifact and successful local checks in all three browsers.
 
-## Current deployment — composed dashboard and horizontal charts
+## Current deployment — rc.24 independent value axes
 
-The [composed linked dashboard](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) and [horizontal regional composition](https://phalla-doll.github.io/ng-echarts/composed/#horizontal-visits-and-target) are deployed and verified. The dashboard example supports published rc.22; horizontal composed layout now ships in published rc.23. npm `next` is rc.23 and `latest` rc.18. New local rc.24 independent axes are not in this deployed build. Human F09/R06/G2/G3/G4 remain deferred/pending.
+The [independent value-axis gallery](https://phalla-doll.github.io/ng-echarts/composed/#revenue-and-conversion), composed dashboard and horizontal examples are deployed and verified. npm `next` selects published rc.24 and `latest` retains rc.18. Human F09/R06/G2/G3/G4 remain deferred/pending.
+
+| Identity / check | Verified result |
+| --- | --- |
+| Clean pushed source | `42b27aa63841184467d97b17fec63f8c2c4d6644` |
+| Static commit | `4470047011dd1c96295964a58bd562ca662aa4bf` |
+| Sealed SHA-256 | `3ef31eda4f6c23732b586595724f8e686a56514b7cdaec1634c02e17b3079459` |
+| Pages workflow | [Succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/43789318430) |
+| Source CI | [All jobs succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/43789117814) |
+| Local and public checks | 35 routes, 140 byte-verified files; Chromium/Firefox/WebKit pass |
+| Performance | 17 route payload budgets, six controlled mobile medians and normal-motion navigation pass |
+| Live independent axes | Revenue/Conversion native labels, keyboard `a/trend/0.12/table` and retained focus pass |
+
+[Deployment receipt](experiments/rc24/deployed/deployment.json), exact [marker](experiments/rc24/deployed/preview-build.txt), exact [verification receipt](experiments/rc24/deployed/preview-verification.txt), [public log](experiments/rc24/deployed/public-verification.txt), [performance](experiments/rc24/deployed/performance.json) and [live keyboard action](experiments/rc24/deployed/live-axis-keyboard.json) preserve the delivery. The [rc.24 publication and correction report](experiments/RC24_PUBLICATION.md) separates package source `0593f34` from this deployed source and records the earlier failed status-copy CI. Receipt-only documentation commits preserve this deployed identity.
+
+<a id="current-deployment--composed-dashboard-and-horizontal-charts"></a>
+
+## Earlier deployment — composed dashboard and horizontal charts
+
+The [composed linked dashboard](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) and [horizontal regional composition](https://phalla-doll.github.io/ng-echarts/composed/#horizontal-visits-and-target) are deployed and verified. The dashboard example supports published rc.22; horizontal composed layout now ships in published rc.23. At that checkpoint npm `next` was rc.23 and `latest` rc.18; rc.24 independent axes were not in that build. Human F09/R06/G2/G3/G4 remain deferred/pending.
 
 | Identity / check | Verified result |
 | --- | --- |
