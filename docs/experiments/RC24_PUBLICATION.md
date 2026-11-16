@@ -17,3 +17,7 @@ The new demo deployment and its public three-browser verification are pending. T
 ## Subsequent work
 
 The unchanged combined-root gzip budget has only 15 bytes of headroom at the rc.24 checkpoint. Reduce payload in a new version before adding shared zoom or bidirectional selection; retain focused lazy registration, existing limits and immutable rc.24 bytes. Advanced tooltip templates and decorative effects remain later scope. Human listening and full release acceptance remain pending under the existing deferral.
+
+## Delivery-source correction
+
+The first delivery-source [CI run 43788704313](https://github.com/phalla-doll/ng-echarts/actions/runs/43788704313), source `beeb4bb494b04c43808d424134529e2255b3fec7`, fails the strict consumer status-copy guard: the revised installation page says “Published 0.1.0-rc.24” while the existing contract recognizes “public 0.1.0-rc.24 candidate”. This run is excluded from complete-CI passing evidence. Restore the accurate experimental-public-candidate wording without weakening the guard. The corrected [strict registry consumer](public-rc24/corrected-strict-consumer.txt) passes locally with `skipLibCheck: false`; library/package bytes are unchanged. The guarded demo rebuild and new full CI remain separate verification steps.
