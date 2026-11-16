@@ -1,0 +1,15 @@
+{
+  "run": 43806716429,
+  "sourceCommit": "ab01535ddfeadc2a5ca0c73c147c33c6dde0913c",
+  "passedJobs": ["workspace", "pages", "browser (chromium)", "browser (firefox)"],
+  "failedTest": "renders copyable area and stacked-area examples at every responsive theme/width",
+  "artifactUrl": "https://github.com/phalla-doll/ng-echarts/actions/runs/43806716429/artifacts/14198941808",
+  "trace": {
+    "finalClickStartedAt": 251618.971,
+    "finalClickEndedWithTestTimeoutAt": 252492.897,
+    "finalClickDurationMs": 873.926,
+    "testDeadlineMs": 30000
+  },
+  "correction": "Split the complete width matrix into separate light/dark tests. Keep all widths, pointer clicks, assertions and browser-error checks; keep the default test deadline unchanged.",
+  "localCorrection": "Six theme/browser cases pass in 12.4s; Linux CI follow-up remains separate evidence."
+}

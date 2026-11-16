@@ -1,0 +1,19 @@
+[WebServer] (node:50375) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:50377) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/browser/composed-chart.spec.ts:111:3 › renders copyable area and stacked-area examples at every responsive width in light theme (1.6s)
+  ✓  2 [chromium] › tests/browser/composed-chart.spec.ts:111:3 › renders copyable area and stacked-area examples at every responsive width in dark theme (1.5s)
+(node:50394) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [firefox] › tests/browser/composed-chart.spec.ts:111:3 › renders copyable area and stacked-area examples at every responsive width in light theme (2.2s)
+  ✓  4 [firefox] › tests/browser/composed-chart.spec.ts:111:3 › renders copyable area and stacked-area examples at every responsive width in dark theme (1.3s)
+(node:50408) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [webkit] › tests/browser/composed-chart.spec.ts:111:3 › renders copyable area and stacked-area examples at every responsive width in light theme (1.8s)
+  ✓  6 [webkit] › tests/browser/composed-chart.spec.ts:111:3 › renders copyable area and stacked-area examples at every responsive width in dark theme (1.7s)
+
+  6 passed (12.4s)

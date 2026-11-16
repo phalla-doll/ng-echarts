@@ -2,7 +2,28 @@
 
 The demo is published from the root of the dedicated `gh-pages` branch at **https://phalla-doll.github.io/ng-echarts/**. Source and deployment are separate commits. Publication requires a clean, pushed `main` source, an unchanged sealed artifact and successful local checks in all three browsers.
 
-## Current deployment — chip/list legends and gallery previews
+## Current deployment — validation layout refinement
+
+All eleven pages under Validation now use grouped controls, visible toggle states, consistent result and deferred-hydration sections, and responsive phone layouts. The [live area validation](https://phalla-doll.github.io/ng-echarts/area-validation/) includes the reviewed controls. npm tags and package archives are unchanged; human release gates remain pending.
+
+| Identity / check | Verified result |
+| --- | --- |
+| Clean pushed source | `ab01535ddfeadc2a5ca0c73c147c33c6dde0913c` |
+| Static commit | `8385b07d43475a2fefbcc0b9104893669f593883` |
+| Sealed SHA-256 | `ca371773b0f59f958d65cd8f75931fc38bc50eb10b30811079f5d8d7cbfc9880` |
+| Pages workflow | [Succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/43806930543) |
+| Local and public checks | 40 routes, 145 byte-verified files; Chromium/Firefox/WebKit pass |
+| Performance | All 17 route guards and normal-motion navigation pass |
+| Validation regression | 148 browser passes/two expected heap skips; 110 responsive views pass |
+| Live controls | Keyboard toggle, updated `a/desktop/110/table` action, retained focus and 390 px/two-column/44 px controls pass |
+
+[Deployment](experiments/validation-layout/deployed/deployment.json), exact [marker](experiments/validation-layout/deployed/preview-build.txt), [receipt](experiments/validation-layout/deployed/preview-verification.txt), [public verification](experiments/validation-layout/deployed/public-verification.txt), [performance](experiments/validation-layout/deployed/performance.json) and [live controls](experiments/validation-layout/deployed/live-controls.json) preserve this identity. The initial public Firefox check reported four lazy-module loading errors after all file hashes and Chromium passed; each module URL returned HTTP 200 JavaScript, and the unchanged verifier then passed all three engines. The [initial failure](experiments/validation-layout/deployed/public-initial-firefox-failure.txt) remains recorded without suppressing errors.
+
+The [initial source CI](https://github.com/phalla-doll/ng-echarts/actions/runs/43806716429) passes workspace, Pages, Chromium and Firefox. WebKit exhausts the default 30-second deadline near the end of the existing combined area-gallery theme/width matrix. A verification-only follow-up splits the same width matrix into separate light/dark tests without raising timeouts or removing assertions. All six local browser/theme cases pass; fresh Linux CI remains separate evidence. [Trace findings](experiments/validation-layout/deployed/ci-initial-webkit-timeout.json) and the [local rerun](experiments/validation-layout/deployed/theme-split-local.txt) retain the correction. Receipt and test-only commits preserve deployed source `ab01535`; no artifact is restamped.
+
+<a id="current-deployment--chiplist-legends-and-gallery-previews"></a>
+
+## Earlier deployment — chip/list legends and gallery previews
 
 The [pie gallery](https://phalla-doll.github.io/ng-echarts/pie/#browser-share) now offers compact inline chips and aligned lists. All eleven gallery routes omit native table controls, while explicit validation routes retain keyboard table actions. npm next remains rc.24/latest rc.18; human release gates remain pending.
 
@@ -17,7 +38,7 @@ The [pie gallery](https://phalla-doll.github.io/ng-echarts/pie/#browser-share) n
 | Performance | All 17 route guards and normal-motion navigation pass |
 | Public checks | All 145 served files byte-verified; Chromium/Firefox/WebKit flows and live legend switching pass |
 
-The [integration record](experiments/RC28_LEGEND_INTEGRATION.md) owns receipts, full public verification and actual regression results. Verification/receipt-only commits preserve deployed source `9de7a84`; the artifact is not restamped. The intermediate payload-only deployment served `0cdd931` as static `f817885`, without the concurrent local legend changes.
+The [integration record](experiments/RC28_LEGEND_INTEGRATION.md) owns receipts, full public verification and actual regression results for this earlier deployment. Verification/receipt-only commits at that checkpoint preserved source `9de7a84`; the artifact was not restamped. The intermediate payload-only deployment served `0cdd931` as static `f817885`, without the concurrent local legend changes.
 
 <a id="current-deployment--rc24-independent-value-axes"></a>
 

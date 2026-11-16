@@ -1,0 +1,19 @@
+{
+  "url": "https://phalla-doll.github.io/ng-echarts/area-validation/",
+  "sourceCommit": "ab01535ddfeadc2a5ca0c73c147c33c6dde0913c",
+  "keyboardToggles": "Stack areas: Space changes aria-pressed to false; Enter restores true",
+  "updatedTableAction": {
+    "buttonCount": 15,
+    "focusOutline": "solid",
+    "focused": "110",
+    "groups": ["Appearance", "Data", "States", "Lifecycle"],
+    "selection": "a/desktop/110/table"
+  },
+  "mobile": {
+    "columns": "158px 158px",
+    "minControlHeight": 44,
+    "scrollWidth": 390,
+    "width": 390
+  },
+  "pageErrors": []
+}

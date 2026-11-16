@@ -106,12 +106,13 @@ test('retains area legend/focus identities, raw signed/zero/missing values and r
   expect(errors).toEqual([]);
 });
 
-test('renders copyable area and stacked-area examples at every responsive theme/width', async ({
-  page,
-}) => {
-  const errors = collectBrowserErrors(page);
-  await page.goto('/composed');
-  for (const theme of ['light', 'dark']) {
+// Keep each complete width matrix within its own test deadline on Linux WebKit.
+for (const theme of ['light', 'dark']) {
+  test(`renders copyable area and stacked-area examples at every responsive width in ${theme} theme`, async ({
+    page,
+  }) => {
+    const errors = collectBrowserErrors(page);
+    await page.goto('/composed');
     const toggle = page.getByRole('button', { name: `Use ${theme} theme`, exact: true });
     if (await toggle.count()) await toggle.click();
     for (const width of [320, 390, 768, 1440]) {
@@ -128,9 +129,9 @@ test('renders copyable area and stacked-area examples at every responsive theme/
         width,
       );
     }
-  }
-  expect(errors).toEqual([]);
-});
+    expect(errors).toEqual([]);
+  });
+}
 
 async function firstBarSegment(canvas: Locator, color: 'green' | 'rose') {
   await canvas.scrollIntoViewIfNeeded();
