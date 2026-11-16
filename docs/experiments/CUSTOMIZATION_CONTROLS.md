@@ -43,7 +43,7 @@ The new matrix covers 26 routes, both themes, and 320/390/768/900/1440 px. It ch
 
 The final pie correction passes all three responsive cases plus the three existing legend interaction cases ([six passes](customization-controls/pie-tests.txt)). Together with the 93 passing cases above, all 96 expanded scenarios are verified; the corrected pie cases were checked separately. Formatting and `git diff --check` pass. Full workspace CI, registry consumers and a new deployment were not run for this presentation-only change.
 
-No new npm publication, Pages deployment or human acceptance is claimed.
+At the local review checkpoint, no new npm publication, Pages deployment or human acceptance was claimed.
 
 ## Final code review
 
@@ -55,3 +55,13 @@ The final review reproduced and corrected two regressions:
 The review includes the complete source diff, CSS scope/cascade, keyboard/disabled behavior, standalone-source synchronization and the new browser assertions. Final build, compilation and browser receipts are preserved alongside the earlier diagnostic records under `customization-controls/final-review-*`.
 
 Final result: **105 browser cases pass in one combined run** across Chromium, Firefox and WebKit ([receipt](customization-controls/final-review-tests.txt)). The [production build](customization-controls/final-review-build.txt), [strict compilation](customization-controls/final-review-types.txt), dashboard source synchronization, changed-file formatting and `git diff --check` pass. No review findings remain in this diff. The work is ready for commit; full CI and deployment remain subsequent delivery steps.
+
+## Deployment
+
+The user authorized committing to main and redeploying. UI source `8f961cf8399677abf555b0a58f64d33b2a40fbc7` is pushed and deployed as static commit `9d0fa64b1ef57cacd0ce73ac9427652e5723ceb2`, sealed SHA-256 `07b7965449d0576d03ee01ace5ba52229597faaa65b62b9409b73d75f5316cd8`. [Pages run 43902888292](https://github.com/phalla-doll/ng-echarts/actions/runs/43902888292) succeeds. The guarded deployment rebuilds clean pushed source; no earlier review artifact was promoted or restamped.
+
+Local and public verification pass 40 routes/145 sealed files in Chromium, Firefox and WebKit. All 17 performance caps remain unchanged and pass. Live checks pass keyboard toggles/reset, focus retention, 390 px layout, independent dashboard themes and forced-color selected states in all three engines. [Delivery](customization-controls/deployed/deployment.json), [marker](customization-controls/deployed/preview-build.txt), [verification receipt](customization-controls/deployed/preview-verification.txt), [public verification](customization-controls/deployed/public-verification.txt), [performance](customization-controls/deployed/performance.json) and [live controls](customization-controls/deployed/live-controls.json) preserve actual evidence.
+
+Initial [source CI 43902412000](https://github.com/phalla-doll/ng-echarts/actions/runs/43902412000) passes Pages but the Chromium theme contrast test reads the old dashboard theme immediately after clicking the global theme toggle. Its trace shows the test then toggling the already-updated dashboard back to dark while expecting light. The [failed job record](customization-controls/deployed/initial-ci-chromium-failure.txt) is preserved. The verification-only correction waits for the rendered site-to-dashboard theme propagation before reading/clicking the independent dashboard toggle, retaining all four theme combinations, contrast assertions and timeouts. All [15 local repeated cases](customization-controls/deployed/theme-race-local.txt) pass across the three engines. Fresh full Linux CI remains separate evidence.
+
+Preserve deployed source `8f961cf` across this test/receipt follow-up. Library rc.29, npm next rc.28/latest rc.18, all archived bytes and human F09/R06/G2/G3/G4 retain their prior status.

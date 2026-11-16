@@ -1,0 +1,67 @@
+[WebServer] (node:38565) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 15 tests using 1 worker
+
+(node:38566) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/15] [chromium] › tests/browser/customization-controls.spec.ts:116:1 › keeps dashboard fields readable when its theme differs from the site
+(node:38572) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[2/15] [chromium] › tests/browser/customization-controls.spec.ts:116:1 › keeps dashboard fields readable when its theme differs from the site
+(node:38577) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[3/15] [chromium] › tests/browser/customization-controls.spec.ts:116:1 › keeps dashboard fields readable when its theme differs from the site
+(node:38583) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[4/15] [chromium] › tests/browser/customization-controls.spec.ts:116:1 › keeps dashboard fields readable when its theme differs from the site
+(node:38588) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[5/15] [chromium] › tests/browser/customization-controls.spec.ts:116:1 › keeps dashboard fields readable when its theme differs from the site
+(node:38593) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[6/15] [firefox] › tests/browser/customization-controls.spec.ts:116:1 › keeps dashboard fields readable when its theme differs from the site
+(node:38602) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[7/15] [firefox] › tests/browser/customization-controls.spec.ts:116:1 › keeps dashboard fields readable when its theme differs from the site
+(node:38612) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[8/15] [firefox] › tests/browser/customization-controls.spec.ts:116:1 › keeps dashboard fields readable when its theme differs from the site
+(node:38623) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[9/15] [firefox] › tests/browser/customization-controls.spec.ts:116:1 › keeps dashboard fields readable when its theme differs from the site
+(node:38632) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[10/15] [firefox] › tests/browser/customization-controls.spec.ts:116:1 › keeps dashboard fields readable when its theme differs from the site
+(node:38667) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[11/15] [webkit] › tests/browser/customization-controls.spec.ts:116:1 › keeps dashboard fields readable when its theme differs from the site
+(node:38684) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[12/15] [webkit] › tests/browser/customization-controls.spec.ts:116:1 › keeps dashboard fields readable when its theme differs from the site
+(node:38698) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[13/15] [webkit] › tests/browser/customization-controls.spec.ts:116:1 › keeps dashboard fields readable when its theme differs from the site
+(node:38711) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[14/15] [webkit] › tests/browser/customization-controls.spec.ts:116:1 › keeps dashboard fields readable when its theme differs from the site
+(node:38723) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[15/15] [webkit] › tests/browser/customization-controls.spec.ts:116:1 › keeps dashboard fields readable when its theme differs from the site
+  15 passed (28.7s)

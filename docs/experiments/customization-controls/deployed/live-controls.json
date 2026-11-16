@@ -1,0 +1,33 @@
+{
+  "url": "https://phalla-doll.github.io/ng-echarts/",
+  "checkedAt": "2026-11-16T16:02:53.798Z",
+  "results": [
+    {
+      "browser": "chromium",
+      "keyboard": true,
+      "reset": true,
+      "mobileWidth": 390,
+      "independentTheme": true,
+      "forcedColors": true,
+      "pageErrors": []
+    },
+    {
+      "browser": "firefox",
+      "keyboard": true,
+      "reset": true,
+      "mobileWidth": 390,
+      "independentTheme": true,
+      "forcedColors": true,
+      "pageErrors": []
+    },
+    {
+      "browser": "webkit",
+      "keyboard": true,
+      "reset": true,
+      "mobileWidth": 390,
+      "independentTheme": true,
+      "forcedColors": true,
+      "pageErrors": []
+    }
+  ]
+}

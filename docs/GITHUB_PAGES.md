@@ -4,7 +4,25 @@ The demo is published from the root of the dedicated `gh-pages` branch at **http
 
 <a id="current-deployment--shared-dashboard-window"></a>
 
-## Current deployment — documentation reconciliation
+## Current deployment — customization controls
+
+The [playground customization panel](https://phalla-doll.github.io/ng-echarts/playground/#chart-settings), validation controls, gallery disclosures and linked examples now use inset frames, rounded control rows, inline form values and visible switches. Independent dashboard themes and forced-color selection remain readable. The [refinement and review record](experiments/CUSTOMIZATION_CONTROLS.md) preserves comparison screenshots and local browser evidence.
+
+| Identity / check | Verified result |
+| --- | --- |
+| Clean pushed source | `8f961cf8399677abf555b0a58f64d33b2a40fbc7` |
+| Static commit | `9d0fa64b1ef57cacd0ce73ac9427652e5723ceb2` |
+| Sealed SHA-256 | `07b7965449d0576d03ee01ace5ba52229597faaa65b62b9409b73d75f5316cd8` |
+| Pages workflow | [Succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/43902888292) |
+| Local/public static checks | 40 routes/145 files; all three engines pass |
+| Performance | All 17 unchanged route guards and normal-motion navigation pass |
+| Live controls | Keyboard toggles/reset, 390 px layout, independent dashboard themes and forced-color selection pass in all three engines |
+
+The [deployment receipt](experiments/customization-controls/deployed/deployment.json), [marker](experiments/customization-controls/deployed/preview-build.txt), [verification receipt](experiments/customization-controls/deployed/preview-verification.txt), [public verification](experiments/customization-controls/deployed/public-verification.txt), [performance](experiments/customization-controls/deployed/performance.json) and [live checks](experiments/customization-controls/deployed/live-controls.json) preserve this identity. The initial source CI exposed a timing race in the new theme test after the global theme changes. The verification-only follow-up waits for the rendered dashboard theme before operating its independent toggle; all 15 repeated local cases pass without changing assertions or timeouts. Fresh Linux CI is separate evidence. Receipt/test-only commits retain deployed source `8f961cf`; npm tags, package archives and pending human gates remain unchanged.
+
+<a id="current-deployment--documentation-reconciliation"></a>
+
+## Earlier deployment — documentation reconciliation
 
 The live installation/component documentation now names published rc.28, the rc.29 candidate and the radar chip-only limitation. The [documentation audit](experiments/RC29_DOCUMENTATION_AUDIT.md) records related guide coverage, strict consumers and preserved archives.
 

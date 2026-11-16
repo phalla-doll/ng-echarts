@@ -122,6 +122,7 @@ test('keeps dashboard fields readable when its theme differs from the site', asy
   for (const siteTheme of ['dark', 'light']) {
     const toggle = page.getByRole('button', { name: `Use ${siteTheme} theme`, exact: true });
     if (await toggle.count()) await toggle.click();
+    await expect(dashboard).toHaveAttribute('data-theme', siteTheme);
     for (const theme of ['light', 'dark']) {
       if ((await dashboard.getAttribute('data-theme')) !== theme)
         await page.getByRole('button', { name: 'Dark theme', exact: true }).click();
