@@ -7,7 +7,7 @@ test('links composed values and native month selection through updates, replacem
   page,
 }) => {
   const errors = collectBrowserErrors(page);
-  await page.goto('/linked-dashboard');
+  await page.goto('/dashboard-validation');
   await verifyDashboard(page);
   await page.getByRole('link', { name: 'Navigate away', exact: true }).click();
   await expect(page.locator('canvas')).toHaveCount(0);

@@ -79,8 +79,9 @@ test('pie totals and shares track visible categories, including keyboard hiding 
   await buttons.first().click();
   await expect(chart.locator('.donut-total strong')).toHaveText('275');
   await expect(buttons.first()).toContainText('100%');
+  const coarse = await page.evaluate(() => matchMedia('(pointer: coarse)').matches);
   for (const button of await buttons.all())
-    expect((await button.boundingBox())!.height).toBeGreaterThanOrEqual(40);
+    expect((await button.boundingBox())!.height).toBeGreaterThanOrEqual(coarse ? 44 : 32);
   expect(errors).toEqual([]);
 });
 

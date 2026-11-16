@@ -33,6 +33,13 @@ it('renders initial native values, raw typed actions, state precedence, formatti
     value: 0,
     source: 'table',
   });
+  fixture.componentRef.setInput('showDataTable', false);
+  await fixture.whenStable();
+  expect(host.querySelector('.flow-data')).toBeNull();
+  expect(host.querySelector('table')).toBeNull();
+  fixture.componentRef.setInput('showDataTable', true);
+  await fixture.whenStable();
+  expect(host.querySelectorAll('table')).toHaveLength(2);
   fixture.componentRef.setInput('links', [
     ...links,
     { id: 'ba', source: 'b', target: 'a', value: 1 },

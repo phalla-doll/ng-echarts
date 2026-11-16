@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CalendarHeatmap, type CalendarPointSelection } from '@mantha911/ng-echarts/calendar';
 import { SiteAppearance } from '../../shell/site-appearance';
 import { SiteIcon } from '../../shell/site-icon';
@@ -18,6 +18,7 @@ import { calendarSample, calendarExampleSource, type ActivityDay } from './calen
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarBlocks {
+  protected readonly showDataTable = inject(ActivatedRoute).snapshot.data['showDataTable'] === true;
   private readonly appearance = inject(SiteAppearance);
   protected readonly theme = this.appearance.theme;
   protected readonly year = signal(2024);
@@ -35,7 +36,9 @@ export class CalendarBlocks {
         return days;
     }
   });
-  protected readonly source = computed(() => calendarExampleSource(this.appearance.dark()));
+  protected readonly source = computed(() =>
+    calendarExampleSource(this.appearance.dark(), this.showDataTable),
+  );
   protected readonly loading = signal(false);
   protected readonly error = signal<string | null>(null);
   protected readonly mounted = signal(true);

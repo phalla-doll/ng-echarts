@@ -26,7 +26,11 @@ const sample: readonly DashboardMonth[] = [
         Dark theme
       </button>
     </div>
-    <app-composed-dashboard [data]="rows()" [theme]="dark() ? 'dark' : 'light'" />
+    <app-composed-dashboard
+      [data]="rows()"
+      [theme]="dark() ? 'dark' : 'light'"
+      [showDataTable]="showDataTable()"
+    />
   </main>`,
   styles: `
     :host {
@@ -70,6 +74,7 @@ const sample: readonly DashboardMonth[] = [
 })
 export class App {
   readonly theme = input<ChartTheme>('light');
+  readonly showDataTable = input(true);
   protected readonly sample = sample;
   protected readonly rows = signal(sample);
   protected readonly dark = linkedSignal(() => this.theme() === 'dark');

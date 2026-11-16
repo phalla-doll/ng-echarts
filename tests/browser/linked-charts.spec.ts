@@ -6,7 +6,7 @@ test('hydrates linked charts and connects real plot clicks, keyboard values and 
   page,
 }) => {
   const errors = collectBrowserErrors(page);
-  const response = await page.goto('/linked');
+  const response = await page.goto('/linked-example-validation');
   const html = await response!.text();
   expect(html).toContain('Linked Charts');
   expect(html).toContain('All months');
@@ -153,7 +153,7 @@ test('keeps linked layouts usable in both themes and releases both charts on nav
 }) => {
   const errors = collectBrowserErrors(page);
   await installResourceAudit(page);
-  await page.goto('/linked');
+  await page.goto('/linked-example-validation');
   await expect(page.locator('.gallery-footer')).not.toContainText('not available yet');
   await expect(
     page.locator('.gallery-footer').getByRole('link', { name: 'npm prerelease', exact: true }),
@@ -215,7 +215,7 @@ test('copies the standalone linking example and offers a manual fallback when cl
       },
     }),
   );
-  await page.goto('/linked');
+  await page.goto('/linked-example-validation');
   await page.getByText('Standalone Angular example', { exact: true }).click();
   await page.getByRole('button', { name: 'Copy example', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Copied', exact: true })).toBeVisible();
@@ -277,7 +277,7 @@ test('links an inclusive range with keyboard bounds, painted selection and equiv
   page,
 }) => {
   const errors = collectBrowserErrors(page);
-  await page.goto('/linked');
+  await page.goto('/linked-example-validation');
   await expect(page.locator('canvas')).toHaveCount(2);
   const instances = await page
     .locator('app-linked-visits .plot')
@@ -397,7 +397,7 @@ test('keeps range fields usable at every gallery width/theme and clears with tou
   browserName,
 }) => {
   const errors = collectBrowserErrors(page);
-  await page.goto('/linked');
+  await page.goto('/linked-example-validation');
   await expect(page.locator('canvas')).toHaveCount(2);
   const period = page.getByRole('combobox', { name: 'Period', exact: true });
   for (const theme of ['dark', 'light']) {
@@ -430,7 +430,7 @@ test('keeps range fields usable at every gallery width/theme and clears with tou
       reducedMotion: 'reduce',
     });
     try {
-      await touch.goto('/linked');
+      await touch.goto('/linked-example-validation');
       await expect(touch.locator('canvas')).toHaveCount(2);
       const input = touch.getByRole('combobox', { name: 'Period', exact: true });
       await input.selectOption('__range__');

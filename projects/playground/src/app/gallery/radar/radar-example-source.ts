@@ -28,7 +28,7 @@ interface Capability {
     title="Capability profile"
     description="Current and target scores, each out of 100."
     [data]="rows" rowIdKey="id" categoryKey="dimension" maxKey="max"
-    [series]="series" [height]="320"
+    [series]="series" [height]="320" [showDataTable]="false"
   />\`,
 })
 export class CapabilityProfile {

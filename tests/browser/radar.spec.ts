@@ -6,7 +6,7 @@ async function open(page: import('@playwright/test').Page) {
   page.on('console', (m) => {
     if (m.type() === 'error' || /NG05\d+/.test(m.text())) errors.push(m.text());
   });
-  const response = await page.goto('/radar');
+  const response = await page.goto('/radar-validation');
   const html = await response!.text();
   expect(html).toContain('Capability profile');
   expect(html).not.toContain('<canvas');

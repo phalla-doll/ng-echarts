@@ -86,3 +86,7 @@ Implementation follows the [ECharts calendar contract](https://github.com/apache
 `valueLabel: string` names the measure in aligned tooltips; it defaults to `Value` and must be nonempty text. The gallery uses `Contributions`. Loading, empty and error states preserve the plot area and retain inert control space.
 
 The numeric color key displays the upper bound of each of four equal positive intervals. Missing days use the background with an outline; the legend adds a hatch cue to distinguish missing from recorded zero. The year/quarter stage height follows the host container even while the renderer is unavailable.
+
+## Optional gallery table disclosure in local rc.26
+
+`showDataTable` defaults to `true`. Set `[showDataTable]="false"` to omit the daily disclosure and all of its table markup. Gallery previews disable it and expose sample data in Code; the separate validation pages retain native table actions. This input is in local rc.26 source and is not part of published rc.24.

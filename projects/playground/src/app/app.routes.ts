@@ -2,6 +2,31 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: 'radar-validation',
+    data: { showDataTable: true },
+    loadComponent: () => import('./gallery/radar/radar-blocks').then((m) => m.RadarBlocks),
+  },
+  {
+    path: 'calendar-validation',
+    data: { showDataTable: true },
+    loadComponent: () => import('./gallery/calendar/calendar-blocks').then((m) => m.CalendarBlocks),
+  },
+  {
+    path: 'sankey-validation',
+    data: { showDataTable: true },
+    loadComponent: () => import('./gallery/sankey/sankey-blocks').then((m) => m.SankeyBlocks),
+  },
+  {
+    path: 'linked-example-validation',
+    data: { showDataTable: true },
+    loadComponent: () => import('./linked/linked-charts').then((m) => m.LinkedCharts),
+  },
+  {
+    path: 'dashboard-validation',
+    data: { showDataTable: true },
+    loadComponent: () => import('./linked/linked-dashboard').then((m) => m.LinkedDashboard),
+  },
+  {
     path: 'sankey',
     loadComponent: () => import('./gallery/sankey/sankey-blocks').then((m) => m.SankeyBlocks),
   },

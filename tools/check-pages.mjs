@@ -202,6 +202,8 @@ async function checkPages() {
           ),
         );
         await page.goto(new URL('linked/', site).href);
+        await expect(page.locator('.gallery .table-toggle')).toHaveCount(0);
+        await page.goto(new URL('linked-example-validation/', site).href);
         await expect(page.locator('app-linked-visits canvas')).toHaveCount(2);
         await page.getByRole('combobox', { name: 'Period', exact: true }).selectOption('month:feb');
         await expect(page.locator('.detail h2')).toHaveText('Device share · February');
@@ -244,6 +246,8 @@ async function checkPages() {
         await expect(page.getByRole('combobox', { name: 'Period', exact: true })).toHaveValue('');
         await expect(page.locator('app-linked-visits canvas')).toHaveCount(2);
         await page.goto(new URL('linked-dashboard/', site).href);
+        await expect(page.locator('.gallery .table-toggle')).toHaveCount(0);
+        await page.goto(new URL('dashboard-validation/', site).href);
         await verifyDashboard(page);
         await page.setViewportSize({ width: 1440, height: 1000 });
         await page.goto(new URL('line/', site).href);

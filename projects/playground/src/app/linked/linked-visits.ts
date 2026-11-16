@@ -63,6 +63,7 @@ export class LinkedVisits {
   private rangeTouchActivated = false;
   readonly data = input.required<readonly VisitMonth[]>();
   readonly theme = input<ChartTheme>('light');
+  readonly showDataTable = input(true);
   readonly layout = input<BarLayout>('vertical');
   readonly stacked = input(false);
   readonly gradient = input(false);
@@ -115,7 +116,9 @@ export class LinkedVisits {
   protected readonly overviewDescription = computed(() =>
     this.selection() !== null
       ? `${this.context()} selected. Choose a month or edit the period.`
-      : 'Choose a month from the bars, table or period field.',
+      : this.showDataTable()
+        ? 'Choose a month from the bars, table or period field.'
+        : 'Choose a month from the bars or period field.',
   );
   protected readonly share = computed(() => deviceShare(this.scope()));
   protected readonly displayShare = computed(() => {

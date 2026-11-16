@@ -16,7 +16,7 @@ export const flowLinks: readonly SankeyLink[] = [
   { id: 'trial-exit', source: 'trial', target: 'exit', value: 120 },
   { id: 'direct-trial', source: 'direct', target: 'trial', value: 0 },
 ];
-export function sankeyExampleSource(dark = false): string {
+export function sankeyExampleSource(dark = false, showDataTable = true): string {
   return `import { Component } from '@angular/core';
 import { SankeyChart, type SankeyNode, type SankeyLink } from '@mantha911/ng-echarts/sankey';
 
@@ -28,7 +28,7 @@ import { SankeyChart, type SankeyNode, type SankeyLink } from '@mantha911/ng-ech
     description="Illustrative visits from arrival to outcome. Ribbon width represents visits."
     [nodes]="nodes"
     [links]="links"
-    theme="${dark ? 'dark' : 'light'}"
+    theme="${dark ? 'dark' : 'light'}"${showDataTable ? '' : ' [showDataTable]="false"'}
   />\`,
 })
 export class VisitFlow {

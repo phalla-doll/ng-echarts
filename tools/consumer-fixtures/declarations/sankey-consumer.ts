@@ -14,6 +14,7 @@ interface Link extends SankeyLink {
 @Component({
   imports: [SankeyChart],
   template: `<nec-sankey-chart
+    [showDataTable]="false"
     title="Flow"
     [nodes]="nodes"
     [links]="links"

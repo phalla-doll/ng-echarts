@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { RadarChart, type ChartSeries, type PointSelection } from '@mantha911/ng-echarts/radar';
 import { SiteAppearance } from '../../shell/site-appearance';
 import { SiteIcon } from '../../shell/site-icon';
@@ -13,6 +13,7 @@ import { capabilityRows, radarExampleSource, type Capability } from './radar-exa
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RadarBlocks {
+  protected readonly showDataTable = inject(ActivatedRoute).snapshot.data['showDataTable'] === true;
   protected readonly dark = inject(SiteAppearance).dark;
   protected readonly theme = computed(() => (this.dark() ? 'dark' : 'light'));
   protected readonly rows = signal(capabilityRows);

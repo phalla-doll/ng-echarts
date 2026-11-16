@@ -2,6 +2,8 @@
 
 ## 0.1.0-rc.26 — Chip and aligned-list legends
 
+- Omit table controls from every gallery family and linked example; calendar/Sankey add the existing opt-out pattern with `showDataTable` defaulting to true. Keep table acceptance on explicit validation routes.
+
 - Default Cartesian, radar and pie/donut legends to compact inline chips; opt into aligned rows with `legendLayout="list"`.
 - Keep pie values and visible-category percentages, keyboard toggles, hidden identities and focus while switching layouts. Long labels and formatted values wrap rather than truncate.
 - Add live pie-gallery layout selection and matching copyable source. Preserve rc.25 and all earlier archives; registry/demo delivery and human release gates are unchanged.

@@ -88,12 +88,13 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
     <div class="dashboard-pair">
       <nec-composed-chart
         title="Monthly visits and trend"
-        description="Desktop and mobile share a stack. The line is the trailing mean of combined visits over up to three supplied months. Incomplete windows have no mean. Choose a month from any plotted series, its table or the Month field."
+        description="Desktop and mobile share a stack. The line is the trailing mean of combined visits over up to three supplied months. Incomplete windows have no mean. Choose a month from any plotted series or the Month field."
         [data]="overview()"
         rowIdKey="id"
         categoryKey="month"
         [series]="series()"
         [theme]="theme()"
+        [showDataTable]="showDataTable()"
         [height]="280"
         [categoryTickFormatter]="monthTick"
         (pointSelect)="selectPoint($event)"
@@ -107,6 +108,7 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
         [series]="detailSeries"
         layout="horizontal"
         [theme]="theme()"
+        [showDataTable]="showDataTable()"
         [height]="280"
       />
     </div>
@@ -199,6 +201,7 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
 export class ComposedDashboard {
   readonly data = input.required<readonly DashboardMonth[]>();
   readonly theme = input<ChartTheme>('light');
+  readonly showDataTable = input(true);
   private readonly monthField = viewChild.required<ElementRef<HTMLSelectElement>>('month');
   private readonly resetButton = viewChild<ElementRef<HTMLButtonElement>>('resetMonth');
   protected readonly kind = signal<'bar' | 'area'>('bar');

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { App as DashboardApp } from './dashboard-app';
 import { HighlightCode } from '../code-examples/highlight-code';
 import { composedDashboardSource } from './composed-dashboard-source';
@@ -11,14 +11,14 @@ import { SiteAppearance } from '../shell/site-appearance';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `<div class="gallery">
     <div class="gallery-content">
-      <app-dashboard-pilot [theme]="theme()" />
+      <app-dashboard-pilot [theme]="theme()" [showDataTable]="showDataTable" />
       <section class="linking-guide" aria-labelledby="dashboard-pattern">
         <h2 id="dashboard-pattern">Use this dashboard</h2>
         <p>
-          Activate a bar, area or trend value, use its data table, or choose a month. Switch the
-          overview style without changing the selection. Reset returns to all months. Refreshing and
-          reordering retain the selected month by ID; removing it returns to all months. Each legend
-          affects its own chart.
+          Activate a bar, area or trend value, or choose a month. Switch the overview style without
+          changing the selection. Reset returns to all months. Refreshing and reordering retain the
+          selected month by ID; removing it returns to all months. Each legend affects its own
+          chart.
         </p>
         <p>
           Missing observations remain missing. Recorded device sums may be partial, and the trend
@@ -42,6 +42,7 @@ import { SiteAppearance } from '../shell/site-appearance';
   styleUrls: ['../gallery/gallery.css', './linked-charts.css'],
 })
 export class LinkedDashboard {
+  protected readonly showDataTable = inject(ActivatedRoute).snapshot.data['showDataTable'] === true;
   protected readonly theme = inject(SiteAppearance).theme;
   protected readonly source = composedDashboardSource;
 }

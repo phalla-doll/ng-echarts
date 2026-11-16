@@ -49,6 +49,7 @@
                 [nodes]="nodes()"
                 [links]="links()"
                 [theme]="theme()"
+                [showDataTable]="showDataTable"
                 [loading]="loading()"
                 [error]="error()"
                 (select)="selection.set($event)"
@@ -78,7 +79,7 @@
         }
         <p class="radial-caption">
           Follow Search and Direct visits through Browse and Trial to Customer or Exit. Zero links
-          stay in the tables. Scroll the flow diagram on narrow screens.
+          stay in the Code sample. Scroll the flow diagram on narrow screens.
         </p>
         <details class="radial-controls">
           <summary>Try data and states</summary>
@@ -106,7 +107,9 @@
       </section>
     </div>
     <footer class="gallery-footer">
-      Exact node totals and link values stay available before the chart loads.
+      Inspect nodes and link values in Code.<a routerLink="/sankey-validation"
+        >Open sankey validation</a
+      >
     </footer>
   </div>
   <aside class="page-outline" aria-label="On this page">

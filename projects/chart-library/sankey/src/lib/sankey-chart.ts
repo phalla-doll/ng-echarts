@@ -48,6 +48,7 @@ import { SANKEY_RENDERER_LOADER, scrollFlowViewport } from './sankey-browser';
 export class SankeyChart<N extends SankeyNode = SankeyNode, L extends SankeyLink = SankeyLink> {
   readonly title = input.required<string>();
   readonly description = input('');
+  readonly showDataTable = input(true);
   readonly valueLabel = input('Value');
   readonly nodes = input.required<readonly N[]>();
   readonly links = input.required<readonly L[]>();

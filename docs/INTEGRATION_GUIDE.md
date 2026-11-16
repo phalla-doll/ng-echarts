@@ -184,3 +184,5 @@ The compatibility root exports bar, line, area, pie/donut, composed and `ChartFr
 | `/sankey` | Separate stable-ID node/link arrays, acyclic nonnegative flows; `select` emits a node/link discriminated event | [Sankey](SANKEY_CHART_API.md) |
 
 Pie/donut's optional `showTotal` defaults to false and displays the formatted visible sum when `innerRadius >= 0.4`. Legends show raw values and locale-formatted shares of the visible total. Calendar/Sankey `valueLabel` defaults to `Value` and names the tooltip measure; it does not change numeric events. These APIs are included since private rc.11. All families retain experimental status and the deferred human release checks.
+
+In local rc.26, calendar and Sankey also support `showDataTable` (default `true`). All eleven gallery routes omit native table controls and table markup, including radar, calendar, Sankey and linked examples. Calendar/Sankey gallery source examples explicitly disable the disclosure. The dedicated radar/calendar/Sankey, linked-example and dashboard validation routes retain full table actions; these are separate from the gallery previews. Published rc.24 is unchanged.

@@ -4,7 +4,7 @@ import { expect, test, type Page } from '@playwright/test';
 import { collectBrowserErrors, installResourceAudit } from './resource-audit';
 async function open(page: Page) {
   const errors = collectBrowserErrors(page);
-  const response = await page.goto('/sankey');
+  const response = await page.goto('/sankey-validation');
   const html = await response!.text();
   expect(html).toContain('Explore flow data');
   expect(html).toContain('Search');
@@ -145,7 +145,7 @@ test('recovers a failed renderer import with native flow values', async ({ page 
   const asset = assets[0]!;
   const errors = collectBrowserErrors(page, asset);
   await page.route(`**/${asset}`, (route) => route.abort('failed'));
-  await page.goto('/sankey');
+  await page.goto('/sankey-validation');
   const chart = page.locator('nec-sankey-chart');
   await expect(chart.getByRole('alert')).toContainText('Unable to render chart');
   await expect(chart.locator('table')).toHaveCount(0);
@@ -162,7 +162,7 @@ test('serves node totals and recorded zero links without JavaScript', async ({ b
   const context = await browser.newContext({ javaScriptEnabled: false });
   try {
     const page = await context.newPage();
-    await page.goto('/sankey');
+    await page.goto('/sankey-validation');
     const chart = page.locator('nec-sankey-chart');
     await expect(chart.locator('canvas')).toHaveCount(0);
     await expect(chart.locator('tbody tr')).toHaveCount(13);

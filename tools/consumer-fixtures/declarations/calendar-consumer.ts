@@ -8,6 +8,7 @@ interface DailyCount {
 @Component({
   imports: [CalendarHeatmap],
   template: `<nec-calendar-heatmap
+    [showDataTable]="false"
     title="Daily totals"
     [data]="rows"
     dateKey="date"

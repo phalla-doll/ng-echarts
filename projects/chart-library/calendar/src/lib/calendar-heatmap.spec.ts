@@ -35,6 +35,13 @@ it('provides all leap-year days in native disclosures before browser rendering, 
     row: { date: '2024-01-01', count: 0 },
     source: 'table',
   });
+  fixture.componentRef.setInput('showDataTable', false);
+  await fixture.whenStable();
+  expect(host.querySelector('.calendar-data')).toBeNull();
+  expect(host.querySelector('table')).toBeNull();
+  fixture.componentRef.setInput('showDataTable', true);
+  await fixture.whenStable();
+  expect(host.querySelectorAll('tbody tr')).toHaveLength(366);
 });
 it('contains invalid formatting and respects state precedence, then recovers', async () => {
   const fixture = await create(),

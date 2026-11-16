@@ -43,14 +43,14 @@ it('reports a detail action against preview values while preserving the committe
     source: 'plot',
   });
   await fixture.whenStable();
-  expect(host.querySelector('.preview-context')?.textContent).toBe(
+  expect(host.querySelector('.preview-context')?.textContent?.trim()).toBe(
     'Preview · February: Desktop, 200 visits.',
   );
   expect(host.querySelector('.linked-status')?.textContent).toContain('All months: 400 visits');
   expect(host.querySelector('select')!.value).toBe('');
   bar.pointPreview.emit(null);
   await fixture.whenStable();
-  expect(host.querySelector('.preview-context')?.textContent).not.toContain('Preview ·');
+  expect(host.querySelector('.preview-context')?.textContent?.trim()).not.toContain('Preview ·');
   expect(host.querySelector('.linked-status')?.textContent).toContain('All months: 400 visits');
 });
 

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { LinkedVisits } from './linked-visits';
 import { deviceRows } from '../fixtures/evilcharts-bar-fixture';
 import { SiteAppearance } from '../shell/site-appearance';
@@ -17,7 +17,7 @@ import { linkedExampleSource } from './linked-example-source';
           <p>Explore device share for a month or a custom range.</p>
         </div>
       </header>
-      <app-linked-visits [data]="rows" [theme]="theme()" />
+      <app-linked-visits [data]="rows" [theme]="theme()" [showDataTable]="showDataTable" />
       <section class="linking-guide">
         <h2>Composed dashboard</h2>
         <p>
@@ -32,7 +32,8 @@ import { linkedExampleSource } from './linked-example-source';
         <h2 id="linking-title">Linking pattern</h2>
         <p>
           Choose a month or an inclusive range to connect the overview and detail. Chart legends
-          stay independent. Use the period fields or the overview’s data table with a keyboard.
+          stay independent. Use the period fields with a keyboard; inspect the sample in the source
+          below.
         </p>
         <details #sourceDetails>
           <summary>Standalone Angular example</summary>
@@ -76,6 +77,7 @@ import { linkedExampleSource } from './linked-example-source';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LinkedCharts {
+  protected readonly showDataTable = inject(ActivatedRoute).snapshot.data['showDataTable'] === true;
   protected readonly rows = deviceRows;
   protected readonly theme = inject(SiteAppearance).theme;
   protected readonly source = linkedExampleSource;

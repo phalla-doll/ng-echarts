@@ -4,7 +4,7 @@ import { expect, test, type Locator, type Page } from '@playwright/test';
 import { collectBrowserErrors, installResourceAudit } from './resource-audit';
 async function open(page: Page) {
   const errors = collectBrowserErrors(page);
-  const response = await page.goto('/calendar');
+  const response = await page.goto('/calendar-validation');
   const html = await response!.text();
   expect(html).toContain('2024-02-29');
   expect(html).toContain('Explore daily data');
@@ -212,7 +212,7 @@ test('recovers a failed renderer import with native daily values', async ({ page
   const asset = assets[0]!;
   const errors = collectBrowserErrors(page, asset);
   await page.route(`**/${asset}`, (route) => route.abort('failed'));
-  await page.goto('/calendar');
+  await page.goto('/calendar-validation');
   const chart = page.locator('nec-calendar-heatmap');
   await expect(chart.getByRole('alert')).toContainText('Unable to render chart');
   await expect(chart.locator('table')).toHaveCount(0);
@@ -231,7 +231,7 @@ test('keeps every day readable in native monthly tables without JavaScript', asy
   const context = await browser.newContext({ javaScriptEnabled: false });
   try {
     const page = await context.newPage();
-    await page.goto('/calendar');
+    await page.goto('/calendar-validation');
     const chart = page.locator('nec-calendar-heatmap');
     await expect(chart.locator('canvas')).toHaveCount(0);
     await expect(chart.locator('tbody tr')).toHaveCount(366);

@@ -51,6 +51,7 @@
               [series]="series"
               [height]="320"
               [theme]="theme()"
+              [showDataTable]="showDataTable"
               [filled]="filled()"
               [loading]="loading()"
               [error]="error()"
@@ -83,7 +84,7 @@
       }
       <p class="radar-note">
         Illustrative scores on a 0–100 scale. Compare each spoke; polygon area is not an overall
-        score. Open the data table for exact values and keyboard selection.
+        score. Open Code for the sample data and configuration.
       </p>
     </section>
     <details class="radar-controls" id="try-data">
@@ -114,6 +115,7 @@
     <footer class="gallery-footer">
       Experimental Angular radar component. Radial progress remains in the
       <a routerLink="/chart-possibilities">concept gallery</a>.
+      <a routerLink="/radar-validation">Open radar validation</a>
     </footer>
   </div>
   <aside class="page-outline" aria-label="On this page">

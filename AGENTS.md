@@ -105,3 +105,5 @@ The user prioritized bundle headroom after rc.24 delivery. Local rc.25 introduce
 ## rc.26 legend continuation — 16 November
 
 The user selected inline chips and aligned lists, with chips as default. Local rc.26 adds `legendLayout` to Cartesian/radar/pie charts and mirrors the pie-gallery choice into its source example. Preserve archived rc.25 and every earlier artifact. The [legend report](docs/experiments/RC26_LEGEND_LAYOUTS.md) owns actual checks; do not raise budget caps. npm next and Pages remain rc.24 delivery identities; human gates remain pending.
+
+The user requested removing every gallery table control after reviewing the radar block. Local rc.26 disables tables in radar and linked previews and adds default-true `showDataTable` opt-outs to calendar/Sankey. Keep the eleven gallery routes free of table controls/markup, mirror opt-outs in gallery code examples, and retain native table acceptance on explicit validation routes. Published artifacts and human gates are unchanged.

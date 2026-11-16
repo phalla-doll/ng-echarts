@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import {
   SankeyChart,
   type SankeyNode,
@@ -23,6 +23,7 @@ import { flowNodes, flowLinks, sankeyExampleSource } from './sankey-examples';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SankeyBlocks {
+  protected readonly showDataTable = inject(ActivatedRoute).snapshot.data['showDataTable'] === true;
   private readonly appearance = inject(SiteAppearance);
   protected readonly theme = this.appearance.theme;
   protected readonly mode = signal<'sample' | 'zero' | 'empty' | 'cycle' | 'updated'>('sample');
@@ -41,7 +42,9 @@ export class SankeyBlocks {
         return flowLinks;
     }
   });
-  protected readonly source = computed(() => sankeyExampleSource(this.appearance.dark()));
+  protected readonly source = computed(() =>
+    sankeyExampleSource(this.appearance.dark(), this.showDataTable),
+  );
   protected readonly loading = signal(false);
   protected readonly error = signal<string | null>(null);
   protected readonly mounted = signal(true);
@@ -49,7 +52,7 @@ export class SankeyBlocks {
   protected readonly selection = signal<SankeySelection<SankeyNode, SankeyLink> | null>(null);
   protected readonly selectionText = computed(() => {
     const selected = this.selection();
-    if (!selected) return 'Select a node or flow, or explore the exact values in the tables.';
+    if (!selected) return 'Select a node or flow, or inspect the sample in Code.';
     if (selected.kind === 'node')
       return `${selected.node.label}: ${selected.incoming} incoming, ${selected.outgoing} outgoing`;
     const label = (id: string) => flowNodes.find((node) => node.id === id)!.label;

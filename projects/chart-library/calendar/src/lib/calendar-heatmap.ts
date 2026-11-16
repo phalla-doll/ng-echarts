@@ -49,6 +49,7 @@ import { CALENDAR_RENDERER_LOADER, calendarDatesExistLocally } from './calendar-
 export class CalendarHeatmap<T extends object> {
   readonly title = input.required<string>();
   readonly description = input('');
+  readonly showDataTable = input(true);
   readonly valueLabel = input('Value');
   readonly data = input.required<readonly T[]>();
   readonly dateKey = input.required<StringKey<T>>();

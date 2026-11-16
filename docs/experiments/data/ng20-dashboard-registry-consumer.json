@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-16T02:41:17.971Z",
+  "recordedAt": "2026-11-16T03:16:14.378Z",
   "artifact": {
     "name": "@mantha911/ng-echarts",
     "version": "0.1.0-rc.22",
@@ -9,13 +9,13 @@
   },
   "node": "v24.22.2",
   "npm": "11.19.1",
-  "displayedSourceSha256": "b947a70024b161f95058ed5782787b2e5c7c88c7e8307b741283debe75abd1dc",
+  "displayedSourceSha256": "8eebea36e6bd10baf7c5ec579f0d4b187b3ff7a69a948b80a4b6e7a085a43830",
   "method": "Fresh pinned CLI scaffold outside workspace; npm registry rc.22 digest-verified installation; exact dashboard component/App; strict ngc, production SSR, three-engine dashboard flow.",
   "sources": {
-    "docs/INSTALLATION.md": "edf94234002328ba2b64b744f5d92b9ef1ee34c97f54fcea375814323b81aac7",
-    "docs/INTEGRATION_GUIDE.md": "144eedbea210c35868e549416dbde7589492c8d3824f878d8b8fd17ca0d5d039",
-    "projects/playground/src/app/linked/composed-dashboard.ts": "444c516103a0673eef165286bc8b72afcc7bde26c17d21c05a62a5789807d7fb",
-    "projects/playground/src/app/linked/dashboard-app.ts": "77ec895130ae8943223931ea25ffae3f33a0bc0fdc1a7129f2f6d8ccf7b271fe"
+    "docs/INSTALLATION.md": "604947a4465aedff705499c67ec293288cefe31324ad8b8c34fc562e902c9332",
+    "docs/INTEGRATION_GUIDE.md": "01b45ccbfe97af242109b9063d4cbe227696dcba51e7fff0d5084633da32ff8d",
+    "projects/playground/src/app/linked/composed-dashboard.ts": "5166ba07680e8a18c4fe1823baf8e47c73df110786abf723f7788e302a049d1e",
+    "projects/playground/src/app/linked/dashboard-app.ts": "0c7d582f8036841739a33f1550022b32aaa00f39d648392439b8786c87045c0d"
   },
   "installedOutsideWorkspace": true,
   "lockfileReinstall": true,

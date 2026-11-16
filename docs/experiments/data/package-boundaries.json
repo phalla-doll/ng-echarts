@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-16T03:04:18.556Z",
+  "recordedAt": "2026-11-16T03:15:34.976Z",
   "method": "Resolve public package imports, Angular-link, bundle/minify/split with Angular/RxJS peers external; count only modules contributing bytes to output; traverse static imports separately from lazy chunks; sum independently compressed JavaScript chunks",
   "scenarios": [
     {
@@ -1525,7 +1525,7 @@
       "import": "@mantha911/ng-echarts/calendar",
       "exports": "CalendarHeatmap",
       "files": [
-        { "name": "stdin.js", "raw": 25133, "gzip": 6525, "brotli": 5709 },
+        { "name": "stdin.js", "raw": 25823, "gzip": 6637, "brotli": 5794 },
         {
           "name": "mantha911-ng-echarts-calendar-calendar-renderer-OB5QQybA-D25FVSNA.js",
           "raw": 462308,
@@ -1534,7 +1534,7 @@
         },
         { "name": "chunk-TK4RMJOR.js", "raw": 39263, "gzip": 11582, "brotli": 10246 }
       ],
-      "total": { "raw": 526704, "gzip": 174808, "brotli": 149636 },
+      "total": { "raw": 527394, "gzip": 174920, "brotli": 149721 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 213,
@@ -1768,7 +1768,7 @@
       "import": "@mantha911/ng-echarts/sankey",
       "exports": "SankeyChart",
       "files": [
-        { "name": "stdin.js", "raw": 25535, "gzip": 6898, "brotli": 6009 },
+        { "name": "stdin.js", "raw": 26290, "gzip": 7029, "brotli": 6121 },
         {
           "name": "mantha911-ng-echarts-sankey-sankey-renderer-DwLMFu-b-KXEZES7J.js",
           "raw": 456835,
@@ -1777,7 +1777,7 @@
         },
         { "name": "chunk-632NINZS.js", "raw": 35751, "gzip": 10063, "brotli": 8898 }
       ],
-      "total": { "raw": 518121, "gzip": 172124, "brotli": 147251 },
+      "total": { "raw": 518876, "gzip": 172255, "brotli": 147363 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 205,

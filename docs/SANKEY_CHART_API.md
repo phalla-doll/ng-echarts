@@ -132,3 +132,7 @@ Upstream behavior: [Apache Sankey options](https://github.com/apache/echarts-doc
 Four theme palette entries are resolved in the browser and cycle by node depth. Node labels include the larger incoming/outgoing total, matching node height. Narrow diagrams expose an adjacent scroll hint and a keyboard-focusable horizontal scroll region. Arrow keys move within the diagram; Home/End reach its bounds, consistently across the tested engines.
 
 The browser adapter confines HTML tooltips to the currently visible scrollport, rather than the full offscreen diagram, and dismisses them on scroll/resize. Its scroll listener is disposed with the renderer.
+
+## Optional gallery table disclosure in local rc.26
+
+`showDataTable` defaults to `true`. Set `[showDataTable]="false"` to omit the flow disclosure and all of its table markup. Gallery previews disable it and expose sample data in Code; the separate validation pages retain native table actions. This input is in local rc.26 source and is not part of published rc.24.

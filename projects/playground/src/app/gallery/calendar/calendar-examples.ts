@@ -16,7 +16,7 @@ export function calendarSample(year: number): readonly ActivityDay[] {
   }
   return result;
 }
-export function calendarExampleSource(dark = false): string {
+export function calendarExampleSource(dark = false, showDataTable = true): string {
   return `import { Component } from '@angular/core';
 import { CalendarHeatmap } from '@mantha911/ng-echarts/calendar';
 
@@ -33,7 +33,7 @@ interface ActivityDay { readonly date: string; readonly count: number | null; }
     valueKey="count"
     [year]="2024"
     [max]="40"
-    theme="${dark ? 'dark' : 'light'}"
+    theme="${dark ? 'dark' : 'light'}"${showDataTable ? '' : ' [showDataTable]="false"'}
   />\`,
 })
 export class DailyActivity {

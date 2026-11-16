@@ -64,6 +64,7 @@
                 [year]="year()"
                 [max]="40"
                 [theme]="theme()"
+                [showDataTable]="showDataTable"
                 [loading]="loading()"
                 [error]="error()"
                 (pointSelect)="selection.set($event)"
@@ -73,7 +74,7 @@
               @if (selection(); as selected) {
                 {{ selected.date }}: {{ selected.value }} contributions
               } @else {
-                Select a recorded day or explore its value in the data table.
+                Select a recorded day or inspect the sample in Code.
               }
             </p>
           </div>
@@ -126,7 +127,9 @@
       </section>
     </div>
     <footer class="gallery-footer">
-      Exact daily values stay available before the chart loads.
+      Inspect the daily sample in Code.<a routerLink="/calendar-validation"
+        >Open calendar validation</a
+      >
     </footer>
   </div>
   <aside class="page-outline" aria-label="On this page">

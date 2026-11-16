@@ -100,7 +100,14 @@
     />
     Preview months
   </label>
-  <p class="preview-context">{{ previewMessage() || 'Hover a bar or focus a table value.' }}</p>
+  <p class="preview-context">
+    {{
+      previewMessage() ||
+        (showDataTable()
+          ? 'Hover a bar or focus a table value.'
+          : 'Hover a bar to preview device share.')
+    }}
+  </p>
 </div>
 <p class="visually-hidden" role="status" aria-live="polite" aria-atomic="true">
   {{ focusPreviewMessage() }}
@@ -124,6 +131,7 @@
       (rangeSelect)="selectRange($event)"
       [categoryTickFormatter]="monthTick"
       [theme]="theme()"
+      [showDataTable]="showDataTable()"
       [height]="250"
       (pointSelect)="selectPoint($event)"
     />
@@ -137,6 +145,7 @@
       categoryKey="device"
       [measure]="measure"
       [theme]="theme()"
+      [showDataTable]="showDataTable()"
       [innerRadius]="0.6"
       [showTotal]="true"
       [height]="240"

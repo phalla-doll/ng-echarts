@@ -172,3 +172,5 @@ The user-authorized [next increment](experiments/NG20_COMPOSED_DASHBOARD.md) add
 ## Explicit independent composed value axes
 
 The user-authorized [rc.24 increment](experiments/NG17_DUAL_AXES.md) adds one/two explicit labeled linear axes, per-axis numeric text and series axis IDs. Units and positions must be discoverable in native descriptions, legends, tables and tooltip rows; actions retain raw values. Named stacks cannot span axes/units within one geometry. Default shared-scale behavior, gaps, zeros, stable identities, focus, motion, resizing and SSR remain required. Shared locale is retained; axis options own formatting when configured. Arbitrary ECharts options and percentage normalization remain outside scope. Human review remains deferred.
+
+The user requested omitting data-table controls from every gallery block because the samples are available in Code. All chart-family and linked gallery previews follow that presentation rule. Library tables remain enabled by default and continue to be exercised on separate validation routes; gallery Code is sample documentation.
