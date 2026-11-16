@@ -1,12 +1,22 @@
 # Changelog
 
-## 0.1.0-rc.26 — Chip and aligned-list legends
+## 0.1.0-rc.28 — Chip and aligned-list legends
 
 - Omit table controls from every gallery family and linked example; calendar/Sankey add the existing opt-out pattern with `showDataTable` defaulting to true. Keep table acceptance on explicit validation routes.
 
 - Default Cartesian, radar and pie/donut legends to compact inline chips; opt into aligned rows with `legendLayout="list"`.
 - Keep pie values and visible-category percentages, keyboard toggles, hidden identities and focus while switching layouts. Long labels and formatted values wrap rather than truncate.
-- Add live pie-gallery layout selection and matching copyable source. Preserve rc.25 and all earlier archives; registry/demo delivery and human release gates are unchanged.
+- Add live pie-gallery layout selection and matching copyable source. Preserve rc.27 and all earlier archives; registry/demo delivery and human release gates are unchanged.
+
+## 0.1.0-rc.27 — Restore radar scale-description presentation
+
+- Share compact scale-description styling between radar and composed charts, restoring radar spacing and muted typography after the family-style separation.
+- Verify the scale paragraph across responsive themes and exact installed client/SSR consumers. Preserve the sealed rc.26 candidate and every earlier archive; human release gates remain pending.
+
+## 0.1.0-rc.26 — Stable Cartesian option declarations
+
+- Preserve rc.25 presentation/lifecycle consolidation and family-scoped styles.
+- Name the Cartesian category/value axis and option contracts explicitly so independent builds retain declaration order. Preserve both rc.25 diagnostic archives and every earlier candidate; human release gates remain pending.
 
 ## 0.1.0-rc.25 — Shared presentation and smaller chart payloads
 

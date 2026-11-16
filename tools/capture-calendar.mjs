@@ -43,7 +43,7 @@ try {
   for (const theme of ['dark', 'light'])
     for (const width of [1440, 768, 390, 320]) {
       await page.setViewportSize({ width, height: 1000 });
-      await page.goto(new URL('calendar/', base).href);
+      await page.goto(new URL('calendar-validation/', base).href);
       const chart = page.locator('nec-calendar-heatmap');
       await expect(chart.locator('canvas').first()).toBeVisible();
       if (
@@ -107,7 +107,7 @@ try {
   });
   try {
     const fallback = await apia.newPage();
-    await fallback.goto(new URL('calendar/', base).href);
+    await fallback.goto(new URL('calendar-validation/', base).href);
     const chart = fallback.locator('nec-calendar-heatmap');
     await expect(chart.locator('canvas').first()).toBeVisible();
     const year = fallback.getByRole('spinbutton', { name: 'Year', exact: true });

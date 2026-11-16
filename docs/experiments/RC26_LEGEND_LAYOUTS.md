@@ -1,6 +1,9 @@
 # rc.26 legend layouts
 
-Date: 16 November 2026. The user selected inline chips and an aligned list from three proposed legends, with chips as the default. This source increment preserves the rc.25 candidate and every earlier archive. It does not publish a package or deploy Pages; npm next remains rc.24, latest rc.18 and the deployed source remains `42b27aa`. Human F09/R06/G2/G3/G4 remain deferred/pending.
+Date: 16 November 2026.
+
+Historical local-work record: this checkout used the rc.26 source version concurrently with the separate, subsequently archived rc.26 payload candidate. The legend changes were not in that archive or the merged rc.27 payload candidate. Current integration advances source to rc.28; see [the integration record](RC28_LEGEND_INTEGRATION.md). Earlier results below describe the local branch at that checkpoint.
+ The user selected inline chips and an aligned list from three proposed legends, with chips as the default. This source increment preserves the rc.25 candidate and every earlier archive. It does not publish a package or deploy Pages; npm next remains rc.24, latest rc.18 and the deployed source remains `42b27aa`. Human F09/R06/G2/G3/G4 remain deferred/pending.
 
 ## Behavior
 

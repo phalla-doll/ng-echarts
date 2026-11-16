@@ -189,7 +189,7 @@ try {
       });
       await audit('static-card', block.locator('.block-card'), theme, { staticElement: true });
       await audit('footer-link', page.locator('.gallery-footer a'), theme);
-      await navigate('linked/', theme);
+      await navigate('linked-example-validation/', theme);
       await expect(page.locator('canvas')).toHaveCount(2);
       const month = page.getByRole('combobox', { name: 'Period', exact: true });
       await month.selectOption('month:dec');
@@ -240,7 +240,7 @@ try {
         .toBeLessThanOrEqual(1440);
     }
     if (phase === 'after') {
-      await navigate('linked/', 'dark');
+      await navigate('linked-example-validation/', 'dark');
       await expect(page.locator('canvas')).toHaveCount(2);
       const button = page.locator('.site-actions button');
       await button.hover();

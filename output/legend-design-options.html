@@ -1,0 +1,319 @@
+<div
+  id="browser-legend-options"
+  class="viz-carousel viz-dotted-background"
+  aria-label="Browser legend design options"
+>
+  <section data-variant="Borderless strip" aria-label="Borderless strip legend">
+    <div class="legend-stage">
+      <div class="legend-preview strip" aria-label="Borderless strip">
+        <div class="legend-items">
+          <div class="legend-item">
+            <div class="browser-name"><span class="swatch chrome"></span>Chrome</div>
+            <div class="browser-stats">
+              <strong>29.7<span>%</span></strong
+              ><span class="count">275 visitors</span>
+            </div>
+          </div>
+          <div class="legend-item">
+            <div class="browser-name"><span class="swatch safari"></span>Safari</div>
+            <div class="browser-stats">
+              <strong>21.6<span>%</span></strong
+              ><span class="count">200 visitors</span>
+            </div>
+          </div>
+          <div class="legend-item">
+            <div class="browser-name"><span class="swatch firefox"></span>Firefox</div>
+            <div class="browser-stats">
+              <strong>20.2<span>%</span></strong
+              ><span class="count">187 visitors</span>
+            </div>
+          </div>
+          <div class="legend-item">
+            <div class="browser-name"><span class="swatch edge"></span>Edge</div>
+            <div class="browser-stats">
+              <strong>18.7<span>%</span></strong
+              ><span class="count">173 visitors</span>
+            </div>
+          </div>
+          <div class="legend-item">
+            <div class="browser-name"><span class="swatch other"></span>Other</div>
+            <div class="browser-stats">
+              <strong>9.7<span>%</span></strong
+              ><span class="count">90 visitors</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section data-variant="Inline chips" aria-label="Inline chip legend" hidden>
+    <div class="legend-stage">
+      <div class="legend-preview chips" aria-label="Inline chips">
+        <div class="legend-items">
+          <div class="legend-item">
+            <span class="swatch chrome"></span><span class="browser-name">Chrome</span
+            ><span class="count">275</span><strong>29.7%</strong>
+          </div>
+          <div class="legend-item">
+            <span class="swatch safari"></span><span class="browser-name">Safari</span
+            ><span class="count">200</span><strong>21.6%</strong>
+          </div>
+          <div class="legend-item">
+            <span class="swatch firefox"></span><span class="browser-name">Firefox</span
+            ><span class="count">187</span><strong>20.2%</strong>
+          </div>
+          <div class="legend-item">
+            <span class="swatch edge"></span><span class="browser-name">Edge</span
+            ><span class="count">173</span><strong>18.7%</strong>
+          </div>
+          <div class="legend-item">
+            <span class="swatch other"></span><span class="browser-name">Other</span
+            ><span class="count">90</span><strong>9.7%</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section data-variant="Aligned list" aria-label="Aligned list legend" hidden>
+    <div class="legend-stage">
+      <div class="legend-preview list" aria-label="Aligned list">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Browser</th>
+              <th scope="col" class="count">Visitors</th>
+              <th scope="col">Share</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">
+                <span class="browser-name"><span class="swatch chrome"></span>Chrome</span>
+              </th>
+              <td class="count">275</td>
+              <td>29.7%</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <span class="browser-name"><span class="swatch safari"></span>Safari</span>
+              </th>
+              <td class="count">200</td>
+              <td>21.6%</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <span class="browser-name"><span class="swatch firefox"></span>Firefox</span>
+              </th>
+              <td class="count">187</td>
+              <td>20.2%</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <span class="browser-name"><span class="swatch edge"></span>Edge</span>
+              </th>
+              <td class="count">173</td>
+              <td>18.7%</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <span class="browser-name"><span class="swatch other"></span>Other</span>
+              </th>
+              <td class="count">90</td>
+              <td>9.7%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+<style>
+  #browser-legend-options .legend-stage {
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    padding: 24px 0;
+    box-sizing: border-box;
+  }
+  #browser-legend-options .legend-preview {
+    --surface: #0c0c0c;
+    --ink: #f1f1f1;
+    --secondary-ink: #a1a1a1;
+    --rule: #252525;
+    background: var(--surface);
+    color: var(--ink);
+    width: 100%;
+    padding: 32px 28px;
+    box-sizing: border-box;
+    border-radius: 14px;
+    font:
+      400 14px/1.5 -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      sans-serif;
+  }
+  #browser-legend-options .browser-name {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    white-space: nowrap;
+  }
+  #browser-legend-options .swatch {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex: 0 0 auto;
+    background: var(--series);
+  }
+  #browser-legend-options .chrome {
+    --series: #60a5fa;
+  }
+  #browser-legend-options .safari {
+    --series: #34d399;
+  }
+  #browser-legend-options .firefox {
+    --series: #fbbf24;
+  }
+  #browser-legend-options .edge {
+    --series: #a78bfa;
+  }
+  #browser-legend-options .other {
+    --series: #9ca3af;
+  }
+  #browser-legend-options strong {
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+  #browser-legend-options .count {
+    color: var(--secondary-ink);
+    font-variant-numeric: tabular-nums;
+  }
+  #browser-legend-options .strip .legend-items {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+  }
+  #browser-legend-options .strip .browser-name {
+    color: var(--secondary-ink);
+  }
+  #browser-legend-options .strip .browser-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: 12px 0 0 17px;
+  }
+  #browser-legend-options .strip strong {
+    font-size: 23px;
+    letter-spacing: -0.5px;
+  }
+  #browser-legend-options .strip strong span {
+    font-size: 15px;
+    margin-left: 1px;
+    color: var(--secondary-ink);
+  }
+  #browser-legend-options .strip .count {
+    font-size: 12px;
+  }
+  #browser-legend-options .chips .legend-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  #browser-legend-options .chips .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #181818;
+    border-radius: 100px;
+    padding: 10px 14px;
+  }
+  #browser-legend-options .chips .count {
+    font-size: 12px;
+    margin-left: 5px;
+  }
+  #browser-legend-options .chips strong {
+    font-size: 13px;
+  }
+  #browser-legend-options .list {
+    max-width: 460px;
+    margin: auto;
+    padding: 20px 26px;
+  }
+  #browser-legend-options table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  #browser-legend-options th {
+    font-weight: 400;
+    text-align: left;
+  }
+  #browser-legend-options td,
+  #browser-legend-options th {
+    padding: 10px 0;
+  }
+  #browser-legend-options thead th {
+    color: var(--secondary-ink);
+    font-size: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+  #browser-legend-options tbody tr + tr {
+    border-top: 1px solid #1a1a1a;
+  }
+  #browser-legend-options td,
+  #browser-legend-options th:not(:first-child) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  #browser-legend-options .counts-hidden .count {
+    display: none;
+  }
+  @media (max-width: 580px) {
+    #browser-legend-options .legend-stage {
+      min-height: 380px;
+    }
+    #browser-legend-options .legend-preview {
+      padding: 24px 20px;
+    }
+    #browser-legend-options .strip .legend-items {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px 14px;
+    }
+    #browser-legend-options .strip strong {
+      font-size: 21px;
+    }
+    #browser-legend-options .chips .legend-items {
+      justify-content: flex-start;
+    }
+  }
+  @media (max-width: 360px) {
+    #browser-legend-options .legend-stage {
+      min-height: 430px;
+    }
+    #browser-legend-options .strip .legend-items {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+<script>
+  (() => {
+    const root = document.getElementById('browser-legend-options');
+    const state = { showCounts: true, marker: 'Circle' };
+    function render() {
+      root
+        .querySelectorAll('.legend-preview')
+        .forEach((preview) => preview.classList.toggle('counts-hidden', !state.showCounts));
+      root.querySelectorAll('.swatch').forEach((swatch) => {
+        swatch.style.borderRadius = state.marker === 'Circle' ? '50%' : '2px';
+      });
+    }
+    render();
+    if (globalThis.Tweak) {
+      const tweak = new Tweak({ container: root, onChange: render });
+      tweak.addToggle(state, 'showCounts', { label: 'Show visitor counts' });
+      tweak.addSelect(state, 'marker', { label: 'Legend markers', options: ['Circle', 'Square'] });
+    }
+  })();
+</script>

@@ -48,7 +48,7 @@ try {
   });
   for (const theme of ['dark', 'light']) {
     await page.setViewportSize({ width: 1440, height: 1000 });
-    await page.goto(new URL('linked/', base).href);
+    await page.goto(new URL('linked-example-validation/', base).href);
     await expect(page.locator('canvas')).toHaveCount(2);
     const wanted = `Use ${theme === 'light' ? 'dark' : 'light'} theme`;
     if (!(await page.getByRole('button', { name: wanted, exact: true }).count()))

@@ -113,6 +113,8 @@ At that checkpoint, published rc.22 retained the registry evidence above and loc
 
 The rc.24 increment passes [full Linux CI](https://github.com/phalla-doll/ng-echarts/actions/runs/43736006909): 335 unit tests and 476 browser passes/four expected skips. Complete package bytes match macOS arm64 and Linux x64 warm/clean builds with pinned Node/npm; [comparison](experiments/rc24/ci/verified-source-artifact-comparison.json). This evidence does not broaden the dependency/browser support matrix or close human interpretation gates. [rc.24 publication](experiments/RC24_PUBLICATION.md) verifies the matching archive and fresh npm consumers; next is rc.24 and latest remains rc.18.
 
-## Local rc.25 payload increment
+## Local rc.26 payload increment
 
-The [rc.25 candidate](experiments/RC25_PAYLOAD_REDUCTION.md) retains the rc.24 chart APIs, pinned peers, rendering features and module-budget caps. Common presentation/lifecycle code and scoped family styles reduce combined-root gzip to 221,051 bytes; all twelve module scenarios pass with identical engine membership. Exact candidate, browser and clean-build evidence is recorded in that report. This increment does not broaden the support matrix; npm next remains rc.24 and human release acceptance remains pending.
+The [rc.26 candidate](experiments/RC26_PAYLOAD_REDUCTION.md) retains the rc.24 chart APIs, pinned peers, rendering features and module-budget caps. Common presentation/lifecycle code and scoped family styles reduce combined-root gzip to 221,060 bytes; all twelve module scenarios pass with identical engine membership. Exact candidate, browser and clean-build evidence is recorded in that report. This increment does not broaden the support matrix; npm next remains rc.24 and human release acceptance remains pending.
+
+Current rc.28 source integrates legend layouts and default-true calendar/Sankey table opt-outs on top of the preserved rc.27 radar/declaration fixes. See [the integration record](experiments/RC28_LEGEND_INTEGRATION.md) for actual combined-source verification. No broader support or human release acceptance is claimed.

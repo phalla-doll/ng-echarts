@@ -6,7 +6,7 @@ Published experimental release: **`@mantha911/ng-echarts@0.1.0-rc.24`**. Install
 
 Current release: **published `0.1.0-rc.24`** adds [independent composed value axes and deterministic declarations](docs/experiments/NG17_DUAL_AXES.md). Horizontal composition ships since npm rc.23, alongside the [composed linked dashboard](docs/COMPOSED_DASHBOARD.md) integration. The dashboard also runs on published rc.22; the [live demo](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) includes horizontal composition and the dashboard; the [rc.24 independent-axis example](https://phalla-doll.github.io/ng-echarts/composed/#revenue-and-conversion) is deployed and verified.
 
-Current development: **local `0.1.0-rc.26` source** adds default inline chip legends and opt-in aligned lists, with a live pie-gallery selector. The [legend report](docs/experiments/RC26_LEGEND_LAYOUTS.md) records verification. The preserved [rc.25 payload candidate](docs/experiments/RC25_PAYLOAD_REDUCTION.md) supplies the internal presentation/lifecycle refactor. npm and the deployed demo retain rc.24.
+Current development: **local `0.1.0-rc.28` source candidate** combines default inline chip legends, opt-in aligned lists and gallery table opt-outs with the verified payload, declaration and radar styling fixes. The [integration record](docs/experiments/RC28_LEGEND_INTEGRATION.md) distinguishes current source from immutable earlier candidates. npm retains rc.24; the [live demo marker](https://phalla-doll.github.io/ng-echarts/preview-build.json) identifies its separately deployed source.
 
 An Angular 22 chart component library inspired by EvilCharts, using Apache ECharts for rendering and TypeScript for its public API.
 

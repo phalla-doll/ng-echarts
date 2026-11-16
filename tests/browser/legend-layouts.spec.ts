@@ -64,9 +64,9 @@ test('keeps chip/list legends responsive, aligned and keyboard-operable without 
           expect(Math.max(...shares) - Math.min(...shares)).toBeLessThan(1);
         }
         if (testInfo.project.name === 'chromium' && [390, 1440].includes(width)) {
-          await mkdir('docs/experiments/rc26/visual', { recursive: true });
+          await mkdir('docs/experiments/rc28/visual', { recursive: true });
           await chart.screenshot({
-            path: `docs/experiments/rc26/visual/${layout === 'Inline chips' ? 'chips' : 'list'}-${theme}-${width}.png`,
+            path: `docs/experiments/rc28/visual/${layout === 'Inline chips' ? 'chips' : 'list'}-${theme}-${width}.png`,
           });
         }
       }

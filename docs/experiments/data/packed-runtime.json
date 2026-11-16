@@ -1,12 +1,12 @@
 {
-  "recordedAt": "2026-11-16T03:00:02.014Z",
+  "recordedAt": "2026-11-16T04:31:03.664Z",
   "node": "v24.22.2",
   "package": "@mantha911/ng-echarts",
-  "version": "0.1.0-rc.26",
+  "version": "0.1.0-rc.28",
   "artifact": {
     "name": "@mantha911/ng-echarts",
-    "version": "0.1.0-rc.26",
-    "sha256": "0955833a1f83024116ac70c34412b4eef5e2a1e9a4fa4fa640f3264eb542b0aa",
+    "version": "0.1.0-rc.28",
+    "sha256": "f556a3d25e766a4c4fb2ec343ae0bad6d57d868a0d97fd393c27e206c485d396",
     "exactCandidate": false
   },
   "skipLibCheck": false,

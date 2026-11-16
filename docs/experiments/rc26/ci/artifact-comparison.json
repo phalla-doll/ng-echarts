@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-11-16T03:19:47.219Z",
+  "ciRun": "43796458090",
+  "event": "pull_request",
+  "headCommit": "8b8b08ed31d84d3243fb4e01cfcc2f4d3e3c2f92",
+  "artifactSourceCommit": "8f8badc2e5e07239b763780a2fbcdea81c9dbcec",
+  "includesWorkingTree": true,
+  "version": "0.1.0-rc.26",
+  "sha256": "62109131e98fe79e7f4556df12f1ba7194d1e6b02a4b629ba1f474f5bdfe7b2b",
+  "bytes": 166359,
+  "memberCount": 68,
+  "declarationCount": 11,
+  "allMembersIdentical": true,
+  "completeArchiveIdentical": true,
+  "consumerResults": [
+    {
+      "script": "check-consumer.mjs",
+      "candidateSha256": "62109131e98fe79e7f4556df12f1ba7194d1e6b02a4b629ba1f474f5bdfe7b2b",
+      "passed": true
+    },
+    {
+      "script": "check-documentation-consumer.mjs",
+      "candidateSha256": "62109131e98fe79e7f4556df12f1ba7194d1e6b02a4b629ba1f474f5bdfe7b2b",
+      "passed": true
+    },
+    {
+      "script": "check-runtime-consumer.mjs",
+      "candidateSha256": "62109131e98fe79e7f4556df12f1ba7194d1e6b02a4b629ba1f474f5bdfe7b2b",
+      "passed": true
+    }
+  ],
+  "passed": true
+}

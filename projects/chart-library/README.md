@@ -1,6 +1,6 @@
 # Angular chart library
 
-Experimental standalone Angular 22 components using Apache ECharts. Public prerelease identity: `@mantha911/ng-echarts`. Current candidate: `0.1.0-rc.26`. Public prereleases use the `next` tag; consult the repository publication record for the current registry version. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. The API is experimental; human screen-reader interpretation remains unreviewed at the user’s request.
+Experimental standalone Angular 22 components using Apache ECharts. Public prerelease identity: `@mantha911/ng-echarts`. Current candidate: `0.1.0-rc.28`. Public prereleases use the `next` tag; consult the repository publication record for the current registry version. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. The API is experimental; human screen-reader interpretation remains unreviewed at the user’s request.
 
 ## Installation
 
@@ -13,7 +13,7 @@ npm install @mantha911/ng-echarts@next echarts@6.1.0
 For a retained exact local candidate:
 
 ```sh
-npm install /absolute/path/to/mantha911-ng-echarts-0.1.0-rc.26.tgz echarts@6.1.0
+npm install /absolute/path/to/mantha911-ng-echarts-0.1.0-rc.28.tgz echarts@6.1.0
 ```
 
 Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes. Table pagination is available since rc.19. Named composed bar stacks require rc.20 or later. Composed areas require rc.22 or later. Horizontal composed layout requires rc.23. The exact local candidate includes these features; a registry install must resolve a version containing the features you use.
@@ -91,7 +91,7 @@ Cartesian/radar/pie optional inputs include `description`, `height` (320), `them
 
 Use meaningful titles/descriptions. Tables are initially collapsed and supply complete values and keyboard point actions. Keep them enabled or provide equivalent actions. Gallery previews disable them at the user's request; Code tabs do not replace keyboard controls. Native legends expose pressed states and retain focus. Human screen-reader interpretation remains deferred to release acceptance.
 
-Local rc.26 adds `legendLayout: LegendLayout` (`'chips' | 'list'`) to bar, line, area, composed, radar and pie/donut charts. Inline chips are the default; set `legendLayout="list"` for aligned rows. Pie/donut lists align category, formatted measure and percentage columns; other families show series labels and visibility. Both layouts retain keyboard category/series toggles, hidden identities and visible-category percentages. The layout input only changes presentation. `LegendLayout` is exported from `/core`, the applicable family entries and the compatibility root. These layouts are not in the published rc.24 package.
+Local rc.28 adds `legendLayout: LegendLayout` (`'chips' | 'list'`) to bar, line, area, composed, radar and pie/donut charts. Inline chips are the default; set `legendLayout="list"` for aligned rows. Pie/donut lists align category, formatted measure and percentage columns; other families show series labels and visibility. Both layouts retain keyboard category/series toggles, hidden identities and visible-category percentages. The layout input only changes presentation. `LegendLayout` is exported from `/core`, the applicable family entries and the compatibility root. These layouts are not in the published rc.24 package.
 
 CSS tokens are `--nec-background`, `--nec-text`, `--nec-muted`, `--nec-border`, `--nec-focus`, and numbered `--nec-series-N` colors. Explicit Cartesian series colors take precedence. Change `theme` or increment `themeRevision` after CSS/font changes. Load a replacement font before requesting the refresh. Fonts are inherited; no font assets or Inter dependency ship in the package. Reduced motion overrides decorative animation. Inherited surface/text tokens apply before hydration; light/dark defaults fill only tokens the application does not supply.
 
@@ -161,6 +161,6 @@ Set `layout="horizontal"` on `ComposedChart` for a numeric x-axis and top-to-bot
 
 Set `valueAxes` to one or two `ComposedValueAxis` descriptors, each with a unique nonempty `id`, `label` and `unit`. Assign measures with `series.axisId`; omission uses the first axis. Each axis accepts its own `numberFormatOptions` or `valueFormatter`, using the shared locale. With explicit axes, shared number-format options/formatter are replaced by the axis settings. Native scale descriptions, legends, tables and tooltip labels identify units and axis positions. Vertical layout uses left/right value axes; horizontal uses bottom/top. Equal screen heights on independent scales do not imply equal quantities.
 
-A named stack within one geometry must use one axis; unknown axis IDs, invalid descriptors and cross-axis stacks produce configuration errors. Raw point events retain source numbers (a 12% formatted fraction still emits `0.12`); missing observations stay missing and zero stays observed. `valueAxes: null` retains the existing shared-scale contract. No raw ECharts options or new engine module is exposed. Horizontal composition ships since npm rc.23 and independent value axes since rc.24. The preserved rc.25 candidate consolidates internal presentation/lifecycle behavior. Local rc.26 adds legend layouts; neither increment changes the value-axis contract.
+A named stack within one geometry must use one axis; unknown axis IDs, invalid descriptors and cross-axis stacks produce configuration errors. Raw point events retain source numbers (a 12% formatted fraction still emits `0.12`); missing observations stay missing and zero stays observed. `valueAxes: null` retains the existing shared-scale contract. No raw ECharts options or new engine module is exposed. Horizontal composition ships since npm rc.23 and independent value axes since rc.24. The preserved rc.27 candidate consolidates internal presentation/lifecycle behavior, stabilizes declarations and retains radar scale styling. Local rc.28 adds legend layouts without changing the value-axis contract.
 
-Calendar and Sankey also accept `showDataTable` in local rc.26 (default `true`). Set it to `false` to omit their disclosures and table markup. All gallery previews disable table controls; dedicated validation pages retain the native table behavior.
+Calendar and Sankey also accept `showDataTable` in local rc.28 (default `true`). Set it to `false` to omit their disclosures and table markup. All gallery previews disable table controls; dedicated validation pages retain the native table behavior.

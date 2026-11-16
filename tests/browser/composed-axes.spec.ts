@@ -120,6 +120,10 @@ test('renders independent-scale examples with correct summaries and copyable sou
         .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
         .toBeLessThanOrEqual(width);
       await expect(block.locator('.scale-context')).toContainText('USD');
+      await expect(block.locator('.scale-context')).toHaveCSS('font-size', '12px');
+      await expect(block.locator('.scale-context')).toHaveCSS('line-height', '20px');
+      await expect(block.locator('.scale-context')).toHaveCSS('margin-top', '0px');
+      await expect(block.locator('.scale-context')).toHaveCSS('margin-bottom', '8px');
     }
   }
   const chart = block.locator('nec-composed-chart');

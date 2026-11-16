@@ -43,7 +43,7 @@ try {
   for (const theme of ['dark', 'light'])
     for (const width of [1440, 768, 390, 320]) {
       await page.setViewportSize({ width, height: 1000 });
-      await page.goto(new URL('radar/', base).href);
+      await page.goto(new URL('radar-validation/', base).href);
       await expect(page.locator('nec-radar-chart canvas')).toHaveCount(1);
       const toggle = page.getByRole('button', { name: `Use ${theme} theme`, exact: true });
       if (await toggle.count()) await toggle.click();

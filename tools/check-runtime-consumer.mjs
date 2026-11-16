@@ -98,6 +98,8 @@ async function exercise(engine, url, ssr) {
     }
     const navigation = page.getByRole('navigation', { name: 'Playground pages' });
     await navigation.getByRole('link', { name: 'Sankey Flow', exact: true }).click();
+    await expect(page.locator('.gallery .flow-data')).toHaveCount(0);
+    await page.goto(`${url}/sankey-validation`);
     const flow = page.locator('nec-sankey-chart');
     await expect(flow.locator('canvas').first()).toBeVisible();
     const flowResponse = await page.reload();
@@ -111,6 +113,8 @@ async function exercise(engine, url, ssr) {
     await page.keyboard.press('Enter');
     await expect(page.locator('.flow-selection')).toHaveText('Direct to Trial: 0 visits');
     await navigation.getByRole('link', { name: 'Calendar Heatmap', exact: true }).click();
+    await expect(page.locator('.gallery .calendar-data')).toHaveCount(0);
+    await page.goto(`${url}/calendar-validation`);
     const calendar = page.locator('nec-calendar-heatmap');
     await expect(calendar.locator('canvas').first()).toBeVisible();
     const calendarResponse = await page.reload();
@@ -159,8 +163,14 @@ async function exercise(engine, url, ssr) {
       .click();
     await expect(radial.getByRole('status')).toHaveText('No progress data available.');
     await navigation.getByRole('link', { name: 'Radar Blocks', exact: true }).click();
+    await expect(page.locator('.gallery .table-toggle')).toHaveCount(0);
+    await page.goto(`${url}/radar-validation`);
     const radar = page.locator('nec-radar-chart');
     await expect(radar.locator('canvas')).toHaveCount(1);
+    await expect(radar.locator('.scale-context')).toHaveCSS('font-size', '12px');
+    await expect(radar.locator('.scale-context')).toHaveCSS('line-height', '20px');
+    await expect(radar.locator('.scale-context')).toHaveCSS('margin-top', '0px');
+    await expect(radar.locator('.scale-context')).toHaveCSS('margin-bottom', '8px');
     await radar.getByRole('button', { name: 'Show data table', exact: true }).click();
     await radar.getByRole('button', { name: 'Select Current for Speed: 78', exact: true }).click();
     await expect(page.locator('.block-selection')).toHaveText('Speed: current = 78 (table)');
@@ -313,6 +323,8 @@ async function exercise(engine, url, ssr) {
     await page.getByRole('link', { name: 'Navigate away', exact: true }).click();
     await expect(page.locator('canvas')).toHaveCount(0);
     await navigation.getByRole('link', { name: 'Linked Charts', exact: true }).click();
+    await expect(page.locator('.gallery .table-toggle')).toHaveCount(0);
+    await page.goto(`${url}/linked-example-validation`);
     await expect(page.locator('app-linked-visits canvas')).toHaveCount(2);
     await page
       .locator('.overview')
@@ -396,6 +408,8 @@ async function exercise(engine, url, ssr) {
     await expect(page.locator('iframe')).toHaveCount(0);
     await expect(page.locator('canvas')).toHaveCount(0);
     await page.goto(`${url}/linked-dashboard`);
+    await expect(page.locator('.gallery .table-toggle')).toHaveCount(0);
+    await page.goto(`${url}/dashboard-validation`);
     await verifyDashboard(page);
     await page.goto(`${url}/away`);
     await expect(page.locator('canvas')).toHaveCount(0);

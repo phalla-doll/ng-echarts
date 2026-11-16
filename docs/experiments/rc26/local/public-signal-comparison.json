@@ -1,0 +1,1150 @@
+{
+  "baseline": "published rc.24 canonical archive",
+  "candidate": "rc.26 canonical archive",
+  "method": "Parse original TypeScript embedded in the archived sourcemaps and flatten signal input/output inheritance; compare names, required flags, type arguments and defaults. Installed strict/runtime consumers verify Angular behavior separately.",
+  "allTenPublicComponentsIdentical": true,
+  "components": {
+    "ChartFrame": {
+      "title": {
+        "kind": "input",
+        "required": true,
+        "type": ["string"],
+        "arguments": []
+      },
+      "description": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["''"]
+      }
+    },
+    "BarChart": {
+      "title": {
+        "kind": "input",
+        "required": true,
+        "type": ["string"],
+        "arguments": []
+      },
+      "description": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["''"]
+      },
+      "data": {
+        "kind": "input",
+        "required": true,
+        "type": ["readonly T[]"],
+        "arguments": []
+      },
+      "rowIdKey": {
+        "kind": "input",
+        "required": true,
+        "type": ["StringKey<T>"],
+        "arguments": []
+      },
+      "categoryKey": {
+        "kind": "input",
+        "required": true,
+        "type": ["StringKey<T>"],
+        "arguments": []
+      },
+      "height": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["320"]
+      },
+      "theme": {
+        "kind": "input",
+        "required": false,
+        "type": ["ChartTheme"],
+        "arguments": ["'light'"]
+      },
+      "themeRevision": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["0"]
+      },
+      "locale": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["'en-US'"]
+      },
+      "numberFormatOptions": {
+        "kind": "input",
+        "required": false,
+        "type": ["Intl.NumberFormatOptions"],
+        "arguments": []
+      },
+      "valueFormatter": {
+        "kind": "input",
+        "required": false,
+        "type": ["ValueFormatter"],
+        "arguments": []
+      },
+      "showDataTable": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["true"]
+      },
+      "tablePageSize": {
+        "kind": "input",
+        "required": false,
+        "type": ["number | null"],
+        "arguments": ["null"]
+      },
+      "loading": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "error": {
+        "kind": "input",
+        "required": false,
+        "type": ["string | null"],
+        "arguments": ["null"]
+      },
+      "animation": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["true"]
+      },
+      "pointSelect": {
+        "kind": "output",
+        "required": false,
+        "type": ["PointSelection<T>"],
+        "arguments": []
+      },
+      "series": {
+        "kind": "input",
+        "required": true,
+        "type": ["readonly Series[]"],
+        "arguments": []
+      },
+      "categoryTickFormatter": {
+        "kind": "input",
+        "required": false,
+        "type": ["CategoryTickFormatter"],
+        "arguments": []
+      },
+      "legendChange": {
+        "kind": "output",
+        "required": false,
+        "type": ["LegendVisibilityChange"],
+        "arguments": []
+      },
+      "rangeSelection": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "previewEnabled": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "pointPreview": {
+        "kind": "output",
+        "required": false,
+        "type": ["PointPreview<T> | null"],
+        "arguments": []
+      },
+      "rangeSelect": {
+        "kind": "output",
+        "required": false,
+        "type": ["BarRangeSelection<T>"],
+        "arguments": []
+      },
+      "layout": {
+        "kind": "input",
+        "required": false,
+        "type": ["BarLayout"],
+        "arguments": ["'vertical'"]
+      },
+      "stacked": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "gradient": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "selectedRowId": {
+        "kind": "input",
+        "required": false,
+        "type": ["string | null"],
+        "arguments": ["null"]
+      },
+      "selectedRowIds": {
+        "kind": "input",
+        "required": false,
+        "type": ["readonly string[] | null"],
+        "arguments": ["null"]
+      }
+    },
+    "LineChart": {
+      "title": {
+        "kind": "input",
+        "required": true,
+        "type": ["string"],
+        "arguments": []
+      },
+      "description": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["''"]
+      },
+      "data": {
+        "kind": "input",
+        "required": true,
+        "type": ["readonly T[]"],
+        "arguments": []
+      },
+      "rowIdKey": {
+        "kind": "input",
+        "required": true,
+        "type": ["StringKey<T>"],
+        "arguments": []
+      },
+      "categoryKey": {
+        "kind": "input",
+        "required": true,
+        "type": ["StringKey<T>"],
+        "arguments": []
+      },
+      "height": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["320"]
+      },
+      "theme": {
+        "kind": "input",
+        "required": false,
+        "type": ["ChartTheme"],
+        "arguments": ["'light'"]
+      },
+      "themeRevision": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["0"]
+      },
+      "locale": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["'en-US'"]
+      },
+      "numberFormatOptions": {
+        "kind": "input",
+        "required": false,
+        "type": ["Intl.NumberFormatOptions"],
+        "arguments": []
+      },
+      "valueFormatter": {
+        "kind": "input",
+        "required": false,
+        "type": ["ValueFormatter"],
+        "arguments": []
+      },
+      "showDataTable": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["true"]
+      },
+      "tablePageSize": {
+        "kind": "input",
+        "required": false,
+        "type": ["number | null"],
+        "arguments": ["null"]
+      },
+      "loading": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "error": {
+        "kind": "input",
+        "required": false,
+        "type": ["string | null"],
+        "arguments": ["null"]
+      },
+      "animation": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["true"]
+      },
+      "pointSelect": {
+        "kind": "output",
+        "required": false,
+        "type": ["PointSelection<T>"],
+        "arguments": []
+      },
+      "series": {
+        "kind": "input",
+        "required": true,
+        "type": ["readonly Series[]"],
+        "arguments": []
+      },
+      "categoryTickFormatter": {
+        "kind": "input",
+        "required": false,
+        "type": ["CategoryTickFormatter"],
+        "arguments": []
+      },
+      "legendChange": {
+        "kind": "output",
+        "required": false,
+        "type": ["LegendVisibilityChange"],
+        "arguments": []
+      },
+      "smooth": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "showPoints": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["true"]
+      }
+    },
+    "AreaChart": {
+      "title": {
+        "kind": "input",
+        "required": true,
+        "type": ["string"],
+        "arguments": []
+      },
+      "description": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["''"]
+      },
+      "data": {
+        "kind": "input",
+        "required": true,
+        "type": ["readonly T[]"],
+        "arguments": []
+      },
+      "rowIdKey": {
+        "kind": "input",
+        "required": true,
+        "type": ["StringKey<T>"],
+        "arguments": []
+      },
+      "categoryKey": {
+        "kind": "input",
+        "required": true,
+        "type": ["StringKey<T>"],
+        "arguments": []
+      },
+      "height": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["320"]
+      },
+      "theme": {
+        "kind": "input",
+        "required": false,
+        "type": ["ChartTheme"],
+        "arguments": ["'light'"]
+      },
+      "themeRevision": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["0"]
+      },
+      "locale": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["'en-US'"]
+      },
+      "numberFormatOptions": {
+        "kind": "input",
+        "required": false,
+        "type": ["Intl.NumberFormatOptions"],
+        "arguments": []
+      },
+      "valueFormatter": {
+        "kind": "input",
+        "required": false,
+        "type": ["ValueFormatter"],
+        "arguments": []
+      },
+      "showDataTable": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["true"]
+      },
+      "tablePageSize": {
+        "kind": "input",
+        "required": false,
+        "type": ["number | null"],
+        "arguments": ["null"]
+      },
+      "loading": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "error": {
+        "kind": "input",
+        "required": false,
+        "type": ["string | null"],
+        "arguments": ["null"]
+      },
+      "animation": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["true"]
+      },
+      "pointSelect": {
+        "kind": "output",
+        "required": false,
+        "type": ["PointSelection<T>"],
+        "arguments": []
+      },
+      "series": {
+        "kind": "input",
+        "required": true,
+        "type": ["readonly Series[]"],
+        "arguments": []
+      },
+      "categoryTickFormatter": {
+        "kind": "input",
+        "required": false,
+        "type": ["CategoryTickFormatter"],
+        "arguments": []
+      },
+      "legendChange": {
+        "kind": "output",
+        "required": false,
+        "type": ["LegendVisibilityChange"],
+        "arguments": []
+      },
+      "smooth": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "showPoints": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "stacked": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "gradient": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["true"]
+      }
+    },
+    "ComposedChart": {
+      "title": {
+        "kind": "input",
+        "required": true,
+        "type": ["string"],
+        "arguments": []
+      },
+      "description": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["''"]
+      },
+      "data": {
+        "kind": "input",
+        "required": true,
+        "type": ["readonly T[]"],
+        "arguments": []
+      },
+      "rowIdKey": {
+        "kind": "input",
+        "required": true,
+        "type": ["StringKey<T>"],
+        "arguments": []
+      },
+      "categoryKey": {
+        "kind": "input",
+        "required": true,
+        "type": ["StringKey<T>"],
+        "arguments": []
+      },
+      "height": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["320"]
+      },
+      "theme": {
+        "kind": "input",
+        "required": false,
+        "type": ["ChartTheme"],
+        "arguments": ["'light'"]
+      },
+      "themeRevision": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["0"]
+      },
+      "locale": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["'en-US'"]
+      },
+      "numberFormatOptions": {
+        "kind": "input",
+        "required": false,
+        "type": ["Intl.NumberFormatOptions"],
+        "arguments": []
+      },
+      "valueFormatter": {
+        "kind": "input",
+        "required": false,
+        "type": ["ValueFormatter"],
+        "arguments": []
+      },
+      "showDataTable": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["true"]
+      },
+      "tablePageSize": {
+        "kind": "input",
+        "required": false,
+        "type": ["number | null"],
+        "arguments": ["null"]
+      },
+      "loading": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "error": {
+        "kind": "input",
+        "required": false,
+        "type": ["string | null"],
+        "arguments": ["null"]
+      },
+      "animation": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["true"]
+      },
+      "pointSelect": {
+        "kind": "output",
+        "required": false,
+        "type": ["PointSelection<T>"],
+        "arguments": []
+      },
+      "series": {
+        "kind": "input",
+        "required": true,
+        "type": ["readonly Series[]"],
+        "arguments": []
+      },
+      "categoryTickFormatter": {
+        "kind": "input",
+        "required": false,
+        "type": ["CategoryTickFormatter"],
+        "arguments": []
+      },
+      "legendChange": {
+        "kind": "output",
+        "required": false,
+        "type": ["LegendVisibilityChange"],
+        "arguments": []
+      },
+      "layout": {
+        "kind": "input",
+        "required": false,
+        "type": ["ComposedLayout"],
+        "arguments": ["'vertical'"]
+      },
+      "valueAxes": {
+        "kind": "input",
+        "required": false,
+        "type": ["readonly ComposedValueAxis[] | null"],
+        "arguments": ["null"]
+      }
+    },
+    "PieChart": {
+      "title": {
+        "kind": "input",
+        "required": true,
+        "type": ["string"],
+        "arguments": []
+      },
+      "description": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["''"]
+      },
+      "data": {
+        "kind": "input",
+        "required": true,
+        "type": ["readonly T[]"],
+        "arguments": []
+      },
+      "rowIdKey": {
+        "kind": "input",
+        "required": true,
+        "type": ["StringKey<T>"],
+        "arguments": []
+      },
+      "categoryKey": {
+        "kind": "input",
+        "required": true,
+        "type": ["StringKey<T>"],
+        "arguments": []
+      },
+      "height": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["320"]
+      },
+      "theme": {
+        "kind": "input",
+        "required": false,
+        "type": ["ChartTheme"],
+        "arguments": ["'light'"]
+      },
+      "themeRevision": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["0"]
+      },
+      "locale": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["'en-US'"]
+      },
+      "numberFormatOptions": {
+        "kind": "input",
+        "required": false,
+        "type": ["Intl.NumberFormatOptions"],
+        "arguments": []
+      },
+      "valueFormatter": {
+        "kind": "input",
+        "required": false,
+        "type": ["ValueFormatter"],
+        "arguments": []
+      },
+      "showDataTable": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["true"]
+      },
+      "tablePageSize": {
+        "kind": "input",
+        "required": false,
+        "type": ["number | null"],
+        "arguments": ["null"]
+      },
+      "loading": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "error": {
+        "kind": "input",
+        "required": false,
+        "type": ["string | null"],
+        "arguments": ["null"]
+      },
+      "animation": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["true"]
+      },
+      "pointSelect": {
+        "kind": "output",
+        "required": false,
+        "type": ["PointSelection<T>"],
+        "arguments": []
+      },
+      "innerRadius": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["0"]
+      },
+      "showLabels": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "showTotal": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "measure": {
+        "kind": "input",
+        "required": true,
+        "type": ["ChartMeasure<T>"],
+        "arguments": []
+      },
+      "legendChange": {
+        "kind": "output",
+        "required": false,
+        "type": ["CategoryVisibilityChange"],
+        "arguments": []
+      }
+    },
+    "RadarChart": {
+      "title": {
+        "kind": "input",
+        "required": true,
+        "type": ["string"],
+        "arguments": []
+      },
+      "description": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["''"]
+      },
+      "data": {
+        "kind": "input",
+        "required": true,
+        "type": ["readonly T[]"],
+        "arguments": []
+      },
+      "rowIdKey": {
+        "kind": "input",
+        "required": true,
+        "type": ["StringKey<T>"],
+        "arguments": []
+      },
+      "categoryKey": {
+        "kind": "input",
+        "required": true,
+        "type": ["StringKey<T>"],
+        "arguments": []
+      },
+      "height": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["320"]
+      },
+      "theme": {
+        "kind": "input",
+        "required": false,
+        "type": ["ChartTheme"],
+        "arguments": ["'light'"]
+      },
+      "themeRevision": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["0"]
+      },
+      "locale": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["'en-US'"]
+      },
+      "numberFormatOptions": {
+        "kind": "input",
+        "required": false,
+        "type": ["Intl.NumberFormatOptions"],
+        "arguments": []
+      },
+      "valueFormatter": {
+        "kind": "input",
+        "required": false,
+        "type": ["ValueFormatter"],
+        "arguments": []
+      },
+      "showDataTable": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["true"]
+      },
+      "tablePageSize": {
+        "kind": "input",
+        "required": false,
+        "type": ["number | null"],
+        "arguments": ["null"]
+      },
+      "loading": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "error": {
+        "kind": "input",
+        "required": false,
+        "type": ["string | null"],
+        "arguments": ["null"]
+      },
+      "animation": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["true"]
+      },
+      "pointSelect": {
+        "kind": "output",
+        "required": false,
+        "type": ["PointSelection<T>"],
+        "arguments": []
+      },
+      "series": {
+        "kind": "input",
+        "required": true,
+        "type": ["readonly Series[]"],
+        "arguments": []
+      },
+      "categoryTickFormatter": {
+        "kind": "input",
+        "required": false,
+        "type": ["CategoryTickFormatter"],
+        "arguments": []
+      },
+      "legendChange": {
+        "kind": "output",
+        "required": false,
+        "type": ["LegendVisibilityChange"],
+        "arguments": []
+      },
+      "maxKey": {
+        "kind": "input",
+        "required": true,
+        "type": ["NumericKey<T>"],
+        "arguments": []
+      },
+      "filled": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["true"]
+      }
+    },
+    "RadialProgress": {
+      "title": {
+        "kind": "input",
+        "required": true,
+        "type": ["string"],
+        "arguments": []
+      },
+      "description": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["''"]
+      },
+      "value": {
+        "kind": "input",
+        "required": true,
+        "type": ["number | null"],
+        "arguments": []
+      },
+      "max": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["100"]
+      },
+      "height": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["240"]
+      },
+      "theme": {
+        "kind": "input",
+        "required": false,
+        "type": ["ChartTheme"],
+        "arguments": ["'light'"]
+      },
+      "themeRevision": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["0"]
+      },
+      "locale": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["'en-US'"]
+      },
+      "numberFormatOptions": {
+        "kind": "input",
+        "required": false,
+        "type": ["Intl.NumberFormatOptions"],
+        "arguments": []
+      },
+      "valueFormatter": {
+        "kind": "input",
+        "required": false,
+        "type": ["ValueFormatter"],
+        "arguments": []
+      },
+      "loading": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "error": {
+        "kind": "input",
+        "required": false,
+        "type": ["string | null"],
+        "arguments": ["null"]
+      },
+      "animation": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["true"]
+      }
+    },
+    "CalendarHeatmap": {
+      "title": {
+        "kind": "input",
+        "required": true,
+        "type": ["string"],
+        "arguments": []
+      },
+      "description": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["''"]
+      },
+      "valueLabel": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["'Value'"]
+      },
+      "data": {
+        "kind": "input",
+        "required": true,
+        "type": ["readonly T[]"],
+        "arguments": []
+      },
+      "dateKey": {
+        "kind": "input",
+        "required": true,
+        "type": ["StringKey<T>"],
+        "arguments": []
+      },
+      "valueKey": {
+        "kind": "input",
+        "required": true,
+        "type": ["NumericKey<T>"],
+        "arguments": []
+      },
+      "year": {
+        "kind": "input",
+        "required": true,
+        "type": ["number"],
+        "arguments": []
+      },
+      "max": {
+        "kind": "input",
+        "required": true,
+        "type": ["number"],
+        "arguments": []
+      },
+      "pointSelect": {
+        "kind": "output",
+        "required": false,
+        "type": ["CalendarPointSelection<T>"],
+        "arguments": []
+      },
+      "theme": {
+        "kind": "input",
+        "required": false,
+        "type": ["ChartTheme"],
+        "arguments": ["'light'"]
+      },
+      "themeRevision": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["0"]
+      },
+      "locale": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["'en-US'"]
+      },
+      "numberFormatOptions": {
+        "kind": "input",
+        "required": false,
+        "type": ["Intl.NumberFormatOptions"],
+        "arguments": []
+      },
+      "valueFormatter": {
+        "kind": "input",
+        "required": false,
+        "type": ["ValueFormatter"],
+        "arguments": []
+      },
+      "loading": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "error": {
+        "kind": "input",
+        "required": false,
+        "type": ["string | null"],
+        "arguments": ["null"]
+      },
+      "animation": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["true"]
+      }
+    },
+    "SankeyChart": {
+      "title": {
+        "kind": "input",
+        "required": true,
+        "type": ["string"],
+        "arguments": []
+      },
+      "description": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["''"]
+      },
+      "valueLabel": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["'Value'"]
+      },
+      "nodes": {
+        "kind": "input",
+        "required": true,
+        "type": ["readonly N[]"],
+        "arguments": []
+      },
+      "links": {
+        "kind": "input",
+        "required": true,
+        "type": ["readonly L[]"],
+        "arguments": []
+      },
+      "select": {
+        "kind": "output",
+        "required": false,
+        "type": ["SankeySelection<N, L>"],
+        "arguments": []
+      },
+      "theme": {
+        "kind": "input",
+        "required": false,
+        "type": ["ChartTheme"],
+        "arguments": ["'light'"]
+      },
+      "themeRevision": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["0"]
+      },
+      "locale": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["'en-US'"]
+      },
+      "numberFormatOptions": {
+        "kind": "input",
+        "required": false,
+        "type": ["Intl.NumberFormatOptions"],
+        "arguments": []
+      },
+      "valueFormatter": {
+        "kind": "input",
+        "required": false,
+        "type": ["ValueFormatter"],
+        "arguments": []
+      },
+      "loading": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["false"]
+      },
+      "error": {
+        "kind": "input",
+        "required": false,
+        "type": ["string | null"],
+        "arguments": ["null"]
+      },
+      "animation": {
+        "kind": "input",
+        "required": false,
+        "type": [],
+        "arguments": ["true"]
+      }
+    }
+  }
+}

@@ -42,7 +42,7 @@ try {
   for (const theme of ['dark', 'light'])
     for (const width of [1440, 768, 390, 320]) {
       await page.setViewportSize({ width, height: 1000 });
-      await page.goto(new URL('sankey/', base).href);
+      await page.goto(new URL('sankey-validation/', base).href);
       const chart = page.locator('nec-sankey-chart');
       await expect(chart.locator('canvas').first()).toBeVisible();
       if (

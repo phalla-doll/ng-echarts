@@ -1,0 +1,12 @@
+workspace	Run npm run check:workspace	2026-11-16T03:15:56.4036525Z PASS: bar 186679 gzip / 159258 Brotli bytes; 232 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-16T03:15:57.6651958Z PASS: line 187104 gzip / 159784 Brotli bytes; 230 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-16T03:15:58.8780594Z PASS: area 187594 gzip / 160073 Brotli bytes; 230 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-16T03:16:00.1635916Z PASS: composed 196943 gzip / 167711 Brotli bytes; 242 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-16T03:16:01.2946907Z PASS: pie 163578 gzip / 140057 Brotli bytes; 199 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-16T03:16:02.3836208Z PASS: radar 168426 gzip / 144336 Brotli bytes; 210 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-16T03:16:03.5371429Z PASS: calendar 174773 gzip / 149681 Brotli bytes; 213 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-16T03:16:04.6561437Z PASS: sankey 172086 gzip / 147199 Brotli bytes; 205 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-16T03:16:05.4765034Z PASS: radial 134731 gzip / 115489 Brotli bytes; 164 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-16T03:16:05.5713381Z PASS: core 9494 gzip / 8405 Brotli bytes; 0 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-16T03:16:07.0606687Z PASS: root 221051 gzip / 189104 Brotli bytes; 253 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-16T03:16:08.3812564Z PASS: root-frame 203705 gzip / 175708 Brotli bytes; 253 engine modules, none eager.

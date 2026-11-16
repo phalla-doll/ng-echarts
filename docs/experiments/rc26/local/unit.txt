@@ -1,0 +1,30 @@
+
+> ng-echarts-workspace@0.0.0 test
+> ng test chart-library --watch=false && ng test playground --watch=false
+
+❯ Building...
+✔ Building...
+Application bundle generation complete. [2.000 seconds] - 2026-11-16T03:03:08.713Z
+
+
+ RUN  v5.1.0 /Users/phalla/Documents/codes/ng-echarts-rc25-payload
+
+
+ Test Files  47 passed (47)
+      Tests  317 passed (317)
+   Start at  10:03:08
+   Duration  2.47s (environment 78%, tests 11%, setup 5%, transform 4%, import 1%)
+
+❯ Building...
+✔ Building...
+Application bundle generation complete. [1.750 seconds] - 2026-11-16T03:03:13.489Z
+
+
+ RUN  v5.1.0 /Users/phalla/Documents/codes/ng-echarts-rc25-payload
+
+
+ Test Files  7 passed (7)
+      Tests  18 passed (18)
+   Start at  10:03:13
+   Duration  1.07s (environment 52%, setup 23%, transform 15%, tests 8%, import 2%, worker 1%)
+

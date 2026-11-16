@@ -71,7 +71,7 @@ The `/comparison` route exercises pure category-tick formatting and maps pinned 
 
 ## Gate status and next action
 
-Current delivery: [published rc.24](experiments/RC24_PUBLICATION.md) includes named composed bar/area stacks, horizontal layout and independent labeled value axes. Its preserved archive matches across macOS/Linux warm and clean builds; exact-main [CI](https://github.com/phalla-doll/ng-echarts/actions/runs/43737237117) and fresh registry consumers pass. The implementation records 335 unit tests and 476 browser passes with four expected skips. The [demo record](GITHUB_PAGES.md) owns its separate deployed identity. The separate [rc.25 payload increment](experiments/RC25_PAYLOAD_REDUCTION.md) adds bounded root/core headroom work before shared zoom and bidirectional selection; human F09/R06/G2/G3/G4 remain deferred/pending.
+Current delivery: [published rc.24](experiments/RC24_PUBLICATION.md) includes named composed bar/area stacks, horizontal layout and independent labeled value axes. Its preserved archive matches across macOS/Linux warm and clean builds; exact-main [CI](https://github.com/phalla-doll/ng-echarts/actions/runs/43737237117) and fresh registry consumers pass. The implementation records 335 unit tests and 476 browser passes with four expected skips. The [demo record](GITHUB_PAGES.md) owns its separate deployed identity. The separate [rc.25 payload increment](experiments/RC26_PAYLOAD_REDUCTION.md) adds bounded root/core headroom work before shared zoom and bidirectional selection; human F09/R06/G2/G3/G4 remain deferred/pending.
 
 The [playground layout review](experiments/PLAYGROUND_LAYOUT_REVIEW.md) adds a responsive navigation shell, grouped chart settings, preview/code views, and local typography without expanding the library scope. It includes before/after captures and three-engine interface checks. Comparison and benchmark fixtures preserve their full-width measurement conditions.
 
@@ -178,3 +178,5 @@ The user approved the three recommended follow-ups: NG20 composed-to-detail inte
 ## rc.23 registry delivery and rc.24 explicit axes
 
 The user approved rc.23 npm delivery, declaration stability and bounded dual axes. [rc.23](experiments/RC23_PUBLICATION.md) is published and verified with next rc.23/latest rc.18. The separate [rc.24 increment](experiments/NG17_DUAL_AXES.md) implements labeled independent value axes, isolated numeric formatting, raw native actions and stack validation, with explicit declaration types and warm/clean/cross-platform artifact checks. Preserve prior archives, budget limits, engine boundaries and pending human gates.
+
+Final review advances the local candidate to rc.27 after restoring shared radar/composed scale-description styling. The [review record](experiments/RC27_FINAL_REVIEW.md) owns regression, artifact and readiness evidence; rc.26 and all earlier archives remain preserved.

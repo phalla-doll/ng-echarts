@@ -18,6 +18,7 @@ import type { RadarIdentityOption } from './radar-point';
   styleUrls: [
     '../../../core/src/lib/cartesian-chart.css',
     '../../../core/src/lib/chart-controls.css',
+    '../../../core/src/lib/scale-context.css',
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

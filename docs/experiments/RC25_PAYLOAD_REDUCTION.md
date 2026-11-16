@@ -1,4 +1,6 @@
-# rc.25 presentation consolidation and payload reduction
+# Preserved rc.25 payload candidate
+
+Status: superseded after the independent-root declaration-order failure. The [rc.26 continuation](RC26_PAYLOAD_REDUCTION.md) owns current candidate verification; this report preserves the earlier scope and receipts.
 
 Date: 16 November 2026. The user prioritized bundle headroom after verified rc.24 package/demo delivery. This increment prepares a separate local rc.25 candidate. npm next retains rc.24 and latest retains rc.18; the deployed demo retains source `42b27aa`. Human F09/R06/G2/G3/G4 remain deferred/pending.
 
@@ -33,3 +35,7 @@ The 390 px light-theme [rc.24 donut](rc25/visual/pie-rc24.png) and [rc.25 donut]
 ## Limits and preservation
 
 The diagnostic shared-table prototype exceeded the unchanged core budget and was discarded; native tables remain in their original family templates. Shortened internal filenames provided negligible savings and were also discarded. Neither experiment is part of the candidate or passing regression evidence. The 165,879-byte rc.25 archive has SHA-256 `a5b5edf7a03e975bfceb9db21973445d1f82d7abbe0685afde860cb574085732`, 4,551 bytes smaller than rc.24. The [preservation receipt](rc25/local/archive-preservation.json) checks 69 existing archive/checksum/versioned-manifest files unchanged. The advancing current-manifest alias retains its prior rc.24 bytes in a versioned manifest, verified against the baseline digest. Published rc.24 and earlier archives must remain immutable; this local candidate does not close human release acceptance.
+
+## Independent-root correction
+
+The later [comparison](rc25/diagnostics/isolated-rebuild.json) fails complete archive equality solely for inferred Cartesian axis union ordering. All runtime members match. Preserve rc.25 and its exact-consumer results; the correction belongs to rc.26. The shared-checkout browser run was interrupted after concurrent legend changes rebuilt its assets and is excluded from final regression evidence.

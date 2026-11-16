@@ -133,6 +133,6 @@ Four theme palette entries are resolved in the browser and cycle by node depth. 
 
 The browser adapter confines HTML tooltips to the currently visible scrollport, rather than the full offscreen diagram, and dismisses them on scroll/resize. Its scroll listener is disposed with the renderer.
 
-## Optional gallery table disclosure in local rc.26
+## Optional gallery table disclosure in local rc.28
 
-`showDataTable` defaults to `true`. Set `[showDataTable]="false"` to omit the flow disclosure and all of its table markup. Gallery previews disable it and expose sample data in Code; the separate validation pages retain native table actions. This input is in local rc.26 source and is not part of published rc.24.
+`showDataTable` defaults to `true`. Set `[showDataTable]="false"` to omit the flow disclosure and all of its table markup. Gallery previews disable it and expose sample data in Code; the separate validation pages retain native table actions. This input is in local rc.28 source and is not part of published rc.24.

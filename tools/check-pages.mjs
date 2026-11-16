@@ -80,6 +80,11 @@ async function checkPages() {
       'radial/',
       'calendar/',
       'sankey/',
+      'radar-validation/',
+      'calendar-validation/',
+      'sankey-validation/',
+      'linked-example-validation/',
+      'dashboard-validation/',
       'linked/',
       'linked-dashboard/',
       'chart-possibilities/',
@@ -99,12 +104,28 @@ async function checkPages() {
       assert.equal(response.status, 200, `Direct route ${path} must exist without a SPA fallback`);
       const html = await response.text();
       assert(html.includes(`<base href="${base}">`));
-      if (path === 'sankey/')
+      if (
+        [
+          '',
+          'line/',
+          'area/',
+          'pie/',
+          'composed/',
+          'radar/',
+          'radial/',
+          'calendar/',
+          'sankey/',
+          'linked/',
+          'linked-dashboard/',
+        ].includes(path)
+      )
+        assert(!html.includes('<table'), `Gallery ${path} must omit native table markup`);
+      if (path === 'sankey-validation/')
         assert(
           html.includes('Explore flow data') && html.includes('Select flow Direct to Trial: 0'),
           'Prerendered Sankey must retain node/link data and recorded zero actions',
         );
-      if (path === 'calendar/')
+      if (path === 'calendar-validation/')
         assert(
           html.includes('2024-02-29') && html.includes('Explore daily data'),
           'Prerendered calendar must retain native leap-day data',
@@ -162,6 +183,8 @@ async function checkPages() {
           }
         }
         await page.goto(new URL('sankey/', site).href);
+        await expect(page.locator('.gallery .flow-data')).toHaveCount(0);
+        await page.goto(new URL('sankey-validation/', site).href);
         const flow = page.locator('nec-sankey-chart');
         await expect(flow.locator('canvas').first()).toBeVisible();
         await page.reload();
@@ -171,6 +194,8 @@ async function checkPages() {
           .click();
         await expect(page.locator('.flow-selection')).toHaveText('Direct to Trial: 0 visits');
         await page.goto(new URL('calendar/', site).href);
+        await expect(page.locator('.gallery .calendar-data')).toHaveCount(0);
+        await page.goto(new URL('calendar-validation/', site).href);
         const calendar = page.locator('nec-calendar-heatmap');
         await expect(calendar.locator('canvas').first()).toBeVisible();
         // Firefox can expose the intermediate directory redirect as reload's response.

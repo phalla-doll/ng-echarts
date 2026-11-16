@@ -168,8 +168,12 @@ The user authorized the next delivery step: [rc.24 publication and demo delivery
 
 ## rc.25 payload consolidation — 16 November
 
-The user selected payload reduction after rc.24 delivery. The [rc.25 increment](experiments/RC25_PAYLOAD_REDUCTION.md) consolidates common presentation inputs/state and browser lifecycle, with family-specific styles. Root gzip is 221,051 bytes, leaving 949 bytes under the unchanged cap; engine membership and eager boundaries remain unchanged in all twelve scenarios. This is a bounded improvement; new shared-zoom/two-way work must still fit fresh root/core measurements. The local candidate, full regression and exact-artifact receipts are recorded in the report. npm next retains rc.24, latest rc.18 and the demo source `42b27aa`; human release gates remain pending.
+The user selected payload reduction after rc.24 delivery. The [rc.25 increment](experiments/RC26_PAYLOAD_REDUCTION.md) consolidates common presentation inputs/state and browser lifecycle, with family-specific styles. Root gzip is 221,060 bytes, leaving 940 bytes under the unchanged cap; engine membership and eager boundaries remain unchanged in all twelve scenarios. This is a bounded improvement; new shared-zoom/two-way work must still fit fresh root/core measurements. The local candidate, full regression and exact-artifact receipts are recorded in the report. npm next retains rc.24, latest rc.18 and the demo source `42b27aa`; human release gates remain pending.
+
+Final review advances the local candidate to rc.27 after restoring shared radar/composed scale-description styling. The [review record](experiments/RC27_FINAL_REVIEW.md) owns regression, artifact and readiness evidence; rc.26 and all earlier archives remain preserved.
 
 ## rc.26 legend layouts — 16 November
 
 The user selected inline chips and aligned lists, with chips as default. Local rc.26 adds the typed layout input and a live pie-gallery selector with matching copyable source. The [increment report](experiments/RC26_LEGEND_LAYOUTS.md) owns actual keyboard, responsive, visual, installed-package and budget checks. Preserve rc.25 and earlier archives; package publication, Pages deployment and human release gates are unchanged.
+
+Current integration advances legend/gallery source to rc.28 after reconciling the parallel payload branch; see [the integration record](experiments/RC28_LEGEND_INTEGRATION.md). The historical rc.26 legend label does not describe the separately archived rc.26 payload package.

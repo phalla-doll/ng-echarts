@@ -126,7 +126,7 @@ try {
     for (const theme of ['dark', 'light']) {
       for (const width of [1440, 320]) {
         await page.setViewportSize({ width, height: 1000 });
-        await navigate('linked/', theme);
+        await navigate('linked-example-validation/', theme);
         await expect(page.locator('canvas')).toHaveCount(2);
         await page.evaluate(() => document.fonts.ready);
         const month = page.getByRole('combobox', { name: 'Period', exact: true });
@@ -218,7 +218,7 @@ try {
         true,
       );
     }
-    await navigate('linked/', 'dark');
+    await navigate('linked-example-validation/', 'dark');
     await expect(page.locator('canvas')).toHaveCount(2);
     await page.emulateMedia({ forcedColors: 'active' });
     const supported = await page.evaluate(() => matchMedia('(forced-colors: active)').matches);
