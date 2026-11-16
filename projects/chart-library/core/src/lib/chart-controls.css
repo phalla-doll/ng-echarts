@@ -31,13 +31,6 @@
   white-space: nowrap;
   border: 0;
 }
-.scale-context {
-  margin: 0 0 8px;
-  color: var(--nec-muted, #536176);
-  font-size: 12px;
-  line-height: 20px;
-}
-
 .plot-message > span {
   max-width: 34ch;
   padding: 10px 12px;

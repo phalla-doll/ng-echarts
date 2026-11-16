@@ -59,3 +59,6 @@ export { TablePager as ɵTablePager } from './lib/table-pager';
 export { tooltipStyle as ɵtooltipStyle, tooltipMarkup as ɵtooltipMarkup } from './lib/tooltip';
 
 export { buildAreaFill as ɵbuildAreaFill } from './lib/area-fill';
+
+export { bindBrowserPlot as ɵbindBrowserPlot } from './lib/browser-plot';
+export { ChartPresentation as ɵChartPresentation } from './lib/chart-presentation';

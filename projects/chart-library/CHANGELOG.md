@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.0-rc.27 — Restore radar scale-description presentation
+
+- Share compact scale-description styling between radar and composed charts, restoring radar spacing and muted typography after the family-style separation.
+- Verify the scale paragraph across responsive themes and exact installed client/SSR consumers. Preserve the sealed rc.26 candidate and every earlier archive; human release gates remain pending.
+
+## 0.1.0-rc.26 — Stable Cartesian option declarations
+
+- Preserve rc.25 presentation/lifecycle consolidation and family-scoped styles.
+- Name the Cartesian category/value axis and option contracts explicitly so independent builds retain declaration order. Preserve both rc.25 diagnostic archives and every earlier candidate; human release gates remain pending.
+
+## 0.1.0-rc.25 — Shared presentation and smaller chart payloads
+
+- Share common signal inputs, native table state, theme defaults and renderer recovery through an internal presentation base, retaining family-specific APIs and validation.
+- Reuse browser plot setup, reduced-motion listeners, rendering, focus restoration and teardown across Cartesian and pie charts without eager engine imports.
+- Scope pie/donut, bar selection and composed axis-description CSS to their owning components. Preserve published rc.24 and every earlier archive; human release gates remain pending.
+
 ## 0.1.0-rc.24 — Explicit composed value axes
 
 - Add opt-in one/two labeled linear value axes, axis-ID series assignment and independent numeric formatting for ticks, tooltips and native actions. Keep raw observations and reject named stacks spanning axes.

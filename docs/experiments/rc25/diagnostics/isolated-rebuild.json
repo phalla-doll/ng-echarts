@@ -1,0 +1,8 @@
+{
+  "preparedSha256": "a5b5edf7a03e975bfceb9db21973445d1f82d7abbe0685afde860cb574085732",
+  "isolatedSha256": "12bd51fc1a0c31aabd0c35d088dff467a772b008dc0b1df5e4115269ebdfadd3",
+  "changedMembers": ["package/types/mantha911-ng-echarts-core.d.ts"],
+  "allRuntimeMembersIdentical": true,
+  "completeArchiveIdentical": false,
+  "result": "failed independent-root exact-byte comparison; preserve rc.25 and correct in rc.26"
+}

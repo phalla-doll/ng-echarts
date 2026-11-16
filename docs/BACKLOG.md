@@ -165,3 +165,9 @@ The [committed dashboard/horizontal demo delivery](experiments/NG20_COMPOSED_DAS
 ## rc.24 delivery and next priorities — 16 November
 
 The user authorized the next delivery step: [rc.24 publication and demo delivery](experiments/RC24_PUBLICATION.md), with current documentation reconciled and archived package contents preserved. Next reduce the combined-root payload in a new version: rc.24 has only 15 gzip bytes of headroom under its unchanged cap. Follow with shared zoom and bidirectional selection; NG21 tooltip templates and decorative work remain later scope. Human F09/R06/G2/G3/G4 remain deferred/pending.
+
+## rc.25 payload consolidation — 16 November
+
+The user selected payload reduction after rc.24 delivery. The [rc.25 increment](experiments/RC26_PAYLOAD_REDUCTION.md) consolidates common presentation inputs/state and browser lifecycle, with family-specific styles. Root gzip is 221,060 bytes, leaving 940 bytes under the unchanged cap; engine membership and eager boundaries remain unchanged in all twelve scenarios. This is a bounded improvement; new shared-zoom/two-way work must still fit fresh root/core measurements. The local candidate, full regression and exact-artifact receipts are recorded in the report. npm next retains rc.24, latest rc.18 and the demo source `42b27aa`; human release gates remain pending.
+
+Final review advances the local candidate to rc.27 after restoring shared radar/composed scale-description styling. The [review record](experiments/RC27_FINAL_REVIEW.md) owns regression, artifact and readiness evidence; rc.26 and all earlier archives remain preserved.

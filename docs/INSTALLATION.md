@@ -20,7 +20,7 @@ Run these commands in the repository root after selecting the toolchain:
 ```sh
 npm ci
 npm run pack:lib
-export CHART_LIBRARY_TARBALL="$PWD/dist/mantha911-ng-echarts-0.1.0-rc.24.tgz"
+export CHART_LIBRARY_TARBALL="$PWD/dist/mantha911-ng-echarts-0.1.0-rc.27.tgz"
 ```
 
 The `CHART_LIBRARY_TARBALL` variable is an absolute path for the commands below. If you open another terminal, set it to the actual tarball location. Keep the tarball available for subsequent installs, or copy it into the consuming project's `vendor/` directory before installing it. Commit the consumer's resulting lockfile and use `npm ci` for repeat installs. Rebuild/repack/reinstall when changing the library; a tarball installation does not watch the checkout.
@@ -120,6 +120,6 @@ The [API index and integration guide](INTEGRATION_GUIDE.md) cover shared types, 
 
 ## Current feature availability
 
-The current published version is `0.1.0-rc.24`; npm `next` selects rc.24 and `latest` remains rc.18. Horizontal composition ships since rc.23; explicit independent value axes ship in rc.24. The composed linked dashboard also runs on rc.22. Table pagination ships since rc.19, named bar stacks since rc.21 and composed areas since rc.22. Preserve every earlier archive. The [rc.24 publication](experiments/RC24_PUBLICATION.md) and [rc.24 increment](experiments/NG17_DUAL_AXES.md) separate registry delivery from current source checks.
+The current source candidate is `0.1.0-rc.27`, with shared internal presentation/lifecycle code, family-scoped styles and stable Cartesian option declarations. The current published version is `0.1.0-rc.24`; npm `next` selects rc.24 and `latest` remains rc.18. Horizontal composition ships since rc.23; explicit independent value axes ship in rc.24. The composed linked dashboard also runs on rc.22. Table pagination ships since rc.19, named bar stacks since rc.21 and composed areas since rc.22. Preserve every earlier archive. The [rc.24 publication](experiments/RC24_PUBLICATION.md) and [rc.24 increment](experiments/NG17_DUAL_AXES.md) separate registry delivery from current source checks.
 
 The [composed dashboard guide](COMPOSED_DASHBOARD.md) provides a complete dashboard example and a digest-verified npm consumer check. The [rc.23 increment](experiments/NG20_COMPOSED_DASHBOARD.md) records local verification separately from rc.22 publication.

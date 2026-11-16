@@ -1,0 +1,7 @@
+{
+  "baseline": "published demo source 42b27aa, rc.24",
+  "candidate": "local rc.27 SSR, 390x1000 light/reduced motion",
+  "pngBytesIdentical": true,
+  "baselineSha256": "4bdbacec36c1482c897b2738f338fa8069e8f2051801befdd0da2f326ac464aa",
+  "candidateSha256": "4bdbacec36c1482c897b2738f338fa8069e8f2051801befdd0da2f326ac464aa"
+}

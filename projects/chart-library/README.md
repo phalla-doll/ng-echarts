@@ -1,6 +1,6 @@
 # Angular chart library
 
-Experimental standalone Angular 22 components using Apache ECharts. Public prerelease identity: `@mantha911/ng-echarts`. Current candidate: `0.1.0-rc.24`. Public prereleases use the `next` tag; consult the repository publication record for the current registry version. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. The API is experimental; human screen-reader interpretation remains unreviewed at the user’s request.
+Experimental standalone Angular 22 components using Apache ECharts. Public prerelease identity: `@mantha911/ng-echarts`. Current candidate: `0.1.0-rc.27`. Public prereleases use the `next` tag; consult the repository publication record for the current registry version. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. The API is experimental; human screen-reader interpretation remains unreviewed at the user’s request.
 
 ## Installation
 
@@ -13,7 +13,7 @@ npm install @mantha911/ng-echarts@next echarts@6.1.0
 For a retained exact local candidate:
 
 ```sh
-npm install /absolute/path/to/mantha911-ng-echarts-0.1.0-rc.24.tgz echarts@6.1.0
+npm install /absolute/path/to/mantha911-ng-echarts-0.1.0-rc.27.tgz echarts@6.1.0
 ```
 
 Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes. Table pagination is available since rc.19. Named composed bar stacks require rc.20 or later. Composed areas require rc.22 or later. Horizontal composed layout requires rc.23. The exact local candidate includes these features; a registry install must resolve a version containing the features you use.
@@ -159,4 +159,4 @@ Set `layout="horizontal"` on `ComposedChart` for a numeric x-axis and top-to-bot
 
 Set `valueAxes` to one or two `ComposedValueAxis` descriptors, each with a unique nonempty `id`, `label` and `unit`. Assign measures with `series.axisId`; omission uses the first axis. Each axis accepts its own `numberFormatOptions` or `valueFormatter`, using the shared locale. With explicit axes, shared number-format options/formatter are replaced by the axis settings. Native scale descriptions, legends, tables and tooltip labels identify units and axis positions. Vertical layout uses left/right value axes; horizontal uses bottom/top. Equal screen heights on independent scales do not imply equal quantities.
 
-A named stack within one geometry must use one axis; unknown axis IDs, invalid descriptors and cross-axis stacks produce configuration errors. Raw point events retain source numbers (a 12% formatted fraction still emits `0.12`); missing observations stay missing and zero stays observed. `valueAxes: null` retains the existing shared-scale contract. No raw ECharts options or new engine module is exposed. npm rc.23 supplies horizontal composition; this new API requires the rc.24 source candidate until separately published.
+A named stack within one geometry must use one axis; unknown axis IDs, invalid descriptors and cross-axis stacks produce configuration errors. Raw point events retain source numbers (a 12% formatted fraction still emits `0.12`); missing observations stay missing and zero stays observed. `valueAxes: null` retains the existing shared-scale contract. No raw ECharts options or new engine module is exposed. Horizontal composition ships since npm rc.23 and independent value axes since rc.24. The rc.27 source candidate consolidates internal presentation/lifecycle behavior and scopes family styles without changing those APIs.

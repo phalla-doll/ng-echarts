@@ -37,6 +37,64 @@ function record(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null;
 }
 
+interface AxisAppearance {
+  axisLine: { show: boolean };
+  axisTick: { show: boolean };
+}
+
+interface CartesianCategoryAxis extends AxisAppearance {
+  type: 'category';
+  data: string[];
+  inverse: boolean;
+  axisLabel: {
+    color: string;
+    fontSize: number;
+    formatter: (_value: string, index: number) => string;
+  };
+}
+
+interface CartesianValueAxis extends AxisAppearance {
+  type: 'value';
+  splitNumber: number;
+  axisLabel: {
+    show: boolean;
+    color: string;
+    fontSize: number;
+    formatter: (value: number) => string;
+    hideOverlap: boolean;
+  };
+  splitLine: {
+    show: boolean;
+    lineStyle: { color: string; type: 'dashed' };
+  };
+}
+
+type CartesianAxis = CartesianCategoryAxis | CartesianValueAxis;
+
+/** Explicit axes keep declaration member order stable across independent build roots. */
+interface CartesianOption {
+  animation: boolean;
+  animationDuration: number;
+  animationDurationUpdate: number;
+  backgroundColor: string;
+  textStyle: { fontFamily: string; color: string };
+  grid: {
+    left: number;
+    right: number;
+    top: number;
+    bottom: number;
+    outerBoundsMode: 'same';
+    outerBoundsContain: 'axisLabel';
+  };
+  xAxis: CartesianAxis;
+  yAxis: CartesianAxis;
+  tooltip: ReturnType<typeof tooltipStyle> & {
+    trigger: 'axis';
+    confine: boolean;
+    formatter: (params: unknown) => string;
+  };
+}
+
 export function buildCartesianOptions<T>(
   model: Exclude<CartesianModel<T>, { kind: 'error' }>,
   hiddenIds: ReadonlySet<string>,
@@ -46,7 +104,7 @@ export function buildCartesianOptions<T>(
   format: (value: number) => string,
   categoryTicks: readonly string[] = model.rows.map((row) => row.category),
   pointFormat?: (value: number, seriesId: string) => string,
-) {
+): CartesianOption {
   const hasVisibleSeries = model.series.some((series) => !hiddenIds.has(series.id));
   const categoryAxis = {
     type: 'category' as const,

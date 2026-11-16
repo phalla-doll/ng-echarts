@@ -1,0 +1,611 @@
+{
+  "conclusion": "success",
+  "databaseId": 43796458090,
+  "event": "pull_request",
+  "headSha": "8b8b08ed31d84d3243fb4e01cfcc2f4d3e3c2f92",
+  "jobs": [
+    {
+      "completedAt": "2026-11-16T03:13:22Z",
+      "conclusion": "success",
+      "databaseId": 133066274891,
+      "name": "pages",
+      "startedAt": "2026-11-16T03:09:41Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-11-16T03:09:43Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-11-16T03:09:42Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:09:46Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v7",
+          "number": 2,
+          "startedAt": "2026-11-16T03:09:43Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:09:49Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v7",
+          "number": 3,
+          "startedAt": "2026-11-16T03:09:46Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:09:50Z",
+          "conclusion": "success",
+          "name": "Run npm install --global npm@11.19.1",
+          "number": 4,
+          "startedAt": "2026-11-16T03:09:49Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:09:55Z",
+          "conclusion": "success",
+          "name": "Run npm ci",
+          "number": 5,
+          "startedAt": "2026-11-16T03:09:50Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:10:53Z",
+          "conclusion": "success",
+          "name": "Run npx playwright install --with-deps chromium firefox webkit",
+          "number": 6,
+          "startedAt": "2026-11-16T03:09:55Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:11:12Z",
+          "conclusion": "success",
+          "name": "Run npm run build:pages",
+          "number": 7,
+          "startedAt": "2026-11-16T03:10:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:12:01Z",
+          "conclusion": "success",
+          "name": "Run npm run check:pages",
+          "number": 8,
+          "startedAt": "2026-11-16T03:11:12Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:13:19Z",
+          "conclusion": "success",
+          "name": "Run npm run check:demo-performance",
+          "number": 9,
+          "startedAt": "2026-11-16T03:12:01Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:13:19Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v7",
+          "number": 17,
+          "startedAt": "2026-11-16T03:13:19Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:13:20Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v7",
+          "number": 18,
+          "startedAt": "2026-11-16T03:13:19Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:13:20Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 19,
+          "startedAt": "2026-11-16T03:13:20Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/43796458090/job/133066274891"
+    },
+    {
+      "completedAt": "2026-11-16T03:19:00Z",
+      "conclusion": "success",
+      "databaseId": 133066275131,
+      "name": "workspace",
+      "startedAt": "2026-11-16T03:09:42Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-11-16T03:09:44Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-11-16T03:09:43Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:09:46Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v7",
+          "number": 2,
+          "startedAt": "2026-11-16T03:09:44Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:09:53Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v7",
+          "number": 3,
+          "startedAt": "2026-11-16T03:09:46Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:09:56Z",
+          "conclusion": "success",
+          "name": "Run npm install --global npm@11.19.1",
+          "number": 4,
+          "startedAt": "2026-11-16T03:09:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:10:03Z",
+          "conclusion": "success",
+          "name": "Run npm ci",
+          "number": 5,
+          "startedAt": "2026-11-16T03:09:56Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:10:59Z",
+          "conclusion": "success",
+          "name": "Run npx playwright install --with-deps chromium firefox webkit",
+          "number": 6,
+          "startedAt": "2026-11-16T03:10:03Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:16:08Z",
+          "conclusion": "success",
+          "name": "Run npm run check:workspace",
+          "number": 7,
+          "startedAt": "2026-11-16T03:10:59Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:18:54Z",
+          "conclusion": "success",
+          "name": "Run npm run release:local",
+          "number": 8,
+          "startedAt": "2026-11-16T03:16:08Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:18:56Z",
+          "conclusion": "success",
+          "name": "Run npm run check:release-immutability",
+          "number": 9,
+          "startedAt": "2026-11-16T03:18:54Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:18:57Z",
+          "conclusion": "success",
+          "name": "Retain exact candidate evidence",
+          "number": 10,
+          "startedAt": "2026-11-16T03:18:56Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:18:57Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v7",
+          "number": 19,
+          "startedAt": "2026-11-16T03:18:57Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:18:58Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v7",
+          "number": 20,
+          "startedAt": "2026-11-16T03:18:57Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:18:58Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 21,
+          "startedAt": "2026-11-16T03:18:58Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/43796458090/job/133066275131"
+    },
+    {
+      "completedAt": "2026-11-16T03:21:45Z",
+      "conclusion": "success",
+      "databaseId": 133066275221,
+      "name": "browser (webkit)",
+      "startedAt": "2026-11-16T03:09:42Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-11-16T03:09:43Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-11-16T03:09:42Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:09:46Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v7",
+          "number": 2,
+          "startedAt": "2026-11-16T03:09:43Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:09:48Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v7",
+          "number": 3,
+          "startedAt": "2026-11-16T03:09:46Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:09:52Z",
+          "conclusion": "success",
+          "name": "Run npm install --global npm@11.19.1",
+          "number": 4,
+          "startedAt": "2026-11-16T03:09:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:09:57Z",
+          "conclusion": "success",
+          "name": "Run npm ci",
+          "number": 5,
+          "startedAt": "2026-11-16T03:09:52Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:10:42Z",
+          "conclusion": "success",
+          "name": "Run npx playwright install --with-deps webkit",
+          "number": 6,
+          "startedAt": "2026-11-16T03:09:57Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:10:59Z",
+          "conclusion": "success",
+          "name": "Run npm run build",
+          "number": 7,
+          "startedAt": "2026-11-16T03:10:42Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:11:13Z",
+          "conclusion": "success",
+          "name": "Verify WebKit horizontal hit targets before the full suite",
+          "number": 8,
+          "startedAt": "2026-11-16T03:10:59Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:21:43Z",
+          "conclusion": "success",
+          "name": "Run npm run test:browser -- --project=webkit --max-failures=1",
+          "number": 9,
+          "startedAt": "2026-11-16T03:11:13Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:21:43Z",
+          "conclusion": "skipped",
+          "name": "Retain browser failure evidence",
+          "number": 10,
+          "startedAt": "2026-11-16T03:21:43Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:21:43Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v7",
+          "number": 19,
+          "startedAt": "2026-11-16T03:21:43Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:21:44Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v7",
+          "number": 20,
+          "startedAt": "2026-11-16T03:21:43Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:21:44Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 21,
+          "startedAt": "2026-11-16T03:21:44Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/43796458090/job/133066275221"
+    },
+    {
+      "completedAt": "2026-11-16T03:17:30Z",
+      "conclusion": "success",
+      "databaseId": 133066275226,
+      "name": "browser (chromium)",
+      "startedAt": "2026-11-16T03:09:41Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-11-16T03:09:43Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-11-16T03:09:42Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:09:45Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v7",
+          "number": 2,
+          "startedAt": "2026-11-16T03:09:43Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:09:48Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v7",
+          "number": 3,
+          "startedAt": "2026-11-16T03:09:45Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:09:50Z",
+          "conclusion": "success",
+          "name": "Run npm install --global npm@11.19.1",
+          "number": 4,
+          "startedAt": "2026-11-16T03:09:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:09:58Z",
+          "conclusion": "success",
+          "name": "Run npm ci",
+          "number": 5,
+          "startedAt": "2026-11-16T03:09:50Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:10:18Z",
+          "conclusion": "success",
+          "name": "Run npx playwright install --with-deps chromium",
+          "number": 6,
+          "startedAt": "2026-11-16T03:09:58Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:10:40Z",
+          "conclusion": "success",
+          "name": "Run npm run build",
+          "number": 7,
+          "startedAt": "2026-11-16T03:10:18Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:10:40Z",
+          "conclusion": "skipped",
+          "name": "Verify WebKit horizontal hit targets before the full suite",
+          "number": 8,
+          "startedAt": "2026-11-16T03:10:40Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:17:28Z",
+          "conclusion": "success",
+          "name": "Run npm run test:browser -- --project=chromium --max-failures=1",
+          "number": 9,
+          "startedAt": "2026-11-16T03:10:40Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:17:28Z",
+          "conclusion": "skipped",
+          "name": "Retain browser failure evidence",
+          "number": 10,
+          "startedAt": "2026-11-16T03:17:28Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:17:28Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v7",
+          "number": 19,
+          "startedAt": "2026-11-16T03:17:28Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:17:28Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v7",
+          "number": 20,
+          "startedAt": "2026-11-16T03:17:28Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:17:28Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 21,
+          "startedAt": "2026-11-16T03:17:28Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/43796458090/job/133066275226"
+    },
+    {
+      "completedAt": "2026-11-16T03:19:57Z",
+      "conclusion": "success",
+      "databaseId": 133066275240,
+      "name": "browser (firefox)",
+      "startedAt": "2026-11-16T03:09:42Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-11-16T03:09:44Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-11-16T03:09:43Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:09:47Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v7",
+          "number": 2,
+          "startedAt": "2026-11-16T03:09:44Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:09:51Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v7",
+          "number": 3,
+          "startedAt": "2026-11-16T03:09:47Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:09:54Z",
+          "conclusion": "success",
+          "name": "Run npm install --global npm@11.19.1",
+          "number": 4,
+          "startedAt": "2026-11-16T03:09:51Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:10:02Z",
+          "conclusion": "success",
+          "name": "Run npm ci",
+          "number": 5,
+          "startedAt": "2026-11-16T03:09:54Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:10:22Z",
+          "conclusion": "success",
+          "name": "Run npx playwright install --with-deps firefox",
+          "number": 6,
+          "startedAt": "2026-11-16T03:10:02Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:10:45Z",
+          "conclusion": "success",
+          "name": "Run npm run build",
+          "number": 7,
+          "startedAt": "2026-11-16T03:10:22Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:10:45Z",
+          "conclusion": "skipped",
+          "name": "Verify WebKit horizontal hit targets before the full suite",
+          "number": 8,
+          "startedAt": "2026-11-16T03:10:45Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:19:54Z",
+          "conclusion": "success",
+          "name": "Run npm run test:browser -- --project=firefox --max-failures=1",
+          "number": 9,
+          "startedAt": "2026-11-16T03:10:45Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:19:54Z",
+          "conclusion": "skipped",
+          "name": "Retain browser failure evidence",
+          "number": 10,
+          "startedAt": "2026-11-16T03:19:54Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:19:54Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v7",
+          "number": 19,
+          "startedAt": "2026-11-16T03:19:54Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:19:54Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v7",
+          "number": 20,
+          "startedAt": "2026-11-16T03:19:54Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:19:54Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 21,
+          "startedAt": "2026-11-16T03:19:54Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/43796458090/job/133066275240"
+    },
+    {
+      "completedAt": "2026-11-16T03:21:51Z",
+      "conclusion": "success",
+      "databaseId": 133070265849,
+      "name": "check",
+      "startedAt": "2026-11-16T03:21:47Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-11-16T03:21:48Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-11-16T03:21:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:21:49Z",
+          "conclusion": "success",
+          "name": "Require all workspace, Pages and browser jobs",
+          "number": 2,
+          "startedAt": "2026-11-16T03:21:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T03:21:49Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 3,
+          "startedAt": "2026-11-16T03:21:49Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/43796458090/job/133070265849"
+    }
+  ],
+  "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/43796458090"
+}

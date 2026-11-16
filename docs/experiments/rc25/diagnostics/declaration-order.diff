@@ -1,0 +1,82 @@
+--- 
++++ 
+@@ -143,6 +143,29 @@
+     outerBoundsContain: "axisLabel";
+   };
+   xAxis: {
++    type: "value";
++    splitNumber: number;
++    axisLine: {
++      show: boolean;
++    };
++    axisTick: {
++      show: boolean;
++    };
++    axisLabel: {
++      show: boolean;
++      color: string;
++      fontSize: number;
++      formatter: (value: number) => string;
++      hideOverlap: boolean;
++    };
++    splitLine: {
++      show: boolean;
++      lineStyle: {
++        color: string;
++        type: "dashed";
++      };
++    };
++  } | {
+     type: "category";
+     data: string[];
+     inverse: boolean;
+@@ -157,7 +180,8 @@
+       fontSize: number;
+       formatter: (_value: string, index: number) => string;
+     };
+-  } | {
++  };
++  yAxis: {
+     type: "value";
+     splitNumber: number;
+     axisLine: {
+@@ -180,8 +204,7 @@
+         type: "dashed";
+       };
+     };
+-  };
+-  yAxis: {
++  } | {
+     type: "category";
+     data: string[];
+     inverse: boolean;
+@@ -195,29 +218,6 @@
+       color: string;
+       fontSize: number;
+       formatter: (_value: string, index: number) => string;
+-    };
+-  } | {
+-    type: "value";
+-    splitNumber: number;
+-    axisLine: {
+-      show: boolean;
+-    };
+-    axisTick: {
+-      show: boolean;
+-    };
+-    axisLabel: {
+-      show: boolean;
+-      color: string;
+-      fontSize: number;
+-      formatter: (value: number) => string;
+-      hideOverlap: boolean;
+-    };
+-    splitLine: {
+-      show: boolean;
+-      lineStyle: {
+-        color: string;
+-        type: "dashed";
+-      };
+     };
+   };
+   tooltip: {
