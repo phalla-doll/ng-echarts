@@ -99,6 +99,11 @@ test('fits both themes at narrow widths, resizes a mounted plot, and preserves s
       if ((await shell.getAttribute('class'))!.includes('dark') !== (theme === 'dark'))
         await page.getByRole('button', { name: /Use (light|dark) theme/ }).click();
       await expect(chart.locator('canvas')).toHaveCount(1);
+      const scale = chart.locator('.scale-context');
+      await expect(scale).toHaveCSS('font-size', '12px');
+      await expect(scale).toHaveCSS('line-height', '20px');
+      await expect(scale).toHaveCSS('margin-top', '0px');
+      await expect(scale).toHaveCSS('margin-bottom', '8px');
       const legend = chart.locator('.legend button').first();
       await page.keyboard.press('Tab');
       await legend.focus();

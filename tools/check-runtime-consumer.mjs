@@ -161,6 +161,10 @@ async function exercise(engine, url, ssr) {
     await navigation.getByRole('link', { name: 'Radar Blocks', exact: true }).click();
     const radar = page.locator('nec-radar-chart');
     await expect(radar.locator('canvas')).toHaveCount(1);
+    await expect(radar.locator('.scale-context')).toHaveCSS('font-size', '12px');
+    await expect(radar.locator('.scale-context')).toHaveCSS('line-height', '20px');
+    await expect(radar.locator('.scale-context')).toHaveCSS('margin-top', '0px');
+    await expect(radar.locator('.scale-context')).toHaveCSS('margin-bottom', '8px');
     await radar.getByRole('button', { name: 'Show data table', exact: true }).click();
     await radar.getByRole('button', { name: 'Select Current for Speed: 78', exact: true }).click();
     await expect(page.locator('.block-selection')).toHaveText('Speed: current = 78 (table)');

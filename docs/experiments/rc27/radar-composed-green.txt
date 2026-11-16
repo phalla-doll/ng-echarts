@@ -1,0 +1,35 @@
+
+> ng-echarts-workspace@0.0.0 test:browser
+> playwright test tests/browser/radar.spec.ts tests/browser/composed-axes.spec.ts --max-failures=1 --output=tmp/final-review/green-results
+
+[WebServer] (node:48962) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 18 tests using 1 worker
+
+(node:48970) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/browser/composed-axes.spec.ts:5:1 › keeps dual-axis native values, labels, identities and errors coherent through replacement (1.1s)
+  ✓   2 [chromium] › tests/browser/composed-axes.spec.ts:103:1 › renders independent-scale examples with correct summaries and copyable source in both themes (883ms)
+  ✓   3 [chromium] › tests/browser/radar.spec.ts:17:1 › hydrates, emits equivalent plot/table identities and preserves keyboard focus across updates (596ms)
+  ✓   4 [chromium] › tests/browser/radar.spec.ts:62:1 › keeps missing observations explicit, hides stale plots in states and recovers (595ms)
+  ✓   5 [chromium] › tests/browser/radar.spec.ts:85:1 › fits both themes at narrow widths, resizes a mounted plot, and preserves shared focus styling (666ms)
+  ✓   6 [chromium] › tests/browser/radar.spec.ts:120:1 › disposes the renderer and motion listeners across 100 mount cycles and navigation (23.1s)
+(node:49055) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [firefox] › tests/browser/composed-axes.spec.ts:5:1 › keeps dual-axis native values, labels, identities and errors coherent through replacement (2.1s)
+  ✓   8 [firefox] › tests/browser/composed-axes.spec.ts:103:1 › renders independent-scale examples with correct summaries and copyable source in both themes (1.4s)
+  ✓   9 [firefox] › tests/browser/radar.spec.ts:17:1 › hydrates, emits equivalent plot/table identities and preserves keyboard focus across updates (765ms)
+  ✓  10 [firefox] › tests/browser/radar.spec.ts:62:1 › keeps missing observations explicit, hides stale plots in states and recovers (534ms)
+  ✓  11 [firefox] › tests/browser/radar.spec.ts:85:1 › fits both themes at narrow widths, resizes a mounted plot, and preserves shared focus styling (935ms)
+  ✓  12 [firefox] › tests/browser/radar.spec.ts:120:1 › disposes the renderer and motion listeners across 100 mount cycles and navigation (9.2s)
+(node:49114) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  13 [webkit] › tests/browser/composed-axes.spec.ts:5:1 › keeps dual-axis native values, labels, identities and errors coherent through replacement (1.4s)
+  ✓  14 [webkit] › tests/browser/composed-axes.spec.ts:103:1 › renders independent-scale examples with correct summaries and copyable source in both themes (1.2s)
+  ✓  15 [webkit] › tests/browser/radar.spec.ts:17:1 › hydrates, emits equivalent plot/table identities and preserves keyboard focus across updates (717ms)
+  ✓  16 [webkit] › tests/browser/radar.spec.ts:62:1 › keeps missing observations explicit, hides stale plots in states and recovers (668ms)
+  ✓  17 [webkit] › tests/browser/radar.spec.ts:85:1 › fits both themes at narrow widths, resizes a mounted plot, and preserves shared focus styling (972ms)
+  ✓  18 [webkit] › tests/browser/radar.spec.ts:120:1 › disposes the renderer and motion listeners across 100 mount cycles and navigation (14.6s)
+
+  18 passed (1.1m)

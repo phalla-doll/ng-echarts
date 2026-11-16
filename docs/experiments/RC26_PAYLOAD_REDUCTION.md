@@ -1,5 +1,7 @@
 # rc.26 presentation consolidation and payload reduction
 
+Superseded by the [rc.27 final review correction](RC27_FINAL_REVIEW.md), which restores radar scale-description styling while preserving this sealed artifact and its actual historical results.
+
 Date: 16 November 2026. The user prioritized bundle headroom after verified rc.24 package/demo delivery. This increment prepares a separate local rc.26 candidate. npm next retains rc.24 and latest retains rc.18; the deployed demo retains source `42b27aa`. Human F09/R06/G2/G3/G4 remain deferred/pending.
 
 ## Scope and behavior

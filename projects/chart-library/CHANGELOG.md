@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.0-rc.27 — Restore radar scale-description presentation
+
+- Share compact scale-description styling between radar and composed charts, restoring radar spacing and muted typography after the family-style separation.
+- Verify the scale paragraph across responsive themes and exact installed client/SSR consumers. Preserve the sealed rc.26 candidate and every earlier archive; human release gates remain pending.
+
 ## 0.1.0-rc.26 — Stable Cartesian option declarations
 
 - Preserve rc.25 presentation/lifecycle consolidation and family-scoped styles.

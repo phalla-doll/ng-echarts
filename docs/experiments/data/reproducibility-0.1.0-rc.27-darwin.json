@@ -1,0 +1,14 @@
+{
+  "recordedAt": "2026-11-16T03:40:44.082Z",
+  "node": "v24.22.2",
+  "npm": "11.19.1",
+  "platform": "darwin",
+  "version": "0.1.0-rc.27",
+  "method": "Pack the current build, then compile/pack in two independent roots without build caches, sharing only the pinned installed dependencies. Compare complete tarball SHA-256; cross-platform CI comparison is separate.",
+  "warmSha256": "7ed653831c8180317777ffce5713102b383c1e409d7df163549e952780464730",
+  "clean": [
+    { "index": 1, "sha256": "7ed653831c8180317777ffce5713102b383c1e409d7df163549e952780464730" },
+    { "index": 2, "sha256": "7ed653831c8180317777ffce5713102b383c1e409d7df163549e952780464730" }
+  ],
+  "passed": true
+}

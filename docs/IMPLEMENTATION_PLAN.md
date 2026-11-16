@@ -178,3 +178,5 @@ The user approved the three recommended follow-ups: NG20 composed-to-detail inte
 ## rc.23 registry delivery and rc.24 explicit axes
 
 The user approved rc.23 npm delivery, declaration stability and bounded dual axes. [rc.23](experiments/RC23_PUBLICATION.md) is published and verified with next rc.23/latest rc.18. The separate [rc.24 increment](experiments/NG17_DUAL_AXES.md) implements labeled independent value axes, isolated numeric formatting, raw native actions and stack validation, with explicit declaration types and warm/clean/cross-platform artifact checks. Preserve prior archives, budget limits, engine boundaries and pending human gates.
+
+Final review advances the local candidate to rc.27 after restoring shared radar/composed scale-description styling. The [review record](experiments/RC27_FINAL_REVIEW.md) owns regression, artifact and readiness evidence; rc.26 and all earlier archives remain preserved.

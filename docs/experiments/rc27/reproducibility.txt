@@ -1,0 +1,5 @@
+
+> ng-echarts-workspace@0.0.0 check:reproducibility
+> node tools/check-library-reproducibility.mjs
+
+PASS: warm and two independent clean 0.1.0-rc.27 packages match 7ed653831c8180317777ffce5713102b383c1e409d7df163549e952780464730.

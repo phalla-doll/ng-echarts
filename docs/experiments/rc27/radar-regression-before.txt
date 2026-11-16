@@ -1,0 +1,53 @@
+
+> ng-echarts-workspace@0.0.0 test:browser
+> playwright test tests/browser/radar.spec.ts --grep fits both themes --project=chromium --max-failures=1 --output=tmp/final-review/red-results
+
+[WebServer] (node:48198) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:48201) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/browser/radar.spec.ts:85:1 › fits both themes at narrow widths, resizes a mounted plot, and preserves shared focus styling (5.5s)
+Testing stopped early after 1 maximum allowed failures.
+
+
+  1) [chromium] › tests/browser/radar.spec.ts:85:1 › fits both themes at narrow widths, resizes a mounted plot, and preserves shared focus styling 
+
+    Error: expect(locator).toHaveCSS(expected) failed
+
+    Locator:  locator('nec-radar-chart').locator('.scale-context')
+    Expected: "0px"
+    Received: "12px"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCSS" locator('nec-radar-chart').locator('.scale-context') with timeout 5000ms
+      - waiting for locator('nec-radar-chart').locator('.scale-context')
+        14 × locator resolved to <p class="scale-context" _ngcontent-ng-c3016987134="">Each dimension: 0 – 100</p>
+           - unexpected value "12px"
+
+
+      103 |       await expect(scale).toHaveCSS('font-size', '12px');
+      104 |       await expect(scale).toHaveCSS('line-height', '20px');
+    > 105 |       await expect(scale).toHaveCSS('margin-top', '0px');
+          |                           ^
+      106 |       await expect(scale).toHaveCSS('margin-bottom', '8px');
+      107 |       const legend = chart.locator('.legend button').first();
+      108 |       await page.keyboard.press('Tab');
+        at /Users/phalla/Documents/codes/ng-echarts-rc25-payload/tests/browser/radar.spec.ts:105:27
+
+    Error Context: tmp/final-review/red-results/radar-fits-both-themes-at--476d4-serves-shared-focus-styling-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    tmp/final-review/red-results/radar-fits-both-themes-at--476d4-serves-shared-focus-styling-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace tmp/final-review/red-results/radar-fits-both-themes-at--476d4-serves-shared-focus-styling-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › tests/browser/radar.spec.ts:85:1 › fits both themes at narrow widths, resizes a mounted plot, and preserves shared focus styling 
+  1 error was not a part of any test, see above for details

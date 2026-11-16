@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-16T03:03:24.272Z",
+  "recordedAt": "2026-11-16T03:40:53.475Z",
   "method": "Resolve public package imports, Angular-link, bundle/minify/split with Angular/RxJS peers external; count only modules contributing bytes to output; traverse static imports separately from lazy chunks; sum independently compressed JavaScript chunks",
   "scenarios": [
     {
@@ -1295,7 +1295,7 @@
       "import": "@mantha911/ng-echarts/radar",
       "exports": "RadarChart",
       "files": [
-        { "name": "stdin.js", "raw": 19661, "gzip": 5109, "brotli": 4467 },
+        { "name": "stdin.js", "raw": 19879, "gzip": 5142, "brotli": 4500 },
         {
           "name": "mantha911-ng-echarts-radar-radar-renderer-CEc2lKig-J3IGC36K.js",
           "raw": 446912,
@@ -1304,7 +1304,7 @@
         },
         { "name": "chunk-ACMBQ2AK.js", "raw": 37062, "gzip": 10641, "brotli": 9437 }
       ],
-      "total": { "raw": 503635, "gzip": 168425, "brotli": 144333 },
+      "total": { "raw": 503853, "gzip": 168458, "brotli": 144366 },
       "budget": { "gzip": 200000, "brotli": 175000 },
       "eagerEngineModules": 0,
       "engineModules": 210,
