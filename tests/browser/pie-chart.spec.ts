@@ -74,6 +74,7 @@ test('renders a real donut hole and emits raw stable category events through upd
     canvas = chart.locator('canvas');
   await expect(canvas).toHaveCount(1);
   await expect.poll(() => piePixel(canvas)).toBe(true);
+  await canvas.scrollIntoViewIfNeeded();
   const box = (await canvas.boundingBox())!;
   const radius = Math.min(box.width, box.height) * 0.4;
   const angle = (Math.PI * 100) / 380;
