@@ -1,0 +1,34 @@
+{
+  "source": "0e8f84be952ea5f37474379ab386f1b552618ce3",
+  "artifact": "373fe55f7a2cca2b56677f98ca6859c8161454821fb1cb9b5da3b514e87b257e",
+  "results": [
+    {
+      "file": "chunk-DLVeYRsk.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8",
+      "sha256": "da046c4a568101781847adc31df048b14ce2468653236f4152e861a5e734e069",
+      "matchesSealedBytes": true
+    },
+    {
+      "file": "chunk-DxBK_bZ6.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8",
+      "sha256": "7471891d0288906c0d2b8ff882ba5ddbb38d187dce549c2c4db29d6c6f42c4fb",
+      "matchesSealedBytes": true
+    },
+    {
+      "file": "chunk-0iKn_SrI.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8",
+      "sha256": "35bd19f1f09650442219d73540e7a369ab779569722c970af9bb2d366001e5b0",
+      "matchesSealedBytes": true
+    },
+    {
+      "file": "chunk-DLogTj94.js",
+      "status": 200,
+      "type": "application/javascript; charset=utf-8",
+      "sha256": "4908fac5cc630bbbf9830e9d392127366003d3ac642e9ce1296d8f2a64afeb98",
+      "matchesSealedBytes": true
+    }
+  ]
+}

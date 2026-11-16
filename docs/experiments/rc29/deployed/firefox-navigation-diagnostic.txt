@@ -1,0 +1,114 @@
+Checking 145 sealed files from 0e8f84be952ea5f37474379ab386f1b552618ce3 on public Pages.
+NAVIGATION https://phalla-doll.github.io/ng-echarts/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/line/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/line
+NAVIGATION https://phalla-doll.github.io/ng-echarts/line/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/line
+NAVIGATION https://phalla-doll.github.io/ng-echarts/area/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/area
+NAVIGATION https://phalla-doll.github.io/ng-echarts/area/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/area
+NAVIGATION https://phalla-doll.github.io/ng-echarts/pie/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/pie
+NAVIGATION https://phalla-doll.github.io/ng-echarts/pie/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/pie
+NAVIGATION https://phalla-doll.github.io/ng-echarts/composed/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/composed
+NAVIGATION https://phalla-doll.github.io/ng-echarts/composed/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/composed
+NAVIGATION https://phalla-doll.github.io/ng-echarts/radar/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/radar
+NAVIGATION https://phalla-doll.github.io/ng-echarts/radar/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/radar
+NAVIGATION https://phalla-doll.github.io/ng-echarts/radial/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/radial
+NAVIGATION https://phalla-doll.github.io/ng-echarts/radial/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/radial
+NAVIGATION https://phalla-doll.github.io/ng-echarts/sankey/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/sankey
+NAVIGATION https://phalla-doll.github.io/ng-echarts/sankey-validation/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/sankey-validation
+NAVIGATION https://phalla-doll.github.io/ng-echarts/sankey-validation/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/sankey-validation
+NAVIGATION https://phalla-doll.github.io/ng-echarts/calendar/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/calendar
+NAVIGATION https://phalla-doll.github.io/ng-echarts/calendar-validation/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/calendar-validation
+NAVIGATION https://phalla-doll.github.io/ng-echarts/calendar-validation/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/calendar-validation
+NAVIGATION https://phalla-doll.github.io/ng-echarts/chart-possibilities/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/chart-possibilities
+NAVIGATION https://phalla-doll.github.io/ng-echarts/chart-possibilities/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/chart-possibilities
+NAVIGATION https://phalla-doll.github.io/ng-echarts/linked/
+REQUEST_FAILED {"url":"https://phalla-doll.github.io/ng-echarts/chunk-Dbej8hUX.js","failure":{"errorText":"NS_BINDING_ABORTED"},"page":"https://phalla-doll.github.io/ng-echarts/linked/","type":"script"}
+REQUEST_FAILED {"url":"https://phalla-doll.github.io/ng-echarts/chunk-0iKn_SrI.js","failure":{"errorText":"NS_BINDING_ABORTED"},"page":"https://phalla-doll.github.io/ng-echarts/linked/","type":"script"}
+NAVIGATION https://phalla-doll.github.io/ng-echarts/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/linked-example-validation/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/linked-example-validation
+NAVIGATION https://phalla-doll.github.io/ng-echarts/linked-example-validation/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/linked-example-validation
+NAVIGATION https://phalla-doll.github.io/ng-echarts/linked-dashboard/
+REQUEST_FAILED {"url":"https://phalla-doll.github.io/ng-echarts/chunk-DLogTj94.js","failure":{"errorText":"NS_BINDING_ABORTED"},"page":"https://phalla-doll.github.io/ng-echarts/linked-dashboard/","type":"script"}
+NAVIGATION https://phalla-doll.github.io/ng-echarts/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/dashboard-validation/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/dashboard-validation
+NAVIGATION https://phalla-doll.github.io/ng-echarts/line/
+NAVIGATION https://phalla-doll.github.io/ng-echarts/line
+NAVIGATION https://phalla-doll.github.io/ng-echarts/line#straight-lines
+NAVIGATION https://phalla-doll.github.io/ng-echarts/installation
+NAVIGATION https://phalla-doll.github.io/ng-echarts/installation#bootstrap
+NAVIGATION https://phalla-doll.github.io/ng-echarts/installation#page-content
+REQUEST_FAILED {"url":"https://phalla-doll.github.io/ng-echarts/third-party/github-light.svg","failure":{"errorText":"NS_BINDING_ABORTED"},"page":"https://phalla-doll.github.io/ng-echarts/installation#page-content","type":"image"}
+REQUEST_FAILED {"url":"https://phalla-doll.github.io/ng-echarts/brand/orbit-e.svg","failure":{"errorText":"NS_BINDING_ABORTED"},"page":"https://phalla-doll.github.io/ng-echarts/installation#page-content","type":"image"}
+NAVIGATION https://phalla-doll.github.io/ng-echarts/installation/#page-content
+NAVIGATION https://phalla-doll.github.io/ng-echarts/installation#page-content
+NAVIGATION https://phalla-doll.github.io/ng-echarts/installation/#page-content
+NAVIGATION https://phalla-doll.github.io/ng-echarts/installation#page-content
+NAVIGATION https://phalla-doll.github.io/ng-echarts/pie
+DIAGNOSTIC_RESULT ERR_ASSERTION Expected values to be strictly deep-equal:
++ actual - expected
+
++ [
++   {
++     args: [
++       'ERROR',
++       {
++         message: 'error loading dynamically imported module: https://phalla-doll.github.io/ng-echarts/chunk-0iKn_SrI.js',
++         stack: ''
++       }
++     ],
++     location: {
++       column: 22455,
++       columnNumber: 22455,
++       line: 3,
++       lineNumber: 3,
++       url: 'https://phalla-doll.github.io/ng-echarts/chunk-BCV1fTjr.js'
++     },
++     text: 'ERROR JSHandle@object',
++     url: 'https://phalla-doll.github.io/ng-echarts/'
++   },
++   {
++     args: [
++       'ERROR',
++       {
++         message: 'error loading dynamically imported module: https://phalla-doll.github.io/ng-echarts/chunk-DLogTj94.js',
++         stack: ''
++       }
++     ],
++     location: {
++       column: 22455,
++       columnNumber: 22455,
++       line: 3,
++       lineNumber: 3,
++       url: 'https://phalla-doll.github.io/ng-echarts/chunk-BCV1fTjr.js'
++     },
++     text: 'ERROR JSHandle@object',
++     url: 'https://phalla-doll.github.io/ng-echarts/'
++   }
++ ]
+- []
+

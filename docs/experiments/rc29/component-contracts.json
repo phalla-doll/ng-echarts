@@ -1,0 +1,22 @@
+{
+  "baseline": "0.1.0-rc.28",
+  "candidate": "0.1.0-rc.29",
+  "method": "Compare every Angular component/directive declaration metadata type after whitespace normalization, covering own and inherited signal input/output declarations.",
+  "classes": [
+    "AreaChart",
+    "BarChart",
+    "CalendarHeatmap",
+    "ComposedChart",
+    "ChartFrame",
+    "ChartPresentation",
+    "CartesianChart",
+    "ChartStage",
+    "TablePager",
+    "LineChart",
+    "PieChart",
+    "RadarChart",
+    "RadialProgress",
+    "SankeyChart"
+  ],
+  "identical": true
+}

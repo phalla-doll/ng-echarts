@@ -2,7 +2,26 @@
 
 The demo is published from the root of the dedicated `gh-pages` branch at **https://phalla-doll.github.io/ng-echarts/**. Source and deployment are separate commits. Publication requires a clean, pushed `main` source, an unchanged sealed artifact and successful local checks in all three browsers.
 
-## Current deployment — validation layout refinement
+## Current deployment — shared dashboard window
+
+The [visits dashboard](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) now shares one visible-month window between overview and device detail. Native From/To and zoom/pan/reset controls preserve stable IDs; either chart can commit a month. The complete standalone example still runs against published rc.22. npm next is rc.28/latest rc.18; rc.29 payload source is separately verified and unpublished. Human gates remain pending.
+
+| Identity / check | Verified result |
+| --- | --- |
+| Clean pushed source | `0e8f84be952ea5f37474379ab386f1b552618ce3` |
+| Static commit | `3addf08ca5ed015aef964ca1ea400ecf35a56d38` |
+| Sealed SHA-256 | `373fe55f7a2cca2b56677f98ca6859c8161454821fb1cb9b5da3b514e87b257e` |
+| Pages workflow | [Succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/43823070624) |
+| Source CI | [All six jobs pass](https://github.com/phalla-doll/ng-echarts/actions/runs/43822315582) |
+| Local/public static checks | 40 routes/145 files; all three engines pass |
+| Regression | 342 unit tests, 488 browser passes/four expected skips; separate WebKit probe passes |
+| Performance | All 17 route guards and normal-motion navigation pass |
+
+The [continuation report](experiments/RC29_LINKED_WINDOW.md#completed-verification-and-delivery) preserves exact receipts, live controls and the public Firefox diagnostic. Its verification correction waits for charts before table-absence checks, avoiding navigation during unfinished imports; it retains every assertion and the same sealed deployment. Receipt/test-only commits preserve source `0e8f84b`.
+
+<a id="current-deployment--validation-layout-refinement"></a>
+
+## Earlier deployment — validation layout refinement
 
 All eleven pages under Validation now use grouped controls, visible toggle states, consistent result and deferred-hydration sections, and responsive phone layouts. The [live area validation](https://phalla-doll.github.io/ng-echarts/area-validation/) includes the reviewed controls. npm tags and package archives are unchanged; human release gates remain pending.
 

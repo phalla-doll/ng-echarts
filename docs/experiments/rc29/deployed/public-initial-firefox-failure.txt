@@ -1,0 +1,169 @@
+Checking 145 sealed files from 0e8f84be952ea5f37474379ab386f1b552618ce3 on public Pages.
+PASS: chromium static routes, reloads, lazy charts/fonts, anchors, focus, themes and mobile navigation at https://phalla-doll.github.io/ng-echarts/
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
++ [
++   {
++     args: [
++       'ERROR',
++       {
++         message: 'error loading dynamically imported module: https://phalla-doll.github.io/ng-echarts/chunk-DLVeYRsk.js',
++         stack: ''
++       }
++     ],
++     location: {
++       column: 22455,
++       columnNumber: 22455,
++       line: 3,
++       lineNumber: 3,
++       url: 'https://phalla-doll.github.io/ng-echarts/chunk-BCV1fTjr.js'
++     },
++     text: 'ERROR JSHandle@object',
++     url: 'https://phalla-doll.github.io/ng-echarts/'
++   },
++   {
++     args: [
++       'ERROR',
++       {
++         message: 'error loading dynamically imported module: https://phalla-doll.github.io/ng-echarts/chunk-DxBK_bZ6.js',
++         stack: ''
++       }
++     ],
++     location: {
++       column: 22455,
++       columnNumber: 22455,
++       line: 3,
++       lineNumber: 3,
++       url: 'https://phalla-doll.github.io/ng-echarts/chunk-BCV1fTjr.js'
++     },
++     text: 'ERROR JSHandle@object',
++     url: 'https://phalla-doll.github.io/ng-echarts/'
++   },
++   {
++     args: [
++       'ERROR',
++       {
++         message: 'error loading dynamically imported module: https://phalla-doll.github.io/ng-echarts/chunk-0iKn_SrI.js',
++         stack: ''
++       }
++     ],
++     location: {
++       column: 22455,
++       columnNumber: 22455,
++       line: 3,
++       lineNumber: 3,
++       url: 'https://phalla-doll.github.io/ng-echarts/chunk-BCV1fTjr.js'
++     },
++     text: 'ERROR JSHandle@object',
++     url: 'https://phalla-doll.github.io/ng-echarts/'
++   },
++   {
++     args: [
++       'ERROR',
++       {
++         message: 'error loading dynamically imported module: https://phalla-doll.github.io/ng-echarts/chunk-DLogTj94.js',
++         stack: ''
++       }
++     ],
++     location: {
++       column: 22455,
++       columnNumber: 22455,
++       line: 3,
++       lineNumber: 3,
++       url: 'https://phalla-doll.github.io/ng-echarts/chunk-BCV1fTjr.js'
++     },
++     text: 'ERROR JSHandle@object',
++     url: 'https://phalla-doll.github.io/ng-echarts/'
++   }
++ ]
+- []
+
+    at checkPages (file:///Users/phalla/Documents/codes/ng-echarts/tools/check-pages.mjs:342:16)
+    at async file:///Users/phalla/Documents/codes/ng-echarts/tools/check-pages.mjs:362:22 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [
+    {
+      text: 'ERROR JSHandle@object',
+      url: 'https://phalla-doll.github.io/ng-echarts/',
+      location: {
+        url: 'https://phalla-doll.github.io/ng-echarts/chunk-BCV1fTjr.js',
+        line: 3,
+        column: 22455,
+        lineNumber: 3,
+        columnNumber: 22455
+      },
+      args: [
+        'ERROR',
+        {
+          message: 'error loading dynamically imported module: https://phalla-doll.github.io/ng-echarts/chunk-DLVeYRsk.js',
+          stack: ''
+        }
+      ]
+    },
+    {
+      text: 'ERROR JSHandle@object',
+      url: 'https://phalla-doll.github.io/ng-echarts/',
+      location: {
+        url: 'https://phalla-doll.github.io/ng-echarts/chunk-BCV1fTjr.js',
+        line: 3,
+        column: 22455,
+        lineNumber: 3,
+        columnNumber: 22455
+      },
+      args: [
+        'ERROR',
+        {
+          message: 'error loading dynamically imported module: https://phalla-doll.github.io/ng-echarts/chunk-DxBK_bZ6.js',
+          stack: ''
+        }
+      ]
+    },
+    {
+      text: 'ERROR JSHandle@object',
+      url: 'https://phalla-doll.github.io/ng-echarts/',
+      location: {
+        url: 'https://phalla-doll.github.io/ng-echarts/chunk-BCV1fTjr.js',
+        line: 3,
+        column: 22455,
+        lineNumber: 3,
+        columnNumber: 22455
+      },
+      args: [
+        'ERROR',
+        {
+          message: 'error loading dynamically imported module: https://phalla-doll.github.io/ng-echarts/chunk-0iKn_SrI.js',
+          stack: ''
+        }
+      ]
+    },
+    {
+      text: 'ERROR JSHandle@object',
+      url: 'https://phalla-doll.github.io/ng-echarts/',
+      location: {
+        url: 'https://phalla-doll.github.io/ng-echarts/chunk-BCV1fTjr.js',
+        line: 3,
+        column: 22455,
+        lineNumber: 3,
+        columnNumber: 22455
+      },
+      args: [
+        'ERROR',
+        {
+          message: 'error loading dynamically imported module: https://phalla-doll.github.io/ng-echarts/chunk-DLogTj94.js',
+          stack: ''
+        }
+      ]
+    }
+  ],
+  expected: [],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.22.2
