@@ -28,7 +28,7 @@ test('commits snapped forward/reverse drags once on release and synchronizes nat
   page,
 }) => {
   const errors = collectBrowserErrors(page);
-  await page.goto('/linked');
+  await page.goto('/linked-example-validation');
   await expect(page.locator('canvas')).toHaveCount(2);
   const before = await page
     .locator('.plot')

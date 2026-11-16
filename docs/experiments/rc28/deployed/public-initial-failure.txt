@@ -1,0 +1,33 @@
+Checking 145 sealed files from 9de7a843213eb9d382655e51aba1ca51c51060bd on public Pages.
+PASS: chromium static routes, reloads, lazy charts/fonts, anchors, focus, themes and mobile navigation at https://phalla-doll.github.io/ng-echarts/
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
++ [
++   'ERROR JSHandle@object',
++   'ERROR JSHandle@object',
++   'ERROR JSHandle@object',
++   'ERROR JSHandle@object'
++ ]
+- []
+
+    at checkPages (file:///Users/phalla/Documents/codes/ng-echarts/tools/check-pages.mjs:322:16)
+    at async file:///Users/phalla/Documents/codes/ng-echarts/tools/check-pages.mjs:342:22 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [
+    'ERROR JSHandle@object',
+    'ERROR JSHandle@object',
+    'ERROR JSHandle@object',
+    'ERROR JSHandle@object'
+  ],
+  expected: [],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.22.2

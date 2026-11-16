@@ -112,7 +112,12 @@ test.describe('CSS theme defaults without client JavaScript', () => {
       await expect(frame).toHaveCSS('background-color', background!);
       await expect(frame).toHaveCSS('color', text!);
       await expect(frame.locator('header p')).toHaveCSS('color', muted!);
-      await expect(frame.locator('.legend button').first()).toHaveCSS('border-top-color', border!);
+      const legend = frame.locator('.legend');
+      const button = legend.locator('button').first();
+      await expect(button).toHaveCSS('border-top-color', 'rgba(0, 0, 0, 0)');
+      // With JavaScript disabled, exercise list CSS directly to verify the inherited border token.
+      await legend.evaluate((element) => element.classList.add('legend-list'));
+      await expect(button).toHaveCSS('border-bottom-color', border!);
       await chart.evaluate((element: HTMLElement) => {
         element.style.setProperty('--test-surface', '#172d3f');
         element.style.setProperty('--nec-background', 'var(--test-surface)');

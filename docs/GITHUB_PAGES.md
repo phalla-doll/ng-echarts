@@ -2,7 +2,26 @@
 
 The demo is published from the root of the dedicated `gh-pages` branch at **https://phalla-doll.github.io/ng-echarts/**. Source and deployment are separate commits. Publication requires a clean, pushed `main` source, an unchanged sealed artifact and successful local checks in all three browsers.
 
-## Current deployment — rc.24 independent value axes
+## Current deployment — chip/list legends and gallery previews
+
+The [pie gallery](https://phalla-doll.github.io/ng-echarts/pie/#browser-share) now offers compact inline chips and aligned lists. All eleven gallery routes omit native table controls, while explicit validation routes retain keyboard table actions. npm next remains rc.24/latest rc.18; human release gates remain pending.
+
+| Identity / check | Verified result |
+| --- | --- |
+| Clean pushed source | `9de7a843213eb9d382655e51aba1ca51c51060bd` |
+| Static commit | `392e16f525e2f1eacc0c5389bea7d5f027d3aec0` |
+| Sealed SHA-256 | `670f23c88f5091bbf1a5347dd3c841c2f7c99714195eead4da47c17875046ef9` |
+| Pages workflow | [Succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/43804898460) |
+| Source CI | [Old range assertions fail; corrections follow](https://github.com/phalla-doll/ng-echarts/actions/runs/43804672048) |
+| Local static checks | 40 routes, 145 sealed files; Chromium/Firefox/WebKit pass |
+| Performance | All 17 route guards and normal-motion navigation pass |
+| Public checks | All 145 served files byte-verified; Chromium/Firefox/WebKit flows and live legend switching pass |
+
+The [integration record](experiments/RC28_LEGEND_INTEGRATION.md) owns receipts, full public verification and actual regression results. Verification/receipt-only commits preserve deployed source `9de7a84`; the artifact is not restamped. The intermediate payload-only deployment served `0cdd931` as static `f817885`, without the concurrent local legend changes.
+
+<a id="current-deployment--rc24-independent-value-axes"></a>
+
+## Earlier deployment — rc.24 independent value axes
 
 The [independent value-axis gallery](https://phalla-doll.github.io/ng-echarts/composed/#revenue-and-conversion), composed dashboard and horizontal examples are deployed and verified. npm `next` selects published rc.24 and `latest` retains rc.18. Human F09/R06/G2/G3/G4 remain deferred/pending.
 

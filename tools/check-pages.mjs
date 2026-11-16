@@ -144,10 +144,29 @@ async function checkPages() {
           reducedMotion: 'reduce',
         });
         const errors = [];
+        const diagnostics = [];
         page.on('pageerror', (error) => errors.push(error.message));
         page.on('console', (message) => {
-          if (message.type() === 'error' || /NG05\d+/.test(message.text()))
-            errors.push(message.text());
+          if (message.type() !== 'error' && !/NG05\d+/.test(message.text())) return;
+          const entry = { text: message.text(), url: page.url(), location: message.location() };
+          errors.push(entry);
+          diagnostics.push(
+            Promise.all(
+              message
+                .args()
+                .map((handle) =>
+                  handle
+                    .evaluate((value) =>
+                      value instanceof Error
+                        ? { message: value.message, stack: value.stack }
+                        : value,
+                    )
+                    .catch(() => 'unavailable'),
+                ),
+            ).then((args) => {
+              entry.args = args;
+            }),
+          );
         });
         page.on('response', (response) => {
           if (response.status() >= 400 && response.url().startsWith(site.origin))
@@ -319,6 +338,7 @@ async function checkPages() {
         await expect
           .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
           .toBeLessThanOrEqual(390);
+        await Promise.all(diagnostics);
         assert.deepEqual(errors, []);
         await expect.poll(() => page.evaluate(() => document.fonts.check('12px Inter'))).toBe(true);
         console.log(
