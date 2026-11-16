@@ -1,0 +1,30 @@
+{
+  "baseline": "preserved rc.25",
+  "candidate": "rc.26",
+  "comparedRuntimeFiles": 22,
+  "allRuntimeFilesByteIdentical": true,
+  "files": {
+    "package/fesm2022/mantha911-ng-echarts-area-area-renderer-BLNN_Sjy.mjs": "7f3576676fa7a0405086c3bbbd4d96b471f26ea20c8873afaeed927c5a5cfbc3",
+    "package/fesm2022/mantha911-ng-echarts-area.mjs": "36aed7fea27c050be75b8eaee666aa767753558adfa1064b4bd009000dcf4408",
+    "package/fesm2022/mantha911-ng-echarts-bar-bar-renderer-B7Rupncx.mjs": "e9c7194623eac08cf6db2b29ecf51def9d3e7169dd49aaa02b54136192f0f421",
+    "package/fesm2022/mantha911-ng-echarts-bar.mjs": "045945e03623c61178cbb38fcef8efc41788289a8209f91134da1e48f3e64ac0",
+    "package/fesm2022/mantha911-ng-echarts-calendar-calendar-options-HP6gA6Ig.mjs": "d6ae0946e076e15101fff938069cfcf5bc8505345451a9330354c0fb1f932ca1",
+    "package/fesm2022/mantha911-ng-echarts-calendar-calendar-renderer-OB5QQybA.mjs": "75b75e6378af95dc76b9fe432b8e15d1530ab2d12c781d3fd2ca7289e581959b",
+    "package/fesm2022/mantha911-ng-echarts-calendar.mjs": "717c7928537a11ef6d4bf668b86d7314de833f020b444a11bca1bd0a0050b03e",
+    "package/fesm2022/mantha911-ng-echarts-composed-composed-renderer-CSFZOsup.mjs": "763cd369406edd4f9751fceb1e709dc8e30b7eea779982c870361e577fdc523e",
+    "package/fesm2022/mantha911-ng-echarts-composed.mjs": "f96ddc4ea480592c2ee907fdcacd6f837b373d2718058847705b8942fd40aa72",
+    "package/fesm2022/mantha911-ng-echarts-core.mjs": "d739feace4be04bd0b5909db8248aed8c938f9709a7c09c9752f7b4200aec4d8",
+    "package/fesm2022/mantha911-ng-echarts-line-line-renderer-BT437KP_.mjs": "874cf05befa36b50d7deb5a095570867c31b7136d454a35f9e7052b3e9e3c13a",
+    "package/fesm2022/mantha911-ng-echarts-line.mjs": "3be2e93e5e418329509193f7c05d0674b6d50077b2314faca4b249edcd609471",
+    "package/fesm2022/mantha911-ng-echarts-pie-pie-renderer-C8JrAbQD.mjs": "fc81750404e702cc46551d04164817eb717ec1bb5d18c2a5915ed404dc2cff35",
+    "package/fesm2022/mantha911-ng-echarts-pie.mjs": "2ce623042f3605799f864c9d5b48c0e6113f10e7bca192990598f174873b886c",
+    "package/fesm2022/mantha911-ng-echarts-radar-radar-options-BiRUTJSJ.mjs": "ca93d0dba8abcbdc3a9b9fc99d657b7f150e65bb0391333891a8ccc3e0a5c466",
+    "package/fesm2022/mantha911-ng-echarts-radar-radar-renderer-CEc2lKig.mjs": "c4570c9324d217346601c0fb67a2f58b67a0a463f9b232e23fa81d11c65156ab",
+    "package/fesm2022/mantha911-ng-echarts-radar.mjs": "de2a30d27bb8b26340c2a566c047e8b3d453a572057e19f244c9e87ebd13e2fc",
+    "package/fesm2022/mantha911-ng-echarts-radial-radial-renderer-DlH2JDoC.mjs": "6b487ff819c6c070f7d1153459d19b41eb2dc0547a53a2db56f974316e41ecb2",
+    "package/fesm2022/mantha911-ng-echarts-radial.mjs": "bde0b94f8c4b43609b45338dfd21178ab4eed7f1a078f4d86538427dea869e7b",
+    "package/fesm2022/mantha911-ng-echarts-sankey-sankey-renderer-DwLMFu-b.mjs": "8a1a68df7589cfb08a460ab3527fad8d88ef173026937faa476e254eb745aed9",
+    "package/fesm2022/mantha911-ng-echarts-sankey.mjs": "63d65e5e7d516722a236283f89419ea9826115e604f5355695b055fff45bf7fb",
+    "package/fesm2022/mantha911-ng-echarts.mjs": "84b0b4728ff7206fded9574a42bc1c391bbc2edc88c9c7798c385fcbbfaba058"
+  }
+}

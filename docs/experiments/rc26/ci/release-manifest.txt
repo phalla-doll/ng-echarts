@@ -1,0 +1,626 @@
+{
+  "preparedAt": "2026-11-16T03:16:18.999Z",
+  "toolchain": { "node": "v24.22.2", "npm": "11.19.1", "platform": "linux", "arch": "x64" },
+  "sourceBaseCommit": "8f8badc2e5e07239b763780a2fbcdea81c9dbcec",
+  "includesWorkingTree": true,
+  "artifact": {
+    "filename": "mantha911-ng-echarts-0.1.0-rc.26.tgz",
+    "name": "@mantha911/ng-echarts",
+    "version": "0.1.0-rc.26",
+    "license": "MIT",
+    "private": false,
+    "sha256": "62109131e98fe79e7f4556df12f1ba7194d1e6b02a4b629ba1f474f5bdfe7b2b",
+    "integrity": "sha512-gccp106HvL4OFVgUsTT+ryD5h1t3MJ0B+Y4isX263UAIuahoIoYBz7xZPr36di2xrSdD/bCls1/5tUJT+4yB/g==",
+    "bytes": 166359,
+    "exports": {
+      "./package.json": { "default": "./package.json" },
+      ".": {
+        "types": "./types/mantha911-ng-echarts.d.ts",
+        "default": "./fesm2022/mantha911-ng-echarts.mjs"
+      },
+      "./area": {
+        "types": "./types/mantha911-ng-echarts-area.d.ts",
+        "default": "./fesm2022/mantha911-ng-echarts-area.mjs"
+      },
+      "./bar": {
+        "types": "./types/mantha911-ng-echarts-bar.d.ts",
+        "default": "./fesm2022/mantha911-ng-echarts-bar.mjs"
+      },
+      "./calendar": {
+        "types": "./types/mantha911-ng-echarts-calendar.d.ts",
+        "default": "./fesm2022/mantha911-ng-echarts-calendar.mjs"
+      },
+      "./composed": {
+        "types": "./types/mantha911-ng-echarts-composed.d.ts",
+        "default": "./fesm2022/mantha911-ng-echarts-composed.mjs"
+      },
+      "./core": {
+        "types": "./types/mantha911-ng-echarts-core.d.ts",
+        "default": "./fesm2022/mantha911-ng-echarts-core.mjs"
+      },
+      "./line": {
+        "types": "./types/mantha911-ng-echarts-line.d.ts",
+        "default": "./fesm2022/mantha911-ng-echarts-line.mjs"
+      },
+      "./pie": {
+        "types": "./types/mantha911-ng-echarts-pie.d.ts",
+        "default": "./fesm2022/mantha911-ng-echarts-pie.mjs"
+      },
+      "./radar": {
+        "types": "./types/mantha911-ng-echarts-radar.d.ts",
+        "default": "./fesm2022/mantha911-ng-echarts-radar.mjs"
+      },
+      "./radial": {
+        "types": "./types/mantha911-ng-echarts-radial.d.ts",
+        "default": "./fesm2022/mantha911-ng-echarts-radial.mjs"
+      },
+      "./sankey": {
+        "types": "./types/mantha911-ng-echarts-sankey.d.ts",
+        "default": "./fesm2022/mantha911-ng-echarts-sankey.mjs"
+      }
+    },
+    "peerDependencies": {
+      "@angular/common": "^22.2.6",
+      "@angular/core": "^22.2.6",
+      "echarts": "^6.1.0"
+    },
+    "dependencies": { "tslib": "^2.3.0" },
+    "assets": [
+      "LICENSE",
+      "README.md",
+      "CHANGELOG.md",
+      "THIRD_PARTY_NOTICES.md",
+      "third-party/provenance.json",
+      "third-party/evilcharts-LICENSE.txt",
+      "third-party/angular-LICENSE.txt",
+      "third-party/echarts-LICENSE.txt",
+      "third-party/echarts-NOTICE.txt",
+      "third-party/zrender-LICENSE.txt",
+      "third-party/rxjs-LICENSE.txt",
+      "third-party/tslib-LICENSE.txt",
+      "third-party/tslib-CopyrightNotice.txt"
+    ],
+    "notices": [
+      {
+        "package": "@angular/core",
+        "version": "22.2.6",
+        "license": "MIT",
+        "source": "node_modules/@angular/core/LICENSE",
+        "file": "angular-LICENSE.txt",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      },
+      {
+        "package": "@angular/common",
+        "version": "22.2.6",
+        "license": "MIT",
+        "source": "node_modules/@angular/common/LICENSE",
+        "file": "angular-LICENSE.txt",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      },
+      {
+        "package": "echarts",
+        "version": "6.1.0",
+        "license": "Apache-2.0",
+        "source": "node_modules/echarts/LICENSE",
+        "file": "echarts-LICENSE.txt",
+        "sha256": "634293835b43a6dd2094fa39182a3d9a6b9ca43b7fdb9ac354e8037af2a3093a"
+      },
+      {
+        "package": "echarts",
+        "version": "6.1.0",
+        "license": "Apache-2.0",
+        "source": "node_modules/echarts/NOTICE",
+        "file": "echarts-NOTICE.txt",
+        "sha256": "d491d358344f842685c1b1585970999db65fe30ecf7ef3867af8814f4016c016"
+      },
+      {
+        "package": "zrender",
+        "version": "6.1.0",
+        "license": "BSD-3-Clause",
+        "source": "node_modules/zrender/LICENSE",
+        "file": "zrender-LICENSE.txt",
+        "sha256": "a681e9d183c72b4af4856935893805eb48c08f0f5a3f260203db7444c20fb98a"
+      },
+      {
+        "package": "rxjs",
+        "version": "7.8.2",
+        "license": "Apache-2.0",
+        "source": "node_modules/rxjs/LICENSE.txt",
+        "file": "rxjs-LICENSE.txt",
+        "sha256": "81c407ac717813b0e3795402960e04003c7bba8ba59b621624707028531c9ade"
+      },
+      {
+        "package": "tslib",
+        "version": "2.8.1",
+        "license": "0BSD",
+        "source": "node_modules/tslib/LICENSE.txt",
+        "file": "tslib-LICENSE.txt",
+        "sha256": "210b19e543130388c68654b7497e967119ce17145f66ab7d85688fbd70f08751"
+      },
+      {
+        "package": "tslib",
+        "version": "2.8.1",
+        "license": "0BSD",
+        "source": "node_modules/tslib/CopyrightNotice.txt",
+        "file": "tslib-CopyrightNotice.txt",
+        "sha256": "da16ddb65f8ca390998fb99223d0112498b56b45784d00afd77ff8ce1ac4de8b"
+      },
+      {
+        "package": "EvilCharts",
+        "revision": "4c2dd7c9bae780703244265c9a4b509d40c055ad",
+        "license": "MIT",
+        "file": "evilcharts-LICENSE.txt",
+        "source": "https://github.com/legions-developer/evilcharts/blob/4c2dd7c9bae780703244265c9a4b509d40c055ad/LICENSE",
+        "sha256": "7b6baf25f6caa0de061a2c99a47205d6651cdefc6e636910bc51bb3853ed056e"
+      }
+    ],
+    "files": [
+      {
+        "path": "CHANGELOG.md",
+        "sha256": "9b5e94d1056f0ae6e444232d064895082458724cd5ca2770bcdca347ae8eab6d"
+      },
+      {
+        "path": "LICENSE",
+        "sha256": "2f04f987f36ea464962c27c8ffdba7a7f3f119a3b6b4f5d35d0a4026589204c4"
+      },
+      {
+        "path": "README.md",
+        "sha256": "305358c81b420e0fbe2eef2ba8ebbd71472eb8febd19d3644a5c729def0b6810"
+      },
+      {
+        "path": "THIRD_PARTY_NOTICES.md",
+        "sha256": "514f88cf1a33d2657becd084cbce5f062192a905009cbc5a428e82ef82f0c988"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-area-area-renderer-BLNN_Sjy.mjs",
+        "sha256": "7f3576676fa7a0405086c3bbbd4d96b471f26ea20c8873afaeed927c5a5cfbc3"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-area-area-renderer-BLNN_Sjy.mjs.map",
+        "sha256": "efeae7ee03de5e914055680385f38d0f3a2cf50dd3b3b1e22a570324e6621414"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-area.mjs",
+        "sha256": "36aed7fea27c050be75b8eaee666aa767753558adfa1064b4bd009000dcf4408"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-area.mjs.map",
+        "sha256": "5c94a510ea273264f7c4b9345f981b6d6f3e23202a66c3bd4be4fd6a51898fea"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-bar-bar-renderer-B7Rupncx.mjs",
+        "sha256": "e9c7194623eac08cf6db2b29ecf51def9d3e7169dd49aaa02b54136192f0f421"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-bar-bar-renderer-B7Rupncx.mjs.map",
+        "sha256": "2abad299425c8fd912d80c607e1511cd5e5dbfb7147c5ae4af0141bcb09fabf0"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-bar.mjs",
+        "sha256": "045945e03623c61178cbb38fcef8efc41788289a8209f91134da1e48f3e64ac0"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-bar.mjs.map",
+        "sha256": "fd73addbd20db8a405c94ea8bb355cc1e110be36aabeac858f03b86f14b62a58"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-calendar-calendar-options-HP6gA6Ig.mjs",
+        "sha256": "d6ae0946e076e15101fff938069cfcf5bc8505345451a9330354c0fb1f932ca1"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-calendar-calendar-options-HP6gA6Ig.mjs.map",
+        "sha256": "c6039d6b276d1e0b1712c5792e77c6e1d716f0a3a321a3dcee7945825cb7e235"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-calendar-calendar-renderer-OB5QQybA.mjs",
+        "sha256": "75b75e6378af95dc76b9fe432b8e15d1530ab2d12c781d3fd2ca7289e581959b"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-calendar-calendar-renderer-OB5QQybA.mjs.map",
+        "sha256": "ec638906e1cded58c30290e10cc655f0ea930858f3a2d8225a328307ac89e08d"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-calendar.mjs",
+        "sha256": "717c7928537a11ef6d4bf668b86d7314de833f020b444a11bca1bd0a0050b03e"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-calendar.mjs.map",
+        "sha256": "83b4d66a959b5a26315fa49958b92eca98fa8dc08b93c7153d4af4eb3754ab2b"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-composed-composed-renderer-CSFZOsup.mjs",
+        "sha256": "763cd369406edd4f9751fceb1e709dc8e30b7eea779982c870361e577fdc523e"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-composed-composed-renderer-CSFZOsup.mjs.map",
+        "sha256": "470582f5837faaccf359082677f7580d9096ce3ca15508ebc66acf777a748a34"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-composed.mjs",
+        "sha256": "f96ddc4ea480592c2ee907fdcacd6f837b373d2718058847705b8942fd40aa72"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-composed.mjs.map",
+        "sha256": "2306aaf1f94e62acef6a1178c0b53005c0100c4c3ecf286f3349ca5ef7a87ba2"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-core.mjs",
+        "sha256": "d739feace4be04bd0b5909db8248aed8c938f9709a7c09c9752f7b4200aec4d8"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-core.mjs.map",
+        "sha256": "69894eb5b045b1dc4be832b9d558a72705d5953645302063e67d6047c4953855"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-line-line-renderer-BT437KP_.mjs",
+        "sha256": "874cf05befa36b50d7deb5a095570867c31b7136d454a35f9e7052b3e9e3c13a"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-line-line-renderer-BT437KP_.mjs.map",
+        "sha256": "f4d2e0d264f3776062b35223588b37df77234624543be14cdf5ebf7432ed2769"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-line.mjs",
+        "sha256": "3be2e93e5e418329509193f7c05d0674b6d50077b2314faca4b249edcd609471"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-line.mjs.map",
+        "sha256": "8e632951aef2f8f5bdfbfe21050e711cf862c5482206e3e64e8763aee85d3e96"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-pie-pie-renderer-C8JrAbQD.mjs",
+        "sha256": "fc81750404e702cc46551d04164817eb717ec1bb5d18c2a5915ed404dc2cff35"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-pie-pie-renderer-C8JrAbQD.mjs.map",
+        "sha256": "71ee94ff7790e279201188be1c0ee584a923be5c1c3093487f3d8befe5a50bf0"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-pie.mjs",
+        "sha256": "2ce623042f3605799f864c9d5b48c0e6113f10e7bca192990598f174873b886c"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-pie.mjs.map",
+        "sha256": "42ee4c7c085f482d1a5b71e108df714ef4ec2f86d9e91c36c2d638b26e4a8a1e"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-radar-radar-options-BiRUTJSJ.mjs",
+        "sha256": "ca93d0dba8abcbdc3a9b9fc99d657b7f150e65bb0391333891a8ccc3e0a5c466"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-radar-radar-options-BiRUTJSJ.mjs.map",
+        "sha256": "c31cc8172335697565e423569c1f10eba6b8287a22204ad3f010656a15307309"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-radar-radar-renderer-CEc2lKig.mjs",
+        "sha256": "c4570c9324d217346601c0fb67a2f58b67a0a463f9b232e23fa81d11c65156ab"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-radar-radar-renderer-CEc2lKig.mjs.map",
+        "sha256": "a37945b387e88f8dd9cb6724d98f3de4b72632ef49f5b03607ee1f9d5d461034"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-radar.mjs",
+        "sha256": "de2a30d27bb8b26340c2a566c047e8b3d453a572057e19f244c9e87ebd13e2fc"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-radar.mjs.map",
+        "sha256": "b0eea418f6f868a48851fbf45bcc3a3b3be6fac8a0cc3abcf2909a4aabf3e958"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-radial-radial-renderer-DlH2JDoC.mjs",
+        "sha256": "6b487ff819c6c070f7d1153459d19b41eb2dc0547a53a2db56f974316e41ecb2"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-radial-radial-renderer-DlH2JDoC.mjs.map",
+        "sha256": "b44f9dff634e16c123c4a98853027da2f909fad8e5fb6c43ea95bd5d147cc182"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-radial.mjs",
+        "sha256": "bde0b94f8c4b43609b45338dfd21178ab4eed7f1a078f4d86538427dea869e7b"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-radial.mjs.map",
+        "sha256": "f6a0ef475e4d004895d965ba64355e4df9ea1d0d0b525f8500af63e2fdbd68b5"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-sankey-sankey-renderer-DwLMFu-b.mjs",
+        "sha256": "8a1a68df7589cfb08a460ab3527fad8d88ef173026937faa476e254eb745aed9"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-sankey-sankey-renderer-DwLMFu-b.mjs.map",
+        "sha256": "8b58f4c25cb79dacf76ad6a8267aa92d002224201fe10808614c6cf433564ac3"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-sankey.mjs",
+        "sha256": "63d65e5e7d516722a236283f89419ea9826115e604f5355695b055fff45bf7fb"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts-sankey.mjs.map",
+        "sha256": "e1cce16102b3cb3da39e21f53e1a761a28ca9b27691413fe023ec68a66da7e2a"
+      },
+      {
+        "path": "fesm2022/mantha911-ng-echarts.mjs",
+        "sha256": "84b0b4728ff7206fded9574a42bc1c391bbc2edc88c9c7798c385fcbbfaba058"
+      },
+      {
+        "path": "package.json",
+        "sha256": "e47b3ad544a4c5bf091fb86de66a7781cf6fb388d5badcbd73d445f1d5278b80"
+      },
+      {
+        "path": "third-party/angular-LICENSE.txt",
+        "sha256": "15e77c4692114f87c2020353626c868472c23954a4ed37ecc4c1522d14be1eb7"
+      },
+      {
+        "path": "third-party/echarts-LICENSE.txt",
+        "sha256": "634293835b43a6dd2094fa39182a3d9a6b9ca43b7fdb9ac354e8037af2a3093a"
+      },
+      {
+        "path": "third-party/echarts-NOTICE.txt",
+        "sha256": "d491d358344f842685c1b1585970999db65fe30ecf7ef3867af8814f4016c016"
+      },
+      {
+        "path": "third-party/evilcharts-LICENSE.txt",
+        "sha256": "7b6baf25f6caa0de061a2c99a47205d6651cdefc6e636910bc51bb3853ed056e"
+      },
+      {
+        "path": "third-party/provenance.json",
+        "sha256": "02324b05358b542df126783b44fa70cb5d1757cad43df030c5be1002f38c0b7a"
+      },
+      {
+        "path": "third-party/rxjs-LICENSE.txt",
+        "sha256": "81c407ac717813b0e3795402960e04003c7bba8ba59b621624707028531c9ade"
+      },
+      {
+        "path": "third-party/tslib-CopyrightNotice.txt",
+        "sha256": "da16ddb65f8ca390998fb99223d0112498b56b45784d00afd77ff8ce1ac4de8b"
+      },
+      {
+        "path": "third-party/tslib-LICENSE.txt",
+        "sha256": "210b19e543130388c68654b7497e967119ce17145f66ab7d85688fbd70f08751"
+      },
+      {
+        "path": "third-party/zrender-LICENSE.txt",
+        "sha256": "a681e9d183c72b4af4856935893805eb48c08f0f5a3f260203db7444c20fb98a"
+      },
+      {
+        "path": "types/mantha911-ng-echarts-area.d.ts",
+        "sha256": "18f34fdef2e9410028f9392e15d55180ed6679f8b5883b2afeffd2782545055e"
+      },
+      {
+        "path": "types/mantha911-ng-echarts-bar.d.ts",
+        "sha256": "c7a98b2b31e3d079c3018046e96067d6c3d59942cf01dc99b4489e3fcae5f796"
+      },
+      {
+        "path": "types/mantha911-ng-echarts-calendar.d.ts",
+        "sha256": "ac4f402f7d4886e813a9425833897651382512d733013365d91200e57465acda"
+      },
+      {
+        "path": "types/mantha911-ng-echarts-composed.d.ts",
+        "sha256": "14bcc49e60e8005d92a46d37f73678afaefc3ff711ba3b3ec184300ac86135a9"
+      },
+      {
+        "path": "types/mantha911-ng-echarts-core.d.ts",
+        "sha256": "ad9fdff73f054ac0ed9194c07e8a0d0dd85fe25ab696dde74e2bf1453f428dc0"
+      },
+      {
+        "path": "types/mantha911-ng-echarts-line.d.ts",
+        "sha256": "66014c919ee88670754a2f3579bca580405d8564ed89ca2c9d69dc84dd3166cb"
+      },
+      {
+        "path": "types/mantha911-ng-echarts-pie.d.ts",
+        "sha256": "1c5218734061a373f47eff0512fa59b1bfa8d6220b45dcd0cfbe91312fa7e58a"
+      },
+      {
+        "path": "types/mantha911-ng-echarts-radar.d.ts",
+        "sha256": "58cea75e642b59d1880b9fa148c365d0e70860f4368aa5cba972a4fa7f593447"
+      },
+      {
+        "path": "types/mantha911-ng-echarts-radial.d.ts",
+        "sha256": "e7b4ad8a88720b0341d64ff503a891e75c2ee6a754ac9ab379540ce3f3a0a42f"
+      },
+      {
+        "path": "types/mantha911-ng-echarts-sankey.d.ts",
+        "sha256": "52881fab4de972d59a6af1b65981dc1f7f5ef72b63ea42abe2a7fd389351bc42"
+      },
+      {
+        "path": "types/mantha911-ng-echarts.d.ts",
+        "sha256": "aaf4e5386d2e680f0b9acd055aab0d6d918277df4458b831c38e104655f3ec1a"
+      }
+    ]
+  },
+  "verification": {
+    "automatedArtifact": "passed",
+    "humanInterpretation": "pending",
+    "G4": "pending"
+  },
+  "consumerEvidence": {
+    "ng15-documentation-consumer.json": {
+      "recordedAt": "2026-11-16T03:17:07.718Z",
+      "artifact": {
+        "name": "@mantha911/ng-echarts",
+        "version": "0.1.0-rc.26",
+        "sha256": "62109131e98fe79e7f4556df12f1ba7194d1e6b02a4b629ba1f474f5bdfe7b2b",
+        "exactCandidate": true
+      },
+      "node": "v24.22.2",
+      "npm": "11.19.1",
+      "method": "Fresh pinned CLI scaffold outside workspace; execute INSTALLATION.md shell blocks; install local tarball; copy exact INTEGRATION_GUIDE.md App; strict ngc and production build; generated server HTML then three-engine hydration/actions/updates/themes/resize.",
+      "sources": {
+        "docs/INSTALLATION.md": "125fdc62ea9f8578370b933e032bb800dd7cebff684f011df1915f82fe73335b",
+        "docs/INTEGRATION_GUIDE.md": "144eedbea210c35868e549416dbde7589492c8d3824f878d8b8fd17ca0d5d039"
+      },
+      "installedOutsideWorkspace": true,
+      "lockfileReinstall": true,
+      "workspaceAliases": false,
+      "skipLibCheck": false,
+      "strictTemplates": true,
+      "versions": {
+        "@angular/build": "22.2.6",
+        "@angular/cli": "22.2.6",
+        "@angular/common": "22.2.6",
+        "@angular/compiler-cli": "22.2.6",
+        "@angular/compiler": "22.2.6",
+        "@angular/core": "22.2.6",
+        "@angular/forms": "22.2.6",
+        "@angular/platform-browser": "22.2.6",
+        "@angular/platform-server": "22.2.6",
+        "@angular/router": "22.2.6",
+        "@angular/ssr": "22.2.6",
+        "@mantha911/ng-echarts": "0.1.0-rc.26",
+        "@types/express": "5.0.6",
+        "@types/node": "22.20.5",
+        "echarts": "6.1.0",
+        "express": "5.3.0",
+        "prettier": "3.10.1",
+        "rxjs": "7.8.2",
+        "tslib": "2.8.1",
+        "typescript": "6.0.3"
+      },
+      "generatedPackage": "chart-consumer",
+      "ssrHeadings": 4,
+      "serverCanvasCount": 0,
+      "results": [
+        {
+          "engine": "chromium",
+          "version": "158.0.8127.18",
+          "charts": 4,
+          "keyboardEvents": true,
+          "immutableUpdates": true,
+          "themes": true,
+          "responsive": true,
+          "stableInstances": true,
+          "passed": true
+        },
+        {
+          "engine": "firefox",
+          "version": "159.0",
+          "charts": 4,
+          "keyboardEvents": true,
+          "immutableUpdates": true,
+          "themes": true,
+          "responsive": true,
+          "stableInstances": true,
+          "passed": true
+        },
+        {
+          "engine": "webkit",
+          "version": "27.2",
+          "charts": 4,
+          "keyboardEvents": true,
+          "immutableUpdates": true,
+          "themes": true,
+          "responsive": true,
+          "stableInstances": true,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "packed-runtime.json": {
+      "recordedAt": "2026-11-16T03:18:53.216Z",
+      "node": "v24.22.2",
+      "package": "@mantha911/ng-echarts",
+      "version": "0.1.0-rc.26",
+      "artifact": {
+        "name": "@mantha911/ng-echarts",
+        "version": "0.1.0-rc.26",
+        "sha256": "62109131e98fe79e7f4556df12f1ba7194d1e6b02a4b629ba1f474f5bdfe7b2b",
+        "exactCandidate": true
+      },
+      "skipLibCheck": false,
+      "workspaceAliases": false,
+      "installedOutsideWorkspace": true,
+      "entryPoints": [
+        ".",
+        "./core",
+        "./bar",
+        "./line",
+        "./area",
+        "./pie",
+        "./calendar",
+        "./composed",
+        "./radar",
+        "./radial",
+        "./sankey"
+      ],
+      "compatibilityIdentity": true,
+      "privateImportsBlocked": true,
+      "reactRuntime": false,
+      "results": [
+        {
+          "engine": "chromium",
+          "version": "158.0.8127.18",
+          "mode": "client",
+          "conceptGallery": true,
+          "linkedMonthPreviews": true,
+          "composedLinkedDashboard": true,
+          "passed": true
+        },
+        {
+          "engine": "chromium",
+          "version": "158.0.8127.18",
+          "mode": "ssr-hydration",
+          "conceptGallery": true,
+          "linkedMonthPreviews": true,
+          "composedLinkedDashboard": true,
+          "passed": true
+        },
+        {
+          "engine": "firefox",
+          "version": "159.0",
+          "mode": "client",
+          "conceptGallery": true,
+          "linkedMonthPreviews": true,
+          "composedLinkedDashboard": true,
+          "passed": true
+        },
+        {
+          "engine": "firefox",
+          "version": "159.0",
+          "mode": "ssr-hydration",
+          "conceptGallery": true,
+          "linkedMonthPreviews": true,
+          "composedLinkedDashboard": true,
+          "passed": true
+        },
+        {
+          "engine": "webkit",
+          "version": "27.2",
+          "mode": "client",
+          "conceptGallery": true,
+          "linkedMonthPreviews": true,
+          "composedLinkedDashboard": true,
+          "passed": true
+        },
+        {
+          "engine": "webkit",
+          "version": "27.2",
+          "mode": "ssr-hydration",
+          "conceptGallery": true,
+          "linkedMonthPreviews": true,
+          "composedLinkedDashboard": true,
+          "passed": true
+        }
+      ]
+    }
+  },
+  "verifiedAt": "2026-11-16T03:18:54.600Z",
+  "results": [
+    {
+      "script": "check-consumer.mjs",
+      "candidateSha256": "62109131e98fe79e7f4556df12f1ba7194d1e6b02a4b629ba1f474f5bdfe7b2b",
+      "passed": true
+    },
+    {
+      "script": "check-documentation-consumer.mjs",
+      "candidateSha256": "62109131e98fe79e7f4556df12f1ba7194d1e6b02a4b629ba1f474f5bdfe7b2b",
+      "passed": true
+    },
+    {
+      "script": "check-runtime-consumer.mjs",
+      "candidateSha256": "62109131e98fe79e7f4556df12f1ba7194d1e6b02a4b629ba1f474f5bdfe7b2b",
+      "passed": true
+    }
+  ]
+}
