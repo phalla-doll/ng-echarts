@@ -8,7 +8,7 @@ Current release: **published `0.1.0-rc.28`** combines chip/list legends, gallery
 
 Current development: **local `0.1.0-rc.29` source candidate** moves bar-only previews out of the shared base and uses native private state. The [continuation report](docs/experiments/RC29_LINKED_WINDOW.md) records payload checks and the application-owned shared month window and bidirectional month/device dashboard. The complete displayed dashboard still supports published rc.22; the [live marker](https://phalla-doll.github.io/ng-echarts/preview-build.json) identifies the separately deployed source.
 
-Current installation and feature availability are maintained in [Installation](docs/INSTALLATION.md). [Packaged documentation errata](docs/PACKAGED_DOCUMENTATION_ERRATA.md) correct historical wording in immutable rc.28/rc.29 readmes, including the radar list-layout limitation.
+Current installation and feature availability are maintained in [Installation](docs/INSTALLATION.md). [Packaged documentation errata](docs/PACKAGED_DOCUMENTATION_ERRATA.md) correct historical wording in immutable rc.28/rc.29 readmes, including the radar list-layout limitation. The [documentation audit](docs/experiments/RC29_DOCUMENTATION_AUDIT.md) records coverage and checks.
 
 An Angular 22 chart component library inspired by EvilCharts, using Apache ECharts for rendering and TypeScript for its public API.
 
