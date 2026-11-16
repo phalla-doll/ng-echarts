@@ -1,0 +1,345 @@
+{
+  "baselineVersion": "0.1.0-rc.24",
+  "candidateVersion": "0.1.0-rc.25",
+  "methodUnchanged": true,
+  "capsUnchanged": true,
+  "engineMembershipUnchanged": true,
+  "scenarios": [
+    {
+      "name": "bar",
+      "before": {
+        "raw": 562659,
+        "gzip": 186899,
+        "brotli": 159456
+      },
+      "after": {
+        "raw": 560158,
+        "gzip": 186679,
+        "brotli": 159258
+      },
+      "delta": {
+        "raw": -2501,
+        "gzip": -220,
+        "brotli": -198
+      },
+      "budget": {
+        "gzip": 200000,
+        "brotli": 175000
+      },
+      "remaining": {
+        "gzip": 13321,
+        "brotli": 15742
+      },
+      "engineModules": 232,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "line",
+      "before": {
+        "raw": 560987,
+        "gzip": 187414,
+        "brotli": 159921
+      },
+      "after": {
+        "raw": 557861,
+        "gzip": 187104,
+        "brotli": 159784
+      },
+      "delta": {
+        "raw": -3126,
+        "gzip": -310,
+        "brotli": -137
+      },
+      "budget": {
+        "gzip": 200000,
+        "brotli": 175000
+      },
+      "remaining": {
+        "gzip": 12896,
+        "brotli": 15216
+      },
+      "engineModules": 230,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "area",
+      "before": {
+        "raw": 562226,
+        "gzip": 187902,
+        "brotli": 160494
+      },
+      "after": {
+        "raw": 559095,
+        "gzip": 187594,
+        "brotli": 160073
+      },
+      "delta": {
+        "raw": -3131,
+        "gzip": -308,
+        "brotli": -421
+      },
+      "budget": {
+        "gzip": 200000,
+        "brotli": 175000
+      },
+      "remaining": {
+        "gzip": 12406,
+        "brotli": 14927
+      },
+      "engineModules": 230,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "composed",
+      "before": {
+        "raw": 588703,
+        "gzip": 197218,
+        "brotli": 167985
+      },
+      "after": {
+        "raw": 585795,
+        "gzip": 196943,
+        "brotli": 167711
+      },
+      "delta": {
+        "raw": -2908,
+        "gzip": -275,
+        "brotli": -274
+      },
+      "budget": {
+        "gzip": 200000,
+        "brotli": 175000
+      },
+      "remaining": {
+        "gzip": 3057,
+        "brotli": 7289
+      },
+      "engineModules": 242,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "pie",
+      "before": {
+        "raw": 500151,
+        "gzip": 163878,
+        "brotli": 140130
+      },
+      "after": {
+        "raw": 495637,
+        "gzip": 163578,
+        "brotli": 140057
+      },
+      "delta": {
+        "raw": -4514,
+        "gzip": -300,
+        "brotli": -73
+      },
+      "budget": {
+        "gzip": 200000,
+        "brotli": 175000
+      },
+      "remaining": {
+        "gzip": 36422,
+        "brotli": 34943
+      },
+      "engineModules": 199,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "radar",
+      "before": {
+        "raw": 506760,
+        "gzip": 168743,
+        "brotli": 144654
+      },
+      "after": {
+        "raw": 503635,
+        "gzip": 168426,
+        "brotli": 144336
+      },
+      "delta": {
+        "raw": -3125,
+        "gzip": -317,
+        "brotli": -318
+      },
+      "budget": {
+        "gzip": 200000,
+        "brotli": 175000
+      },
+      "remaining": {
+        "gzip": 31574,
+        "brotli": 30664
+      },
+      "engineModules": 210,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "calendar",
+      "before": {
+        "raw": 526334,
+        "gzip": 174621,
+        "brotli": 149441
+      },
+      "after": {
+        "raw": 526519,
+        "gzip": 174773,
+        "brotli": 149681
+      },
+      "delta": {
+        "raw": 185,
+        "gzip": 152,
+        "brotli": 240
+      },
+      "budget": {
+        "gzip": 200000,
+        "brotli": 175000
+      },
+      "remaining": {
+        "gzip": 25227,
+        "brotli": 25319
+      },
+      "engineModules": 213,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "sankey",
+      "before": {
+        "raw": 517751,
+        "gzip": 171925,
+        "brotli": 147100
+      },
+      "after": {
+        "raw": 517936,
+        "gzip": 172086,
+        "brotli": 147199
+      },
+      "delta": {
+        "raw": 185,
+        "gzip": 161,
+        "brotli": 99
+      },
+      "budget": {
+        "gzip": 200000,
+        "brotli": 175000
+      },
+      "remaining": {
+        "gzip": 27914,
+        "brotli": 27801
+      },
+      "engineModules": 205,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "radial",
+      "before": {
+        "raw": 406323,
+        "gzip": 134375,
+        "brotli": 115153
+      },
+      "after": {
+        "raw": 406719,
+        "gzip": 134731,
+        "brotli": 115489
+      },
+      "delta": {
+        "raw": 396,
+        "gzip": 356,
+        "brotli": 336
+      },
+      "budget": {
+        "gzip": 200000,
+        "brotli": 175000
+      },
+      "remaining": {
+        "gzip": 65269,
+        "brotli": 59511
+      },
+      "engineModules": 164,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "core",
+      "before": {
+        "raw": 33946,
+        "gzip": 9307,
+        "brotli": 8238
+      },
+      "after": {
+        "raw": 34342,
+        "gzip": 9494,
+        "brotli": 8405
+      },
+      "delta": {
+        "raw": 396,
+        "gzip": 187,
+        "brotli": 167
+      },
+      "budget": {
+        "gzip": 10000,
+        "brotli": 9000
+      },
+      "remaining": {
+        "gzip": 506,
+        "brotli": 595
+      },
+      "engineModules": 0,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "root",
+      "before": {
+        "raw": 715646,
+        "gzip": 221985,
+        "brotli": 189639
+      },
+      "after": {
+        "raw": 697828,
+        "gzip": 221051,
+        "brotli": 189104
+      },
+      "delta": {
+        "raw": -17818,
+        "gzip": -934,
+        "brotli": -535
+      },
+      "budget": {
+        "gzip": 222000,
+        "brotli": 190000
+      },
+      "remaining": {
+        "gzip": 949,
+        "brotli": 896
+      },
+      "engineModules": 253,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "root-frame",
+      "before": {
+        "raw": 588102,
+        "gzip": 203531,
+        "brotli": 175526
+      },
+      "after": {
+        "raw": 588498,
+        "gzip": 203705,
+        "brotli": 175708
+      },
+      "delta": {
+        "raw": 396,
+        "gzip": 174,
+        "brotli": 182
+      },
+      "budget": {
+        "gzip": 206000,
+        "brotli": 178000
+      },
+      "remaining": {
+        "gzip": 2295,
+        "brotli": 2292
+      },
+      "engineModules": 253,
+      "eagerEngineModules": 0
+    }
+  ]
+}

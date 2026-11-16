@@ -1,0 +1,16 @@
+
+> ng-echarts-workspace@0.0.0 check:bundle
+> node tools/check-bundle-size.mjs
+
+PASS: bar 186679 gzip / 159258 Brotli bytes; 232 engine modules, none eager.
+PASS: line 187104 gzip / 159784 Brotli bytes; 230 engine modules, none eager.
+PASS: area 187594 gzip / 160073 Brotli bytes; 230 engine modules, none eager.
+PASS: composed 196943 gzip / 167711 Brotli bytes; 242 engine modules, none eager.
+PASS: pie 163578 gzip / 140057 Brotli bytes; 199 engine modules, none eager.
+PASS: radar 168426 gzip / 144336 Brotli bytes; 210 engine modules, none eager.
+PASS: calendar 174773 gzip / 149681 Brotli bytes; 213 engine modules, none eager.
+PASS: sankey 172086 gzip / 147199 Brotli bytes; 205 engine modules, none eager.
+PASS: radial 134731 gzip / 115489 Brotli bytes; 164 engine modules, none eager.
+PASS: core 9494 gzip / 8405 Brotli bytes; 0 engine modules, none eager.
+PASS: root 221051 gzip / 189104 Brotli bytes; 253 engine modules, none eager.
+PASS: root-frame 203705 gzip / 175708 Brotli bytes; 253 engine modules, none eager.

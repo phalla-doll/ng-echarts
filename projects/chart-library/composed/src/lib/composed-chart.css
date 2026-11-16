@@ -1,0 +1,6 @@
+.scale-context {
+  margin: 0 0 8px;
+  color: var(--nec-muted, #536176);
+  font-size: 12px;
+  line-height: 20px;
+}

@@ -25,6 +25,7 @@ export interface BarRangeSelection<T> {
   styleUrls: [
     '../../../core/src/lib/cartesian-chart.css',
     '../../../core/src/lib/chart-controls.css',
+    './bar-chart.css',
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
