@@ -106,7 +106,7 @@ The shared formatter formats numeric ticks, tooltips and tables in either layout
 
 The `/composed#horizontal-visits-and-target` example includes copyable horizontal source. The [linked dashboard](COMPOSED_DASHBOARD.md) uses existing rc.22 events and app-owned selection, independently of this new layout API. [Implementation and evidence](experiments/NG20_COMPOSED_DASHBOARD.md). Horizontal layout ships in published rc.23. Published rc.22 remains immutable and does not expose that input.
 
-## Explicit value axes in local rc.24
+## Explicit value axes since rc.24
 
 `valueAxes: readonly ComposedValueAxis[] | null` defaults to `null` (the existing shared scale). When set, supply one or two axes, each with unique nonempty unpadded `id`, `label` and `unit` strings. Set `axisId?: string` on bar, line or area descriptors; omission uses the first supplied axis. Explicit IDs retain assignment when axes are reordered. Unknown IDs, duplicate/invalid descriptors, zero or more than two axes are configuration errors. Values must be comparable within an axis. Vertical axes are left/right; horizontal axes are bottom/top. Both scales are linear and automatic. Only the first draws grid lines. Equal screen heights on independent scales do not establish equal quantities.
 
@@ -143,4 +143,4 @@ export class App {
 }
 ```
 
-The `/composed#revenue-and-conversion` gallery provides complete compiled source; `/composed-validation` exercises replacement and invalid states. This feature requires the local rc.24 candidate and is outside published rc.23. [Implementation and actual verification](experiments/NG17_DUAL_AXES.md). Human interpretation remains deferred.
+The `/composed#revenue-and-conversion` gallery provides complete compiled source; `/composed-validation` exercises replacement and invalid states. This feature ships in published rc.24; install `@next` or pin `@0.1.0-rc.24`. [Publication](experiments/RC24_PUBLICATION.md). [Implementation and actual verification](experiments/NG17_DUAL_AXES.md). Human interpretation remains deferred.

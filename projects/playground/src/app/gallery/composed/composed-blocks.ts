@@ -113,7 +113,7 @@ export const composedBlocks: readonly ComposedBlock[] = [
     id: 'revenue-and-conversion',
     title: 'Revenue & Conversion',
     description:
-      'Revenue uses the left USD axis; conversion is a supplied fraction on the right percentage axis. The scales are independent. Requires the local rc.24 candidate.',
+      'Revenue uses the left USD axis; conversion is a supplied fraction on the right percentage axis. The scales are independent. Available since rc.24.',
     rows: [
       { id: 'jan', month: 'January', desktop: 1200, mobile: null, trend: 0.12 },
       { id: 'feb', month: 'February', desktop: 1800, mobile: null, trend: 0.18 },

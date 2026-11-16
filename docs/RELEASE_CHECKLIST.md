@@ -1,8 +1,8 @@
 # Published prerelease verification
 
-The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.23`; local rc.24 is a separate unpublished increment. The user selected MIT for original library code on 13 November 2026. The user selected this experimental public identity and explicitly deferred the human listening session while requesting publication under `next`. Human gates remain pending. This checklist separates verified artifact behavior from release decisions and the deferred human interpretation review.
+The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.24`, including independent composed value axes and deterministic declarations. The user selected MIT for original library code on 13 November 2026. The user selected this experimental public identity and explicitly deferred the human listening session while requesting publication under `next`. Human gates remain pending. This checklist separates verified artifact behavior from release decisions and the deferred human interpretation review.
 
-The rc.23 publication and registry-consumer status are recorded in its [receipt](experiments/public-rc23/registry-verification.json). Actual npm tags are `next: 0.1.0-rc.23` and `latest: 0.1.0-rc.18`; npm rejected deletion of the initial `latest` alias. See the [registry receipt](experiments/public-rc18/registry-verification.json) and [publication procedure](PUBLICATION.md). These results are separate from the pending human interpretation gates.
+The rc.24 publication and registry-consumer status are recorded in its [receipt](experiments/public-rc24/registry-verification.json). Actual npm tags are `next: 0.1.0-rc.24` and `latest: 0.1.0-rc.18`; npm rejected deletion of the initial `latest` alias. See the [registry receipt](experiments/public-rc18/registry-verification.json) and [publication procedure](PUBLICATION.md). These results are separate from the pending human interpretation gates.
 
 ## Prepare and verify one artifact
 
@@ -82,7 +82,7 @@ The recorded dependency versions describe verified inputs, not every version adm
 | Original library license | MIT selected by the user; full text ships in the candidate |
 | Human interpretation, F09/R06 | Pending; complete the [current result sheet](experiments/RC20_HUMAN_REVIEW.md) following the [manual review](experiments/R06_MANUAL_REVIEW.md) across every family |
 | NG14/G2/G3/G4 acceptance | Pending until the required human evidence exists; successful artifact checks do not close these gates |
-| Public package name/namespace | Published `@mantha911/ng-echarts@0.1.0-rc.23`; [NG22 execution](PUBLICATION.md) |
+| Public package name/namespace | Published `@mantha911/ng-echarts@0.1.0-rc.24`; [NG22 execution](PUBLICATION.md) |
 | Registry destination/publishing credentials | Authenticated as `mantha911` after interactive npm login ([record](PUBLICATION.md)) |
 | Public API stability/versioning promise | Experimental; no stable API freeze is declared by this candidate |
 
@@ -129,4 +129,4 @@ The [area increment](experiments/NG17_COMPOSED_AREAS.md) records the published r
 
 ## rc.23 publication and rc.24 preparation
 
-[rc.23 publication](experiments/RC23_PUBLICATION.md) completes exact CI-artifact OIDC delivery and fresh registry consumers. Both differing rc.23 archives remain preserved. [rc.24](experiments/NG17_DUAL_AXES.md) adds explicit declaration types and independent value axes; prepare it once after packaged content and clean-build checks are final. Compare warm/two clean builds and the Linux CI archive before claiming cross-platform reproducibility. rc.24 is not authorized for npm publication by this increment. Human interpretation remains pending.
+[rc.23 publication](experiments/RC23_PUBLICATION.md) completes exact CI-artifact OIDC delivery and fresh registry consumers. Both differing rc.23 archives remain preserved. [rc.24](experiments/NG17_DUAL_AXES.md) adds explicit declaration types and independent value axes; its warm/two-clean/cross-platform comparisons pass. The original implementation increment did not authorize publication; the user's 16 November continuation authorizes the separate [rc.24 delivery](experiments/RC24_PUBLICATION.md). Preserve the exact archive. Human interpretation remains pending.

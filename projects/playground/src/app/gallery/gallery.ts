@@ -40,7 +40,7 @@ export class Gallery {
       'Install the experimental @mantha911/ng-echarts package from npm using @next. Named bar stacks are available since rc.21; composed areas are available since rc.22.',
       ...(this.family === 'composed'
         ? [
-            'Horizontal composition requires the local rc.23 candidate; the vertical examples also work on published rc.22.',
+            'Horizontal composition ships since rc.23; independent value axes require rc.24. Shared-axis vertical examples also work on rc.22.',
           ]
         : []),
       ...this.blocks.map(

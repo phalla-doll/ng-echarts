@@ -1,0 +1,147 @@
+{
+  "conclusion": "success",
+  "databaseId": 43788004335,
+  "headSha": "0593f344c904b11373c2c93ed5da117ed91258bb",
+  "jobs": [
+    {
+      "completedAt": "2026-11-16T01:50:16Z",
+      "conclusion": "success",
+      "databaseId": 133039891531,
+      "name": "publish",
+      "startedAt": "2026-11-16T01:44:35Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-11-16T01:44:37Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-11-16T01:44:35Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T01:44:39Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@v7",
+          "number": 2,
+          "startedAt": "2026-11-16T01:44:37Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T01:44:40Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v7",
+          "number": 3,
+          "startedAt": "2026-11-16T01:44:39Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T01:44:45Z",
+          "conclusion": "success",
+          "name": "Run npm install --global npm@11.19.1",
+          "number": 4,
+          "startedAt": "2026-11-16T01:44:40Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T01:44:54Z",
+          "conclusion": "success",
+          "name": "Run npm ci",
+          "number": 5,
+          "startedAt": "2026-11-16T01:44:45Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T01:44:54Z",
+          "conclusion": "success",
+          "name": "Run node --test tools/prerelease-guards.spec.mjs tools/wait-for-registry.spec.mjs",
+          "number": 6,
+          "startedAt": "2026-11-16T01:44:54Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T01:44:54Z",
+          "conclusion": "success",
+          "name": "Run node tools/publish-prerelease.mjs request",
+          "number": 7,
+          "startedAt": "2026-11-16T01:44:54Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T01:44:55Z",
+          "conclusion": "success",
+          "name": "Run actions/download-artifact@v7",
+          "number": 8,
+          "startedAt": "2026-11-16T01:44:54Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T01:45:42Z",
+          "conclusion": "success",
+          "name": "Run npx playwright install --with-deps chromium firefox webkit",
+          "number": 9,
+          "startedAt": "2026-11-16T01:44:55Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T01:47:06Z",
+          "conclusion": "success",
+          "name": "Run node tools/publish-prerelease.mjs publish",
+          "number": 10,
+          "startedAt": "2026-11-16T01:45:42Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T01:47:12Z",
+          "conclusion": "success",
+          "name": "Run node tools/wait-for-registry.mjs",
+          "number": 11,
+          "startedAt": "2026-11-16T01:47:06Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T01:50:13Z",
+          "conclusion": "success",
+          "name": "Verify fresh registry consumers",
+          "number": 12,
+          "startedAt": "2026-11-16T01:47:12Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T01:50:14Z",
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@v7",
+          "number": 13,
+          "startedAt": "2026-11-16T01:50:13Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T01:50:14Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v7",
+          "number": 25,
+          "startedAt": "2026-11-16T01:50:14Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T01:50:14Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v7",
+          "number": 26,
+          "startedAt": "2026-11-16T01:50:14Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-16T01:50:14Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 27,
+          "startedAt": "2026-11-16T01:50:14Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/43788004335/job/133039891531"
+    }
+  ],
+  "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/43788004335"
+}

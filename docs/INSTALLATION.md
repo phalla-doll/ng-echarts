@@ -2,7 +2,7 @@
 
 The experimental public identity is `@mantha911/ng-echarts`; prereleases use the `next` dist-tag. Install the registry package below, or use the exact local-tarball procedure to test a checkout. Use Node **24.22.2** from `.nvmrc` and npm **11.19.1**. The [compatibility table](COMPATIBILITY.md) separates tested versions from declared peer ranges.
 
-As verified on 15 November 2026, npm `next` selects rc.23 and the initial `latest` alias remains rc.18. A bare install resolves rc.18. Use `@next` deliberately or pin `@0.1.0-rc.23` for a repeatable dependency, then retain the lockfile. The [rc.23 receipt](experiments/public-rc23/registry-verification.json) records the current archive integrity and registry-consumer checks. The [first-publication record](PUBLICATION.md#first-publication-result) preserves npm’s rejected attempt to remove the initial `latest` alias.
+As verified on 16 November 2026, npm `next` selects rc.24 and the initial `latest` alias remains rc.18. A bare install resolves rc.18. Use `@next` deliberately or pin `@0.1.0-rc.24` for a repeatable dependency, then retain the lockfile. The [rc.24 receipt](experiments/public-rc24/registry-verification.json) records the current archive integrity and registry-consumer checks. The [first-publication record](PUBLICATION.md#first-publication-result) preserves npm’s rejected attempt to remove the initial `latest` alias.
 
 
 Registry prerelease installation:
@@ -120,6 +120,6 @@ The [API index and integration guide](INTEGRATION_GUIDE.md) cover shared types, 
 
 ## Current feature availability
 
-The current source candidate is `0.1.0-rc.24`; npm `next` is published rc.23 and `latest` remains rc.18. Horizontal composition ships in rc.23; explicit independent value axes require rc.24 source. The composed linked dashboard also runs on rc.22. Table pagination ships since rc.19, named bar stacks since rc.21 and composed areas since rc.22. Preserve every earlier archive. The [rc.23 publication](experiments/RC23_PUBLICATION.md) and [rc.24 increment](experiments/NG17_DUAL_AXES.md) separate registry delivery from current source checks.
+The current published version is `0.1.0-rc.24`; npm `next` selects rc.24 and `latest` remains rc.18. Horizontal composition ships since rc.23; explicit independent value axes ship in rc.24. The composed linked dashboard also runs on rc.22. Table pagination ships since rc.19, named bar stacks since rc.21 and composed areas since rc.22. Preserve every earlier archive. The [rc.24 publication](experiments/RC24_PUBLICATION.md) and [rc.24 increment](experiments/NG17_DUAL_AXES.md) separate registry delivery from current source checks.
 
 The [composed dashboard guide](COMPOSED_DASHBOARD.md) provides a complete dashboard example and a digest-verified npm consumer check. The [rc.23 increment](experiments/NG20_COMPOSED_DASHBOARD.md) records local verification separately from rc.22 publication.

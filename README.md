@@ -2,15 +2,15 @@
 
 # ng-echarts
 
-Published experimental release: **`@mantha911/ng-echarts@0.1.0-rc.23`**. Install with `npm install @mantha911/ng-echarts@next echarts@6.1.0`, or pin `@0.1.0-rc.23`. npm `next` selects rc.23; its initial `latest` alias remains on rc.18; neither the alias nor publication declares a stable API. The user deferred VoiceOver review, so human F09/R06/G2/G3/G4 remain pending. See [publication status and evidence](docs/PUBLICATION.md#rc23-oidc-publication).
+Published experimental release: **`@mantha911/ng-echarts@0.1.0-rc.24`**. Install with `npm install @mantha911/ng-echarts@next echarts@6.1.0`, or pin `@0.1.0-rc.24`. npm `next` selects rc.24; its initial `latest` alias remains on rc.18; neither the alias nor publication declares a stable API. The user deferred VoiceOver review, so human F09/R06/G2/G3/G4 remain pending. See [publication status and evidence](docs/PUBLICATION.md#rc24-oidc-publication).
 
-Current development: **local `0.1.0-rc.24` candidate** adds [independent composed value axes and deterministic declarations](docs/experiments/NG17_DUAL_AXES.md). Horizontal composition now ships in npm rc.23, alongside the [composed linked dashboard](docs/COMPOSED_DASHBOARD.md) integration. The dashboard also runs on published rc.22; the [live demo](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) includes horizontal composition and the dashboard; the new rc.24 axes await a separate demo deployment.
+Current release: **published `0.1.0-rc.24`** adds [independent composed value axes and deterministic declarations](docs/experiments/NG17_DUAL_AXES.md). Horizontal composition now ships in npm rc.23, alongside the [composed linked dashboard](docs/COMPOSED_DASHBOARD.md) integration. The dashboard also runs on published rc.22; the [live demo](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) includes horizontal composition and the dashboard; the new rc.24 axes await a separate demo deployment.
 
 An Angular 22 chart component library inspired by EvilCharts, using Apache ECharts for rendering and TypeScript for its public API.
 
 Preview: **[Live demo on GitHub Pages](https://phalla-doll.github.io/ng-echarts/)**. See [deployment instructions](docs/GITHUB_PAGES.md) to rebuild and publish the current demo snapshot.
 
-Status: experimental bar, line, area, pie/donut, composed, focused radar, radial progress, calendar heatmap and Sankey components. Updated 15 November 2026. The Angular library and SSR playground now render bars, lines, areas, and pies/donuts with native controls; G1 technical feasibility passes for bar; the user has deferred the human screen-reader review to release acceptance, allowing development to continue while G2 remains pending.
+Status: experimental bar, line, area, pie/donut, composed, focused radar, radial progress, calendar heatmap and Sankey components. Updated 16 November 2026. The Angular library and SSR playground now render bars, lines, areas, and pies/donuts with native controls; G1 technical feasibility passes for bar; the user has deferred the human screen-reader review to release acceptance, allowing development to continue while G2 remains pending.
 
 ## Project direction
 
@@ -139,7 +139,7 @@ The site includes [Get Started](http://localhost:4310/get-started), [Installatio
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
 | `npm run check` | Run formatting, builds, compilation, unit, declaration/runtime consumers, SSR, browser, and size checks |
 
-Current rc.24 verification: **335 unit tests and 476 browser passes, with four expected skips**; [full Linux CI passes](https://github.com/phalla-doll/ng-echarts/actions/runs/43736006909), and complete macOS/Linux package bytes match. The [increment report](docs/experiments/NG17_DUAL_AXES.md) records exact-artifact checks, visual evidence and preserved failed-run corrections. rc.24 remains unpublished.
+Current rc.24 verification: **335 unit tests and 476 browser passes, with four expected skips**; [full Linux CI passes](https://github.com/phalla-doll/ng-echarts/actions/runs/43736006909), and complete macOS/Linux package bytes match. The [increment report](docs/experiments/NG17_DUAL_AXES.md) records exact-artifact checks, visual evidence and preserved failed-run corrections. [rc.24 publication](docs/experiments/RC24_PUBLICATION.md) verifies the same preserved artifact from npm.
 
 Preserved rc.22 verification: **326 unit tests and 458 browser passes, with four expected skips**; [all delivery-source CI jobs passed](https://github.com/phalla-doll/ng-echarts/actions/runs/43691952570). The [area report](docs/experiments/NG17_COMPOSED_AREAS.md) records 22 publishing/readiness guard tests, exact registry consumers, OIDC provenance and the verified live deployment. Human interpretation remains deferred.
 
