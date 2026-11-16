@@ -27,6 +27,22 @@
       </div>
     </header>
     <div #surface class="block-surface" [hidden]="view() !== 'preview'">
+      <div class="legend-layout" role="group" aria-label="Legend layout">
+        <button
+          type="button"
+          [attr.aria-pressed]="legendLayout() === 'chips'"
+          (click)="legendLayout.set('chips')"
+        >
+          Inline chips
+        </button>
+        <button
+          type="button"
+          [attr.aria-pressed]="legendLayout() === 'list'"
+          (click)="legendLayout.set('list')"
+        >
+          Aligned list
+        </button>
+      </div>
       <div class="block-metrics" aria-label="Browser distribution in this sample">
         @for (metric of metrics(); track metric.id) {
           <div class="block-metric">
@@ -52,6 +68,7 @@
             [measure]="measure"
             [innerRadius]="block().innerRadius"
             [showLabels]="block().showLabels"
+            [legendLayout]="legendLayout()"
             [showTotal]="block().innerRadius >= 0.4"
             [theme]="theme()"
             [showDataTable]="false"

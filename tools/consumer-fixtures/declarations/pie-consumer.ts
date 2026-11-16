@@ -4,6 +4,7 @@ import {
   type ChartMeasure,
   type CategoryVisibilityChange,
   type PointSelection,
+  type LegendLayout,
 } from '@mantha911/ng-echarts/pie';
 interface Reading {
   id: string;
@@ -22,11 +23,13 @@ interface Reading {
     [measure]="measure"
     [innerRadius]="0.6"
     [showLabels]="true"
+    [legendLayout]="legendLayout"
     (legendChange)="legend($event)"
     (pointSelect)="select($event)"
   />`,
 })
 export class ConsumerPie {
+  readonly legendLayout: LegendLayout = 'list';
   readonly data: readonly Reading[] = [{ id: 'a', label: 'A', value: 1 }];
   readonly measure: ChartMeasure<Reading> = { id: 'v', key: 'value', label: 'Value' };
   legend(event: CategoryVisibilityChange): void {

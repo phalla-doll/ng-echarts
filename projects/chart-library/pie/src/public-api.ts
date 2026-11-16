@@ -3,6 +3,7 @@ export type {
   ChartMeasure,
   CategoryVisibilityChange,
   ChartTheme,
+  LegendLayout,
   NumericKey,
   StringKey,
   PointSelection,

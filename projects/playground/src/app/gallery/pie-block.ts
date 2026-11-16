@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { PieChart, type PointSelection } from '@mantha911/ng-echarts/pie';
+import { PieChart, type PointSelection, type LegendLayout } from '@mantha911/ng-echarts/pie';
 import { pieExampleSource, type PieBlock } from './pie/pie-blocks';
 import {
   visitorMeasure,
@@ -16,7 +16,7 @@ import { DemoPrintMode } from '../shell/demo-print-mode';
   selector: 'app-pie-block',
   imports: [PieChart, SiteIcon, HighlightCode, ChartImport, RouterLink],
   templateUrl: './pie-block.html',
-  styleUrl: './bar-block.css',
+  styleUrls: ['./bar-block.css', './pie-block.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PieBlockExample {
@@ -31,9 +31,12 @@ export class PieBlockExample {
   protected readonly instances = computed(() => [this.generation()]);
   private readonly copiedText = signal<string | null>(null);
   protected readonly copyFailed = signal(false);
-  protected readonly source = computed(() => pieExampleSource(this.block(), this.dark()));
+  protected readonly source = computed(() =>
+    pieExampleSource(this.block(), this.dark(), this.legendLayout()),
+  );
   protected readonly copied = computed(() => this.copiedText() === this.source());
   protected readonly selection = signal('');
+  protected readonly legendLayout = signal<LegendLayout>('chips');
   protected readonly metrics = computed(() => [
     {
       id: 'total',

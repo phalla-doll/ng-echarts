@@ -36,7 +36,7 @@
     [attr.inert]="currentState.kind !== 'ready' ? '' : null"
     [attr.aria-hidden]="currentState.kind !== 'ready' ? 'true' : null"
   >
-    <div class="legend" aria-label="Chart series">
+    <div class="legend" [class.legend-list]="legendLayout() === 'list'" aria-label="Chart series">
       @for (item of legendItems(); track item.id) {
         <button
           type="button"
@@ -45,8 +45,8 @@
           (click)="toggleSeries(item.id)"
         >
           <span class="swatch" [style.background]="item.color" aria-hidden="true"></span>
-          {{ item.label }}
-          <span class="visibility" [class.legend-note]="false">{{
+          <span class="legend-label">{{ item.label }}</span>
+          <span class="visibility" [class.legend-note]="legendLayout() === 'list'">{{
             item.visible ? 'Visible' : 'Hidden'
           }}</span>
         </button>

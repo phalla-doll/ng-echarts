@@ -4,6 +4,7 @@ export type {
   CategoryTickFormatter,
   ChartSeries,
   ChartTheme,
+  LegendLayout,
   LegendVisibilityChange,
   NumericKey,
   PointSelection,

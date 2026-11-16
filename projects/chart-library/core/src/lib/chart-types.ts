@@ -38,6 +38,7 @@ export interface PointPreview<T> extends PointSelection<T> {
 }
 
 export type ChartTheme = 'light' | 'dark';
+export type LegendLayout = 'chips' | 'list';
 export type BarLayout = 'vertical' | 'horizontal';
 
 /** Pure, synchronous axis-only formatting. Use identical functions on server and client. */

@@ -49,6 +49,25 @@ describe.each(families)('$family cross-family acceptance', ({ family, component 
     return { fixture, host };
   }
 
+  it('switches legend layouts without replacing controls or resetting hidden identities', async () => {
+    const { fixture, host } = await setup();
+    const legend = host.querySelector<HTMLElement>('.legend')!;
+    const button = legend.querySelector<HTMLButtonElement>('button')!;
+    expect(legend.classList.contains('legend-list')).toBe(false);
+    button.click();
+    await fixture.whenStable();
+    fixture.componentRef.setInput('legendLayout', 'list');
+    await fixture.whenStable();
+    expect(legend.classList.contains('legend-list')).toBe(true);
+    expect(legend.querySelector('button')).toBe(button);
+    expect(button.getAttribute('aria-pressed')).toBe('false');
+    fixture.componentRef.setInput('legendLayout', 'chips');
+    await fixture.whenStable();
+    expect(legend.classList.contains('legend-list')).toBe(false);
+    expect(legend.querySelector('button')).toBe(button);
+    expect(button.getAttribute('aria-pressed')).toBe('false');
+  });
+
   it('formats locale/custom text without changing raw zero, missing values, or original rows', async () => {
     const { fixture, host } = await setup();
     fixture.componentRef.setInput('locale', 'de-DE');

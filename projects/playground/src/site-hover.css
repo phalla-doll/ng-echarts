@@ -14,7 +14,6 @@
 }
 .site-shell .chart-frame .legend button[aria-pressed='false'] {
   color: var(--site-muted);
-  border-style: dashed;
 }
 .site-shell .chart-frame .legend button[aria-pressed='false'] .swatch {
   opacity: 0.35;

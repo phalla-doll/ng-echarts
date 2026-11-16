@@ -4,6 +4,7 @@ import {
   browserPalette,
   type BrowserRow,
 } from '../../fixtures/evilcharts-pie-fixture';
+import type { LegendLayout } from '@mantha911/ng-echarts/pie';
 export interface PieBlock {
   readonly kind: 'pie';
   readonly id: string;
@@ -42,7 +43,11 @@ export const pieBlocks: readonly PieBlock[] = [
     showLabels: true,
   },
 ];
-export function pieExampleSource(block: PieBlock, dark: boolean): string {
+export function pieExampleSource(
+  block: PieBlock,
+  dark: boolean,
+  legendLayout: LegendLayout = 'chips',
+): string {
   const palette = browserPalette[dark ? 'dark' : 'light'];
   return `import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PieChart, type ChartMeasure } from '@mantha911/ng-echarts/pie';
@@ -53,7 +58,7 @@ interface Browser { id: string; browser: string; visitors: number | null; }
   template: \`<nec-pie-chart title="${block.title}" description="${block.description}"
     [data]="rows" rowIdKey="id" categoryKey="browser" [measure]="measure"
     [innerRadius]="${block.innerRadius}" [showLabels]="${block.showLabels}" [showTotal]="${block.innerRadius >= 0.4}"
-    theme="${dark ? 'dark' : 'light'}" [showDataTable]="false" [height]="300"
+    theme="${dark ? 'dark' : 'light'}" legendLayout="${legendLayout}" [showDataTable]="false" [height]="300"
     ${palette.map((color, index) => `[style.--nec-series-${index + 1}]="'${color}'"`).join(' ')}
   />\`,
 })

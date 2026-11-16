@@ -1,0 +1,23 @@
+.legend-layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 12px 16px 0;
+}
+.legend-layout button {
+  min-height: 40px;
+  padding: 8px 12px;
+  border-radius: var(--site-inset-radius);
+  font-size: 12px;
+  color: var(--site-muted);
+}
+.legend-layout button[aria-pressed='true'] {
+  color: var(--site-text);
+  background: var(--site-surface);
+}
+@media (pointer: coarse) {
+  .legend-layout button {
+    min-height: 44px;
+  }
+}

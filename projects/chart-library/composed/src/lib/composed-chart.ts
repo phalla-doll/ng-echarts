@@ -42,6 +42,7 @@ interface ComposedConfiguration<T> {
   styleUrls: [
     '../../../core/src/lib/cartesian-chart.css',
     '../../../core/src/lib/chart-controls.css',
+    './composed-chart.css',
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

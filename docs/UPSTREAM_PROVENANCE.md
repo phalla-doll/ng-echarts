@@ -179,3 +179,7 @@ The rc.23 orientation/gradient/hit-decoder changes and composed linked dashboard
 ## Independent composed value axes
 
 The [rc.24 increment](experiments/NG17_DUAL_AXES.md) is original code using Apache ECharts documented multiple Cartesian value axes and series-axis indexes. The revenue/conversion fixture is original illustrative data. Shared curve coordination reuses existing project code; lazy family registration, peer versions and all notice bytes remain unchanged. No upstream implementation was copied.
+
+## rc.25 presentation and lifecycle consolidation
+
+The shared presentation directive, browser lifecycle binding and family-style separation are original project code using Angular signal inputs, component inheritance and render hooks. The package retains [Angular partial compilation](https://angular.dev/tools/libraries/angular-package-format#partial-compilation), existing ECharts imports and all upstream notices. No upstream implementation or dataset was copied. The [increment record](experiments/RC25_PAYLOAD_REDUCTION.md) owns measured payload and validation evidence.

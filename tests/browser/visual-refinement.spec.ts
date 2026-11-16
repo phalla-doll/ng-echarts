@@ -61,11 +61,15 @@ for (const [route, selector] of [
         .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
         .toBeLessThanOrEqual(320);
       const legend = block.locator('.legend button').first();
-      expect((await legend.boundingBox())!.height).toBeGreaterThanOrEqual(40);
+      const coarse = await page.evaluate(() => matchMedia('(pointer: coarse)').matches);
+      expect((await legend.boundingBox())!.height).toBeGreaterThanOrEqual(coarse ? 44 : 32);
       await legend.focus();
       await page.keyboard.press('Space');
       await expect(legend).toHaveAttribute('aria-pressed', 'false');
-      await expect(legend).toHaveCSS('border-top-style', 'dashed');
+      await expect(legend.locator('.legend-label')).toHaveCSS(
+        'text-decoration-line',
+        'line-through',
+      );
       await expect(legend.locator('.swatch')).toHaveCSS('opacity', '0.35');
       await page.keyboard.press('Space');
       await expect(legend).toHaveAttribute('aria-pressed', 'true');

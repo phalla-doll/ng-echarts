@@ -39,7 +39,17 @@
     [attr.inert]="currentState.kind !== 'ready' ? '' : null"
     [attr.aria-hidden]="currentState.kind !== 'ready' ? 'true' : null"
   >
-    <div class="legend pie-legend" aria-label="Chart categories">
+    <div
+      class="legend pie-legend"
+      [class.legend-list]="legendLayout() === 'list'"
+      aria-label="Chart categories"
+    >
+      @if (legendLayout() === 'list') {
+        <div class="legend-heading" aria-hidden="true">
+          <span>Category</span><span>{{ measure().label }}</span
+          ><span>Share</span>
+        </div>
+      }
       @for (item of legendItems(); track item.id) {
         <button
           type="button"
@@ -50,8 +60,8 @@
           <span class="swatch" [style.background]="item.color" aria-hidden="true"></span>
           <span class="legend-label">{{ item.label }}</span>
           <span class="legend-values"
-            ><span>{{ item.valueText }}</span
-            ><span>{{ item.shareText }}</span></span
+            ><span class="legend-value">{{ item.valueText }}</span
+            ><span class="legend-share">{{ item.shareText }}</span></span
           >
           <span class="visibility" [class.legend-note]="false">{{
             item.visible ? 'Visible' : 'Hidden'

@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.1.0-rc.26 — Chip and aligned-list legends
+
+- Default Cartesian, radar and pie/donut legends to compact inline chips; opt into aligned rows with `legendLayout="list"`.
+- Keep pie values and visible-category percentages, keyboard toggles, hidden identities and focus while switching layouts. Long labels and formatted values wrap rather than truncate.
+- Add live pie-gallery layout selection and matching copyable source. Preserve rc.25 and all earlier archives; registry/demo delivery and human release gates are unchanged.
+
+## 0.1.0-rc.25 — Shared presentation and smaller chart payloads
+
+- Share common signal inputs, native table state, theme defaults and renderer recovery through an internal presentation base, retaining family-specific APIs and validation.
+- Reuse browser plot setup, reduced-motion listeners, rendering, focus restoration and teardown across Cartesian and pie charts without eager engine imports.
+- Scope pie/donut, bar selection and composed axis-description CSS to their owning components. Preserve published rc.24 and every earlier archive; human release gates remain pending.
+
 ## 0.1.0-rc.24 — Explicit composed value axes
 
 - Add opt-in one/two labeled linear value axes, axis-ID series assignment and independent numeric formatting for ticks, tooltips and native actions. Keep raw observations and reject named stacks spanning axes.

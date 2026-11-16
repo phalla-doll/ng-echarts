@@ -23,6 +23,8 @@ A reusable Angular library, an example application, and integration documentatio
 
 Shared features include tooltips, legends, theme tokens, loading and empty states, explicit error state, resizing, typed selection events, and motion preferences. The bar chart is the feasibility prototype, not the entire MVP.
 
+The user-selected rc.26 legend refinement supplies inline chips by default and an optional aligned list for Cartesian, radar and pie/donut charts. Both remain native keyboard-operated visibility controls. Pie/donut retains formatted values and visible-category shares; changing layout preserves chart instances and visibility state.
+
 ### Subsequent scope
 
 The demo's `/chart-possibilities` route presents twelve interactive design proposals using the approved [standalone gallery](experiments/chart-style-gallery.html). The existing site owns navigation and theme selection. Calendar heatmap, waterfall, scatter/bubble, bullet, dumbbell, Sankey, treemap, radial progress, radar, KPI sparklines, 100% stacked bars and ranked lollipop examples use illustrative data. This preview does not add public Angular chart APIs or establish family acceptance. See the [integration record](experiments/CHART_POSSIBILITIES.md).

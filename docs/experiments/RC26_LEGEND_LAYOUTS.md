@@ -1,0 +1,27 @@
+# rc.26 legend layouts
+
+Date: 16 November 2026. The user selected inline chips and an aligned list from three proposed legends, with chips as the default. This source increment preserves the rc.25 candidate and every earlier archive. It does not publish a package or deploy Pages; npm next remains rc.24, latest rc.18 and the deployed source remains `42b27aa`. Human F09/R06/G2/G3/G4 remain deferred/pending.
+
+## Behavior
+
+`LegendLayout = 'chips' | 'list'` and `legendLayout` apply to bar, line, area, composed, radar and pie/donut. The default is `chips`. `legendLayout="list"` aligns rows; pie/donut adds category, formatted measure and share headers. Cartesian/radar lists expose the existing series visibility text. Existing native buttons, pressed states, keyed identities, events, raw values and visible-category percentage calculations remain intact. Layout changes do not enter renderer inputs or recreate plot instances. Hidden labels use a strike-through as a non-color cue.
+
+The shared stylesheet supplies neutral chip fills, circular swatches and list separators through existing theme tokens. Pie-specific column rules remain in the pie entry. Long labels and formatted values wrap. Coarse-pointer controls retain at least 44 px height. Gallery overrides no longer force legend buttons back to rounded rectangles or insert swatch margins. The pie gallery provides a local layout selector; its Code and clipboard examples reflect the choice.
+
+## Visual evidence
+
+The [preserved rc.25 narrow donut](rc25/visual/pie-rc25.png) records the earlier card legend. New source captures show [dark chips at 390 px](rc26/visual/chips-dark-390.png), [dark list at 390 px](rc26/visual/list-dark-390.png), [light chips at 390 px](rc26/visual/chips-light-390.png), [light list at 390 px](rc26/visual/list-light-390.png), [dark chips at 1440 px](rc26/visual/chips-dark-1440.png) and [dark list at 1440 px](rc26/visual/list-dark-1440.png). Viewport width is recorded in the filename; the desktop gallery uses its existing two-column layout. These are source visual checks, not human release acceptance.
+
+## Verification
+
+Production library/playground builds, strict TypeScript/templates, all 340 unit tests (322 library and 18 playground), and all twelve module budgets pass using Node 24.22.2/npm 11.19.1. The root measures 221,792 gzip bytes under the unchanged 222,000-byte cap; core measures 9,531 bytes. Engine registrations and eager boundaries remain unchanged. The canonical current measurement is [package-boundaries.json](data/package-boundaries.json).
+
+The isolated `skipLibCheck: false` consumer passes applicable typed layout bindings and rejects unsupported layout values, alongside existing negative bindings. The documented fresh Angular installation builds and hydrates in all three engines; production SSR and independently installed client/SSR consumers also pass. The pie suite passes 18 checks across Chromium/Firefox/WebKit, including the original lifecycle/import/update flows. The selected cross-family, formatting, layout and polish checks are verified across all three engines. Together with the pie suite these cover 84 distinct browser/test combinations; the corrected rerun below resolves the initial twelve failures. Formatting, documentation-link checks and git diff whitespace checks pass. No immutable rc.26 release archive or CI identity is claimed here.
+
+The first strict-consumer attempt correctly rejected installation status wording that omitted “source candidate”; the wording is corrected without weakening the guard, and the consumer passes. The initial wider browser run records 57 passes and twelve failures because its hidden-legend assertion still required dashed card borders. The new design uses a strike-through label as its non-color cue; the assertion now checks that cue and retains pressed-state, swatch-opacity and keyboard recovery checks. The corrected visual/new-layout rerun passes all 18 checks across Chromium, Firefox and WebKit, including mobile keyboard recovery and both layouts at 320/390/768/1440 px in light/dark themes. The layout stress check additionally fits unbroken category labels and long formatted values at 320 px. An initial documented-installation attempt inherited an npm-exec shell setting from the pinned tool launcher; rerunning with the pinned binaries directly on PATH passes the unchanged install instructions.
+
+## Compact-chip review
+
+The user requested slightly smaller chips after reviewing the live demo. Mouse/pointer-fine chips now use a 32 px minimum height, 4 px vertical/10 px horizontal padding and 6 px item gaps; pie numeric spacing is 8 px. The browser sample measures 156.7 × 32 px, compared with 166.7 × 40 px before, while its 12 px text is unchanged. List row styling is unchanged. A real coarse-pointer mobile context verifies 44 px chip targets. The production build, all twelve unchanged payload budgets and the 18 three-engine legend/visual checks pass after this CSS refinement. Root gzip is 221,792 bytes, leaving 208 bytes under the existing cap.
+
+Before/after captures are retained separately: [before at 390 px](rc26/visual/chips-before-compact-dark-390.png), [current at 390 px](rc26/visual/chips-dark-390.png), [before at 1440 px](rc26/visual/chips-before-compact-dark-1440.png), and [current at 1440 px](rc26/visual/chips-dark-1440.png).

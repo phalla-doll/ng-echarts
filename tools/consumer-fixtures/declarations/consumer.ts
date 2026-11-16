@@ -7,6 +7,7 @@ import {
   type PointSelection,
   type PointPreview,
   type ValueFormatter,
+  type LegendLayout,
 } from '@mantha911/ng-echarts/bar';
 import { ChartFrame } from '@mantha911/ng-echarts/core';
 import type { EChartsCoreOption } from 'echarts/core';
@@ -19,6 +20,7 @@ import type { EChartsCoreOption } from 'echarts/core';
     </nec-chart-frame>
     <nec-bar-chart
       [tablePageSize]="50"
+      [legendLayout]="legendLayout"
       title="Packed bar"
       [data]="rows"
       rowIdKey="id"
@@ -33,6 +35,7 @@ import type { EChartsCoreOption } from 'echarts/core';
     />`,
 })
 export class Consumer {
+  readonly legendLayout: LegendLayout = 'list';
   readonly numberFormatOptions: Intl.NumberFormatOptions = { style: 'currency', currency: 'USD' };
   readonly valueFormatter: ValueFormatter = (value) => `${value} visits`;
   readonly options: EChartsCoreOption = { animation: false };
@@ -70,3 +73,6 @@ void invalidFormatter;
 // @ts-expect-error Numeric value formatters must return synchronous text.
 const invalidValueFormatter: ValueFormatter = (value) => value;
 void invalidValueFormatter;
+// @ts-expect-error Only the supported legend layouts are accepted.
+const invalidLegendLayout: LegendLayout = 'cards';
+void invalidLegendLayout;

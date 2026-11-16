@@ -148,8 +148,8 @@ a {
   font-size: 16px;
   line-height: 24px;
 }
-.utility-page .chart-frame button,
-.workbench .chart-frame button {
+.utility-page .chart-frame button:not(.legend button),
+.workbench .chart-frame button:not(.legend button) {
   border-color: var(--site-border);
   font-size: 12px;
   line-height: 20px;
@@ -217,7 +217,7 @@ a {
   font-size: 12px;
   line-height: 20px;
 }
-.gallery app-linked-visits .chart-frame button {
+.gallery app-linked-visits .chart-frame button:not(.legend button) {
   min-height: 32px;
   padding: 6px 8px;
   font-size: 12px;
@@ -225,7 +225,6 @@ a {
 }
 .gallery app-linked-visits .chart-frame .legend {
   margin: 12px 0 8px;
-  gap: 8px;
 }
 .gallery app-linked-visits .chart-frame .visibility {
   font-size: 10px;
@@ -235,7 +234,6 @@ a {
 .gallery app-linked-visits .chart-frame .swatch {
   width: 8px;
   height: 8px;
-  margin-right: 3px;
 }
 .gallery app-linked-visits .chart-frame .table-toggle {
   border: 0;

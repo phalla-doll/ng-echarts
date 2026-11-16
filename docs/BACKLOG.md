@@ -165,3 +165,11 @@ The [committed dashboard/horizontal demo delivery](experiments/NG20_COMPOSED_DAS
 ## rc.24 delivery and next priorities — 16 November
 
 The user authorized the next delivery step: [rc.24 publication and demo delivery](experiments/RC24_PUBLICATION.md), with current documentation reconciled and archived package contents preserved. Next reduce the combined-root payload in a new version: rc.24 has only 15 gzip bytes of headroom under its unchanged cap. Follow with shared zoom and bidirectional selection; NG21 tooltip templates and decorative work remain later scope. Human F09/R06/G2/G3/G4 remain deferred/pending.
+
+## rc.25 payload consolidation — 16 November
+
+The user selected payload reduction after rc.24 delivery. The [rc.25 increment](experiments/RC25_PAYLOAD_REDUCTION.md) consolidates common presentation inputs/state and browser lifecycle, with family-specific styles. Root gzip is 221,051 bytes, leaving 949 bytes under the unchanged cap; engine membership and eager boundaries remain unchanged in all twelve scenarios. This is a bounded improvement; new shared-zoom/two-way work must still fit fresh root/core measurements. The local candidate, full regression and exact-artifact receipts are recorded in the report. npm next retains rc.24, latest rc.18 and the demo source `42b27aa`; human release gates remain pending.
+
+## rc.26 legend layouts — 16 November
+
+The user selected inline chips and aligned lists, with chips as default. Local rc.26 adds the typed layout input and a live pie-gallery selector with matching copyable source. The [increment report](experiments/RC26_LEGEND_LAYOUTS.md) owns actual keyboard, responsive, visual, installed-package and budget checks. Preserve rc.25 and earlier archives; package publication, Pages deployment and human release gates are unchanged.

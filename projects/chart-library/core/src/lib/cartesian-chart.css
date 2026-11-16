@@ -30,10 +30,10 @@ button:focus-visible,
 }
 .swatch {
   display: inline-block;
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 0.125rem;
-  margin-right: 0.375rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: 0 0 auto;
 }
 .visibility {
   margin-left: 0.5rem;
@@ -65,106 +65,60 @@ td {
 td {
   white-space: nowrap;
 }
-.selected-row {
-  background: color-mix(in srgb, var(--nec-text, #18202c) 5%, transparent);
-}
-.selected-row th {
-  box-shadow: inset 2px 0 var(--nec-text, #18202c);
-}
-.selection-label {
-  display: block;
-  margin-top: 2px;
-  color: var(--nec-muted, #536176);
-  font-size: 0.6875rem;
-  font-weight: 500;
-}
-
 .legend button {
   position: relative;
   display: inline-flex;
   align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  text-align: left;
+  border-color: transparent;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--nec-text, #18202c) 5%, transparent);
+}
+.legend-label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.legend:not(.legend-list) button {
+  padding: 4px 10px;
   gap: 6px;
+}
+@media (pointer: fine) {
+  .legend:not(.legend-list) button {
+    min-height: 32px;
+  }
 }
 .legend button:hover {
   background: color-mix(in srgb, var(--nec-text, #18202c) 4%, transparent);
 }
 .legend button[aria-pressed='false'] {
-  border-style: dashed;
   color: var(--nec-muted, #536176);
+}
+.legend button[aria-pressed='false'] .legend-label {
+  text-decoration: line-through;
 }
 .legend button[aria-pressed='false'] .swatch {
   opacity: 0.35;
 }
-.pie-legend {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(108px, 1fr));
-  gap: 8px;
+.legend-list {
+  flex-direction: column;
+  gap: 0;
 }
-.pie-legend button {
-  display: grid;
-  grid-template-columns: 8px minmax(0, 1fr);
-  gap: 2px 6px;
-  padding: 8px 10px;
-  min-width: 0;
-  text-align: left;
+.legend-list button {
+  border-radius: 0;
+  border-width: 0 0 1px;
+  border-color: var(--nec-border, #d6dce5);
+  background: transparent;
 }
-.legend-label {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.legend-values {
-  grid-column: 2;
-  display: flex;
-  justify-content: space-between;
-  gap: 6px;
-  font-size: 11px;
-  font-variant-numeric: tabular-nums;
+.legend-list .legend-note {
+  margin-left: auto;
   color: var(--nec-muted, #536176);
 }
-.donut-total {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  width: min(36%, 140px);
-  height: fit-content;
-  text-align: center;
-  pointer-events: none;
-}
-.donut-total strong {
-  display: block;
-  font-size: clamp(18px, 3vw, 26px);
-  line-height: 1.25;
-  font-weight: 600;
-  letter-spacing: -0.5px;
-  font-variant-numeric: tabular-nums;
-  overflow-wrap: anywhere;
-}
-.donut-total span {
-  display: block;
-  margin-top: 4px;
-  font-size: 11px;
-  line-height: 16px;
-  color: var(--nec-muted, #536176);
-  overflow-wrap: anywhere;
-}
-@media (max-width: 600px) {
-  .pie-legend {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+@media (pointer: coarse) {
+  .legend button {
+    min-height: 44px;
   }
-}
-
-.legend-values {
-  flex-wrap: wrap;
-  min-width: 0;
-}
-.legend-values > span {
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-.donut-total strong,
-.donut-total span {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }

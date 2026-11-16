@@ -1,50 +1,38 @@
-import { isPlatformBrowser } from '@angular/common';
+import { ChartPresentation } from './chart-presentation';
 import {
-  afterNextRender,
-  afterRenderEffect,
-  ApplicationRef,
   ChangeDetectionStrategy,
   Directive,
   computed,
+  input,
   DestroyRef,
   effect,
   ElementRef,
   inject,
-  input,
   linkedSignal,
   output,
-  PLATFORM_ID,
   signal,
   untracked,
   viewChild,
 } from '@angular/core';
-import {
-  browserPlotEnvironment,
-  readCartesianTheme,
-  observeTablePreviews,
-} from './cartesian-browser';
+import { readCartesianTheme, observeTablePreviews } from './cartesian-browser';
 import {
   normalizeCartesianData,
   resolveCartesianState,
   type CartesianModel,
 } from './cartesian-model';
-import { defaultCartesianTheme, type CartesianThemeTokens } from './cartesian-options';
+import type { CartesianThemeTokens } from './cartesian-options';
 import type { PlotRendererFactory } from './plot-controller';
 import { formatCategoryTicks } from './category-ticks';
 import { createValueFormatting, type ValueFormatting } from './value-formatting';
-import { ChartFocusKeeper } from './chart-focus';
-import { TablePagination } from './table-pagination';
 import type {
   CategoryTickFormatter,
   ChartSeries,
-  ChartTheme,
   LegendVisibilityChange,
-  PointSelection,
   PointPreview,
-  StringKey,
   ValueFormatter,
 } from './chart-types';
-import { PlotController, type PlotPoint } from './plot-controller';
+import type { PlotPoint } from './plot-controller';
+import { bindBrowserPlot } from './browser-plot';
 
 interface PlotPreviewSnapshot {
   readonly point: PlotPoint;
@@ -57,7 +45,7 @@ export abstract class CartesianChart<
   T extends object,
   Option,
   Series extends ChartSeries<T> = ChartSeries<T>,
-> {
+> extends ChartPresentation<T> {
   protected abstract renderer(): Promise<PlotRendererFactory<Option>>;
   protected abstract familyConfiguration(): unknown;
   protected abstract familyError(): string | null;
@@ -127,31 +115,12 @@ export abstract class CartesianChart<
     this.tablePagination.page(),
     this.state(),
   ]);
-  readonly title = input.required<string>();
-  readonly description = input('');
-  readonly data = input.required<readonly T[]>();
-  readonly rowIdKey = input.required<StringKey<T>>();
-  readonly categoryKey = input.required<StringKey<T>>();
   readonly series = input.required<readonly Series[]>();
-  readonly height = input(320);
-  readonly theme = input<ChartTheme>('light');
-  readonly themeRevision = input(0);
-  readonly locale = input('en-US');
-  readonly numberFormatOptions = input<Intl.NumberFormatOptions>();
-  readonly valueFormatter = input<ValueFormatter>();
   readonly categoryTickFormatter = input<CategoryTickFormatter>();
-  readonly showDataTable = input(true);
-  readonly tablePageSize = input<number | null>(null);
-  readonly loading = input(false);
-  readonly error = input<string | null>(null);
-  readonly animation = input(true);
-  readonly pointSelect = output<PointSelection<T>>();
   readonly legendChange = output<LegendVisibilityChange>();
 
   private readonly destroyRef = inject(DestroyRef);
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
-  private readonly application = inject(ApplicationRef);
-  private readonly platform = inject(PLATFORM_ID);
   private readonly plot = viewChild.required<ElementRef<HTMLElement>>('plot');
   private readonly browserReady = signal(false);
   private readonly reducedMotion = signal(false);
@@ -178,22 +147,8 @@ export abstract class CartesianChart<
       return retained.size === hidden.size ? hidden : retained;
     },
   });
-  private readonly measuredTheme = signal<CartesianThemeTokens | null>(null);
-  private controller: PlotController<Option> | null = null;
-  private removeMotionListener: (() => void) | null = null;
-  private focusKeeper: ChartFocusKeeper | null = null;
   private removePreviewListeners: (() => void) | null = null;
 
-  // A failed renderer stays failed until retry or a relevant input changes.
-  protected readonly rendererError = linkedSignal(() => {
-    this.model();
-    this.settings();
-    this.formatting();
-    this.categoryTicks();
-    return false;
-  });
-  protected readonly tableExpanded = signal(false);
-  protected readonly tablePagination = new TablePagination(this.data, this.tablePageSize);
   protected readonly model = computed(() =>
     normalizeCartesianData(this.data(), this.rowIdKey(), this.categoryKey(), this.series()),
   );
@@ -215,12 +170,6 @@ export abstract class CartesianChart<
     error: this.error(),
     tablePageSize: this.tablePageSize(),
   }));
-  protected readonly tokens = computed(
-    () => this.measuredTheme() ?? defaultCartesianTheme(this.theme()),
-  );
-  protected readonly plotHeight = computed(() =>
-    Number.isFinite(this.height()) && this.height() > 0 ? this.height() : 320,
-  );
   protected readonly state = computed(() => {
     const settings = this.settings();
     const configurationError =
@@ -298,7 +247,12 @@ export abstract class CartesianChart<
     }));
   });
 
+  protected override rendererInputs(): unknown {
+    return [this.model(), this.settings(), this.formatting(), this.categoryTicks()];
+  }
+
   constructor() {
+    super();
     effect(() => {
       const context = this.previewContext();
       // An event can already describe the new inputs before this scheduled effect
@@ -314,35 +268,14 @@ export abstract class CartesianChart<
       // input. Reconcile the latest hit after inputs settle, without a new move.
       if (enabled) untracked(() => this.previewPoint(current?.point ?? null, 'plot', 'pointer'));
     });
-    afterNextRender(() => {
-      if (!isPlatformBrowser(this.platform)) return;
-      void this.application.whenStable().then(() => {
-        if (this.destroyRef.destroyed) return;
-        try {
-          const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-          this.reducedMotion.set(preference.matches);
-          const onMotion = (event: MediaQueryListEvent): void =>
-            this.reducedMotion.set(event.matches);
-          preference.addEventListener('change', onMotion);
-          this.removeMotionListener = () => preference.removeEventListener('change', onMotion);
-          this.controller = new PlotController(
-            this.plot().nativeElement,
-            browserPlotEnvironment(() => this.renderer(), this.host.nativeElement),
-            (point) => this.selectPoint(point, 'plot'),
-            () => this.rendererError.set(true),
-            (ids, snapshot) => this.selectRange(ids, snapshot),
-            (point) => this.plotPreview.set(point ? { point, context: this.plotContext() } : null),
-          );
-          this.browserReady.set(true);
-          this.focusKeeper = new ChartFocusKeeper(this.host.nativeElement);
-        } catch {
-          this.rendererError.set(true);
-        }
-      });
-    });
-    // Resolving CSS colors writes a probe and immediately reads its computed color.
-    afterRenderEffect({
-      mixedReadWrite: () => {
+    bindBrowserPlot({
+      host: this.host.nativeElement,
+      plot: () => this.plot().nativeElement,
+      load: () => this.renderer(),
+      ready: this.browserReady,
+      reducedMotion: this.reducedMotion,
+      options: this.options,
+      readTheme: () => {
         if (!this.browserReady()) return;
         const series = this.series();
         const theme = this.theme();
@@ -366,17 +299,7 @@ export abstract class CartesianChart<
           this.rendererError.set(true);
         }
       },
-    });
-    // Option updates only schedule rendering or dispose the previous plot.
-    afterRenderEffect({
-      write: () => {
-        this.browserReady();
-        this.controller?.update(this.options());
-      },
-    });
-    // Listener attachment also reconciles the control that currently owns focus.
-    afterRenderEffect({
-      mixedReadWrite: () => {
+      observePreviews: () => {
         if (this.browserReady() && this.observePreviews()) {
           this.removePreviewListeners ??= observeTablePreviews(
             this.host.nativeElement,
@@ -387,26 +310,14 @@ export abstract class CartesianChart<
           this.removePreviewListeners = null;
         }
       },
+      cleanup: () => this.removePreviewListeners?.(),
+      focusContext: () => [this.state(), this.tableRows(), this.legendItems()],
+      onPoint: (point) => this.selectPoint(point, 'plot'),
+      onError: () => this.rendererError.set(true),
+      onRange: (ids, snapshot) => this.selectRange(ids, snapshot),
+      onPreview: (point) =>
+        this.plotPreview.set(point ? { point, context: this.plotContext() } : null),
     });
-    // Focus restoration checks current DOM ownership before changing focus.
-    afterRenderEffect({
-      mixedReadWrite: () => {
-        this.state();
-        this.tableRows();
-        this.legendItems();
-        this.focusKeeper?.restore();
-      },
-    });
-    this.destroyRef.onDestroy(() => {
-      this.removeMotionListener?.();
-      this.removePreviewListeners?.();
-      this.controller?.destroy();
-      this.focusKeeper?.destroy();
-    });
-  }
-
-  protected toggleTable(): void {
-    this.tableExpanded.update((expanded) => !expanded);
   }
 
   protected previewPoint(
@@ -461,10 +372,6 @@ export abstract class CartesianChart<
     this.plotPreview.set(null);
     this.clearPreview();
   }
-  protected retryRenderer(): void {
-    this.rendererError.set(false);
-  }
-
   protected toggleSeries(id: string): void {
     if (this.state().kind !== 'ready') return;
     const hidden = new Set(this.hiddenIds());

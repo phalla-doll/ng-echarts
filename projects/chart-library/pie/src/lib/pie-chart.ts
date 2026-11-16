@@ -1,18 +1,12 @@
-import { isPlatformBrowser } from '@angular/common';
 import {
-  afterNextRender,
-  afterRenderEffect,
-  ApplicationRef,
   ChangeDetectionStrategy,
   Component,
   computed,
-  DestroyRef,
   ElementRef,
   inject,
   input,
   linkedSignal,
   output,
-  PLATFORM_ID,
   signal,
   viewChild,
 } from '@angular/core';
@@ -20,22 +14,14 @@ import {
   ChartFrame,
   ɵChartStage,
   ɵTablePager,
-  ɵTablePagination,
-  ɵbrowserPlotEnvironment as browserPlotEnvironment,
+  ɵChartPresentation as ChartPresentation,
+  ɵbindBrowserPlot as bindBrowserPlot,
   ɵreadCartesianTheme as readCartesianTheme,
   ɵresolveCartesianState as resolveCartesianState,
-  ɵdefaultCartesianTheme as defaultCartesianTheme,
   ɵcreateValueFormatting as createValueFormatting,
-  ɵChartFocusKeeper as ChartFocusKeeper,
-  ɵPlotController as PlotController,
-  type ɵCartesianThemeTokens as CartesianThemeTokens,
   type ɵPlotPoint as PlotPoint,
   type ChartMeasure,
-  type ChartTheme,
   type CategoryVisibilityChange,
-  type PointSelection,
-  type StringKey,
-  type ValueFormatter,
 } from '@mantha911/ng-echarts/core';
 import { normalizePieData } from './pie-model';
 import { PIE_RENDERER_LOADER } from './pie-browser';
@@ -48,38 +34,19 @@ import { buildPieOptions, type PieOption } from './pie-options';
   styleUrls: [
     '../../../core/src/lib/cartesian-chart.css',
     '../../../core/src/lib/chart-controls.css',
+    './pie-chart.css',
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PieChart<T extends object> {
+export class PieChart<T extends object> extends ChartPresentation<T> {
   private readonly loader = inject(PIE_RENDERER_LOADER);
   readonly innerRadius = input(0);
   readonly showLabels = input(false);
   readonly showTotal = input(false);
-  readonly title = input.required<string>();
-  readonly description = input('');
-  readonly data = input.required<readonly T[]>();
-  readonly rowIdKey = input.required<StringKey<T>>();
-  readonly categoryKey = input.required<StringKey<T>>();
   readonly measure = input.required<ChartMeasure<T>>();
-  readonly height = input(320);
-  readonly theme = input<ChartTheme>('light');
-  readonly themeRevision = input(0);
-  readonly locale = input('en-US');
-  readonly numberFormatOptions = input<Intl.NumberFormatOptions>();
-  readonly valueFormatter = input<ValueFormatter>();
-  readonly showDataTable = input(true);
-  readonly tablePageSize = input<number | null>(null);
-  readonly loading = input(false);
-  readonly error = input<string | null>(null);
-  readonly animation = input(true);
-  readonly pointSelect = output<PointSelection<T>>();
   readonly legendChange = output<CategoryVisibilityChange>();
 
-  private readonly destroyRef = inject(DestroyRef);
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
-  private readonly application = inject(ApplicationRef);
-  private readonly platform = inject(PLATFORM_ID);
   private readonly plot = viewChild.required<ElementRef<HTMLElement>>('plot');
   private readonly browserReady = signal(false);
   private readonly reducedMotion = signal(false);
@@ -97,20 +64,7 @@ export class PieChart<T extends object> {
       return retained.size === hidden.size ? hidden : retained;
     },
   });
-  private readonly measuredTheme = signal<CartesianThemeTokens | null>(null);
-  private controller: PlotController<PieOption> | null = null;
-  private removeMotionListener: (() => void) | null = null;
-  private focusKeeper: ChartFocusKeeper | null = null;
 
-  // A failed renderer stays failed until retry or a relevant input changes.
-  protected readonly rendererError = linkedSignal(() => {
-    this.model();
-    this.settings();
-    this.formatting();
-    return false;
-  });
-  protected readonly tableExpanded = signal(false);
-  protected readonly tablePagination = new ɵTablePagination(this.data, this.tablePageSize);
   protected readonly model = computed(() =>
     normalizePieData(this.data(), this.rowIdKey(), this.categoryKey(), this.measure()),
   );
@@ -140,12 +94,6 @@ export class PieChart<T extends object> {
     error: this.error(),
     tablePageSize: this.tablePageSize(),
   }));
-  protected readonly tokens = computed(
-    () => this.measuredTheme() ?? defaultCartesianTheme(this.theme()),
-  );
-  protected readonly plotHeight = computed(() =>
-    Number.isFinite(this.height()) && this.height() > 0 ? this.height() : 320,
-  );
   protected readonly state = computed(() => {
     const settings = this.settings();
     const configurationError =
@@ -250,34 +198,20 @@ export class PieChart<T extends object> {
     }));
   });
 
+  protected override rendererInputs(): unknown {
+    return [this.model(), this.settings(), this.formatting()];
+  }
+
   constructor() {
-    afterNextRender(() => {
-      if (!isPlatformBrowser(this.platform)) return;
-      void this.application.whenStable().then(() => {
-        if (this.destroyRef.destroyed) return;
-        try {
-          const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-          this.reducedMotion.set(preference.matches);
-          const onMotion = (event: MediaQueryListEvent): void =>
-            this.reducedMotion.set(event.matches);
-          preference.addEventListener('change', onMotion);
-          this.removeMotionListener = () => preference.removeEventListener('change', onMotion);
-          this.controller = new PlotController(
-            this.plot().nativeElement,
-            browserPlotEnvironment(() => this.loader(), this.host.nativeElement),
-            (point) => this.selectPoint(point, 'plot'),
-            () => this.rendererError.set(true),
-          );
-          this.browserReady.set(true);
-          this.focusKeeper = new ChartFocusKeeper(this.host.nativeElement);
-        } catch {
-          this.rendererError.set(true);
-        }
-      });
-    });
-    // Resolving CSS colors writes a probe and immediately reads its computed color.
-    afterRenderEffect({
-      mixedReadWrite: () => {
+    super();
+    bindBrowserPlot({
+      host: this.host.nativeElement,
+      plot: () => this.plot().nativeElement,
+      load: () => this.loader(),
+      ready: this.browserReady,
+      reducedMotion: this.reducedMotion,
+      options: this.options,
+      readTheme: () => {
         if (!this.browserReady()) return;
         const model = this.model();
         const theme = this.theme();
@@ -296,35 +230,10 @@ export class PieChart<T extends object> {
           this.rendererError.set(true);
         }
       },
+      focusContext: () => [this.state(), this.tableRows(), this.legendItems()],
+      onPoint: (point) => this.selectPoint(point, 'plot'),
+      onError: () => this.rendererError.set(true),
     });
-    // Option updates only schedule rendering or dispose the previous plot.
-    afterRenderEffect({
-      write: () => {
-        this.browserReady();
-        this.controller?.update(this.options());
-      },
-    });
-    // Focus restoration checks current DOM ownership before changing focus.
-    afterRenderEffect({
-      mixedReadWrite: () => {
-        this.state();
-        this.tableRows();
-        this.legendItems();
-        this.focusKeeper?.restore();
-      },
-    });
-    this.destroyRef.onDestroy(() => {
-      this.removeMotionListener?.();
-      this.controller?.destroy();
-      this.focusKeeper?.destroy();
-    });
-  }
-
-  protected toggleTable(): void {
-    this.tableExpanded.update((expanded) => !expanded);
-  }
-  protected retryRenderer(): void {
-    this.rendererError.set(false);
   }
 
   protected toggleCategory(id: string): void {

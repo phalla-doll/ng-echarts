@@ -1,0 +1,26 @@
+{
+  "baseline": "deployed rc.24 source 42b27aa",
+  "candidate": "local rc.25 production SSR",
+  "viewport": {
+    "width": 390,
+    "height": 1000
+  },
+  "theme": "light",
+  "selection": "February",
+  "stylesEqual": true,
+  "styles": {
+    "headerShadow": "rgb(23, 23, 23) 2px 0px 0px 0px inset",
+    "label": {
+      "color": "rgb(107, 107, 107)",
+      "display": "block",
+      "fontSize": "11px",
+      "marginTop": "2px"
+    },
+    "rowBackground": "color(srgb 0.0901961 0.0901961 0.0901961 / 0.05)",
+    "selected": "true",
+    "text": "February Selected 200  0"
+  },
+  "imageDimensions": [306, 305],
+  "pngBytesIdentical": true,
+  "sha256": "d8d41c40b5ed5d44eef3c0dc3e1f1c03c5df59f18d2094a9bf819bdd237bc6fb"
+}
