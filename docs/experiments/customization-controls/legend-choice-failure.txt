@@ -1,0 +1,245 @@
+[WebServer] (node:84447) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 96 tests using 1 worker
+
+(node:84638) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /playground keeps customization controls readable and separate across themes and widths
+[2/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /formatting keeps customization controls readable and separate across themes and widths
+[3/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /updates keeps customization controls readable and separate across themes and widths
+[4/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /validation keeps customization controls readable and separate across themes and widths
+[5/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /line-validation keeps customization controls readable and separate across themes and widths
+[6/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /area-validation keeps customization controls readable and separate across themes and widths
+[7/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /pie-validation keeps customization controls readable and separate across themes and widths
+[8/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /composed-validation keeps customization controls readable and separate across themes and widths
+[9/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /linked-validation keeps customization controls readable and separate across themes and widths
+[10/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /retention keeps customization controls readable and separate across themes and widths
+[11/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /radar keeps customization controls readable and separate across themes and widths
+[12/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /radar-validation keeps customization controls readable and separate across themes and widths
+[13/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /radial keeps customization controls readable and separate across themes and widths
+[14/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /calendar keeps customization controls readable and separate across themes and widths
+[15/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /calendar-validation keeps customization controls readable and separate across themes and widths
+[16/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /sankey keeps customization controls readable and separate across themes and widths
+[17/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /sankey-validation keeps customization controls readable and separate across themes and widths
+[18/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /pie keeps customization controls readable and separate across themes and widths
+  1) [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /pie keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 8
+
+    - Array []
+    + Array [
+    +   "Clipped control: Inline chips",
+    +   "Clipped control: Aligned list",
+    +   "Clipped control: Inline chips",
+    +   "Clipped control: Aligned list",
+    +   "Clipped control: Inline chips",
+    +   "Clipped control: Aligned list",
+    + ]
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      83 |             ),
+      84 |           )
+    > 85 |           .toEqual([]);
+         |            ^
+      86 |         await expect
+      87 |           .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
+      88 |           .toBeLessThanOrEqual(width);
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:85:12
+
+    Error Context: test-results/customization-controls--pi-cc468-te-across-themes-and-widths-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--pi-cc468-te-across-themes-and-widths-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--pi-cc468-te-across-themes-and-widths-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:95466) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[19/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /comparison keeps customization controls readable and separate across themes and widths
+[20/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /line-comparison keeps customization controls readable and separate across themes and widths
+[21/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /area-comparison keeps customization controls readable and separate across themes and widths
+[22/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /pie-comparison keeps customization controls readable and separate across themes and widths
+[23/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /linked keeps customization controls readable and separate across themes and widths
+[24/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /linked-example-validation keeps customization controls readable and separate across themes and widths
+[25/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /linked-dashboard keeps customization controls readable and separate across themes and widths
+[26/96] [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /dashboard-validation keeps customization controls readable and separate across themes and widths
+[27/96] [chromium] › tests/browser/customization-controls.spec.ts:95:1 › keeps native disclosure and form controls usable before JavaScript loads
+[28/96] [chromium] › tests/browser/dashboard-window.spec.ts:5:1 › shares the visible category window and raw plot selection in both chart directions
+[29/96] [chromium] › tests/browser/linked-dashboard.spec.ts:6:1 › links composed values and native month selection through updates, replacement, legends and themes
+[30/96] [chromium] › tests/browser/linked-dashboard.spec.ts:17:1 › commits an actual stacked bar hit and exposes the exact compiled example
+[31/96] [chromium] › tests/browser/playground-layout.spec.ts:4:1 › opens the mobile navigation with keyboard support and closes it after routing
+[32/96] [chromium] › tests/browser/playground-layout.spec.ts:40:1 › keeps code, preview, theme, copy feedback, and reset controls in sync
+(node:2570) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[33/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /playground keeps customization controls readable and separate across themes and widths
+[34/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /formatting keeps customization controls readable and separate across themes and widths
+[35/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /updates keeps customization controls readable and separate across themes and widths
+[36/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /validation keeps customization controls readable and separate across themes and widths
+[37/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /line-validation keeps customization controls readable and separate across themes and widths
+[38/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /area-validation keeps customization controls readable and separate across themes and widths
+[39/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /pie-validation keeps customization controls readable and separate across themes and widths
+[40/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /composed-validation keeps customization controls readable and separate across themes and widths
+[41/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /linked-validation keeps customization controls readable and separate across themes and widths
+[42/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /retention keeps customization controls readable and separate across themes and widths
+[43/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /radar keeps customization controls readable and separate across themes and widths
+[44/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /radar-validation keeps customization controls readable and separate across themes and widths
+[45/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /radial keeps customization controls readable and separate across themes and widths
+[46/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /calendar keeps customization controls readable and separate across themes and widths
+[47/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /calendar-validation keeps customization controls readable and separate across themes and widths
+[48/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /sankey keeps customization controls readable and separate across themes and widths
+[49/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /sankey-validation keeps customization controls readable and separate across themes and widths
+[50/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /pie keeps customization controls readable and separate across themes and widths
+  2) [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /pie keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 8
+
+    - Array []
+    + Array [
+    +   "Clipped control: Inline chips",
+    +   "Clipped control: Aligned list",
+    +   "Clipped control: Inline chips",
+    +   "Clipped control: Aligned list",
+    +   "Clipped control: Inline chips",
+    +   "Clipped control: Aligned list",
+    + ]
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      83 |             ),
+      84 |           )
+    > 85 |           .toEqual([]);
+         |            ^
+      86 |         await expect
+      87 |           .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
+      88 |           .toBeLessThanOrEqual(width);
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:85:12
+
+    Error Context: test-results/customization-controls--pi-cc468-te-across-themes-and-widths-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--pi-cc468-te-across-themes-and-widths-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--pi-cc468-te-across-themes-and-widths-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:24454) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[51/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /comparison keeps customization controls readable and separate across themes and widths
+[52/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /line-comparison keeps customization controls readable and separate across themes and widths
+[53/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /area-comparison keeps customization controls readable and separate across themes and widths
+[54/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /pie-comparison keeps customization controls readable and separate across themes and widths
+[55/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /linked keeps customization controls readable and separate across themes and widths
+[56/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /linked-example-validation keeps customization controls readable and separate across themes and widths
+[57/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /linked-dashboard keeps customization controls readable and separate across themes and widths
+[58/96] [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /dashboard-validation keeps customization controls readable and separate across themes and widths
+[59/96] [firefox] › tests/browser/customization-controls.spec.ts:95:1 › keeps native disclosure and form controls usable before JavaScript loads
+[60/96] [firefox] › tests/browser/dashboard-window.spec.ts:5:1 › shares the visible category window and raw plot selection in both chart directions
+[61/96] [firefox] › tests/browser/linked-dashboard.spec.ts:6:1 › links composed values and native month selection through updates, replacement, legends and themes
+[62/96] [firefox] › tests/browser/linked-dashboard.spec.ts:17:1 › commits an actual stacked bar hit and exposes the exact compiled example
+[63/96] [firefox] › tests/browser/playground-layout.spec.ts:4:1 › opens the mobile navigation with keyboard support and closes it after routing
+[64/96] [firefox] › tests/browser/playground-layout.spec.ts:40:1 › keeps code, preview, theme, copy feedback, and reset controls in sync
+(node:40901) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[65/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /playground keeps customization controls readable and separate across themes and widths
+[66/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /formatting keeps customization controls readable and separate across themes and widths
+[67/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /updates keeps customization controls readable and separate across themes and widths
+[68/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /validation keeps customization controls readable and separate across themes and widths
+[69/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /line-validation keeps customization controls readable and separate across themes and widths
+[70/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /area-validation keeps customization controls readable and separate across themes and widths
+[71/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /pie-validation keeps customization controls readable and separate across themes and widths
+[72/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /composed-validation keeps customization controls readable and separate across themes and widths
+[73/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /linked-validation keeps customization controls readable and separate across themes and widths
+[74/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /retention keeps customization controls readable and separate across themes and widths
+[75/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /radar keeps customization controls readable and separate across themes and widths
+[76/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /radar-validation keeps customization controls readable and separate across themes and widths
+[77/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /radial keeps customization controls readable and separate across themes and widths
+[78/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /calendar keeps customization controls readable and separate across themes and widths
+[79/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /calendar-validation keeps customization controls readable and separate across themes and widths
+[80/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /sankey keeps customization controls readable and separate across themes and widths
+[81/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /sankey-validation keeps customization controls readable and separate across themes and widths
+[82/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /pie keeps customization controls readable and separate across themes and widths
+  3) [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /pie keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 8
+
+    - Array []
+    + Array [
+    +   "Clipped control: Inline chips",
+    +   "Clipped control: Aligned list",
+    +   "Clipped control: Inline chips",
+    +   "Clipped control: Aligned list",
+    +   "Clipped control: Inline chips",
+    +   "Clipped control: Aligned list",
+    + ]
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      83 |             ),
+      84 |           )
+    > 85 |           .toEqual([]);
+         |            ^
+      86 |         await expect
+      87 |           .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
+      88 |           .toBeLessThanOrEqual(width);
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:85:12
+
+    Error Context: test-results/customization-controls--pi-cc468-te-across-themes-and-widths-webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--pi-cc468-te-across-themes-and-widths-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--pi-cc468-te-across-themes-and-widths-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:52764) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[83/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /comparison keeps customization controls readable and separate across themes and widths
+[84/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /line-comparison keeps customization controls readable and separate across themes and widths
+[85/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /area-comparison keeps customization controls readable and separate across themes and widths
+[86/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /pie-comparison keeps customization controls readable and separate across themes and widths
+[87/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /linked keeps customization controls readable and separate across themes and widths
+[88/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /linked-example-validation keeps customization controls readable and separate across themes and widths
+[89/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /linked-dashboard keeps customization controls readable and separate across themes and widths
+[90/96] [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /dashboard-validation keeps customization controls readable and separate across themes and widths
+[91/96] [webkit] › tests/browser/customization-controls.spec.ts:95:1 › keeps native disclosure and form controls usable before JavaScript loads
+[92/96] [webkit] › tests/browser/dashboard-window.spec.ts:5:1 › shares the visible category window and raw plot selection in both chart directions
+[93/96] [webkit] › tests/browser/linked-dashboard.spec.ts:6:1 › links composed values and native month selection through updates, replacement, legends and themes
+[94/96] [webkit] › tests/browser/linked-dashboard.spec.ts:17:1 › commits an actual stacked bar hit and exposes the exact compiled example
+[95/96] [webkit] › tests/browser/playground-layout.spec.ts:4:1 › opens the mobile navigation with keyboard support and closes it after routing
+[96/96] [webkit] › tests/browser/playground-layout.spec.ts:40:1 › keeps code, preview, theme, copy feedback, and reset controls in sync
+  3 failed
+    [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /pie keeps customization controls readable and separate across themes and widths
+    [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /pie keeps customization controls readable and separate across themes and widths
+    [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /pie keeps customization controls readable and separate across themes and widths
+  93 passed (2.1m)

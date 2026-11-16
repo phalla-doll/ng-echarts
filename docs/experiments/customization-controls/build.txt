@@ -1,0 +1,76 @@
+
+> ng-echarts-workspace@0.0.0 build:playground
+> npm run concepts:prepare && ng build playground --configuration production && node tools/prepare-demo.mjs dist/playground
+
+
+> ng-echarts-workspace@0.0.0 concepts:prepare
+> node tools/concept-assets.mjs --prepare
+
+Verified concept engine and 3 gallery assets.
+❯ Building...
+✔ Building...
+Browser bundles
+Initial chunk files  | Names                                                |  Raw size | Estimated transfer size
+chunk-BCV1fTjr.js    | -                                                    | 191.76 kB |                56.81 kB
+main-GYZLSG2L.js     | main                                                 | 149.22 kB |                36.94 kB
+styles-42TLGIFR.css  | styles                                               |  29.88 kB |                 4.99 kB
+chunk-B6Fy8hbW.js    | -                                                    |   1.04 kB |               444 bytes
+
+                     | Initial total                                        | 371.90 kB |                99.18 kB
+
+Lazy chunk files     | Names                                                |  Raw size | Estimated transfer size
+chunk-5tkH_LWN.js    | -                                                    | 332.44 kB |                97.43 kB
+chunk-B2hZTCA5.js    | -                                                    | 122.72 kB |                37.06 kB
+chunk-DI1Tmhid.js    | -                                                    |  65.69 kB |                20.67 kB
+chunk-Cbgd9xBB.js    | gallery                                              |  43.50 kB |                 8.10 kB
+chunk-BdQ9fvqT.js    | linked-dashboard                                     |  43.45 kB |                 9.96 kB
+chunk-Dr3H5Qd6.js    | -                                                    |  34.59 kB |                12.18 kB
+chunk-BfTYyGS6.js    | calendar-blocks                                      |  34.34 kB |                 9.42 kB
+chunk-C9IFJnhP.js    | mantha911-ng-echarts-sankey-sankey-renderer-DwLMFu-b |  33.59 kB |                11.07 kB
+chunk-A4ei3l-p.js    | sankey-blocks                                        |  31.56 kB |                 8.32 kB
+chunk-DBRHP6DL.js    | radar-blocks                                         |  29.06 kB |                 7.65 kB
+chunk-CjzMog8N.js    | -                                                    |  27.45 kB |                 9.65 kB
+chunk-BpCmqHvj.js    | -                                                    |  25.02 kB |                 8.32 kB
+chunk-DkFF1-jR.js    | radial-blocks                                        |  24.84 kB |                 6.52 kB
+chunk-CidEUTXZ.js    | documentation                                        |  23.95 kB |                 7.58 kB
+chunk-CnBMpkXN.js    | -                                                    |  22.19 kB |                 7.84 kB
+...and 51 more lazy chunks files. Use "--verbose" to show all the files.
+
+
+Server bundles
+Initial chunk files  | Names                                                |  Raw size
+server.mjs           | server                                               | 919.95 kB |
+polyfills.server.mjs | polyfills.server                                     | 237.54 kB |
+chunk-3VWN4U7Y.mjs   | -                                                    | 196.60 kB |
+chunk-7XAPAEI6.mjs   | -                                                    | 102.68 kB |
+main.server.mjs      | main.server                                          |  77.60 kB |
+chunk-HJUUWEIY.mjs   | -                                                    |  12.00 kB |
+chunk-35LMJPRC.mjs   | -                                                    |   7.77 kB |
+chunk-C2KJ4ATU.mjs   | -                                                    |   1.54 kB |
+chunk-VIU7XVWA.mjs   | -                                                    |   1.45 kB |
+chunk-5R3YYUKO.mjs   | -                                                    | 618 bytes |
+
+Lazy chunk files     | Names                                                |  Raw size
+chunk-5KPPHQYI.mjs   | -                                                    | 350.03 kB |
+chunk-NQHDCJD5.mjs   | -                                                    | 126.52 kB |
+chunk-QJGUVTRO.mjs   | -                                                    |  68.59 kB |
+chunk-DOBBNP3G.mjs   | linked-dashboard                                     |  43.26 kB |
+chunk-XDYZZ6Q7.mjs   | gallery                                              |  43.04 kB |
+chunk-L24H7OKE.mjs   | -                                                    |  34.56 kB |
+chunk-3JWSNDS4.mjs   | mantha911-ng-echarts-sankey-sankey-renderer-DwLMFu-b |  34.01 kB |
+chunk-T26ADT2A.mjs   | sankey-blocks                                        |  31.27 kB |
+chunk-3T5GZ5L2.mjs   | calendar-blocks                                      |  30.63 kB |
+chunk-VC2BHOCJ.mjs   | -                                                    |  28.31 kB |
+chunk-BES4NIA4.mjs   | radar-blocks                                         |  27.31 kB |
+chunk-6UJIHYZB.mjs   | -                                                    |  24.80 kB |
+chunk-HX2KEZOP.mjs   | radial-blocks                                        |  24.64 kB |
+chunk-SNZQUPBL.mjs   | documentation                                        |  23.87 kB |
+chunk-H5PAIKJ4.mjs   | -                                                    |  22.69 kB |
+...and 55 more lazy chunks files. Use "--verbose" to show all the files.
+
+Prerendered 0 static routes.
+Application bundle generation complete. [6.637 seconds] - 2026-11-16T15:44:03.663Z
+
+Output location: /Users/phalla/Documents/codes/ng-echarts/dist/playground
+
+Prepared shared concept assets and 14 renderer preload maps.

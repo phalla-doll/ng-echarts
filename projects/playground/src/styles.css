@@ -2,6 +2,7 @@
 @import './gallery-shell.css';
 @import './documentation.css';
 @import './syntax-highlighting.css';
+@import './customization-controls.css';
 @import './site-focus.css';
 @import './site-hover.css';
 @import './validation-layout.css';

@@ -1,0 +1,500 @@
+/* Demo customization surfaces. Native chart controls and reference fixtures stay independent. */
+.site-shell,
+.site-shell app-composed-dashboard[data-theme='light'] {
+  --site-control-bg: #f3f3f3;
+  --site-control-fill: #e3e3e3;
+  --site-control-radius: 10px;
+}
+.site-shell.dark,
+.site-shell app-composed-dashboard[data-theme='dark'] {
+  --site-control-bg: #171717;
+  --site-control-fill: #2d2d2d;
+}
+/* The dashboard can change its theme independently of the surrounding site. */
+.site-shell app-composed-dashboard[data-theme] {
+  --site-surface: color-mix(in srgb, var(--site-text) 4%, var(--site-bg));
+  --site-hover: color-mix(in srgb, var(--site-text) 8%, var(--site-bg));
+  --site-pressed: color-mix(in srgb, var(--site-text) 12%, var(--site-bg));
+  --site-hover-border: var(--site-muted);
+  --site-focus: var(--site-muted);
+}
+
+.site-shell .workbench .settings-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.site-shell .settings-heading h2 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+}
+.site-shell .reset-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 7px 12px;
+  border: 1px solid var(--site-border);
+  border-radius: 12px;
+  color: var(--site-muted);
+  background: transparent;
+  font-size: 12px;
+}
+.site-shell .settings-intro {
+  margin: 0 0 16px;
+  color: var(--site-muted);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* An inset frame and equal-width controls echo the reference at the demo's type scale. */
+.site-shell :is(.settings-panel, .validation-controls, .radial-controls, .radar-controls) {
+  container: customization / inline-size;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--site-border);
+  border-radius: 16px;
+  background: var(--site-bg);
+  box-shadow:
+    inset 0 0 0 3px var(--site-surface),
+    inset 0 0 0 4px var(--site-border);
+}
+.site-shell .settings-panel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px 12px;
+  align-items: start;
+}
+.site-shell .settings-group {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.site-shell .settings-group h3 {
+  margin: 0 0 4px;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--site-muted);
+}
+.site-shell :is(.settings-group > p, .setting-hint, .interaction-note p) {
+  margin: 0;
+  color: var(--site-muted);
+  font-size: 11px;
+  line-height: 18px;
+}
+.site-shell .settings-group > p {
+  order: 1;
+}
+.site-shell .interaction-note {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: start;
+  gap: 8px;
+}
+.site-shell .interaction-note app-site-icon {
+  margin-top: 1px;
+  color: var(--site-muted);
+}
+.site-shell .workbench :is(.settings-jump, .back-to-example) {
+  display: inline-flex;
+}
+.site-shell .workbench .settings-jump {
+  margin-left: auto;
+}
+.site-shell .workbench .back-to-example {
+  margin-top: 16px;
+}
+.site-shell .state-controls {
+  display: grid;
+  gap: 8px;
+}
+.site-shell .validation-controls {
+  margin: 28px 0 24px;
+}
+.site-shell .control-group {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+.site-shell .control-group + .control-group {
+  margin-top: 20px;
+}
+.site-shell .control-group h2 {
+  margin: 0;
+  color: var(--site-muted);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.site-shell :is(.control-actions, .radial-actions, .radar-actions) {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  min-width: 0;
+}
+.site-shell :is(.radial-controls, .radar-controls) summary {
+  width: 100%;
+  color: var(--site-text);
+  font-weight: 500;
+  cursor: pointer;
+}
+.site-shell :is(.radial-actions, .radar-actions) {
+  margin-top: 16px;
+}
+.site-shell
+  :is(.settings-panel, .validation-controls, .radial-controls, .radar-controls)
+  :where(button) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  margin: 0;
+  padding: 11px 12px;
+  border: 1px solid transparent;
+  border-radius: var(--site-control-radius);
+  background: var(--site-control-bg);
+  color: var(--site-text);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+}
+.site-shell :is(.update-button, .control-actions .control-restore) {
+  color: var(--site-muted);
+}
+.site-shell .update-button {
+  justify-content: start;
+}
+.site-shell
+  :is(
+    .control-actions button,
+    .radial-actions button,
+    .radar-actions button,
+    .state-controls button,
+    .update-button
+  )[aria-pressed='true'] {
+  background: var(--site-control-fill);
+  color: var(--site-text);
+}
+
+/* Only boolean controls get a switch. Choice buttons retain their selected surface. */
+.site-shell :is(.switch, .toggle-indicator) {
+  position: relative;
+  flex: none;
+  width: 30px;
+  height: 18px;
+  border: 1px solid var(--site-control-border);
+  border-radius: 20px;
+  background: transparent;
+}
+.site-shell :is(.switch, .toggle-indicator)::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--site-muted);
+}
+.site-shell [aria-pressed='true'] > :is(.switch, .toggle-indicator) {
+  border-color: var(--site-text);
+  background: var(--site-text);
+}
+.site-shell [aria-pressed='true'] > :is(.switch, .toggle-indicator)::after {
+  left: 14px;
+  background: var(--site-bg);
+}
+.site-shell :is(.radial-actions, .radar-actions, .state-controls) button[aria-pressed]::after {
+  content: '';
+  flex: none;
+  width: 30px;
+  height: 18px;
+  border: 1px solid var(--site-control-border);
+  border-radius: 20px;
+  background: radial-gradient(circle at 8px 50%, var(--site-muted) 5px, transparent 6px);
+}
+.site-shell
+  :is(.radial-actions, .radar-actions, .state-controls)
+  button[aria-pressed='true']::after {
+  border-color: var(--site-text);
+  background: radial-gradient(circle at 20px 50%, var(--site-bg) 5px, transparent 6px)
+    var(--site-text);
+}
+.site-shell .value-field {
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 12px;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: var(--site-control-radius);
+  background: var(--site-control-bg);
+  color: var(--site-text);
+  font-size: 12px;
+}
+.site-shell .value-field input {
+  min-width: 0;
+  width: 96px;
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: var(--site-muted);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.site-shell .calendar-toolbar {
+  width: fit-content;
+  min-height: 44px;
+  margin: 16px;
+  padding: 0 12px;
+  border-radius: var(--site-control-radius);
+  background: var(--site-control-bg);
+  color: var(--site-text);
+  font-size: 12px;
+}
+.site-shell .calendar-toolbar input {
+  min-height: 44px;
+  border-color: transparent;
+  background: transparent;
+  color: var(--site-muted);
+  text-align: right;
+}
+/* Comparison choices and linked examples use the same inset rows, with native selects. */
+.site-shell
+  :is(
+    .utility-page > .controls,
+    app-dashboard-pilot .controls,
+    .comparison-page:not(.reference-mode) > header > .controls,
+    .dashboard-controls,
+    .dashboard-window-controls
+  ) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid var(--site-border);
+  border-radius: 16px;
+  background: var(--site-bg);
+  box-shadow: inset 0 0 0 3px var(--site-surface);
+}
+.site-shell
+  :is(
+    .utility-page > .controls,
+    app-dashboard-pilot .controls,
+    .comparison-page:not(.reference-mode) > header > .controls,
+    .dashboard-controls,
+    .dashboard-window-controls
+  )
+  button {
+  min-height: 44px;
+  padding: 11px 12px;
+  border: 1px solid transparent;
+  border-radius: var(--site-control-radius);
+  background: var(--site-control-bg);
+  color: var(--site-text);
+  font-size: 12px;
+  line-height: 20px;
+  text-align: left;
+}
+.site-shell
+  :is(
+    .utility-page > .controls,
+    app-dashboard-pilot .controls,
+    .comparison-page:not(.reference-mode) > header > .controls
+  )
+  button[aria-pressed='true'] {
+  background: var(--site-control-fill);
+}
+.site-shell .dashboard-window-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
+  grid-column: 1 / -1;
+  gap: 10px;
+}
+.site-shell :is(.dashboard-controls, .dashboard-window-controls) label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  gap: 12px;
+  padding-left: 12px;
+  border-radius: var(--site-control-radius);
+  background: var(--site-control-bg);
+  color: var(--site-text);
+  font-size: 12px;
+}
+.site-shell :is(.dashboard-controls, .dashboard-window-controls) select {
+  appearance: none;
+  width: 55%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 28px 10px 8px;
+  border: 1px solid transparent;
+  border-radius: var(--site-control-radius);
+  background: transparent;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--site-muted) 50%),
+    linear-gradient(135deg, var(--site-muted) 50%, transparent 50%);
+  background-position:
+    right 14px center,
+    right 10px center;
+  background-size: 4px 4px;
+  background-repeat: no-repeat;
+  color: var(--site-muted);
+  font-size: 12px;
+}
+.site-shell .linked-toolbar {
+  padding: 16px;
+  border: 1px solid var(--site-border);
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 3px var(--site-surface);
+}
+.site-shell .linked-toolbar :is(select, .select-range, .reset-month) {
+  min-height: 44px;
+  border-color: transparent;
+  border-radius: var(--site-control-radius);
+  background-color: var(--site-control-bg);
+}
+.site-shell .linked-toolbar .select-range[aria-pressed='true'] {
+  background-color: var(--site-control-fill);
+}
+.site-shell .linked-toolbar .range-fields {
+  max-width: none;
+}
+.site-shell .preview-toggle {
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: var(--site-control-radius);
+  background: var(--site-control-bg);
+}
+.site-shell .preview-toggle input {
+  appearance: none;
+  flex: none;
+  width: 30px;
+  height: 18px;
+  border: 1px solid var(--site-control-border);
+  border-radius: 20px;
+  background: radial-gradient(circle at 8px 50%, var(--site-muted) 5px, transparent 6px);
+}
+.site-shell .preview-toggle input:checked {
+  border-color: var(--site-text);
+  background: radial-gradient(circle at 20px 50%, var(--site-bg) 5px, transparent 6px)
+    var(--site-text);
+}
+@container customization (max-width: 580px) {
+  .site-shell :is(.control-actions, .radial-actions, .radar-actions) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@container customization (max-width: 380px) {
+  .site-shell :is(.control-actions, .radial-actions, .radar-actions) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 1100px) {
+  .site-shell .settings-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .site-shell :is(.settings-panel, .validation-controls, .radial-controls, .radar-controls) {
+    padding: 16px;
+  }
+  .site-shell .linked-toolbar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .site-shell .linked-controls {
+    display: flex;
+  }
+  .site-shell .linked-controls > label {
+    flex: 1 0 100%;
+  }
+  .site-shell .month-field {
+    flex: 1;
+    min-width: 0;
+  }
+  .site-shell .linked-controls select {
+    width: 100%;
+  }
+  .site-shell .linked-toolbar :is(.linked-summary, .range-fields, .range-instructions) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .site-shell .linked-toolbar .linked-summary {
+    justify-self: start;
+    justify-content: start;
+  }
+}
+@media (forced-colors: active) {
+  .site-shell
+    :is(
+      .setting-toggle,
+      .control-actions button,
+      .radial-actions button,
+      .radar-actions button,
+      .state-controls button,
+      .update-button
+    ) {
+    border-color: ButtonText;
+  }
+  .site-shell :is(.switch, .toggle-indicator),
+  .site-shell :is(.switch, .toggle-indicator)::after {
+    forced-color-adjust: none;
+  }
+  .site-shell :is(.switch, .toggle-indicator) {
+    border-color: ButtonText;
+    background: Canvas;
+  }
+  .site-shell :is(.switch, .toggle-indicator)::after {
+    background: ButtonText;
+  }
+  .site-shell [aria-pressed='true'] > :is(.switch, .toggle-indicator) {
+    border-color: Highlight;
+    background: Highlight;
+  }
+  .site-shell [aria-pressed='true'] > :is(.switch, .toggle-indicator)::after {
+    background: HighlightText;
+  }
+  .site-shell :is(.radial-actions, .radar-actions, .state-controls) button[aria-pressed]::after {
+    forced-color-adjust: none;
+    border-color: ButtonText;
+    background: radial-gradient(circle at 8px 50%, ButtonText 5px, transparent 6px) Canvas;
+  }
+  .site-shell
+    :is(.radial-actions, .radar-actions, .state-controls)
+    button[aria-pressed='true']::after {
+    border-color: Highlight;
+    background: radial-gradient(circle at 20px 50%, HighlightText 5px, transparent 6px) Highlight;
+  }
+  .site-shell
+    :is(
+      .control-actions,
+      .state-controls,
+      .radial-actions,
+      .radar-actions,
+      .utility-page > .controls,
+      app-dashboard-pilot .controls,
+      .comparison-page:not(.reference-mode) > header > .controls,
+      .legend-layout
+    )
+    button[aria-pressed='true'] {
+    border-color: Highlight;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .site-shell .preview-toggle input {
+    appearance: auto;
+  }
+}

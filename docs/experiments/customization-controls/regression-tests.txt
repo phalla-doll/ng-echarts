@@ -1,0 +1,82 @@
+[WebServer] (node:49943) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 66 tests using 1 worker
+
+(node:49944) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/66] [chromium] › tests/browser/linked-charts.spec.ts:5:1 › hydrates linked charts and connects real plot clicks, keyboard values and a native month selector
+[2/66] [chromium] › tests/browser/linked-charts.spec.ts:92:1 › retains month identity, source focus and independent legends through changes, removal and missing/zero data
+[3/66] [chromium] › tests/browser/linked-charts.spec.ts:151:1 › keeps linked layouts usable in both themes and releases both charts on navigation
+[4/66] [chromium] › tests/browser/linked-charts.spec.ts:204:1 › copies the standalone linking example and offers a manual fallback when clipboard access fails
+[5/66] [chromium] › tests/browser/linked-charts.spec.ts:247:1 › keeps the selected category visible with zero, missing and hidden measures and moves it by row ID
+[6/66] [chromium] › tests/browser/linked-charts.spec.ts:276:1 › links an inclusive range with keyboard bounds, painted selection and equivalent single-point actions
+[7/66] [chromium] › tests/browser/linked-charts.spec.ts:338:1 › reconciles range endpoints in current order, handles crossing/removal and retains range-field focus
+[8/66] [chromium] › tests/browser/linked-charts.spec.ts:394:1 › keeps range fields usable at every gallery width/theme and clears with touch
+[9/66] [chromium] › tests/browser/linked-dashboard.spec.ts:6:1 › links composed values and native month selection through updates, replacement, legends and themes
+[10/66] [chromium] › tests/browser/linked-dashboard.spec.ts:17:1 › commits an actual stacked bar hit and exposes the exact compiled example
+[11/66] [chromium] › tests/browser/premium-polish.spec.ts:10:3 › radar preserves plot and card geometry through loading and error states
+[12/66] [chromium] › tests/browser/premium-polish.spec.ts:10:3 › radial preserves plot and card geometry through loading and error states
+[13/66] [chromium] › tests/browser/premium-polish.spec.ts:10:3 › calendar preserves plot and card geometry through loading and error states
+[14/66] [chromium] › tests/browser/premium-polish.spec.ts:10:3 › sankey preserves plot and card geometry through loading and error states
+[15/66] [chromium] › tests/browser/premium-polish.spec.ts:58:1 › pie totals and shares track visible categories, including keyboard hiding and recovery
+[16/66] [chromium] › tests/browser/premium-polish.spec.ts:88:1 › Sankey paints distinct stage colors and exposes a keyboard-scrollable mobile diagram
+[17/66] [chromium] › tests/browser/premium-polish.spec.ts:132:1 › the linked overview and detail share a desktop row and stack on mobile
+[18/66] [chromium] › tests/browser/premium-polish.spec.ts:151:1 › hiding every bar series explains the empty plot and keeps keyboard recovery available
+[19/66] [chromium] › tests/browser/premium-polish.spec.ts:168:1 › confines Sankey tooltips to the visible mobile scrollport at both ends
+[20/66] [chromium] › tests/browser/site-pages.spec.ts:11:1 › renders honest component availability and navigates copyable setup documentation
+[21/66] [chromium] › tests/browser/site-pages.spec.ts:85:1 › preserves site theme across docs and tools and applies it when deferred charts hydrate
+[22/66] [chromium] › tests/browser/site-pages.spec.ts:136:1 › keeps every documentation and tool page usable at narrow widths in both themes
+(node:50096) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[23/66] [firefox] › tests/browser/linked-charts.spec.ts:5:1 › hydrates linked charts and connects real plot clicks, keyboard values and a native month selector
+[24/66] [firefox] › tests/browser/linked-charts.spec.ts:92:1 › retains month identity, source focus and independent legends through changes, removal and missing/zero data
+[25/66] [firefox] › tests/browser/linked-charts.spec.ts:151:1 › keeps linked layouts usable in both themes and releases both charts on navigation
+[26/66] [firefox] › tests/browser/linked-charts.spec.ts:204:1 › copies the standalone linking example and offers a manual fallback when clipboard access fails
+[27/66] [firefox] › tests/browser/linked-charts.spec.ts:247:1 › keeps the selected category visible with zero, missing and hidden measures and moves it by row ID
+[28/66] [firefox] › tests/browser/linked-charts.spec.ts:276:1 › links an inclusive range with keyboard bounds, painted selection and equivalent single-point actions
+[29/66] [firefox] › tests/browser/linked-charts.spec.ts:338:1 › reconciles range endpoints in current order, handles crossing/removal and retains range-field focus
+[30/66] [firefox] › tests/browser/linked-charts.spec.ts:394:1 › keeps range fields usable at every gallery width/theme and clears with touch
+[31/66] [firefox] › tests/browser/linked-dashboard.spec.ts:6:1 › links composed values and native month selection through updates, replacement, legends and themes
+[32/66] [firefox] › tests/browser/linked-dashboard.spec.ts:17:1 › commits an actual stacked bar hit and exposes the exact compiled example
+[33/66] [firefox] › tests/browser/premium-polish.spec.ts:10:3 › radar preserves plot and card geometry through loading and error states
+[34/66] [firefox] › tests/browser/premium-polish.spec.ts:10:3 › radial preserves plot and card geometry through loading and error states
+[35/66] [firefox] › tests/browser/premium-polish.spec.ts:10:3 › calendar preserves plot and card geometry through loading and error states
+[36/66] [firefox] › tests/browser/premium-polish.spec.ts:10:3 › sankey preserves plot and card geometry through loading and error states
+[37/66] [firefox] › tests/browser/premium-polish.spec.ts:58:1 › pie totals and shares track visible categories, including keyboard hiding and recovery
+[38/66] [firefox] › tests/browser/premium-polish.spec.ts:88:1 › Sankey paints distinct stage colors and exposes a keyboard-scrollable mobile diagram
+[39/66] [firefox] › tests/browser/premium-polish.spec.ts:132:1 › the linked overview and detail share a desktop row and stack on mobile
+[40/66] [firefox] › tests/browser/premium-polish.spec.ts:151:1 › hiding every bar series explains the empty plot and keeps keyboard recovery available
+[41/66] [firefox] › tests/browser/premium-polish.spec.ts:168:1 › confines Sankey tooltips to the visible mobile scrollport at both ends
+[42/66] [firefox] › tests/browser/site-pages.spec.ts:11:1 › renders honest component availability and navigates copyable setup documentation
+[43/66] [firefox] › tests/browser/site-pages.spec.ts:85:1 › preserves site theme across docs and tools and applies it when deferred charts hydrate
+[44/66] [firefox] › tests/browser/site-pages.spec.ts:136:1 › keeps every documentation and tool page usable at narrow widths in both themes
+(node:50432) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[45/66] [webkit] › tests/browser/linked-charts.spec.ts:5:1 › hydrates linked charts and connects real plot clicks, keyboard values and a native month selector
+[46/66] [webkit] › tests/browser/linked-charts.spec.ts:92:1 › retains month identity, source focus and independent legends through changes, removal and missing/zero data
+[47/66] [webkit] › tests/browser/linked-charts.spec.ts:151:1 › keeps linked layouts usable in both themes and releases both charts on navigation
+[48/66] [webkit] › tests/browser/linked-charts.spec.ts:204:1 › copies the standalone linking example and offers a manual fallback when clipboard access fails
+[49/66] [webkit] › tests/browser/linked-charts.spec.ts:247:1 › keeps the selected category visible with zero, missing and hidden measures and moves it by row ID
+[50/66] [webkit] › tests/browser/linked-charts.spec.ts:276:1 › links an inclusive range with keyboard bounds, painted selection and equivalent single-point actions
+[51/66] [webkit] › tests/browser/linked-charts.spec.ts:338:1 › reconciles range endpoints in current order, handles crossing/removal and retains range-field focus
+[52/66] [webkit] › tests/browser/linked-charts.spec.ts:394:1 › keeps range fields usable at every gallery width/theme and clears with touch
+[53/66] [webkit] › tests/browser/linked-dashboard.spec.ts:6:1 › links composed values and native month selection through updates, replacement, legends and themes
+[54/66] [webkit] › tests/browser/linked-dashboard.spec.ts:17:1 › commits an actual stacked bar hit and exposes the exact compiled example
+[55/66] [webkit] › tests/browser/premium-polish.spec.ts:10:3 › radar preserves plot and card geometry through loading and error states
+[56/66] [webkit] › tests/browser/premium-polish.spec.ts:10:3 › radial preserves plot and card geometry through loading and error states
+[57/66] [webkit] › tests/browser/premium-polish.spec.ts:10:3 › calendar preserves plot and card geometry through loading and error states
+[58/66] [webkit] › tests/browser/premium-polish.spec.ts:10:3 › sankey preserves plot and card geometry through loading and error states
+[59/66] [webkit] › tests/browser/premium-polish.spec.ts:58:1 › pie totals and shares track visible categories, including keyboard hiding and recovery
+[60/66] [webkit] › tests/browser/premium-polish.spec.ts:88:1 › Sankey paints distinct stage colors and exposes a keyboard-scrollable mobile diagram
+[61/66] [webkit] › tests/browser/premium-polish.spec.ts:132:1 › the linked overview and detail share a desktop row and stack on mobile
+[62/66] [webkit] › tests/browser/premium-polish.spec.ts:151:1 › hiding every bar series explains the empty plot and keeps keyboard recovery available
+[63/66] [webkit] › tests/browser/premium-polish.spec.ts:168:1 › confines Sankey tooltips to the visible mobile scrollport at both ends
+[64/66] [webkit] › tests/browser/site-pages.spec.ts:11:1 › renders honest component availability and navigates copyable setup documentation
+[65/66] [webkit] › tests/browser/site-pages.spec.ts:85:1 › preserves site theme across docs and tools and applies it when deferred charts hydrate
+[66/66] [webkit] › tests/browser/site-pages.spec.ts:136:1 › keeps every documentation and tool page usable at narrow widths in both themes
+  66 passed (1.5m)

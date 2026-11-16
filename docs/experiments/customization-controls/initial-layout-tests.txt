@@ -1,0 +1,718 @@
+[WebServer] (node:51302) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 84 tests using 1 worker
+
+(node:51303) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /playground keeps customization controls readable and separate across themes and widths
+  1) [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /playground keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 320
+    Received:    895
+
+      76 |           )
+      77 |           .toEqual([]);
+    > 78 |         expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+         |                                                                                 ^
+      79 |           width,
+      80 |         );
+      81 |       }
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--pl-191a8-te-across-themes-and-widths-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--pl-191a8-te-across-themes-and-widths-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--pl-191a8-te-across-themes-and-widths-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51320) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[2/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /formatting keeps customization controls readable and separate across themes and widths
+  2) [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /formatting keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 320
+    Received:    895
+
+      76 |           )
+      77 |           .toEqual([]);
+    > 78 |         expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+         |                                                                                 ^
+      79 |           width,
+      80 |         );
+      81 |       }
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--fo-bc0cd-te-across-themes-and-widths-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--fo-bc0cd-te-across-themes-and-widths-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--fo-bc0cd-te-across-themes-and-widths-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51325) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[3/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /updates keeps customization controls readable and separate across themes and widths
+  3) [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /updates keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 320
+    Received:    895
+
+      76 |           )
+      77 |           .toEqual([]);
+    > 78 |         expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+         |                                                                                 ^
+      79 |           width,
+      80 |         );
+      81 |       }
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--up-44923-te-across-themes-and-widths-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--up-44923-te-across-themes-and-widths-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--up-44923-te-across-themes-and-widths-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51332) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[4/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /validation keeps customization controls readable and separate across themes and widths
+  4) [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /validation keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 320
+    Received:    431
+
+      76 |           )
+      77 |           .toEqual([]);
+    > 78 |         expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+         |                                                                                 ^
+      79 |           width,
+      80 |         );
+      81 |       }
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--va-a64d8-te-across-themes-and-widths-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--va-a64d8-te-across-themes-and-widths-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--va-a64d8-te-across-themes-and-widths-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51348) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[5/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /line-validation keeps customization controls readable and separate across themes and widths
+[6/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /area-validation keeps customization controls readable and separate across themes and widths
+[7/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /pie-validation keeps customization controls readable and separate across themes and widths
+[8/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /composed-validation keeps customization controls readable and separate across themes and widths
+[9/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /linked-validation keeps customization controls readable and separate across themes and widths
+[10/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /retention keeps customization controls readable and separate across themes and widths
+[11/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /radar keeps customization controls readable and separate across themes and widths
+[12/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /radar-validation keeps customization controls readable and separate across themes and widths
+[13/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /radial keeps customization controls readable and separate across themes and widths
+[14/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /calendar keeps customization controls readable and separate across themes and widths
+[15/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /calendar-validation keeps customization controls readable and separate across themes and widths
+[16/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /sankey keeps customization controls readable and separate across themes and widths
+[17/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /sankey-validation keeps customization controls readable and separate across themes and widths
+[18/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /comparison keeps customization controls readable and separate across themes and widths
+  5) [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /comparison keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 320
+    Received:    895
+
+      76 |           )
+      77 |           .toEqual([]);
+    > 78 |         expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+         |                                                                                 ^
+      79 |           width,
+      80 |         );
+      81 |       }
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--co-099c2-te-across-themes-and-widths-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--co-099c2-te-across-themes-and-widths-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--co-099c2-te-across-themes-and-widths-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51447) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[19/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /line-comparison keeps customization controls readable and separate across themes and widths
+  6) [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /line-comparison keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 320
+    Received:    895
+
+      76 |           )
+      77 |           .toEqual([]);
+    > 78 |         expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+         |                                                                                 ^
+      79 |           width,
+      80 |         );
+      81 |       }
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--li-2b7c3-te-across-themes-and-widths-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--li-2b7c3-te-across-themes-and-widths-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--li-2b7c3-te-across-themes-and-widths-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51453) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[20/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /area-comparison keeps customization controls readable and separate across themes and widths
+  7) [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /area-comparison keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 320
+    Received:    895
+
+      76 |           )
+      77 |           .toEqual([]);
+    > 78 |         expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+         |                                                                                 ^
+      79 |           width,
+      80 |         );
+      81 |       }
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--ar-01d25-te-across-themes-and-widths-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--ar-01d25-te-across-themes-and-widths-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--ar-01d25-te-across-themes-and-widths-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51498) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[21/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /pie-comparison keeps customization controls readable and separate across themes and widths
+  8) [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /pie-comparison keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 320
+    Received:    895
+
+      76 |           )
+      77 |           .toEqual([]);
+    > 78 |         expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+         |                                                                                 ^
+      79 |           width,
+      80 |         );
+      81 |       }
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--pi-d95f7-te-across-themes-and-widths-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--pi-d95f7-te-across-themes-and-widths-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--pi-d95f7-te-across-themes-and-widths-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51504) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[22/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /linked keeps customization controls readable and separate across themes and widths
+[23/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /linked-example-validation keeps customization controls readable and separate across themes and widths
+[24/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /linked-dashboard keeps customization controls readable and separate across themes and widths
+  9) [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /linked-dashboard keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 1440
+    Received:    1512
+
+      76 |           )
+      77 |           .toEqual([]);
+    > 78 |         expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+         |                                                                                 ^
+      79 |           width,
+      80 |         );
+      81 |       }
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--li-44b3b-te-across-themes-and-widths-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--li-44b3b-te-across-themes-and-widths-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--li-44b3b-te-across-themes-and-widths-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51549) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[25/84] [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /dashboard-validation keeps customization controls readable and separate across themes and widths
+  10) [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /dashboard-validation keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 1440
+    Received:    1512
+
+      76 |           )
+      77 |           .toEqual([]);
+    > 78 |         expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+         |                                                                                 ^
+      79 |           width,
+      80 |         );
+      81 |       }
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--da-c5f89-te-across-themes-and-widths-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--da-c5f89-te-across-themes-and-widths-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--da-c5f89-te-across-themes-and-widths-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51574) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[26/84] [chromium] › tests/browser/customization-controls.spec.ts:87:1 › keeps native disclosure and form controls usable before JavaScript loads
+[27/84] [chromium] › tests/browser/playground-layout.spec.ts:4:1 › opens the mobile navigation with keyboard support and closes it after routing
+[28/84] [chromium] › tests/browser/playground-layout.spec.ts:40:1 › keeps code, preview, theme, copy feedback, and reset controls in sync
+(node:51584) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[29/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /playground keeps customization controls readable and separate across themes and widths
+  11) [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /playground keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 900
+    Received:    951
+
+      76 |           )
+      77 |           .toEqual([]);
+    > 78 |         expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+         |                                                                                 ^
+      79 |           width,
+      80 |         );
+      81 |       }
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--pl-191a8-te-across-themes-and-widths-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--pl-191a8-te-across-themes-and-widths-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--pl-191a8-te-across-themes-and-widths-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51596) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[30/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /formatting keeps customization controls readable and separate across themes and widths
+  12) [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /formatting keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 900
+    Received:    951
+
+      76 |           )
+      77 |           .toEqual([]);
+    > 78 |         expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+         |                                                                                 ^
+      79 |           width,
+      80 |         );
+      81 |       }
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--fo-bc0cd-te-across-themes-and-widths-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--fo-bc0cd-te-across-themes-and-widths-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--fo-bc0cd-te-across-themes-and-widths-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51615) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[31/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /updates keeps customization controls readable and separate across themes and widths
+  13) [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /updates keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 320
+    Received:    895
+
+      76 |           )
+      77 |           .toEqual([]);
+    > 78 |         expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+         |                                                                                 ^
+      79 |           width,
+      80 |         );
+      81 |       }
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--up-44923-te-across-themes-and-widths-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--up-44923-te-across-themes-and-widths-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--up-44923-te-across-themes-and-widths-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51641) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[32/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /validation keeps customization controls readable and separate across themes and widths
+  14) [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /validation keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 900
+    Received:    951
+
+      76 |           )
+      77 |           .toEqual([]);
+    > 78 |         expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+         |                                                                                 ^
+      79 |           width,
+      80 |         );
+      81 |       }
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--va-a64d8-te-across-themes-and-widths-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--va-a64d8-te-across-themes-and-widths-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--va-a64d8-te-across-themes-and-widths-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51719) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[33/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /line-validation keeps customization controls readable and separate across themes and widths
+[34/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /area-validation keeps customization controls readable and separate across themes and widths
+[35/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /pie-validation keeps customization controls readable and separate across themes and widths
+[36/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /composed-validation keeps customization controls readable and separate across themes and widths
+[37/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /linked-validation keeps customization controls readable and separate across themes and widths
+[38/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /retention keeps customization controls readable and separate across themes and widths
+[39/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /radar keeps customization controls readable and separate across themes and widths
+[40/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /radar-validation keeps customization controls readable and separate across themes and widths
+[41/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /radial keeps customization controls readable and separate across themes and widths
+[42/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /calendar keeps customization controls readable and separate across themes and widths
+[43/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /calendar-validation keeps customization controls readable and separate across themes and widths
+[44/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /sankey keeps customization controls readable and separate across themes and widths
+[45/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /sankey-validation keeps customization controls readable and separate across themes and widths
+[46/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /comparison keeps customization controls readable and separate across themes and widths
+  15) [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /comparison keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 320
+    Received:    895
+
+      76 |           )
+      77 |           .toEqual([]);
+    > 78 |         expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+         |                                                                                 ^
+      79 |           width,
+      80 |         );
+      81 |       }
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--co-099c2-te-across-themes-and-widths-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--co-099c2-te-across-themes-and-widths-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--co-099c2-te-across-themes-and-widths-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51822) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[47/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /line-comparison keeps customization controls readable and separate across themes and widths
+  16) [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /line-comparison keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 900
+    Received:    951
+
+      76 |           )
+      77 |           .toEqual([]);
+    > 78 |         expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+         |                                                                                 ^
+      79 |           width,
+      80 |         );
+      81 |       }
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--li-2b7c3-te-across-themes-and-widths-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--li-2b7c3-te-across-themes-and-widths-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--li-2b7c3-te-across-themes-and-widths-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51835) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[48/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /area-comparison keeps customization controls readable and separate across themes and widths
+  17) [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /area-comparison keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 900
+    Received:    951
+
+      76 |                   }
+      77 |                 }
+    > 78 |                 return problems;
+         |                                 ^
+      79 |               }),
+      80 |             ),
+      81 |           )
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--ar-01d25-te-across-themes-and-widths-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--ar-01d25-te-across-themes-and-widths-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--ar-01d25-te-across-themes-and-widths-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51856) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[49/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /pie-comparison keeps customization controls readable and separate across themes and widths
+  18) [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /pie-comparison keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 320
+    Received:    895
+
+      76 |                   }
+      77 |                 }
+    > 78 |                 return problems;
+         |                                 ^
+      79 |               }),
+      80 |             ),
+      81 |           )
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--pi-d95f7-te-across-themes-and-widths-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--pi-d95f7-te-across-themes-and-widths-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--pi-d95f7-te-across-themes-and-widths-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51865) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[50/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /linked keeps customization controls readable and separate across themes and widths
+[51/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /linked-example-validation keeps customization controls readable and separate across themes and widths
+[52/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /linked-dashboard keeps customization controls readable and separate across themes and widths
+  19) [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /linked-dashboard keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 320
+    Received:    551
+
+      76 |                   }
+      77 |                 }
+    > 78 |                 return problems;
+         |                                 ^
+      79 |               }),
+      80 |             ),
+      81 |           )
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--li-44b3b-te-across-themes-and-widths-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--li-44b3b-te-across-themes-and-widths-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--li-44b3b-te-across-themes-and-widths-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51882) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[53/84] [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /dashboard-validation keeps customization controls readable and separate across themes and widths
+  20) [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /dashboard-validation keeps customization controls readable and separate across themes and widths
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 900
+    Received:    938
+
+      76 |                   }
+      77 |                 }
+    > 78 |                 return problems;
+         |                                 ^
+      79 |               }),
+      80 |             ),
+      81 |           )
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:78:81
+
+    Error Context: test-results/customization-controls--da-c5f89-te-across-themes-and-widths-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls--da-c5f89-te-across-themes-and-widths-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls--da-c5f89-te-across-themes-and-widths-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:51893) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[54/84] [firefox] › tests/browser/customization-controls.spec.ts:87:1 › keeps native disclosure and form controls usable before JavaScript loads
+  21) [firefox] › tests/browser/customization-controls.spec.ts:87:1 › keeps native disclosure and form controls usable before JavaScript loads
+
+    Test was interrupted.
+
+    Error: page.goto: Test ended.
+    Call log:
+      - navigating to "http://localhost:4173/radial", waiting until "load"
+
+
+      94 | }) => {
+      95 |   const context = await browser.newContext({
+    > 96 |     javaScriptEnabled: false,
+         |                ^
+      97 |     viewport: { width: 390, height: 844 },
+      98 |   });
+      99 |   const page = await context.newPage();
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/customization-controls.spec.ts:96:16
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/customization-controls-kee-485c6-ble-before-JavaScript-loads-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/customization-controls-kee-485c6-ble-before-JavaScript-loads-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  20 failed
+    [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /playground keeps customization controls readable and separate across themes and widths
+    [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /formatting keeps customization controls readable and separate across themes and widths
+    [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /updates keeps customization controls readable and separate across themes and widths
+    [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /validation keeps customization controls readable and separate across themes and widths
+    [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /comparison keeps customization controls readable and separate across themes and widths
+    [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /line-comparison keeps customization controls readable and separate across themes and widths
+    [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /area-comparison keeps customization controls readable and separate across themes and widths
+    [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /pie-comparison keeps customization controls readable and separate across themes and widths
+    [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /linked-dashboard keeps customization controls readable and separate across themes and widths
+    [chromium] › tests/browser/customization-controls.spec.ts:33:3 › /dashboard-validation keeps customization controls readable and separate across themes and widths
+    [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /playground keeps customization controls readable and separate across themes and widths
+    [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /formatting keeps customization controls readable and separate across themes and widths
+    [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /updates keeps customization controls readable and separate across themes and widths
+    [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /validation keeps customization controls readable and separate across themes and widths
+    [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /comparison keeps customization controls readable and separate across themes and widths
+    [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /line-comparison keeps customization controls readable and separate across themes and widths
+    [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /area-comparison keeps customization controls readable and separate across themes and widths
+    [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /pie-comparison keeps customization controls readable and separate across themes and widths
+    [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /linked-dashboard keeps customization controls readable and separate across themes and widths
+    [firefox] › tests/browser/customization-controls.spec.ts:33:3 › /dashboard-validation keeps customization controls readable and separate across themes and widths
+  1 interrupted
+    [firefox] › tests/browser/customization-controls.spec.ts:87:1 › keeps native disclosure and form controls usable before JavaScript loads
+  30 did not run
+  33 passed (1.0m)

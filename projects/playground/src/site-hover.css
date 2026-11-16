@@ -1,5 +1,5 @@
 /* Interaction feedback follows the control's role, with stable geometry. */
-.site-shell :is(.reload-button, .integration-heading button, .code-tools button, .setting-toggle) {
+.site-shell :is(.reload-button, .integration-heading button, .code-tools button) {
   border-radius: var(--site-inset-radius);
 }
 .site-shell .view-control button {
@@ -126,7 +126,8 @@
 
 @media (forced-colors: active) and (hover: hover) and (pointer: fine) {
   .site-shell,
-  .site-shell .reference-mode {
+  .site-shell .reference-mode,
+  .site-shell app-composed-dashboard[data-theme] {
     --site-hover: Highlight;
     --site-pressed: Highlight;
     --site-hover-border: Highlight;

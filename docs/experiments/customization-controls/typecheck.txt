@@ -1,0 +1,3 @@
+
+> ng-echarts-workspace@0.0.0 typecheck
+> ngc -p projects/chart-library/tsconfig.lib.prod.json --noEmit && ngc -p projects/playground/tsconfig.app.json --noEmit

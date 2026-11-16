@@ -1,0 +1,15 @@
+Final correction verification
+
+Expanded matrix + playground + linked dashboard + shared-window suites:
+  93 passed; three pie-layout cases identified a component-scoped 40 px rule.
+  Complete diagnostic record: legend-choice-failure.txt
+
+After correcting the pie component rule:
+  6 passed (18.6s): three pie responsive cases and three existing legend interaction cases.
+  Engines: Chromium, Firefox, WebKit.
+  Complete passing record: pie-tests.txt
+
+All 96 scenarios from the expanded matrix are now verified, with the three corrected cases checked separately.
+The existing site/gallery/linked regression suite additionally passed 66 cases.
+
+Production build, strict compilation, formatting and git diff --check pass.

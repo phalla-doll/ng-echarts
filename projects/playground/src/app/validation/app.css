@@ -60,7 +60,7 @@ h1 {
 
 .workbench {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 224px;
+  grid-template-columns: minmax(0, 1fr);
   gap: 32px;
   align-items: start;
 }
@@ -119,8 +119,7 @@ nec-bar-chart {
 }
 
 .settings {
-  padding: 0 0 0 24px;
-  border-left: 1px solid var(--site-border);
+  min-width: 0;
 }
 
 .example-footer {
@@ -190,38 +189,6 @@ nec-bar-chart {
     grid-template-columns: minmax(0, 1fr);
     gap: 32px;
   }
-  .settings {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-    border: 1px solid var(--site-border);
-    border-radius: 8px;
-    background: var(--site-surface);
-    padding: 24px;
-  }
-  .settings-heading,
-  .settings-intro,
-  .interaction-note {
-    grid-column: 1/-1;
-  }
-  .settings-intro {
-    margin: -16px 0 0;
-  }
-  .settings-group {
-    border: 0;
-    padding: 0;
-    margin: 0;
-  }
-  .settings-group > p {
-    max-width: 28ch;
-  }
-  .interaction-note {
-    border-top: 1px solid var(--site-border);
-    padding-top: 16px;
-  }
-  .interaction-note p {
-    max-width: none;
-  }
   .page-header {
     align-items: start;
   }
@@ -246,22 +213,6 @@ nec-bar-chart {
   .dataset-meta {
     margin-left: auto;
   }
-  .settings {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 24px;
-    padding: 20px;
-  }
-  .settings-group {
-    border-bottom: 1px solid var(--site-border);
-    padding-bottom: 24px;
-  }
-  .settings-group > p {
-    max-width: none;
-  }
-  .interaction-note {
-    border: 0;
-    padding: 0;
-  }
   .example-footer {
     flex-direction: column;
     gap: 8px;
@@ -275,23 +226,5 @@ nec-bar-chart {
   }
   .unmounted {
     min-height: 460px;
-  }
-}
-
-/* Keep settings readable while the persistent sidebar leaves a narrow content column. */
-@media (min-width: 801px) and (max-width: 920px) {
-  .settings {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .settings-group {
-    border-bottom: 1px solid var(--site-border);
-    padding-bottom: 24px;
-  }
-  .settings-group > p {
-    max-width: none;
-  }
-  .interaction-note {
-    border: 0;
-    padding: 0;
   }
 }

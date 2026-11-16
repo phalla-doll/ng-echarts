@@ -111,77 +111,84 @@
 
       <aside class="settings" id="chart-settings" tabindex="-1" aria-label="Chart settings">
         <div class="settings-heading">
-          <h2>Chart settings</h2>
-          <button class="reset-button" type="button" (click)="resetControls()">
-            Reset controls
+          <h2>Customize</h2>
+          <button
+            class="reset-button"
+            type="button"
+            aria-label="Reset controls"
+            (click)="resetControls()"
+          >
+            <app-site-icon name="update" />Reset
           </button>
         </div>
         <p class="settings-intro">Adjust the chart’s appearance and data.</p>
-        <section class="settings-group" aria-labelledby="appearance-heading">
-          <h3 id="appearance-heading">Appearance</h3>
-          <button
-            class="setting-toggle"
-            type="button"
-            [attr.aria-pressed]="horizontal()"
-            (click)="toggleLayout()"
-          >
-            <span>Horizontal layout</span><span class="switch" aria-hidden="true"></span>
-          </button>
-          <button
-            class="setting-toggle"
-            type="button"
-            [attr.aria-pressed]="stacked()"
-            (click)="toggleStack()"
-          >
-            <span>Stack series</span><span class="switch" aria-hidden="true"></span>
-          </button>
-          <button
-            class="setting-toggle"
-            type="button"
-            [attr.aria-pressed]="gradient()"
-            (click)="toggleGradient()"
-          >
-            <span>Gradient fills</span><span class="switch" aria-hidden="true"></span>
-          </button>
-        </section>
-        <section class="settings-group" aria-labelledby="data-heading">
-          <h3 id="data-heading">Sample data</h3>
-          <p>12 monthly observations with Desktop and Mobile series.</p>
-          <button
-            class="ui-button update-button"
-            type="button"
-            [attr.aria-pressed]="changed()"
-            (click)="updateValues()"
-          >
-            <app-site-icon name="update" />Update values
-          </button>
-          <span class="setting-hint">Toggle a +100 change to Desktop.</span>
-        </section>
-        <section class="settings-group" aria-labelledby="states-heading">
-          <h3 id="states-heading">Try a state</h3>
-          <div class="state-controls">
-            <button type="button" [attr.aria-pressed]="loading()" (click)="toggleLoading()">
-              Loading state
+        <div class="settings-panel">
+          <section class="settings-group" aria-labelledby="appearance-heading">
+            <h3 id="appearance-heading">Appearance</h3>
+            <button
+              class="setting-toggle"
+              type="button"
+              [attr.aria-pressed]="horizontal()"
+              (click)="toggleLayout()"
+            >
+              <span>Horizontal layout</span><span class="switch" aria-hidden="true"></span>
             </button>
-            <button type="button" [attr.aria-pressed]="failure()" (click)="toggleError()">
-              Error state
+            <button
+              class="setting-toggle"
+              type="button"
+              [attr.aria-pressed]="stacked()"
+              (click)="toggleStack()"
+            >
+              <span>Stack series</span><span class="switch" aria-hidden="true"></span>
             </button>
-            <button type="button" [attr.aria-pressed]="empty()" (click)="toggleEmpty()">
-              Empty data
+            <button
+              class="setting-toggle"
+              type="button"
+              [attr.aria-pressed]="gradient()"
+              (click)="toggleGradient()"
+            >
+              <span>Gradient fills</span><span class="switch" aria-hidden="true"></span>
             </button>
+          </section>
+          <section class="settings-group" aria-labelledby="data-heading">
+            <h3 id="data-heading">Sample data</h3>
+            <p>12 monthly observations with Desktop and Mobile series.</p>
+            <button
+              class="ui-button update-button"
+              type="button"
+              [attr.aria-pressed]="changed()"
+              (click)="updateValues()"
+            >
+              <app-site-icon name="update" />Update values
+            </button>
+            <span class="setting-hint">Toggle a +100 change to Desktop.</span>
+          </section>
+          <section class="settings-group" aria-labelledby="states-heading">
+            <h3 id="states-heading">Try a state</h3>
+            <div class="state-controls">
+              <button type="button" [attr.aria-pressed]="loading()" (click)="toggleLoading()">
+                Loading state
+              </button>
+              <button type="button" [attr.aria-pressed]="failure()" (click)="toggleError()">
+                Error state
+              </button>
+              <button type="button" [attr.aria-pressed]="empty()" (click)="toggleEmpty()">
+                Empty data
+              </button>
+            </div>
+            <button
+              class="setting-toggle mount-control"
+              type="button"
+              [attr.aria-pressed]="mounted()"
+              (click)="toggleMount()"
+            >
+              <span>Show chart</span><span class="switch" aria-hidden="true"></span>
+            </button>
+          </section>
+          <div class="interaction-note">
+            <app-site-icon name="layers" />
+            <p>Try selecting a bar, hiding a series, or opening the data table.</p>
           </div>
-          <button
-            class="setting-toggle mount-control"
-            type="button"
-            [attr.aria-pressed]="mounted()"
-            (click)="toggleMount()"
-          >
-            <span>Show chart</span><span class="switch" aria-hidden="true"></span>
-          </button>
-        </section>
-        <div class="interaction-note">
-          <app-site-icon name="layers" />
-          <p>Try selecting a bar, hiding a series, or opening the data table.</p>
         </div>
         <a class="back-to-example" routerLink="/playground" fragment="chart-example"
           >Back to example<app-site-icon name="arrow"
