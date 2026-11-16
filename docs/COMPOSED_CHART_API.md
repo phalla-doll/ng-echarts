@@ -1,6 +1,6 @@
 # Composed chart API
 
-NG17 combines vertical bars, lines and areas on one category axis and one linear value axis. Named bar stacks ship in published rc.21 and later; composed areas and named area stacks ship in rc.22 and later. Use comparable units for all measures on a shared axis. Local rc.24 adds explicit independent value axes below. It inherits the Cartesian formatting, states, stable identities, native legends/tables, motion, resizing, and SSR behavior.
+NG17 combines vertical bars, lines and areas on one category axis and one linear value axis. Named bar stacks ship in published rc.21 and later; composed areas and named area stacks ship in rc.22 and later. Use comparable units for all measures on a shared axis. Published rc.24 and later provide explicit independent value axes below. It inherits the Cartesian formatting, states, stable identities, native legends/tables, motion, resizing, and SSR behavior.
 
 ## Complete example
 
@@ -61,7 +61,7 @@ The library renders supplied trend values; it does not calculate a moving averag
 
 ## Shared inputs and outputs
 
-The shared inputs/defaults are `title` (required), `description` (empty), `data` (required), `rowIdKey`/`categoryKey` (required string fields), `series` (required mixed descriptors), `height` (320), `theme` (light), `themeRevision` (0), `locale` (en-US), `numberFormatOptions`, `valueFormatter`, `categoryTickFormatter`, `showDataTable` (true), `tablePageSize` (null; complete table), `loading` (false), `error` (null), and `animation` (true; reduced motion wins).
+The shared inputs/defaults are `title` (required), `description` (empty), `legendLayout` (`'chips'`; `'list'` for aligned rows since published rc.28), `data` (required), `rowIdKey`/`categoryKey` (required string fields), `series` (required mixed descriptors), `height` (320), `theme` (light), `themeRevision` (0), `locale` (en-US), `numberFormatOptions`, `valueFormatter`, `categoryTickFormatter`, `showDataTable` (true), `tablePageSize` (null; complete table), `loading` (false), `error` (null), and `animation` (true; reduced motion wins).
 
 `pointSelect: PointSelection<T>` includes the original row, row/series IDs, raw value and plot/table source. `legendChange: LegendVisibilityChange` includes series ID and visibility. Native table actions retain hidden-series values and provide keyboard point activation. Point activation does not add persistent selection state. Tooltips share full category/series labels and escaped formatted numeric text; category tick abbreviations do not change those full labels.
 
@@ -71,7 +71,7 @@ States follow application error, loading, data/configuration/renderer error, emp
 
 Use `/composed` for `ComposedChart`, `ComposedSeries`, `ComposedBarSeries`, `ComposedLineSeries` and `ComposedAreaSeries`; root exports are compatible. Shared event/key/formatter types are reexported by `/composed` and `/core`. The focused entry lazily registers only bar, line, grid, tooltip and Canvas modules. Existing focused bar/line/area/pie entries do not acquire the composed component or additional engines.
 
-The current increment supports bar/line/area combinations on shared axes. Stacked ordinary lines, raw ECharts options and custom tooltip templates remain outside this API. Local rc.24 adds explicit independent linear value axes below. Mixed units such as visits and percentages require a different design, not an unlabelled shared scale. Existing [compatibility and measured-envelope guidance](COMPATIBILITY.md) remains the starting point; the [NG17 report](experiments/NG17_COMPOSED_CHART.md) records composed-specific measurements and checks.
+The current increment supports bar/line/area combinations on shared axes. Stacked ordinary lines, raw ECharts options and custom tooltip templates remain outside this API. Published rc.24 and later provide explicit independent linear value axes below. Mixed units such as visits and percentages require a different design, not an unlabelled shared scale. Existing [compatibility and measured-envelope guidance](COMPATIBILITY.md) remains the starting point; the [NG17 report](experiments/NG17_COMPOSED_CHART.md) records composed-specific measurements and checks.
 
 The gallery at `/composed` keeps the approved neutral styling and copyable source; `/composed-validation` exposes engineering controls separately. Human interpretation and complete release gates retain their deferred status.
 

@@ -1,6 +1,6 @@
 # Calendar heatmap API
 
-Experimental NG19 component, introduced in private `0.1.0-rc.8` first published in `0.1.0-rc.18` and included in current `0.1.0-rc.22`. Import `CalendarHeatmap` from `@mantha911/ng-echarts/calendar`. The compatibility root keeps its existing exports and engines. Original code is MIT licensed; the experimental npm prerelease is available under `next`.
+Experimental NG19 component, introduced in private `0.1.0-rc.8` first published in `0.1.0-rc.18` and included in published `0.1.0-rc.28`. Import `CalendarHeatmap` from `@mantha911/ng-echarts/calendar`. The compatibility root keeps its existing exports and engines. Original code is MIT licensed; the experimental npm prerelease is available under `next`.
 
 ## Example
 
@@ -87,6 +87,8 @@ Implementation follows the [ECharts calendar contract](https://github.com/apache
 
 The numeric color key displays the upper bound of each of four equal positive intervals. Missing days use the background with an outline; the legend adds a hatch cue to distinguish missing from recorded zero. The year/quarter stage height follows the host container even while the renderer is unavailable.
 
-## Optional gallery table disclosure in local rc.28
+<a id="optional-gallery-table-disclosure-in-local-rc28"></a>
 
-`showDataTable` defaults to `true`. Set `[showDataTable]="false"` to omit the daily disclosure and all of its table markup. Gallery previews disable it and expose sample data in Code; the separate validation pages retain native table actions. This input is in local rc.28 source and is not part of published rc.24.
+## Optional gallery table disclosure since rc.28
+
+`showDataTable` defaults to `true`. Set `[showDataTable]="false"` to omit the daily disclosure and all of its table markup. Gallery previews disable it and expose sample data in Code; the separate validation pages retain native table actions. This input ships in published rc.28 and later; rc.24 does not include it.

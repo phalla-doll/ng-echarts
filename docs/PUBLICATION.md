@@ -2,6 +2,8 @@
 
 Status: `@mantha911/ng-echarts@0.1.0-rc.28` is published on npm under `next`; `latest` retains rc.18. The [rc.28 publication](#rc28-oidc-publication) records exact bytes and passing fresh registry consumers. Human F09/R06/G2/G3/G4 remain pending under the user’s continued prerelease deferral. Current rc.29 source is separate; preserve every published/private archive.
 
+The [packaged documentation errata](PACKAGED_DOCUMENTATION_ERRATA.md) correct historical availability statements without rewriting published rc.28 or the sealed rc.29 candidate. Repository/demo documentation corrections do not change npm tags or package bytes.
+
 ## Historical checks before publication
 
 Checked 14 November 2026 with npm 11.19.1 against `https://registry.npmjs.org`:

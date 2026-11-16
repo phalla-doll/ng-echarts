@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-16T07:08:37.412Z",
+  "recordedAt": "2026-11-16T08:17:28.567Z",
   "artifact": {
     "name": "@mantha911/ng-echarts",
     "version": "0.1.0-rc.29",
@@ -10,8 +10,8 @@
   "npm": "11.19.1",
   "method": "Fresh pinned CLI scaffold outside workspace; execute INSTALLATION.md shell blocks; install local tarball; copy exact INTEGRATION_GUIDE.md App; strict ngc and production build; generated server HTML then three-engine hydration/actions/updates/themes/resize.",
   "sources": {
-    "docs/INSTALLATION.md": "48e9865cbeae6919a45c4b0d67520e350198252b1e138d69a08cb53ffd8900cc",
-    "docs/INTEGRATION_GUIDE.md": "ae529384abe222c98bc0a9744f132db1e6f33c65ef56f908f52118486b91acfb"
+    "docs/INSTALLATION.md": "cbdddab5008a5e6c10d8a5a1d4008b40a299ebb00bf608845fb5aaaea620074c",
+    "docs/INTEGRATION_GUIDE.md": "b48de997333c7ee8545715b16771c97485fcd5b127e4a1aa9f7c7c273339e363"
   },
   "installedOutsideWorkspace": true,
   "lockfileReinstall": true,

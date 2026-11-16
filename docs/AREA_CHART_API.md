@@ -49,6 +49,7 @@ Area shares the [bar API's](BAR_CHART_API.md) typed Cartesian data, formatting, 
 | `theme`, `themeRevision` | `'light'`, `0` | Explicit palette defaults and CSS/font refresh revision |
 | `locale`, `numberFormatOptions`, `valueFormatter` | `'en-US'`, `undefined`, `undefined` | Same numeric text in axes, tooltips, tables, and action labels |
 | `categoryTickFormatter` | `undefined` | Axis labels only; retain full text in tooltips/tables/events |
+| `legendLayout` | `'chips'` | Inline chips or aligned `'list'` rows; available since published rc.28 |
 | `showDataTable` | `true` | Include the initially collapsed table and its labeled toggle |
 | `tablePageSize` | `null` | Positive safe integer bounds native table rows per page; null retains the complete table; plot data is unchanged |
 | `loading`, `error`, `animation` | `false`, `null`, `true` | Shared state precedence; reduced motion overrides decorative animation |
@@ -79,4 +80,4 @@ Series alternate solid/circle and dashed/diamond outlines/markers, retaining the
 
 Set `[tablePageSize]="50"` to create at most 50 native table rows at once. The default `null` retains the complete table. The size must be a positive safe integer; invalid values produce a configuration error. The plot continues to show all observations. Previous/Next buttons announce the visible row range and retain keyboard focus at either boundary. Every row remains available through paging, including hidden-series values, zero and missing observations.
 
-Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. Current published rc.22 also includes it; see [installation](INSTALLATION.md#current-feature-availability).
+Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. Published rc.28 includes it; see [installation](INSTALLATION.md#current-feature-availability).

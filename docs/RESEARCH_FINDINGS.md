@@ -1,6 +1,6 @@
 # ng-echarts research findings
 
-Initial upstream research checked 12 November 2026; implementation-status links reconciled 15 November 2026. This update does not broaden the tested toolchain or re-evaluate the pinned upstream baseline. Upstream reference: EvilCharts commit [`4c2dd7c9bae780703244265c9a4b509d40c055ad`](https://github.com/legions-developer/evilcharts/commit/4c2dd7c9bae780703244265c9a4b509d40c055ad), committed 29 October 2026. Pin this revision for initial comparisons; review later upstream changes separately.
+Initial upstream research checked 12 November 2026; implementation-status links reconciled 16 November 2026. This update does not broaden the tested toolchain or re-evaluate the pinned upstream baseline. Upstream reference: EvilCharts commit [`4c2dd7c9bae780703244265c9a4b509d40c055ad`](https://github.com/legions-developer/evilcharts/commit/4c2dd7c9bae780703244265c9a4b509d40c055ad), committed 29 October 2026. Pin this revision for initial comparisons; review later upstream changes separately.
 
 ## Framework compatibility
 

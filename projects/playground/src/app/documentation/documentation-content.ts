@@ -99,7 +99,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'registry-package',
         title: 'Install the prerelease',
         paragraphs: [
-          'The next tag selects the experimental public rc.24 prerelease. Human screen-reader interpretation remains unreviewed at the user’s request; the API is not declared stable.',
+          'The next tag selects the experimental public rc.28 prerelease; latest retains rc.18. Human screen-reader interpretation remains unreviewed at the user’s request; the API is not declared stable.',
         ],
         source: 'npm install @mantha911/ng-echarts@next echarts@6.1.0',
         language: 'Terminal',
@@ -187,7 +187,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         paragraphs: [
           'ComposedChart accepts ComposedSeries<T> with a bar/line/area kind per measure in rc.22 on one shared axis pair. Bar, line, and area charts accept a typed array of ChartSeries<T> measures. PieChart accepts one ChartMeasure<T> and turns category rows into slices. Import each component from its focused @mantha911/ng-echarts/bar, /line, /area, /pie, /composed, or /radar entry. RadarChart uses comparison series and an explicit maxKey for each dimension. RadialProgress uses scalar value/max inputs from /radial, CalendarHeatmap uses one year/date/value contract from /calendar, and SankeyChart uses separate node/link arrays from /sankey. The last four families require focused imports.',
           'Use innerRadius 0 for a pie or 0.6 for a donut. Optional outside labels may shorten or hide collisions, while category controls retain full labels. Pie measures must be nonnegative; all-zero totals show an empty state. Optional showTotal displays the visible sum in donuts with innerRadius at least 0.4. Calendar and Sankey valueLabel names the tooltip measure and defaults to Value.',
-          'In local rc.28, legendLayout defaults to chips; choose list for aligned rows. Both keep native keyboard visibility controls. Pie legend changes emit rowId and visible; Cartesian legend changes emit seriesId and visible. Cartesian, radar and pie pointSelect events include the original row and raw value. Calendar selects an original date/value row. Sankey emits a select event for an original node or link with raw totals/values. Radial progress has no selection event. Native tables provide keyboard actions where applicable; gallery chart previews may opt out of the optional table.',
+          'Since published rc.28, Cartesian and pie/donut legendLayout defaults to chips; choose list for aligned rows. Radar currently retains chip presentation for either inherited layout value. Both keep native keyboard visibility controls. Pie legend changes emit rowId and visible; Cartesian legend changes emit seriesId and visible. Cartesian, radar and pie pointSelect events include the original row and raw value. Calendar selects an original date/value row. Sankey emits a select event for an original node or link with raw totals/values. Radial progress has no selection event. Native tables provide keyboard actions where applicable; gallery chart previews may opt out of the optional table.',
         ],
       },
       {

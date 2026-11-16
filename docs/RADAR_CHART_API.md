@@ -1,6 +1,6 @@
 # Radar chart API
 
-Experimental NG18 component, introduced in private `0.1.0-rc.5` first published in `0.1.0-rc.18` and included in current `0.1.0-rc.22`. Import `RadarChart` from `@mantha911/ng-echarts/radar`; it is deliberately absent from the compatibility root so existing imports retain their engine/bundle boundaries. [Radial progress](RADIAL_PROGRESS_API.md) is a separate implemented component.
+Experimental NG18 component, introduced in private `0.1.0-rc.5` first published in `0.1.0-rc.18` and included in published `0.1.0-rc.28`. Import `RadarChart` from `@mantha911/ng-echarts/radar`; it is deliberately absent from the compatibility root so existing imports retain their engine/bundle boundaries. [Radial progress](RADIAL_PROGRESS_API.md) is a separate implemented component.
 
 ## Example
 
@@ -86,6 +86,8 @@ Zero is a valid observation. `null` or absent measures are missing. A comparison
 ## Inputs and states
 
 Shared inputs follow the [bar API](BAR_CHART_API.md#inputs): required title/data/rowIdKey/categoryKey/series; description, height (320), theme, themeRevision, locale, numberFormatOptions, valueFormatter, categoryTickFormatter, showDataTable (true), loading, error and animation. Radar does not have Cartesian layout, stack, gradient, range or controlled row-selection inputs. `filled` is a boolean, default true, for the quiet polygon fill; vertex markers and solid/dashed comparison outlines remain visible. Geometry is polygonal with four fixed scale intervals.
+
+The shared base exposes `legendLayout`, but the rc.28/rc.29 radar template does not bind its list layout class: radar renders chips for either value. Aligned-list behavior is implemented for bar/line/area/composed and pie/donut. See the [packaged documentation erratum](PACKAGED_DOCUMENTATION_ERRATA.md#radar-legend-layout).
 
 Application error takes precedence over loading, validation/renderer errors, empty and ready. Non-ready states hide old plot/table actions. Updates recover without replacing the component. Formatting of observed values and maxima uses the same locale/options/formatter in tooltips and the table; raw events retain numbers. Numeric callbacks must also handle each maximum. Truncated plot labels preserve full labels in tooltips/table; categoryTickFormatter affects only plotted labels.
 

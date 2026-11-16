@@ -1,6 +1,10 @@
 # ng-echarts acceptance matrix
 
-Updated 14 November 2026. The [NG14 cross-family review](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md) reconciles automated evidence across all four families. Full-MVP product acceptance remains pending for human interpretation. This matrix connects the [product specification](PRODUCT_SPEC.md) to experiments and delivery tasks; the specification owns the detailed criteria and numeric targets.
+Current delivery (16 November 2026): npm `next` is rc.28 and `latest` is rc.18; rc.29 is a verified, unpublished candidate. The [GitHub Pages record](GITHUB_PAGES.md) owns the separately sealed live dashboard identity. Final verification commit `d3faedb` passes [all six CI jobs](https://github.com/phalla-doll/ng-echarts/actions/runs/43825201013): 342 unit tests, 488 browser passes/four expected skips, exact consumers, reproducibility, Pages and unchanged budgets. [Publication](experiments/RC28_PUBLICATION.md), [candidate and deployment evidence](experiments/RC29_LINKED_WINDOW.md). Human F09/R06/G2/G3/G4 remain deferred/pending.
+
+Historical increment sections below retain their original version-specific evidence and limits; use the current delivery summary for npm, candidate and deployment status.
+
+Initial matrix reconciled 14 November 2026; current delivery status updated 16 November 2026. The [NG14 cross-family review](experiments/NG14_CROSS_FAMILY_ACCEPTANCE.md) reconciles automated evidence across all four families. Full-MVP product acceptance remains pending for human interpretation. This matrix connects the [product specification](PRODUCT_SPEC.md) to experiments and delivery tasks; the specification owns the detailed criteria and numeric targets.
 
 The [R01 report](experiments/R01_TOOLCHAIN.md) records passing builds, strict compilation, isolated declarations, unit integration tests, and an SSR response check. Those initial scaffold results alone contribute to F01/package research without completing chart inputs, browser hydration, R08, or a gate.
 
@@ -147,3 +151,9 @@ The [NG20/NG17 increment record](experiments/NG20_COMPOSED_DASHBOARD.md) tracks 
 ## Independent composed value axes
 
 The [rc.24 report](experiments/NG17_DUAL_AXES.md) tracks native scale meaning, raw versus formatted values, per-axis failures, cross-axis stack rejection, focus/legend retention, layout replacement, SSR, clean-build declaration bytes and unchanged size/engine limits. [rc.23 publication](experiments/RC23_PUBLICATION.md) is independently verified. Human F09/R06/G2/G3/G4 remain pending.
+
+## Shared-window dashboard acceptance
+
+The [rc.29 continuation](experiments/RC29_LINKED_WINDOW.md) and [dashboard guide](COMPOSED_DASHBOARD.md#shared-zoom-and-device-detail) cover the current application-owned NG20 window. Verification includes inclusive stable-ID endpoints, crossing/clamping, removal/reordering, zoom/pan/reset guards, independent month/zoom resets, focus, raw point/table values, missing/zero semantics, unchanged full-history trend calculations and stable chart instances. Month actions in either plot update one selected ID; choosing a device opens its monthly detail. Native controls remain usable at 320/390/768/1440 px.
+
+The displayed source is compiled and exercised against digest-verified published rc.22 separately from the exact rc.29 CSR/SSR consumers. General-purpose library zoom, shared graphical brushes and disjoint selections are not covered by this application increment. Human interpretation and full release gates remain pending. Radar aligned-list presentation is also not a completed acceptance claim; see [the documented limitation](PACKAGED_DOCUMENTATION_ERRATA.md#radar-legend-layout).

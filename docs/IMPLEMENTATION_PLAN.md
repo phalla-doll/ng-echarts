@@ -1,6 +1,10 @@
 # Angular chart implementation plan
 
-Updated 14 November 2026. Begin with the Angular workspace and one bar chart. Expand from the technically proven bar baseline while tracking outstanding release quality checks. The [product specification](PRODUCT_SPEC.md) owns behavior; this plan sequences the [backlog](BACKLOG.md) into reviewable increments.
+Current delivery (16 November 2026): npm `next` is rc.28 and `latest` is rc.18; rc.29 is a verified, unpublished candidate. The [GitHub Pages record](GITHUB_PAGES.md) owns the separately sealed live dashboard identity. Final verification commit `d3faedb` passes [all six CI jobs](https://github.com/phalla-doll/ng-echarts/actions/runs/43825201013): 342 unit tests, 488 browser passes/four expected skips, exact consumers, reproducibility, Pages and unchanged budgets. [Publication](experiments/RC28_PUBLICATION.md), [candidate and deployment evidence](experiments/RC29_LINKED_WINDOW.md). Human F09/R06/G2/G3/G4 remain deferred/pending.
+
+Historical increment sections below retain their original version-specific evidence and limits; use the current delivery summary for npm, candidate and deployment status.
+
+Initial implementation plan updated 14 November 2026; current delivery status reconciled 16 November 2026. Begin with the Angular workspace and one bar chart. Expand from the technically proven bar baseline while tracking outstanding release quality checks. The [product specification](PRODUCT_SPEC.md) owns behavior; this plan sequences the [backlog](BACKLOG.md) into reviewable increments.
 
 ## Initial scaffold
 
@@ -71,7 +75,7 @@ The `/comparison` route exercises pure category-tick formatting and maps pinned 
 
 ## Gate status and next action
 
-Current delivery: [published rc.24](experiments/RC24_PUBLICATION.md) includes named composed bar/area stacks, horizontal layout and independent labeled value axes. Its preserved archive matches across macOS/Linux warm and clean builds; exact-main [CI](https://github.com/phalla-doll/ng-echarts/actions/runs/43737237117) and fresh registry consumers pass. The implementation records 335 unit tests and 476 browser passes with four expected skips. The [demo record](GITHUB_PAGES.md) owns its separate deployed identity. The separate [rc.25 payload increment](experiments/RC26_PAYLOAD_REDUCTION.md) adds bounded root/core headroom work before shared zoom and bidirectional selection; human F09/R06/G2/G3/G4 remain deferred/pending.
+Earlier rc.24 delivery checkpoint: [published rc.24](experiments/RC24_PUBLICATION.md) includes named composed bar/area stacks, horizontal layout and independent labeled value axes. Its preserved archive matches across macOS/Linux warm and clean builds; exact-main [CI](https://github.com/phalla-doll/ng-echarts/actions/runs/43737237117) and fresh registry consumers pass. The implementation records 335 unit tests and 476 browser passes with four expected skips. The [demo record](GITHUB_PAGES.md) owns its separate deployed identity. The separate [rc.25 payload increment](experiments/RC26_PAYLOAD_REDUCTION.md) adds bounded root/core headroom work before shared zoom and bidirectional selection; human F09/R06/G2/G3/G4 remain deferred/pending.
 
 The [playground layout review](experiments/PLAYGROUND_LAYOUT_REVIEW.md) adds a responsive navigation shell, grouped chart settings, preview/code views, and local typography without expanding the library scope. It includes before/after captures and three-engine interface checks. Comparison and benchmark fixtures preserve their full-width measurement conditions.
 

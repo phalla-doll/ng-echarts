@@ -13,6 +13,8 @@ npm install @mantha911/ng-echarts@next echarts@6.1.0
 
 The API remains experimental. Human screen-reader interpretation is unreviewed; the user requested skipping that session and proceeding with the prerelease.
 
+The [packaged documentation errata](PACKAGED_DOCUMENTATION_ERRATA.md) supersede stale feature-availability wording in frozen rc.28/rc.29 readmes. Their archives are preserved; consult the API guides here for current behavior, including the radar chip-only presentation.
+
 ## Build and pack
 
 Run these commands in the repository root after selecting the toolchain:
@@ -121,5 +123,14 @@ The [API index and integration guide](INTEGRATION_GUIDE.md) cover shared types, 
 ## Current feature availability
 
 The current source candidate is `0.1.0-rc.29`, with isolated bar preview state and native private implementation fields. The current published version is `0.1.0-rc.28`; npm `next` selects rc.28 and `latest` remains rc.18. Chip/list legends and gallery table opt-outs ship in rc.28; horizontal composition ships since rc.23 and explicit independent axes since rc.24. The application-owned shared-window dashboard also runs on published rc.22. Preserve every archive. The [rc.28 publication](experiments/RC28_PUBLICATION.md) and [rc.29 continuation](experiments/RC29_LINKED_WINDOW.md) separate registry delivery from current source verification.
+
+| Capability | Published availability |
+| --- | --- |
+| Table pagination / named bar stacks / composed areas | rc.19 / rc.21 / rc.22 and later |
+| Horizontal composition / independent composed value axes | rc.23 / rc.24 and later |
+| Cartesian and pie/donut chip/list legends | rc.28 and later; radar remains chips as recorded in the erratum |
+| Calendar/Sankey `showDataTable` opt-out | rc.28 and later; default `true` |
+| Shared-window dashboard and month actions from either chart | Application code using existing rc.22 APIs; verified against that exact npm baseline and the rc.29 candidate |
+
 
 The [composed dashboard guide](COMPOSED_DASHBOARD.md) provides a complete dashboard example and a digest-verified npm consumer check. The [rc.23 increment](experiments/NG20_COMPOSED_DASHBOARD.md) records local verification separately from rc.22 publication.

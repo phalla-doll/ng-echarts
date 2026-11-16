@@ -1,0 +1,19 @@
+[WebServer] (node:77541) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:77740) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/browser/code-examples.spec.ts:11:1 › keeps syntax-colored examples copyable and text copy buttons on one line (3.5s)
+  ✓  2 [chromium] › tests/browser/code-examples.spec.ts:85:1 › highlights setup docs and Angular templates without hydration errors (458ms)
+(node:77850) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [firefox] › tests/browser/code-examples.spec.ts:11:1 › keeps syntax-colored examples copyable and text copy buttons on one line (4.4s)
+  ✓  4 [firefox] › tests/browser/code-examples.spec.ts:85:1 › highlights setup docs and Angular templates without hydration errors (725ms)
+(node:77943) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [webkit] › tests/browser/code-examples.spec.ts:11:1 › keeps syntax-colored examples copyable and text copy buttons on one line (5.9s)
+  ✓  6 [webkit] › tests/browser/code-examples.spec.ts:85:1 › highlights setup docs and Angular templates without hydration errors (759ms)
+
+  6 passed (24.6s)

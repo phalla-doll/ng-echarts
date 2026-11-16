@@ -2,7 +2,7 @@
 
 The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.28`, including chip/list legends, gallery table opt-outs and the earlier composed value-axis/declaration features. [Exact CI and registry evidence](experiments/RC28_PUBLICATION.md) records complete delivery. Current rc.29 runtime/source work has separate [continuation evidence](experiments/RC29_LINKED_WINDOW.md). Preserve every archive. Human F09/R06/G2/G3/G4 remain deferred/pending; experimental publication does not claim complete human interpretation or a stable API.
 
-The rc.24 publication and registry-consumer status are recorded in its [receipt](experiments/public-rc24/registry-verification.json). Actual npm tags are `next: 0.1.0-rc.24` and `latest: 0.1.0-rc.18`; npm rejected deletion of the initial `latest` alias. See the [registry receipt](experiments/public-rc18/registry-verification.json) and [publication procedure](PUBLICATION.md). These results are separate from the pending human interpretation gates.
+The rc.28 publication and registry-consumer status are recorded in its [receipt](experiments/public-rc28/registry-verification.json). Actual npm tags are `next: 0.1.0-rc.28` and `latest: 0.1.0-rc.18`; npm rejected deletion of the initial `latest` alias. See the [registry receipt](experiments/public-rc18/registry-verification.json) and [publication procedure](PUBLICATION.md). These results are separate from the pending human interpretation gates.
 
 ## Prepare and verify one artifact
 
@@ -78,7 +78,7 @@ The recorded dependency versions describe verified inputs, not every version adm
 
 | Item | Status / evidence |
 | --- | --- |
-| Local candidate automated checks | rc.24 exact-artifact checks, full local browsers, cross-platform byte comparisons and aggregate Linux CI pass in the [current increment](experiments/NG17_DUAL_AXES.md). Preserved full CI for `0.1.0-rc.22`; [manifest](experiments/data/local-release-0.1.0-rc.22.json), [area report](experiments/NG17_COMPOSED_AREAS.md), [rc.20/rc.21 report](experiments/NG17_STACKED_COMPOSED.md) and published [rc.19 evidence](experiments/RC19_RELEASE_REVIEW.md); rc.16 results remain preserved in the [combined checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) |
+| Local candidate automated checks | rc.29 exact-artifact checks, 342 unit tests, 488 browser passes/four skips, matching macOS/Linux warm/clean archives and full [final CI](https://github.com/phalla-doll/ng-echarts/actions/runs/43825201013) pass in the [current continuation](experiments/RC29_LINKED_WINDOW.md). rc.29 remains unpublished; npm next is rc.28. Preserved full CI for `0.1.0-rc.22`; [manifest](experiments/data/local-release-0.1.0-rc.22.json), [area report](experiments/NG17_COMPOSED_AREAS.md), [rc.20/rc.21 report](experiments/NG17_STACKED_COMPOSED.md) and published [rc.19 evidence](experiments/RC19_RELEASE_REVIEW.md); rc.16 results remain preserved in the [combined checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) |
 | Original library license | MIT selected by the user; full text ships in the candidate |
 | Human interpretation, F09/R06 | Pending; complete the [current result sheet](experiments/RC20_HUMAN_REVIEW.md) following the [manual review](experiments/R06_MANUAL_REVIEW.md) across every family |
 | NG14/G2/G3/G4 acceptance | Pending until the required human evidence exists; successful artifact checks do not close these gates |

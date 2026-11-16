@@ -54,6 +54,7 @@ Bind booleans and numbers as Angular properties, for example `[stacked]="true"` 
 | `rowIdKey` | Required `StringKey<T>` | Unique nonempty row identifier field |
 | `categoryKey` | Required `StringKey<T>` | Category text field; duplicate labels allowed |
 | `series` | Required `readonly ChartSeries<T>[]` | Ordered measures with unique nonempty IDs, numeric keys, text labels, and optional `color` |
+| `legendLayout` | `LegendLayout`, `'chips'` | Inline chips; `'list'` aligns series labels and visibility. Available since published rc.28. |
 | `height` | `number`, `320` | Positive finite plot height in CSS pixels; controls add to total height |
 | `layout` | `'vertical' \| 'horizontal'`, `'vertical'` | Category/value axis orientation |
 | `stacked` | `boolean`, `false` | Stack visible series together |
@@ -129,4 +130,4 @@ On a vertical bar chart, horizontal touch movement can select while vertical pag
 
 Set `[tablePageSize]="50"` to create at most 50 native table rows at once. The default `null` retains the complete table. The size must be a positive safe integer; invalid values produce a configuration error. The plot continues to show all observations. Previous/Next buttons announce the visible row range and retain keyboard focus at either boundary. Every row remains available through paging, including hidden-series values, zero and missing observations.
 
-Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. Current published rc.22 also includes it; see [installation](INSTALLATION.md#current-feature-availability).
+Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. Published rc.28 includes it; see [installation](INSTALLATION.md#current-feature-availability).

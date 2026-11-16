@@ -8,6 +8,8 @@ Current release: **published `0.1.0-rc.28`** combines chip/list legends, gallery
 
 Current development: **local `0.1.0-rc.29` source candidate** moves bar-only previews out of the shared base and uses native private state. The [continuation report](docs/experiments/RC29_LINKED_WINDOW.md) records payload checks and the application-owned shared month window and bidirectional month/device dashboard. The complete displayed dashboard still supports published rc.22; the [live marker](https://phalla-doll.github.io/ng-echarts/preview-build.json) identifies the separately deployed source.
 
+Current installation and feature availability are maintained in [Installation](docs/INSTALLATION.md). [Packaged documentation errata](docs/PACKAGED_DOCUMENTATION_ERRATA.md) correct historical wording in immutable rc.28/rc.29 readmes, including the radar list-layout limitation.
+
 An Angular 22 chart component library inspired by EvilCharts, using Apache ECharts for rendering and TypeScript for its public API.
 
 Preview: **[Live demo on GitHub Pages](https://phalla-doll.github.io/ng-echarts/)**. See [deployment instructions](docs/GITHUB_PAGES.md) to rebuild and publish the current demo snapshot.
@@ -32,6 +34,7 @@ npm install @mantha911/ng-echarts@next echarts@6.1.0
 | [Product specification](docs/PRODUCT_SPEC.md) | Users, scope, behavior, requirements, and acceptance criteria |
 | [Installation](docs/INSTALLATION.md) | Public npm prerelease, exact tarballs, pinned CLI application, bootstrap and SSR configuration |
 | [Publication and verification](docs/PUBLICATION.md) | Published identity, actual npm tags, registry checks and future release procedure |
+| [Packaged documentation errata](docs/PACKAGED_DOCUMENTATION_ERRATA.md) | Current availability corrections for immutable packaged readmes |
 | [Integration guide](docs/INTEGRATION_GUIDE.md) | Complete four-chart application, API/type index, updates, events and accessibility |
 | [Radial progress API](docs/RADIAL_PROGRESS_API.md) | Scalar completion, native semantics, states and experimental limits |
 | [Calendar heatmap API](docs/CALENDAR_HEATMAP_API.md) | Single-year date/value contract, fixed scale and native daily actions |
@@ -141,7 +144,9 @@ The site includes [Get Started](http://localhost:4310/get-started), [Installatio
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
 | `npm run check` | Run formatting, builds, compilation, unit, declaration/runtime consumers, SSR, browser, and size checks |
 
-Current rc.24 verification: **335 unit tests and 476 browser passes, with four expected skips**; [full Linux CI passes](https://github.com/phalla-doll/ng-echarts/actions/runs/43736006909), and complete macOS/Linux package bytes match. The [increment report](docs/experiments/NG17_DUAL_AXES.md) records exact-artifact checks, visual evidence and preserved failed-run corrections. [rc.24 publication](docs/experiments/RC24_PUBLICATION.md) verifies the same preserved artifact from npm.
+Current verification: **342 unit tests and 488 browser passes, with four expected skips**. [Final follow-up CI](https://github.com/phalla-doll/ng-echarts/actions/runs/43825201013) passes all six jobs; the [rc.29 continuation](docs/experiments/RC29_LINKED_WINDOW.md) records byte-identical macOS/Linux candidates and the separately verified public deployment.
+
+Preserved rc.24 verification: **335 unit tests and 476 browser passes, with four expected skips**; [full Linux CI passes](https://github.com/phalla-doll/ng-echarts/actions/runs/43736006909), and complete macOS/Linux package bytes match. The [increment report](docs/experiments/NG17_DUAL_AXES.md) records exact-artifact checks, visual evidence and preserved failed-run corrections. [rc.24 publication](docs/experiments/RC24_PUBLICATION.md) verifies the same preserved artifact from npm.
 
 Preserved rc.22 verification: **326 unit tests and 458 browser passes, with four expected skips**; [all delivery-source CI jobs passed](https://github.com/phalla-doll/ng-echarts/actions/runs/43691952570). The [area report](docs/experiments/NG17_COMPOSED_AREAS.md) records 22 publishing/readiness guard tests, exact registry consumers, OIDC provenance and the verified live deployment. Human interpretation remains deferred.
 

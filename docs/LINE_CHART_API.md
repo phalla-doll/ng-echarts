@@ -45,6 +45,7 @@ export class Readings {
 | `theme`, `themeRevision` | `'light'`, `0` | Explicit palette and browser CSS/font refresh revision |
 | `locale`, `numberFormatOptions`, `valueFormatter` | `'en-US'`, `undefined`, `undefined` | Consistent numeric text across ticks, tooltips, table values, and action labels |
 | `categoryTickFormatter` | `undefined` | Shorten axis labels while preserving full labels elsewhere |
+| `legendLayout` | `'chips'` | Inline chips or aligned `'list'` rows; available since published rc.28 |
 | `showDataTable` | `true` | Include the initially collapsed native table and its toggle |
 | `tablePageSize` | `null` | Positive safe integer bounds native table rows per page; null retains the complete table; plot data is unchanged |
 | `loading`, `error`, `animation` | `false`, `null`, `true` | Shared state/motion rules; reduced motion overrides animation |
@@ -75,4 +76,4 @@ Series alternate solid/circle and dashed/diamond outlines/markers, with identity
 
 Set `[tablePageSize]="50"` to create at most 50 native table rows at once. The default `null` retains the complete table. The size must be a positive safe integer; invalid values produce a configuration error. The plot continues to show all observations. Previous/Next buttons announce the visible row range and retain keyboard focus at either boundary. Every row remains available through paging, including hidden-series values, zero and missing observations.
 
-Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. Current published rc.22 also includes it; see [installation](INSTALLATION.md#current-feature-availability).
+Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. Published rc.28 includes it; see [installation](INSTALLATION.md#current-feature-availability).

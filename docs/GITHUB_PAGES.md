@@ -12,7 +12,7 @@ The [visits dashboard](https://phalla-doll.github.io/ng-echarts/linked-dashboard
 | Static commit | `3addf08ca5ed015aef964ca1ea400ecf35a56d38` |
 | Sealed SHA-256 | `373fe55f7a2cca2b56677f98ca6859c8161454821fb1cb9b5da3b514e87b257e` |
 | Pages workflow | [Succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/43823070624) |
-| Source CI | [All six jobs pass](https://github.com/phalla-doll/ng-echarts/actions/runs/43822315582) |
+| Source CI | [UI source passes](https://github.com/phalla-doll/ng-echarts/actions/runs/43822315582); [verifier/receipt follow-up also passes all six jobs](https://github.com/phalla-doll/ng-echarts/actions/runs/43825201013) |
 | Local/public static checks | 40 routes/145 files; all three engines pass |
 | Regression | 342 unit tests, 488 browser passes/four expected skips; separate WebKit probe passes |
 | Performance | All 17 route guards and normal-motion navigation pass |

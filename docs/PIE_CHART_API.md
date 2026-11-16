@@ -37,7 +37,7 @@ Supply immutable `data`, unique stable string row IDs, string category labels, a
 | `innerRadius` | `0` | Ratio of outer radius, from 0 to 0.9; `0` is pie, `0.6` is a donut |
 | `showTotal` | `false` | Show the formatted visible total and measure label in a donut with `innerRadius >= 0.4`; hidden for no positive visible values |
 | `showLabels` | `false` | Outside category labels, with leader lines, truncation and overlap suppression |
-| `legendLayout` (local rc.28) | `'chips'` | Inline chips by default; `'list'` aligns category, formatted measure and share columns |
+| `legendLayout` (rc.28+) | `'chips'` | Inline chips by default; `'list'` aligns category, formatted measure and share columns |
 | `theme`, `themeRevision` | `'light'`, `0` | Explicit theme and CSS/font refresh revision |
 | `locale`, `numberFormatOptions`, `valueFormatter` | `'en-US'`, `undefined`, `undefined` | Shared numeric text in tooltips and table actions |
 | `showDataTable` | `true` | Initially collapsed, complete native table with keyboard point actions |
@@ -48,7 +48,7 @@ The outer radius is 80% of half the shorter plot dimension, reduced to 60% when 
 
 ## Visibility, events, and keyboard controls
 
-Local rc.28 exports `LegendLayout = 'chips' | 'list'` from `/pie`, `/core` and root. Set `legendLayout="list"` to use aligned rows. Switching layout retains the same native buttons, keyboard focus, hidden categories and chart instance. Long legend text wraps; hidden category labels use a strike-through. Published rc.24 retains its previous legend presentation and does not accept this input.
+Published rc.28 and later export `LegendLayout = 'chips' | 'list'` from `/pie`, `/core` and root. Set `legendLayout="list"` to use aligned rows. Switching layout retains the same native buttons, keyboard focus, hidden categories and chart instance. Long legend text wraps; hidden category labels use a strike-through. This input is available in published rc.28 and later. Earlier rc.24 retains its previous legend presentation.
 
 `legendChange` emits `CategoryVisibilityChange { rowId, visible }`, identifying a **category**, rather than a Cartesian series. Hidden IDs survive immutable row updates/reordering, and disappear when the corresponding row is removed from a valid dataset. Filtering retains each original palette slot. Reordering rows also reorders palette slots.
 
@@ -72,4 +72,4 @@ The starting measured envelope is 12 categories; 100 categories is stress eviden
 
 Set `[tablePageSize]="50"` to create at most 50 native table rows at once. The default `null` retains the complete table. The size must be a positive safe integer; invalid values produce a configuration error. The plot continues to show all observations. Previous/Next buttons announce the visible row range and retain keyboard focus at either boundary. Every row remains available through paging, including hidden-series values, zero and missing observations.
 
-Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. Current published rc.22 also includes it; see [installation](INSTALLATION.md#current-feature-availability).
+Replacing the immutable data array or page size resets to the first page; collapsing and reopening retains the page. Native point actions still return the original row and raw value. See the [performance follow-up](experiments/PERFORMANCE_FOLLOW_UP.md). This API is available in published rc.19 and later; use `@next` or pin rc.19. Published rc.28 includes it; see [installation](INSTALLATION.md#current-feature-availability).

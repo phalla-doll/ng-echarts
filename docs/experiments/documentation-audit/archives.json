@@ -1,0 +1,17 @@
+{
+  "archives": [
+    {
+      "version": "0.1.0-rc.28",
+      "sha256": "f556a3d25e766a4c4fb2ec343ae0bad6d57d868a0d97fd393c27e206c485d396",
+      "bytes": 169180,
+      "unchanged": true
+    },
+    {
+      "version": "0.1.0-rc.29",
+      "sha256": "e290db1ad3de9b18b83de79552039b2698d633aa8fc28b155a4b8fa8c990ffda",
+      "bytes": 169791,
+      "unchanged": true
+    }
+  ],
+  "passed": true
+}
