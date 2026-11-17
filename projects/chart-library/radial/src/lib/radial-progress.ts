@@ -1,26 +1,18 @@
-import { isPlatformBrowser } from '@angular/common';
 import {
-  afterNextRender,
-  afterRenderEffect,
-  ApplicationRef,
   ChangeDetectionStrategy,
   Component,
   computed,
-  DestroyRef,
   ElementRef,
   inject,
   input,
   linkedSignal,
-  PLATFORM_ID,
   signal,
   viewChild,
 } from '@angular/core';
 import {
   ChartFrame,
   ɵChartStage,
-  ɵPlotController,
-  ɵChartFocusKeeper,
-  ɵbrowserPlotEnvironment,
+  ɵbindBrowserPlot,
   ɵreadCartesianTheme,
   ɵdefaultCartesianTheme,
   ɵcreateValueFormatting,
@@ -30,7 +22,7 @@ import {
   type ValueFormatter,
 } from '@mantha911/ng-echarts/core';
 import { normalizeRadialProgress } from './radial-model';
-import { buildRadialOptions, type RadialOption } from './radial-options';
+import { buildRadialOptions } from './radial-options';
 import { RADIAL_RENDERER_LOADER } from './radial-browser';
 @Component({
   selector: 'nec-radial-progress',
@@ -56,16 +48,10 @@ export class RadialProgress {
 
   readonly #loader = inject(RADIAL_RENDERER_LOADER);
   readonly #host = inject<ElementRef<HTMLElement>>(ElementRef);
-  readonly #destroyRef = inject(DestroyRef);
-  readonly #application = inject(ApplicationRef);
-  readonly #platform = inject(PLATFORM_ID);
   private readonly plot = viewChild.required<ElementRef<HTMLElement>>('plot');
   readonly #browserReady = signal(false);
   readonly #reducedMotion = signal(false);
   readonly #measuredTheme = signal<ɵCartesianThemeTokens | null>(null);
-  #controller: ɵPlotController<RadialOption> | null = null;
-  #focusKeeper: ɵChartFocusKeeper | null = null;
-  #removeMotionListener: (() => void) | null = null;
   // A failed renderer stays failed until retry or a relevant input changes.
   protected readonly rendererError = linkedSignal(() => {
     this.model();
@@ -155,32 +141,14 @@ export class RadialProgress {
       : null;
   });
   constructor() {
-    afterNextRender(() => {
-      if (!isPlatformBrowser(this.#platform)) return;
-      void this.#application.whenStable().then(() => {
-        if (this.#destroyRef.destroyed) return;
-        try {
-          const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-          this.#reducedMotion.set(preference.matches);
-          const onMotion = (event: MediaQueryListEvent) => this.#reducedMotion.set(event.matches);
-          preference.addEventListener('change', onMotion);
-          this.#removeMotionListener = () => preference.removeEventListener('change', onMotion);
-          this.#controller = new ɵPlotController(
-            this.plot().nativeElement,
-            ɵbrowserPlotEnvironment(() => this.#loader(), this.#host.nativeElement),
-            () => {},
-            () => this.rendererError.set(true),
-          );
-          this.#focusKeeper = new ɵChartFocusKeeper(this.#host.nativeElement);
-          this.#browserReady.set(true);
-        } catch {
-          this.rendererError.set(true);
-        }
-      });
-    });
-    // Resolving CSS colors writes a probe and immediately reads its computed color.
-    afterRenderEffect({
-      mixedReadWrite: () => {
+    ɵbindBrowserPlot({
+      host: this.#host.nativeElement,
+      plot: () => this.plot().nativeElement,
+      load: () => this.#loader(),
+      ready: this.#browserReady,
+      reducedMotion: this.#reducedMotion,
+      options: () => this.#options(),
+      readTheme: () => {
         if (!this.#browserReady()) return;
         const theme = this.theme();
         this.themeRevision();
@@ -197,25 +165,9 @@ export class RadialProgress {
           this.rendererError.set(true);
         }
       },
-    });
-    // Option updates only schedule rendering or dispose the previous plot.
-    afterRenderEffect({
-      write: () => {
-        this.#browserReady();
-        this.#controller?.update(this.#options());
-      },
-    });
-    // Focus restoration checks current DOM ownership before changing focus.
-    afterRenderEffect({
-      mixedReadWrite: () => {
-        this.state();
-        this.#focusKeeper?.restore();
-      },
-    });
-    this.#destroyRef.onDestroy(() => {
-      this.#removeMotionListener?.();
-      this.#controller?.destroy();
-      this.#focusKeeper?.destroy();
+      focusContext: () => this.state(),
+      onPoint: () => {},
+      onError: () => this.rendererError.set(true),
     });
   }
   protected retryRenderer(): void {

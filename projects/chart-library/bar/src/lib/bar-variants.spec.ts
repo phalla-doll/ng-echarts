@@ -209,3 +209,33 @@ it('keeps internal stack joins square and moves exposed caps when a series is hi
     { id: 'c', data: [{ value: -4, itemStyle: { borderRadius: [0, 0, 3, 3] } }] },
   ]);
 });
+
+it.each([
+  ['#112233', 'rgba(17,34,51,0.3)'],
+  ['rgb(17, 34, 51)', 'rgba(17,34,51,0.3)'],
+  ['rgba(17, 34, 51, 0.5)', 'rgba(17,34,51,0.15)'],
+  ['rgba(17,34,51,0)', 'rgba(17,34,51,0)'],
+  ['var(--accent)', 'var(--accent)'],
+])('retains the bar gradient color and opacity fallback for %s', (color, faded) => {
+  const model = normalizeBarData(rows, 'id', 'category', series);
+  if (model.kind === 'error') throw new Error(model.message);
+  const options = buildBarOptions(
+    model,
+    new Set(),
+    { ...defaultBarTheme('light'), series: [color!] },
+    'vertical',
+    false,
+    true,
+    false,
+    String,
+  );
+  if (!Array.isArray(options.series)) throw new Error('Expected bar series');
+  expect(options.series[0]?.itemStyle?.color).toMatchObject({
+    colorStops: [
+      { offset: 0, color },
+      { offset: 0.2, color },
+      { offset: 0.9, color: faded },
+      { offset: 1, color: faded },
+    ],
+  });
+});

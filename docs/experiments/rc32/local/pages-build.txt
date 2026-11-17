@@ -1,0 +1,186 @@
+
+> ng-echarts-workspace@0.0.0 build:pages
+> node tools/build-pages.mjs
+
+Building Pages from 7c9bda13354b2c1b70126f7c45dc16be7e576742 (working tree; local checks only).
+
+> ng-echarts-workspace@0.0.0 build:lib
+> ng build chart-library --configuration production
+
+Building Angular Package
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/core'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Generating FESM and DTS bundles
+✔ Built @mantha911/ng-echarts/core
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/area'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/bar'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/calendar'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/composed'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/line'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/pie'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/radar'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/radial'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Generating FESM and DTS bundles
+✔ Generating FESM and DTS bundles
+✔ Generating FESM and DTS bundles
+✔ Built @mantha911/ng-echarts/composed
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/sankey'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+✔ Built @mantha911/ng-echarts/area
+✔ Built @mantha911/ng-echarts/line
+✔ Generating FESM and DTS bundles
+✔ Generating FESM and DTS bundles
+✔ Built @mantha911/ng-echarts/radar
+✔ Built @mantha911/ng-echarts/pie
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Generating FESM and DTS bundles
+✔ Generating FESM and DTS bundles
+✔ Built @mantha911/ng-echarts/radial
+✔ Built @mantha911/ng-echarts/bar
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Generating FESM and DTS bundles
+✔ Built @mantha911/ng-echarts/calendar
+✔ Generating FESM and DTS bundles
+- Copying assets
+✔ Generating FESM and DTS bundles
+✔ Built @mantha911/ng-echarts/sankey
+✔ Copying assets
+- Writing package manifest
+✔ Writing package manifest
+✔ Built @mantha911/ng-echarts
+
+------------------------------------------------------------------------------
+Built Angular Package
+- from: /private/var/folders/ys/1jpmsjyn3wlcbsksk8hn4mdr0000gp/T/ng-echarts-pages-build-rM7sg2/projects/chart-library
+- to:   /private/var/folders/ys/1jpmsjyn3wlcbsksk8hn4mdr0000gp/T/ng-echarts-pages-build-rM7sg2/dist/chart-library
+------------------------------------------------------------------------------
+
+Build at: 2026-11-17T16:33:50.694Z - Time: 3819ms
+
+
+> ng-echarts-workspace@0.0.0 concepts:prepare
+> node tools/concept-assets.mjs --prepare
+
+Verified concept engine and 3 gallery assets.
+The "prerender" option is not considered when "outputMode" is specified.
+❯ Building...
+✔ Building...
+Browser bundles     
+Initial chunk files  | Names                                                |  Raw size | Estimated transfer size
+chunk-BCV1fTjr.js    | -                                                    | 191.76 kB |                56.81 kB
+main-VLZMZAUD.js     | main                                                 | 149.22 kB |                36.98 kB
+styles-QYN3BAW2.css  | styles                                               |  31.69 kB |                 5.19 kB
+chunk-B6Fy8hbW.js    | -                                                    |   1.04 kB |               444 bytes
+
+                     | Initial total                                        | 373.71 kB |                99.42 kB
+
+Lazy chunk files     | Names                                                |  Raw size | Estimated transfer size
+chunk-5tkH_LWN.js    | -                                                    | 332.44 kB |                97.43 kB
+chunk-B2hZTCA5.js    | -                                                    | 122.72 kB |                37.06 kB
+chunk-DI1Tmhid.js    | -                                                    |  65.69 kB |                20.67 kB
+chunk-BJ89-8rn.js    | linked-dashboard                                     |  43.57 kB |                10.03 kB
+chunk-C2agT7vC.js    | gallery                                              |  43.50 kB |                 8.08 kB
+chunk-Dr3H5Qd6.js    | -                                                    |  34.59 kB |                12.18 kB
+chunk-dGID_V08.js    | mantha911-ng-echarts-sankey-sankey-renderer-DwLMFu-b |  33.59 kB |                11.06 kB
+chunk-CbfCSt_C.js    | calendar-blocks                                      |  32.30 kB |                 9.08 kB
+chunk-BKb4vm7d.js    | sankey-blocks                                        |  29.94 kB |                 8.03 kB
+chunk-CIUcUGau.js    | radar-blocks                                         |  29.63 kB |                 7.80 kB
+chunk-CjzMog8N.js    | -                                                    |  27.45 kB |                 9.65 kB
+chunk-DiIVOzNQ.js    | -                                                    |  25.32 kB |                 8.41 kB
+chunk-YMzi9fOy.js    | documentation                                        |  24.21 kB |                 7.65 kB
+chunk-C6wI_3Ej.js    | radial-blocks                                        |  23.19 kB |                 6.18 kB
+chunk-CnBMpkXN.js    | -                                                    |  22.19 kB |                 7.84 kB
+...and 51 more lazy chunks files. Use "--verbose" to show all the files.
+
+
+Server bundles      
+Initial chunk files  | Names                                                |  Raw size
+server.mjs           | server                                               | 919.95 kB |                        
+polyfills.server.mjs | polyfills.server                                     | 237.54 kB |                        
+chunk-KDYIVSC7.mjs   | -                                                    | 196.60 kB |                        
+chunk-CP55NX6H.mjs   | -                                                    | 102.68 kB |                        
+main.server.mjs      | main.server                                          |  77.61 kB |                        
+chunk-IEHZP6M4.mjs   | -                                                    |  12.00 kB |                        
+chunk-633GQAZB.mjs   | -                                                    |   7.77 kB |                        
+chunk-C2KJ4ATU.mjs   | -                                                    |   1.54 kB |                        
+chunk-VIU7XVWA.mjs   | -                                                    |   1.45 kB |                        
+chunk-62T3XCNV.mjs   | -                                                    | 618 bytes |                        
+
+Lazy chunk files     | Names                                                |  Raw size
+chunk-DSBY2MP4.mjs   | -                                                    | 350.03 kB |                        
+chunk-U5FRGVPD.mjs   | -                                                    | 126.52 kB |                        
+chunk-K6YD5POW.mjs   | -                                                    |  68.59 kB |                        
+chunk-ILZAE3AO.mjs   | linked-dashboard                                     |  43.39 kB |                        
+chunk-UHV4S3JW.mjs   | gallery                                              |  43.04 kB |                        
+chunk-VBXXQMC7.mjs   | -                                                    |  34.56 kB |                        
+chunk-EC4FB5VC.mjs   | mantha911-ng-echarts-sankey-sankey-renderer-DwLMFu-b |  34.01 kB |                        
+chunk-BI7JO3K3.mjs   | sankey-blocks                                        |  29.64 kB |                        
+chunk-ULNVDH46.mjs   | calendar-blocks                                      |  28.58 kB |                        
+chunk-7AVPINKW.mjs   | -                                                    |  28.31 kB |                        
+chunk-DBECG4ZI.mjs   | radar-blocks                                         |  27.86 kB |                        
+chunk-P2JPPVDA.mjs   | -                                                    |  25.11 kB |                        
+chunk-77JDGZ5Q.mjs   | documentation                                        |  24.12 kB |                        
+chunk-UTSR6NM4.mjs   | radial-blocks                                        |  23.01 kB |                        
+chunk-SRDZ2ZV2.mjs   | -                                                    |  22.69 kB |                        
+...and 55 more lazy chunks files. Use "--verbose" to show all the files.
+
+Prerendered 40 static routes.
+Application bundle generation complete. [4.706 seconds] - 2026-11-17T16:33:56.156Z
+
+Output location: /private/var/folders/ys/1jpmsjyn3wlcbsksk8hn4mdr0000gp/T/ng-echarts-pages-build-rM7sg2/dist/pages
+
+Prepared shared concept assets and 14 renderer preload maps.
+Prepared static Pages artifact at /private/var/folders/ys/1jpmsjyn3wlcbsksk8hn4mdr0000gp/T/ng-echarts-pages-build-rM7sg2/dist/pages/browser with base /ng-echarts/
+Sealed 145 Pages files; SHA-256 a37eb6e8d6aa4bc212e858337178be5e4e09580ecee891652a2e5f17822e2bdd.

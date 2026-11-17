@@ -1,8 +1,20 @@
 # Angular chart implementation plan
 
-Current delivery (17 November 2026): npm `next` is rc.30 and `latest` remains rc.18. The exact 167,101-byte rc.30 archive is published and fresh registry consumers pass; preserve rc.29 and every earlier archive. Verified delivery source `e09aa7f` passes [all six CI jobs](https://github.com/phalla-doll/ng-echarts/actions/runs/44015944947): 342 unit tests, 584 browser passes/four expected skips, exact consumers, reproducibility, Pages and unchanged budgets. The [increment/delivery record](experiments/RC30_RADAR_LEGENDS.md) owns actual receipts; the [Pages record](GITHUB_PAGES.md) owns the separately sealed demo identity. Human F09/R06/G2/G3/G4 remain deferred/pending.
+Current delivery (17 November 2026): npm `next` is rc.30 and `latest` remains rc.18. The exact 167,101-byte rc.30 archive is published and fresh registry consumers pass; preserve rc.29 and every earlier archive. Published-package delivery source `e09aa7f` passes [all six CI jobs](https://github.com/phalla-doll/ng-echarts/actions/runs/44015944947): 342 unit tests, 584 browser passes/four expected skips, exact consumers, reproducibility, Pages and unchanged budgets. The [increment/delivery record](experiments/RC30_RADAR_LEGENDS.md) owns actual receipts; the [Pages record](GITHUB_PAGES.md) owns the separately sealed demo identity. Human F09/R06/G2/G3/G4 remain deferred/pending.
 
 Historical increment sections below retain their original version-specific evidence and limits; use the current delivery summary for npm, candidate and deployment status.
+
+Local continuation: rc.32 consolidates internal lifecycle and color parsing while retaining descriptor/theme validation policies. It remains unpublished; npm next is rc.30/latest rc.18 and the demo retains verified control-styling source `0e40644`. The [payload cleanup record](experiments/RC32_PAYLOAD_REVIEW.md) owns current measurements and verification; its bounded savings do not establish broad room for new engine features.
+
+## Immediate next work
+
+1. Obtain independent Linux CI for local rc.32 and separate delivery receipts before publication or redeployment. Preserve every earlier archive.
+2. Evaluate a focused opt-in interaction entry and further root payload reduction before general-purpose library zoom or graphical two-way brushing. Keep every existing root/core cap unchanged. Application-owned dashboard zoom and bidirectional month selection are implemented.
+3. Design one bounded NG20 graphical-linking increment once its payload and interaction envelope are agreed. Disjoint selection and arbitrary family linking remain subsequent work.
+4. Resume F09/R06 human interpretation when the user lifts the existing deferral; keep G2/G3/G4 pending until its evidence exists.
+
+## Historical delivery plan
+
 
 Initial implementation plan updated 14 November 2026; current delivery status reconciled 16 November 2026. Begin with the Angular workspace and one bar chart. Expand from the technically proven bar baseline while tracking outstanding release quality checks. The [product specification](PRODUCT_SPEC.md) owns behavior; this plan sequences the [backlog](BACKLOG.md) into reviewable increments.
 

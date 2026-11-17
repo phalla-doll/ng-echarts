@@ -1,0 +1,15 @@
+{
+  "tool": "agent-browser",
+  "sourceBaseCommit": "7c9bda13354b2c1b70126f7c45dc16be7e576742",
+  "includesWorkingTree": true,
+  "route": "/calendar-validation",
+  "actions": [
+    "Open Explore daily data",
+    "Open January 2024",
+    "Focus Select 2024-01-31: 0",
+    "Press Enter"
+  ],
+  "observedStatus": "2024-01-31: 0 contributions",
+  "browserSessionClosed": true,
+  "passed": true
+}

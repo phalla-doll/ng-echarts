@@ -1,0 +1,1 @@
+{"baseline":"7c9bda13354b2c1b70126f7c45dc16be7e576742","method":"Run preserved baseline pure builders against current compiled helpers for complete/prefix color syntax, fallback, alpha and malformed descriptor/data combinations.","colors":515,"colorComparisons":2060,"modelComparisons":143,"passed":true}

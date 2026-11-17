@@ -1,0 +1,8 @@
+
+> ng-echarts-workspace@0.0.0 check:pages
+> node tools/check-pages.mjs
+
+Checking 145 sealed files from 7c9bda13354b2c1b70126f7c45dc16be7e576742.
+PASS: chromium static routes, reloads, lazy charts/fonts, anchors, focus, themes and mobile navigation at http://127.0.0.1:54889/ng-echarts/
+PASS: firefox static routes, reloads, lazy charts/fonts, anchors, focus, themes and mobile navigation at http://127.0.0.1:54889/ng-echarts/
+PASS: webkit static routes, reloads, lazy charts/fonts, anchors, focus, themes and mobile navigation at http://127.0.0.1:54889/ng-echarts/

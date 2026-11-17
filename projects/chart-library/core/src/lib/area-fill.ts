@@ -1,14 +1,17 @@
 import type { LineSeriesOption } from 'echarts/charts';
 
-function alphaColor(color: string, factor: number): string {
+export function alphaColor(
+  color: string,
+  factor: number,
+  fallback = 'transparent',
+  complete = true,
+): string {
   if (/^#[\da-f]{6}$/i.test(color))
     return `rgba(${[1, 3, 5].map((offset) => Number.parseInt(color.slice(offset, offset + 2), 16)).join(',')},${factor})`;
-  const rgba = color.match(
-    /^rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)(?:\s*,\s*([\d.]+))?\s*\)$/,
-  );
-  return rgba
-    ? `rgba(${rgba[1]},${rgba[2]},${rgba[3]},${Number(rgba[4] ?? 1) * factor})`
-    : 'transparent';
+  const rgba = color.match(/^rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)(?:\s*,\s*([\d.]+))?/);
+  // Preserve the bar prefix parser; area colors require a complete token.
+  if (!rgba || (complete && !/^\s*\)$/.test(color.slice(rgba[0].length)))) return fallback;
+  return `rgba(${rgba[1]},${rgba[2]},${rgba[3]},${Number(rgba[4] ?? 1) * factor})`;
 }
 export function buildAreaFill(
   color: string,

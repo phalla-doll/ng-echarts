@@ -243,6 +243,7 @@ for (const scenario of scenarios) {
         : scenario.engine
           ? { gzip: 200_000, brotli: 175_000 }
           : { gzip: 10_000, brotli: 9_000 };
+  const headroom = { gzip: budget.gzip - total.gzip, brotli: budget.brotli - total.brotli };
   const passed = total.gzip <= budget.gzip && total.brotli <= budget.brotli;
   assert(passed, `${scenario.name} exceeded its measured budget: ${JSON.stringify(total)}`);
   results.push({
@@ -252,6 +253,7 @@ for (const scenario of scenarios) {
     files,
     total,
     budget,
+    headroom,
     eagerEngineModules: eagerEngineInputs.length,
     engineModules: engineInputs.length,
     reachableEngineModules: reachableEngineInputs.length,
@@ -264,7 +266,7 @@ for (const scenario of scenarios) {
     passed,
   });
   console.log(
-    `PASS: ${scenario.name} ${total.gzip} gzip / ${total.brotli} Brotli bytes; ${engineInputs.length} engine modules, none eager.`,
+    `PASS: ${scenario.name} ${total.gzip} gzip / ${total.brotli} Brotli bytes; ${headroom.gzip} gzip / ${headroom.brotli} Brotli headroom; ${engineInputs.length} engine modules, none eager.`,
   );
 }
 const recordedAt = new Date().toISOString();

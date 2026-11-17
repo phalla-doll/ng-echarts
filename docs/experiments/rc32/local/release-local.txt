@@ -1,0 +1,145 @@
+
+> ng-echarts-workspace@0.0.0 release:local
+> npm run release:prepare && npm run release:check
+
+
+> ng-echarts-workspace@0.0.0 release:prepare
+> npm run build:lib && node tools/prepare-local-release.mjs
+
+
+> ng-echarts-workspace@0.0.0 build:lib
+> ng build chart-library --configuration production
+
+Building Angular Package
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/core'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @mantha911/ng-echarts/core
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/area'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/bar'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/calendar'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/line'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/pie'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/radar'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/radial'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/composed'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @mantha911/ng-echarts/calendar
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/sankey'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+✔ Built @mantha911/ng-echarts/line
+✔ Built @mantha911/ng-echarts/area
+✔ Built @mantha911/ng-echarts/pie
+✔ Built @mantha911/ng-echarts/radial
+✔ Built @mantha911/ng-echarts/composed
+✔ Built @mantha911/ng-echarts/bar
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Built @mantha911/ng-echarts/radar
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+- Copying assets
+✔ Compiling with Angular sources in partial compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @mantha911/ng-echarts/sankey
+✔ Copying assets
+- Writing package manifest
+✔ Writing package manifest
+✔ Built @mantha911/ng-echarts
+
+------------------------------------------------------------------------------
+Built Angular Package
+- from: /Users/phalla/Documents/codes/ng-echarts/projects/chart-library
+- to:   /Users/phalla/Documents/codes/ng-echarts/dist/chart-library
+------------------------------------------------------------------------------
+
+Build at: 2026-11-17T16:29:23.012Z - Time: 1737ms
+
+Prepared mantha911-ng-echarts-0.1.0-rc.32.tgz (164022 bytes), SHA-256 6984b9b20edd69fd0c326e6361d45459f3b36fe8f4c9d390f8962de8cee4f3f9
+
+> ng-echarts-workspace@0.0.0 release:check
+> node tools/check-local-release.mjs
+
+PASS: packed library and ECharts declarations compile in isolation; invalid keys and formatters/options are rejected (skipLibCheck=false).
+Scaffolding the exact documented Angular application outside the workspace…
+Installing the documented version pins and local tarball…
+Compiling and building the complete integration-guide example…
+Checking documented four-chart consumer in chromium…
+Checking documented four-chart consumer in firefox…
+Checking documented four-chart consumer in webkit…
+PASS: documented installation and full application build, render and hydrate in all three engines.
+Installing locked, isolated client/SSR consumers…
+Building isolated client production application…
+Prepared shared concept assets and 14 renderer preload maps.
+Building isolated playground production application…
+Prepared shared concept assets and 14 renderer preload maps.
+PASS: independently installed tarball builds and runs in client and SSR/hydration applications across all three engines.
+PASS: exact mantha911-ng-echarts-0.1.0-rc.32.tgz metadata/notices, strict declarations, fresh docs and three-engine CSR/SSR consumers. Human release gates remain pending.

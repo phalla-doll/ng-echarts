@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.0-rc.32 — Preserve error-frame theme recovery
+
+- Restore the original separate descriptor and theme checks so theme sampling continues while duplicate series identifiers produce a validation error.
+- Retain the bounded lifecycle/color cleanup and preserve the sealed rc.31 archive with its late review regression record. Supported APIs, lazy boundaries and budget caps remain unchanged.
+
+## 0.1.0-rc.31 — Bounded payload cleanup
+
+- Share browser lifecycle binding for calendar, Sankey and radial progress, retaining family-specific theme, focus and point actions.
+- Consolidate Cartesian series validation and bar/area opacity parsing while preserving their error messages and color fallback behavior.
+- Preserve supported inputs/outputs, focused entries, lazy engine registration and existing budget caps. This local candidate does not publish a package or complete deferred human release gates.
+
 ## 0.1.0-rc.30 — Radar legend parity and shared presentation behavior
 
 - Apply radar's existing `legendLayout` input to chips and aligned lists, including wrapped labels, visibility and missing-data notes. Keep chip defaults, native keyboard toggles and renderer identities.

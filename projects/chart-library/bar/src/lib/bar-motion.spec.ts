@@ -72,4 +72,67 @@ describe('bar motion preferences at the renderer boundary', () => {
     fixture.destroy();
     expect(dispose).toHaveBeenCalledTimes(1);
   });
+
+  it('refreshes the error-frame theme while duplicate series identifiers are corrected', async () => {
+    vi.stubGlobal('matchMedia', () => ({
+      matches: false,
+      addEventListener() {},
+      removeEventListener() {},
+    }));
+    vi.stubGlobal(
+      'ResizeObserver',
+      class {
+        observe() {}
+        disconnect() {}
+      },
+    );
+    vi.stubGlobal('requestAnimationFrame', (callback: FrameRequestCallback) =>
+      setTimeout(() => callback(0), 0),
+    );
+    vi.stubGlobal('cancelAnimationFrame', clearTimeout);
+    vi.spyOn(HTMLElement.prototype, 'clientWidth', 'get').mockReturnValue(768);
+    vi.spyOn(HTMLElement.prototype, 'clientHeight', 'get').mockReturnValue(320);
+    vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue(null);
+    const update = vi.fn();
+    TestBed.configureTestingModule({
+      providers: [
+        { provide: PLATFORM_ID, useValue: 'browser' },
+        {
+          provide: BAR_RENDERER_LOADER,
+          useValue: async () => () => ({ update, resize() {}, dispose() {} }),
+        },
+      ],
+    });
+    const fixture = TestBed.createComponent(
+      BarChart<{ id: string; category: string; value: number }>,
+    );
+    const series = [{ id: 'value', key: 'value', label: 'Value' }];
+    for (const [key, value] of Object.entries({
+      title: 'Theme recovery',
+      data: [{ id: 'a', category: 'A', value: 1 }],
+      series,
+      rowIdKey: 'id',
+      categoryKey: 'category',
+    }))
+      fixture.componentRef.setInput(key, value);
+    await fixture.whenStable();
+    await vi.waitFor(() => expect(update).toHaveBeenCalled());
+    const host: HTMLElement = fixture.nativeElement;
+    const background = () =>
+      host
+        .querySelector<HTMLElement>('nec-chart-frame')!
+        .style.getPropertyValue('--_nec-default-background');
+    expect(background()).toBe('#ffffff');
+    fixture.componentRef.setInput('series', [series[0], series[0]]);
+    await fixture.whenStable();
+    expect(host.querySelector('[role=alert]')?.textContent).toContain('unique, nonempty');
+    fixture.componentRef.setInput('theme', 'dark');
+    await fixture.whenStable();
+    expect(background()).toBe('#18202c');
+    fixture.componentRef.setInput('series', series);
+    await fixture.whenStable();
+    expect(host.querySelector('[role=alert]')).toBeNull();
+    expect(background()).toBe('#18202c');
+    fixture.destroy();
+  });
 });

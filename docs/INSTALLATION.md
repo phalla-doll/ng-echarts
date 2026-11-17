@@ -17,12 +17,14 @@ The [packaged documentation errata](PACKAGED_DOCUMENTATION_ERRATA.md) supersede 
 
 ## Build and pack
 
+The checkout now builds local rc.32 for bounded payload cleanup; it is not published. npm `next` remains rc.30. The [increment record](experiments/RC32_PAYLOAD_REVIEW.md) separates local verification from publication and deployment.
+
 Run these commands in the repository root after selecting the toolchain:
 
 ```sh
 npm ci
 npm run pack:lib
-export CHART_LIBRARY_TARBALL="$PWD/dist/mantha911-ng-echarts-0.1.0-rc.30.tgz"
+export CHART_LIBRARY_TARBALL="$PWD/dist/mantha911-ng-echarts-0.1.0-rc.32.tgz"
 ```
 
 The `CHART_LIBRARY_TARBALL` variable is an absolute path for the commands below. If you open another terminal, set it to the actual tarball location. Keep the tarball available for subsequent installs, or copy it into the consuming project's `vendor/` directory before installing it. Commit the consumer's resulting lockfile and use `npm ci` for repeat installs. Rebuild/repack/reinstall when changing the library; a tarball installation does not watch the checkout.

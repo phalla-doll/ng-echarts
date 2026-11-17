@@ -1,0 +1,41 @@
+{
+  "unitTests": 356,
+  "browserProjects": {
+    "chromium": {
+      "passed": 197,
+      "skipped": 0,
+      "port": 4181
+    },
+    "firefox": {
+      "passed": 195,
+      "skipped": 2,
+      "port": 4182
+    },
+    "webkit": {
+      "passed": 195,
+      "skipped": 2,
+      "port": 4183
+    }
+  },
+  "supportedContracts": 16,
+  "budgetScenarios": 12,
+  "engineModuleSetsUnchanged": true,
+  "exactArtifactConsumers": "passed",
+  "warmAndTwoCleanMacOS": "passed",
+  "repeatedPreparationRefused": true,
+  "priorArchiveRecordsPreserved": 109,
+  "localStatic": {
+    "routes": 40,
+    "files": 145,
+    "browsers": ["chromium", "firefox", "webkit"],
+    "sha256": "a37eb6e8d6aa4bc212e858337178be5e4e09580ecee891652a2e5f17822e2bdd",
+    "fileDigestsRechecked": true,
+    "performanceGuards": 17,
+    "includesWorkingTree": true
+  },
+  "independentLinuxCI": "pending",
+  "published": false,
+  "deployed": false,
+  "humanGates": "pending",
+  "passed": true
+}

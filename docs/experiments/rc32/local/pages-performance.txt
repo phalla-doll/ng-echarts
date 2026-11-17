@@ -1,0 +1,29 @@
+
+> ng-echarts-workspace@0.0.0 check:demo-performance
+> node tools/check-demo-performance.mjs
+
+/: 433 kB; 2784 ms first visible (mobile median of 3)
+line: 431 kB; 142 ms first visible
+area: 431 kB; 158 ms first visible
+pie: 427 kB; 122 ms first visible
+composed: 443 kB; 175 ms first visible
+radar: 377 kB; 141 ms first visible
+radial: 337 kB; 123 ms first visible
+calendar: 380 kB; 2417 ms first visible (mobile median of 3)
+sankey: 387 kB; 2434 ms first visible (mobile median of 3)
+linked: 449 kB; 2805 ms first visible (mobile median of 3)
+linked-dashboard: 452 kB; 159 ms first visible
+chart-possibilities: 442 kB; 3149 ms first visible (mobile median of 3)
+get-started: 233 kB; 75 ms first visible
+installation: 234 kB; 1636 ms first visible (mobile median of 3)
+components: 200 kB; 77 ms first visible
+formatting: 384 kB; 143 ms first visible
+playground: 389 kB; 160 ms first visible
+Line Blocks first navigation: 350 ms (normal motion)
+Pie & Donut Blocks first navigation: 315 ms (normal motion)
+Calendar Heatmap first navigation: 387 ms (normal motion)
+Sankey Flow first navigation: 331 ms (normal motion)
+Bar Blocks revisit: 114 ms (normal motion)
+Line Blocks revisit: 112 ms (normal motion)
+Pie & Donut Blocks revisit: 125 ms (normal motion)
+Calendar Heatmap revisit: 113 ms (normal motion)

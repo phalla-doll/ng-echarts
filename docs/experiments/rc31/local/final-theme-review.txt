@@ -1,0 +1,35 @@
+❯ Building...
+✔ Building...
+Application bundle generation complete. [1.064 seconds] - 2026-11-17T16:15:00.965Z
+
+
+ RUN  v5.1.0 /Users/phalla/Documents/codes/ng-echarts
+
+ ❯ |chart-library| projects/chart-library/bar/src/lib/bar-motion.spec.ts (2 tests | 1 failed) 304ms
+   ❯ bar motion preferences at the renderer boundary (2)
+     × refreshes the error-frame theme while duplicate series identifiers are corrected 82ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |chart-library| projects/chart-library/bar/src/lib/bar-motion.spec.ts > bar motion preferences at the renderer boundary > refreshes the error-frame theme while duplicate series identifiers are corrected
+AssertionError: expected '#ffffff' to be '#18202c' // Object.is equality
+
+Expected: "#18202c"
+Received: "#ffffff"
+
+ ❯ projects/chart-library/bar/src/lib/bar-motion.spec.ts:131:26
+    129|     fixture.componentRef.setInput('theme', 'dark');
+    130|     await fixture.whenStable();
+    131|     expect(background()).toBe('#18202c');
+       |                          ^
+    132|     fixture.componentRef.setInput('series', series);
+    133|     await fixture.whenStable();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  23:15:01
+   Duration  962ms (environment 47%, tests 34%, setup 11%, transform 7%, import 1%)
+

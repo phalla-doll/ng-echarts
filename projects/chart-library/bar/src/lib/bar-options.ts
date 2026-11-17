@@ -15,15 +15,8 @@ export {
   ɵescapeTooltipText as escapeTooltipText,
 } from '@mantha911/ng-echarts/core';
 export type { ɵCartesianThemeTokens as BarThemeTokens } from '@mantha911/ng-echarts/core';
-import { ɵbuildCartesianOptions } from '@mantha911/ng-echarts/core';
+import { ɵbuildCartesianOptions, ɵalphaColor } from '@mantha911/ng-echarts/core';
 import type { ɵCartesianThemeTokens as BarThemeTokens } from '@mantha911/ng-echarts/core';
-function baseColor(color: string): string {
-  if (/^#[\da-f]{6}$/i.test(color)) {
-    return `rgba(${[1, 3, 5].map((offset) => Number.parseInt(color.slice(offset, offset + 2), 16)).join(',')},0.3)`;
-  }
-  const rgba = color.match(/^rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)(?:\s*,\s*([\d.]+))?/);
-  return rgba ? `rgba(${rgba[1]},${rgba[2]},${rgba[3]},${Number(rgba[4] ?? 1) * 0.3})` : color;
-}
 
 export function buildBarOptions<T>(
   model: Exclude<BarModel<T>, { kind: 'error' }>,
@@ -92,8 +85,8 @@ export function buildBarOptions<T>(
                   colorStops: [
                     { offset: 0, color },
                     { offset: 0.2, color },
-                    { offset: 0.9, color: baseColor(color) },
-                    { offset: 1, color: baseColor(color) },
+                    { offset: 0.9, color: ɵalphaColor(color, 0.3, color, false) },
+                    { offset: 1, color: ɵalphaColor(color, 0.3, color, false) },
                   ],
                 }
               : color,

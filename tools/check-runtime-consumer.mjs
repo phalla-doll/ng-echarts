@@ -423,6 +423,8 @@ async function exercise(engine, url, ssr) {
     await expect(page.locator('iframe')).toHaveCount(0);
     await expect(page.locator('canvas')).toHaveCount(0);
     await page.goto(`${url}/linked-dashboard`);
+    // Table absence can pass before hydration; finish loading the gallery before leaving.
+    await expect(page.locator('app-composed-dashboard canvas')).toHaveCount(2);
     await expect(page.locator('.gallery .table-toggle')).toHaveCount(0);
     await page.goto(`${url}/dashboard-validation`);
     await verifyDashboard(page);

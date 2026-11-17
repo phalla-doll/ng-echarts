@@ -1,0 +1,5 @@
+
+> ng-echarts-workspace@0.0.0 check:ssr
+> node tools/check-ssr.mjs
+
+PASS: production SSR returns library markup and hydration metadata. Browser hydration remains a separate check.
