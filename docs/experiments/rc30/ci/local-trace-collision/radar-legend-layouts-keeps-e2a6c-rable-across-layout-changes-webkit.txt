@@ -1,0 +1,16 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: radar-legend-layouts.spec.ts >> keeps radar dark legends aligned, responsive and keyboard-operable across layout changes
+- Location: tests/browser/radar-legend-layouts.spec.ts:6:3
+
+# Error details
+
+```
+Error: browserContext.close: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-6/traces/1bc0606b17e4f82b9f5e-14341727c45153dab890-recording4.trace'
+```

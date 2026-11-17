@@ -1,0 +1,16 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: radar.spec.ts >> disposes the renderer and motion listeners across 100 mount cycles and navigation
+- Location: tests/browser/radar.spec.ts:120:1
+
+# Error details
+
+```
+Error: browserContext.close: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-8/traces/727dc1b5f4c1943d1cf8-1096e499c580cfa05e73-recording2.trace'
+```

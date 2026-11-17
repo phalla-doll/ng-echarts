@@ -1,0 +1,1085 @@
+
+> ng-echarts-workspace@0.0.0 check
+> npm run check:workspace && npm run test:browser
+
+
+> ng-echarts-workspace@0.0.0 check:workspace
+> npm run format:check && npm run test:prerelease-guards && npm run test:pages-provenance && npm run test:demo-assets && npm run build && npm run check:reproducibility && npm run typecheck && npm test && npm run check:consumer && npm run check:docs && npm run check:dashboard && npm run check:ssr && npm run check:runtime && npm run check:bundle
+
+
+> ng-echarts-workspace@0.0.0 format:check
+> prettier --check "**/*.{ts,tsx,mjs,json,html,css,yml}" .prettierrc
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> ng-echarts-workspace@0.0.0 test:prerelease-guards
+> node --test tools/prerelease-guards.spec.mjs tools/wait-for-registry.spec.mjs
+
+✔ binds a manual release to the reviewed version, hash, main source and complete CI run (0.947375ms)
+✔ rejects invalid request GITHUB_REPOSITORY=someone/else (0.515916ms)
+✔ rejects invalid request GITHUB_REF=refs/heads/topic (0.096666ms)
+✔ rejects invalid request GITHUB_WORKFLOW_REF=phalla-doll/ng-echarts/.github/workflows/other.yml@refs/heads/main (0.101625ms)
+✔ rejects invalid request RELEASE_VERSION=1.0.0 (0.100875ms)
+✔ rejects invalid request RELEASE_VERSION=0.1.0-rc.23 (0.08425ms)
+✔ rejects invalid request RELEASE_SHA256= (0.085125ms)
+✔ rejects invalid request RELEASE_SHA256=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx (0.063708ms)
+✔ rejects invalid request RELEASE_CI_RUN=1;echo bad (0.095417ms)
+✔ rejects unaccepted CI {"head_sha":"cccccccccccccccccccccccccccccccccccccccc"} (0.134041ms)
+✔ rejects unaccepted CI {"conclusion":"failure"} (0.084667ms)
+✔ rejects unaccepted CI {"conclusion":"cancelled"} (0.071375ms)
+✔ rejects unaccepted CI {"status":"in_progress"} (0.058792ms)
+✔ rejects unaccepted CI {"event":"pull_request"} (0.060416ms)
+✔ rejects unaccepted CI {"head_branch":"topic"} (0.516458ms)
+✔ rejects unaccepted CI {"path":".github/workflows/other.yml"} (0.1255ms)
+✔ rejects unaccepted CI {"repository":{"full_name":"someone/else"}} (0.060333ms)
+✔ rejects a changed archive and an unverified artifact manifest (0.22275ms)
+✔ rejects manifest/source drift and missing exact-consumer stages (0.256708ms)
+✔ waits for metadata propagation before returning a successful npm download (0.5265ms)
+✔ stops after the bounded read-only propagation attempts (0.483625ms)
+✔ does not retry authentication or other unexpected npm failures (0.108834ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 49.415792
+
+> ng-echarts-workspace@0.0.0 test:pages-provenance
+> node --test tools/pages-provenance.spec.mjs
+
+Building Pages from a7ce686b9d4fe1a9ef8982a77c7ea3066b10e425 (clean committed source).
+Sealed 2 Pages files; SHA-256 cad76d4f616a819e9e3fe5c5898e9392bb4d255c4631f9c82ae80b418956e97e.
+✔ isolated builds stamp their original commit and leave source/index unchanged (489.457834ms)
+✔ clean copies use the recorded Git tree even if the live checkout changes (220.671334ms)
+Building Pages from 7f38f2c60feece0e970b86ace8ee3c006076c656 (clean committed source).
+Sealed 2 Pages files; SHA-256 cad76d4f616a819e9e3fe5c5898e9392bb4d255c4631f9c82ae80b418956e97e.
+Building Pages from 7f38f2c60feece0e970b86ace8ee3c006076c656 (clean committed source).
+✔ source mutation during compilation invalidates the build instead of relabeling it (656.15125ms)
+Building Pages from 7f38f2c60feece0e970b86ace8ee3c006076c656 (working tree; local checks only).
+Sealed 2 Pages files; SHA-256 cad76d4f616a819e9e3fe5c5898e9392bb4d255c4631f9c82ae80b418956e97e.
+✔ dirty local builds can be checked but never promoted by a later commit (586.755792ms)
+✔ an identical-file commit still makes an earlier artifact stale (287.442542ms)
+✔ artifact integrity rejects modified file (271.931708ms)
+✔ artifact integrity rejects extra file (273.381167ms)
+✔ artifact integrity rejects deleted file (279.243834ms)
+✔ artifact integrity rejects symlink (275.778083ms)
+✔ missing and legacy markers cannot be used as build provenance (90.179875ms)
+✔ only a complete receipt for the exact sealed build allows publishing (598.661375ms)
+✔ source or output changes during browser checks cannot receive a receipt (279.459291ms)
+✔ a publisher rejects a different pushed main commit (209.654542ms)
+✔ the operation lock blocks concurrent work and releases after failures (79.148209ms)
+✔ public checks verify clean source and every served byte without creating a local receipt (233.320458ms)
+✔ a dead owner lock is recovered without weakening active-owner exclusion (106.496417ms)
+✔ the actual publisher rejects unverified and stale input before contacting GitHub (664.258834ms)
+✔ concept asset validation catches stale URL revisions and mismatched bundled bytes (78.699291ms)
+✔ concept validation also rejects tampered generated engines and embedded documents (82.276083ms)
+Building Pages from 778c1db1e9ec0d268258d7c0c930bbe3ad0f7910 (clean committed source).
+Sealed 2 Pages files; SHA-256 cad76d4f616a819e9e3fe5c5898e9392bb4d255c4631f9c82ae80b418956e97e.
+✔ relative source aliases stay inside the isolated copy and external aliases are refused (446.957167ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6271.264583
+
+> ng-echarts-workspace@0.0.0 test:demo-assets
+> node --test tools/demo-assets.spec.mjs
+
+✔ derives web assets without changing offline bytes or interpreting replacement tokens (0.700625ms)
+✔ rejects missing engine boundaries and verifies the pinned modular engine (110.27675ms)
+✔ warms only the requested renderer graph and preserves the Pages prefix (1.023ms)
+✔ rejects unrelated chart code entering a renderer preload graph (0.302125ms)
+✔ warms the destination component graph while keeping deferred families independent (0.522584ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 159.881583
+
+> ng-echarts-workspace@0.0.0 build
+> npm run build:lib && npm run build:playground
+
+
+> ng-echarts-workspace@0.0.0 build:lib
+> ng build chart-library --configuration production
+
+Building Angular Package
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/core'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @mantha911/ng-echarts/core
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/area'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/bar'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/composed'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/pie'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/line'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/calendar'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/radar'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/radial'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @mantha911/ng-echarts/composed
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/sankey'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+✔ Built @mantha911/ng-echarts/radial
+✔ Built @mantha911/ng-echarts/line
+✔ Built @mantha911/ng-echarts/bar
+✔ Built @mantha911/ng-echarts/pie
+✔ Built @mantha911/ng-echarts/area
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Built @mantha911/ng-echarts/radar
+✔ Built @mantha911/ng-echarts/calendar
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+- Copying assets
+✔ Compiling with Angular sources in partial compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @mantha911/ng-echarts/sankey
+✔ Copying assets
+- Writing package manifest
+✔ Writing package manifest
+✔ Built @mantha911/ng-echarts
+
+------------------------------------------------------------------------------
+Built Angular Package
+- from: /Users/phalla/Documents/codes/ng-echarts/projects/chart-library
+- to:   /Users/phalla/Documents/codes/ng-echarts/dist/chart-library
+------------------------------------------------------------------------------
+
+Build at: 2026-11-17T03:24:08.380Z - Time: 1638ms
+
+
+> ng-echarts-workspace@0.0.0 build:playground
+> npm run concepts:prepare && ng build playground --configuration production && node tools/prepare-demo.mjs dist/playground
+
+
+> ng-echarts-workspace@0.0.0 concepts:prepare
+> node tools/concept-assets.mjs --prepare
+
+Verified concept engine and 3 gallery assets.
+❯ Building...
+✔ Building...
+Browser bundles
+Initial chunk files  | Names                                                |  Raw size | Estimated transfer size
+chunk-BCV1fTjr.js    | -                                                    | 191.76 kB |                56.81 kB
+main-NTR5ELYN.js     | main                                                 | 149.22 kB |                37.02 kB
+styles-KNRWW7UI.css  | styles                                               |  31.26 kB |                 5.14 kB
+chunk-B6Fy8hbW.js    | -                                                    |   1.04 kB |               444 bytes
+
+                     | Initial total                                        | 373.28 kB |                99.42 kB
+
+Lazy chunk files     | Names                                                |  Raw size | Estimated transfer size
+chunk-5tkH_LWN.js    | -                                                    | 332.44 kB |                97.43 kB
+chunk-B2hZTCA5.js    | -                                                    | 122.72 kB |                37.06 kB
+chunk-DI1Tmhid.js    | -                                                    |  65.69 kB |                20.67 kB
+chunk-xwN-ZVzo.js    | gallery                                              |  43.50 kB |                 8.10 kB
+chunk-B6LCexxI.js    | linked-dashboard                                     |  43.45 kB |                 9.97 kB
+chunk-Dr3H5Qd6.js    | -                                                    |  34.59 kB |                12.18 kB
+chunk-NJlGbqEl.js    | calendar-blocks                                      |  34.34 kB |                 9.39 kB
+chunk-DZzgneKi.js    | mantha911-ng-echarts-sankey-sankey-renderer-DwLMFu-b |  33.59 kB |                11.07 kB
+chunk-BTy2-mIO.js    | sankey-blocks                                        |  31.56 kB |                 8.30 kB
+chunk--4WVWgbf.js    | radar-blocks                                         |  30.32 kB |                 7.88 kB
+chunk-CjzMog8N.js    | -                                                    |  27.45 kB |                 9.65 kB
+chunk-DJlck863.js    | -                                                    |  25.29 kB |                 8.41 kB
+chunk-B1YEnJVS.js    | radial-blocks                                        |  24.84 kB |                 6.49 kB
+chunk-DhSoJqX9.js    | documentation                                        |  24.05 kB |                 7.62 kB
+chunk-CnBMpkXN.js    | -                                                    |  22.19 kB |                 7.84 kB
+...and 51 more lazy chunks files. Use "--verbose" to show all the files.
+
+
+Server bundles
+Initial chunk files  | Names                                                |  Raw size
+server.mjs           | server                                               | 919.95 kB |
+polyfills.server.mjs | polyfills.server                                     | 237.54 kB |
+chunk-3VWN4U7Y.mjs   | -                                                    | 196.60 kB |
+chunk-7XAPAEI6.mjs   | -                                                    | 102.68 kB |
+main.server.mjs      | main.server                                          |  77.60 kB |
+chunk-HJUUWEIY.mjs   | -                                                    |  12.00 kB |
+chunk-35LMJPRC.mjs   | -                                                    |   7.77 kB |
+chunk-C2KJ4ATU.mjs   | -                                                    |   1.54 kB |
+chunk-VIU7XVWA.mjs   | -                                                    |   1.45 kB |
+chunk-5R3YYUKO.mjs   | -                                                    | 618 bytes |
+
+Lazy chunk files     | Names                                                |  Raw size
+chunk-5KPPHQYI.mjs   | -                                                    | 350.03 kB |
+chunk-NQHDCJD5.mjs   | -                                                    | 126.52 kB |
+chunk-QJGUVTRO.mjs   | -                                                    |  68.59 kB |
+chunk-YRSOLXPO.mjs   | linked-dashboard                                     |  43.26 kB |
+chunk-4IWQSAHC.mjs   | gallery                                              |  43.04 kB |
+chunk-L24H7OKE.mjs   | -                                                    |  34.56 kB |
+chunk-5RJDY5MW.mjs   | mantha911-ng-echarts-sankey-sankey-renderer-DwLMFu-b |  34.01 kB |
+chunk-XR52QMNS.mjs   | sankey-blocks                                        |  31.27 kB |
+chunk-G5IQAAZY.mjs   | calendar-blocks                                      |  30.63 kB |
+chunk-HV3L5AFU.mjs   | radar-blocks                                         |  28.55 kB |
+chunk-VC2BHOCJ.mjs   | -                                                    |  28.31 kB |
+chunk-3LVKNV6Z.mjs   | -                                                    |  25.07 kB |
+chunk-EQHSX5OE.mjs   | radial-blocks                                        |  24.64 kB |
+chunk-Q4DEKDHK.mjs   | documentation                                        |  23.96 kB |
+chunk-H5PAIKJ4.mjs   | -                                                    |  22.69 kB |
+...and 55 more lazy chunks files. Use "--verbose" to show all the files.
+
+Prerendered 0 static routes.
+Application bundle generation complete. [2.749 seconds] - 2026-11-17T03:24:11.773Z
+
+Output location: /Users/phalla/Documents/codes/ng-echarts/dist/playground
+
+Prepared shared concept assets and 14 renderer preload maps.
+
+> ng-echarts-workspace@0.0.0 check:reproducibility
+> node tools/check-library-reproducibility.mjs
+
+PASS: warm and two independent clean 0.1.0-rc.30 packages match 63d0742eb12b0c3de1ff4737b42fe426b6ff1eafe7a2205d1bfaaac71f92ea06.
+
+> ng-echarts-workspace@0.0.0 typecheck
+> ngc -p projects/chart-library/tsconfig.lib.prod.json --noEmit && ngc -p projects/playground/tsconfig.app.json --noEmit
+
+
+> ng-echarts-workspace@0.0.0 test
+> ng test chart-library --watch=false && ng test playground --watch=false
+
+❯ Building...
+✔ Building...
+Application bundle generation complete. [1.853 seconds] - 2026-11-17T03:24:27.694Z
+
+
+ RUN  v5.1.0 /Users/phalla/Documents/codes/ng-echarts
+
+
+ Test Files  47 passed (47)
+      Tests  322 passed (322)
+   Start at  10:24:27
+   Duration  3.34s (environment 69%, tests 18%, setup 7%, transform 5%, import 1%)
+
+❯ Building...
+✔ Building...
+Application bundle generation complete. [1.700 seconds] - 2026-11-17T03:24:33.218Z
+
+
+ RUN  v5.1.0 /Users/phalla/Documents/codes/ng-echarts
+
+
+ Test Files  7 passed (7)
+      Tests  20 passed (20)
+   Start at  10:24:33
+   Duration  1.04s (environment 54%, setup 23%, transform 12%, tests 7%, import 3%, worker 1%)
+
+
+> ng-echarts-workspace@0.0.0 check:consumer
+> node tools/check-consumer.mjs
+
+PASS: packed library and ECharts declarations compile in isolation; invalid keys and formatters/options are rejected (skipLibCheck=false).
+
+> ng-echarts-workspace@0.0.0 check:docs
+> node tools/check-documentation-consumer.mjs
+
+Scaffolding the exact documented Angular application outside the workspace…
+Installing the documented version pins and local tarball…
+Compiling and building the complete integration-guide example…
+Checking documented four-chart consumer in chromium…
+Checking documented four-chart consumer in firefox…
+Checking documented four-chart consumer in webkit…
+PASS: documented installation and full application build, render and hydrate in all three engines.
+
+> ng-echarts-workspace@0.0.0 check:dashboard
+> node tools/generate-dashboard-example.mjs --check && node tools/check-documentation-consumer.mjs --dashboard
+
+Scaffolding the exact documented Angular application outside the workspace…
+Installing the documented version pins and registry package…
+Compiling and building the complete integration-guide example…
+Checking documented dashboard consumer in chromium…
+Checking documented dashboard consumer in firefox…
+Checking documented dashboard consumer in webkit…
+PASS: documented installation and full application build, render and hydrate in all three engines.
+
+> ng-echarts-workspace@0.0.0 check:ssr
+> node tools/check-ssr.mjs
+
+PASS: production SSR returns library markup and hydration metadata. Browser hydration remains a separate check.
+
+> ng-echarts-workspace@0.0.0 check:runtime
+> node tools/check-runtime-consumer.mjs
+
+Installing locked, isolated client/SSR consumers…
+Building isolated client production application…
+Prepared shared concept assets and 14 renderer preload maps.
+Building isolated playground production application…
+Prepared shared concept assets and 14 renderer preload maps.
+PASS: independently installed tarball builds and runs in client and SSR/hydration applications across all three engines.
+
+> ng-echarts-workspace@0.0.0 check:bundle
+> node tools/check-bundle-size.mjs
+
+PASS: bar 186847 gzip / 159477 Brotli bytes; 232 engine modules, none eager.
+PASS: line 186591 gzip / 159086 Brotli bytes; 230 engine modules, none eager.
+PASS: area 187079 gzip / 159624 Brotli bytes; 230 engine modules, none eager.
+PASS: composed 196433 gzip / 167232 Brotli bytes; 242 engine modules, none eager.
+PASS: pie 163111 gzip / 139636 Brotli bytes; 199 engine modules, none eager.
+PASS: radar 167965 gzip / 143996 Brotli bytes; 210 engine modules, none eager.
+PASS: calendar 174028 gzip / 148877 Brotli bytes; 213 engine modules, none eager.
+PASS: sankey 171359 gzip / 146622 Brotli bytes; 205 engine modules, none eager.
+PASS: radial 133876 gzip / 114748 Brotli bytes; 164 engine modules, none eager.
+PASS: core 8697 gzip / 7673 Brotli bytes; 0 engine modules, none eager.
+PASS: root 221121 gzip / 188993 Brotli bytes; 253 engine modules, none eager.
+PASS: root-frame 202907 gzip / 174950 Brotli bytes; 253 engine modules, none eager.
+
+> ng-echarts-workspace@0.0.0 test:browser
+> playwright test
+
+[WebServer] (node:41083) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 588 tests using 1 worker
+
+(node:41094) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓    1 [chromium] › tests/browser/area-chart.spec.ts:66:1 › renders copyable area blocks with the pinned area data and clean responsive themes (1.7s)
+  ✓    2 [chromium] › tests/browser/area-chart.spec.ts:116:1 › paints positive/negative stacks and actual fill gaps while emitting raw values (935ms)
+  ✓    3 [chromium] › tests/browser/area-chart.spec.ts:176:1 › recovers area states, hydrates deferred controls, and disposes observers and instances (24.7s)
+  ✓    4 [chromium] › tests/browser/area-chart.spec.ts:253:1 › retries an area renderer import failure (308ms)
+  ✓    5 [chromium] › tests/browser/area-chart.spec.ts:265:1 › ignores late area imports after destruction and remounts with current data (432ms)
+  ✓    6 [chromium] › tests/browser/bar-chart.spec.ts:22:1 › hydrates one chart and emits equivalent pointer and keyboard table selections (404ms)
+  ✓    7 [chromium] › tests/browser/bar-chart.spec.ts:36:1 › honors state precedence and restores current data without stale actions (774ms)
+  ✓    8 [chromium] › tests/browser/bar-chart.spec.ts:60:1 › keeps legend focus and the full table when every series is hidden (444ms)
+  ✓    9 [chromium] › tests/browser/bar-chart.spec.ts:76:1 › switches themes/layouts, resizes hidden surfaces, and remounts one instance (1.0s)
+  ✓   10 [chromium] › tests/browser/bar-chart.spec.ts:108:3 › preserves raw values and point actions across all eight bar combinations in light theme (2.1s)
+  ✓   11 [chromium] › tests/browser/bar-chart.spec.ts:108:3 › preserves raw values and point actions across all eight bar combinations in dark theme (2.2s)
+  ✓   12 [chromium] › tests/browser/calendar.spec.ts:50:1 › hydrates native leap-year tables, exposes missing versus zero, and emits matching pointer/keyboard values (699ms)
+  ✓   13 [chromium] › tests/browser/calendar.spec.ts:82:1 › retains a stable scale and handles zero, missing, invalid and application states (760ms)
+  ✓   14 [chromium] › tests/browser/calendar.spec.ts:104:1 › fits both themes and both calendar layouts, retains hidden previews, and copies real source (1.4s)
+  ✓   15 [chromium] › tests/browser/calendar.spec.ts:149:1 › releases chart, resize, motion and focus resources over 100 mount cycles and navigation (22.2s)
+  ✓   16 [chromium] › tests/browser/calendar.spec.ts:183:1 › keeps date-only identity across DST and far-east timezones (1.2s)
+  ✓   17 [chromium] › tests/browser/calendar.spec.ts:200:1 › recovers a failed renderer import with native daily values (435ms)
+  ✓   18 [chromium] › tests/browser/calendar.spec.ts:228:1 › keeps every day readable in native monthly tables without JavaScript (465ms)
+  ✓   19 [chromium] › tests/browser/calendar.spec.ts:249:1 › preserves exact native values when a timezone skips a civil date, then restores the plot for a supported year (612ms)
+  ✓   20 [chromium] › tests/browser/chart-possibilities.spec.ts:5:1 › serves the concept gallery with filters, keyboard data access, theme sync, and bubble mode (2.5s)
+  ✓   21 [chromium] › tests/browser/chart-possibilities.spec.ts:60:1 › fits mobile layouts and leaves the embedded gallery when navigating away (5.1s)
+  ✓   22 [chromium] › tests/browser/chart-possibilities.spec.ts:105:1 › keeps the standalone document usable without a network connection (1.5s)
+  ✓   23 [chromium] › tests/browser/code-examples.spec.ts:11:1 › keeps syntax-colored examples copyable and text copy buttons on one line (3.6s)
+  ✓   24 [chromium] › tests/browser/code-examples.spec.ts:85:1 › highlights setup docs and Angular templates without hydration errors (434ms)
+  ✓   25 [chromium] › tests/browser/comparison.spec.ts:10:1 › fits the comparison plot and controls at all review widths in both themes (2.4s)
+  ✓   26 [chromium] › tests/browser/comparison.spec.ts:53:1 › hydrates formatted ticks, retains full tooltip/table labels, and recovers formatter errors (938ms)
+  ✓   27 [chromium] › tests/browser/comparison.spec.ts:112:3 › /comparison follows the shared site layout, navigation, and theme (1.5s)
+  ✓   28 [chromium] › tests/browser/comparison.spec.ts:112:3 › /line-comparison follows the shared site layout, navigation, and theme (1.5s)
+  ✓   29 [chromium] › tests/browser/comparison.spec.ts:112:3 › /area-comparison follows the shared site layout, navigation, and theme (1.5s)
+  ✓   30 [chromium] › tests/browser/comparison.spec.ts:112:3 › /pie-comparison follows the shared site layout, navigation, and theme (1.2s)
+  ✓   31 [chromium] › tests/browser/composed-axes.spec.ts:5:1 › keeps dual-axis native values, labels, identities and errors coherent through replacement (1.1s)
+  ✓   32 [chromium] › tests/browser/composed-axes.spec.ts:103:1 › renders independent-scale examples with correct summaries and copyable source in both themes (1.5s)
+  ✓   33 [chromium] › tests/browser/composed-chart.spec.ts:39:1 › selects raw observations from a real area interior and clears fill/stack state across kind changes (1.5s)
+  ✓   34 [chromium] › tests/browser/composed-chart.spec.ts:74:1 › retains area legend/focus identities, raw signed/zero/missing values and recovers invalid fill settings (1.0s)
+  ✓   35 [chromium] › tests/browser/composed-chart.spec.ts:111:3 › renders copyable area and stacked-area examples at every responsive width in light theme (2.2s)
+  ✓   36 [chromium] › tests/browser/composed-chart.spec.ts:111:3 › renders copyable area and stacked-area examples at every responsive width in dark theme (1.6s)
+  ✓   37 [chromium] › tests/browser/composed-chart.spec.ts:167:1 › stacks real segments by group, returns raw actions and replaces grouping without losing identities (1.1s)
+  ✓   38 [chromium] › tests/browser/composed-chart.spec.ts:247:1 › hydrates a composed gallery with copyable typed source and responsive themes (794ms)
+  ✓   39 [chromium] › tests/browser/composed-chart.spec.ts:289:1 › selects real bars and whole lines, preserves zeros/gaps, and retains hidden identities through kind changes (817ms)
+  ✓   40 [chromium] › tests/browser/composed-chart.spec.ts:333:1 › recovers mixed states, hydrates deferred controls, refreshes palettes and releases every native resource (25.9s)
+  ✓   41 [chromium] › tests/browser/composed-chart.spec.ts:404:1 › retries a failed composed renderer import without exposing its exception (296ms)
+  ✓   42 [chromium] › tests/browser/composed-chart.spec.ts:418:1 › ignores a late composed renderer import after destruction and restores the latest inputs (431ms)
+  ✓   43 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /playground keeps customization controls readable and separate across themes and widths (567ms)
+  ✓   44 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /formatting keeps customization controls readable and separate across themes and widths (550ms)
+  ✓   45 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /updates keeps customization controls readable and separate across themes and widths (552ms)
+  ✓   46 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /validation keeps customization controls readable and separate across themes and widths (569ms)
+  ✓   47 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /line-validation keeps customization controls readable and separate across themes and widths (475ms)
+  ✓   48 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /area-validation keeps customization controls readable and separate across themes and widths (449ms)
+  ✓   49 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /pie-validation keeps customization controls readable and separate across themes and widths (430ms)
+  ✓   50 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /composed-validation keeps customization controls readable and separate across themes and widths (439ms)
+  ✓   51 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /linked-validation keeps customization controls readable and separate across themes and widths (440ms)
+  ✓   52 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /retention keeps customization controls readable and separate across themes and widths (310ms)
+  ✓   53 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /radar keeps customization controls readable and separate across themes and widths (463ms)
+  ✓   54 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /radar-validation keeps customization controls readable and separate across themes and widths (513ms)
+  ✓   55 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /radial keeps customization controls readable and separate across themes and widths (446ms)
+  ✓   56 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /calendar keeps customization controls readable and separate across themes and widths (449ms)
+  ✓   57 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /calendar-validation keeps customization controls readable and separate across themes and widths (939ms)
+  ✓   58 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /sankey keeps customization controls readable and separate across themes and widths (520ms)
+  ✓   59 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /sankey-validation keeps customization controls readable and separate across themes and widths (553ms)
+  ✓   60 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /pie keeps customization controls readable and separate across themes and widths (450ms)
+  ✓   61 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /comparison keeps customization controls readable and separate across themes and widths (562ms)
+  ✓   62 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /line-comparison keeps customization controls readable and separate across themes and widths (553ms)
+  ✓   63 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /area-comparison keeps customization controls readable and separate across themes and widths (553ms)
+  ✓   64 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /pie-comparison keeps customization controls readable and separate across themes and widths (540ms)
+  ✓   65 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /linked keeps customization controls readable and separate across themes and widths (475ms)
+  ✓   66 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /linked-example-validation keeps customization controls readable and separate across themes and widths (496ms)
+  ✓   67 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /linked-dashboard keeps customization controls readable and separate across themes and widths (668ms)
+  ✓   68 [chromium] › tests/browser/customization-controls.spec.ts:34:3 › /dashboard-validation keeps customization controls readable and separate across themes and widths (568ms)
+  ✓   69 [chromium] › tests/browser/customization-controls.spec.ts:95:1 › keeps native disclosure and form controls usable before JavaScript loads (499ms)
+  ✓   70 [chromium] › tests/browser/customization-controls.spec.ts:116:1 › keeps dashboard fields readable when its theme differs from the site (816ms)
+  ✓   71 [chromium] › tests/browser/customization-controls.spec.ts:177:1 › retains selected choices and switch positions in forced colors (399ms)
+  ✓   72 [chromium] › tests/browser/dashboard-window.spec.ts:5:1 › shares the visible category window and raw plot selection in both chart directions (403ms)
+  ✓   73 [chromium] › tests/browser/demo-navigation.spec.ts:22:3 › loads only the bar gallery component on a fresh visit (182ms)
+  ✓   74 [chromium] › tests/browser/demo-navigation.spec.ts:22:3 › loads only the line gallery component on a fresh visit (181ms)
+  ✓   75 [chromium] › tests/browser/demo-navigation.spec.ts:22:3 › loads only the area gallery component on a fresh visit (176ms)
+  ✓   76 [chromium] › tests/browser/demo-navigation.spec.ts:22:3 › loads only the composed gallery component on a fresh visit (189ms)
+  ✓   77 [chromium] › tests/browser/demo-navigation.spec.ts:37:1 › warms sidebar destinations on pointer and keyboard intent before navigation (380ms)
+  ✓   78 [chromium] › tests/browser/demo-navigation.spec.ts:60:1 › keeps pie entrance animation progressing through repeated unchanged-size observer deliveries (837ms)
+  ✓   79 [chromium] › tests/browser/demo-performance.spec.ts:6:1 › hydrates gallery plots near the viewport and creates full source only on demand (801ms)
+  ✓   80 [chromium] › tests/browser/demo-performance.spec.ts:31:1 › prepares offscreen Angular gallery plots for printing (488ms)
+  ✓   81 [chromium] › tests/browser/demo-performance.spec.ts:45:1 › keeps source readable and copyable when its optional highlighter cannot load (355ms)
+  ✓   82 [chromium] › tests/browser/demo-performance.spec.ts:81:1 › loads the concept frame before Angular and recovers the late parent handshake without redrawing (332ms)
+  ✓   83 [chromium] › tests/browser/demo-performance.spec.ts:140:1 › renders concept charts progressively, keeps data available, and retains a self-contained offline edition (2.6s)
+  ✓   84 [chromium] › tests/browser/demo-performance.spec.ts:180:1 › keeps deferred concepts usable in cached wrappers without viewport messages (1.0s)
+  ✓   85 [chromium] › tests/browser/demo-performance.spec.ts:200:1 › starts embedded concepts when WebKit leaves whole-set font readiness pending (1.2s)
+  ✓   86 [chromium] › tests/browser/family-acceptance.spec.ts:5:3 › line refreshes explicit palette tokens and recovers hidden/narrow plots without replacing its renderer (841ms)
+  ✓   87 [chromium] › tests/browser/family-acceptance.spec.ts:5:3 › area refreshes explicit palette tokens and recovers hidden/narrow plots without replacing its renderer (797ms)
+  ✓   88 [chromium] › tests/browser/family-acceptance.spec.ts:5:3 › pie refreshes explicit palette tokens and recovers hidden/narrow plots without replacing its renderer (789ms)
+  ✓   89 [chromium] › tests/browser/family-acceptance.spec.ts:5:3 › composed refreshes explicit palette tokens and recovers hidden/narrow plots without replacing its renderer (799ms)
+  ✓   90 [chromium] › tests/browser/gallery-tables.spec.ts:5:1 › omits table controls and table markup from every gallery preview (3.3s)
+  ✓   91 [chromium] › tests/browser/gallery.spec.ts:12:1 › hydrates bar blocks without table controls and keeps code, copying, preview reset, theme, and plot events usable (1.2s)
+  ✓   92 [chromium] › tests/browser/gallery.spec.ts:74:1 › fits the gallery in both themes and supports mobile navigation and denied clipboard access (1.5s)
+  ✓   93 [chromium] › tests/browser/gallery.spec.ts:137:1 › disposes gallery resources when navigating between the gallery, playground, and cleanup page (1.3s)
+  ✓   94 [chromium] › tests/browser/graphical-range.spec.ts:27:1 › commits snapped forward/reverse drags once on release and synchronizes native bounds and both charts (945ms)
+  ✓   95 [chromium] › tests/browser/graphical-range.spec.ts:65:1 › cancels drafts on Escape, resize, data/native changes and interrupted pointers without replacing committed selection (1.7s)
+  ✓   96 [chromium] › tests/browser/graphical-range.spec.ts:104:1 › retains usable range controls at all theme/width combinations, selects hidden/zero rows and cleans up armed gestures (4.0s)
+  ✓   97 [chromium] › tests/browser/graphical-range.spec.ts:181:1 › selects the same inclusive identities in every layout/stack/fill/theme and clips release outside the grid (4.8s)
+  ✓   98 [chromium] › tests/browser/graphical-range.spec.ts:231:1 › keeps a plain click inert in selection mode, preserves keyboard/reset focus and disables unavailable ranges (866ms)
+  ✓   99 [chromium] › tests/browser/graphical-range.spec.ts:272:1 › supports a real horizontal touch drag while leaving vertical touch scrolling available (2.1s)
+  ✓  100 [chromium] › tests/browser/graphical-range.spec.ts:355:1 › activates the range button once per real touch while retaining its native pressed state (922ms)
+  ✓  101 [chromium] › tests/browser/horizontal-composed.spec.ts:94:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer (1.1s)
+  ✓  102 [chromium] › tests/browser/horizontal-composed.spec.ts:138:1 › renders horizontal areas and long regional labels at all responsive widths and themes (1.2s)
+  ✓  103 [chromium] › tests/browser/legend-layouts.spec.ts:6:1 › keeps chip/list legends responsive, aligned and keyboard-operable without resetting the chart (2.5s)
+  ✓  104 [chromium] › tests/browser/lifecycle.spec.ts:6:1 › exposes named keyboard controls and readable values in the accessibility tree (318ms)
+  ✓  105 [chromium] › tests/browser/lifecycle.spec.ts:38:1 › hydrates multiple, loading, hidden, and deferred charts and cleans up on navigation (756ms)
+  ✓  106 [chromium] › tests/browser/lifecycle.spec.ts:79:1 › removes series, retains legend focus, refreshes explicit palette tokens, and changes motion preference (465ms)
+  ✓  107 [chromium] › tests/browser/lifecycle.spec.ts:109:1 › releases native resources across repeated real chart mount/destroy cycles (26.1s)
+  ✓  108 [chromium] › tests/browser/lifecycle.spec.ts:180:1 › recovers from a failed browser renderer import without exposing the exception (406ms)
+  ✓  109 [chromium] › tests/browser/lifecycle.spec.ts:197:1 › ignores a renderer import that finishes after its chart is destroyed (473ms)
+  ✓  110 [chromium] › tests/browser/line-chart.spec.ts:39:1 › hydrates a line gallery with copyable examples, matching themes, and narrow layouts (1.5s)
+  ✓  111 [chromium] › tests/browser/line-chart.spec.ts:88:1 › paints real missing-value gaps and emits updated pointer/keyboard values with points on or off (1.0s)
+  ✓  112 [chromium] › tests/browser/line-chart.spec.ts:141:1 › recovers line states, replays deferred hydration, and disposes chart-owned resources (24.3s)
+  ✓  113 [chromium] › tests/browser/line-chart.spec.ts:220:1 › retries a failed line renderer import without exposing its exception (305ms)
+  ✓  114 [chromium] › tests/browser/line-chart.spec.ts:232:1 › ignores a late line renderer import after destruction and restores the latest inputs (418ms)
+  ✓  115 [chromium] › tests/browser/linked-charts.spec.ts:5:1 › hydrates linked charts and connects real plot clicks, keyboard values and a native month selector (706ms)
+  ✓  116 [chromium] › tests/browser/linked-charts.spec.ts:92:1 › retains month identity, source focus and independent legends through changes, removal and missing/zero data (885ms)
+  ✓  117 [chromium] › tests/browser/linked-charts.spec.ts:151:1 › keeps linked layouts usable in both themes and releases both charts on navigation (1.1s)
+  ✓  118 [chromium] › tests/browser/linked-charts.spec.ts:204:1 › copies the standalone linking example and offers a manual fallback when clipboard access fails (437ms)
+  ✓  119 [chromium] › tests/browser/linked-charts.spec.ts:247:1 › keeps the selected category visible with zero, missing and hidden measures and moves it by row ID (841ms)
+  ✓  120 [chromium] › tests/browser/linked-charts.spec.ts:276:1 › links an inclusive range with keyboard bounds, painted selection and equivalent single-point actions (570ms)
+  ✓  121 [chromium] › tests/browser/linked-charts.spec.ts:338:1 › reconciles range endpoints in current order, handles crossing/removal and retains range-field focus (766ms)
+  ✓  122 [chromium] › tests/browser/linked-charts.spec.ts:394:1 › keeps range fields usable at every gallery width/theme and clears with touch (1.3s)
+  ✓  123 [chromium] › tests/browser/linked-dashboard.spec.ts:6:1 › links composed values and native month selection through updates, replacement, legends and themes (2.2s)
+  ✓  124 [chromium] › tests/browser/linked-dashboard.spec.ts:17:1 › commits an actual stacked bar hit and exposes the exact compiled example (410ms)
+  ✓  125 [chromium] › tests/browser/linked-preview.spec.ts:5:1 › previews device share from a real bar without changing the committed filter or chart instances (457ms)
+  ✓  126 [chromium] › tests/browser/linked-preview.spec.ts:44:1 › offers keyboard previews, restores the selected range on blur, and cancels stale context (591ms)
+  ✓  127 [chromium] › tests/browser/pie-chart.spec.ts:6:1 › renders copyable pie blocks with the pinned pie data and clean responsive themes (1.2s)
+  ✓  128 [chromium] › tests/browser/pie-chart.spec.ts:68:1 › renders a real donut hole and emits raw stable category events through updates and hiding (1.1s)
+  ✓  129 [chromium] › tests/browser/pie-chart.spec.ts:124:1 › recovers pie states, hydrates deferred controls, and disposes observers and instances (21.6s)
+  ✓  130 [chromium] › tests/browser/pie-chart.spec.ts:206:1 › retries a pie renderer import failure (315ms)
+  ✓  131 [chromium] › tests/browser/pie-chart.spec.ts:218:1 › ignores late pie imports after destruction and remounts with current data (443ms)
+  ✓  132 [chromium] › tests/browser/playground-layout.spec.ts:4:1 › opens the mobile navigation with keyboard support and closes it after routing (567ms)
+  ✓  133 [chromium] › tests/browser/playground-layout.spec.ts:40:1 › keeps code, preview, theme, copy feedback, and reset controls in sync (891ms)
+  ✓  134 [chromium] › tests/browser/premium-polish.spec.ts:10:3 › radar preserves plot and card geometry through loading and error states (1.9s)
+  ✓  135 [chromium] › tests/browser/premium-polish.spec.ts:10:3 › radial preserves plot and card geometry through loading and error states (1.9s)
+  ✓  136 [chromium] › tests/browser/premium-polish.spec.ts:10:3 › calendar preserves plot and card geometry through loading and error states (1.9s)
+  ✓  137 [chromium] › tests/browser/premium-polish.spec.ts:10:3 › sankey preserves plot and card geometry through loading and error states (1.9s)
+  ✓  138 [chromium] › tests/browser/premium-polish.spec.ts:58:1 › pie totals and shares track visible categories, including keyboard hiding and recovery (609ms)
+  ✓  139 [chromium] › tests/browser/premium-polish.spec.ts:88:1 › Sankey paints distinct stage colors and exposes a keyboard-scrollable mobile diagram (231ms)
+  ✓  140 [chromium] › tests/browser/premium-polish.spec.ts:132:1 › the linked overview and detail share a desktop row and stack on mobile (223ms)
+  ✓  141 [chromium] › tests/browser/premium-polish.spec.ts:151:1 › hiding every bar series explains the empty plot and keeps keyboard recovery available (351ms)
+  ✓  142 [chromium] › tests/browser/premium-polish.spec.ts:168:1 › confines Sankey tooltips to the visible mobile scrollport at both ends (1.8s)
+  ✓  143 [chromium] › tests/browser/radar-legend-layouts.spec.ts:6:3 › keeps radar dark legends aligned, responsive and keyboard-operable across layout changes (1.3s)
+  ✓  144 [chromium] › tests/browser/radar-legend-layouts.spec.ts:6:3 › keeps radar light legends aligned, responsive and keyboard-operable across layout changes (1.4s)
+  ✓  145 [chromium] › tests/browser/radar-legend-layouts.spec.ts:94:1 › keeps radar gallery chips and native choices available before JavaScript (111ms)
+  ✓  146 [chromium] › tests/browser/radar.spec.ts:17:1 › hydrates, emits equivalent plot/table identities and preserves keyboard focus across updates (619ms)
+  ✓  147 [chromium] › tests/browser/radar.spec.ts:62:1 › keeps missing observations explicit, hides stale plots in states and recovers (580ms)
+  ✓  148 [chromium] › tests/browser/radar.spec.ts:85:1 › fits both themes at narrow widths, resizes a mounted plot, and preserves shared focus styling (726ms)
+  ✓  149 [chromium] › tests/browser/radar.spec.ts:120:1 › disposes the renderer and motion listeners across 100 mount cycles and navigation (20.0s)
+  ✓  150 [chromium] › tests/browser/radial-progress.spec.ts:33:1 › hydrates two named native progress values and paints real zero/full rings without remounting (482ms)
+  ✓  151 [chromium] › tests/browser/radial-progress.spec.ts:57:1 › updates through keyboard controls, never clamps invalid inputs, and recovers state precedence (588ms)
+  ✓  152 [chromium] › tests/browser/radial-progress.spec.ts:90:1 › fits both themes at four widths, recovers a hidden preview and offers working code controls (665ms)
+  ✓  153 [chromium] › tests/browser/radial-progress.spec.ts:120:1 › releases instance, observer, motion and frame resources over 100 primary mount cycles (21.9s)
+  ✓  154 [chromium] › tests/browser/radial-progress.spec.ts:155:1 › recovers a failed renderer import with a fresh native progress value (253ms)
+  ✓  155 [chromium] › tests/browser/retention.spec.ts:5:1 › collects obsolete row identities and keeps post-warm-up DOM ownership stable (12.8s)
+  ✓  156 [chromium] › tests/browser/sankey.spec.ts:16:1 › hydrates native tables and emits equivalent node/link pointer and keyboard actions (887ms)
+  ✓  157 [chromium] › tests/browser/sankey.spec.ts:49:1 › handles zeros, empty graphs, invalid cycles, application states and hidden previews (965ms)
+  ✓  158 [chromium] › tests/browser/sankey.spec.ts:74:1 › fits light/dark themes at all review widths with scroll contained to the graph (1.4s)
+  ✓  159 [chromium] › tests/browser/sankey.spec.ts:101:1 › releases chart, resize, motion and focus resources over 100 mount cycles and navigation (24.3s)
+  ✓  160 [chromium] › tests/browser/sankey.spec.ts:135:1 › recovers a failed renderer import with native flow values (380ms)
+  ✓  161 [chromium] › tests/browser/sankey.spec.ts:161:1 › serves node totals and recorded zero links without JavaScript (240ms)
+  ✓  162 [chromium] › tests/browser/site-pages.spec.ts:11:1 › renders honest component availability and navigates copyable setup documentation (1.1s)
+  ✓  163 [chromium] › tests/browser/site-pages.spec.ts:85:1 › preserves site theme across docs and tools and applies it when deferred charts hydrate (1.2s)
+  ✓  164 [chromium] › tests/browser/site-pages.spec.ts:136:1 › keeps every documentation and tool page usable at narrow widths in both themes (3.9s)
+  ✓  165 [chromium] › tests/browser/table-pagination.spec.ts:5:3 › bar pages native rows with keyboard focus and leaves the plot unchanged (629ms)
+  ✓  166 [chromium] › tests/browser/table-pagination.spec.ts:5:3 › line pages native rows with keyboard focus and leaves the plot unchanged (596ms)
+  ✓  167 [chromium] › tests/browser/table-pagination.spec.ts:5:3 › area pages native rows with keyboard focus and leaves the plot unchanged (617ms)
+  ✓  168 [chromium] › tests/browser/table-pagination.spec.ts:5:3 › composed pages native rows with keyboard focus and leaves the plot unchanged (600ms)
+  ✓  169 [chromium] › tests/browser/table-pagination.spec.ts:5:3 › pie pages native rows with keyboard focus and leaves the plot unchanged (711ms)
+  ✓  170 [chromium] › tests/browser/table-pagination.spec.ts:59:1 › wraps the pager at 320px in both themes (573ms)
+  ✓  171 [chromium] › tests/browser/theme-handoff.spec.ts:15:3 › bar inherits frame colors before hydration and keeps them when the plot loads (401ms)
+  ✓  172 [chromium] › tests/browser/theme-handoff.spec.ts:15:3 › line inherits frame colors before hydration and keeps them when the plot loads (380ms)
+  ✓  173 [chromium] › tests/browser/theme-handoff.spec.ts:15:3 › area inherits frame colors before hydration and keeps them when the plot loads (362ms)
+  ✓  174 [chromium] › tests/browser/theme-handoff.spec.ts:15:3 › composed inherits frame colors before hydration and keeps them when the plot loads (594ms)
+  ✓  175 [chromium] › tests/browser/theme-handoff.spec.ts:15:3 › pie inherits frame colors before hydration and keeps them when the plot loads (356ms)
+  ✓  176 [chromium] › tests/browser/theme-handoff.spec.ts:15:3 › radar inherits frame colors before hydration and keeps them when the plot loads (380ms)
+  ✓  177 [chromium] › tests/browser/theme-handoff.spec.ts:15:3 › radial inherits frame colors before hydration and keeps them when the plot loads (403ms)
+  ✓  178 [chromium] › tests/browser/theme-handoff.spec.ts:15:3 › calendar inherits frame colors before hydration and keeps them when the plot loads (366ms)
+  ✓  179 [chromium] › tests/browser/theme-handoff.spec.ts:15:3 › sankey inherits frame colors before hydration and keeps them when the plot loads (340ms)
+  ✓  180 [chromium] › tests/browser/theme-handoff.spec.ts:101:5 › CSS theme defaults without client JavaScript › dark preserves unthemed defaults and accepts partial inherited overrides (140ms)
+  ✓  181 [chromium] › tests/browser/theme-handoff.spec.ts:101:5 › CSS theme defaults without client JavaScript › light preserves unthemed defaults and accepts partial inherited overrides (147ms)
+  ✓  182 [chromium] › tests/browser/theme-persistence.spec.ts:4:1 › remembers the selected theme across refreshes and new pages, including chart rendering (628ms)
+  ✓  183 [chromium] › tests/browser/theme-persistence.spec.ts:40:1 › ignores an invalid saved theme and replaces it with the next selection (292ms)
+  ✓  184 [chromium] › tests/browser/theme-persistence.spec.ts:52:3 › keeps the theme toggle usable when storage access is blocked (300ms)
+  ✓  185 [chromium] › tests/browser/theme-persistence.spec.ts:52:3 › keeps the theme toggle usable when storage write is blocked (291ms)
+  ✓  186 [chromium] › tests/browser/typography.spec.ts:14:3 › loads Inter before painting chart labels at 1x density (810ms)
+  ✓  187 [chromium] › tests/browser/typography.spec.ts:14:3 › loads Inter before painting chart labels at 2x density (808ms)
+  ✓  188 [chromium] › tests/browser/updates.spec.ts:4:1 › restores a usable focus target after removal without stealing external focus (314ms)
+  ✓  189 [chromium] › tests/browser/updates.spec.ts:29:1 › retains identities, focus, visibility, and original-row events through batched updates (710ms)
+  ✓  190 [chromium] › tests/browser/value-formatting.spec.ts:11:1 › shares locale, currency, and custom numeric text across axis, tooltip, table, and raw events (732ms)
+  ✓  191 [chromium] › tests/browser/value-formatting.spec.ts:63:1 › hydrates configuration errors, contains invalid formatters and generated ticks, and recovers latest settings (823ms)
+  ✓  192 [chromium] › tests/browser/visual-refinement.spec.ts:10:1 › keeps narrow horizontal-axis numbers readable in the rendered canvas (265ms)
+  ✓  193 [chromium] › tests/browser/visual-refinement.spec.ts:50:3 › keeps nec-bar-chart mobile controls, readable code, and theme changes usable (749ms)
+  ✓  194 [chromium] › tests/browser/visual-refinement.spec.ts:50:3 › keeps nec-line-chart mobile controls, readable code, and theme changes usable (779ms)
+  ✓  195 [chromium] › tests/browser/visual-refinement.spec.ts:50:3 › keeps nec-area-chart mobile controls, readable code, and theme changes usable (847ms)
+  ✓  196 [chromium] › tests/browser/visual-refinement.spec.ts:50:3 › keeps nec-pie-chart mobile controls, readable code, and theme changes usable (1.3s)
+(node:62856) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  197 [firefox] › tests/browser/area-chart.spec.ts:66:1 › renders copyable area blocks with the pinned area data and clean responsive themes (2.8s)
+  ✓  198 [firefox] › tests/browser/area-chart.spec.ts:116:1 › paints positive/negative stacks and actual fill gaps while emitting raw values (1.1s)
+  ✓  199 [firefox] › tests/browser/area-chart.spec.ts:176:1 › recovers area states, hydrates deferred controls, and disposes observers and instances (13.6s)
+  ✓  200 [firefox] › tests/browser/area-chart.spec.ts:253:1 › retries an area renderer import failure (395ms)
+  ✓  201 [firefox] › tests/browser/area-chart.spec.ts:265:1 › ignores late area imports after destruction and remounts with current data (438ms)
+  ✓  202 [firefox] › tests/browser/bar-chart.spec.ts:22:1 › hydrates one chart and emits equivalent pointer and keyboard table selections (485ms)
+  ✓  203 [firefox] › tests/browser/bar-chart.spec.ts:36:1 › honors state precedence and restores current data without stale actions (674ms)
+  ✓  204 [firefox] › tests/browser/bar-chart.spec.ts:60:1 › keeps legend focus and the full table when every series is hidden (474ms)
+  ✓  205 [firefox] › tests/browser/bar-chart.spec.ts:76:1 › switches themes/layouts, resizes hidden surfaces, and remounts one instance (880ms)
+  ✓  206 [firefox] › tests/browser/bar-chart.spec.ts:108:3 › preserves raw values and point actions across all eight bar combinations in light theme (5.9s)
+  ✓  207 [firefox] › tests/browser/bar-chart.spec.ts:108:3 › preserves raw values and point actions across all eight bar combinations in dark theme (2.5s)
+  ✓  208 [firefox] › tests/browser/calendar.spec.ts:50:1 › hydrates native leap-year tables, exposes missing versus zero, and emits matching pointer/keyboard values (1.0s)
+  ✓  209 [firefox] › tests/browser/calendar.spec.ts:82:1 › retains a stable scale and handles zero, missing, invalid and application states (823ms)
+  ✓  210 [firefox] › tests/browser/calendar.spec.ts:104:1 › fits both themes and both calendar layouts, retains hidden previews, and copies real source (2.3s)
+  ✓  211 [firefox] › tests/browser/calendar.spec.ts:149:1 › releases chart, resize, motion and focus resources over 100 mount cycles and navigation (22.2s)
+  ✓  212 [firefox] › tests/browser/calendar.spec.ts:183:1 › keeps date-only identity across DST and far-east timezones (1.2s)
+  ✓  213 [firefox] › tests/browser/calendar.spec.ts:200:1 › recovers a failed renderer import with native daily values (571ms)
+  ✓  214 [firefox] › tests/browser/calendar.spec.ts:228:1 › keeps every day readable in native monthly tables without JavaScript (474ms)
+  ✓  215 [firefox] › tests/browser/calendar.spec.ts:249:1 › preserves exact native values when a timezone skips a civil date, then restores the plot for a supported year (1.2s)
+  ✓  216 [firefox] › tests/browser/chart-possibilities.spec.ts:5:1 › serves the concept gallery with filters, keyboard data access, theme sync, and bubble mode (2.1s)
+  ✓  217 [firefox] › tests/browser/chart-possibilities.spec.ts:60:1 › fits mobile layouts and leaves the embedded gallery when navigating away (2.7s)
+  ✓  218 [firefox] › tests/browser/chart-possibilities.spec.ts:105:1 › keeps the standalone document usable without a network connection (1.2s)
+  ✓  219 [firefox] › tests/browser/code-examples.spec.ts:11:1 › keeps syntax-colored examples copyable and text copy buttons on one line (2.7s)
+  ✓  220 [firefox] › tests/browser/code-examples.spec.ts:85:1 › highlights setup docs and Angular templates without hydration errors (446ms)
+  ✓  221 [firefox] › tests/browser/comparison.spec.ts:10:1 › fits the comparison plot and controls at all review widths in both themes (1.7s)
+  ✓  222 [firefox] › tests/browser/comparison.spec.ts:53:1 › hydrates formatted ticks, retains full tooltip/table labels, and recovers formatter errors (667ms)
+  ✓  223 [firefox] › tests/browser/comparison.spec.ts:112:3 › /comparison follows the shared site layout, navigation, and theme (1.3s)
+  ✓  224 [firefox] › tests/browser/comparison.spec.ts:112:3 › /line-comparison follows the shared site layout, navigation, and theme (1.2s)
+  ✓  225 [firefox] › tests/browser/comparison.spec.ts:112:3 › /area-comparison follows the shared site layout, navigation, and theme (1.5s)
+  ✓  226 [firefox] › tests/browser/comparison.spec.ts:112:3 › /pie-comparison follows the shared site layout, navigation, and theme (1.2s)
+  ✓  227 [firefox] › tests/browser/composed-axes.spec.ts:5:1 › keeps dual-axis native values, labels, identities and errors coherent through replacement (743ms)
+  ✓  228 [firefox] › tests/browser/composed-axes.spec.ts:103:1 › renders independent-scale examples with correct summaries and copyable source in both themes (1.1s)
+  ✓  229 [firefox] › tests/browser/composed-chart.spec.ts:39:1 › selects raw observations from a real area interior and clears fill/stack state across kind changes (742ms)
+  ✓  230 [firefox] › tests/browser/composed-chart.spec.ts:74:1 › retains area legend/focus identities, raw signed/zero/missing values and recovers invalid fill settings (718ms)
+  ✓  231 [firefox] › tests/browser/composed-chart.spec.ts:111:3 › renders copyable area and stacked-area examples at every responsive width in light theme (1.4s)
+  ✓  232 [firefox] › tests/browser/composed-chart.spec.ts:111:3 › renders copyable area and stacked-area examples at every responsive width in dark theme (1.4s)
+  ✓  233 [firefox] › tests/browser/composed-chart.spec.ts:167:1 › stacks real segments by group, returns raw actions and replaces grouping without losing identities (925ms)
+  ✓  234 [firefox] › tests/browser/composed-chart.spec.ts:247:1 › hydrates a composed gallery with copyable typed source and responsive themes (873ms)
+  ✓  235 [firefox] › tests/browser/composed-chart.spec.ts:289:1 › selects real bars and whole lines, preserves zeros/gaps, and retains hidden identities through kind changes (975ms)
+  ✓  236 [firefox] › tests/browser/composed-chart.spec.ts:333:1 › recovers mixed states, hydrates deferred controls, refreshes palettes and releases every native resource (11.7s)
+  ✓  237 [firefox] › tests/browser/composed-chart.spec.ts:404:1 › retries a failed composed renderer import without exposing its exception (341ms)
+  ✓  238 [firefox] › tests/browser/composed-chart.spec.ts:418:1 › ignores a late composed renderer import after destruction and restores the latest inputs (449ms)
+  ✓  239 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /playground keeps customization controls readable and separate across themes and widths (637ms)
+  ✓  240 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /formatting keeps customization controls readable and separate across themes and widths (886ms)
+  ✓  241 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /updates keeps customization controls readable and separate across themes and widths (896ms)
+  ✓  242 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /validation keeps customization controls readable and separate across themes and widths (865ms)
+  ✓  243 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /line-validation keeps customization controls readable and separate across themes and widths (686ms)
+  ✓  244 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /area-validation keeps customization controls readable and separate across themes and widths (640ms)
+  ✓  245 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /pie-validation keeps customization controls readable and separate across themes and widths (896ms)
+  ✓  246 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /composed-validation keeps customization controls readable and separate across themes and widths (643ms)
+  ✓  247 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /linked-validation keeps customization controls readable and separate across themes and widths (653ms)
+  ✓  248 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /retention keeps customization controls readable and separate across themes and widths (508ms)
+  ✓  249 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /radar keeps customization controls readable and separate across themes and widths (638ms)
+  ✓  250 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /radar-validation keeps customization controls readable and separate across themes and widths (647ms)
+  ✓  251 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /radial keeps customization controls readable and separate across themes and widths (634ms)
+  ✓  252 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /calendar keeps customization controls readable and separate across themes and widths (865ms)
+  ✓  253 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /calendar-validation keeps customization controls readable and separate across themes and widths (1.4s)
+  ✓  254 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /sankey keeps customization controls readable and separate across themes and widths (630ms)
+  ✓  255 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /sankey-validation keeps customization controls readable and separate across themes and widths (949ms)
+  ✓  256 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /pie keeps customization controls readable and separate across themes and widths (672ms)
+  ✓  257 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /comparison keeps customization controls readable and separate across themes and widths (794ms)
+  ✓  258 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /line-comparison keeps customization controls readable and separate across themes and widths (834ms)
+  ✓  259 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /area-comparison keeps customization controls readable and separate across themes and widths (902ms)
+  ✓  260 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /pie-comparison keeps customization controls readable and separate across themes and widths (778ms)
+  ✓  261 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /linked keeps customization controls readable and separate across themes and widths (789ms)
+  ✓  262 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /linked-example-validation keeps customization controls readable and separate across themes and widths (725ms)
+  ✓  263 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /linked-dashboard keeps customization controls readable and separate across themes and widths (716ms)
+  ✓  264 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /dashboard-validation keeps customization controls readable and separate across themes and widths (709ms)
+  ✓  265 [firefox] › tests/browser/customization-controls.spec.ts:95:1 › keeps native disclosure and form controls usable before JavaScript loads (908ms)
+  ✓  266 [firefox] › tests/browser/customization-controls.spec.ts:116:1 › keeps dashboard fields readable when its theme differs from the site (750ms)
+  ✓  267 [firefox] › tests/browser/customization-controls.spec.ts:177:1 › retains selected choices and switch positions in forced colors (521ms)
+  ✓  268 [firefox] › tests/browser/dashboard-window.spec.ts:5:1 › shares the visible category window and raw plot selection in both chart directions (543ms)
+  ✓  269 [firefox] › tests/browser/demo-navigation.spec.ts:22:3 › loads only the bar gallery component on a fresh visit (305ms)
+  ✓  270 [firefox] › tests/browser/demo-navigation.spec.ts:22:3 › loads only the line gallery component on a fresh visit (299ms)
+  ✓  271 [firefox] › tests/browser/demo-navigation.spec.ts:22:3 › loads only the area gallery component on a fresh visit (304ms)
+  ✓  272 [firefox] › tests/browser/demo-navigation.spec.ts:22:3 › loads only the composed gallery component on a fresh visit (314ms)
+  ✓  273 [firefox] › tests/browser/demo-navigation.spec.ts:37:1 › warms sidebar destinations on pointer and keyboard intent before navigation (416ms)
+  ✓  274 [firefox] › tests/browser/demo-navigation.spec.ts:60:1 › keeps pie entrance animation progressing through repeated unchanged-size observer deliveries (919ms)
+  ✓  275 [firefox] › tests/browser/demo-performance.spec.ts:6:1 › hydrates gallery plots near the viewport and creates full source only on demand (1.2s)
+  ✓  276 [firefox] › tests/browser/demo-performance.spec.ts:31:1 › prepares offscreen Angular gallery plots for printing (605ms)
+  ✓  277 [firefox] › tests/browser/demo-performance.spec.ts:45:1 › keeps source readable and copyable when its optional highlighter cannot load (413ms)
+  ✓  278 [firefox] › tests/browser/demo-performance.spec.ts:81:1 › loads the concept frame before Angular and recovers the late parent handshake without redrawing (504ms)
+  ✓  279 [firefox] › tests/browser/demo-performance.spec.ts:140:1 › renders concept charts progressively, keeps data available, and retains a self-contained offline edition (2.0s)
+  ✓  280 [firefox] › tests/browser/demo-performance.spec.ts:180:1 › keeps deferred concepts usable in cached wrappers without viewport messages (993ms)
+  ✓  281 [firefox] › tests/browser/demo-performance.spec.ts:200:1 › starts embedded concepts when WebKit leaves whole-set font readiness pending (979ms)
+  ✓  282 [firefox] › tests/browser/family-acceptance.spec.ts:5:3 › line refreshes explicit palette tokens and recovers hidden/narrow plots without replacing its renderer (621ms)
+  ✓  283 [firefox] › tests/browser/family-acceptance.spec.ts:5:3 › area refreshes explicit palette tokens and recovers hidden/narrow plots without replacing its renderer (722ms)
+  ✓  284 [firefox] › tests/browser/family-acceptance.spec.ts:5:3 › pie refreshes explicit palette tokens and recovers hidden/narrow plots without replacing its renderer (739ms)
+  ✓  285 [firefox] › tests/browser/family-acceptance.spec.ts:5:3 › composed refreshes explicit palette tokens and recovers hidden/narrow plots without replacing its renderer (1.1s)
+  ✓  286 [firefox] › tests/browser/gallery-tables.spec.ts:5:1 › omits table controls and table markup from every gallery preview (2.8s)
+  ✓  287 [firefox] › tests/browser/gallery.spec.ts:12:1 › hydrates bar blocks without table controls and keeps code, copying, preview reset, theme, and plot events usable (1.0s)
+  ✓  288 [firefox] › tests/browser/gallery.spec.ts:74:1 › fits the gallery in both themes and supports mobile navigation and denied clipboard access (1.2s)
+  ✓  289 [firefox] › tests/browser/gallery.spec.ts:137:1 › disposes gallery resources when navigating between the gallery, playground, and cleanup page (895ms)
+  ✓  290 [firefox] › tests/browser/graphical-range.spec.ts:27:1 › commits snapped forward/reverse drags once on release and synchronizes native bounds and both charts (775ms)
+  ✓  291 [firefox] › tests/browser/graphical-range.spec.ts:65:1 › cancels drafts on Escape, resize, data/native changes and interrupted pointers without replacing committed selection (1.2s)
+  ✓  292 [firefox] › tests/browser/graphical-range.spec.ts:104:1 › retains usable range controls at all theme/width combinations, selects hidden/zero rows and cleans up armed gestures (2.4s)
+  ✓  293 [firefox] › tests/browser/graphical-range.spec.ts:181:1 › selects the same inclusive identities in every layout/stack/fill/theme and clips release outside the grid (3.9s)
+  ✓  294 [firefox] › tests/browser/graphical-range.spec.ts:231:1 › keeps a plain click inert in selection mode, preserves keyboard/reset focus and disables unavailable ranges (787ms)
+  -  295 [firefox] › tests/browser/graphical-range.spec.ts:272:1 › supports a real horizontal touch drag while leaving vertical touch scrolling available
+  ✓  296 [firefox] › tests/browser/graphical-range.spec.ts:355:1 › activates the range button once per real touch while retaining its native pressed state (703ms)
+  ✓  297 [firefox] › tests/browser/horizontal-composed.spec.ts:94:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer (927ms)
+  ✓  298 [firefox] › tests/browser/horizontal-composed.spec.ts:138:1 › renders horizontal areas and long regional labels at all responsive widths and themes (1.3s)
+  ✓  299 [firefox] › tests/browser/legend-layouts.spec.ts:6:1 › keeps chip/list legends responsive, aligned and keyboard-operable without resetting the chart (2.1s)
+  ✓  300 [firefox] › tests/browser/lifecycle.spec.ts:6:1 › exposes named keyboard controls and readable values in the accessibility tree (367ms)
+  ✓  301 [firefox] › tests/browser/lifecycle.spec.ts:38:1 › hydrates multiple, loading, hidden, and deferred charts and cleans up on navigation (591ms)
+  ✓  302 [firefox] › tests/browser/lifecycle.spec.ts:79:1 › removes series, retains legend focus, refreshes explicit palette tokens, and changes motion preference (451ms)
+  ✓  303 [firefox] › tests/browser/lifecycle.spec.ts:109:1 › releases native resources across repeated real chart mount/destroy cycles (9.1s)
+  ✓  304 [firefox] › tests/browser/lifecycle.spec.ts:180:1 › recovers from a failed browser renderer import without exposing the exception (574ms)
+  ✓  305 [firefox] › tests/browser/lifecycle.spec.ts:197:1 › ignores a renderer import that finishes after its chart is destroyed (479ms)
+  ✓  306 [firefox] › tests/browser/line-chart.spec.ts:39:1 › hydrates a line gallery with copyable examples, matching themes, and narrow layouts (1.2s)
+  ✓  307 [firefox] › tests/browser/line-chart.spec.ts:88:1 › paints real missing-value gaps and emits updated pointer/keyboard values with points on or off (868ms)
+  ✓  308 [firefox] › tests/browser/line-chart.spec.ts:141:1 › recovers line states, replays deferred hydration, and disposes chart-owned resources (9.0s)
+  ✓  309 [firefox] › tests/browser/line-chart.spec.ts:220:1 › retries a failed line renderer import without exposing its exception (385ms)
+  ✓  310 [firefox] › tests/browser/line-chart.spec.ts:232:1 › ignores a late line renderer import after destruction and restores the latest inputs (442ms)
+  ✓  311 [firefox] › tests/browser/linked-charts.spec.ts:5:1 › hydrates linked charts and connects real plot clicks, keyboard values and a native month selector (756ms)
+  ✓  312 [firefox] › tests/browser/linked-charts.spec.ts:92:1 › retains month identity, source focus and independent legends through changes, removal and missing/zero data (805ms)
+  ✓  313 [firefox] › tests/browser/linked-charts.spec.ts:151:1 › keeps linked layouts usable in both themes and releases both charts on navigation (1.1s)
+  ✓  314 [firefox] › tests/browser/linked-charts.spec.ts:204:1 › copies the standalone linking example and offers a manual fallback when clipboard access fails (786ms)
+  ✓  315 [firefox] › tests/browser/linked-charts.spec.ts:247:1 › keeps the selected category visible with zero, missing and hidden measures and moves it by row ID (712ms)
+  ✓  316 [firefox] › tests/browser/linked-charts.spec.ts:276:1 › links an inclusive range with keyboard bounds, painted selection and equivalent single-point actions (661ms)
+  ✓  317 [firefox] › tests/browser/linked-charts.spec.ts:338:1 › reconciles range endpoints in current order, handles crossing/removal and retains range-field focus (827ms)
+  ✓  318 [firefox] › tests/browser/linked-charts.spec.ts:394:1 › keeps range fields usable at every gallery width/theme and clears with touch (1.1s)
+  ✓  319 [firefox] › tests/browser/linked-dashboard.spec.ts:6:1 › links composed values and native month selection through updates, replacement, legends and themes (1.9s)
+  ✓  320 [firefox] › tests/browser/linked-dashboard.spec.ts:17:1 › commits an actual stacked bar hit and exposes the exact compiled example (531ms)
+  ✓  321 [firefox] › tests/browser/linked-preview.spec.ts:5:1 › previews device share from a real bar without changing the committed filter or chart instances (512ms)
+  ✓  322 [firefox] › tests/browser/linked-preview.spec.ts:44:1 › offers keyboard previews, restores the selected range on blur, and cancels stale context (659ms)
+  ✓  323 [firefox] › tests/browser/pie-chart.spec.ts:6:1 › renders copyable pie blocks with the pinned pie data and clean responsive themes (1.0s)
+  ✓  324 [firefox] › tests/browser/pie-chart.spec.ts:68:1 › renders a real donut hole and emits raw stable category events through updates and hiding (1.2s)
+  ✓  325 [firefox] › tests/browser/pie-chart.spec.ts:124:1 › recovers pie states, hydrates deferred controls, and disposes observers and instances (10.1s)
+  ✓  326 [firefox] › tests/browser/pie-chart.spec.ts:206:1 › retries a pie renderer import failure (354ms)
+  ✓  327 [firefox] › tests/browser/pie-chart.spec.ts:218:1 › ignores late pie imports after destruction and remounts with current data (451ms)
+  ✓  328 [firefox] › tests/browser/playground-layout.spec.ts:4:1 › opens the mobile navigation with keyboard support and closes it after routing (589ms)
+  ✓  329 [firefox] › tests/browser/playground-layout.spec.ts:40:1 › keeps code, preview, theme, copy feedback, and reset controls in sync (858ms)
+  ✓  330 [firefox] › tests/browser/premium-polish.spec.ts:10:3 › radar preserves plot and card geometry through loading and error states (1.3s)
+  ✓  331 [firefox] › tests/browser/premium-polish.spec.ts:10:3 › radial preserves plot and card geometry through loading and error states (1.4s)
+  ✓  332 [firefox] › tests/browser/premium-polish.spec.ts:10:3 › calendar preserves plot and card geometry through loading and error states (1.4s)
+  ✓  333 [firefox] › tests/browser/premium-polish.spec.ts:10:3 › sankey preserves plot and card geometry through loading and error states (1.3s)
+  ✓  334 [firefox] › tests/browser/premium-polish.spec.ts:58:1 › pie totals and shares track visible categories, including keyboard hiding and recovery (1.0s)
+  ✓  335 [firefox] › tests/browser/premium-polish.spec.ts:88:1 › Sankey paints distinct stage colors and exposes a keyboard-scrollable mobile diagram (377ms)
+  ✓  336 [firefox] › tests/browser/premium-polish.spec.ts:132:1 › the linked overview and detail share a desktop row and stack on mobile (392ms)
+  ✓  337 [firefox] › tests/browser/premium-polish.spec.ts:151:1 › hiding every bar series explains the empty plot and keeps keyboard recovery available (405ms)
+  ✓  338 [firefox] › tests/browser/premium-polish.spec.ts:168:1 › confines Sankey tooltips to the visible mobile scrollport at both ends (2.0s)
+  ✓  339 [firefox] › tests/browser/radar-legend-layouts.spec.ts:6:3 › keeps radar dark legends aligned, responsive and keyboard-operable across layout changes (1.1s)
+  ✓  340 [firefox] › tests/browser/radar-legend-layouts.spec.ts:6:3 › keeps radar light legends aligned, responsive and keyboard-operable across layout changes (1.1s)
+  ✓  341 [firefox] › tests/browser/radar-legend-layouts.spec.ts:94:1 › keeps radar gallery chips and native choices available before JavaScript (224ms)
+  ✓  342 [firefox] › tests/browser/radar.spec.ts:17:1 › hydrates, emits equivalent plot/table identities and preserves keyboard focus across updates (657ms)
+  ✓  343 [firefox] › tests/browser/radar.spec.ts:62:1 › keeps missing observations explicit, hides stale plots in states and recovers (528ms)
+  ✓  344 [firefox] › tests/browser/radar.spec.ts:85:1 › fits both themes at narrow widths, resizes a mounted plot, and preserves shared focus styling (1.5s)
+  ✓  345 [firefox] › tests/browser/radar.spec.ts:120:1 › disposes the renderer and motion listeners across 100 mount cycles and navigation (9.2s)
+  ✓  346 [firefox] › tests/browser/radial-progress.spec.ts:33:1 › hydrates two named native progress values and paints real zero/full rings without remounting (432ms)
+  ✓  347 [firefox] › tests/browser/radial-progress.spec.ts:57:1 › updates through keyboard controls, never clamps invalid inputs, and recovers state precedence (510ms)
+  ✓  348 [firefox] › tests/browser/radial-progress.spec.ts:90:1 › fits both themes at four widths, recovers a hidden preview and offers working code controls (885ms)
+  ✓  349 [firefox] › tests/browser/radial-progress.spec.ts:120:1 › releases instance, observer, motion and frame resources over 100 primary mount cycles (9.7s)
+  ✓  350 [firefox] › tests/browser/radial-progress.spec.ts:155:1 › recovers a failed renderer import with a fresh native progress value (315ms)
+  -  351 [firefox] › tests/browser/retention.spec.ts:5:1 › collects obsolete row identities and keeps post-warm-up DOM ownership stable
+  ✓  352 [firefox] › tests/browser/sankey.spec.ts:16:1 › hydrates native tables and emits equivalent node/link pointer and keyboard actions (606ms)
+  ✓  353 [firefox] › tests/browser/sankey.spec.ts:49:1 › handles zeros, empty graphs, invalid cycles, application states and hidden previews (679ms)
+  ✓  354 [firefox] › tests/browser/sankey.spec.ts:74:1 › fits light/dark themes at all review widths with scroll contained to the graph (1.2s)
+  ✓  355 [firefox] › tests/browser/sankey.spec.ts:101:1 › releases chart, resize, motion and focus resources over 100 mount cycles and navigation (8.7s)
+  ✓  356 [firefox] › tests/browser/sankey.spec.ts:135:1 › recovers a failed renderer import with native flow values (368ms)
+  ✓  357 [firefox] › tests/browser/sankey.spec.ts:161:1 › serves node totals and recorded zero links without JavaScript (264ms)
+  ✓  358 [firefox] › tests/browser/site-pages.spec.ts:11:1 › renders honest component availability and navigates copyable setup documentation (899ms)
+  ✓  359 [firefox] › tests/browser/site-pages.spec.ts:85:1 › preserves site theme across docs and tools and applies it when deferred charts hydrate (1.1s)
+  ✓  360 [firefox] › tests/browser/site-pages.spec.ts:136:1 › keeps every documentation and tool page usable at narrow widths in both themes (4.4s)
+  ✓  361 [firefox] › tests/browser/table-pagination.spec.ts:5:3 › bar pages native rows with keyboard focus and leaves the plot unchanged (744ms)
+  ✓  362 [firefox] › tests/browser/table-pagination.spec.ts:5:3 › line pages native rows with keyboard focus and leaves the plot unchanged (681ms)
+  ✓  363 [firefox] › tests/browser/table-pagination.spec.ts:5:3 › area pages native rows with keyboard focus and leaves the plot unchanged (645ms)
+  ✓  364 [firefox] › tests/browser/table-pagination.spec.ts:5:3 › composed pages native rows with keyboard focus and leaves the plot unchanged (980ms)
+  ✓  365 [firefox] › tests/browser/table-pagination.spec.ts:5:3 › pie pages native rows with keyboard focus and leaves the plot unchanged (945ms)
+  ✓  366 [firefox] › tests/browser/table-pagination.spec.ts:59:1 › wraps the pager at 320px in both themes (598ms)
+  ✓  367 [firefox] › tests/browser/theme-handoff.spec.ts:15:3 › bar inherits frame colors before hydration and keeps them when the plot loads (471ms)
+  ✓  368 [firefox] › tests/browser/theme-handoff.spec.ts:15:3 › line inherits frame colors before hydration and keeps them when the plot loads (480ms)
+  ✓  369 [firefox] › tests/browser/theme-handoff.spec.ts:15:3 › area inherits frame colors before hydration and keeps them when the plot loads (471ms)
+  ✓  370 [firefox] › tests/browser/theme-handoff.spec.ts:15:3 › composed inherits frame colors before hydration and keeps them when the plot loads (505ms)
+  ✓  371 [firefox] › tests/browser/theme-handoff.spec.ts:15:3 › pie inherits frame colors before hydration and keeps them when the plot loads (471ms)
+  ✓  372 [firefox] › tests/browser/theme-handoff.spec.ts:15:3 › radar inherits frame colors before hydration and keeps them when the plot loads (452ms)
+  ✓  373 [firefox] › tests/browser/theme-handoff.spec.ts:15:3 › radial inherits frame colors before hydration and keeps them when the plot loads (522ms)
+  ✓  374 [firefox] › tests/browser/theme-handoff.spec.ts:15:3 › calendar inherits frame colors before hydration and keeps them when the plot loads (753ms)
+  ✓  375 [firefox] › tests/browser/theme-handoff.spec.ts:15:3 › sankey inherits frame colors before hydration and keeps them when the plot loads (422ms)
+  ✓  376 [firefox] › tests/browser/theme-handoff.spec.ts:101:5 › CSS theme defaults without client JavaScript › dark preserves unthemed defaults and accepts partial inherited overrides (290ms)
+  ✓  377 [firefox] › tests/browser/theme-handoff.spec.ts:101:5 › CSS theme defaults without client JavaScript › light preserves unthemed defaults and accepts partial inherited overrides (248ms)
+  ✓  378 [firefox] › tests/browser/theme-persistence.spec.ts:4:1 › remembers the selected theme across refreshes and new pages, including chart rendering (953ms)
+  ✓  379 [firefox] › tests/browser/theme-persistence.spec.ts:40:1 › ignores an invalid saved theme and replaces it with the next selection (483ms)
+  ✓  380 [firefox] › tests/browser/theme-persistence.spec.ts:52:3 › keeps the theme toggle usable when storage access is blocked (326ms)
+  ✓  381 [firefox] › tests/browser/theme-persistence.spec.ts:52:3 › keeps the theme toggle usable when storage write is blocked (343ms)
+  ✓  382 [firefox] › tests/browser/typography.spec.ts:14:3 › loads Inter before painting chart labels at 1x density (745ms)
+  ✓  383 [firefox] › tests/browser/typography.spec.ts:14:3 › loads Inter before painting chart labels at 2x density (730ms)
+  ✓  384 [firefox] › tests/browser/updates.spec.ts:4:1 › restores a usable focus target after removal without stealing external focus (937ms)
+  ✓  385 [firefox] › tests/browser/updates.spec.ts:29:1 › retains identities, focus, visibility, and original-row events through batched updates (671ms)
+  ✓  386 [firefox] › tests/browser/value-formatting.spec.ts:11:1 › shares locale, currency, and custom numeric text across axis, tooltip, table, and raw events (641ms)
+  ✓  387 [firefox] › tests/browser/value-formatting.spec.ts:63:1 › hydrates configuration errors, contains invalid formatters and generated ticks, and recovers latest settings (645ms)
+  ✓  388 [firefox] › tests/browser/visual-refinement.spec.ts:10:1 › keeps narrow horizontal-axis numbers readable in the rendered canvas (402ms)
+  ✓  389 [firefox] › tests/browser/visual-refinement.spec.ts:50:3 › keeps nec-bar-chart mobile controls, readable code, and theme changes usable (719ms)
+  ✓  390 [firefox] › tests/browser/visual-refinement.spec.ts:50:3 › keeps nec-line-chart mobile controls, readable code, and theme changes usable (714ms)
+  ✓  391 [firefox] › tests/browser/visual-refinement.spec.ts:50:3 › keeps nec-area-chart mobile controls, readable code, and theme changes usable (728ms)
+  ✓  392 [firefox] › tests/browser/visual-refinement.spec.ts:50:3 › keeps nec-pie-chart mobile controls, readable code, and theme changes usable (689ms)
+(node:65433) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  393 [webkit] › tests/browser/area-chart.spec.ts:66:1 › renders copyable area blocks with the pinned area data and clean responsive themes (2.1s)
+  ✓  394 [webkit] › tests/browser/area-chart.spec.ts:116:1 › paints positive/negative stacks and actual fill gaps while emitting raw values (1.1s)
+  ✓  395 [webkit] › tests/browser/area-chart.spec.ts:176:1 › recovers area states, hydrates deferred controls, and disposes observers and instances (14.6s)
+  ✓  396 [webkit] › tests/browser/area-chart.spec.ts:253:1 › retries an area renderer import failure (436ms)
+  ✓  397 [webkit] › tests/browser/area-chart.spec.ts:265:1 › ignores late area imports after destruction and remounts with current data (526ms)
+  ✓  398 [webkit] › tests/browser/bar-chart.spec.ts:22:1 › hydrates one chart and emits equivalent pointer and keyboard table selections (525ms)
+  ✓  399 [webkit] › tests/browser/bar-chart.spec.ts:36:1 › honors state precedence and restores current data without stale actions (901ms)
+  ✓  400 [webkit] › tests/browser/bar-chart.spec.ts:60:1 › keeps legend focus and the full table when every series is hidden (607ms)
+  ✓  401 [webkit] › tests/browser/bar-chart.spec.ts:76:1 › switches themes/layouts, resizes hidden surfaces, and remounts one instance (967ms)
+  ✓  402 [webkit] › tests/browser/bar-chart.spec.ts:108:3 › preserves raw values and point actions across all eight bar combinations in light theme (2.0s)
+  ✓  403 [webkit] › tests/browser/bar-chart.spec.ts:108:3 › preserves raw values and point actions across all eight bar combinations in dark theme (2.0s)
+  ✓  404 [webkit] › tests/browser/calendar.spec.ts:50:1 › hydrates native leap-year tables, exposes missing versus zero, and emits matching pointer/keyboard values (1.6s)
+  ✓  405 [webkit] › tests/browser/calendar.spec.ts:82:1 › retains a stable scale and handles zero, missing, invalid and application states (920ms)
+  ✓  406 [webkit] › tests/browser/calendar.spec.ts:104:1 › fits both themes and both calendar layouts, retains hidden previews, and copies real source (2.6s)
+  ✓  407 [webkit] › tests/browser/calendar.spec.ts:149:1 › releases chart, resize, motion and focus resources over 100 mount cycles and navigation (21.3s)
+  ✓  408 [webkit] › tests/browser/calendar.spec.ts:183:1 › keeps date-only identity across DST and far-east timezones (1.4s)
+  ✓  409 [webkit] › tests/browser/calendar.spec.ts:200:1 › recovers a failed renderer import with native daily values (597ms)
+  ✓  410 [webkit] › tests/browser/calendar.spec.ts:228:1 › keeps every day readable in native monthly tables without JavaScript (534ms)
+  ✓  411 [webkit] › tests/browser/calendar.spec.ts:249:1 › preserves exact native values when a timezone skips a civil date, then restores the plot for a supported year (904ms)
+  ✓  412 [webkit] › tests/browser/chart-possibilities.spec.ts:5:1 › serves the concept gallery with filters, keyboard data access, theme sync, and bubble mode (3.6s)
+  ✓  413 [webkit] › tests/browser/chart-possibilities.spec.ts:60:1 › fits mobile layouts and leaves the embedded gallery when navigating away (4.6s)
+  ✓  414 [webkit] › tests/browser/chart-possibilities.spec.ts:105:1 › keeps the standalone document usable without a network connection (1.8s)
+  ✓  415 [webkit] › tests/browser/code-examples.spec.ts:11:1 › keeps syntax-colored examples copyable and text copy buttons on one line (3.5s)
+  ✓  416 [webkit] › tests/browser/code-examples.spec.ts:85:1 › highlights setup docs and Angular templates without hydration errors (513ms)
+  ✓  417 [webkit] › tests/browser/comparison.spec.ts:10:1 › fits the comparison plot and controls at all review widths in both themes (2.2s)
+  ✓  418 [webkit] › tests/browser/comparison.spec.ts:53:1 › hydrates formatted ticks, retains full tooltip/table labels, and recovers formatter errors (774ms)
+  ✓  419 [webkit] › tests/browser/comparison.spec.ts:112:3 › /comparison follows the shared site layout, navigation, and theme (1.1s)
+  ✓  420 [webkit] › tests/browser/comparison.spec.ts:112:3 › /line-comparison follows the shared site layout, navigation, and theme (1.1s)
+  ✓  421 [webkit] › tests/browser/comparison.spec.ts:112:3 › /area-comparison follows the shared site layout, navigation, and theme (1.1s)
+  ✓  422 [webkit] › tests/browser/comparison.spec.ts:112:3 › /pie-comparison follows the shared site layout, navigation, and theme (1.2s)
+  ✓  423 [webkit] › tests/browser/composed-axes.spec.ts:5:1 › keeps dual-axis native values, labels, identities and errors coherent through replacement (913ms)
+  ✓  424 [webkit] › tests/browser/composed-axes.spec.ts:103:1 › renders independent-scale examples with correct summaries and copyable source in both themes (1.1s)
+  ✓  425 [webkit] › tests/browser/composed-chart.spec.ts:39:1 › selects raw observations from a real area interior and clears fill/stack state across kind changes (990ms)
+  ✓  426 [webkit] › tests/browser/composed-chart.spec.ts:74:1 › retains area legend/focus identities, raw signed/zero/missing values and recovers invalid fill settings (826ms)
+  ✓  427 [webkit] › tests/browser/composed-chart.spec.ts:111:3 › renders copyable area and stacked-area examples at every responsive width in light theme (1.7s)
+  ✓  428 [webkit] › tests/browser/composed-chart.spec.ts:111:3 › renders copyable area and stacked-area examples at every responsive width in dark theme (1.7s)
+  ✓  429 [webkit] › tests/browser/composed-chart.spec.ts:167:1 › stacks real segments by group, returns raw actions and replaces grouping without losing identities (1.2s)
+  ✓  430 [webkit] › tests/browser/composed-chart.spec.ts:247:1 › hydrates a composed gallery with copyable typed source and responsive themes (893ms)
+  ✓  431 [webkit] › tests/browser/composed-chart.spec.ts:289:1 › selects real bars and whole lines, preserves zeros/gaps, and retains hidden identities through kind changes (930ms)
+  ✓  432 [webkit] › tests/browser/composed-chart.spec.ts:333:1 › recovers mixed states, hydrates deferred controls, refreshes palettes and releases every native resource (16.8s)
+  ✓  433 [webkit] › tests/browser/composed-chart.spec.ts:404:1 › retries a failed composed renderer import without exposing its exception (412ms)
+  ✓  434 [webkit] › tests/browser/composed-chart.spec.ts:418:1 › ignores a late composed renderer import after destruction and restores the latest inputs (530ms)
+  ✓  435 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /playground keeps customization controls readable and separate across themes and widths (632ms)
+  ✓  436 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /formatting keeps customization controls readable and separate across themes and widths (855ms)
+  ✓  437 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /updates keeps customization controls readable and separate across themes and widths (698ms)
+  ✓  438 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /validation keeps customization controls readable and separate across themes and widths (950ms)
+  ✓  439 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /line-validation keeps customization controls readable and separate across themes and widths (637ms)
+  ✓  440 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /area-validation keeps customization controls readable and separate across themes and widths (619ms)
+  ✓  441 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /pie-validation keeps customization controls readable and separate across themes and widths (629ms)
+  ✓  442 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /composed-validation keeps customization controls readable and separate across themes and widths (629ms)
+  ✓  443 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /linked-validation keeps customization controls readable and separate across themes and widths (772ms)
+  ✓  444 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /retention keeps customization controls readable and separate across themes and widths (499ms)
+  ✓  445 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /radar keeps customization controls readable and separate across themes and widths (677ms)
+  ✓  446 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /radar-validation keeps customization controls readable and separate across themes and widths (660ms)
+  ✓  447 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /radial keeps customization controls readable and separate across themes and widths (656ms)
+  ✓  448 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /calendar keeps customization controls readable and separate across themes and widths (748ms)
+  ✓  449 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /calendar-validation keeps customization controls readable and separate across themes and widths (1.6s)
+  ✓  450 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /sankey keeps customization controls readable and separate across themes and widths (646ms)
+  ✓  451 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /sankey-validation keeps customization controls readable and separate across themes and widths (677ms)
+  ✓  452 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /pie keeps customization controls readable and separate across themes and widths (698ms)
+  ✓  453 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /comparison keeps customization controls readable and separate across themes and widths (711ms)
+  ✓  454 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /line-comparison keeps customization controls readable and separate across themes and widths (838ms)
+  ✓  455 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /area-comparison keeps customization controls readable and separate across themes and widths (682ms)
+  ✓  456 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /pie-comparison keeps customization controls readable and separate across themes and widths (673ms)
+  ✓  457 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /linked keeps customization controls readable and separate across themes and widths (669ms)
+  ✓  458 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /linked-example-validation keeps customization controls readable and separate across themes and widths (690ms)
+  ✓  459 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /linked-dashboard keeps customization controls readable and separate across themes and widths (1.0s)
+  ✓  460 [webkit] › tests/browser/customization-controls.spec.ts:34:3 › /dashboard-validation keeps customization controls readable and separate across themes and widths (940ms)
+  ✓  461 [webkit] › tests/browser/customization-controls.spec.ts:95:1 › keeps native disclosure and form controls usable before JavaScript loads (534ms)
+  ✓  462 [webkit] › tests/browser/customization-controls.spec.ts:116:1 › keeps dashboard fields readable when its theme differs from the site (922ms)
+  ✓  463 [webkit] › tests/browser/customization-controls.spec.ts:177:1 › retains selected choices and switch positions in forced colors (566ms)
+  ✓  464 [webkit] › tests/browser/dashboard-window.spec.ts:5:1 › shares the visible category window and raw plot selection in both chart directions (652ms)
+  ✓  465 [webkit] › tests/browser/demo-navigation.spec.ts:22:3 › loads only the bar gallery component on a fresh visit (365ms)
+  ✓  466 [webkit] › tests/browser/demo-navigation.spec.ts:22:3 › loads only the line gallery component on a fresh visit (367ms)
+  ✓  467 [webkit] › tests/browser/demo-navigation.spec.ts:22:3 › loads only the area gallery component on a fresh visit (379ms)
+  ✓  468 [webkit] › tests/browser/demo-navigation.spec.ts:22:3 › loads only the composed gallery component on a fresh visit (392ms)
+  ✓  469 [webkit] › tests/browser/demo-navigation.spec.ts:37:1 › warms sidebar destinations on pointer and keyboard intent before navigation (498ms)
+  ✓  470 [webkit] › tests/browser/demo-navigation.spec.ts:60:1 › keeps pie entrance animation progressing through repeated unchanged-size observer deliveries (1.0s)
+  ✓  471 [webkit] › tests/browser/demo-performance.spec.ts:6:1 › hydrates gallery plots near the viewport and creates full source only on demand (905ms)
+  ✓  472 [webkit] › tests/browser/demo-performance.spec.ts:31:1 › prepares offscreen Angular gallery plots for printing (646ms)
+  ✓  473 [webkit] › tests/browser/demo-performance.spec.ts:45:1 › keeps source readable and copyable when its optional highlighter cannot load (491ms)
+  ✓  474 [webkit] › tests/browser/demo-performance.spec.ts:81:1 › loads the concept frame before Angular and recovers the late parent handshake without redrawing (662ms)
+  ✓  475 [webkit] › tests/browser/demo-performance.spec.ts:140:1 › renders concept charts progressively, keeps data available, and retains a self-contained offline edition (3.4s)
+  ✓  476 [webkit] › tests/browser/demo-performance.spec.ts:180:1 › keeps deferred concepts usable in cached wrappers without viewport messages (1.6s)
+  ✓  477 [webkit] › tests/browser/demo-performance.spec.ts:200:1 › starts embedded concepts when WebKit leaves whole-set font readiness pending (1.7s)
+  ✓  478 [webkit] › tests/browser/family-acceptance.spec.ts:5:3 › line refreshes explicit palette tokens and recovers hidden/narrow plots without replacing its renderer (916ms)
+  ✓  479 [webkit] › tests/browser/family-acceptance.spec.ts:5:3 › area refreshes explicit palette tokens and recovers hidden/narrow plots without replacing its renderer (997ms)
+  ✓  480 [webkit] › tests/browser/family-acceptance.spec.ts:5:3 › pie refreshes explicit palette tokens and recovers hidden/narrow plots without replacing its renderer (869ms)
+  ✓  481 [webkit] › tests/browser/family-acceptance.spec.ts:5:3 › composed refreshes explicit palette tokens and recovers hidden/narrow plots without replacing its renderer (1.0s)
+  ✓  482 [webkit] › tests/browser/gallery-tables.spec.ts:5:1 › omits table controls and table markup from every gallery preview (4.0s)
+  ✓  483 [webkit] › tests/browser/gallery.spec.ts:12:1 › hydrates bar blocks without table controls and keeps code, copying, preview reset, theme, and plot events usable (1.4s)
+  ✓  484 [webkit] › tests/browser/gallery.spec.ts:74:1 › fits the gallery in both themes and supports mobile navigation and denied clipboard access (1.6s)
+  ✓  485 [webkit] › tests/browser/gallery.spec.ts:137:1 › disposes gallery resources when navigating between the gallery, playground, and cleanup page (1.3s)
+  ✓  486 [webkit] › tests/browser/graphical-range.spec.ts:27:1 › commits snapped forward/reverse drags once on release and synchronizes native bounds and both charts (834ms)
+  ✓  487 [webkit] › tests/browser/graphical-range.spec.ts:65:1 › cancels drafts on Escape, resize, data/native changes and interrupted pointers without replacing committed selection (1.2s)
+  ✓  488 [webkit] › tests/browser/graphical-range.spec.ts:104:1 › retains usable range controls at all theme/width combinations, selects hidden/zero rows and cleans up armed gestures (2.8s)
+  ✓  489 [webkit] › tests/browser/graphical-range.spec.ts:181:1 › selects the same inclusive identities in every layout/stack/fill/theme and clips release outside the grid (3.8s)
+  ✓  490 [webkit] › tests/browser/graphical-range.spec.ts:231:1 › keeps a plain click inert in selection mode, preserves keyboard/reset focus and disables unavailable ranges (902ms)
+  -  491 [webkit] › tests/browser/graphical-range.spec.ts:272:1 › supports a real horizontal touch drag while leaving vertical touch scrolling available
+  ✓  492 [webkit] › tests/browser/graphical-range.spec.ts:355:1 › activates the range button once per real touch while retaining its native pressed state (1.1s)
+  ✓  493 [webkit] › tests/browser/horizontal-composed.spec.ts:94:1 › rotates stacked bars and unmarked line hits while preserving native raw values, legends and the renderer (1.3s)
+  ✓  494 [webkit] › tests/browser/horizontal-composed.spec.ts:138:1 › renders horizontal areas and long regional labels at all responsive widths and themes (1.4s)
+  ✓  495 [webkit] › tests/browser/legend-layouts.spec.ts:6:1 › keeps chip/list legends responsive, aligned and keyboard-operable without resetting the chart (2.2s)
+  ✓  496 [webkit] › tests/browser/lifecycle.spec.ts:6:1 › exposes named keyboard controls and readable values in the accessibility tree (444ms)
+  ✓  497 [webkit] › tests/browser/lifecycle.spec.ts:38:1 › hydrates multiple, loading, hidden, and deferred charts and cleans up on navigation (805ms)
+  ✓  498 [webkit] › tests/browser/lifecycle.spec.ts:79:1 › removes series, retains legend focus, refreshes explicit palette tokens, and changes motion preference (559ms)
+  ✓  499 [webkit] › tests/browser/lifecycle.spec.ts:109:1 › releases native resources across repeated real chart mount/destroy cycles (13.0s)
+  ✓  500 [webkit] › tests/browser/lifecycle.spec.ts:180:1 › recovers from a failed browser renderer import without exposing the exception (459ms)
+  ✓  501 [webkit] › tests/browser/lifecycle.spec.ts:197:1 › ignores a renderer import that finishes after its chart is destroyed (582ms)
+  ✓  502 [webkit] › tests/browser/line-chart.spec.ts:39:1 › hydrates a line gallery with copyable examples, matching themes, and narrow layouts (1.6s)
+  ✓  503 [webkit] › tests/browser/line-chart.spec.ts:88:1 › paints real missing-value gaps and emits updated pointer/keyboard values with points on or off (1.1s)
+  ✓  504 [webkit] › tests/browser/line-chart.spec.ts:141:1 › recovers line states, replays deferred hydration, and disposes chart-owned resources (15.1s)
+  ✓  505 [webkit] › tests/browser/line-chart.spec.ts:220:1 › retries a failed line renderer import without exposing its exception (456ms)
+  ✓  506 [webkit] › tests/browser/line-chart.spec.ts:232:1 › ignores a late line renderer import after destruction and restores the latest inputs (515ms)
+  ✓  507 [webkit] › tests/browser/linked-charts.spec.ts:5:1 › hydrates linked charts and connects real plot clicks, keyboard values and a native month selector (851ms)
+  ✓  508 [webkit] › tests/browser/linked-charts.spec.ts:92:1 › retains month identity, source focus and independent legends through changes, removal and missing/zero data (992ms)
+  ✓  509 [webkit] › tests/browser/linked-charts.spec.ts:151:1 › keeps linked layouts usable in both themes and releases both charts on navigation (1.0s)
+  ✓  510 [webkit] › tests/browser/linked-charts.spec.ts:204:1 › copies the standalone linking example and offers a manual fallback when clipboard access fails (503ms)
+  ✓  511 [webkit] › tests/browser/linked-charts.spec.ts:247:1 › keeps the selected category visible with zero, missing and hidden measures and moves it by row ID (1.3s)
+  ✓  512 [webkit] › tests/browser/linked-charts.spec.ts:276:1 › links an inclusive range with keyboard bounds, painted selection and equivalent single-point actions (712ms)
+  ✓  513 [webkit] › tests/browser/linked-charts.spec.ts:338:1 › reconciles range endpoints in current order, handles crossing/removal and retains range-field focus (861ms)
+  ✓  514 [webkit] › tests/browser/linked-charts.spec.ts:394:1 › keeps range fields usable at every gallery width/theme and clears with touch (1.6s)
+  ✓  515 [webkit] › tests/browser/linked-dashboard.spec.ts:6:1 › links composed values and native month selection through updates, replacement, legends and themes (2.0s)
+  ✓  516 [webkit] › tests/browser/linked-dashboard.spec.ts:17:1 › commits an actual stacked bar hit and exposes the exact compiled example (608ms)
+  ✓  517 [webkit] › tests/browser/linked-preview.spec.ts:5:1 › previews device share from a real bar without changing the committed filter or chart instances (578ms)
+  ✓  518 [webkit] › tests/browser/linked-preview.spec.ts:44:1 › offers keyboard previews, restores the selected range on blur, and cancels stale context (733ms)
+  ✓  519 [webkit] › tests/browser/pie-chart.spec.ts:6:1 › renders copyable pie blocks with the pinned pie data and clean responsive themes (1.5s)
+  ✓  520 [webkit] › tests/browser/pie-chart.spec.ts:68:1 › renders a real donut hole and emits raw stable category events through updates and hiding (1.0s)
+  ✘  521 [webkit] › tests/browser/pie-chart.spec.ts:124:1 › recovers pie states, hydrates deferred controls, and disposes observers and instances (14.9s)
+(node:68555) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  522 [webkit] › tests/browser/pie-chart.spec.ts:206:1 › retries a pie renderer import failure (610ms)
+  ✓  523 [webkit] › tests/browser/pie-chart.spec.ts:218:1 › ignores late pie imports after destruction and remounts with current data (561ms)
+  ✓  524 [webkit] › tests/browser/playground-layout.spec.ts:4:1 › opens the mobile navigation with keyboard support and closes it after routing (625ms)
+  ✓  525 [webkit] › tests/browser/playground-layout.spec.ts:40:1 › keeps code, preview, theme, copy feedback, and reset controls in sync (904ms)
+  ✘  526 [webkit] › tests/browser/premium-polish.spec.ts:10:3 › radar preserves plot and card geometry through loading and error states (1.6s)
+(node:68602) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  527 [webkit] › tests/browser/premium-polish.spec.ts:10:3 › radial preserves plot and card geometry through loading and error states (1.7s)
+  ✘  528 [webkit] › tests/browser/premium-polish.spec.ts:10:3 › calendar preserves plot and card geometry through loading and error states (1.9s)
+(node:68648) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  529 [webkit] › tests/browser/premium-polish.spec.ts:10:3 › sankey preserves plot and card geometry through loading and error states (1.8s)
+  ✓  530 [webkit] › tests/browser/premium-polish.spec.ts:58:1 › pie totals and shares track visible categories, including keyboard hiding and recovery (673ms)
+  ✓  531 [webkit] › tests/browser/premium-polish.spec.ts:88:1 › Sankey paints distinct stage colors and exposes a keyboard-scrollable mobile diagram (447ms)
+  ✘  532 [webkit] › tests/browser/premium-polish.spec.ts:132:1 › the linked overview and detail share a desktop row and stack on mobile (443ms)
+(node:68686) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  533 [webkit] › tests/browser/premium-polish.spec.ts:151:1 › hiding every bar series explains the empty plot and keeps keyboard recovery available (673ms)
+  ✓  534 [webkit] › tests/browser/premium-polish.spec.ts:168:1 › confines Sankey tooltips to the visible mobile scrollport at both ends (2.0s)
+  ✘  535 [webkit] › tests/browser/radar-legend-layouts.spec.ts:6:3 › keeps radar dark legends aligned, responsive and keyboard-operable across layout changes (1.2s)
+(node:68735) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  536 [webkit] › tests/browser/radar-legend-layouts.spec.ts:6:3 › keeps radar light legends aligned, responsive and keyboard-operable across layout changes (1.5s)
+  ✓  537 [webkit] › tests/browser/radar-legend-layouts.spec.ts:94:1 › keeps radar gallery chips and native choices available before JavaScript (299ms)
+  ✓  538 [webkit] › tests/browser/radar.spec.ts:17:1 › hydrates, emits equivalent plot/table identities and preserves keyboard focus across updates (743ms)
+  ✘  539 [webkit] › tests/browser/radar.spec.ts:62:1 › keeps missing observations explicit, hides stale plots in states and recovers (656ms)
+(node:68785) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  540 [webkit] › tests/browser/radar.spec.ts:85:1 › fits both themes at narrow widths, resizes a mounted plot, and preserves shared focus styling (1.2s)
+  ✘  541 [webkit] › tests/browser/radar.spec.ts:120:1 › disposes the renderer and motion listeners across 100 mount cycles and navigation (13.9s)
+(node:68900) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  542 [webkit] › tests/browser/radial-progress.spec.ts:33:1 › hydrates two named native progress values and paints real zero/full rings without remounting (707ms)
+  ✓  543 [webkit] › tests/browser/radial-progress.spec.ts:57:1 › updates through keyboard controls, never clamps invalid inputs, and recovers state precedence (682ms)
+  ✓  544 [webkit] › tests/browser/radial-progress.spec.ts:90:1 › fits both themes at four widths, recovers a hidden preview and offers working code controls (992ms)
+  ✓  545 [webkit] › tests/browser/radial-progress.spec.ts:120:1 › releases instance, observer, motion and frame resources over 100 primary mount cycles (15.4s)
+  ✓  546 [webkit] › tests/browser/radial-progress.spec.ts:155:1 › recovers a failed renderer import with a fresh native progress value (380ms)
+  -  547 [webkit] › tests/browser/retention.spec.ts:5:1 › collects obsolete row identities and keeps post-warm-up DOM ownership stable
+  ✓  548 [webkit] › tests/browser/sankey.spec.ts:16:1 › hydrates native tables and emits equivalent node/link pointer and keyboard actions (714ms)
+  ✓  549 [webkit] › tests/browser/sankey.spec.ts:49:1 › handles zeros, empty graphs, invalid cycles, application states and hidden previews (791ms)
+  ✓  550 [webkit] › tests/browser/sankey.spec.ts:74:1 › fits light/dark themes at all review widths with scroll contained to the graph (917ms)
+  ✓  551 [webkit] › tests/browser/sankey.spec.ts:101:1 › releases chart, resize, motion and focus resources over 100 mount cycles and navigation (13.3s)
+  ✓  552 [webkit] › tests/browser/sankey.spec.ts:135:1 › recovers a failed renderer import with native flow values (400ms)
+  ✓  553 [webkit] › tests/browser/sankey.spec.ts:161:1 › serves node totals and recorded zero links without JavaScript (309ms)
+  ✓  554 [webkit] › tests/browser/site-pages.spec.ts:11:1 › renders honest component availability and navigates copyable setup documentation (1.2s)
+  ✓  555 [webkit] › tests/browser/site-pages.spec.ts:85:1 › preserves site theme across docs and tools and applies it when deferred charts hydrate (1.1s)
+  ✓  556 [webkit] › tests/browser/site-pages.spec.ts:136:1 › keeps every documentation and tool page usable at narrow widths in both themes (3.8s)
+  ✓  557 [webkit] › tests/browser/table-pagination.spec.ts:5:3 › bar pages native rows with keyboard focus and leaves the plot unchanged (709ms)
+  ✓  558 [webkit] › tests/browser/table-pagination.spec.ts:5:3 › line pages native rows with keyboard focus and leaves the plot unchanged (671ms)
+  ✓  559 [webkit] › tests/browser/table-pagination.spec.ts:5:3 › area pages native rows with keyboard focus and leaves the plot unchanged (674ms)
+  ✓  560 [webkit] › tests/browser/table-pagination.spec.ts:5:3 › composed pages native rows with keyboard focus and leaves the plot unchanged (680ms)
+  ✓  561 [webkit] › tests/browser/table-pagination.spec.ts:5:3 › pie pages native rows with keyboard focus and leaves the plot unchanged (793ms)
+  ✓  562 [webkit] › tests/browser/table-pagination.spec.ts:59:1 › wraps the pager at 320px in both themes (603ms)
+  ✓  563 [webkit] › tests/browser/theme-handoff.spec.ts:15:3 › bar inherits frame colors before hydration and keeps them when the plot loads (518ms)
+  ✓  564 [webkit] › tests/browser/theme-handoff.spec.ts:15:3 › line inherits frame colors before hydration and keeps them when the plot loads (524ms)
+  ✓  565 [webkit] › tests/browser/theme-handoff.spec.ts:15:3 › area inherits frame colors before hydration and keeps them when the plot loads (522ms)
+  ✓  566 [webkit] › tests/browser/theme-handoff.spec.ts:15:3 › composed inherits frame colors before hydration and keeps them when the plot loads (520ms)
+  ✓  567 [webkit] › tests/browser/theme-handoff.spec.ts:15:3 › pie inherits frame colors before hydration and keeps them when the plot loads (513ms)
+  ✓  568 [webkit] › tests/browser/theme-handoff.spec.ts:15:3 › radar inherits frame colors before hydration and keeps them when the plot loads (470ms)
+  ✓  569 [webkit] › tests/browser/theme-handoff.spec.ts:15:3 › radial inherits frame colors before hydration and keeps them when the plot loads (460ms)
+  ✓  570 [webkit] › tests/browser/theme-handoff.spec.ts:15:3 › calendar inherits frame colors before hydration and keeps them when the plot loads (467ms)
+  ✓  571 [webkit] › tests/browser/theme-handoff.spec.ts:15:3 › sankey inherits frame colors before hydration and keeps them when the plot loads (467ms)
+  ✓  572 [webkit] › tests/browser/theme-handoff.spec.ts:101:5 › CSS theme defaults without client JavaScript › dark preserves unthemed defaults and accepts partial inherited overrides (307ms)
+  ✓  573 [webkit] › tests/browser/theme-handoff.spec.ts:101:5 › CSS theme defaults without client JavaScript › light preserves unthemed defaults and accepts partial inherited overrides (285ms)
+  ✓  574 [webkit] › tests/browser/theme-persistence.spec.ts:4:1 › remembers the selected theme across refreshes and new pages, including chart rendering (1.0s)
+  ✓  575 [webkit] › tests/browser/theme-persistence.spec.ts:40:1 › ignores an invalid saved theme and replaces it with the next selection (496ms)
+  ✓  576 [webkit] › tests/browser/theme-persistence.spec.ts:52:3 › keeps the theme toggle usable when storage access is blocked (396ms)
+  ✓  577 [webkit] › tests/browser/theme-persistence.spec.ts:52:3 › keeps the theme toggle usable when storage write is blocked (389ms)
+  ✓  578 [webkit] › tests/browser/typography.spec.ts:14:3 › loads Inter before painting chart labels at 1x density (927ms)
+  ✓  579 [webkit] › tests/browser/typography.spec.ts:14:3 › loads Inter before painting chart labels at 2x density (921ms)
+  ✓  580 [webkit] › tests/browser/updates.spec.ts:4:1 › restores a usable focus target after removal without stealing external focus (461ms)
+  ✓  581 [webkit] › tests/browser/updates.spec.ts:29:1 › retains identities, focus, visibility, and original-row events through batched updates (758ms)
+  ✓  582 [webkit] › tests/browser/value-formatting.spec.ts:11:1 › shares locale, currency, and custom numeric text across axis, tooltip, table, and raw events (716ms)
+  ✓  583 [webkit] › tests/browser/value-formatting.spec.ts:63:1 › hydrates configuration errors, contains invalid formatters and generated ticks, and recovers latest settings (829ms)
+  ✓  584 [webkit] › tests/browser/visual-refinement.spec.ts:10:1 › keeps narrow horizontal-axis numbers readable in the rendered canvas (439ms)
+  ✓  585 [webkit] › tests/browser/visual-refinement.spec.ts:50:3 › keeps nec-bar-chart mobile controls, readable code, and theme changes usable (777ms)
+  ✓  586 [webkit] › tests/browser/visual-refinement.spec.ts:50:3 › keeps nec-line-chart mobile controls, readable code, and theme changes usable (721ms)
+  ✓  587 [webkit] › tests/browser/visual-refinement.spec.ts:50:3 › keeps nec-area-chart mobile controls, readable code, and theme changes usable (770ms)
+  ✓  588 [webkit] › tests/browser/visual-refinement.spec.ts:50:3 › keeps nec-pie-chart mobile controls, readable code, and theme changes usable (722ms)
+
+
+  1) [webkit] › tests/browser/pie-chart.spec.ts:124:1 › recovers pie states, hydrates deferred controls, and disposes observers and instances
+
+    Error: browserContext.close: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-2/traces/61c36d4105c98b4b362f-616ba20373f860ffef36-recording263.trace'
+
+    Error: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-2/ac11917b0d73393fccba879344d19bdb.zip'
+
+    Error Context: test-results/pie-chart-recovers-pie-sta-d9eef-ses-observers-and-instances-webkit/error-context.md
+
+  2) [webkit] › tests/browser/premium-polish.spec.ts:10:3 › radar preserves plot and card geometry through loading and error states
+
+    Error: browserContext.close: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-3/traces/555a4d969a062362097f-8802198da147434a8392-recording8.trace'
+
+    Error: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-3/a706ebbef8a8b1391ced592e787a4dad.zip'
+
+    Error Context: test-results/premium-polish-radar-prese-3225d-gh-loading-and-error-states-webkit/error-context.md
+
+  3) [webkit] › tests/browser/premium-polish.spec.ts:10:3 › calendar preserves plot and card geometry through loading and error states
+
+    Error: browserContext.close: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-4/traces/555a4d969a062362097f-74bdec1519c6ba29d106-recording2.trace'
+
+    Error: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-4/ab64b5d8a4efef49e0e0b648f15db13f.zip'
+
+    Error Context: test-results/premium-polish-calendar-pr-4755a-gh-loading-and-error-states-webkit/error-context.md
+
+  4) [webkit] › tests/browser/premium-polish.spec.ts:132:1 › the linked overview and detail share a desktop row and stack on mobile
+
+    Error: browserContext.close: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-5/traces/555a4d969a062362097f-095ae3f18a57c5eac8ee-recording6.trace'
+
+    Error: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-5/f3419610f4e6c104f95f0ad6c4038b50.zip'
+
+    Error Context: test-results/premium-polish-the-linked--802b6-top-row-and-stack-on-mobile-webkit/error-context.md
+
+  5) [webkit] › tests/browser/radar-legend-layouts.spec.ts:6:3 › keeps radar dark legends aligned, responsive and keyboard-operable across layout changes
+
+    Error: browserContext.close: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-6/traces/1bc0606b17e4f82b9f5e-14341727c45153dab890-recording4.trace'
+
+    Error: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-6/6f5dee8ff9146b614d3e41ccf4e57855.zip'
+
+    Error Context: test-results/radar-legend-layouts-keeps-e2a6c-rable-across-layout-changes-webkit/error-context.md
+
+  6) [webkit] › tests/browser/radar.spec.ts:62:1 › keeps missing observations explicit, hides stale plots in states and recovers
+
+    Error: browserContext.close: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-7/traces/727dc1b5f4c1943d1cf8-f2d7896ed07f93fbdbd9-recording6.trace'
+
+    Error: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-7/362279f7a8d13552688f60d5ee575edc.zip'
+
+    Error Context: test-results/radar-keeps-missing-observ-270f1-lots-in-states-and-recovers-webkit/error-context.md
+
+  7) [webkit] › tests/browser/radar.spec.ts:120:1 › disposes the renderer and motion listeners across 100 mount cycles and navigation
+
+    Error: browserContext.close: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-8/traces/727dc1b5f4c1943d1cf8-1096e499c580cfa05e73-recording2.trace'
+
+    Error: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-8/963108daa55499727bc2990162ccdd56.zip'
+
+    Error Context: test-results/radar-disposes-the-rendere-6ac71-mount-cycles-and-navigation-webkit/error-context.md
+
+  7 failed
+    [webkit] › tests/browser/pie-chart.spec.ts:124:1 › recovers pie states, hydrates deferred controls, and disposes observers and instances
+    [webkit] › tests/browser/premium-polish.spec.ts:10:3 › radar preserves plot and card geometry through loading and error states
+    [webkit] › tests/browser/premium-polish.spec.ts:10:3 › calendar preserves plot and card geometry through loading and error states
+    [webkit] › tests/browser/premium-polish.spec.ts:132:1 › the linked overview and detail share a desktop row and stack on mobile
+    [webkit] › tests/browser/radar-legend-layouts.spec.ts:6:3 › keeps radar dark legends aligned, responsive and keyboard-operable across layout changes
+    [webkit] › tests/browser/radar.spec.ts:62:1 › keeps missing observations explicit, hides stale plots in states and recovers
+    [webkit] › tests/browser/radar.spec.ts:120:1 › disposes the renderer and motion listeners across 100 mount cycles and navigation
+  4 skipped
+  577 passed (16.8m)

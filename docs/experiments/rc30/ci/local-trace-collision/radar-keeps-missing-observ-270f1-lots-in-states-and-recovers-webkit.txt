@@ -1,0 +1,16 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: radar.spec.ts >> keeps missing observations explicit, hides stale plots in states and recovers
+- Location: tests/browser/radar.spec.ts:62:1
+
+# Error details
+
+```
+Error: browserContext.close: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-7/traces/727dc1b5f4c1943d1cf8-f2d7896ed07f93fbdbd9-recording6.trace'
+```

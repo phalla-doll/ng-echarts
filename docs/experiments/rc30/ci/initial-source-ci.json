@@ -1,0 +1,37 @@
+{
+  "conclusion": "failure",
+  "headSha": "d1db099d30c633df3d4bda5f06b8f1533e6b3bfc",
+  "jobs": [
+    {
+      "conclusion": "success",
+      "name": "workspace",
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/44010990276/job/133797676344"
+    },
+    {
+      "conclusion": "success",
+      "name": "browser (firefox)",
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/44010990276/job/133797676611"
+    },
+    {
+      "conclusion": "success",
+      "name": "browser (chromium)",
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/44010990276/job/133797676634"
+    },
+    {
+      "conclusion": "success",
+      "name": "pages",
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/44010990276/job/133797676693"
+    },
+    {
+      "conclusion": "failure",
+      "name": "browser (webkit)",
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/44010990276/job/133797676726"
+    },
+    {
+      "conclusion": "failure",
+      "name": "check",
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/44010990276/job/133800911078"
+    }
+  ],
+  "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/44010990276"
+}

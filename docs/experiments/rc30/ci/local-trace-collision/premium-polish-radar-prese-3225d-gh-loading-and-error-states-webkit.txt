@@ -1,0 +1,16 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: premium-polish.spec.ts >> radar preserves plot and card geometry through loading and error states
+- Location: tests/browser/premium-polish.spec.ts:10:3
+
+# Error details
+
+```
+Error: browserContext.close: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-3/traces/555a4d969a062362097f-8802198da147434a8392-recording8.trace'
+```

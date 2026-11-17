@@ -1,0 +1,461 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: demo-performance.spec.ts >> renders concept charts progressively, keeps data available, and retains a self-contained offline edition
+- Location: tests/browser/demo-performance.spec.ts:140:1
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: page.goto: Test timeout of 30000ms exceeded.
+Call log:
+  - navigating to "http://localhost:4173/chart-possibilities", waiting until "load"
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - link "Skip to content" [ref=e4]:
+    - /url: /chart-possibilities#page-content
+  - button "Open navigation" [ref=e5] [cursor=pointer]
+  - generic [ref=e9]:
+    - banner [ref=e10]:
+      - link "ng-echarts home" [ref=e11]:
+        - /url: /
+        - generic [ref=e12]: ng-echarts
+      - generic [ref=e13]:
+        - link "View ng-echarts on GitHub" [ref=e14]:
+          - /url: https://github.com/phalla-doll/ng-echarts
+        - button "Use light theme" [pressed] [ref=e15] [cursor=pointer]
+    - region "Chart possibilities" [ref=e21]:
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - heading "Chart possibilities" [level=1] [ref=e24]
+          - paragraph [ref=e25]: Twelve proposed additions to the library, with interactive examples and sample data.
+        - link "Open standalone gallery" [ref=e26]:
+          - /url: concepts/chart-style-gallery.html?v=d7a92b74410e
+      - iframe [ref=e30]:
+        - main [ref=f1e2]:
+          - generic [ref=f1e3]:
+            - navigation "Filter chart examples" [ref=f1e4]:
+              - button "All charts" [pressed] [ref=f1e5] [cursor=pointer]
+              - button "Compare" [ref=f1e6] [cursor=pointer]
+              - button "Find patterns" [ref=f1e7] [cursor=pointer]
+              - button "Explore flows" [ref=f1e8] [cursor=pointer]
+              - button "Track goals" [ref=f1e9] [cursor=pointer]
+            - status [ref=f1e10]: 12 chart ideas
+          - generic [ref=f1e11]:
+            - article [ref=f1e12]:
+              - generic [ref=f1e14]:
+                - heading "Calendar heatmap" [level=2] [ref=f1e15]
+                - paragraph [ref=f1e16]: Activity over time
+              - generic [ref=f1e18]:
+                - text: 5,217
+                - generic [ref=f1e19]: events this quarter
+              - 'img "Calendar heatmap: Read intensity across the week; spot quiet days and recurring peaks. Values are available in the data table below." [ref=f1e20]':
+                - img [ref=f1e22]:
+                  - generic [ref=f1e24]:
+                    - generic [ref=f1e207]: Jul
+                    - generic [ref=f1e208]: Aug
+                    - generic [ref=f1e209]: Sep
+                    - generic [ref=f1e210]: M
+                    - generic [ref=f1e211]: T
+                    - generic [ref=f1e212]: W
+                    - generic [ref=f1e213]: T
+                    - generic [ref=f1e214]: F
+                    - generic [ref=f1e215]: S
+                    - generic [ref=f1e216]: S
+                    - generic [ref=f1e221]: Less
+                    - generic [ref=f1e222]: More
+              - generic [ref=f1e223]:
+                - paragraph [ref=f1e224]: Daily activity, orders, usage, or uptime.
+                - group [ref=f1e225]:
+                  - generic "View sample data" [ref=f1e226] [cursor=pointer]
+            - article [ref=f1e227]:
+              - generic [ref=f1e229]:
+                - heading "Waterfall" [level=2] [ref=f1e230]
+                - paragraph [ref=f1e231]: What changed the total
+              - generic [ref=f1e232]:
+                - generic [ref=f1e233]:
+                  - text: $128k
+                  - generic [ref=f1e234]: ending revenue
+                - generic [ref=f1e235]:
+                  - generic [ref=f1e236]: Increase
+                  - generic [ref=f1e238]: Decrease
+                  - generic [ref=f1e240]: Total
+              - 'img "Waterfall: Separate increases, decreases, and totals to explain the movement. Values are available in the data table below." [ref=f1e242]'
+              - generic [ref=f1e243]:
+                - paragraph [ref=f1e244]: Revenue bridges, budget changes, or gains and losses.
+                - group [ref=f1e245]:
+                  - generic "View sample data" [ref=f1e246] [cursor=pointer]
+            - article [ref=f1e247]:
+              - generic [ref=f1e249]:
+                - heading "Scatter / bubble" [level=2] [ref=f1e250]
+                - paragraph [ref=f1e251]: Relationships and outliers
+              - generic [ref=f1e252]:
+                - generic [ref=f1e253]:
+                  - text: "18"
+                  - generic [ref=f1e254]: campaigns compared
+                - group "Point display" [ref=f1e255]:
+                  - button "Scatter" [pressed] [ref=f1e256] [cursor=pointer]
+                  - button "Bubble" [ref=f1e257] [cursor=pointer]
+              - 'img "Scatter / bubble: Switch to bubbles to encode order volume with the area of each point. Values are available in the data table below." [ref=f1e258]'
+              - generic [ref=f1e259]:
+                - paragraph [ref=f1e260]: Spend vs. revenue, price vs. demand, or performance vs. cost.
+                - group [ref=f1e261]:
+                  - generic "View sample data" [ref=f1e262] [cursor=pointer]
+            - article [ref=f1e263]:
+              - generic [ref=f1e265]:
+                - heading "Bullet / target bars" [level=2] [ref=f1e266]
+                - paragraph [ref=f1e267]: Actual performance against a goal
+              - generic [ref=f1e268]:
+                - generic [ref=f1e269]:
+                  - text: 86%
+                  - generic [ref=f1e270]: of overall target
+                - generic [ref=f1e271]:
+                  - generic [ref=f1e272]: Actual
+                  - generic [ref=f1e274]: Target
+              - generic [ref=f1e276]:
+                - generic [ref=f1e277]: Metric
+                - generic [ref=f1e278]: Actual / Target
+              - 'img "Bullet / target bars: Green bars show actuals; ticks show targets; background bands show progress zones. Values are available in the data table below." [ref=f1e279]'
+              - generic [ref=f1e280]:
+                - paragraph [ref=f1e281]: Sales quotas, team targets, or capacity planning.
+                - group [ref=f1e282]:
+                  - generic "View sample data" [ref=f1e283] [cursor=pointer]
+            - article [ref=f1e284]:
+              - generic [ref=f1e286]:
+                - heading "Dumbbell" [level=2] [ref=f1e287]
+                - paragraph [ref=f1e288]: Before and after
+              - generic [ref=f1e289]:
+                - generic [ref=f1e290]:
+                  - text: +14 pts
+                  - generic [ref=f1e291]: overall satisfaction
+                - generic [ref=f1e292]:
+                  - generic [ref=f1e293]: Before
+                  - generic [ref=f1e295]: After
+              - 'img "Dumbbell: Paired endpoints make both direction and the size of the difference visible. Values are available in the data table below." [ref=f1e297]'
+              - generic [ref=f1e298]:
+                - paragraph [ref=f1e299]: Comparing two periods, two cohorts, or before/after results.
+                - group [ref=f1e300]:
+                  - generic "View sample data" [ref=f1e301] [cursor=pointer]
+            - article [ref=f1e302]:
+              - generic [ref=f1e304]:
+                - heading "Sankey" [level=2] [ref=f1e305]
+                - paragraph [ref=f1e306]: Acquisition to conversion
+              - generic [ref=f1e308]:
+                - text: 1,000
+                - generic [ref=f1e309]: visits traced
+              - 'img "Sankey: Ribbon width represents volume. Hover a node to trace its connected paths. Values are available in the data table below." [ref=f1e310]'
+              - generic [ref=f1e311]:
+                - paragraph [ref=f1e312]: Customer journeys, traffic attribution, or resource flows.
+                - group [ref=f1e313]:
+                  - generic "View sample data" [ref=f1e314] [cursor=pointer]
+            - article [ref=f1e315]:
+              - generic [ref=f1e317]:
+                - heading "Treemap" [level=2] [ref=f1e318]
+                - paragraph [ref=f1e319]: The shape of a portfolio
+              - generic [ref=f1e321]:
+                - text: $240k
+                - generic [ref=f1e322]: revenue by product
+              - generic "Product families" [ref=f1e323]:
+                - generic [ref=f1e324]: Analytics
+                - generic [ref=f1e326]: Commerce
+                - generic [ref=f1e328]: Platform
+                - generic [ref=f1e330]: Services
+              - 'img "Treemap: Tile area shows contribution; nested tiles reveal the product hierarchy. Values are available in the data table below." [ref=f1e332]'
+              - generic [ref=f1e333]:
+                - paragraph [ref=f1e334]: Category contribution, storage usage, or product revenue.
+                - group [ref=f1e335]:
+                  - generic "View sample data" [ref=f1e336] [cursor=pointer]
+            - article [ref=f1e337]:
+              - generic [ref=f1e339]:
+                - heading "Radial progress" [level=2] [ref=f1e340]
+                - paragraph [ref=f1e341]: A single measure with a defined target
+              - 'img "Radial progress: One quiet arc and a central value keep the focus on a single measure. Values are available in the data table below." [ref=f1e342]'
+              - generic [ref=f1e343]:
+                - paragraph [ref=f1e344]: Goal completion, project progress, or budget consumption.
+                - group [ref=f1e345]:
+                  - generic "View sample data" [ref=f1e346] [cursor=pointer]
+            - article [ref=f1e347]:
+              - generic [ref=f1e349]:
+                - heading "Radar" [level=2] [ref=f1e350]
+                - paragraph [ref=f1e351]: Two products, one shared scale
+              - generic [ref=f1e352]:
+                - generic [ref=f1e353]:
+                  - text: "6"
+                  - generic [ref=f1e354]: dimensions compared
+                - generic [ref=f1e355]:
+                  - generic [ref=f1e356]: Product A
+                  - generic [ref=f1e358]: Product B
+              - 'img "Radar: All axes use a 0–100 score. Keep the dimension count small for readability. Values are available in the data table below." [ref=f1e360]'
+              - generic [ref=f1e361]:
+                - paragraph [ref=f1e362]: Comparing a few profiles across consistently scaled dimensions.
+                - group [ref=f1e363]:
+                  - generic "View sample data" [ref=f1e364] [cursor=pointer]
+            - article [ref=f1e365]:
+              - generic [ref=f1e367]:
+                - heading "KPI sparklines" [level=2] [ref=f1e368]
+                - paragraph [ref=f1e369]: A headline number with a little context
+              - generic [ref=f1e370]:
+                - generic [ref=f1e371]:
+                  - generic [ref=f1e372]: Revenue
+                  - generic [ref=f1e373]: $48.2k
+                  - generic [ref=f1e374]: +12.4% vs. last week
+                  - img "Weekly revenue trend" [ref=f1e375]
+                - generic [ref=f1e376]:
+                  - generic [ref=f1e377]: Active users
+                  - generic [ref=f1e378]: 8,420
+                  - generic [ref=f1e379]: +8.1% vs. last week
+                  - img "Weekly active users trend" [ref=f1e380]
+                - generic [ref=f1e381]:
+                  - generic [ref=f1e382]: Churn
+                  - generic [ref=f1e383]: 2.1%
+                  - generic [ref=f1e384]: +0.3 pts vs. last week
+                  - img "Weekly churn trend" [ref=f1e385]
+              - generic [ref=f1e386]:
+                - paragraph [ref=f1e387]: Dashboard summaries, list rows, or metric overviews.
+                - group [ref=f1e388]:
+                  - generic "View sample data" [ref=f1e389] [cursor=pointer]
+            - article [ref=f1e390]:
+              - generic [ref=f1e392]:
+                - heading "100% stacked bars" [level=2] [ref=f1e393]
+                - paragraph [ref=f1e394]: How the mix changes
+              - generic [ref=f1e395]:
+                - generic [ref=f1e396]:
+                  - text: 48%
+                  - generic [ref=f1e397]: desktop share in June
+                - generic [ref=f1e398]:
+                  - generic [ref=f1e399]: Desktop
+                  - generic [ref=f1e401]: Mobile
+                  - generic [ref=f1e403]: Tablet
+              - 'img "100% stacked bars: Every bar sums to 100%, so changing proportions are easy to compare. Values are available in the data table below." [ref=f1e405]'
+              - generic [ref=f1e406]:
+                - paragraph [ref=f1e407]: Device share, channel mix, or proportional comparisons.
+                - group [ref=f1e408]:
+                  - generic "View sample data" [ref=f1e409] [cursor=pointer]
+            - article [ref=f1e410]:
+              - generic [ref=f1e412]:
+                - heading "Ranked lollipop" [level=2] [ref=f1e413]
+                - paragraph [ref=f1e414]: Traffic by acquisition channel
+              - generic [ref=f1e416]:
+                - text: "8"
+                - generic [ref=f1e417]: channels ranked
+              - generic [ref=f1e418]:
+                - generic [ref=f1e419]: Channel
+                - generic [ref=f1e420]: Visits
+              - 'img "Ranked lollipop: Thin stems and clear endpoints keep the ranking legible with less visual weight. Values are available in the data table below." [ref=f1e421]'
+              - generic [ref=f1e422]:
+                - paragraph [ref=f1e423]: Leaderboards, top acquisition channels, or category rankings.
+                - group [ref=f1e424]:
+                  - generic "View sample data" [ref=f1e425] [cursor=pointer]
+          - complementary [ref=f1e426]:
+            - heading "Where I’d start" [level=2] [ref=f1e427]
+            - paragraph [ref=f1e428]:
+              - link "Calendar heatmap" [ref=f1e429]:
+                - /url: "#calendar"
+              - text: for a new visual rhythm,
+              - link "waterfall" [ref=f1e430]:
+                - /url: "#waterfall"
+              - text: for a clear business story, and
+              - link "scatter / bubble" [ref=f1e431]:
+                - /url: "#scatter"
+              - text: for relationships our existing charts don’t show.
+          - generic [ref=f1e432]:
+            - paragraph [ref=f1e433]: A concept gallery for ng-echarts. These examples use the embedded Apache ECharts engine directly; they preview possible additions to the Angular library. Sample figures are fictional. Hover or tap a chart for values, or open its data table.
+            - group [ref=f1e434]:
+              - generic "About this file & open-source notices" [ref=f1e435] [cursor=pointer]
+```
+
+# Test source
+
+```ts
+  46  |   page,
+  47  | }) => {
+  48  |   const stats = JSON.parse(await readFile('dist/playground/browser-stats.json', 'utf8')) as {
+  49  |     outputs: Record<string, { entryPoint?: string }>;
+  50  |   };
+  51  |   const entry = Object.entries(stats.outputs).find(([, output]) =>
+  52  |     output.entryPoint?.endsWith('/highlight-code.ts'),
+  53  |   );
+  54  |   expect(entry).toBeDefined();
+  55  |   await page.route(`**/${entry![0]}`, (route) => route.abort());
+  56  |   await page.addInitScript(() =>
+  57  |     Object.defineProperty(navigator, 'clipboard', {
+  58  |       configurable: true,
+  59  |       value: {
+  60  |         writeText: async (text: string) => {
+  61  |           (window as unknown as { performanceCodeCopy: string }).performanceCodeCopy = text;
+  62  |         },
+  63  |       },
+  64  |     }),
+  65  |   );
+  66  |   await page.goto('/');
+  67  |   await expect(page.locator('canvas').first()).toBeVisible();
+  68  |   const first = page.locator('app-bar-block').first();
+  69  |   await first.getByRole('button', { name: 'Code', exact: true }).click();
+  70  |   const code = first.locator('.block-code code');
+  71  |   await expect(code).toContainText('export class DeviceVisits');
+  72  |   await expect(code.locator('.hljs-keyword')).toHaveCount(0);
+  73  |   await first.getByRole('button', { name: 'Copy code', exact: true }).click();
+  74  |   expect(
+  75  |     await page.evaluate(
+  76  |       () => (window as unknown as { performanceCodeCopy: string }).performanceCodeCopy,
+  77  |     ),
+  78  |   ).toBe(await code.textContent());
+  79  | });
+  80  |
+  81  | test('loads the concept frame before Angular and recovers the late parent handshake without redrawing', async ({
+  82  |   page,
+  83  | }) => {
+  84  |   const errors = collectBrowserErrors(page);
+  85  |   const documents: string[] = [];
+  86  |   page.on('request', (request) => {
+  87  |     if (
+  88  |       request.isNavigationRequest() &&
+  89  |       request.url().includes('/concepts/chart-style-gallery-embedded.html')
+  90  |     )
+  91  |       documents.push(request.url());
+  92  |   });
+  93  |   let release!: () => void;
+  94  |   const held = new Promise<void>((resolve) => (release = resolve));
+  95  |   await page.route('**/main-*.js', async (route) => {
+  96  |     await held;
+  97  |     await route.continue();
+  98  |   });
+  99  |   try {
+  100 |     const response = await page.goto('/chart-possibilities', { waitUntil: 'commit' });
+  101 |     expect(await response!.text()).toContain('concepts/chart-style-gallery-embedded.html?v=');
+  102 |     const gallery = page.frameLocator('app-chart-possibilities iframe');
+  103 |     await expect(gallery.locator('#plot-calendar svg')).toHaveCount(1);
+  104 |     await expect(gallery.locator('#plot-calendar')).toHaveAttribute('data-render-count', '1');
+  105 |     const frameOrigin = await gallery.locator('html').evaluate(() => performance.timeOrigin);
+  106 |     release();
+  107 |     await expect(page.locator('.loading-note')).toBeHidden();
+  108 |     await expect
+  109 |       .poll(() =>
+  110 |         page
+  111 |           .locator('iframe')
+  112 |           .evaluate((el: HTMLIFrameElement) =>
+  113 |             Math.abs(
+  114 |               el.getBoundingClientRect().height -
+  115 |                 el.contentDocument!.body.getBoundingClientRect().height,
+  116 |             ),
+  117 |           ),
+  118 |       )
+  119 |       .toBeLessThanOrEqual(1);
+  120 |     await expect(gallery.locator('#plot-calendar')).toHaveAttribute('data-render-count', '1');
+  121 |     expect(documents).toHaveLength(1);
+  122 |     expect(await gallery.locator('html').evaluate(() => performance.timeOrigin)).toBe(frameOrigin);
+  123 |     const height = await page.locator('iframe').getAttribute('style');
+  124 |     await page.evaluate(() =>
+  125 |       dispatchEvent(
+  126 |         new MessageEvent('message', {
+  127 |           origin: location.origin,
+  128 |           source: window,
+  129 |           data: { type: 'chart-possibilities:resize', height: 1, ready: true },
+  130 |         }),
+  131 |       ),
+  132 |     );
+  133 |     expect(await page.locator('iframe').getAttribute('style')).toBe(height);
+  134 |     expect(errors).toEqual([]);
+  135 |   } finally {
+  136 |     release();
+  137 |   }
+  138 | });
+  139 |
+  140 | test('renders concept charts progressively, keeps data available, and retains a self-contained offline edition', async ({
+  141 |   page,
+  142 |   context,
+  143 | }) => {
+  144 |   const errors = collectBrowserErrors(page);
+  145 |   await page.setViewportSize({ width: 390, height: 844 });
+> 146 |   await page.goto('/chart-possibilities');
+      |              ^ Error: page.goto: Test timeout of 30000ms exceeded.
+  147 |   const gallery = page.frameLocator('app-chart-possibilities iframe');
+  148 |   await expect(gallery.locator('#plot-calendar svg')).toHaveCount(1);
+  149 |   await expect(gallery.locator('#plot-treemap svg')).toHaveCount(0);
+  150 |   await expect(gallery.locator('#plot-calendar')).toHaveAttribute('data-render-count', '1');
+  151 |   await page.getByRole('button', { name: 'Use light theme', exact: true }).click();
+  152 |   await expect(gallery.locator('#plot-calendar')).toHaveAttribute('data-render-count', '2');
+  153 |   await gallery.locator('#treemap').scrollIntoViewIfNeeded();
+  154 |   await expect(gallery.locator('#plot-treemap svg')).toHaveCount(1);
+  155 |   await gallery.locator('#treemap summary').click();
+  156 |   await expect(gallery.locator('#treemap table')).toBeVisible();
+  157 |   await renderConcepts(page);
+  158 |   await expect(gallery.locator('.plot svg, .spark-plot svg')).toHaveCount(14);
+  159 |   const standalone = await page
+  160 |     .getByRole('link', { name: 'Open standalone gallery', exact: true })
+  161 |     .getAttribute('href');
+  162 |   const response = await page.goto(`/${standalone}`);
+  163 |   const html = await response!.text();
+  164 |   expect(html).toContain('data:font/woff2;base64,');
+  165 |   expect(html).toContain('var echarts=');
+  166 |   await expect(page.locator('#plot-calendar svg')).toHaveCount(1);
+  167 |   await context.setOffline(true);
+  168 |   await renderConcepts(page);
+  169 |   await expect(page.locator('.plot svg, .spark-plot svg')).toHaveCount(14);
+  170 |   await page.getByRole('button', { name: /theme$/ }).click();
+  171 |   await page.getByRole('button', { name: 'Find patterns', exact: true }).click();
+  172 |   await page.getByRole('button', { name: 'Bubble', exact: true }).click();
+  173 |   await expect(page.getByRole('button', { name: 'Bubble', exact: true })).toHaveAttribute(
+  174 |     'aria-pressed',
+  175 |     'true',
+  176 |   );
+  177 |   expect(errors).toEqual([]);
+  178 | });
+  179 |
+  180 | test('keeps deferred concepts usable in cached wrappers without viewport messages', async ({
+  181 |   page,
+  182 | }) => {
+  183 |   const errors = collectBrowserErrors(page);
+  184 |   await page.setViewportSize({ width: 390, height: 844 });
+  185 |   await page.route('**/legacy-gallery-host', (route) =>
+  186 |     route.fulfill({
+  187 |       contentType: 'text/html',
+  188 |       body: `<!doctype html><style>body{margin:0}iframe{display:block;width:100%;height:12000px;border:0}</style><app-chart-possibilities><iframe title="Legacy concept host" src="/concepts/chart-style-gallery.html?embedded=1&theme=dark"></iframe></app-chart-possibilities>`,
+  189 |     }),
+  190 |   );
+  191 |   await page.goto('/legacy-gallery-host');
+  192 |   const gallery = page.frameLocator('iframe');
+  193 |   await expect(gallery.locator('#plot-calendar svg')).toHaveCount(1);
+  194 |   await expect(gallery.locator('#plot-treemap svg')).toHaveCount(0);
+  195 |   await renderConcepts(page);
+  196 |   await expect(gallery.locator('.plot svg,.spark-plot svg')).toHaveCount(14);
+  197 |   expect(errors).toEqual([]);
+  198 | });
+  199 |
+  200 | test('starts embedded concepts when WebKit leaves whole-set font readiness pending', async ({
+  201 |   page,
+  202 | }) => {
+  203 |   const errors = collectBrowserErrors(page);
+  204 |   await page.addInitScript(() => {
+  205 |     if (window === parent) return;
+  206 |     Object.defineProperty(document.fonts, 'ready', {
+  207 |       configurable: true,
+  208 |       get: () => new Promise(() => {}),
+  209 |     });
+  210 |   });
+  211 |   await page.goto('/chart-possibilities', { waitUntil: 'domcontentloaded' });
+  212 |   const gallery = page.frameLocator('app-chart-possibilities iframe');
+  213 |   await expect(gallery.locator('#plot-calendar svg')).toHaveCount(1);
+  214 |   await expect(page.locator('.loading-note')).toBeHidden();
+  215 |   await renderConcepts(page);
+  216 |   await expect(gallery.locator('.plot svg, .spark-plot svg')).toHaveCount(14);
+  217 |   await gallery.getByRole('button', { name: 'Find patterns', exact: true }).click();
+  218 |   await expect(gallery.locator('.card:visible')).toHaveCount(2);
+  219 |   expect(errors).toEqual([]);
+  220 | });
+  221 |
+```

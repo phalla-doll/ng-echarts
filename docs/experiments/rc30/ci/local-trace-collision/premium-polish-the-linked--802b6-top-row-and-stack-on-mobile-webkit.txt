@@ -1,0 +1,16 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: premium-polish.spec.ts >> the linked overview and detail share a desktop row and stack on mobile
+- Location: tests/browser/premium-polish.spec.ts:132:1
+
+# Error details
+
+```
+Error: browserContext.close: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-5/traces/555a4d969a062362097f-095ae3f18a57c5eac8ee-recording6.trace'
+```

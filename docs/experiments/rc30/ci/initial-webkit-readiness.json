@@ -1,0 +1,130 @@
+{
+  "run": 44010990276,
+  "job": 133797676726,
+  "source": "d1db099d30c633df3d4bda5f06b8f1533e6b3bfc",
+  "failure": "Default page.goto load-event wait exhausts the existing 30-second test before chart assertions run. Snapshot already contains the calendar SVG and native sample-data controls; all recorded requests return HTTP 200. This trace does not identify the exact cause of the delayed load event.",
+  "retainedAssertions": "Calendar SVG/render count, deferred treemap, theme rerender, table data, all 14 plots, self-contained HTML/font/engine, offline controls and browser-error checks.",
+  "correction": "Use domcontentloaded for the two navigations and retain explicit plot/UI readiness assertions and all existing timeouts.",
+  "events": [
+    {
+      "type": "before",
+      "callId": "npdo@22242",
+      "startTime": 326235.476,
+      "class": "Test",
+      "method": "pw:api",
+      "title": "Navigate",
+      "subtitle": "/chart-possibilities",
+      "params": {
+        "url": "/chart-possibilities"
+      },
+      "stack": [
+        {
+          "file": "/home/runner/work/ng-echarts/ng-echarts/tests/browser/demo-performance.spec.ts",
+          "line": 146,
+          "column": 14
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+      "stack": []
+    },
+    {
+      "type": "after",
+      "callId": "npdo@22242",
+      "endTime": 356285.395,
+      "annotations": [],
+      "error": {
+        "name": "",
+        "message": "Error: page.goto: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:4173/chart-possibilities\", waiting until \"load\"\u001b[22m\n",
+        "stack": "Error: page.goto: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:4173/chart-possibilities\", waiting until \"load\"\u001b[22m\n\n    at /home/runner/work/ng-echarts/ng-echarts/tests/browser/demo-performance.spec.ts:146:14"
+      }
+    },
+    {
+      "type": "error",
+      "message": "Error: page.goto: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://localhost:4173/chart-possibilities\", waiting until \"load\"\u001b[22m\n",
+      "stack": [
+        {
+          "file": "/home/runner/work/ng-echarts/ng-echarts/tests/browser/demo-performance.spec.ts",
+          "line": 146,
+          "column": 14
+        }
+      ]
+    }
+  ],
+  "network": [
+    {
+      "url": "http://localhost:4173/chart-possibilities",
+      "status": 200,
+      "durationMs": 23.673000000000002,
+      "failure": null
+    },
+    {
+      "url": "http://localhost:4173/fonts/inter-latin.woff2",
+      "status": 200,
+      "durationMs": 7.645,
+      "failure": null
+    },
+    {
+      "url": "http://localhost:4173/chunk-B6Fy8hbW.js",
+      "status": 200,
+      "durationMs": 7.681,
+      "failure": null
+    },
+    {
+      "url": "http://localhost:4173/styles-KNRWW7UI.css",
+      "status": 200,
+      "durationMs": 11.403,
+      "failure": null
+    },
+    {
+      "url": "http://localhost:4173/chunk-C8Ya1Jyj.js",
+      "status": 200,
+      "durationMs": 5.269,
+      "failure": null
+    },
+    {
+      "url": "http://localhost:4173/chunk-BCV1fTjr.js",
+      "status": 200,
+      "durationMs": 13.403,
+      "failure": null
+    },
+    {
+      "url": "http://localhost:4173/main-NTR5ELYN.js",
+      "status": 200,
+      "durationMs": 15.027000000000001,
+      "failure": null
+    },
+    {
+      "url": "http://localhost:4173/concepts/chart-style-gallery-embedded.html?v=d7a92b74410e&embedded=1&theme=dark",
+      "status": 200,
+      "durationMs": 12.477,
+      "failure": null
+    },
+    {
+      "url": "http://localhost:4173/fonts/inter-latin.woff2",
+      "status": 200,
+      "durationMs": 1.106,
+      "failure": null
+    },
+    {
+      "url": "http://localhost:4173/concepts/chart-gallery-engine-5514d89c1f79467b.js",
+      "status": 200,
+      "durationMs": 25.417,
+      "failure": null
+    },
+    {
+      "url": "http://localhost:4173/brand/orbit-e-light.svg",
+      "status": 200,
+      "durationMs": 18.803,
+      "failure": null
+    },
+    {
+      "url": "http://localhost:4173/third-party/github-dark.svg",
+      "status": 200,
+      "durationMs": 16.876,
+      "failure": null
+    }
+  ]
+}

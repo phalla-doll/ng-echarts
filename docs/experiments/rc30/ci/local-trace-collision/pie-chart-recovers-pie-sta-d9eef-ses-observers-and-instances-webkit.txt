@@ -1,0 +1,16 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: pie-chart.spec.ts >> recovers pie states, hydrates deferred controls, and disposes observers and instances
+- Location: tests/browser/pie-chart.spec.ts:124:1
+
+# Error details
+
+```
+Error: browserContext.close: ENOENT: no such file or directory, open '/Users/phalla/Documents/codes/ng-echarts/test-results/.playwright-artifacts-2/traces/61c36d4105c98b4b362f-616ba20373f860ffef36-recording263.trace'
+```

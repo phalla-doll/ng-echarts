@@ -1,0 +1,35 @@
+workspace	Run npm run check:workspace	2026-11-17T03:34:12.4312065Z ℹ skipped 0
+workspace	Run npm run check:workspace	2026-11-17T03:34:15.2214462Z ℹ skipped 0
+workspace	Run npm run check:workspace	2026-11-17T03:34:15.5857351Z ℹ skipped 0
+workspace	Run npm run check:workspace	2026-11-17T03:35:00.0665156Z  Test Files  47 passed (47)
+workspace	Run npm run check:workspace	2026-11-17T03:35:00.0672621Z       Tests  322 passed (322)
+workspace	Run npm run check:workspace	2026-11-17T03:35:05.1753573Z  Test Files  7 passed (7)
+workspace	Run npm run check:workspace	2026-11-17T03:35:05.1754478Z       Tests  20 passed (20)
+workspace	Run npm run check:workspace	2026-11-17T03:38:21.6133703Z PASS: core 8697 gzip / 7673 Brotli bytes; 0 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-17T03:38:22.8356834Z PASS: root 221121 gzip / 188993 Brotli bytes; 253 engine modules, none eager.
+workspace	Run npm run release:local	2026-11-17T03:38:32.1417483Z Prepared mantha911-ng-echarts-0.1.0-rc.30.tgz (167101 bytes), SHA-256 e19fbb40964251f5c1c6b7d10cc3808feb6fe10eb7419ae75fff7a880b7a7c6c
+workspace	Run npm run release:local	2026-11-17T03:40:52.7949968Z PASS: exact mantha911-ng-echarts-0.1.0-rc.30.tgz metadata/notices, strict declarations, fresh docs and three-engine CSR/SSR consumers. Human release gates remain pending.
+workspace	Run npm run check:release-immutability	2026-11-17T03:40:53.8734596Z PASS: repeated preparation refuses to replace the archive, checksum or manifest.
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-17T03:35:04.4911777Z   ✓   17 [firefox] › tests/browser/calendar.spec.ts:200:1 › recovers a failed renderer import with native daily values (689ms)
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-17T03:36:12.7974412Z   ✓   41 [firefox] › tests/browser/composed-chart.spec.ts:404:1 › retries a failed composed renderer import without exposing its exception (535ms)
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-17T03:38:03.5326465Z   ✓  108 [firefox] › tests/browser/lifecycle.spec.ts:180:1 › recovers from a failed browser renderer import without exposing the exception (862ms)
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-17T03:38:31.3531147Z   ✓  113 [firefox] › tests/browser/line-chart.spec.ts:220:1 › retries a failed line renderer import without exposing its exception (526ms)
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-17T03:40:29.4419311Z   ✓  154 [firefox] › tests/browser/radial-progress.spec.ts:155:1 › recovers a failed renderer import with a fresh native progress value (499ms)
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-17T03:40:56.4814840Z   ✓  160 [firefox] › tests/browser/sankey.spec.ts:135:1 › recovers a failed renderer import with native flow values (543ms)
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-17T03:41:36.4415528Z   2 skipped
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-17T03:41:36.4415839Z   194 passed (7.8m)
+browser (chromium)	Run npm run test:browser -- --project=chromium --max-failures=1	2026-11-17T03:35:10.1544503Z   ✓   17 [chromium] › tests/browser/calendar.spec.ts:200:1 › recovers a failed renderer import with native daily values (435ms)
+browser (chromium)	Run npm run test:browser -- --project=chromium --max-failures=1	2026-11-17T03:36:08.8344625Z   ✓   41 [chromium] › tests/browser/composed-chart.spec.ts:404:1 › retries a failed composed renderer import without exposing its exception (336ms)
+browser (chromium)	Run npm run test:browser -- --project=chromium --max-failures=1	2026-11-17T03:37:33.7645197Z   ✓  108 [chromium] › tests/browser/lifecycle.spec.ts:180:1 › recovers from a failed browser renderer import without exposing the exception (331ms)
+browser (chromium)	Run npm run test:browser -- --project=chromium --max-failures=1	2026-11-17T03:37:56.5915033Z   ✓  113 [chromium] › tests/browser/line-chart.spec.ts:220:1 › retries a failed line renderer import without exposing its exception (350ms)
+browser (chromium)	Run npm run test:browser -- --project=chromium --max-failures=1	2026-11-17T03:39:28.8629608Z   ✓  154 [chromium] › tests/browser/radial-progress.spec.ts:155:1 › recovers a failed renderer import with a fresh native progress value (272ms)
+browser (chromium)	Run npm run test:browser -- --project=chromium --max-failures=1	2026-11-17T03:40:05.0036579Z   ✓  160 [chromium] › tests/browser/sankey.spec.ts:135:1 › recovers a failed renderer import with native flow values (323ms)
+browser (chromium)	Run npm run test:browser -- --project=chromium --max-failures=1	2026-11-17T03:40:30.4895053Z   196 passed (6.5m)
+pages	Run npm run build:pages	2026-11-17T03:34:33.3878074Z Sealed 145 Pages files; SHA-256 13554faee9c1827ddd189fd0396c84c241b7a4a586f091d29ad34278bb84eba0.
+browser (webkit)	Verify WebKit horizontal hit targets before the full suite	2026-11-17T03:34:20.2062129Z   2 passed (14.2s)
+browser (webkit)	Run npm run test:browser -- --project=webkit --max-failures=1	2026-11-17T03:36:26.7417921Z   ✓   17 [webkit] › tests/browser/calendar.spec.ts:200:1 › recovers a failed renderer import with native daily values (1.2s)
+browser (webkit)	Run npm run test:browser -- --project=webkit --max-failures=1	2026-11-17T03:38:44.8023087Z   ✓   41 [webkit] › tests/browser/composed-chart.spec.ts:404:1 › retries a failed composed renderer import without exposing its exception (943ms)
+browser (webkit)	Run npm run test:browser -- --project=webkit --max-failures=1	2026-11-17T03:40:16.8409406Z     Test timeout of 30000ms exceeded.
+browser (webkit)	Run npm run test:browser -- --project=webkit --max-failures=1	2026-11-17T03:40:16.8410687Z     Error: page.goto: Test timeout of 30000ms exceeded.
+browser (webkit)	Run npm run test:browser -- --project=webkit --max-failures=1	2026-11-17T03:40:16.8425751Z   1 failed
+browser (webkit)	Run npm run test:browser -- --project=webkit --max-failures=1	2026-11-17T03:40:16.8428201Z   82 passed (5.9m)

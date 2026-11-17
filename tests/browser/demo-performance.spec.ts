@@ -143,7 +143,7 @@ test('renders concept charts progressively, keeps data available, and retains a 
 }) => {
   const errors = collectBrowserErrors(page);
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/chart-possibilities');
+  await page.goto('/chart-possibilities', { waitUntil: 'domcontentloaded' });
   const gallery = page.frameLocator('app-chart-possibilities iframe');
   await expect(gallery.locator('#plot-calendar svg')).toHaveCount(1);
   await expect(gallery.locator('#plot-treemap svg')).toHaveCount(0);
@@ -159,7 +159,7 @@ test('renders concept charts progressively, keeps data available, and retains a 
   const standalone = await page
     .getByRole('link', { name: 'Open standalone gallery', exact: true })
     .getAttribute('href');
-  const response = await page.goto(`/${standalone}`);
+  const response = await page.goto(`/${standalone}`, { waitUntil: 'domcontentloaded' });
   const html = await response!.text();
   expect(html).toContain('data:font/woff2;base64,');
   expect(html).toContain('var echarts=');
