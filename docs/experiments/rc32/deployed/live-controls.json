@@ -1,0 +1,19 @@
+{
+  "source": "db10dc5f2b55f4992badad6fbce0a8cb7b2206cc",
+  "url": "https://phalla-doll.github.io/ng-echarts/",
+  "tool": "agent-browser",
+  "browser": "Chromium",
+  "installation": {
+    "localCandidate": "0.1.0-rc.32",
+    "npmNext": "0.1.0-rc.30",
+    "npmLatest": "0.1.0-rc.18"
+  },
+  "calendarKeyboardAction": "2024-01-31: 0 contributions",
+  "radialKeyboardStep": 6801,
+  "radialComplete": 10000,
+  "radialRestore": 6800,
+  "sankeyKeyboardZero": "Direct to Trial: 0 visits",
+  "sankeyKeyboardNode": "Browse: 700 incoming, 700 outgoing",
+  "sessionClosed": true,
+  "passed": true
+}

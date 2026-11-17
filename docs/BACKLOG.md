@@ -4,14 +4,15 @@ Current delivery (17 November 2026): npm `next` is rc.30 and `latest` remains rc
 
 Historical increment sections below retain their original version-specific evidence and limits; use the current delivery summary for npm, candidate and deployment status.
 
-Local continuation: rc.32 consolidates internal lifecycle and color parsing while retaining descriptor/theme validation policies. It remains unpublished; npm next is rc.30/latest rc.18 and the demo retains verified control-styling source `0e40644`. The [payload cleanup record](experiments/RC32_PAYLOAD_REVIEW.md) owns current measurements and verification; its bounded savings do not establish broad room for new engine features.
+Local continuation: rc.32 consolidates internal lifecycle and color parsing while retaining descriptor/theme validation policies. It remains unpublished; npm next is rc.30/latest rc.18 and the demo serves verified cleanup source `db10dc5`. The [payload cleanup record](experiments/RC32_PAYLOAD_REVIEW.md) owns current measurements and verification; its bounded savings do not establish broad room for new engine features.
+
+Fresh cleanup-source [CI 44128193872](https://github.com/phalla-doll/ng-echarts/actions/runs/44128193872) passes all six jobs: 356 unit tests, 587 browser passes/four expected skips, exact consumers, reproducibility and Pages. Its independently verified Linux package matches the canonical rc.32 archive. The separate npm publication status above remains unchanged.
 
 ## Immediate next work
 
-1. Obtain independent Linux CI for local rc.32 and separate delivery receipts before publication or redeployment. Preserve every earlier archive.
-2. Evaluate a focused opt-in interaction entry and further root payload reduction before general-purpose library zoom or graphical two-way brushing. Keep every existing root/core cap unchanged. Application-owned dashboard zoom and bidirectional month selection are implemented.
-3. Design one bounded NG20 graphical-linking increment once its payload and interaction envelope are agreed. Disjoint selection and arbitrary family linking remain subsequent work.
-4. Resume F09/R06 human interpretation when the user lifts the existing deferral; keep G2/G3/G4 pending until its evidence exists.
+1. Evaluate a focused opt-in interaction entry and further root payload reduction before general-purpose library zoom or graphical two-way brushing. Keep every existing root/core cap unchanged. Application-owned dashboard zoom and bidirectional month selection are implemented.
+2. Design one bounded NG20 graphical-linking increment once its payload and interaction envelope are agreed. Disjoint selection and arbitrary family linking remain subsequent work.
+3. Resume F09/R06 human interpretation when the user lifts the existing deferral; keep G2/G3/G4 pending until its evidence exists.
 
 ## Historical delivery plan
 

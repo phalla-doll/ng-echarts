@@ -4,7 +4,7 @@ The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.30`, com
 
 The rc.30 publication and fresh registry-consumer status are recorded in its [receipt](experiments/public-rc30/registry-verification.json). Actual npm tags are `next: 0.1.0-rc.30` and `latest: 0.1.0-rc.18`; npm rejected deletion of the initial latest alias. The [publication procedure](PUBLICATION.md#rc30-oidc-publication) preserves that historical limitation. Human interpretation gates remain separate.
 
-Local rc.32 is a separate, unpublished payload-cleanup candidate. Its [verification record](experiments/RC32_PAYLOAD_REVIEW.md) tracks local checks; rc.30 registry bytes/tags, the deployed demo and all human gates retain their recorded identities. Do not reprepare or overwrite earlier artifacts.
+Local rc.32 is a separate, unpublished payload-cleanup candidate. Its [verification and delivery record](experiments/RC32_PAYLOAD_REVIEW.md) records local checks, all six independent Linux CI jobs and the separately deployed cleanup demo. rc.30 registry bytes/tags and all human gates retain their recorded status. Do not reprepare or overwrite earlier artifacts.
 
 ## Prepare and verify one artifact
 

@@ -4,7 +4,26 @@ The demo is published from the root of the dedicated `gh-pages` branch at **http
 
 <a id="current-deployment--shared-dashboard-window"></a>
 
-## Current deployment — consistent control styling
+## Current deployment — rc.32 payload cleanup
+
+The demo now uses the reviewed lifecycle/color cleanup, with original descriptor/theme validation preserved. npm next remains **rc.30** and latest **rc.18**; rc.32 is an unpublished source/local candidate. The [cleanup delivery record](experiments/RC32_PAYLOAD_REVIEW.md#demo-delivery) separates these identities and keeps human release gates pending.
+
+| Identity / check | Verified result |
+| --- | --- |
+| Clean pushed source | `db10dc5f2b55f4992badad6fbce0a8cb7b2206cc` |
+| Static commit | `2657f71631b1d3fa3b5052e3286eab26d024bbc2` |
+| Sealed SHA-256 | `3d0657280efdceeec53984ec75d9f33bf2b6c75535458aa864d082a088a3c07a` |
+| Pages workflow | [Succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/44128686550) |
+| Delivery-source CI | [All six jobs pass](https://github.com/phalla-doll/ng-echarts/actions/runs/44128193872): 356 unit tests, 587 browser passes/four expected skips, exact consumers and reproducibility |
+| Local/public static checks | 40 routes/145 files; Chromium, Firefox and WebKit pass |
+| Performance | All 17 unchanged route guards and normal-motion navigation pass |
+| Live controls | Calendar/Sankey raw zero keyboard actions, node totals, radial stepping/full/reset and rc.32-local/rc.30-published installation copy pass |
+
+[Deployment](experiments/rc32/deployed/deployment.json), [exact marker](experiments/rc32/deployed/preview-build.txt), [receipt](experiments/rc32/deployed/preview-verification.txt), [public verification](experiments/rc32/deployed/public-verification.txt), [performance](experiments/rc32/deployed/performance.json) and [live controls](experiments/rc32/deployed/live-controls.json) retain the actual identity. Receipt-only follow-ups preserve deployed source `db10dc5`; package publication and human gates remain separate.
+
+<a id="current-deployment--consistent-control-styling"></a>
+
+## Earlier deployment — consistent control styling
 
 The [calendar Year field](https://phalla-doll.github.io/ng-echarts/calendar/) now uses one evenly padded surface. Radar/radial actions use aligned responsive rows, and linked/dashboard controls consistently follow the shared presentation. Native fields, keyboard focus, switches and reset actions remain usable. The [correction and delivery record](experiments/CONTROL_STYLE_FIX.md#deployment) owns comparison screenshots and actual receipts.
 

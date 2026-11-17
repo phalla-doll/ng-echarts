@@ -178,3 +178,11 @@ The corrected rc.32 local Pages snapshot passes all 40 routes/145 sealed files i
 
 
 The user authorized committing, pushing and redeploying the rc.32 cleanup. Use the official clean-source Pages build/check/performance/deploy flow and record its new source/static identities plus public verification. Do not publish the library as part of this demo delivery; npm next remains rc.30/latest rc.18 and human gates remain pending.
+
+
+## rc.32 demo delivery — 17 November
+
+The user-authorized source `db10dc5f2b55f4992badad6fbce0a8cb7b2206cc` is committed/pushed and deployed as static `2657f71631b1d3fa3b5052e3286eab26d024bbc2`, sealed SHA-256 `3d0657280efdceeec53984ec75d9f33bf2b6c75535458aa864d082a088a3c07a`; Pages run `44128686550` succeeds. The official clean-source deploy flow rebuilds/checks instead of promoting the dirty local snapshot. All 40 routes/145 files pass local/public three-engine verification and all 17 performance guards. Live calendar/Sankey raw zero keyboard actions, node totals, radial native controls and installation copy pass. The [delivery record](docs/experiments/RC32_PAYLOAD_REVIEW.md#demo-delivery) owns receipts. Source CI `44128193872` remains in progress at this checkpoint. Preserve this deployed identity across receipt-only updates; npm next rc.30/latest rc.18, unpublished rc.32, every archive and human gates remain unchanged.
+
+
+Full delivery-source CI `44128193872` now passes all six jobs for deployed `db10dc5`: 356 unit tests, 587 browser passes/four expected skips, two WebKit probes, exact consumers, reproducibility, Pages and unchanged budgets. The independently downloaded 164,022-byte Linux archive matches canonical rc.32 SHA-256 `6984b9b20edd69fd0c326e6361d45459f3b36fe8f4c9d390f8962de8cee4f3f9`, all 68 members and 11 declarations, plus warm/two-clean macOS/Linux results. Final receipt-only documentation preserves deployed source/static/seal, package/archive bytes and all human-gate statuses. No extra deployment or npm upload accompanies those receipts.
