@@ -4,7 +4,28 @@ The demo is published from the root of the dedicated `gh-pages` branch at **http
 
 <a id="current-deployment--shared-dashboard-window"></a>
 
-## Current deployment — customization controls
+<a id="rc30-radar-delivery"></a>
+
+## Current deployment — rc.30 radar legends
+
+The [radar gallery](https://phalla-doll.github.io/ng-echarts/radar/) now offers inline chips and aligned lists, retaining comparison visibility, keyboard focus and chart instances. Missing comparisons keep explicit notes. The Code view mirrors the layout choice; gallery tables remain omitted and the [validation route](https://phalla-doll.github.io/ng-echarts/radar-validation/) retains raw table actions. The [installation page](https://phalla-doll.github.io/ng-echarts/installation/) names published rc.30 under next and rc.18 under latest. [Delivery evidence](experiments/RC30_RADAR_LEGENDS.md#demo-delivery) owns actual receipts.
+
+| Identity / check | Verified result |
+| --- | --- |
+| Clean pushed source | `e09aa7f005fb9655e0c5f5a25723a364b2eab546` |
+| Static commit | `3fe62780b8b8b9beeca6657662c6b7cce603333a` |
+| Sealed SHA-256 | `3894c4c402546168a8b61906dc48588d1434d71e29b29faba3fe933345c6bbe0` |
+| Pages workflow | [Succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/44016246466) |
+| Delivery-source CI | [All six jobs pass for `e09aa7f`](https://github.com/phalla-doll/ng-echarts/actions/runs/44015944947): 342 unit tests, 584 browser passes/four expected skips |
+| Local/public static checks | 40 routes/145 sealed files; all three engines pass |
+| Performance | All 17 unchanged route guards and normal-motion navigation pass |
+| Live checks | Chip/list switching, keyboard focus, renderer identity, Code mirroring, 390 px layout, reset, missing notes, raw table actions and installation copy pass in all three engines |
+
+[Deployment](experiments/rc30/deployed/deployment.json), [marker](experiments/rc30/deployed/preview-build.txt), [local receipt](experiments/rc30/deployed/preview-verification.txt), [public verification](experiments/rc30/deployed/public-verification.txt), [performance](experiments/rc30/deployed/performance.json) and [live controls](experiments/rc30/deployed/live-controls.json) preserve the sealed identity. The first ad hoc live probe left Code while its font was downloading; the corrected probe waits for highlighted code and the specific font before changing view, retaining the error assertions. No application or deployment change was required. Receipt-only commits retain deployed source `e09aa7f`; package archives and human gates remain unchanged.
+
+<a id="current-deployment--customization-controls"></a>
+
+## Earlier deployment — customization controls
 
 The [playground customization panel](https://phalla-doll.github.io/ng-echarts/playground/#chart-settings), validation controls, gallery disclosures and linked examples now use inset frames, rounded control rows, inline form values and visible switches. Independent dashboard themes and forced-color selection remain readable. The [refinement and review record](experiments/CUSTOMIZATION_CONTROLS.md) preserves comparison screenshots and local browser evidence.
 

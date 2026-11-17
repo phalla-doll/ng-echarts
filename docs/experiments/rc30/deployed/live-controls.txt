@@ -1,0 +1,3 @@
+PASS: chromium live radar layouts, keyboard, mobile, missing data, table action and installation copy.
+PASS: firefox live radar layouts, keyboard, mobile, missing data, table action and installation copy.
+PASS: webkit live radar layouts, keyboard, mobile, missing data, table action and installation copy.

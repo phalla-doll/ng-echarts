@@ -1,0 +1,51 @@
+{
+  "url": "https://phalla-doll.github.io/ng-echarts/",
+  "checkedAt": "2026-11-17T04:22:34.319Z",
+  "results": [
+    {
+      "browser": "chromium",
+      "galleryTablesAbsent": true,
+      "keyboard": true,
+      "layoutAndRendererIdentity": true,
+      "codeMirror": true,
+      "mobileWidth": 390,
+      "reset": true,
+      "missingDataNotes": true,
+      "rawTableAction": true,
+      "currentInstallationCopy": true,
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "browser": "firefox",
+      "galleryTablesAbsent": true,
+      "keyboard": true,
+      "layoutAndRendererIdentity": true,
+      "codeMirror": true,
+      "mobileWidth": 390,
+      "reset": true,
+      "missingDataNotes": true,
+      "rawTableAction": true,
+      "currentInstallationCopy": true,
+      "pageErrors": [],
+      "passed": true
+    },
+    {
+      "browser": "webkit",
+      "galleryTablesAbsent": true,
+      "keyboard": true,
+      "layoutAndRendererIdentity": true,
+      "codeMirror": true,
+      "mobileWidth": 390,
+      "reset": true,
+      "missingDataNotes": true,
+      "rawTableAction": true,
+      "currentInstallationCopy": true,
+      "pageErrors": [],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "sourceBaseCommit": "e09aa7f005fb9655e0c5f5a25723a364b2eab546",
+  "artifactSha256": "3894c4c402546168a8b61906dc48588d1434d71e29b29faba3fe933345c6bbe0"
+}

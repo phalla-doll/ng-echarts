@@ -78,7 +78,7 @@ The recorded dependency versions describe verified inputs, not every version adm
 
 | Item | Status / evidence |
 | --- | --- |
-| Local candidate automated checks | rc.30 exact artifact, 342 unit tests, 584 browser passes/four expected skips, matching macOS/Linux warm/clean archives and [all six CI jobs](https://github.com/phalla-doll/ng-echarts/actions/runs/44012447993) pass. OIDC publication, exact registry bytes and fresh consumers pass in the [delivery record](experiments/RC30_RADAR_LEGENDS.md). Preserve every earlier [candidate record](experiments/data/local-release-0.1.0-rc.29.json); human gates remain pending. |
+| Local candidate automated checks | rc.30 exact artifact, 342 unit tests, 584 browser passes/four expected skips, matching macOS/Linux warm/clean archives and [all six CI jobs](https://github.com/phalla-doll/ng-echarts/actions/runs/44015944947) pass. OIDC publication, exact registry bytes and fresh consumers pass in the [delivery record](experiments/RC30_RADAR_LEGENDS.md). Preserve every earlier [candidate record](experiments/data/local-release-0.1.0-rc.29.json); human gates remain pending. |
 | Original library license | MIT selected by the user; full text ships in the candidate |
 | Human interpretation, F09/R06 | Pending; complete the [current result sheet](experiments/RC20_HUMAN_REVIEW.md) following the [manual review](experiments/R06_MANUAL_REVIEW.md) across every family |
 | NG14/G2/G3/G4 acceptance | Pending until the required human evidence exists; successful artifact checks do not close these gates |

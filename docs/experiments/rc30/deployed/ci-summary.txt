@@ -1,0 +1,15 @@
+workspace	Run npm run check:workspace	2026-11-17T04:17:43.3140944Z  Test Files  47 passed (47)
+workspace	Run npm run check:workspace	2026-11-17T04:17:43.3170916Z       Tests  322 passed (322)
+workspace	Run npm run check:workspace	2026-11-17T04:17:48.3595414Z  Test Files  7 passed (7)
+workspace	Run npm run check:workspace	2026-11-17T04:17:48.3596392Z       Tests  20 passed (20)
+workspace	Run npm run check:workspace	2026-11-17T04:21:05.2508903Z PASS: core 8697 gzip / 7673 Brotli bytes; 0 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-17T04:21:06.4660103Z PASS: root 221121 gzip / 188993 Brotli bytes; 253 engine modules, none eager.
+workspace	Run npm run release:local	2026-11-17T04:21:15.5665106Z Prepared mantha911-ng-echarts-0.1.0-rc.30.tgz (167101 bytes), SHA-256 e19fbb40964251f5c1c6b7d10cc3808feb6fe10eb7419ae75fff7a880b7a7c6c
+workspace	Run npm run release:local	2026-11-17T04:23:34.4429525Z PASS: exact mantha911-ng-echarts-0.1.0-rc.30.tgz metadata/notices, strict declarations, fresh docs and three-engine CSR/SSR consumers. Human release gates remain pending.
+workspace	Run npm run check:release-immutability	2026-11-17T04:23:35.5111792Z PASS: repeated preparation refuses to replace the archive, checksum or manifest.
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-17T04:25:03.7852534Z   2 skipped
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-17T04:25:03.7852836Z   194 passed (8.2m)
+browser (webkit)	Verify WebKit horizontal hit targets before the full suite	2026-11-17T04:17:08.5112374Z   2 passed (14.7s)
+browser (webkit)	Run npm run test:browser -- --project=webkit --max-failures=1	2026-11-17T04:29:41.0011690Z   2 skipped
+browser (webkit)	Run npm run test:browser -- --project=webkit --max-failures=1	2026-11-17T04:29:41.0012020Z   194 passed (12.5m)
+browser (chromium)	Run npm run test:browser -- --project=chromium --max-failures=1	2026-11-17T04:23:45.6873485Z   196 passed (7.0m)

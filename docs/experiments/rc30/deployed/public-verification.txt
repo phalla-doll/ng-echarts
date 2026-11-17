@@ -1,0 +1,8 @@
+
+> ng-echarts-workspace@0.0.0 check:pages
+> node tools/check-pages.mjs https://phalla-doll.github.io/ng-echarts/
+
+Checking 145 sealed files from e09aa7f005fb9655e0c5f5a25723a364b2eab546 on public Pages.
+PASS: chromium static routes, reloads, lazy charts/fonts, anchors, focus, themes and mobile navigation at https://phalla-doll.github.io/ng-echarts/
+PASS: firefox static routes, reloads, lazy charts/fonts, anchors, focus, themes and mobile navigation at https://phalla-doll.github.io/ng-echarts/
+PASS: webkit static routes, reloads, lazy charts/fonts, anchors, focus, themes and mobile navigation at https://phalla-doll.github.io/ng-echarts/

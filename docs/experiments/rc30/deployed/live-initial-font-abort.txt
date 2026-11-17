@@ -1,0 +1,38 @@
+PASS: chromium live radar layouts, keyboard, mobile, missing data, table action and installation copy.
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+ExpectError: expect(received).toEqual(expected) // deep equality
+
+- Expected  - 1
++ Received  + 3
+
+- Array []
++ Array [
++   "[JavaScript Error: \"downloadable font: download failed (font-family: \"Google Sans Code\" style:normal weight:300..800 width:100 src index:0): status=2152398850 source: https://phalla-doll.github.io/ng-echarts/fonts/google-sans-code-latin.woff2\"]",
++ ]
+    at captureRawStack (/Users/phalla/Documents/codes/ng-echarts/node_modules/playwright-core/lib/coreBundle.js:9551:17)
+    at callMatcherAsStep (/Users/phalla/Documents/codes/ng-echarts/node_modules/playwright/lib/matchers/expect.js:13342:57)
+    at Object.toEqual (/Users/phalla/Documents/codes/ng-echarts/node_modules/playwright/lib/matchers/expect.js:13334:23)
+    at /Users/phalla/Documents/codes/ng-echarts/tmp/check-rc30-live.mjs:29:18 {
+  matcherResult: {
+    actual: [
+      '[JavaScript Error: "downloadable font: download failed (font-family: "Google Sans Code" style:normal weight:300..800 width:100 src index:0): status=2152398850 source: https://phalla-doll.github.io/ng-echarts/fonts/google-sans-code-latin.woff2"]'
+    ],
+    expected: [],
+    message: 'expect(received).toEqual(expected) // deep equality\n' +
+      '\n' +
+      '- Expected  - 1\n' +
+      '+ Received  + 3\n' +
+      '\n' +
+      '- Array []\n' +
+      '+ Array [\n' +
+      '+   "[JavaScript Error: \\"downloadable font: download failed (font-family: \\"Google Sans Code\\" style:normal weight:300..800 width:100 src index:0): status=2152398850 source: https://phalla-doll.github.io/ng-echarts/fonts/google-sans-code-latin.woff2\\"]",\n' +
+      '+ ]',
+    name: 'toEqual',
+    pass: false
+  }
+}
+
+Node.js v24.22.2

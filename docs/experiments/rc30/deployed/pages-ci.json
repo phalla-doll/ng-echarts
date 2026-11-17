@@ -1,0 +1,22 @@
+{
+  "conclusion": "success",
+  "headSha": "3fe62780b8b8b9beeca6657662c6b7cce603333a",
+  "jobs": [
+    {
+      "conclusion": "success",
+      "name": "build",
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/44016246466/job/133814766833"
+    },
+    {
+      "conclusion": "success",
+      "name": "report-build-status",
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/44016246466/job/133814877001"
+    },
+    {
+      "conclusion": "success",
+      "name": "deploy",
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/44016246466/job/133814877032"
+    }
+  ],
+  "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/44016246466"
+}

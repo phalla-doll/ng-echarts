@@ -144,7 +144,7 @@ The site includes [Get Started](http://localhost:4310/get-started), [Installatio
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
 | `npm run check` | Run formatting, builds, compilation, unit, declaration/runtime consumers, SSR, browser, and size checks |
 
-Verified implementation: **342 unit tests and 584 browser passes, with four expected skips**. [Full CI](https://github.com/phalla-doll/ng-echarts/actions/runs/44012447993) passes all six jobs for `4caac5e`; its archive matches canonical rc.30 SHA-256 `e19fbb40964251f5c1c6b7d10cc3808feb6fe10eb7419ae75fff7a880b7a7c6c`. The [increment report](docs/experiments/RC30_RADAR_LEGENDS.md) separates failed-run diagnostics, clean verification, registry publication and demo delivery.
+Verified delivery source: **342 unit tests and 584 browser passes, with four expected skips**. [Full CI](https://github.com/phalla-doll/ng-echarts/actions/runs/44015944947) passes all six jobs for `e09aa7f`; its archive matches the published rc.30 SHA-256 `e19fbb40964251f5c1c6b7d10cc3808feb6fe10eb7419ae75fff7a880b7a7c6c`. The [increment report](docs/experiments/RC30_RADAR_LEGENDS.md) separates failed-run diagnostics, clean verification, registry publication and demo delivery.
 
 Preserved rc.24 verification: **335 unit tests and 476 browser passes, with four expected skips**; [full Linux CI passes](https://github.com/phalla-doll/ng-echarts/actions/runs/43736006909), and complete macOS/Linux package bytes match. The [increment report](docs/experiments/NG17_DUAL_AXES.md) records exact-artifact checks, visual evidence and preserved failed-run corrections. [rc.24 publication](docs/experiments/RC24_PUBLICATION.md) verifies the same preserved artifact from npm.
 

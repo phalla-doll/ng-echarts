@@ -1,6 +1,6 @@
 # Angular chart implementation plan
 
-Current delivery (17 November 2026): npm `next` is rc.30 and `latest` remains rc.18. The exact 167,101-byte rc.30 archive is published and fresh registry consumers pass; preserve rc.29 and every earlier archive. Verified implementation `4caac5e` passes [all six CI jobs](https://github.com/phalla-doll/ng-echarts/actions/runs/44012447993): 342 unit tests, 584 browser passes/four expected skips, exact consumers, reproducibility, Pages and unchanged budgets. The [increment/delivery record](experiments/RC30_RADAR_LEGENDS.md) owns actual receipts; the [Pages record](GITHUB_PAGES.md) owns the separately sealed demo identity. Human F09/R06/G2/G3/G4 remain deferred/pending.
+Current delivery (17 November 2026): npm `next` is rc.30 and `latest` remains rc.18. The exact 167,101-byte rc.30 archive is published and fresh registry consumers pass; preserve rc.29 and every earlier archive. Verified delivery source `e09aa7f` passes [all six CI jobs](https://github.com/phalla-doll/ng-echarts/actions/runs/44015944947): 342 unit tests, 584 browser passes/four expected skips, exact consumers, reproducibility, Pages and unchanged budgets. The [increment/delivery record](experiments/RC30_RADAR_LEGENDS.md) owns actual receipts; the [Pages record](GITHUB_PAGES.md) owns the separately sealed demo identity. Human F09/R06/G2/G3/G4 remain deferred/pending.
 
 Historical increment sections below retain their original version-specific evidence and limits; use the current delivery summary for npm, candidate and deployment status.
 

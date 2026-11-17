@@ -1,0 +1,10 @@
+{
+  "sourceBaseCommit": "e09aa7f005fb9655e0c5f5a25723a364b2eab546",
+  "artifactSha256": "3894c4c402546168a8b61906dc48588d1434d71e29b29faba3fe933345c6bbe0",
+  "fileCount": 145,
+  "packageSha256": "e19fbb40964251f5c1c6b7d10cc3808feb6fe10eb7419ae75fff7a880b7a7c6c",
+  "priorArchiveRecordsUnchanged": 99,
+  "copiedMarkerAndReceiptBytesIdentical": true,
+  "implementationFilesMatchVerifiedSource": true,
+  "passed": true
+}
