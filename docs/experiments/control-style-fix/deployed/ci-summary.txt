@@ -1,0 +1,33 @@
+browser (webkit)	Verify WebKit horizontal hit targets before the full suite	2026-11-17T05:05:34.5884280Z   2 passed (10.8s)
+browser (webkit)	Run npm run test:browser -- --project=webkit --max-failures=1	2026-11-17T05:16:11.8156445Z   2 skipped
+browser (webkit)	Run npm run test:browser -- --project=webkit --max-failures=1	2026-11-17T05:16:11.8156648Z   195 passed (10.6m)
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-17T05:13:33.9943984Z   2 skipped
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-17T05:13:33.9944375Z   195 passed (7.7m)
+workspace	Run npm run check:workspace	2026-11-17T05:06:12.0805289Z PASS: warm and two independent clean 0.1.0-rc.30 packages match e19fbb40964251f5c1c6b7d10cc3808feb6fe10eb7419ae75fff7a880b7a7c6c.
+workspace	Run npm run check:workspace	2026-11-17T05:06:42.0216609Z PASS: packed library and ECharts declarations compile in isolation; invalid keys and formatters/options are rejected (skipLibCheck=false).
+workspace	Run npm run check:workspace	2026-11-17T05:07:24.5530612Z PASS: documented installation and full application build, render and hydrate in all three engines.
+workspace	Run npm run check:workspace	2026-11-17T05:07:57.6999266Z PASS: documented installation and full application build, render and hydrate in all three engines.
+workspace	Run npm run check:workspace	2026-11-17T05:07:58.4749889Z PASS: production SSR returns library markup and hydration metadata. Browser hydration remains a separate check.
+workspace	Run npm run check:workspace	2026-11-17T05:09:43.0123387Z PASS: independently installed tarball builds and runs in client and SSR/hydration applications across all three engines.
+workspace	Run npm run check:workspace	2026-11-17T05:09:46.2018331Z PASS: bar 186847 gzip / 159477 Brotli bytes; 232 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-17T05:09:47.2324957Z PASS: line 186591 gzip / 159086 Brotli bytes; 230 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-17T05:09:48.2353251Z PASS: area 187079 gzip / 159624 Brotli bytes; 230 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-17T05:09:49.3171799Z PASS: composed 196433 gzip / 167232 Brotli bytes; 242 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-17T05:09:50.2262917Z PASS: pie 163111 gzip / 139636 Brotli bytes; 199 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-17T05:09:51.1098157Z PASS: radar 167965 gzip / 143996 Brotli bytes; 210 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-17T05:09:52.0762529Z PASS: calendar 174028 gzip / 148877 Brotli bytes; 213 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-17T05:09:53.0010210Z PASS: sankey 171359 gzip / 146622 Brotli bytes; 205 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-17T05:09:53.6824952Z PASS: radial 133876 gzip / 114748 Brotli bytes; 164 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-17T05:09:53.7585366Z PASS: core 8697 gzip / 7673 Brotli bytes; 0 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-17T05:09:54.9830238Z PASS: root 221121 gzip / 188993 Brotli bytes; 253 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-17T05:09:56.0868792Z PASS: root-frame 202907 gzip / 174950 Brotli bytes; 253 engine modules, none eager.
+workspace	Run npm run release:local	2026-11-17T05:10:04.4190094Z Prepared mantha911-ng-echarts-0.1.0-rc.30.tgz (167101 bytes), SHA-256 e19fbb40964251f5c1c6b7d10cc3808feb6fe10eb7419ae75fff7a880b7a7c6c
+workspace	Run npm run release:local	2026-11-17T05:10:13.5665954Z PASS: packed library and ECharts declarations compile in isolation; invalid keys and formatters/options are rejected (skipLibCheck=false).
+workspace	Run npm run release:local	2026-11-17T05:10:42.0832264Z PASS: documented installation and full application build, render and hydrate in all three engines.
+workspace	Run npm run release:local	2026-11-17T05:12:24.5046262Z PASS: independently installed tarball builds and runs in client and SSR/hydration applications across all three engines.
+workspace	Run npm run release:local	2026-11-17T05:12:26.6887591Z PASS: exact mantha911-ng-echarts-0.1.0-rc.30.tgz metadata/notices, strict declarations, fresh docs and three-engine CSR/SSR consumers. Human release gates remain pending.
+workspace	Run npm run check:release-immutability	2026-11-17T05:12:27.7885188Z PASS: repeated preparation refuses to replace the archive, checksum or manifest.
+pages	Run npm run check:pages	2026-11-17T05:05:54.4334120Z PASS: chromium static routes, reloads, lazy charts/fonts, anchors, focus, themes and mobile navigation at http://127.0.0.1:43793/ng-echarts/
+pages	Run npm run check:pages	2026-11-17T05:06:12.8711037Z PASS: firefox static routes, reloads, lazy charts/fonts, anchors, focus, themes and mobile navigation at http://127.0.0.1:43793/ng-echarts/
+pages	Run npm run check:pages	2026-11-17T05:06:37.0101234Z PASS: webkit static routes, reloads, lazy charts/fonts, anchors, focus, themes and mobile navigation at http://127.0.0.1:43793/ng-echarts/
+browser (chromium)	Run npm run test:browser -- --project=chromium --max-failures=1	2026-11-17T05:12:28.4419201Z   197 passed (6.6m)

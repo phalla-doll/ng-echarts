@@ -1,0 +1,11 @@
+{
+  "recordedAt": "2026-11-17T05:11:20.355Z",
+  "source": "0e40644f2835250a2c719f725c34c4b2e90897f4",
+  "artifactSha256": "bb8949c9d205c4c30074361ebc76082dc394c63ad1bb858481f52621c0522150",
+  "fileCount": 145,
+  "copiedMarkerAndReceiptByteIdentical": true,
+  "implementationMatchesDeployedSource": true,
+  "rc30TarballBytes": 167101,
+  "rc30Sha256": "e19fbb40964251f5c1c6b7d10cc3808feb6fe10eb7419ae75fff7a880b7a7c6c",
+  "passed": true
+}

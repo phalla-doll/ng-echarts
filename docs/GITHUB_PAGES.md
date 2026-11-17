@@ -4,9 +4,28 @@ The demo is published from the root of the dedicated `gh-pages` branch at **http
 
 <a id="current-deployment--shared-dashboard-window"></a>
 
+## Current deployment — consistent control styling
+
+The [calendar Year field](https://phalla-doll.github.io/ng-echarts/calendar/) now uses one evenly padded surface. Radar/radial actions use aligned responsive rows, and linked/dashboard controls consistently follow the shared presentation. Native fields, keyboard focus, switches and reset actions remain usable. The [correction and delivery record](experiments/CONTROL_STYLE_FIX.md#deployment) owns comparison screenshots and actual receipts.
+
+| Identity / check | Verified result |
+| --- | --- |
+| Clean pushed source | `0e40644f2835250a2c719f725c34c4b2e90897f4` |
+| Static commit | `18091600dd8c37aa6adc5c52577b6d8707daae68` |
+| Sealed SHA-256 | `bb8949c9d205c4c30074361ebc76082dc394c63ad1bb858481f52621c0522150` |
+| Pages workflow | [Succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/44021783733) |
+| Delivery-source CI | [All six jobs pass for `0e40644`](https://github.com/phalla-doll/ng-echarts/actions/runs/44021501148): 342 unit tests, 587 browser passes/four expected skips |
+| Local/public static checks | 40 routes/145 sealed files; all three engines pass |
+| Performance | All 17 unchanged route guards and normal-motion navigation pass |
+| Live controls | Calendar field alignment, both themes, 390/1440 px layouts, keyboard stepping/reset, radial values, radar rows/switches, linked range/reset and dashboard zoom/reset pass in all three engines |
+
+[Deployment](experiments/control-style-fix/deployed/deployment.json), [marker](experiments/control-style-fix/deployed/preview-build.txt), [local receipt](experiments/control-style-fix/deployed/preview-verification.txt), [public verification](experiments/control-style-fix/deployed/public-verification.txt) and [live controls](experiments/control-style-fix/deployed/live-controls.json) preserve the sealed identity. Receipt-only follow-ups retain deployed source `0e40644`. Published rc.30, earlier archives and pending human gates remain unchanged.
+
 <a id="rc30-radar-delivery"></a>
 
-## Current deployment — rc.30 radar legends
+<a id="current-deployment--rc30-radar-legends"></a>
+
+## Earlier deployment — rc.30 radar legends
 
 The [radar gallery](https://phalla-doll.github.io/ng-echarts/radar/) now offers inline chips and aligned lists, retaining comparison visibility, keyboard focus and chart instances. Missing comparisons keep explicit notes. The Code view mirrors the layout choice; gallery tables remain omitted and the [validation route](https://phalla-doll.github.io/ng-echarts/radar-validation/) retains raw table actions. The [installation page](https://phalla-doll.github.io/ng-echarts/installation/) names published rc.30 under next and rc.18 under latest. [Delivery evidence](experiments/RC30_RADAR_LEGENDS.md#demo-delivery) owns actual receipts.
 

@@ -1,0 +1,3 @@
+PASS: chromium live calendar, radial, radar, linked range and dashboard controls.
+PASS: firefox live calendar, radial, radar, linked range and dashboard controls.
+PASS: webkit live calendar, radial, radar, linked range and dashboard controls.
