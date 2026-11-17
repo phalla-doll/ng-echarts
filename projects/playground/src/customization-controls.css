@@ -147,6 +147,17 @@
   font-weight: 500;
   cursor: pointer;
 }
+.site-shell .radial-controls {
+  margin-top: 20px;
+}
+.site-shell .radar-controls {
+  margin-top: 32px;
+}
+.site-shell :is(.radial-controls, .radar-controls) {
+  color: var(--site-muted);
+  font-size: 13px;
+  line-height: 22px;
+}
 .site-shell :is(.radial-actions, .radar-actions) {
   margin-top: 16px;
 }
@@ -234,9 +245,12 @@
     var(--site-text);
 }
 .site-shell .value-field {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
   flex-wrap: nowrap;
   gap: 12px;
+  margin-top: 16px;
   min-height: 44px;
   padding: 0 12px;
   border-radius: var(--site-control-radius);
@@ -248,14 +262,20 @@
   min-width: 0;
   width: 96px;
   min-height: 44px;
+  padding: 6px 0;
   border: 0;
   background: transparent;
   color: var(--site-muted);
+  font: inherit;
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 .site-shell .calendar-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   width: fit-content;
+  max-width: calc(100% - 32px);
   min-height: 44px;
   margin: 16px;
   padding: 0 12px;
@@ -263,13 +283,19 @@
   background: var(--site-control-bg);
   color: var(--site-text);
   font-size: 12px;
+  line-height: 20px;
 }
 .site-shell .calendar-toolbar input {
+  width: 104px;
+  min-width: 0;
   min-height: 44px;
-  border-color: transparent;
+  padding: 6px 0;
+  border: 0;
   background: transparent;
   color: var(--site-muted);
+  font: inherit;
   text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 /* Comparison choices and linked examples use the same inset rows, with native selects. */
 .site-shell

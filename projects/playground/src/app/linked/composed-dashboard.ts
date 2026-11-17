@@ -284,7 +284,8 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
       --site-muted: #b2bfd2;
       --site-border: #3b4a61;
     }
-    .dashboard-window-controls {
+    /* Standalone defaults yield to the demo shell's shared control layout. */
+    :where(.dashboard-window-controls) {
       display: flex;
       flex-wrap: wrap;
       align-items: end;
@@ -299,7 +300,7 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
       padding: 0 6px;
       font-size: 14px;
     }
-    .dashboard-window-actions {
+    :where(.dashboard-window-actions) {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
@@ -314,7 +315,7 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
       line-height: 1.6;
       color: var(--site-muted, #536176);
     }
-    .dashboard-controls {
+    :where(.dashboard-controls) {
       display: flex;
       flex-wrap: wrap;
       gap: 12px 20px;

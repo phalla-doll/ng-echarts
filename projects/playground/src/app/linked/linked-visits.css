@@ -8,7 +8,8 @@
   --nec-border: var(--site-border);
   --nec-focus: var(--site-focus);
 }
-.linked-toolbar {
+/* Keep standalone layout defaults below the shell's shared control rules. */
+:where(.linked-toolbar) {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
@@ -196,20 +197,20 @@ select {
   line-height: 20px;
 }
 @media (max-width: 600px) {
-  .linked-toolbar {
+  :where(.linked-toolbar) {
     grid-template-columns: minmax(0, 1fr) 90px;
     gap: 12px;
     padding-bottom: 16px;
     margin-bottom: 20px;
   }
-  .linked-controls {
+  :where(.linked-controls) {
     display: contents;
   }
-  .linked-controls > label {
+  :where(.linked-controls > label) {
     grid-column: 1;
     grid-row: 1;
   }
-  .linked-controls select {
+  :where(.linked-controls select) {
     width: 138px;
   }
   .reset-month {
@@ -222,20 +223,19 @@ select {
     grid-row: 2;
     justify-self: start;
   }
-  .linked-summary,
-  .linked-toolbar.has-range .linked-summary {
+  :where(.linked-summary, .linked-toolbar.has-range .linked-summary) {
     grid-column: 2;
     grid-row: 2;
     justify-self: end;
     justify-content: end;
   }
-  .range-fields {
+  :where(.range-fields) {
     grid-row: 3;
   }
-  .range-instructions {
+  :where(.range-instructions) {
     grid-row: 3;
   }
-  .has-range .range-instructions {
+  :where(.has-range .range-instructions) {
     grid-row: 4;
   }
   select,
@@ -254,7 +254,4 @@ select {
 }
 .linked-toolbar:has(.reset-month) {
   border-bottom-color: var(--site-control-border);
-}
-.summary-value.numeric {
-  font-variant-numeric: tabular-nums;
 }

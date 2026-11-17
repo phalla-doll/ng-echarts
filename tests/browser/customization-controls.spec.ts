@@ -48,6 +48,21 @@ for (const [route, selector] of panels) {
       if (await toggle.count()) await toggle.click();
       for (const width of [320, 390, 768, 900, 1440]) {
         await page.setViewportSize({ width, height: 1000 });
+        // Legacy scoped flex rules used to turn every full-width action into its own row.
+        for (const group of await page.locator('.radial-actions, .radar-actions').all()) {
+          const buttons = group.getByRole('button');
+          const first = await buttons.nth(0).boundingBox();
+          const second = await buttons.nth(1).boundingBox();
+          const third = await buttons.nth(2).boundingBox();
+          const groupWidth = (await group.boundingBox())!.width;
+          if (groupWidth > 580) {
+            expect(second!.y).toBe(first!.y);
+            expect(third!.y).toBe(first!.y);
+          } else if (groupWidth <= 380) {
+            expect(second!.y).toBeGreaterThanOrEqual(first!.y + first!.height);
+          }
+          expect(Math.abs(first!.width - second!.width)).toBeLessThanOrEqual(1);
+        }
         await expect
           .poll(() =>
             page.locator(selector).evaluateAll((panels) =>
@@ -91,6 +106,56 @@ for (const [route, selector] of panels) {
     expect(errors).toEqual([]);
   });
 }
+
+test('keeps numeric fields centered in one surface after client navigation', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto('/calendar');
+  for (const theme of ['light', 'dark']) {
+    const toggle = page.getByRole('button', { name: `Use ${theme} theme`, exact: true });
+    if (await toggle.count()) await toggle.click();
+    // Revisit after other components have attached their scoped styles.
+    for (const name of ['Calendar Heatmap', 'Radial Progress', 'Calendar Heatmap']) {
+      await page
+        .getByRole('navigation', { name: 'Playground pages' })
+        .getByRole('link', { name, exact: true })
+        .click();
+      const radial = name === 'Radial Progress';
+      if (radial) await page.locator('.radial-controls summary').first().click();
+      const field = page.locator(radial ? '.value-field' : '.calendar-toolbar').first();
+      const input = field.getByRole('spinbutton');
+      await expect(input).toBeVisible();
+      for (const width of [390, 1440]) {
+        await page.setViewportSize({ width, height: 1000 });
+        const geometry = await input.evaluate((input) => {
+          const parent = input.parentElement!.getBoundingClientRect();
+          const box = input.getBoundingClientRect();
+          return {
+            centerOffset: Math.abs(box.top + box.height / 2 - parent.top - parent.height / 2),
+            background: getComputedStyle(input).backgroundColor,
+            border: getComputedStyle(input).borderTopWidth,
+          };
+        });
+        expect(geometry.centerOffset).toBeLessThanOrEqual(1);
+        expect(geometry.background).toBe('rgba(0, 0, 0, 0)');
+        expect(geometry.border).toBe('0px');
+      }
+      const initialValue = await input.inputValue();
+      await input.focus();
+      await page.keyboard.press('ArrowUp');
+      await expect(input).toHaveValue(String(Number(initialValue) + 1));
+      await expect(input).toBeFocused();
+      if (radial)
+        await page
+          .locator('.radial-controls')
+          .first()
+          .getByRole('button', { name: 'Restore sample', exact: true })
+          .click();
+      else
+        await page.getByRole('button', { name: 'Reset Daily contributions', exact: true }).click();
+      await expect(input).toHaveValue(initialValue);
+    }
+  }
+});
 
 test('keeps native disclosure and form controls usable before JavaScript loads', async ({
   browser,
