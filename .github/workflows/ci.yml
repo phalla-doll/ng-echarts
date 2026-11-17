@@ -24,6 +24,14 @@ jobs:
       - run: npm run check:workspace
       - run: npm run release:local
       - run: npm run check:release-immutability
+      - name: Retain installed consumer failure evidence
+        if: failure() || cancelled()
+        uses: actions/upload-artifact@v7
+        with:
+          name: workspace-consumer-failure-evidence
+          path: test-results/
+          if-no-files-found: ignore
+          retention-days: 7
       - name: Retain exact candidate evidence
         if: always()
         uses: actions/upload-artifact@v7

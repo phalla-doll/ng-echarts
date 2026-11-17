@@ -2,7 +2,7 @@ import { verifyDashboard } from './dashboard-flow.mjs';
 import { consumerArtifact } from './consumer-artifact.mjs';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
-import { mkdtemp, realpath, readFile, writeFile, rm } from 'node:fs/promises';
+import { mkdir, mkdtemp, realpath, readFile, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -196,14 +196,22 @@ try {
   assert(!html.includes('<canvas'));
   const results = [];
   for (const engine of [chromium, firefox, webkit]) {
+    console.log(
+      `Checking documented ${dashboard ? 'dashboard' : 'four-chart'} consumer in ${engine.name()}…`,
+    );
     const browser = await engine.launch();
+    let page;
+    const errors = [];
+    const failedRequests = [];
     try {
-      const page = await browser.newPage({
+      page = await browser.newPage({
         viewport: { width: 1280, height: 1000 },
         reducedMotion: 'reduce',
       });
-      const errors = [];
       page.on('pageerror', (error) => errors.push(error.message));
+      page.on('requestfailed', (request) =>
+        failedRequests.push({ url: request.url(), failure: request.failure() }),
+      );
       page.on('console', (message) => {
         if (message.type() === 'error' || /NG05\d+/.test(message.text()))
           errors.push(message.text());
@@ -212,7 +220,9 @@ try {
       if (dashboard) {
         await verifyDashboard(page);
       } else {
-        await expect(page.locator('canvas')).toHaveCount(4);
+        // Cold production hydration includes application stability and lazy renderer imports.
+        // Give initial readiness the same bound as navigation; action assertions retain 5s.
+        await expect(page.locator('canvas')).toHaveCount(4, { timeout: 30_000 });
         for (const family of ['bar', 'line', 'area', 'pie']) {
           const chart = page.locator(`nec-${family}-chart`);
           await chart.getByRole('button', { name: 'Show data table', exact: true }).click();
@@ -275,6 +285,31 @@ try {
         stableInstances: true,
         passed: true,
       });
+    } catch (error) {
+      const directory = join(
+        root,
+        'test-results',
+        `documentation-${dashboard ? 'dashboard' : 'integration'}-${engine.name()}`,
+      );
+      await mkdir(directory, { recursive: true });
+      await writeFile(
+        join(directory, 'diagnostics.json'),
+        JSON.stringify(
+          { engine: engine.name(), errors, failedRequests, serverLog: log, failure: String(error) },
+          null,
+          2,
+        ),
+      );
+      if (page) {
+        await writeFile(join(directory, 'page.html'), await page.content()).catch(() => {});
+        await page
+          .screenshot({ path: join(directory, 'page.png'), fullPage: true })
+          .catch(() => {});
+      }
+      throw new Error(
+        `${engine.name()} documentation consumer failed. Browser errors: ${JSON.stringify(errors)}; failed requests: ${JSON.stringify(failedRequests)}. Evidence: ${directory}`,
+        { cause: error },
+      );
     } finally {
       await browser.close();
     }
