@@ -1,0 +1,29 @@
+
+> ng-echarts-workspace@0.0.0 check:bundle
+> node tools/check-bundle-size.mjs
+
+PASS: bar 187075 gzip / 159603 Brotli bytes; 232 engine modules, none eager.
+PASS: line 186737 gzip / 159375 Brotli bytes; 230 engine modules, none eager.
+PASS: area 187237 gzip / 159727 Brotli bytes; 230 engine modules, none eager.
+PASS: composed 196578 gzip / 167535 Brotli bytes; 242 engine modules, none eager.
+PASS: pie 163787 gzip / 140090 Brotli bytes; 199 engine modules, none eager.
+PASS: radar 168983 gzip / 144807 Brotli bytes; 210 engine modules, none eager.
+PASS: calendar 174947 gzip / 149699 Brotli bytes; 213 engine modules, none eager.
+PASS: sankey 172250 gzip / 147422 Brotli bytes; 205 engine modules, none eager.
+PASS: radial 134978 gzip / 115589 Brotli bytes; 164 engine modules, none eager.
+PASS: core 9679 gzip / 8556 Brotli bytes; 0 engine modules, none eager.
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: root exceeded its measured budget: {"raw":694331,"gzip":222130,"brotli":190360}
+    at file:///Users/phalla/Documents/codes/ng-echarts/tools/check-bundle-size.mjs:247:3 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.22.2

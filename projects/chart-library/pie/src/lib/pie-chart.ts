@@ -2,22 +2,16 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  ElementRef,
   inject,
   input,
   linkedSignal,
   output,
-  signal,
-  viewChild,
 } from '@angular/core';
 import {
   ChartFrame,
   ɵChartStage,
   ɵTablePager,
   ɵChartPresentation as ChartPresentation,
-  ɵbindBrowserPlot as bindBrowserPlot,
-  ɵreadCartesianTheme as readCartesianTheme,
-  ɵresolveCartesianState as resolveCartesianState,
   ɵcreateValueFormatting as createValueFormatting,
   type ɵPlotPoint as PlotPoint,
   type ChartMeasure,
@@ -38,7 +32,7 @@ import { buildPieOptions, type PieOption } from './pie-options';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PieChart<T extends object> extends ChartPresentation<T> {
+export class PieChart<T extends object> extends ChartPresentation<T, PieOption> {
   readonly #loader = inject(PIE_RENDERER_LOADER);
   readonly innerRadius = input(0);
   readonly showLabels = input(false);
@@ -46,10 +40,6 @@ export class PieChart<T extends object> extends ChartPresentation<T> {
   readonly measure = input.required<ChartMeasure<T>>();
   readonly legendChange = output<CategoryVisibilityChange>();
 
-  readonly #host = inject<ElementRef<HTMLElement>>(ElementRef);
-  private readonly plot = viewChild.required<ElementRef<HTMLElement>>('plot');
-  readonly #browserReady = signal(false);
-  readonly #reducedMotion = signal(false);
   readonly #hiddenIds = linkedSignal<ReturnType<typeof normalizePieData<T>>, ReadonlySet<string>>({
     source: () => this.model(),
     computation: (model, previous) => {
@@ -62,10 +52,10 @@ export class PieChart<T extends object> extends ChartPresentation<T> {
     },
   });
 
-  protected readonly model = computed(() =>
+  protected override readonly model = computed(() =>
     normalizePieData(this.data(), this.rowIdKey(), this.categoryKey(), this.measure()),
   );
-  readonly #formatting = computed(() => {
+  protected override readonly formatting = computed(() => {
     const model = this.model();
     return createValueFormatting(
       this.locale(),
@@ -79,40 +69,23 @@ export class PieChart<T extends object> extends ChartPresentation<T> {
           ],
     );
   });
-  readonly #settings = computed(() => ({
-    height: this.height(),
-    innerRadius: this.innerRadius(),
-    showLabels: this.showLabels(),
-    showTotal: this.showTotal(),
-    theme: this.theme(),
-    themeRevision: this.themeRevision(),
-    animation: this.animation(),
-    loading: this.loading(),
-    error: this.error(),
-    tablePageSize: this.tablePageSize(),
-  }));
-  protected readonly state = computed(() => {
-    const settings = this.#settings();
-    const configurationError =
-      !Number.isFinite(settings.height) || settings.height <= 0
-        ? 'Chart height must be a positive, finite number.'
-        : !['light', 'dark'].includes(settings.theme) || !Number.isFinite(settings.themeRevision)
-          ? 'Chart theme configuration is invalid.'
-          : !Number.isFinite(settings.innerRadius) ||
-              settings.innerRadius < 0 ||
-              settings.innerRadius > 0.9
-            ? 'Inner radius must be a finite ratio from 0 to 0.9.'
-            : typeof settings.showLabels !== 'boolean' || typeof settings.showTotal !== 'boolean'
-              ? 'Show labels and show total must be booleans.'
-              : (this.tablePagination.error() ?? this.#formatting().error);
-    return resolveCartesianState(
-      settings.error,
-      settings.loading,
-      this.model(),
-      this.rendererError(),
-      configurationError,
-    );
-  });
+  protected override familyConfiguration() {
+    return {
+      innerRadius: this.innerRadius(),
+      showLabels: this.showLabels(),
+      showTotal: this.showTotal(),
+    };
+  }
+  protected override familyError(): string | null {
+    if (!Number.isFinite(this.innerRadius()) || this.innerRadius() < 0 || this.innerRadius() > 0.9)
+      return 'Inner radius must be a finite ratio from 0 to 0.9.';
+    return typeof this.showLabels() !== 'boolean' || typeof this.showTotal() !== 'boolean'
+      ? 'Show labels and show total must be booleans.'
+      : null;
+  }
+  protected override pointHidden(point: PlotPoint): boolean {
+    return this.#hiddenIds().has(point.rowId);
+  }
   readonly #percentFormat = computed(() => {
     try {
       return new Intl.NumberFormat(this.locale(), { style: 'percent', maximumFractionDigits: 1 })
@@ -130,8 +103,8 @@ export class PieChart<T extends object> extends ChartPresentation<T> {
           0,
         );
   });
-  protected readonly totalText = computed(() => this.#formatting().format(this.visibleTotal()));
-  protected readonly legendItems = computed(() => {
+  protected readonly totalText = computed(() => this.formatting().format(this.visibleTotal()));
+  protected override readonly legendItems = computed(() => {
     const hiddenIds = this.#hiddenIds();
     const model = this.model();
     if (model.kind === 'error') return [];
@@ -143,7 +116,7 @@ export class PieChart<T extends object> extends ChartPresentation<T> {
         label: item.category,
         visible,
         color: this.tokens().series[index % this.tokens().series.length],
-        valueText: value === null ? 'Missing' : this.#formatting().format(value),
+        valueText: value === null ? 'Missing' : this.formatting().format(value),
         shareText:
           !visible || value === null
             ? '—'
@@ -158,79 +131,36 @@ export class PieChart<T extends object> extends ChartPresentation<T> {
       !model.rows.some((row) => !this.#hiddenIds().has(row.id) && (row.points[0]?.value ?? 0) > 0)
     );
   });
-  readonly #options = computed(() => {
+  protected override readonly options = computed(() => {
     const model = this.model();
     if (this.state().kind !== 'ready' || model.kind === 'error') return null;
     return buildPieOptions({
       model,
       hiddenIds: this.#hiddenIds(),
       tokens: this.tokens(),
-      animation: this.animation() && !this.#reducedMotion(),
-      format: this.#formatting().format,
+      animation: this.animation() && !this.reducedMotion(),
+      format: this.formatting().format,
       innerRadius: this.innerRadius(),
       showLabels: this.showLabels(),
       formatPercent: this.#percentFormat(),
     });
   });
-  protected readonly tableRows = computed(() => {
-    const model = this.model();
-    if (
-      !this.showDataTable() ||
-      !this.tableExpanded() ||
-      this.state().kind !== 'ready' ||
-      model.kind === 'error'
-    )
-      return [];
-    return this.tablePagination.rows(model.rows).map((row) => ({
-      id: row.id,
-      category: row.category,
-      cells: row.points.map((point, index) => {
-        const text = point.value === null ? 'Missing' : this.#formatting().format(point.value);
-        return {
-          ...point,
-          text,
-          actionLabel: `Select ${model.series[index]?.label ?? ''} for ${row.category}: ${text}`,
-        };
-      }),
-    }));
-  });
-
   protected override rendererInputs(): unknown {
-    return [this.model(), this.#settings(), this.#formatting()];
+    return [this.model(), this.settings(), this.formatting()];
   }
 
-  constructor() {
-    super();
-    bindBrowserPlot({
-      host: this.#host.nativeElement,
-      plot: () => this.plot().nativeElement,
-      load: () => this.#loader(),
-      ready: this.#browserReady,
-      reducedMotion: this.#reducedMotion,
-      options: this.#options,
-      readTheme: () => {
-        if (!this.#browserReady()) return;
-        const model = this.model();
-        const theme = this.theme();
-        this.themeRevision();
-        if (model.kind === 'error') return;
-        const palette = model.rows.map((row) => ({
+  protected override renderer() {
+    return this.#loader();
+  }
+  protected override themeSeries() {
+    const model = this.model();
+    return model.kind === 'error'
+      ? null
+      : model.rows.map((row) => ({
           id: row.id,
           key: this.measure().key,
           label: row.category,
         }));
-        try {
-          this.measuredTheme.set(
-            readCartesianTheme(this.#host.nativeElement, theme, palette, this.plot().nativeElement),
-          );
-        } catch {
-          this.rendererError.set(true);
-        }
-      },
-      focusContext: () => [this.state(), this.tableRows(), this.legendItems()],
-      onPoint: (point) => this.selectPoint(point, 'plot'),
-      onError: () => this.rendererError.set(true),
-    });
   }
 
   protected toggleCategory(id: string): void {
@@ -240,16 +170,5 @@ export class PieChart<T extends object> extends ChartPresentation<T> {
     else hidden.add(id);
     this.#hiddenIds.set(hidden);
     this.legendChange.emit({ rowId: id, visible: !hidden.has(id) });
-  }
-
-  protected selectPoint(point: PlotPoint, source: 'plot' | 'table'): void {
-    const model = this.model();
-    if (this.state().kind !== 'ready' || model.kind === 'error') return;
-    if (source === 'plot' && this.#hiddenIds().has(point.rowId)) return;
-    const value = model.rows
-      .find((row) => row.id === point.rowId)
-      ?.points.find((cell) => cell.seriesId === point.seriesId);
-    if (!value || value.value === null) return;
-    this.pointSelect.emit({ ...value, value: value.value, source });
   }
 }

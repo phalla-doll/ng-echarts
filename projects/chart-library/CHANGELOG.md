@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-rc.30 — Radar legend parity and shared presentation behavior
+
+- Apply radar's existing `legendLayout` input to chips and aligned lists, including wrapped labels, visibility and missing-data notes. Keep chip defaults, native keyboard toggles and renderer identities.
+- Share state validation, table formatting/raw actions and browser binding in the internal presentation base. Retain family-specific validation, category-versus-series hiding, lazy registration and budget caps.
+- Correct packaged feature-availability wording for rc.28 legends and calendar/Sankey table opt-outs. Preserve rc.29 and every earlier archive; human release gates remain pending.
+
 ## 0.1.0-rc.29 — Cartesian presentation payload
 
 Move bar-only previews out of the shared Cartesian base and use native private slots for internal lifecycle and component state. Keep public inputs, keyboard controls, focused entry points and lazy engine registration with unchanged payload budgets. Preserve rc.28 and all earlier archives.

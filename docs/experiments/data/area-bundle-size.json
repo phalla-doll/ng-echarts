@@ -1,17 +1,17 @@
 {
-  "recordedAt": "2026-11-16T06:59:18.591Z",
+  "recordedAt": "2026-11-17T03:27:05.436Z",
   "method": "Resolve public package imports, Angular-link, bundle/minify/split with Angular/RxJS peers external; count only modules contributing bytes to output; traverse static imports separately from lazy chunks; sum independently compressed JavaScript chunks",
   "files": [
-    { "name": "stdin.js", "raw": 19750, "gzip": 4899, "brotli": 4304 },
+    { "name": "stdin.js", "raw": 19750, "gzip": 4897, "brotli": 4292 },
     {
-      "name": "mantha911-ng-echarts-area-area-renderer-BLNN_Sjy-U6UJANHG.js",
+      "name": "mantha911-ng-echarts-area-area-renderer-BLNN_Sjy-CJK52UCE.js",
       "raw": 502354,
       "gzip": 171617,
-      "brotli": 146017
+      "brotli": 145970
     },
-    { "name": "chunk-HEQJ3Z3U.js", "raw": 35148, "gzip": 10477, "brotli": 9287 }
+    { "name": "chunk-TRFLUBV7.js", "raw": 35448, "gzip": 10565, "brotli": 9362 }
   ],
-  "total": { "raw": 557252, "gzip": 186993, "brotli": 159608 },
+  "total": { "raw": 557552, "gzip": 187079, "brotli": 159624 },
   "budget": { "gzip": 200000, "brotli": 175000 },
   "passed": true
 }

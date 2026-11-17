@@ -1,0 +1,10 @@
+browser (chromium)	Run npm run test:browser -- --project=chromium --max-failures=1	2026-11-17T02:47:18.8132549Z   193 passed (6.5m)
+browser (webkit)	Verify WebKit horizontal hit targets before the full suite	2026-11-17T02:41:51.8709828Z   2 passed (19.4s)
+browser (webkit)	Run npm run test:browser -- --project=webkit --max-failures=1	2026-11-17T02:58:14.5074004Z   2 skipped
+browser (webkit)	Run npm run test:browser -- --project=webkit --max-failures=1	2026-11-17T02:58:14.5074429Z   191 passed (16.4m)
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-17T02:50:32.9185378Z   2 skipped
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-17T02:50:32.9189895Z   191 passed (9.3m)
+workspace	Run npm run check:workspace	2026-11-17T02:42:50.8877897Z ^[[2m      Tests ^[[22m ^[[1m^[[32m322 passed^[[39m^[[22m^[[90m (322)^[[39m
+workspace	Run npm run check:workspace	2026-11-17T02:46:04.8728669Z PASS: core 8616 gzip / 7601 Brotli bytes; 0 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-17T02:46:06.0533974Z PASS: root 221664 gzip / 189538 Brotli bytes; 253 engine modules, none eager.
+workspace	Run npm run release:local	2026-11-17T02:46:14.7873927Z Prepared mantha911-ng-echarts-0.1.0-rc.29.tgz (169791 bytes), SHA-256 e290db1ad3de9b18b83de79552039b2698d633aa8fc28b155a4b8fa8c990ffda

@@ -4,21 +4,11 @@ import {
   Directive,
   computed,
   input,
-  ElementRef,
-  inject,
   linkedSignal,
   output,
-  signal,
-  viewChild,
 } from '@angular/core';
-import { readCartesianTheme } from './cartesian-browser';
-import {
-  normalizeCartesianData,
-  resolveCartesianState,
-  type CartesianModel,
-} from './cartesian-model';
+import { normalizeCartesianData, type CartesianModel } from './cartesian-model';
 import type { CartesianThemeTokens } from './cartesian-options';
-import type { PlotRendererFactory } from './plot-controller';
 import { formatCategoryTicks } from './category-ticks';
 import { createValueFormatting, type ValueFormatting } from './value-formatting';
 import type {
@@ -28,7 +18,6 @@ import type {
   ValueFormatter,
 } from './chart-types';
 import type { PlotPoint } from './plot-controller';
-import { bindBrowserPlot } from './browser-plot';
 
 function validSeries(series: unknown): boolean {
   return (
@@ -50,14 +39,8 @@ export abstract class CartesianChart<
   T extends object,
   Option,
   Series extends ChartSeries<T> = ChartSeries<T>,
-> extends ChartPresentation<T> {
-  protected abstract renderer(): Promise<PlotRendererFactory<Option>>;
-  protected abstract familyConfiguration(): unknown;
-  protected abstract familyError(): string | null;
+> extends ChartPresentation<T, Option> {
   protected abstract buildOptions(context: CartesianContext<T>): Option;
-  protected seriesLabel(series: ChartSeries<T>): string {
-    return series.label;
-  }
   protected valueAxisDescription(): string {
     return '';
   }
@@ -71,26 +54,10 @@ export abstract class CartesianChart<
         : model.rows.flatMap((row) => row.points.map((point) => point.value)),
     );
   }
-  /** A family can opt into controlled row feedback without changing point events. */
-  protected rowSelectionId(): string | null {
-    return null;
-  }
-  protected rowIsSelected(id: string): boolean {
-    return id === this.rowSelectionId();
-  }
-  protected selectRange(_rowIds: readonly string[], _snapshot: unknown): void {}
-  protected previewPlotPoint(_point: PlotPoint | null): void {}
-  protected observeTablePreviews(): void {}
-  protected cleanupPreviews(): void {}
-  protected resetPointPreview(): void {}
   readonly series = input.required<readonly Series[]>();
   readonly categoryTickFormatter = input<CategoryTickFormatter>();
   readonly legendChange = output<LegendVisibilityChange>();
 
-  protected readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
-  private readonly plot = viewChild.required<ElementRef<HTMLElement>>('plot');
-  protected readonly browserReady = signal(false);
-  readonly #reducedMotion = signal(false);
   protected readonly hiddenIds = linkedSignal<readonly Series[], ReadonlySet<string>>({
     source: this.series,
     computation: (series, previous) => {
@@ -104,10 +71,10 @@ export abstract class CartesianChart<
     },
   });
 
-  protected readonly model = computed(() =>
+  protected override readonly model = computed(() =>
     normalizeCartesianData(this.data(), this.rowIdKey(), this.categoryKey(), this.series()),
   );
-  protected readonly formatting = computed(() => this.valueFormatting(this.model()));
+  protected override readonly formatting = computed(() => this.valueFormatting(this.model()));
   protected readonly categoryTicks = computed(() => {
     const model = this.model();
     return formatCategoryTicks(
@@ -115,36 +82,7 @@ export abstract class CartesianChart<
       this.categoryTickFormatter(),
     );
   });
-  protected readonly settings = computed(() => ({
-    height: this.height(),
-    family: this.familyConfiguration(),
-    theme: this.theme(),
-    themeRevision: this.themeRevision(),
-    animation: this.animation(),
-    loading: this.loading(),
-    error: this.error(),
-    tablePageSize: this.tablePageSize(),
-  }));
-  protected readonly state = computed(() => {
-    const settings = this.settings();
-    const configurationError =
-      !Number.isFinite(settings.height) || settings.height <= 0
-        ? 'Chart height must be a positive, finite number.'
-        : !['light', 'dark'].includes(settings.theme) || !Number.isFinite(settings.themeRevision)
-          ? 'Chart theme configuration is invalid.'
-          : (this.familyError() ??
-            this.tablePagination.error() ??
-            this.formatting().error ??
-            this.categoryTicks().error);
-    return resolveCartesianState(
-      settings.error,
-      settings.loading,
-      this.model(),
-      this.rendererError(),
-      configurationError,
-    );
-  });
-  protected readonly legendItems = computed(() => {
+  protected override readonly legendItems = computed(() => {
     // Reconcile removals even when invalid rows leave the legend empty.
     const hiddenIds = this.hiddenIds();
     const model = this.model();
@@ -160,83 +98,32 @@ export abstract class CartesianChart<
     const items = this.legendItems();
     return items.length > 0 && items.every((item) => !item.visible);
   });
-  readonly #options = computed(() => {
+  protected override readonly options = computed(() => {
     const model = this.model();
     if (this.state().kind !== 'ready' || model.kind === 'error') return null;
     return this.buildOptions({
       model,
       hiddenIds: this.hiddenIds(),
       tokens: this.tokens(),
-      animation: this.animation() && !this.#reducedMotion(),
+      animation: this.animation() && !this.reducedMotion(),
       format: this.formatting().format,
       pointFormat: this.formatting().pointFormat,
       categoryTicks: this.categoryTicks().labels,
     });
   });
-  protected readonly tableRows = computed(() => {
-    const model = this.model();
-    if (
-      !this.showDataTable() ||
-      !this.tableExpanded() ||
-      this.state().kind !== 'ready' ||
-      model.kind === 'error'
-    )
-      return [];
-    return this.tablePagination.rows(model.rows).map((row) => ({
-      id: row.id,
-      category: row.category,
-      selected: this.rowIsSelected(row.id),
-      current: row.id === this.rowSelectionId(),
-      cells: row.points.map((point, index) => {
-        const text =
-          point.value === null
-            ? 'Missing'
-            : (this.formatting().pointFormat?.(point.value, point.seriesId) ??
-              this.formatting().format(point.value));
-        return {
-          ...point,
-          text,
-          actionLabel: `Select ${this.seriesLabel(model.series[index]!)} for ${row.category}: ${text}`,
-        };
-      }),
-    }));
-  });
+  protected override themeSeries(): readonly ChartSeries<T>[] | null {
+    const series = this.series();
+    return validSeries(series) ? series : null;
+  }
+  protected override categoryError(): string | null {
+    return this.categoryTicks().error;
+  }
+  protected override pointHidden(point: PlotPoint): boolean {
+    return this.hiddenIds().has(point.seriesId);
+  }
 
   protected override rendererInputs(): unknown {
     return [this.model(), this.settings(), this.formatting(), this.categoryTicks()];
-  }
-
-  constructor() {
-    super();
-    bindBrowserPlot({
-      host: this.host.nativeElement,
-      plot: () => this.plot().nativeElement,
-      load: () => this.renderer(),
-      ready: this.browserReady,
-      reducedMotion: this.#reducedMotion,
-      options: this.#options,
-      readTheme: () => {
-        if (!this.browserReady()) return;
-        const series = this.series();
-        const theme = this.theme();
-        this.themeRevision();
-        if (!validSeries(series)) return;
-        try {
-          this.measuredTheme.set(
-            readCartesianTheme(this.host.nativeElement, theme, series, this.plot().nativeElement),
-          );
-        } catch {
-          this.rendererError.set(true);
-        }
-      },
-      observePreviews: () => this.observeTablePreviews(),
-      cleanup: () => this.cleanupPreviews(),
-      focusContext: () => [this.state(), this.tableRows(), this.legendItems()],
-      onPoint: (point) => this.selectPoint(point, 'plot'),
-      onError: () => this.rendererError.set(true),
-      onRange: (ids, snapshot) => this.selectRange(ids, snapshot),
-      onPreview: (point) => this.previewPlotPoint(point),
-    });
   }
 
   protected toggleSeries(id: string): void {
@@ -246,18 +133,6 @@ export abstract class CartesianChart<
     else hidden.add(id);
     this.hiddenIds.set(hidden);
     this.legendChange.emit({ seriesId: id, visible: !hidden.has(id) });
-  }
-
-  protected selectPoint(point: PlotPoint, source: 'plot' | 'table'): void {
-    const model = this.model();
-    if (this.state().kind !== 'ready' || model.kind === 'error') return;
-    if (source === 'plot' && this.hiddenIds().has(point.seriesId)) return;
-    const value = model.rows
-      .find((row) => row.id === point.rowId)
-      ?.points.find((cell) => cell.seriesId === point.seriesId);
-    if (!value || value.value === null) return;
-    this.resetPointPreview();
-    this.pointSelect.emit({ ...value, value: value.value, source });
   }
 }
 

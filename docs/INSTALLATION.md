@@ -13,7 +13,7 @@ npm install @mantha911/ng-echarts@next echarts@6.1.0
 
 The API remains experimental. Human screen-reader interpretation is unreviewed; the user requested skipping that session and proceeding with the prerelease.
 
-The [packaged documentation errata](PACKAGED_DOCUMENTATION_ERRATA.md) supersede stale feature-availability wording in frozen rc.28/rc.29 readmes. Their archives are preserved; consult the API guides here for current behavior, including the radar chip-only presentation.
+The [packaged documentation errata](PACKAGED_DOCUMENTATION_ERRATA.md) supersede stale feature-availability wording in frozen rc.28/rc.29 readmes. Their archives are preserved; consult the API guides here for current behavior, including the radar chip-only presentation in rc.28/rc.29. Local rc.30 completes radar lists and corrects its packaged README; its [verification](experiments/RC30_RADAR_LEGENDS.md) is separate from published availability.
 
 ## Build and pack
 
@@ -22,7 +22,7 @@ Run these commands in the repository root after selecting the toolchain:
 ```sh
 npm ci
 npm run pack:lib
-export CHART_LIBRARY_TARBALL="$PWD/dist/mantha911-ng-echarts-0.1.0-rc.29.tgz"
+export CHART_LIBRARY_TARBALL="$PWD/dist/mantha911-ng-echarts-0.1.0-rc.30.tgz"
 ```
 
 The `CHART_LIBRARY_TARBALL` variable is an absolute path for the commands below. If you open another terminal, set it to the actual tarball location. Keep the tarball available for subsequent installs, or copy it into the consuming project's `vendor/` directory before installing it. Commit the consumer's resulting lockfile and use `npm ci` for repeat installs. Rebuild/repack/reinstall when changing the library; a tarball installation does not watch the checkout.
@@ -122,13 +122,13 @@ The [API index and integration guide](INTEGRATION_GUIDE.md) cover shared types, 
 
 ## Current feature availability
 
-The current source candidate is `0.1.0-rc.29`, with isolated bar preview state and native private implementation fields. The current published version is `0.1.0-rc.28`; npm `next` selects rc.28 and `latest` remains rc.18. Chip/list legends and gallery table opt-outs ship in rc.28; horizontal composition ships since rc.23 and explicit independent axes since rc.24. The application-owned shared-window dashboard also runs on published rc.22. Preserve every archive. The [rc.28 publication](experiments/RC28_PUBLICATION.md) and [rc.29 continuation](experiments/RC29_LINKED_WINDOW.md) separate registry delivery from current source verification.
+The current source candidate is `0.1.0-rc.30`, adding radar list legends and shared internal presentation behavior on top of preserved rc.29. Its [increment report](experiments/RC30_RADAR_LEGENDS.md) owns verification. The current published version is `0.1.0-rc.28`; npm `next` selects rc.28 and `latest` remains rc.18. Chip/list legends and gallery table opt-outs ship in rc.28; horizontal composition ships since rc.23 and explicit independent axes since rc.24. The application-owned shared-window dashboard also runs on published rc.22. Preserve every archive. The [rc.28 publication](experiments/RC28_PUBLICATION.md) and [rc.29 continuation](experiments/RC29_LINKED_WINDOW.md) separate registry delivery from current source verification.
 
 | Capability | Published availability |
 | --- | --- |
 | Table pagination / named bar stacks / composed areas | rc.19 / rc.21 / rc.22 and later |
 | Horizontal composition / independent composed value axes | rc.23 / rc.24 and later |
-| Cartesian and pie/donut chip/list legends | rc.28 and later; radar remains chips as recorded in the erratum |
+| Cartesian and pie/donut chip/list legends | rc.28 and later; radar lists are local rc.30, while rc.28/rc.29 retain chips |
 | Calendar/Sankey `showDataTable` opt-out | rc.28 and later; default `true` |
 | Shared-window dashboard and month actions from either chart | Application code using existing rc.22 APIs; verified against that exact npm baseline and the rc.29 candidate |
 

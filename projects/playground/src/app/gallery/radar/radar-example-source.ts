@@ -13,7 +13,8 @@ export const capabilityRows: readonly Capability[] = [
   { id: 'support', dimension: 'Support', max: 100, current: 85, target: 90 },
   { id: 'value', dimension: 'Value', max: 100, current: 82, target: 90 },
 ];
-export const radarExampleSource = `import { ChangeDetectionStrategy, Component } from '@angular/core';
+export function radarExampleSource(legendLayout: 'chips' | 'list' = 'chips'): string {
+  return `import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RadarChart, type ChartSeries } from '@mantha911/ng-echarts/radar';
 
 interface Capability {
@@ -28,7 +29,7 @@ interface Capability {
     title="Capability profile"
     description="Current and target scores, each out of 100."
     [data]="rows" rowIdKey="id" categoryKey="dimension" maxKey="max"
-    [series]="series" [height]="320" [showDataTable]="false"
+    [series]="series" [height]="320" [showDataTable]="false" legendLayout="${legendLayout}"
   />\`,
 })
 export class CapabilityProfile {
@@ -38,3 +39,4 @@ export class CapabilityProfile {
     { id: 'target', key: 'target', label: 'Target' },
   ];
 }`;
+}

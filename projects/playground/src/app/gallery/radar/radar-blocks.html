@@ -39,6 +39,22 @@
           </div>
         </header>
         <div class="block-surface" [hidden]="view() !== 'preview'">
+          <div class="legend-layout" role="group" aria-label="Legend layout">
+            <button
+              type="button"
+              (click)="legendLayout.set('chips')"
+              [attr.aria-pressed]="legendLayout() === 'chips'"
+            >
+              Inline chips
+            </button>
+            <button
+              type="button"
+              (click)="legendLayout.set('list')"
+              [attr.aria-pressed]="legendLayout() === 'list'"
+            >
+              Aligned list
+            </button>
+          </div>
           @if (mounted()) {
             <nec-radar-chart
               class="gallery-chart"
@@ -53,6 +69,7 @@
               [theme]="theme()"
               [showDataTable]="showDataTable"
               [filled]="filled()"
+              [legendLayout]="legendLayout()"
               [loading]="loading()"
               [error]="error()"
               (pointSelect)="select($event)"
@@ -75,7 +92,7 @@
             <pre
               tabindex="0"
               aria-label="Capability profile Angular source"
-            >@defer (on immediate) {<code [appHighlight]="source"></code>} @placeholder {<code>{{ source }}</code>} @error {<code>{{ source }}</code>}</pre>
+            >@defer (on immediate) {<code [appHighlight]="source()"></code>} @placeholder {<code>{{ source() }}</code>} @error {<code>{{ source() }}</code>}</pre>
           </div>
         }
       </div>

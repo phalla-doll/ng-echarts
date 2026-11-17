@@ -1,0 +1,56 @@
+
+> ng-echarts-workspace@0.0.0 test:browser
+> playwright test tests/browser/radar-legend-layouts.spec.ts tests/browser/radar.spec.ts tests/browser/pie-chart.spec.ts tests/browser/legend-layouts.spec.ts --max-failures=1
+
+[WebServer] (node:11670) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 39 tests using 1 worker
+
+(node:11674) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/browser/legend-layouts.spec.ts:6:1 › keeps chip/list legends responsive, aligned and keyboard-operable without resetting the chart (2.7s)
+  ✓   2 [chromium] › tests/browser/pie-chart.spec.ts:6:1 › renders copyable pie blocks with the pinned pie data and clean responsive themes (1.1s)
+  ✓   3 [chromium] › tests/browser/pie-chart.spec.ts:68:1 › renders a real donut hole and emits raw stable category events through updates and hiding (999ms)
+  ✓   4 [chromium] › tests/browser/pie-chart.spec.ts:124:1 › recovers pie states, hydrates deferred controls, and disposes observers and instances (25.1s)
+  ✓   5 [chromium] › tests/browser/pie-chart.spec.ts:206:1 › retries a pie renderer import failure (289ms)
+  ✓   6 [chromium] › tests/browser/pie-chart.spec.ts:218:1 › ignores late pie imports after destruction and remounts with current data (369ms)
+  ✓   7 [chromium] › tests/browser/radar-legend-layouts.spec.ts:6:3 › keeps radar dark legends aligned, responsive and keyboard-operable across layout changes (1.3s)
+  ✓   8 [chromium] › tests/browser/radar-legend-layouts.spec.ts:6:3 › keeps radar light legends aligned, responsive and keyboard-operable across layout changes (1.3s)
+  ✓   9 [chromium] › tests/browser/radar-legend-layouts.spec.ts:94:1 › keeps radar gallery chips and native choices available before JavaScript (113ms)
+  ✓  10 [chromium] › tests/browser/radar.spec.ts:17:1 › hydrates, emits equivalent plot/table identities and preserves keyboard focus across updates (637ms)
+  ✓  11 [chromium] › tests/browser/radar.spec.ts:62:1 › keeps missing observations explicit, hides stale plots in states and recovers (576ms)
+  ✓  12 [chromium] › tests/browser/radar.spec.ts:85:1 › fits both themes at narrow widths, resizes a mounted plot, and preserves shared focus styling (730ms)
+  ✓  13 [chromium] › tests/browser/radar.spec.ts:120:1 › disposes the renderer and motion listeners across 100 mount cycles and navigation (22.7s)
+(node:13925) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  14 [firefox] › tests/browser/legend-layouts.spec.ts:6:1 › keeps chip/list legends responsive, aligned and keyboard-operable without resetting the chart (3.3s)
+  ✓  15 [firefox] › tests/browser/pie-chart.spec.ts:6:1 › renders copyable pie blocks with the pinned pie data and clean responsive themes (1.2s)
+  ✓  16 [firefox] › tests/browser/pie-chart.spec.ts:68:1 › renders a real donut hole and emits raw stable category events through updates and hiding (840ms)
+  ✓  17 [firefox] › tests/browser/pie-chart.spec.ts:124:1 › recovers pie states, hydrates deferred controls, and disposes observers and instances (10.3s)
+  ✓  18 [firefox] › tests/browser/pie-chart.spec.ts:206:1 › retries a pie renderer import failure (412ms)
+  ✓  19 [firefox] › tests/browser/pie-chart.spec.ts:218:1 › ignores late pie imports after destruction and remounts with current data (422ms)
+  ✓  20 [firefox] › tests/browser/radar-legend-layouts.spec.ts:6:3 › keeps radar dark legends aligned, responsive and keyboard-operable across layout changes (1.1s)
+  ✓  21 [firefox] › tests/browser/radar-legend-layouts.spec.ts:6:3 › keeps radar light legends aligned, responsive and keyboard-operable across layout changes (1.2s)
+  ✓  22 [firefox] › tests/browser/radar-legend-layouts.spec.ts:94:1 › keeps radar gallery chips and native choices available before JavaScript (245ms)
+  ✓  23 [firefox] › tests/browser/radar.spec.ts:17:1 › hydrates, emits equivalent plot/table identities and preserves keyboard focus across updates (1.1s)
+  ✓  24 [firefox] › tests/browser/radar.spec.ts:62:1 › keeps missing observations explicit, hides stale plots in states and recovers (536ms)
+  ✓  25 [firefox] › tests/browser/radar.spec.ts:85:1 › fits both themes at narrow widths, resizes a mounted plot, and preserves shared focus styling (937ms)
+  ✓  26 [firefox] › tests/browser/radar.spec.ts:120:1 › disposes the renderer and motion listeners across 100 mount cycles and navigation (9.0s)
+(node:14177) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  27 [webkit] › tests/browser/legend-layouts.spec.ts:6:1 › keeps chip/list legends responsive, aligned and keyboard-operable without resetting the chart (2.8s)
+  ✓  28 [webkit] › tests/browser/pie-chart.spec.ts:6:1 › renders copyable pie blocks with the pinned pie data and clean responsive themes (1.4s)
+  ✓  29 [webkit] › tests/browser/pie-chart.spec.ts:68:1 › renders a real donut hole and emits raw stable category events through updates and hiding (1.0s)
+  ✓  30 [webkit] › tests/browser/pie-chart.spec.ts:124:1 › recovers pie states, hydrates deferred controls, and disposes observers and instances (13.9s)
+  ✓  31 [webkit] › tests/browser/pie-chart.spec.ts:206:1 › retries a pie renderer import failure (442ms)
+  ✓  32 [webkit] › tests/browser/pie-chart.spec.ts:218:1 › ignores late pie imports after destruction and remounts with current data (521ms)
+  ✓  33 [webkit] › tests/browser/radar-legend-layouts.spec.ts:6:3 › keeps radar dark legends aligned, responsive and keyboard-operable across layout changes (1.2s)
+  ✓  34 [webkit] › tests/browser/radar-legend-layouts.spec.ts:6:3 › keeps radar light legends aligned, responsive and keyboard-operable across layout changes (1.2s)
+  ✓  35 [webkit] › tests/browser/radar-legend-layouts.spec.ts:94:1 › keeps radar gallery chips and native choices available before JavaScript (310ms)
+  ✓  36 [webkit] › tests/browser/radar.spec.ts:17:1 › hydrates, emits equivalent plot/table identities and preserves keyboard focus across updates (895ms)
+  ✓  37 [webkit] › tests/browser/radar.spec.ts:62:1 › keeps missing observations explicit, hides stale plots in states and recovers (672ms)
+  ✓  38 [webkit] › tests/browser/radar.spec.ts:85:1 › fits both themes at narrow widths, resizes a mounted plot, and preserves shared focus styling (950ms)
+  ✓  39 [webkit] › tests/browser/radar.spec.ts:120:1 › disposes the renderer and motion listeners across 100 mount cycles and navigation (14.7s)
+
+  39 passed (2.2m)

@@ -1,6 +1,6 @@
 # ng-echarts delivery backlog
 
-Current delivery (16 November 2026): npm `next` is rc.28 and `latest` is rc.18; rc.29 is a verified, unpublished candidate. The [GitHub Pages record](GITHUB_PAGES.md) owns the separately sealed live dashboard identity. Final verification commit `d3faedb` passes [all six CI jobs](https://github.com/phalla-doll/ng-echarts/actions/runs/43825201013): 342 unit tests, 488 browser passes/four expected skips, exact consumers, reproducibility, Pages and unchanged budgets. [Publication](experiments/RC28_PUBLICATION.md), [candidate and deployment evidence](experiments/RC29_LINKED_WINDOW.md). Human F09/R06/G2/G3/G4 remain deferred/pending.
+Current development (17 November 2026): local rc.30 completes radar list legends and consolidates internal presentation behavior; verification is recorded in the [increment report](experiments/RC30_RADAR_LEGENDS.md). npm `next` remains rc.28 and `latest` rc.18. The preserved rc.29 candidate remains unpublished. Baseline `adbfac1` passes [all six CI jobs](https://github.com/phalla-doll/ng-echarts/actions/runs/44004670471): 342 unit tests, 575 browser passes/four expected skips, exact consumers, reproducibility, Pages and unchanged budgets. The documentation-consumer readiness follow-up is resolved. Preserve the [separately deployed demo identity](GITHUB_PAGES.md) and every archive. Human F09/R06/G2/G3/G4 remain deferred/pending.
 
 Historical increment sections below retain their original version-specific evidence and limits; use the current delivery summary for npm, candidate and deployment status.
 
@@ -63,7 +63,7 @@ The [Chart possibilities gallery](experiments/CHART_POSSIBILITIES.md) previews t
 | NG19 | P2 | First single-year calendar heatmap and bounded Sankey implemented; broader windows and flow variants deferred | [Calendar contract and evidence](experiments/NG19_CALENDAR_HEATMAP.md); family-specific human interpretation pending |
 | NG20 | P2 | Composed overview/detail dashboard added with a published-rc.22 consumer; application-owned overview/detail link, inclusive native/graphical month ranges and controlled bar feedback implemented; opt-in one-way hover/focus preview added in rc.13; application-owned shared zoom and month selection in both chart directions now implemented in the composed dashboard; general library zoom, disjoint selections and graphical two-way brushing remain deferred | [Initial contract](experiments/NG20_LINKED_CHARTS.md) and [selection feedback](experiments/LINKED_SELECTION_FEEDBACK.md); user prioritized linked charts after NG17 |
 | NG21 | P2 | Patterns, glow, advanced animations, and tooltip templates | Per-variant visual and performance targets agreed |
-| NG22 | P2 | Experimental package published through rc.24; exact registry bytes/consumers and manual trusted publishing verified | [Current publication](PUBLICATION.md#rc24-oidc-publication), preserved [first prerelease](experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication); manual trusted publishing is active; human gates remain pending |
+| NG22 | P2 | Experimental package published through rc.28; exact registry bytes/consumers and manual trusted publishing verified | [Current publication](PUBLICATION.md#rc28-oidc-publication), preserved [first prerelease](experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication); manual trusted publishing is active; human gates remain pending |
 
 ## Definition of done
 
@@ -188,4 +188,4 @@ Current integration advances legend/gallery source to rc.28 after reconciling th
 
 ## Documentation audit follow-up
 
-Current guides now distinguish published rc.28, the unpublished rc.29 candidate, the deployed application-owned window and deferred general-purpose library zoom/graphical linking. [Packaged errata](PACKAGED_DOCUMENTATION_ERRATA.md) preserve frozen README/changelog bytes. Radar exposes the inherited `legendLayout` input but its current template does not apply aligned-list presentation; this remains a bounded NG18 follow-up requiring a new runtime candidate and browser evidence, rather than a completed feature claim.
+Current guides now distinguish published rc.28, the unpublished rc.29 candidate, the deployed application-owned window and deferred general-purpose library zoom/graphical linking. [Packaged errata](PACKAGED_DOCUMENTATION_ERRATA.md) preserve frozen README/changelog bytes. That audit recorded radar's missing list binding in rc.28/rc.29. Local rc.30 addresses it in a new runtime candidate with separate [NG18 verification](experiments/RC30_RADAR_LEGENDS.md).

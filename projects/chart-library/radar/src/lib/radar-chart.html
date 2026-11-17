@@ -40,7 +40,7 @@
       </p>
     }
     <p class="scale-context">{{ scaleContext() }}</p>
-    <div class="legend" aria-label="Chart series">
+    <div class="legend" [class.legend-list]="legendLayout() === 'list'" aria-label="Chart series">
       @for (item of legendItems(); track item.id) {
         <button
           type="button"
@@ -49,10 +49,12 @@
           (click)="toggleSeries(item.id)"
         >
           <span class="swatch" [style.background]="item.color" aria-hidden="true"></span>
-          {{ item.label }}
+          <span class="legend-label">{{ item.label }}</span>
           <span
             class="visibility"
-            [class.legend-note]="item.visible && incompleteIds().has(item.id)"
+            [class.legend-note]="
+              legendLayout() === 'list' || (item.visible && incompleteIds().has(item.id))
+            "
             >{{
               item.visible ? (incompleteIds().has(item.id) ? 'Missing data' : 'Visible') : 'Hidden'
             }}</span

@@ -1,6 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { RadarChart, type ChartSeries, type PointSelection } from '@mantha911/ng-echarts/radar';
+import {
+  RadarChart,
+  type ChartSeries,
+  type LegendLayout,
+  type PointSelection,
+} from '@mantha911/ng-echarts/radar';
 import { SiteAppearance } from '../../shell/site-appearance';
 import { SiteIcon } from '../../shell/site-icon';
 import { HighlightCode } from '../../code-examples/highlight-code';
@@ -9,7 +14,7 @@ import { capabilityRows, radarExampleSource, type Capability } from './radar-exa
   selector: 'app-radar-blocks',
   imports: [RadarChart, RouterLink, SiteIcon, HighlightCode],
   templateUrl: './radar-blocks.html',
-  styleUrls: ['../gallery.css', '../bar-block.css', './radar-blocks.css'],
+  styleUrls: ['../gallery.css', '../bar-block.css', '../pie-block.css', './radar-blocks.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RadarBlocks {
@@ -18,13 +23,15 @@ export class RadarBlocks {
   protected readonly theme = computed(() => (this.dark() ? 'dark' : 'light'));
   protected readonly rows = signal(capabilityRows);
   protected readonly filled = signal(true);
+  protected readonly legendLayout = signal<LegendLayout>('chips');
   protected readonly loading = signal(false);
   protected readonly error = signal<string | null>(null);
   protected readonly mounted = signal(true);
   protected readonly view = signal<'preview' | 'code'>('preview');
   protected readonly selection = signal('');
-  protected readonly source = radarExampleSource;
-  protected readonly copied = signal(false);
+  protected readonly source = computed(() => radarExampleSource(this.legendLayout()));
+  private readonly copiedText = signal<string | null>(null);
+  protected readonly copied = computed(() => this.copiedText() === this.source());
   protected readonly copyFailed = signal(false);
   protected readonly series: readonly ChartSeries<Capability>[] = [
     { id: 'current', key: 'current', label: 'Current' },
@@ -51,12 +58,14 @@ export class RadarBlocks {
     this.loading.set(false);
     this.error.set(null);
     this.filled.set(true);
+    this.legendLayout.set('chips');
     this.selection.set('');
   }
   protected async copy(): Promise<void> {
     try {
-      await navigator.clipboard.writeText(this.source);
-      this.copied.set(true);
+      const source = this.source();
+      await navigator.clipboard.writeText(source);
+      this.copiedText.set(source);
       this.copyFailed.set(false);
     } catch {
       this.copyFailed.set(true);

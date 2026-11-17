@@ -1,0 +1,1709 @@
+{
+  "method": "Reflect all supported component exports in every entry after Angular inheritance; compare selectors, standalone flags and full public input/output metadata against the canonical rc.29 archive.",
+  "baseline": "e290db1ad3de9b18b83de79552039b2698d633aa8fc28b155a4b8fa8c990ffda",
+  "contracts": {
+    ".:ChartFrame": {
+      "selector": "nec-chart-frame",
+      "standalone": true,
+      "inputs": [
+        {
+          "propName": "description",
+          "templateName": "description",
+          "isSignal": true
+        },
+        {
+          "propName": "title",
+          "templateName": "title",
+          "isSignal": true
+        }
+      ],
+      "outputs": []
+    },
+    ".:BarChart": {
+      "selector": "nec-bar-chart",
+      "standalone": true,
+      "inputs": [
+        {
+          "propName": "animation",
+          "templateName": "animation",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryKey",
+          "templateName": "categoryKey",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryTickFormatter",
+          "templateName": "categoryTickFormatter",
+          "isSignal": true
+        },
+        {
+          "propName": "data",
+          "templateName": "data",
+          "isSignal": true
+        },
+        {
+          "propName": "description",
+          "templateName": "description",
+          "isSignal": true
+        },
+        {
+          "propName": "error",
+          "templateName": "error",
+          "isSignal": true
+        },
+        {
+          "propName": "gradient",
+          "templateName": "gradient",
+          "isSignal": true
+        },
+        {
+          "propName": "height",
+          "templateName": "height",
+          "isSignal": true
+        },
+        {
+          "propName": "layout",
+          "templateName": "layout",
+          "isSignal": true
+        },
+        {
+          "propName": "legendLayout",
+          "templateName": "legendLayout",
+          "isSignal": true
+        },
+        {
+          "propName": "loading",
+          "templateName": "loading",
+          "isSignal": true
+        },
+        {
+          "propName": "locale",
+          "templateName": "locale",
+          "isSignal": true
+        },
+        {
+          "propName": "numberFormatOptions",
+          "templateName": "numberFormatOptions",
+          "isSignal": true
+        },
+        {
+          "propName": "previewEnabled",
+          "templateName": "previewEnabled",
+          "isSignal": true
+        },
+        {
+          "propName": "rangeSelection",
+          "templateName": "rangeSelection",
+          "isSignal": true
+        },
+        {
+          "propName": "rowIdKey",
+          "templateName": "rowIdKey",
+          "isSignal": true
+        },
+        {
+          "propName": "selectedRowId",
+          "templateName": "selectedRowId",
+          "isSignal": true
+        },
+        {
+          "propName": "selectedRowIds",
+          "templateName": "selectedRowIds",
+          "isSignal": true
+        },
+        {
+          "propName": "series",
+          "templateName": "series",
+          "isSignal": true
+        },
+        {
+          "propName": "showDataTable",
+          "templateName": "showDataTable",
+          "isSignal": true
+        },
+        {
+          "propName": "stacked",
+          "templateName": "stacked",
+          "isSignal": true
+        },
+        {
+          "propName": "tablePageSize",
+          "templateName": "tablePageSize",
+          "isSignal": true
+        },
+        {
+          "propName": "theme",
+          "templateName": "theme",
+          "isSignal": true
+        },
+        {
+          "propName": "themeRevision",
+          "templateName": "themeRevision",
+          "isSignal": true
+        },
+        {
+          "propName": "title",
+          "templateName": "title",
+          "isSignal": true
+        },
+        {
+          "propName": "valueFormatter",
+          "templateName": "valueFormatter",
+          "isSignal": true
+        }
+      ],
+      "outputs": [
+        {
+          "propName": "legendChange",
+          "templateName": "legendChange"
+        },
+        {
+          "propName": "pointPreview",
+          "templateName": "pointPreview"
+        },
+        {
+          "propName": "pointSelect",
+          "templateName": "pointSelect"
+        },
+        {
+          "propName": "rangeSelect",
+          "templateName": "rangeSelect"
+        }
+      ]
+    },
+    ".:LineChart": {
+      "selector": "nec-line-chart",
+      "standalone": true,
+      "inputs": [
+        {
+          "propName": "animation",
+          "templateName": "animation",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryKey",
+          "templateName": "categoryKey",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryTickFormatter",
+          "templateName": "categoryTickFormatter",
+          "isSignal": true
+        },
+        {
+          "propName": "data",
+          "templateName": "data",
+          "isSignal": true
+        },
+        {
+          "propName": "description",
+          "templateName": "description",
+          "isSignal": true
+        },
+        {
+          "propName": "error",
+          "templateName": "error",
+          "isSignal": true
+        },
+        {
+          "propName": "height",
+          "templateName": "height",
+          "isSignal": true
+        },
+        {
+          "propName": "legendLayout",
+          "templateName": "legendLayout",
+          "isSignal": true
+        },
+        {
+          "propName": "loading",
+          "templateName": "loading",
+          "isSignal": true
+        },
+        {
+          "propName": "locale",
+          "templateName": "locale",
+          "isSignal": true
+        },
+        {
+          "propName": "numberFormatOptions",
+          "templateName": "numberFormatOptions",
+          "isSignal": true
+        },
+        {
+          "propName": "rowIdKey",
+          "templateName": "rowIdKey",
+          "isSignal": true
+        },
+        {
+          "propName": "series",
+          "templateName": "series",
+          "isSignal": true
+        },
+        {
+          "propName": "showDataTable",
+          "templateName": "showDataTable",
+          "isSignal": true
+        },
+        {
+          "propName": "showPoints",
+          "templateName": "showPoints",
+          "isSignal": true
+        },
+        {
+          "propName": "smooth",
+          "templateName": "smooth",
+          "isSignal": true
+        },
+        {
+          "propName": "tablePageSize",
+          "templateName": "tablePageSize",
+          "isSignal": true
+        },
+        {
+          "propName": "theme",
+          "templateName": "theme",
+          "isSignal": true
+        },
+        {
+          "propName": "themeRevision",
+          "templateName": "themeRevision",
+          "isSignal": true
+        },
+        {
+          "propName": "title",
+          "templateName": "title",
+          "isSignal": true
+        },
+        {
+          "propName": "valueFormatter",
+          "templateName": "valueFormatter",
+          "isSignal": true
+        }
+      ],
+      "outputs": [
+        {
+          "propName": "legendChange",
+          "templateName": "legendChange"
+        },
+        {
+          "propName": "pointSelect",
+          "templateName": "pointSelect"
+        }
+      ]
+    },
+    ".:AreaChart": {
+      "selector": "nec-area-chart",
+      "standalone": true,
+      "inputs": [
+        {
+          "propName": "animation",
+          "templateName": "animation",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryKey",
+          "templateName": "categoryKey",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryTickFormatter",
+          "templateName": "categoryTickFormatter",
+          "isSignal": true
+        },
+        {
+          "propName": "data",
+          "templateName": "data",
+          "isSignal": true
+        },
+        {
+          "propName": "description",
+          "templateName": "description",
+          "isSignal": true
+        },
+        {
+          "propName": "error",
+          "templateName": "error",
+          "isSignal": true
+        },
+        {
+          "propName": "gradient",
+          "templateName": "gradient",
+          "isSignal": true
+        },
+        {
+          "propName": "height",
+          "templateName": "height",
+          "isSignal": true
+        },
+        {
+          "propName": "legendLayout",
+          "templateName": "legendLayout",
+          "isSignal": true
+        },
+        {
+          "propName": "loading",
+          "templateName": "loading",
+          "isSignal": true
+        },
+        {
+          "propName": "locale",
+          "templateName": "locale",
+          "isSignal": true
+        },
+        {
+          "propName": "numberFormatOptions",
+          "templateName": "numberFormatOptions",
+          "isSignal": true
+        },
+        {
+          "propName": "rowIdKey",
+          "templateName": "rowIdKey",
+          "isSignal": true
+        },
+        {
+          "propName": "series",
+          "templateName": "series",
+          "isSignal": true
+        },
+        {
+          "propName": "showDataTable",
+          "templateName": "showDataTable",
+          "isSignal": true
+        },
+        {
+          "propName": "showPoints",
+          "templateName": "showPoints",
+          "isSignal": true
+        },
+        {
+          "propName": "smooth",
+          "templateName": "smooth",
+          "isSignal": true
+        },
+        {
+          "propName": "stacked",
+          "templateName": "stacked",
+          "isSignal": true
+        },
+        {
+          "propName": "tablePageSize",
+          "templateName": "tablePageSize",
+          "isSignal": true
+        },
+        {
+          "propName": "theme",
+          "templateName": "theme",
+          "isSignal": true
+        },
+        {
+          "propName": "themeRevision",
+          "templateName": "themeRevision",
+          "isSignal": true
+        },
+        {
+          "propName": "title",
+          "templateName": "title",
+          "isSignal": true
+        },
+        {
+          "propName": "valueFormatter",
+          "templateName": "valueFormatter",
+          "isSignal": true
+        }
+      ],
+      "outputs": [
+        {
+          "propName": "legendChange",
+          "templateName": "legendChange"
+        },
+        {
+          "propName": "pointSelect",
+          "templateName": "pointSelect"
+        }
+      ]
+    },
+    ".:ComposedChart": {
+      "selector": "nec-composed-chart",
+      "standalone": true,
+      "inputs": [
+        {
+          "propName": "animation",
+          "templateName": "animation",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryKey",
+          "templateName": "categoryKey",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryTickFormatter",
+          "templateName": "categoryTickFormatter",
+          "isSignal": true
+        },
+        {
+          "propName": "data",
+          "templateName": "data",
+          "isSignal": true
+        },
+        {
+          "propName": "description",
+          "templateName": "description",
+          "isSignal": true
+        },
+        {
+          "propName": "error",
+          "templateName": "error",
+          "isSignal": true
+        },
+        {
+          "propName": "height",
+          "templateName": "height",
+          "isSignal": true
+        },
+        {
+          "propName": "layout",
+          "templateName": "layout",
+          "isSignal": true
+        },
+        {
+          "propName": "legendLayout",
+          "templateName": "legendLayout",
+          "isSignal": true
+        },
+        {
+          "propName": "loading",
+          "templateName": "loading",
+          "isSignal": true
+        },
+        {
+          "propName": "locale",
+          "templateName": "locale",
+          "isSignal": true
+        },
+        {
+          "propName": "numberFormatOptions",
+          "templateName": "numberFormatOptions",
+          "isSignal": true
+        },
+        {
+          "propName": "rowIdKey",
+          "templateName": "rowIdKey",
+          "isSignal": true
+        },
+        {
+          "propName": "series",
+          "templateName": "series",
+          "isSignal": true
+        },
+        {
+          "propName": "showDataTable",
+          "templateName": "showDataTable",
+          "isSignal": true
+        },
+        {
+          "propName": "tablePageSize",
+          "templateName": "tablePageSize",
+          "isSignal": true
+        },
+        {
+          "propName": "theme",
+          "templateName": "theme",
+          "isSignal": true
+        },
+        {
+          "propName": "themeRevision",
+          "templateName": "themeRevision",
+          "isSignal": true
+        },
+        {
+          "propName": "title",
+          "templateName": "title",
+          "isSignal": true
+        },
+        {
+          "propName": "valueAxes",
+          "templateName": "valueAxes",
+          "isSignal": true
+        },
+        {
+          "propName": "valueFormatter",
+          "templateName": "valueFormatter",
+          "isSignal": true
+        }
+      ],
+      "outputs": [
+        {
+          "propName": "legendChange",
+          "templateName": "legendChange"
+        },
+        {
+          "propName": "pointSelect",
+          "templateName": "pointSelect"
+        }
+      ]
+    },
+    ".:PieChart": {
+      "selector": "nec-pie-chart",
+      "standalone": true,
+      "inputs": [
+        {
+          "propName": "animation",
+          "templateName": "animation",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryKey",
+          "templateName": "categoryKey",
+          "isSignal": true
+        },
+        {
+          "propName": "data",
+          "templateName": "data",
+          "isSignal": true
+        },
+        {
+          "propName": "description",
+          "templateName": "description",
+          "isSignal": true
+        },
+        {
+          "propName": "error",
+          "templateName": "error",
+          "isSignal": true
+        },
+        {
+          "propName": "height",
+          "templateName": "height",
+          "isSignal": true
+        },
+        {
+          "propName": "innerRadius",
+          "templateName": "innerRadius",
+          "isSignal": true
+        },
+        {
+          "propName": "legendLayout",
+          "templateName": "legendLayout",
+          "isSignal": true
+        },
+        {
+          "propName": "loading",
+          "templateName": "loading",
+          "isSignal": true
+        },
+        {
+          "propName": "locale",
+          "templateName": "locale",
+          "isSignal": true
+        },
+        {
+          "propName": "measure",
+          "templateName": "measure",
+          "isSignal": true
+        },
+        {
+          "propName": "numberFormatOptions",
+          "templateName": "numberFormatOptions",
+          "isSignal": true
+        },
+        {
+          "propName": "rowIdKey",
+          "templateName": "rowIdKey",
+          "isSignal": true
+        },
+        {
+          "propName": "showDataTable",
+          "templateName": "showDataTable",
+          "isSignal": true
+        },
+        {
+          "propName": "showLabels",
+          "templateName": "showLabels",
+          "isSignal": true
+        },
+        {
+          "propName": "showTotal",
+          "templateName": "showTotal",
+          "isSignal": true
+        },
+        {
+          "propName": "tablePageSize",
+          "templateName": "tablePageSize",
+          "isSignal": true
+        },
+        {
+          "propName": "theme",
+          "templateName": "theme",
+          "isSignal": true
+        },
+        {
+          "propName": "themeRevision",
+          "templateName": "themeRevision",
+          "isSignal": true
+        },
+        {
+          "propName": "title",
+          "templateName": "title",
+          "isSignal": true
+        },
+        {
+          "propName": "valueFormatter",
+          "templateName": "valueFormatter",
+          "isSignal": true
+        }
+      ],
+      "outputs": [
+        {
+          "propName": "legendChange",
+          "templateName": "legendChange"
+        },
+        {
+          "propName": "pointSelect",
+          "templateName": "pointSelect"
+        }
+      ]
+    },
+    "./area:AreaChart": {
+      "selector": "nec-area-chart",
+      "standalone": true,
+      "inputs": [
+        {
+          "propName": "animation",
+          "templateName": "animation",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryKey",
+          "templateName": "categoryKey",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryTickFormatter",
+          "templateName": "categoryTickFormatter",
+          "isSignal": true
+        },
+        {
+          "propName": "data",
+          "templateName": "data",
+          "isSignal": true
+        },
+        {
+          "propName": "description",
+          "templateName": "description",
+          "isSignal": true
+        },
+        {
+          "propName": "error",
+          "templateName": "error",
+          "isSignal": true
+        },
+        {
+          "propName": "gradient",
+          "templateName": "gradient",
+          "isSignal": true
+        },
+        {
+          "propName": "height",
+          "templateName": "height",
+          "isSignal": true
+        },
+        {
+          "propName": "legendLayout",
+          "templateName": "legendLayout",
+          "isSignal": true
+        },
+        {
+          "propName": "loading",
+          "templateName": "loading",
+          "isSignal": true
+        },
+        {
+          "propName": "locale",
+          "templateName": "locale",
+          "isSignal": true
+        },
+        {
+          "propName": "numberFormatOptions",
+          "templateName": "numberFormatOptions",
+          "isSignal": true
+        },
+        {
+          "propName": "rowIdKey",
+          "templateName": "rowIdKey",
+          "isSignal": true
+        },
+        {
+          "propName": "series",
+          "templateName": "series",
+          "isSignal": true
+        },
+        {
+          "propName": "showDataTable",
+          "templateName": "showDataTable",
+          "isSignal": true
+        },
+        {
+          "propName": "showPoints",
+          "templateName": "showPoints",
+          "isSignal": true
+        },
+        {
+          "propName": "smooth",
+          "templateName": "smooth",
+          "isSignal": true
+        },
+        {
+          "propName": "stacked",
+          "templateName": "stacked",
+          "isSignal": true
+        },
+        {
+          "propName": "tablePageSize",
+          "templateName": "tablePageSize",
+          "isSignal": true
+        },
+        {
+          "propName": "theme",
+          "templateName": "theme",
+          "isSignal": true
+        },
+        {
+          "propName": "themeRevision",
+          "templateName": "themeRevision",
+          "isSignal": true
+        },
+        {
+          "propName": "title",
+          "templateName": "title",
+          "isSignal": true
+        },
+        {
+          "propName": "valueFormatter",
+          "templateName": "valueFormatter",
+          "isSignal": true
+        }
+      ],
+      "outputs": [
+        {
+          "propName": "legendChange",
+          "templateName": "legendChange"
+        },
+        {
+          "propName": "pointSelect",
+          "templateName": "pointSelect"
+        }
+      ]
+    },
+    "./bar:BarChart": {
+      "selector": "nec-bar-chart",
+      "standalone": true,
+      "inputs": [
+        {
+          "propName": "animation",
+          "templateName": "animation",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryKey",
+          "templateName": "categoryKey",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryTickFormatter",
+          "templateName": "categoryTickFormatter",
+          "isSignal": true
+        },
+        {
+          "propName": "data",
+          "templateName": "data",
+          "isSignal": true
+        },
+        {
+          "propName": "description",
+          "templateName": "description",
+          "isSignal": true
+        },
+        {
+          "propName": "error",
+          "templateName": "error",
+          "isSignal": true
+        },
+        {
+          "propName": "gradient",
+          "templateName": "gradient",
+          "isSignal": true
+        },
+        {
+          "propName": "height",
+          "templateName": "height",
+          "isSignal": true
+        },
+        {
+          "propName": "layout",
+          "templateName": "layout",
+          "isSignal": true
+        },
+        {
+          "propName": "legendLayout",
+          "templateName": "legendLayout",
+          "isSignal": true
+        },
+        {
+          "propName": "loading",
+          "templateName": "loading",
+          "isSignal": true
+        },
+        {
+          "propName": "locale",
+          "templateName": "locale",
+          "isSignal": true
+        },
+        {
+          "propName": "numberFormatOptions",
+          "templateName": "numberFormatOptions",
+          "isSignal": true
+        },
+        {
+          "propName": "previewEnabled",
+          "templateName": "previewEnabled",
+          "isSignal": true
+        },
+        {
+          "propName": "rangeSelection",
+          "templateName": "rangeSelection",
+          "isSignal": true
+        },
+        {
+          "propName": "rowIdKey",
+          "templateName": "rowIdKey",
+          "isSignal": true
+        },
+        {
+          "propName": "selectedRowId",
+          "templateName": "selectedRowId",
+          "isSignal": true
+        },
+        {
+          "propName": "selectedRowIds",
+          "templateName": "selectedRowIds",
+          "isSignal": true
+        },
+        {
+          "propName": "series",
+          "templateName": "series",
+          "isSignal": true
+        },
+        {
+          "propName": "showDataTable",
+          "templateName": "showDataTable",
+          "isSignal": true
+        },
+        {
+          "propName": "stacked",
+          "templateName": "stacked",
+          "isSignal": true
+        },
+        {
+          "propName": "tablePageSize",
+          "templateName": "tablePageSize",
+          "isSignal": true
+        },
+        {
+          "propName": "theme",
+          "templateName": "theme",
+          "isSignal": true
+        },
+        {
+          "propName": "themeRevision",
+          "templateName": "themeRevision",
+          "isSignal": true
+        },
+        {
+          "propName": "title",
+          "templateName": "title",
+          "isSignal": true
+        },
+        {
+          "propName": "valueFormatter",
+          "templateName": "valueFormatter",
+          "isSignal": true
+        }
+      ],
+      "outputs": [
+        {
+          "propName": "legendChange",
+          "templateName": "legendChange"
+        },
+        {
+          "propName": "pointPreview",
+          "templateName": "pointPreview"
+        },
+        {
+          "propName": "pointSelect",
+          "templateName": "pointSelect"
+        },
+        {
+          "propName": "rangeSelect",
+          "templateName": "rangeSelect"
+        }
+      ]
+    },
+    "./calendar:CalendarHeatmap": {
+      "selector": "nec-calendar-heatmap",
+      "standalone": true,
+      "inputs": [
+        {
+          "propName": "animation",
+          "templateName": "animation",
+          "isSignal": true
+        },
+        {
+          "propName": "data",
+          "templateName": "data",
+          "isSignal": true
+        },
+        {
+          "propName": "dateKey",
+          "templateName": "dateKey",
+          "isSignal": true
+        },
+        {
+          "propName": "description",
+          "templateName": "description",
+          "isSignal": true
+        },
+        {
+          "propName": "error",
+          "templateName": "error",
+          "isSignal": true
+        },
+        {
+          "propName": "loading",
+          "templateName": "loading",
+          "isSignal": true
+        },
+        {
+          "propName": "locale",
+          "templateName": "locale",
+          "isSignal": true
+        },
+        {
+          "propName": "max",
+          "templateName": "max",
+          "isSignal": true
+        },
+        {
+          "propName": "numberFormatOptions",
+          "templateName": "numberFormatOptions",
+          "isSignal": true
+        },
+        {
+          "propName": "showDataTable",
+          "templateName": "showDataTable",
+          "isSignal": true
+        },
+        {
+          "propName": "theme",
+          "templateName": "theme",
+          "isSignal": true
+        },
+        {
+          "propName": "themeRevision",
+          "templateName": "themeRevision",
+          "isSignal": true
+        },
+        {
+          "propName": "title",
+          "templateName": "title",
+          "isSignal": true
+        },
+        {
+          "propName": "valueFormatter",
+          "templateName": "valueFormatter",
+          "isSignal": true
+        },
+        {
+          "propName": "valueKey",
+          "templateName": "valueKey",
+          "isSignal": true
+        },
+        {
+          "propName": "valueLabel",
+          "templateName": "valueLabel",
+          "isSignal": true
+        },
+        {
+          "propName": "year",
+          "templateName": "year",
+          "isSignal": true
+        }
+      ],
+      "outputs": [
+        {
+          "propName": "pointSelect",
+          "templateName": "pointSelect"
+        }
+      ]
+    },
+    "./composed:ComposedChart": {
+      "selector": "nec-composed-chart",
+      "standalone": true,
+      "inputs": [
+        {
+          "propName": "animation",
+          "templateName": "animation",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryKey",
+          "templateName": "categoryKey",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryTickFormatter",
+          "templateName": "categoryTickFormatter",
+          "isSignal": true
+        },
+        {
+          "propName": "data",
+          "templateName": "data",
+          "isSignal": true
+        },
+        {
+          "propName": "description",
+          "templateName": "description",
+          "isSignal": true
+        },
+        {
+          "propName": "error",
+          "templateName": "error",
+          "isSignal": true
+        },
+        {
+          "propName": "height",
+          "templateName": "height",
+          "isSignal": true
+        },
+        {
+          "propName": "layout",
+          "templateName": "layout",
+          "isSignal": true
+        },
+        {
+          "propName": "legendLayout",
+          "templateName": "legendLayout",
+          "isSignal": true
+        },
+        {
+          "propName": "loading",
+          "templateName": "loading",
+          "isSignal": true
+        },
+        {
+          "propName": "locale",
+          "templateName": "locale",
+          "isSignal": true
+        },
+        {
+          "propName": "numberFormatOptions",
+          "templateName": "numberFormatOptions",
+          "isSignal": true
+        },
+        {
+          "propName": "rowIdKey",
+          "templateName": "rowIdKey",
+          "isSignal": true
+        },
+        {
+          "propName": "series",
+          "templateName": "series",
+          "isSignal": true
+        },
+        {
+          "propName": "showDataTable",
+          "templateName": "showDataTable",
+          "isSignal": true
+        },
+        {
+          "propName": "tablePageSize",
+          "templateName": "tablePageSize",
+          "isSignal": true
+        },
+        {
+          "propName": "theme",
+          "templateName": "theme",
+          "isSignal": true
+        },
+        {
+          "propName": "themeRevision",
+          "templateName": "themeRevision",
+          "isSignal": true
+        },
+        {
+          "propName": "title",
+          "templateName": "title",
+          "isSignal": true
+        },
+        {
+          "propName": "valueAxes",
+          "templateName": "valueAxes",
+          "isSignal": true
+        },
+        {
+          "propName": "valueFormatter",
+          "templateName": "valueFormatter",
+          "isSignal": true
+        }
+      ],
+      "outputs": [
+        {
+          "propName": "legendChange",
+          "templateName": "legendChange"
+        },
+        {
+          "propName": "pointSelect",
+          "templateName": "pointSelect"
+        }
+      ]
+    },
+    "./core:ChartFrame": {
+      "selector": "nec-chart-frame",
+      "standalone": true,
+      "inputs": [
+        {
+          "propName": "description",
+          "templateName": "description",
+          "isSignal": true
+        },
+        {
+          "propName": "title",
+          "templateName": "title",
+          "isSignal": true
+        }
+      ],
+      "outputs": []
+    },
+    "./line:LineChart": {
+      "selector": "nec-line-chart",
+      "standalone": true,
+      "inputs": [
+        {
+          "propName": "animation",
+          "templateName": "animation",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryKey",
+          "templateName": "categoryKey",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryTickFormatter",
+          "templateName": "categoryTickFormatter",
+          "isSignal": true
+        },
+        {
+          "propName": "data",
+          "templateName": "data",
+          "isSignal": true
+        },
+        {
+          "propName": "description",
+          "templateName": "description",
+          "isSignal": true
+        },
+        {
+          "propName": "error",
+          "templateName": "error",
+          "isSignal": true
+        },
+        {
+          "propName": "height",
+          "templateName": "height",
+          "isSignal": true
+        },
+        {
+          "propName": "legendLayout",
+          "templateName": "legendLayout",
+          "isSignal": true
+        },
+        {
+          "propName": "loading",
+          "templateName": "loading",
+          "isSignal": true
+        },
+        {
+          "propName": "locale",
+          "templateName": "locale",
+          "isSignal": true
+        },
+        {
+          "propName": "numberFormatOptions",
+          "templateName": "numberFormatOptions",
+          "isSignal": true
+        },
+        {
+          "propName": "rowIdKey",
+          "templateName": "rowIdKey",
+          "isSignal": true
+        },
+        {
+          "propName": "series",
+          "templateName": "series",
+          "isSignal": true
+        },
+        {
+          "propName": "showDataTable",
+          "templateName": "showDataTable",
+          "isSignal": true
+        },
+        {
+          "propName": "showPoints",
+          "templateName": "showPoints",
+          "isSignal": true
+        },
+        {
+          "propName": "smooth",
+          "templateName": "smooth",
+          "isSignal": true
+        },
+        {
+          "propName": "tablePageSize",
+          "templateName": "tablePageSize",
+          "isSignal": true
+        },
+        {
+          "propName": "theme",
+          "templateName": "theme",
+          "isSignal": true
+        },
+        {
+          "propName": "themeRevision",
+          "templateName": "themeRevision",
+          "isSignal": true
+        },
+        {
+          "propName": "title",
+          "templateName": "title",
+          "isSignal": true
+        },
+        {
+          "propName": "valueFormatter",
+          "templateName": "valueFormatter",
+          "isSignal": true
+        }
+      ],
+      "outputs": [
+        {
+          "propName": "legendChange",
+          "templateName": "legendChange"
+        },
+        {
+          "propName": "pointSelect",
+          "templateName": "pointSelect"
+        }
+      ]
+    },
+    "./pie:PieChart": {
+      "selector": "nec-pie-chart",
+      "standalone": true,
+      "inputs": [
+        {
+          "propName": "animation",
+          "templateName": "animation",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryKey",
+          "templateName": "categoryKey",
+          "isSignal": true
+        },
+        {
+          "propName": "data",
+          "templateName": "data",
+          "isSignal": true
+        },
+        {
+          "propName": "description",
+          "templateName": "description",
+          "isSignal": true
+        },
+        {
+          "propName": "error",
+          "templateName": "error",
+          "isSignal": true
+        },
+        {
+          "propName": "height",
+          "templateName": "height",
+          "isSignal": true
+        },
+        {
+          "propName": "innerRadius",
+          "templateName": "innerRadius",
+          "isSignal": true
+        },
+        {
+          "propName": "legendLayout",
+          "templateName": "legendLayout",
+          "isSignal": true
+        },
+        {
+          "propName": "loading",
+          "templateName": "loading",
+          "isSignal": true
+        },
+        {
+          "propName": "locale",
+          "templateName": "locale",
+          "isSignal": true
+        },
+        {
+          "propName": "measure",
+          "templateName": "measure",
+          "isSignal": true
+        },
+        {
+          "propName": "numberFormatOptions",
+          "templateName": "numberFormatOptions",
+          "isSignal": true
+        },
+        {
+          "propName": "rowIdKey",
+          "templateName": "rowIdKey",
+          "isSignal": true
+        },
+        {
+          "propName": "showDataTable",
+          "templateName": "showDataTable",
+          "isSignal": true
+        },
+        {
+          "propName": "showLabels",
+          "templateName": "showLabels",
+          "isSignal": true
+        },
+        {
+          "propName": "showTotal",
+          "templateName": "showTotal",
+          "isSignal": true
+        },
+        {
+          "propName": "tablePageSize",
+          "templateName": "tablePageSize",
+          "isSignal": true
+        },
+        {
+          "propName": "theme",
+          "templateName": "theme",
+          "isSignal": true
+        },
+        {
+          "propName": "themeRevision",
+          "templateName": "themeRevision",
+          "isSignal": true
+        },
+        {
+          "propName": "title",
+          "templateName": "title",
+          "isSignal": true
+        },
+        {
+          "propName": "valueFormatter",
+          "templateName": "valueFormatter",
+          "isSignal": true
+        }
+      ],
+      "outputs": [
+        {
+          "propName": "legendChange",
+          "templateName": "legendChange"
+        },
+        {
+          "propName": "pointSelect",
+          "templateName": "pointSelect"
+        }
+      ]
+    },
+    "./radar:RadarChart": {
+      "selector": "nec-radar-chart",
+      "standalone": true,
+      "inputs": [
+        {
+          "propName": "animation",
+          "templateName": "animation",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryKey",
+          "templateName": "categoryKey",
+          "isSignal": true
+        },
+        {
+          "propName": "categoryTickFormatter",
+          "templateName": "categoryTickFormatter",
+          "isSignal": true
+        },
+        {
+          "propName": "data",
+          "templateName": "data",
+          "isSignal": true
+        },
+        {
+          "propName": "description",
+          "templateName": "description",
+          "isSignal": true
+        },
+        {
+          "propName": "error",
+          "templateName": "error",
+          "isSignal": true
+        },
+        {
+          "propName": "filled",
+          "templateName": "filled",
+          "isSignal": true
+        },
+        {
+          "propName": "height",
+          "templateName": "height",
+          "isSignal": true
+        },
+        {
+          "propName": "legendLayout",
+          "templateName": "legendLayout",
+          "isSignal": true
+        },
+        {
+          "propName": "loading",
+          "templateName": "loading",
+          "isSignal": true
+        },
+        {
+          "propName": "locale",
+          "templateName": "locale",
+          "isSignal": true
+        },
+        {
+          "propName": "maxKey",
+          "templateName": "maxKey",
+          "isSignal": true
+        },
+        {
+          "propName": "numberFormatOptions",
+          "templateName": "numberFormatOptions",
+          "isSignal": true
+        },
+        {
+          "propName": "rowIdKey",
+          "templateName": "rowIdKey",
+          "isSignal": true
+        },
+        {
+          "propName": "series",
+          "templateName": "series",
+          "isSignal": true
+        },
+        {
+          "propName": "showDataTable",
+          "templateName": "showDataTable",
+          "isSignal": true
+        },
+        {
+          "propName": "tablePageSize",
+          "templateName": "tablePageSize",
+          "isSignal": true
+        },
+        {
+          "propName": "theme",
+          "templateName": "theme",
+          "isSignal": true
+        },
+        {
+          "propName": "themeRevision",
+          "templateName": "themeRevision",
+          "isSignal": true
+        },
+        {
+          "propName": "title",
+          "templateName": "title",
+          "isSignal": true
+        },
+        {
+          "propName": "valueFormatter",
+          "templateName": "valueFormatter",
+          "isSignal": true
+        }
+      ],
+      "outputs": [
+        {
+          "propName": "legendChange",
+          "templateName": "legendChange"
+        },
+        {
+          "propName": "pointSelect",
+          "templateName": "pointSelect"
+        }
+      ]
+    },
+    "./radial:RadialProgress": {
+      "selector": "nec-radial-progress",
+      "standalone": true,
+      "inputs": [
+        {
+          "propName": "animation",
+          "templateName": "animation",
+          "isSignal": true
+        },
+        {
+          "propName": "description",
+          "templateName": "description",
+          "isSignal": true
+        },
+        {
+          "propName": "error",
+          "templateName": "error",
+          "isSignal": true
+        },
+        {
+          "propName": "height",
+          "templateName": "height",
+          "isSignal": true
+        },
+        {
+          "propName": "loading",
+          "templateName": "loading",
+          "isSignal": true
+        },
+        {
+          "propName": "locale",
+          "templateName": "locale",
+          "isSignal": true
+        },
+        {
+          "propName": "max",
+          "templateName": "max",
+          "isSignal": true
+        },
+        {
+          "propName": "numberFormatOptions",
+          "templateName": "numberFormatOptions",
+          "isSignal": true
+        },
+        {
+          "propName": "theme",
+          "templateName": "theme",
+          "isSignal": true
+        },
+        {
+          "propName": "themeRevision",
+          "templateName": "themeRevision",
+          "isSignal": true
+        },
+        {
+          "propName": "title",
+          "templateName": "title",
+          "isSignal": true
+        },
+        {
+          "propName": "value",
+          "templateName": "value",
+          "isSignal": true
+        },
+        {
+          "propName": "valueFormatter",
+          "templateName": "valueFormatter",
+          "isSignal": true
+        }
+      ],
+      "outputs": []
+    },
+    "./sankey:SankeyChart": {
+      "selector": "nec-sankey-chart",
+      "standalone": true,
+      "inputs": [
+        {
+          "propName": "animation",
+          "templateName": "animation",
+          "isSignal": true
+        },
+        {
+          "propName": "description",
+          "templateName": "description",
+          "isSignal": true
+        },
+        {
+          "propName": "error",
+          "templateName": "error",
+          "isSignal": true
+        },
+        {
+          "propName": "links",
+          "templateName": "links",
+          "isSignal": true
+        },
+        {
+          "propName": "loading",
+          "templateName": "loading",
+          "isSignal": true
+        },
+        {
+          "propName": "locale",
+          "templateName": "locale",
+          "isSignal": true
+        },
+        {
+          "propName": "nodes",
+          "templateName": "nodes",
+          "isSignal": true
+        },
+        {
+          "propName": "numberFormatOptions",
+          "templateName": "numberFormatOptions",
+          "isSignal": true
+        },
+        {
+          "propName": "showDataTable",
+          "templateName": "showDataTable",
+          "isSignal": true
+        },
+        {
+          "propName": "theme",
+          "templateName": "theme",
+          "isSignal": true
+        },
+        {
+          "propName": "themeRevision",
+          "templateName": "themeRevision",
+          "isSignal": true
+        },
+        {
+          "propName": "title",
+          "templateName": "title",
+          "isSignal": true
+        },
+        {
+          "propName": "valueFormatter",
+          "templateName": "valueFormatter",
+          "isSignal": true
+        },
+        {
+          "propName": "valueLabel",
+          "templateName": "valueLabel",
+          "isSignal": true
+        }
+      ],
+      "outputs": [
+        {
+          "propName": "select",
+          "templateName": "select"
+        }
+      ]
+    }
+  },
+  "passed": true
+}

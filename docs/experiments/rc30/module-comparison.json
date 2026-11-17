@@ -1,0 +1,246 @@
+{
+  "methodUnchanged": true,
+  "scenarios": [
+    {
+      "name": "bar",
+      "baseline": {
+        "raw": 560924,
+        "gzip": 186735,
+        "brotli": 159389
+      },
+      "current": {
+        "raw": 561225,
+        "gzip": 186847,
+        "brotli": 159477
+      },
+      "gzipChange": 112,
+      "gzipHeadroom": 13153,
+      "brotliHeadroom": 15523,
+      "engineModules": 232,
+      "sameEngineModuleSet": true,
+      "sameCaps": true,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "line",
+      "baseline": {
+        "raw": 556013,
+        "gzip": 186502,
+        "brotli": 159352
+      },
+      "current": {
+        "raw": 556313,
+        "gzip": 186591,
+        "brotli": 159086
+      },
+      "gzipChange": 89,
+      "gzipHeadroom": 13409,
+      "brotliHeadroom": 15914,
+      "engineModules": 230,
+      "sameEngineModuleSet": true,
+      "sameCaps": true,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "area",
+      "baseline": {
+        "raw": 557252,
+        "gzip": 186993,
+        "brotli": 159608
+      },
+      "current": {
+        "raw": 557552,
+        "gzip": 187079,
+        "brotli": 159624
+      },
+      "gzipChange": 86,
+      "gzipHeadroom": 12921,
+      "brotliHeadroom": 15376,
+      "engineModules": 230,
+      "sameEngineModuleSet": true,
+      "sameCaps": true,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "composed",
+      "baseline": {
+        "raw": 583921,
+        "gzip": 196345,
+        "brotli": 167201
+      },
+      "current": {
+        "raw": 584221,
+        "gzip": 196433,
+        "brotli": 167232
+      },
+      "gzipChange": 88,
+      "gzipHeadroom": 3567,
+      "brotliHeadroom": 7768,
+      "engineModules": 242,
+      "sameEngineModuleSet": true,
+      "sameCaps": true,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "pie",
+      "baseline": {
+        "raw": 495224,
+        "gzip": 163209,
+        "brotli": 139691
+      },
+      "current": {
+        "raw": 493582,
+        "gzip": 163111,
+        "brotli": 139636
+      },
+      "gzipChange": -98,
+      "gzipHeadroom": 36889,
+      "brotliHeadroom": 35364,
+      "engineModules": 199,
+      "sameEngineModuleSet": true,
+      "sameCaps": true,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "radar",
+      "baseline": {
+        "raw": 501673,
+        "gzip": 167811,
+        "brotli": 143865
+      },
+      "current": {
+        "raw": 502279,
+        "gzip": 167959,
+        "brotli": 143986
+      },
+      "gzipChange": 148,
+      "gzipHeadroom": 32041,
+      "brotliHeadroom": 31014,
+      "engineModules": 210,
+      "sameEngineModuleSet": true,
+      "sameCaps": true,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "calendar",
+      "baseline": {
+        "raw": 522980,
+        "gzip": 173948,
+        "brotli": 148894
+      },
+      "current": {
+        "raw": 523280,
+        "gzip": 174028,
+        "brotli": 148877
+      },
+      "gzipChange": 80,
+      "gzipHeadroom": 25972,
+      "brotliHeadroom": 26123,
+      "engineModules": 213,
+      "sameEngineModuleSet": true,
+      "sameCaps": true,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "sankey",
+      "baseline": {
+        "raw": 514496,
+        "gzip": 171274,
+        "brotli": 146504
+      },
+      "current": {
+        "raw": 514796,
+        "gzip": 171359,
+        "brotli": 146622
+      },
+      "gzipChange": 85,
+      "gzipHeadroom": 28641,
+      "brotliHeadroom": 28378,
+      "engineModules": 205,
+      "sameEngineModuleSet": true,
+      "sameCaps": true,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "radial",
+      "baseline": {
+        "raw": 402496,
+        "gzip": 133809,
+        "brotli": 114651
+      },
+      "current": {
+        "raw": 402796,
+        "gzip": 133876,
+        "brotli": 114748
+      },
+      "gzipChange": 67,
+      "gzipHeadroom": 66124,
+      "brotliHeadroom": 60252,
+      "engineModules": 164,
+      "sameEngineModuleSet": true,
+      "sameCaps": true,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "core",
+      "baseline": {
+        "raw": 30534,
+        "gzip": 8616,
+        "brotli": 7601
+      },
+      "current": {
+        "raw": 30834,
+        "gzip": 8697,
+        "brotli": 7673
+      },
+      "gzipChange": 81,
+      "gzipHeadroom": 1303,
+      "brotliHeadroom": 1327,
+      "engineModules": 0,
+      "sameEngineModuleSet": true,
+      "sameCaps": true,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "root",
+      "baseline": {
+        "raw": 707863,
+        "gzip": 221664,
+        "brotli": 189538
+      },
+      "current": {
+        "raw": 706170,
+        "gzip": 221121,
+        "brotli": 188993
+      },
+      "gzipChange": -543,
+      "gzipHeadroom": 879,
+      "brotliHeadroom": 1007,
+      "engineModules": 253,
+      "sameEngineModuleSet": true,
+      "sameCaps": true,
+      "eagerEngineModules": 0
+    },
+    {
+      "name": "root-frame",
+      "baseline": {
+        "raw": 584690,
+        "gzip": 202823,
+        "brotli": 174878
+      },
+      "current": {
+        "raw": 584990,
+        "gzip": 202907,
+        "brotli": 174950
+      },
+      "gzipChange": 84,
+      "gzipHeadroom": 3093,
+      "brotliHeadroom": 3050,
+      "engineModules": 253,
+      "sameEngineModuleSet": true,
+      "sameCaps": true,
+      "eagerEngineModules": 0
+    }
+  ],
+  "passed": true
+}
