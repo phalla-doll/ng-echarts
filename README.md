@@ -2,11 +2,11 @@
 
 # ng-echarts
 
-Published experimental release: **`@mantha911/ng-echarts@0.1.0-rc.28`**. Install with `npm install @mantha911/ng-echarts@next echarts@6.1.0`, or pin `@0.1.0-rc.28`. npm `next` selects rc.28; `latest` retains rc.18. Human F09/R06/G2/G3/G4 remain deferred/pending. See [exact publication evidence](docs/PUBLICATION.md#rc28-oidc-publication).
+Published experimental release: **`@mantha911/ng-echarts@0.1.0-rc.30`**. Install with `npm install @mantha911/ng-echarts@next echarts@6.1.0`, or pin `@0.1.0-rc.30`. npm `next` selects rc.30; `latest` retains rc.18. Human F09/R06/G2/G3/G4 remain deferred/pending. See [exact publication evidence](docs/PUBLICATION.md#rc30-oidc-publication).
 
 Current release: **published `0.1.0-rc.28`** combines chip/list legends, gallery table opt-outs and the reviewed payload/radar/declaration fixes. It includes the independent composed value axes, horizontal composition, areas and named stacks from earlier releases. The [publication report](docs/experiments/RC28_PUBLICATION.md) preserves the exact archive and fresh registry-consumer results.
 
-Current development: **local `0.1.0-rc.30` source candidate** completes radar list legends and shares internal state, native table actions and browser binding. The [increment report](docs/experiments/RC30_RADAR_LEGENDS.md) owns current checks; the preserved [rc.29 continuation](docs/experiments/RC29_LINKED_WINDOW.md) records the application-owned shared month window and bidirectional month/device dashboard. The complete displayed dashboard still supports published rc.22; the [live marker](https://phalla-doll.github.io/ng-echarts/preview-build.json) identifies the separately deployed source.
+Current version **`0.1.0-rc.30`** completes radar list legends and shares internal state, native table actions and browser binding. The [increment/delivery report](docs/experiments/RC30_RADAR_LEGENDS.md) records exact package, payload and verification evidence; the preserved [rc.29 continuation](docs/experiments/RC29_LINKED_WINDOW.md) records the application-owned shared month window and bidirectional month/device dashboard. The complete displayed dashboard still supports published rc.22; the [live marker](https://phalla-doll.github.io/ng-echarts/preview-build.json) identifies the separately deployed source.
 
 Current installation and feature availability are maintained in [Installation](docs/INSTALLATION.md). [Packaged documentation errata](docs/PACKAGED_DOCUMENTATION_ERRATA.md) correct historical wording in immutable rc.28/rc.29 readmes, including the radar list-layout limitation. The [documentation audit](docs/experiments/RC29_DOCUMENTATION_AUDIT.md) records coverage and checks.
 
@@ -14,7 +14,7 @@ An Angular 22 chart component library inspired by EvilCharts, using Apache EChar
 
 Preview: **[Live demo on GitHub Pages](https://phalla-doll.github.io/ng-echarts/)**. See [deployment instructions](docs/GITHUB_PAGES.md) to rebuild and publish the current demo snapshot.
 
-Status: experimental bar, line, area, pie/donut, composed, focused radar, radial progress, calendar heatmap and Sankey components. Updated 16 November 2026. The Angular library and SSR playground now render bars, lines, areas, and pies/donuts with native controls; G1 technical feasibility passes for bar; the user has deferred the human screen-reader review to release acceptance, allowing development to continue while G2 remains pending.
+Status: experimental bar, line, area, pie/donut, composed, focused radar, radial progress, calendar heatmap and Sankey components. Updated 17 November 2026. The Angular library and SSR playground now render bars, lines, areas, and pies/donuts with native controls; G1 technical feasibility passes for bar; the user has deferred the human screen-reader review to release acceptance, allowing development to continue while G2 remains pending.
 
 ## Project direction
 
@@ -144,7 +144,7 @@ The site includes [Get Started](http://localhost:4310/get-started), [Installatio
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
 | `npm run check` | Run formatting, builds, compilation, unit, declaration/runtime consumers, SSR, browser, and size checks |
 
-Last completed main verification: **342 unit tests and 575 browser passes, with four expected skips**. [Readiness follow-up CI](https://github.com/phalla-doll/ng-echarts/actions/runs/44004670471) passes all six jobs for `adbfac1`; its archive retains canonical rc.29 bytes. New rc.30 verification is recorded separately in the [increment report](docs/experiments/RC30_RADAR_LEGENDS.md).
+Verified implementation: **342 unit tests and 584 browser passes, with four expected skips**. [Full CI](https://github.com/phalla-doll/ng-echarts/actions/runs/44012447993) passes all six jobs for `4caac5e`; its archive matches canonical rc.30 SHA-256 `e19fbb40964251f5c1c6b7d10cc3808feb6fe10eb7419ae75fff7a880b7a7c6c`. The [increment report](docs/experiments/RC30_RADAR_LEGENDS.md) separates failed-run diagnostics, clean verification, registry publication and demo delivery.
 
 Preserved rc.24 verification: **335 unit tests and 476 browser passes, with four expected skips**; [full Linux CI passes](https://github.com/phalla-doll/ng-echarts/actions/runs/43736006909), and complete macOS/Linux package bytes match. The [increment report](docs/experiments/NG17_DUAL_AXES.md) records exact-artifact checks, visual evidence and preserved failed-run corrections. [rc.24 publication](docs/experiments/RC24_PUBLICATION.md) verifies the same preserved artifact from npm.
 

@@ -1,0 +1,19 @@
+browser (webkit)	Verify WebKit horizontal hit targets before the full suite	2026-11-17T03:47:42.1161646Z   2 passed (18.2s)
+browser (webkit)	Run npm run test:browser -- --project=webkit --max-failures=1	2026-11-17T04:04:11.0426384Z   2 skipped
+browser (webkit)	Run npm run test:browser -- --project=webkit --max-failures=1	2026-11-17T04:04:11.0426806Z   194 passed (16.5m)
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-17T03:55:56.0354093Z   2 skipped
+browser (firefox)	Run npm run test:browser -- --project=firefox --max-failures=1	2026-11-17T03:55:56.0354527Z   194 passed (9.3m)
+workspace	Run npm run check:workspace	2026-11-17T03:46:50.5237494Z ℹ skipped 0
+workspace	Run npm run check:workspace	2026-11-17T03:46:53.1676305Z ℹ skipped 0
+workspace	Run npm run check:workspace	2026-11-17T03:46:53.5397331Z ℹ skipped 0
+workspace	Run npm run check:workspace	2026-11-17T03:47:39.3937315Z  Test Files  47 passed (47)
+workspace	Run npm run check:workspace	2026-11-17T03:47:39.3938642Z       Tests  322 passed (322)
+workspace	Run npm run check:workspace	2026-11-17T03:47:44.6605235Z  Test Files  7 passed (7)
+workspace	Run npm run check:workspace	2026-11-17T03:47:44.6606061Z       Tests  20 passed (20)
+workspace	Run npm run check:workspace	2026-11-17T03:51:11.1038999Z PASS: core 8697 gzip / 7673 Brotli bytes; 0 engine modules, none eager.
+workspace	Run npm run check:workspace	2026-11-17T03:51:12.3569129Z PASS: root 221121 gzip / 188993 Brotli bytes; 253 engine modules, none eager.
+workspace	Run npm run release:local	2026-11-17T03:51:21.8290981Z Prepared mantha911-ng-echarts-0.1.0-rc.30.tgz (167101 bytes), SHA-256 e19fbb40964251f5c1c6b7d10cc3808feb6fe10eb7419ae75fff7a880b7a7c6c
+workspace	Run npm run release:local	2026-11-17T03:53:53.3744642Z PASS: exact mantha911-ng-echarts-0.1.0-rc.30.tgz metadata/notices, strict declarations, fresh docs and three-engine CSR/SSR consumers. Human release gates remain pending.
+workspace	Run npm run check:release-immutability	2026-11-17T03:53:54.5096602Z PASS: repeated preparation refuses to replace the archive, checksum or manifest.
+pages	Run npm run build:pages	2026-11-17T03:47:47.5676954Z Sealed 145 Pages files; SHA-256 9db20639d484a393fbd085d10ed75519e24f31d9373eca20528942543416fb95.
+browser (chromium)	Run npm run test:browser -- --project=chromium --max-failures=1	2026-11-17T03:52:52.2709635Z   196 passed (6.5m)

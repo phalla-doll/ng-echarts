@@ -1,0 +1,88 @@
+{
+  "recordedAt": "2026-11-17T04:12:27.166Z",
+  "node": "v24.22.2",
+  "package": "@mantha911/ng-echarts",
+  "version": "0.1.0-rc.30",
+  "artifact": {
+    "name": "@mantha911/ng-echarts",
+    "version": "0.1.0-rc.30",
+    "sha256": "e19fbb40964251f5c1c6b7d10cc3808feb6fe10eb7419ae75fff7a880b7a7c6c",
+    "exactCandidate": true,
+    "registrySpec": "@mantha911/ng-echarts@0.1.0-rc.30"
+  },
+  "skipLibCheck": false,
+  "workspaceAliases": false,
+  "installedOutsideWorkspace": true,
+  "entryPoints": [
+    ".",
+    "./core",
+    "./bar",
+    "./line",
+    "./area",
+    "./pie",
+    "./calendar",
+    "./composed",
+    "./radar",
+    "./radial",
+    "./sankey"
+  ],
+  "compatibilityIdentity": true,
+  "privateImportsBlocked": true,
+  "reactRuntime": false,
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "158.0.8127.18",
+      "mode": "client",
+      "conceptGallery": true,
+      "linkedMonthPreviews": true,
+      "composedLinkedDashboard": true,
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "version": "158.0.8127.18",
+      "mode": "ssr-hydration",
+      "conceptGallery": true,
+      "linkedMonthPreviews": true,
+      "composedLinkedDashboard": true,
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "mode": "client",
+      "conceptGallery": true,
+      "linkedMonthPreviews": true,
+      "composedLinkedDashboard": true,
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "mode": "ssr-hydration",
+      "conceptGallery": true,
+      "linkedMonthPreviews": true,
+      "composedLinkedDashboard": true,
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "mode": "client",
+      "conceptGallery": true,
+      "linkedMonthPreviews": true,
+      "composedLinkedDashboard": true,
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "mode": "ssr-hydration",
+      "conceptGallery": true,
+      "linkedMonthPreviews": true,
+      "composedLinkedDashboard": true,
+      "passed": true
+    }
+  ]
+}

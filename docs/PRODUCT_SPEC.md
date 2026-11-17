@@ -23,7 +23,7 @@ A reusable Angular library, an example application, and integration documentatio
 
 Shared features include tooltips, legends, theme tokens, loading and empty states, explicit error state, resizing, typed selection events, and motion preferences. The bar chart is the feasibility prototype, not the entire MVP.
 
-The legend refinement ships in rc.28: Cartesian and pie/donut charts supply inline chips by default and an optional aligned list. Local rc.30 completes the same radar layouts with explicit missing-data notes. Published rc.28 and preserved rc.29 retain radar chips for either layout input (see [documentation errata](PACKAGED_DOCUMENTATION_ERRATA.md)). Both remain native keyboard-operated visibility controls. Pie/donut retains formatted values and visible-category shares; changing layout preserves chart instances and visibility state.
+The legend refinement ships in rc.28: Cartesian and pie/donut charts supply inline chips by default and an optional aligned list. Published rc.30 completes the same radar layouts with explicit missing-data notes. Published rc.28 and preserved rc.29 retain radar chips for either layout input (see [documentation errata](PACKAGED_DOCUMENTATION_ERRATA.md)). Both remain native keyboard-operated visibility controls. Pie/donut retains formatted values and visible-category shares; changing layout preserves chart instances and visibility state.
 
 ### Subsequent scope
 

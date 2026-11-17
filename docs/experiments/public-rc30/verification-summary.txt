@@ -1,0 +1,24 @@
+publish	Run actions/checkout@v7	2026-11-17T04:05:35.1544044Z   RELEASE_VERSION: 0.1.0-rc.30
+publish	Run actions/setup-node@v7	2026-11-17T04:05:38.5474489Z   RELEASE_VERSION: 0.1.0-rc.30
+publish	Run npm install --global npm@11.19.1	2026-11-17T04:05:39.0529851Z   RELEASE_VERSION: 0.1.0-rc.30
+publish	Run npm ci	2026-11-17T04:05:42.7944744Z   RELEASE_VERSION: 0.1.0-rc.30
+publish	Run node --test tools/prerelease-guards.spec.mjs tools/wait-for-registry.spec.mjs	2026-11-17T04:05:49.5604561Z   RELEASE_VERSION: 0.1.0-rc.30
+publish	Run node tools/publish-prerelease.mjs request	2026-11-17T04:05:49.6669051Z   RELEASE_VERSION: 0.1.0-rc.30
+publish	Run node tools/publish-prerelease.mjs request	2026-11-17T04:05:50.1916733Z Accepted source 4caac5e63936e710d6870b55d2c86612df04fdd3 and successful CI run 44012447993.
+publish	Run actions/download-artifact@v7	2026-11-17T04:05:50.2032052Z   RELEASE_VERSION: 0.1.0-rc.30
+publish	Run npx playwright install --with-deps chromium firefox webkit	2026-11-17T04:05:51.3094455Z   RELEASE_VERSION: 0.1.0-rc.30
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-17T04:06:37.0338484Z   RELEASE_VERSION: 0.1.0-rc.30
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-17T04:06:43.1049810Z + @mantha911/ng-echarts@0.1.0-rc.30
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-17T04:09:25.0171182Z Verified registry bytes for 0.1.0-rc.30; human release gates remain pending.
+publish	Run node tools/wait-for-registry.mjs	2026-11-17T04:09:25.0320788Z   RELEASE_VERSION: 0.1.0-rc.30
+publish	Run node tools/wait-for-registry.mjs	2026-11-17T04:09:36.1477399Z PASS: normal npm resolution returns the reviewed registry archive; no upload attempted.
+publish	Verify fresh registry consumers	2026-11-17T04:09:36.1614767Z   RELEASE_VERSION: 0.1.0-rc.30
+publish	Verify fresh registry consumers	2026-11-17T04:09:36.1616072Z   CHART_LIBRARY_REGISTRY_SPEC: @mantha911/ng-echarts@0.1.0-rc.30
+publish	Verify fresh registry consumers	2026-11-17T04:09:47.2023723Z PASS: packed library and ECharts declarations compile in isolation; invalid keys and formatters/options are rejected (skipLibCheck=false).
+publish	Verify fresh registry consumers	2026-11-17T04:10:36.2788817Z PASS: documented installation and full application build, render and hydrate in all three engines.
+publish	Verify fresh registry consumers	2026-11-17T04:12:27.2101581Z PASS: independently installed tarball builds and runs in client and SSR/hydration applications across all three engines.
+publish	Run actions/upload-artifact@v7	2026-11-17T04:12:28.7186502Z   name: published-release-0.1.0-rc.30
+publish	Run actions/upload-artifact@v7	2026-11-17T04:12:28.7190913Z   RELEASE_VERSION: 0.1.0-rc.30
+publish	Run actions/upload-artifact@v7	2026-11-17T04:12:29.1040239Z Uploading artifact: published-release-0.1.0-rc.30.zip
+publish	Run actions/upload-artifact@v7	2026-11-17T04:12:29.7237226Z Artifact published-release-0.1.0-rc.30 successfully finalized. Artifact ID 14297479553
+publish	Run actions/upload-artifact@v7	2026-11-17T04:12:29.7238320Z Artifact published-release-0.1.0-rc.30 has been successfully uploaded! Final size is 2770 bytes. Artifact ID is 14297479553

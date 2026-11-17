@@ -2,7 +2,7 @@
 
 The experimental public identity is `@mantha911/ng-echarts`; prereleases use the `next` dist-tag. Install the registry package below, or use the exact local-tarball procedure to test a checkout. Use Node **24.22.2** from `.nvmrc` and npm **11.19.1**. The [compatibility table](COMPATIBILITY.md) separates tested versions from declared peer ranges.
 
-As verified on 16 November 2026, npm `next` selects rc.28 and the initial `latest` alias remains rc.18. A bare install resolves rc.18. Use `@next` deliberately or pin `@0.1.0-rc.28` for a repeatable dependency, then retain the lockfile. The [rc.28 receipt](experiments/public-rc28/registry-verification.json) records the current archive integrity and registry-consumer checks. The [first-publication record](PUBLICATION.md#first-publication-result) preserves npm’s rejected attempt to remove the initial `latest` alias.
+As verified on 17 November 2026, npm `next` selects rc.30 and the initial `latest` alias remains rc.18. A bare install resolves rc.18. Use `@next` deliberately or pin `@0.1.0-rc.30` for a repeatable dependency, then retain the lockfile. The [rc.30 receipt](experiments/public-rc30/registry-verification.json) records the exact archive and fresh registry-consumer checks. The [first-publication record](PUBLICATION.md#first-publication-result) preserves npm’s rejected attempt to remove the initial `latest` alias.
 
 
 Registry prerelease installation:
@@ -13,7 +13,7 @@ npm install @mantha911/ng-echarts@next echarts@6.1.0
 
 The API remains experimental. Human screen-reader interpretation is unreviewed; the user requested skipping that session and proceeding with the prerelease.
 
-The [packaged documentation errata](PACKAGED_DOCUMENTATION_ERRATA.md) supersede stale feature-availability wording in frozen rc.28/rc.29 readmes. Their archives are preserved; consult the API guides here for current behavior, including the radar chip-only presentation in rc.28/rc.29. Local rc.30 completes radar lists and corrects its packaged README; its [verification](experiments/RC30_RADAR_LEGENDS.md) is separate from published availability.
+The [packaged documentation errata](PACKAGED_DOCUMENTATION_ERRATA.md) supersede stale feature-availability wording in frozen rc.28/rc.29 readmes. Their archives are preserved; consult the API guides here for current behavior, including the radar chip-only presentation in rc.28/rc.29. Published rc.30 completes radar lists and corrects its packaged README; its [record](experiments/RC30_RADAR_LEGENDS.md) separates candidate verification, registry publication and demo delivery.
 
 ## Build and pack
 
@@ -122,15 +122,15 @@ The [API index and integration guide](INTEGRATION_GUIDE.md) cover shared types, 
 
 ## Current feature availability
 
-The current source candidate is `0.1.0-rc.30`, adding radar list legends and shared internal presentation behavior on top of preserved rc.29. Its [increment report](experiments/RC30_RADAR_LEGENDS.md) owns verification. The current published version is `0.1.0-rc.28`; npm `next` selects rc.28 and `latest` remains rc.18. Chip/list legends and gallery table opt-outs ship in rc.28; horizontal composition ships since rc.23 and explicit independent axes since rc.24. The application-owned shared-window dashboard also runs on published rc.22. Preserve every archive. The [rc.28 publication](experiments/RC28_PUBLICATION.md) and [rc.29 continuation](experiments/RC29_LINKED_WINDOW.md) separate registry delivery from current source verification.
+The current source/package version is `0.1.0-rc.30`, with radar list legends and shared internal presentation behavior on top of preserved rc.29. npm `next` selects rc.30 and `latest` remains rc.18. Chip/list legends for Cartesian/pie and gallery table opt-outs ship since rc.28; radar lists ship since rc.30, horizontal composition since rc.23 and independent axes since rc.24. The application-owned shared-window dashboard also runs on published rc.22. Preserve every archive. The [rc.30 record](experiments/RC30_RADAR_LEGENDS.md) owns current verification and delivery.
 
 | Capability | Published availability |
 | --- | --- |
 | Table pagination / named bar stacks / composed areas | rc.19 / rc.21 / rc.22 and later |
 | Horizontal composition / independent composed value axes | rc.23 / rc.24 and later |
-| Cartesian and pie/donut chip/list legends | rc.28 and later; radar lists are local rc.30, while rc.28/rc.29 retain chips |
+| Cartesian and pie/donut chip/list legends | rc.28 and later; radar lists ship since rc.30, while rc.28/rc.29 retain radar chips |
 | Calendar/Sankey `showDataTable` opt-out | rc.28 and later; default `true` |
-| Shared-window dashboard and month actions from either chart | Application code using existing rc.22 APIs; verified against that exact npm baseline and the rc.29 candidate |
+| Shared-window dashboard and month actions from either chart | Application code using existing rc.22 APIs; verified against that exact npm baseline and the rc.30 installed consumers |
 
 
 The [composed dashboard guide](COMPOSED_DASHBOARD.md) provides a complete dashboard example and a digest-verified npm consumer check. The [rc.23 increment](experiments/NG20_COMPOSED_DASHBOARD.md) records local verification separately from rc.22 publication.

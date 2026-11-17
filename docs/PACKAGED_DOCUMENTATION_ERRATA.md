@@ -1,8 +1,8 @@
 # Packaged documentation errata
 
-Updated 16 November 2026. npm `next` selects `@mantha911/ng-echarts@0.1.0-rc.28`; `latest` retains rc.18. The rc.29 candidate is verified and unpublished; local rc.30 corrects the packaged availability wording and implements radar list legends. [Publication receipts](experiments/RC28_PUBLICATION.md) and [candidate/delivery evidence](experiments/RC29_LINKED_WINDOW.md) own those identities.
+Updated 17 November 2026. npm `next` selects `@mantha911/ng-echarts@0.1.0-rc.30`; `latest` retains rc.18. Preserved rc.28/rc.29 packaged wording remains historical; rc.30 corrects the README and implements radar list legends. [Current delivery](experiments/RC30_RADAR_LEGENDS.md) records exact bytes and registry consumers.
 
-Published rc.28 and the sealed rc.29 archive contain readmes with historical availability wording. Their README/changelog, runtime, declarations and archive bytes remain immutable. This repository erratum and the current [installation guide](INSTALLATION.md) supersede those statements; no package upload or version change occurs in this documentation pass. Packaged corrections require a new candidate version.
+Published rc.28 and the sealed rc.29 archive contain readmes with historical availability wording. Their README/changelog, runtime, declarations and archive bytes remain immutable. This repository erratum and the current [installation guide](INSTALLATION.md) supersede those statements; those original documentation-only corrections did not upload or change a package version. The new rc.30 package carries the corrections in a separately verified immutable archive.
 
 ## Feature availability
 
@@ -14,6 +14,6 @@ Published rc.28 and the sealed rc.29 archive contain readmes with historical ava
 
 ## Radar legend layout
 
-The rc.28/rc.29 shared base exposes `legendLayout`, but those versions do not apply the list-layout class: radar renders chips for either input value. Packaged wording that groups radar with the implemented aligned-list families overstates its behavior. The [radar API](RADAR_CHART_API.md#inputs-and-states) records this limitation; local rc.30 completes the [radar template](../projects/chart-library/radar/src/lib/radar-chart.html) binding and label/note presentation, with [new evidence](experiments/RC30_RADAR_LEGENDS.md). Earlier archives remain unchanged.
+The rc.28/rc.29 shared base exposes `legendLayout`, but those versions do not apply the list-layout class: radar renders chips for either input value. Packaged wording that groups radar with the implemented aligned-list families overstates its behavior. The [radar API](RADAR_CHART_API.md#inputs-and-states) records this limitation; published rc.30 completes the [radar template](../projects/chart-library/radar/src/lib/radar-chart.html) binding and label/note presentation, with [new evidence](experiments/RC30_RADAR_LEGENDS.md). Earlier archives remain unchanged.
 
 Human F09/R06/G2/G3/G4 remain deferred/pending. These corrections do not broaden tested dependency ranges or declare a stable API.

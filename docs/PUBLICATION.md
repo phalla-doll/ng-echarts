@@ -1,6 +1,6 @@
 # Public package publication and verification (NG22)
 
-Status: `@mantha911/ng-echarts@0.1.0-rc.28` is published on npm under `next`; `latest` retains rc.18. The [rc.28 publication](#rc28-oidc-publication) records exact bytes and passing fresh registry consumers. Human F09/R06/G2/G3/G4 remain pending under the user’s continued prerelease deferral. Current rc.29 source is separate; preserve every published/private archive.
+Status: `@mantha911/ng-echarts@0.1.0-rc.30` is published on npm under `next`; `latest` retains rc.18. The [rc.30 publication](#rc30-oidc-publication) records exact bytes and passing fresh registry consumers. Human F09/R06/G2/G3/G4 remain pending under the user’s continued prerelease deferral. The preserved rc.29 candidate remains unpublished; preserve every archive.
 
 The [packaged documentation errata](PACKAGED_DOCUMENTATION_ERRATA.md) correct historical availability statements without rewriting published rc.28 or the sealed rc.29 candidate. Repository/demo documentation corrections do not change npm tags or package bytes.
 
@@ -99,3 +99,7 @@ The user authorized rc.24 delivery on 16 November. The [publication report](expe
 ## rc.28 OIDC publication
 
 The user authorized delivering all recommended follow-ups on 16 November. [Source CI 43807733564](https://github.com/phalla-doll/ng-echarts/actions/runs/43807733564) passes all six jobs for `c192030f75551ff1625055ae85ee545e062a5f04`, including the WebKit theme-matrix correction. [Publishing run 43818350441](https://github.com/phalla-doll/ng-echarts/actions/runs/43818350441) passes one OIDC upload, exact registry bytes, normal npm resolution and fresh strict/docs/client/SSR consumers. The 169,180-byte archive has SHA-256 `f556a3d25e766a4c4fb2ec343ae0bad6d57d868a0d97fd393c27e206c485d396`; next is rc.28 and latest remains rc.18. [Report](experiments/RC28_PUBLICATION.md), [registry receipt](experiments/public-rc28/registry-verification.json). Packaged README/changelog/notices remain immutable. New rc.29 payload work and application-owned dashboard interaction are separate source changes; human gates remain pending.
+
+## rc.30 OIDC publication
+
+The user accepted the radar legend/payload cleanup and verified successor delivery. [Full exact-main CI](https://github.com/phalla-doll/ng-echarts/actions/runs/44012447993) passes all six jobs for `4caac5e63936e710d6870b55d2c86612df04fdd3`. [Publishing run 44014710732](https://github.com/phalla-doll/ng-echarts/actions/runs/44014710732) completes the single OIDC upload, registry byte comparison, normal npm resolution and fresh strict/docs/CSR/SSR consumers. The immutable 167,101-byte archive has SHA-256 `e19fbb40964251f5c1c6b7d10cc3808feb6fe10eb7419ae75fff7a880b7a7c6c`; next is rc.30 and latest remains rc.18. The [increment/delivery record](experiments/RC30_RADAR_LEGENDS.md) and [registry receipt](experiments/public-rc30/registry-verification.json) own actual evidence. Preserve packaged README/changelog/notices and all earlier archives; human gates remain pending.

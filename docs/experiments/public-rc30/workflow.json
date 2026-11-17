@@ -1,0 +1,12 @@
+{
+  "conclusion": "success",
+  "headSha": "4caac5e63936e710d6870b55d2c86612df04fdd3",
+  "jobs": [
+    {
+      "conclusion": "success",
+      "name": "publish",
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/44014710732/job/133809746811"
+    }
+  ],
+  "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/44014710732"
+}

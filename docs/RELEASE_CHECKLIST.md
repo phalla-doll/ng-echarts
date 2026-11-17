@@ -1,8 +1,8 @@
 # Published prerelease verification
 
-The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.28`, including chip/list legends, gallery table opt-outs and the earlier composed value-axis/declaration features. [Exact CI and registry evidence](experiments/RC28_PUBLICATION.md) records complete delivery. Preserved rc.29 has separate [continuation evidence](experiments/RC29_LINKED_WINDOW.md); local rc.30 has [radar/payload verification](experiments/RC30_RADAR_LEGENDS.md) and requires its own exact artifact/CI delivery. Preserve every archive. Human F09/R06/G2/G3/G4 remain deferred/pending; experimental publication does not claim complete human interpretation or a stable API.
+The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.30`, completing radar list legends and shared internal presentation behavior while preserving all prior supported features and budget caps. [Exact CI, candidate and registry evidence](experiments/RC30_RADAR_LEGENDS.md) records complete package delivery. Preserve rc.29 and every earlier archive. Human F09/R06/G2/G3/G4 remain deferred/pending; experimental publication does not claim human interpretation or a stable API.
 
-The rc.28 publication and registry-consumer status are recorded in its [receipt](experiments/public-rc28/registry-verification.json). Actual npm tags are `next: 0.1.0-rc.28` and `latest: 0.1.0-rc.18`; npm rejected deletion of the initial `latest` alias. See the [registry receipt](experiments/public-rc18/registry-verification.json) and [publication procedure](PUBLICATION.md). These results are separate from the pending human interpretation gates.
+The rc.30 publication and fresh registry-consumer status are recorded in its [receipt](experiments/public-rc30/registry-verification.json). Actual npm tags are `next: 0.1.0-rc.30` and `latest: 0.1.0-rc.18`; npm rejected deletion of the initial latest alias. The [publication procedure](PUBLICATION.md#rc30-oidc-publication) preserves that historical limitation. Human interpretation gates remain separate.
 
 ## Prepare and verify one artifact
 
@@ -78,7 +78,7 @@ The recorded dependency versions describe verified inputs, not every version adm
 
 | Item | Status / evidence |
 | --- | --- |
-| Local candidate automated checks | rc.29 exact-artifact checks, 342 unit tests, 488 browser passes/four skips, matching macOS/Linux warm/clean archives and full [final CI](https://github.com/phalla-doll/ng-echarts/actions/runs/43825201013) pass in the [current continuation](experiments/RC29_LINKED_WINDOW.md). rc.29 remains unpublished; npm next is rc.28. Preserved full CI for `0.1.0-rc.22`; [manifest](experiments/data/local-release-0.1.0-rc.22.json), [area report](experiments/NG17_COMPOSED_AREAS.md), [rc.20/rc.21 report](experiments/NG17_STACKED_COMPOSED.md) and published [rc.19 evidence](experiments/RC19_RELEASE_REVIEW.md); rc.16 results remain preserved in the [combined checkpoint](experiments/COMBINED_PREVIEW_PERFORMANCE.md) |
+| Local candidate automated checks | rc.30 exact artifact, 342 unit tests, 584 browser passes/four expected skips, matching macOS/Linux warm/clean archives and [all six CI jobs](https://github.com/phalla-doll/ng-echarts/actions/runs/44012447993) pass. OIDC publication, exact registry bytes and fresh consumers pass in the [delivery record](experiments/RC30_RADAR_LEGENDS.md). Preserve every earlier [candidate record](experiments/data/local-release-0.1.0-rc.29.json); human gates remain pending. |
 | Original library license | MIT selected by the user; full text ships in the candidate |
 | Human interpretation, F09/R06 | Pending; complete the [current result sheet](experiments/RC20_HUMAN_REVIEW.md) following the [manual review](experiments/R06_MANUAL_REVIEW.md) across every family |
 | NG14/G2/G3/G4 acceptance | Pending until the required human evidence exists; successful artifact checks do not close these gates |
