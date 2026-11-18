@@ -1,0 +1,1 @@
+import{Ht as N,nt as Hr,wn as U}from"./chunk-DL9GzlCm.js";function f(i,e,u){var r=i.get(`borderRadius`);if(r==null)return u?{cornerRadius:0}:null;N(r)||(r=[r,r,r,r]);var a=Math.abs(e.r||0-e.r0||0);return{cornerRadius:U(r,function(c){return Hr(c,a)})}}export{f as t};
