@@ -72,6 +72,7 @@ export async function inspectRelease(path) {
     './calendar',
     './composed',
     './core',
+    './interaction',
     './line',
     './package.json',
     './pie',
@@ -82,6 +83,7 @@ export async function inspectRelease(path) {
   for (const entry of [
     '.',
     './core',
+    './interaction',
     './bar',
     './line',
     './area',

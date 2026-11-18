@@ -1,0 +1,17 @@
+
+> ng-echarts-workspace@0.0.0 test:browser
+> playwright test tests/browser/dashboard-range.spec.ts --project=chromium
+
+[WebServer] (node:69405) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:69413) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/browser/dashboard-range.spec.ts:46:1 › commits one overview range on release and updates both charts without selecting a point (568ms)
+  ✓  2 [chromium] › tests/browser/dashboard-range.spec.ts:68:1 › selects the shared range from horizontal device detail, retaining native reset and raw zero actions (767ms)
+  ✓  3 [chromium] › tests/browser/dashboard-range.spec.ts:96:1 › Escape cancels a draft; plain click and immutable context changes never commit a range (808ms)
+  ✓  4 [chromium] › tests/browser/dashboard-range.spec.ts:119:1 › cancels resize and pointer interruption, restores plot styles, and preserves chart instances (768ms)
+
+  4 passed (3.8s)

@@ -1,0 +1,28 @@
+publish	Run node tools/publish-prerelease.mjs publish	﻿2026-11-18T01:56:10.7357055Z ##[group]Run node tools/publish-prerelease.mjs publish
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T01:56:10.7357488Z ^[[36;1mnode tools/publish-prerelease.mjs publish^[[0m
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T01:56:10.7406779Z shell: /usr/bin/bash -e {0}
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T01:56:10.7407028Z env:
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T01:56:10.7409526Z   GH_TOKEN: ***
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T01:56:10.7409752Z   RELEASE_VERSION: 0.1.0-rc.32
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T01:56:10.7410133Z   RELEASE_SHA256: 6984b9b20edd69fd0c326e6361d45459f3b36fe8f4c9d390f8962de8cee4f3f9
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T01:56:10.7410553Z   RELEASE_CI_RUN: 44131658781
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T01:56:10.7410837Z   NPM_CONFIG_USERCONFIG: /home/runner/work/_temp/.npmrc
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T01:56:10.7411139Z ##[endgroup]
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T01:56:16.7900606Z + @mantha911/ng-echarts@0.1.0-rc.32
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T01:56:16.7901100Z
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T02:01:28.2294736Z node:internal/modules/run_main:107
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T02:01:28.2295273Z     triggerUncaughtException(
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T02:01:28.2295643Z     ^
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T02:01:28.2295812Z
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T02:01:28.2296904Z AssertionError [ERR_ASSERTION]: Upload submitted once; registry availability remains pending. Do not repeat publication.
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T02:01:28.2298398Z     at file:///home/runner/work/ng-echarts/ng-echarts/tools/publish-prerelease.mjs:99:3 {
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T02:01:28.2298948Z   generatedMessage: false,
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T02:01:28.2299237Z   code: 'ERR_ASSERTION',
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T02:01:28.2299503Z   actual: undefined,
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T02:01:28.2299749Z   expected: true,
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T02:01:28.2299989Z   operator: '==',
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T02:01:28.2300227Z   diff: 'simple'
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T02:01:28.2300460Z }
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T02:01:28.2300573Z
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T02:01:28.2300676Z Node.js v24.22.2
+publish	Run node tools/publish-prerelease.mjs publish	2026-11-18T02:01:28.2388722Z ##[error]Process completed with exit code 1.

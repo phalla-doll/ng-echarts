@@ -37,5 +37,17 @@ test('commits an actual stacked bar hit and exposes the exact compiled example',
   await expect(page.getByLabel('Composed linked dashboard Angular source')).toContainText(
     'export class ComposedDashboard',
   );
+  await expect(page.getByLabel('Composed linked dashboard Angular source')).toContainText(
+    '@mantha911/ng-echarts/interaction',
+  );
+  await expect(page.getByLabel('Native dashboard Angular source')).toHaveCount(0);
+  await page.getByText('Native dashboard source (published rc.22)', { exact: true }).click();
+  await expect(page.getByLabel('Native dashboard Angular source')).toContainText(
+    'export class App',
+  );
+  await expect(page.getByLabel('Native dashboard Angular source')).not.toContainText(
+    '@mantha911/ng-echarts/interaction',
+  );
+  await page.evaluate(() => document.fonts.ready);
   expect(errors).toEqual([]);
 });

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.0-rc.33
+
+- Add the focused optional interaction entry with controlled contiguous category ranges for bar/composed charts; retain all existing root/core caps and entry behavior.
+- Link overview and device-detail graphical gestures to the dashboard's shared native window, with cancellation, raw point-click suppression and listener cleanup.
+- Keep native keyboard controls and the published-rc.22 dashboard consumer separate from the enhanced candidate example.
+
+
 ## 0.1.0-rc.32 — Preserve error-frame theme recovery
 
 - Restore the original separate descriptor and theme checks so theme sampling continues while duplicate series identifiers produce a validation error.

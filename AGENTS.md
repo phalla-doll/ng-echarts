@@ -2,7 +2,7 @@
 
 ## Project Structure and Scope
 
-Angular 22 chart library using Apache ECharts. Bar, line, area, pie/donut and composed bar/line/area charts with shared or opt-in independent value axes and separate named bar/area stacks are implemented. NG20 adds linked charts with native and graphical month ranges. NG14 automated acceptance and NG15 documentation are recorded; human interpretation and release gates remain open. The demo is deployed to GitHub Pages. Experimental `@mantha911/ng-echarts@0.1.0-rc.30` is published on npm under `next` (`latest` retains rc.18); human F09/R06/G2/G3/G4 remain pending under the user’s explicit prerelease deferral.
+Angular 22 chart library using Apache ECharts. Bar, line, area, pie/donut and composed bar/line/area charts with shared or opt-in independent value axes and separate named bar/area stacks are implemented. NG20 adds linked charts with native and graphical month ranges. NG14 automated acceptance and NG15 documentation are recorded; human interpretation and release gates remain open. The demo is deployed to GitHub Pages. Experimental `@mantha911/ng-echarts@0.1.0-rc.32` is published on npm under `next` (`latest` retains rc.18); human F09/R06/G2/G3/G4 remain pending under the user’s explicit prerelease deferral.
 
 - `README.md`: overview and document index.
 - `docs/PRODUCT_SPEC.md`: MVP scope and required behavior.
@@ -186,3 +186,16 @@ The user-authorized source `db10dc5f2b55f4992badad6fbce0a8cb7b2206cc` is committ
 
 
 Full delivery-source CI `44128193872` now passes all six jobs for deployed `db10dc5`: 356 unit tests, 587 browser passes/four expected skips, two WebKit probes, exact consumers, reproducibility, Pages and unchanged budgets. The independently downloaded 164,022-byte Linux archive matches canonical rc.32 SHA-256 `6984b9b20edd69fd0c326e6361d45459f3b36fe8f4c9d390f8962de8cee4f3f9`, all 68 members and 11 declarations, plus warm/two-clean macOS/Linux results. Final receipt-only documentation preserves deployed source/static/seal, package/archive bytes and all human-gate statuses. No extra deployment or npm upload accompanies those receipts.
+
+
+## rc.32 publication and rc.33 graphical linking — 18 November
+
+The user authorized all repository-review recommendations. OIDC run `44219398934` uploads canonical rc.32 once from exact main `2876f9b`/passing CI `44131658781`, then its metadata wait times out; never repeat the upload. Verification-only recovery `44220480347` passes normal npm resolution and all fresh consumers. npm next is rc.32/latest rc.18; the 164,022-byte canonical SHA-256 remains `6984b9b20edd69fd0c326e6361d45459f3b36fe8f4c9d390f8962de8cee4f3f9`. The [publication report](docs/experiments/RC32_PUBLICATION.md) owns exact receipts.
+
+Local rc.33 adds focused `/interaction` CategoryRange gestures outside root/core, sharing the application-owned inclusive dashboard window from either composed overview or horizontal device detail. Native controls remain equivalent; general DataZoom/disjoint/arbitrary linking remains subsequent. Keep every original twelve scenario cap unchanged and measure the opt-in entry/combined increment separately. Preserve the rc.22 native example and test the enhanced displayed source against the candidate. The [increment record](docs/experiments/RC33_GRAPHICAL_LINKING.md) owns current verification; do not claim a new candidate/CI/deployment until its receipts exist. Preserve every archive and keep human F09/R06/G2/G3/G4 deferred/pending.
+
+
+Local rc.33 is sealed at 174,489 bytes, SHA-256 `5d0230b8b9fccdab7d3b32e846ca5bfb1780a9cb1094f2f21b006ebc4bf33735`. Warm/two-clean macOS, exact artifact consumers, 358 unit tests and 611 full browser passes/four expected skips pass. Final application-only follow-ups cover pending-module Escape, WebKit arming-button focus, one-category focus retention and six/zero owned window listeners over repeated toggles and same-document destruction. The updated displayed candidate source and all six installed CSR/SSR modes pass separately against the same archive. All 33 original runtime/declaration members and twelve original scenario totals/caps/module sets are unchanged; root/core gzip remain 221,007/8,697. Optional composed interaction adds 5,656 gzip/7,514 Brotli bytes under its separate bounded allowance. Preserve all 114 prior records and sealed rc.33. Source CI/demo delivery require their own receipts; npm next remains rc.32/latest rc.18 and human gates remain pending.
+
+
+The rc.33 local Pages checkpoint seals 148 files at `5e1a2e37cf46fe4537dd76c11fbda7adff371d82121863a0c1e5839086ce1f43`; all 40 routes pass three engines and all 17 unchanged performance guards/navigation checks pass. Deferring both complete dashboard source viewers reduces the route to 408,879 compressed bytes under its unchanged 455,000 cap; initial 456,125/455,411 failures remain recorded. This is a dirty local snapshot only. Independent CI and a clean-source deployment need separate receipts. Package bytes, npm tags and human gates remain unchanged.

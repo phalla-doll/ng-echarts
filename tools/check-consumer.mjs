@@ -74,6 +74,14 @@ try {
   );
   const configPath = join(consumer, 'tsconfig.json');
   const config = JSON.parse(await readFile(configPath, 'utf8'));
+  const interactionGuide = await readFile(join(root, 'docs/INTERACTION_API.md'), 'utf8');
+  const interactionExample = interactionGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
+  assert(
+    interactionExample,
+    'Interaction guide must include its complete native/graphical example',
+  );
+  await writeFile(join(consumer, 'interaction-guide.ts'), interactionExample);
+  config.files.push('interaction-guide.ts');
   const sankeyGuide = await readFile(join(root, 'docs/SANKEY_CHART_API.md'), 'utf8');
   const sankeyExample = sankeyGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
   const sankeyBuild = await build({
@@ -301,6 +309,7 @@ try {
     './calendar',
     './composed',
     './core',
+    './interaction',
     './line',
     './package.json',
     './pie',
@@ -312,6 +321,7 @@ try {
   for (const entry of [
     '.',
     './core',
+    './interaction',
     './bar',
     './line',
     './area',
@@ -347,6 +357,8 @@ try {
   const diagnostics = `${invalid.stdout}${invalid.stderr}`.replace(/\x1b\[[0-9;]*m/g, '');
   const invalidSource = await readFile(join(consumer, 'invalid-consumer.ts'), 'utf8');
   for (const [component, binding] of [
+    ['InvalidCategoryRange', '[necCategoryRange]="[12]"'],
+    ['InvalidCategoryRange', '[rangeEnabled]="\'yes\'"'],
     ['InvalidSankeyNode', '[nodes]="nodes"'],
     ['InvalidSankeyLink', '[links]="links"'],
     ['InvalidCalendarDate', 'dateKey="count"'],

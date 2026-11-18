@@ -1,6 +1,6 @@
 # Public package publication and verification (NG22)
 
-Status: `@mantha911/ng-echarts@0.1.0-rc.30` is published on npm under `next`; `latest` retains rc.18. The [rc.30 publication](#rc30-oidc-publication) records exact bytes and passing fresh registry consumers. Human F09/R06/G2/G3/G4 remain pending under the user’s continued prerelease deferral. The preserved rc.29 candidate remains unpublished; preserve every archive.
+Status: `@mantha911/ng-echarts@0.1.0-rc.32` is published on npm under `next`; `latest` retains rc.18. The [rc.32 publication](#rc32-oidc-publication) records exact bytes and passing verification-only fresh registry consumers after the successful upload’s metadata wait timed out. Local rc.33 adds optional graphical dashboard ranges and remains unpublished. Human F09/R06/G2/G3/G4 remain pending under the user’s continued prerelease deferral. Preserve every archive.
 
 The [packaged documentation errata](PACKAGED_DOCUMENTATION_ERRATA.md) correct historical availability statements without rewriting published rc.28 or the sealed rc.29 candidate. Repository/demo documentation corrections do not change npm tags or package bytes.
 
@@ -103,3 +103,7 @@ The user authorized delivering all recommended follow-ups on 16 November. [Sourc
 ## rc.30 OIDC publication
 
 The user accepted the radar legend/payload cleanup and verified successor delivery. [Full exact-main CI](https://github.com/phalla-doll/ng-echarts/actions/runs/44012447993) passes all six jobs for `4caac5e63936e710d6870b55d2c86612df04fdd3`. [Publishing run 44014710732](https://github.com/phalla-doll/ng-echarts/actions/runs/44014710732) completes the single OIDC upload, registry byte comparison, normal npm resolution and fresh strict/docs/CSR/SSR consumers. The immutable 167,101-byte archive has SHA-256 `e19fbb40964251f5c1c6b7d10cc3808feb6fe10eb7419ae75fff7a880b7a7c6c`; next is rc.30 and latest remains rc.18. The [increment/delivery record](experiments/RC30_RADAR_LEGENDS.md) and [registry receipt](experiments/public-rc30/registry-verification.json) own actual evidence. Preserve packaged README/changelog/notices and all earlier archives; human gates remain pending.
+
+## rc.32 OIDC publication
+
+Exact-main CI `44131658781` passes for `2876f9b4acf48be8715dc1aa95253c3a72fda6d1`. OIDC upload run `44219398934` submits canonical rc.32 once, then its bounded registry metadata wait times out. The established verification-only recovery `44220480347` passes normal npm resolution and all fresh consumers without uploading. The 164,022-byte registry archive has SHA-256 `6984b9b20edd69fd0c326e6361d45459f3b36fe8f4c9d390f8962de8cee4f3f9`; next is rc.32 and latest remains rc.18. [Complete receipts and failed-check preservation](experiments/RC32_PUBLICATION.md). Keep all archive/packaged documentation bytes and human gates unchanged. Local rc.33 is separate unpublished work.

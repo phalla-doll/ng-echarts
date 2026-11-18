@@ -3,12 +3,30 @@ import { CalendarHeatmap } from '@mantha911/ng-echarts/calendar';
 import { RadialProgress } from '@mantha911/ng-echarts/radial';
 import { RadarChart } from '@mantha911/ng-echarts/radar';
 import { Component } from '@angular/core';
+import { CategoryRange } from '@mantha911/ng-echarts/interaction';
 import { BarChart, type ChartSeries } from '@mantha911/ng-echarts/bar';
 
 interface Row {
   id: string;
   category: string;
   count: number;
+}
+
+@Component({
+  imports: [BarChart, CategoryRange],
+  template: `<nec-bar-chart
+    title="Invalid range"
+    [data]="rows"
+    rowIdKey="id"
+    categoryKey="category"
+    [series]="series"
+    [necCategoryRange]="[12]"
+    [rangeEnabled]="'yes'"
+  />`,
+})
+export class InvalidCategoryRange {
+  readonly rows = [{ id: 'a', category: 'A', count: 1 }];
+  readonly series: readonly ChartSeries<Row>[] = [{ id: 'v', key: 'count', label: 'Value' }];
 }
 
 @Component({

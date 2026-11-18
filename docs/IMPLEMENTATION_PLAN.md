@@ -1,18 +1,13 @@
 # Angular chart implementation plan
 
-Current delivery (17 November 2026): npm `next` is rc.30 and `latest` remains rc.18. The exact 167,101-byte rc.30 archive is published and fresh registry consumers pass; preserve rc.29 and every earlier archive. Published-package delivery source `e09aa7f` passes [all six CI jobs](https://github.com/phalla-doll/ng-echarts/actions/runs/44015944947): 342 unit tests, 584 browser passes/four expected skips, exact consumers, reproducibility, Pages and unchanged budgets. The [increment/delivery record](experiments/RC30_RADAR_LEGENDS.md) owns actual receipts; the [Pages record](GITHUB_PAGES.md) owns the separately sealed demo identity. Human F09/R06/G2/G3/G4 remain deferred/pending.
-
-Historical increment sections below retain their original version-specific evidence and limits; use the current delivery summary for npm, candidate and deployment status.
-
-Local continuation: rc.32 consolidates internal lifecycle and color parsing while retaining descriptor/theme validation policies. It remains unpublished; npm next is rc.30/latest rc.18 and the demo serves verified cleanup source `db10dc5`. The [payload cleanup record](experiments/RC32_PAYLOAD_REVIEW.md) owns current measurements and verification; its bounded savings do not establish broad room for new engine features.
-
-Fresh cleanup-source [CI 44128193872](https://github.com/phalla-doll/ng-echarts/actions/runs/44128193872) passes all six jobs: 356 unit tests, 587 browser passes/four expected skips, exact consumers, reproducibility and Pages. Its independently verified Linux package matches the canonical rc.32 archive. The separate npm publication status above remains unchanged.
+Current continuation (18 November 2026): rc.32 is published with exact registry bytes and passing fresh consumers after [verification-only recovery](experiments/RC32_PUBLICATION.md); npm next is rc.32/latest rc.18. The initial bounded metadata wait failed after its successful one-time upload and remains recorded. Local rc.33 adds the optional interaction entry and graphical overview/detail window; it remains unpublished. The [increment record](experiments/RC33_GRAPHICAL_LINKING.md) owns actual verification and payload evidence. The [Pages record](GITHUB_PAGES.md) retains the independently deployed source identity. Preserve every archive and keep human F09/R06/G2/G3/G4 deferred/pending.
 
 ## Immediate next work
 
-1. Evaluate a focused opt-in interaction entry and further root payload reduction before general-purpose library zoom or graphical two-way brushing. Keep every existing root/core cap unchanged. Application-owned dashboard zoom and bidirectional month selection are implemented.
-2. Design one bounded NG20 graphical-linking increment once its payload and interaction envelope are agreed. Disjoint selection and arbitrary family linking remain subsequent work.
-3. Resume F09/R06 human interpretation when the user lifts the existing deferral; keep G2/G3/G4 pending until its evidence exists.
+1. Complete independent Linux CI and clean-source demo delivery for the locally verified rc.33 interaction increment. Full local regression, exact candidate/reproducibility, final installed-source follow-ups and all unchanged package/Pages performance limits pass in its report.
+2. Separately deliver the verified rc.33 demo through its clean-source guard after final verification; rc.32 publication/recovery is complete. Never repeat its successful upload.
+3. Resume F09/R06 only when the user lifts the human-review deferral; keep G2/G3/G4 pending.
+4. General-purpose DataZoom, disjoint selections, arbitrary family linking, broader calendar/Sankey variants and NG21 remain subsequent bounded work.
 
 ## Historical delivery plan
 

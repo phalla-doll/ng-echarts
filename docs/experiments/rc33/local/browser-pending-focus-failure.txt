@@ -1,0 +1,82 @@
+
+> ng-echarts-workspace@0.0.0 test:browser
+> playwright test tests/browser/dashboard-range.spec.ts --output=test-results/rc33-range-complete
+
+[WebServer] (node:59287) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 24 tests using 1 worker
+
+(node:59290) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/browser/dashboard-range.spec.ts:52:1 › commits one overview range on release and updates both charts without selecting a point (578ms)
+  ✓   2 [chromium] › tests/browser/dashboard-range.spec.ts:74:1 › selects the shared range from horizontal device detail, retaining native reset and raw zero actions (790ms)
+  ✓   3 [chromium] › tests/browser/dashboard-range.spec.ts:102:1 › Escape cancels a draft; plain click and immutable context changes never commit a range (849ms)
+  ✓   4 [chromium] › tests/browser/dashboard-range.spec.ts:125:1 › cancels resize and pointer interruption, restores plot styles, and preserves chart instances (881ms)
+  ✓   5 [chromium] › tests/browser/dashboard-range.spec.ts:166:1 › keeps dark area ranges visible in forced colors and cancels internal legend changes (547ms)
+  ✓   6 [chromium] › tests/browser/dashboard-range.spec.ts:195:1 › preserves the native touch/keyboard range at 390px and cancels lost pointer capture (419ms)
+  ✓   7 [chromium] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture (2.5s)
+  ✓   8 [chromium] › tests/browser/dashboard-range.spec.ts:294:1 › can immediately rearm by keyboard after reset and drives the installed-consumer journey (1.3s)
+(node:59403) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [firefox] › tests/browser/dashboard-range.spec.ts:52:1 › commits one overview range on release and updates both charts without selecting a point (1.4s)
+  ✓  10 [firefox] › tests/browser/dashboard-range.spec.ts:74:1 › selects the shared range from horizontal device detail, retaining native reset and raw zero actions (652ms)
+  ✓  11 [firefox] › tests/browser/dashboard-range.spec.ts:102:1 › Escape cancels a draft; plain click and immutable context changes never commit a range (768ms)
+  ✓  12 [firefox] › tests/browser/dashboard-range.spec.ts:125:1 › cancels resize and pointer interruption, restores plot styles, and preserves chart instances (739ms)
+  ✓  13 [firefox] › tests/browser/dashboard-range.spec.ts:166:1 › keeps dark area ranges visible in forced colors and cancels internal legend changes (601ms)
+  ✓  14 [firefox] › tests/browser/dashboard-range.spec.ts:195:1 › preserves the native touch/keyboard range at 390px and cancels lost pointer capture (528ms)
+  ✓  15 [firefox] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture (1.8s)
+  ✓  16 [firefox] › tests/browser/dashboard-range.spec.ts:294:1 › can immediately rearm by keyboard after reset and drives the installed-consumer journey (1.0s)
+(node:59616) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  17 [webkit] › tests/browser/dashboard-range.spec.ts:52:1 › commits one overview range on release and updates both charts without selecting a point (893ms)
+  ✓  18 [webkit] › tests/browser/dashboard-range.spec.ts:74:1 › selects the shared range from horizontal device detail, retaining native reset and raw zero actions (773ms)
+  ✓  19 [webkit] › tests/browser/dashboard-range.spec.ts:102:1 › Escape cancels a draft; plain click and immutable context changes never commit a range (837ms)
+  ✓  20 [webkit] › tests/browser/dashboard-range.spec.ts:125:1 › cancels resize and pointer interruption, restores plot styles, and preserves chart instances (797ms)
+  ✓  21 [webkit] › tests/browser/dashboard-range.spec.ts:166:1 › keeps dark area ranges visible in forced colors and cancels internal legend changes (647ms)
+  ✓  22 [webkit] › tests/browser/dashboard-range.spec.ts:195:1 › preserves the native touch/keyboard range at 390px and cancels lost pointer capture (610ms)
+  ✓  23 [webkit] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture (2.3s)
+  ✘  24 [webkit] › tests/browser/dashboard-range.spec.ts:294:1 › can immediately rearm by keyboard after reset and drives the installed-consumer journey (5.5s)
+
+
+  1) [webkit] › tests/browser/dashboard-range.spec.ts:294:1 › can immediately rearm by keyboard after reset and drives the installed-consumer journey
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('app-composed-dashboard').getByRole('button', { name: 'Select overview range', exact: true })
+    Expected: "false"
+    Received: "true"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('app-composed-dashboard').getByRole('button', { name: 'Select overview range', exact: true }) with timeout 5000ms
+      - waiting for locator('app-composed-dashboard').getByRole('button', { name: 'Select overview range', exact: true })
+        14 × locator resolved to <button type="button" aria-pressed="true" _ngcontent-ng-c3722365771=""> Select overview range </button>
+           - unexpected value "true"
+
+
+       at ../../tools/dashboard-range-flow.mjs:22
+
+      20 |   await expect(armPending).toHaveAttribute('aria-pressed', 'true');
+      21 |   await page.keyboard.press('Escape');
+    > 22 |   await expect(armPending).toHaveAttribute('aria-pressed', 'false');
+         |                            ^
+      23 |   release();
+      24 |   await page.evaluate(async (url) => {
+      25 |     await import(url);
+        at verifyDashboardRange (/Users/phalla/Documents/codes/ng-echarts/tools/dashboard-range-flow.mjs:22:28)
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/dashboard-range.spec.ts:298:3
+
+    Error Context: test-results/rc33-range-complete/dashboard-range-can-immedi-de1f9--installed-consumer-journey-webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/rc33-range-complete/dashboard-range-can-immedi-de1f9--installed-consumer-journey-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/rc33-range-complete/dashboard-range-can-immedi-de1f9--installed-consumer-journey-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [webkit] › tests/browser/dashboard-range.spec.ts:294:1 › can immediately rearm by keyboard after reset and drives the installed-consumer journey
+  23 passed (30.2s)

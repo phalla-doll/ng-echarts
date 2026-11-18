@@ -36,6 +36,22 @@ const scenarios = [
   { name: 'radial', entry: '/radial', symbol: 'RadialProgress', engine: true, families: ['pie'] },
   { name: 'core', entry: '/core', symbol: 'ChartFrame', engine: false },
   {
+    name: 'interaction',
+    entry: '/interaction',
+    symbol: 'CategoryRange',
+    engine: true,
+    coreOnly: true,
+    families: [],
+  },
+  {
+    name: 'composed-interaction',
+    entry: '/composed',
+    symbol: 'ComposedChart',
+    engine: true,
+    families: ['bar', 'line'],
+    extra: "export { CategoryRange } from '@mantha911/ng-echarts/interaction';",
+  },
+  {
     name: 'root',
     entry: '',
     symbol: 'BarChart, LineChart, AreaChart, PieChart, ComposedChart, ChartFrame',
@@ -56,7 +72,7 @@ for (const scenario of scenarios) {
   const outdir = join(directory, scenario.name);
   const result = await build({
     stdin: {
-      contents: `export { ${scenario.symbol} } from '@mantha911/ng-echarts${scenario.entry}';`,
+      contents: `export { ${scenario.symbol} } from '@mantha911/ng-echarts${scenario.entry}';${scenario.extra ?? ''}`,
       resolveDir: join(root, 'dist/chart-library'),
       sourcefile: `${scenario.name}-consumer.js`,
     },
@@ -187,10 +203,11 @@ for (const scenario of scenarios) {
       !inputs.some((name) => /(?:installSVGRenderer|svg\/Painter)\.js$/.test(name)),
       `${scenario.name} includes the SVG renderer`,
     );
-    assert(
-      inputs.some((name) => /installCanvasRenderer\.js$/.test(name)),
-      `${scenario.name} must include Canvas`,
-    );
+    if (!scenario.coreOnly)
+      assert(
+        inputs.some((name) => /installCanvasRenderer\.js$/.test(name)),
+        `${scenario.name} must include Canvas`,
+      );
   }
   if (!scenario.engine) {
     assert.equal(
@@ -213,6 +230,14 @@ for (const scenario of scenarios) {
   );
   if (scenario.engine)
     assert(reachableEngineInputs.length > 0, `${scenario.name} must reach its lazy engine`);
+  if (scenario.name === 'composed-interaction')
+    assert.deepEqual(
+      engineInputs,
+      results
+        .find((item) => item.name === 'composed')
+        .contributingInputs.filter((name) => /node_modules\/(echarts|zrender)\//.test(name)),
+      'Opt-in composed interactions must add no engine modules',
+    );
   await mkdir(outdir, { recursive: true });
   const files = [];
   for (const output of result.outputFiles) {
@@ -240,12 +265,24 @@ for (const scenario of scenarios) {
       ? { gzip: 222_000, brotli: 190_000 }
       : scenario.name === 'root-frame'
         ? { gzip: 206_000, brotli: 178_000 }
-        : scenario.engine
-          ? { gzip: 200_000, brotli: 175_000 }
-          : { gzip: 10_000, brotli: 9_000 };
+        : scenario.name === 'interaction'
+          ? { gzip: 110_000, brotli: 95_000 }
+          : scenario.name === 'composed-interaction'
+            ? {
+                gzip: results.find((item) => item.name === 'composed').total.gzip + 6_000,
+                brotli: results.find((item) => item.name === 'composed').total.brotli + 8_000,
+              }
+            : scenario.engine
+              ? { gzip: 200_000, brotli: 175_000 }
+              : { gzip: 10_000, brotli: 9_000 };
   const headroom = { gzip: budget.gzip - total.gzip, brotli: budget.brotli - total.brotli };
   const passed = total.gzip <= budget.gzip && total.brotli <= budget.brotli;
   assert(passed, `${scenario.name} exceeded its measured budget: ${JSON.stringify(total)}`);
+  if (!['interaction', 'composed-interaction'].includes(scenario.name))
+    assert(
+      !inputs.some((name) => /mantha911-ng-echarts-interaction/.test(name)),
+      `${scenario.name} must exclude optional interactions`,
+    );
   results.push({
     name: scenario.name,
     import: `@mantha911/ng-echarts${scenario.entry}`,

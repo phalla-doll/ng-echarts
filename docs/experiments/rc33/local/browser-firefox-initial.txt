@@ -1,0 +1,150 @@
+
+> ng-echarts-workspace@0.0.0 test:browser
+> playwright test --project=firefox --output=test-results/rc33-firefox --max-failures=1
+
+[WebServer] (node:7201) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 204 tests using 1 worker
+
+(node:7217) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓    1 [firefox] › tests/browser/area-chart.spec.ts:66:1 › renders copyable area blocks with the pinned area data and clean responsive themes (3.1s)
+  ✓    2 [firefox] › tests/browser/area-chart.spec.ts:116:1 › paints positive/negative stacks and actual fill gaps while emitting raw values (1.1s)
+  ✓    3 [firefox] › tests/browser/area-chart.spec.ts:176:1 › recovers area states, hydrates deferred controls, and disposes observers and instances (11.8s)
+  ✓    4 [firefox] › tests/browser/area-chart.spec.ts:253:1 › retries an area renderer import failure (377ms)
+  ✓    5 [firefox] › tests/browser/area-chart.spec.ts:265:1 › ignores late area imports after destruction and remounts with current data (501ms)
+  ✓    6 [firefox] › tests/browser/bar-chart.spec.ts:22:1 › hydrates one chart and emits equivalent pointer and keyboard table selections (585ms)
+  ✓    7 [firefox] › tests/browser/bar-chart.spec.ts:36:1 › honors state precedence and restores current data without stale actions (751ms)
+  ✓    8 [firefox] › tests/browser/bar-chart.spec.ts:60:1 › keeps legend focus and the full table when every series is hidden (597ms)
+  ✓    9 [firefox] › tests/browser/bar-chart.spec.ts:76:1 › switches themes/layouts, resizes hidden surfaces, and remounts one instance (1.1s)
+  ✓   10 [firefox] › tests/browser/bar-chart.spec.ts:108:3 › preserves raw values and point actions across all eight bar combinations in light theme (2.6s)
+  ✓   11 [firefox] › tests/browser/bar-chart.spec.ts:108:3 › preserves raw values and point actions across all eight bar combinations in dark theme (2.3s)
+  ✓   12 [firefox] › tests/browser/calendar.spec.ts:50:1 › hydrates native leap-year tables, exposes missing versus zero, and emits matching pointer/keyboard values (1.3s)
+  ✓   13 [firefox] › tests/browser/calendar.spec.ts:82:1 › retains a stable scale and handles zero, missing, invalid and application states (1.0s)
+  ✓   14 [firefox] › tests/browser/calendar.spec.ts:104:1 › fits both themes and both calendar layouts, retains hidden previews, and copies real source (2.8s)
+  ✓   15 [firefox] › tests/browser/calendar.spec.ts:149:1 › releases chart, resize, motion and focus resources over 100 mount cycles and navigation (19.2s)
+  ✓   16 [firefox] › tests/browser/calendar.spec.ts:183:1 › keeps date-only identity across DST and far-east timezones (1.4s)
+  ✓   17 [firefox] › tests/browser/calendar.spec.ts:200:1 › recovers a failed renderer import with native daily values (889ms)
+  ✓   18 [firefox] › tests/browser/calendar.spec.ts:228:1 › keeps every day readable in native monthly tables without JavaScript (680ms)
+  ✓   19 [firefox] › tests/browser/calendar.spec.ts:249:1 › preserves exact native values when a timezone skips a civil date, then restores the plot for a supported year (1.4s)
+  ✓   20 [firefox] › tests/browser/chart-possibilities.spec.ts:5:1 › serves the concept gallery with filters, keyboard data access, theme sync, and bubble mode (2.6s)
+  ✓   21 [firefox] › tests/browser/chart-possibilities.spec.ts:60:1 › fits mobile layouts and leaves the embedded gallery when navigating away (4.1s)
+  ✓   22 [firefox] › tests/browser/chart-possibilities.spec.ts:105:1 › keeps the standalone document usable without a network connection (1.7s)
+  ✓   23 [firefox] › tests/browser/code-examples.spec.ts:11:1 › keeps syntax-colored examples copyable and text copy buttons on one line (4.5s)
+  ✓   24 [firefox] › tests/browser/code-examples.spec.ts:85:1 › highlights setup docs and Angular templates without hydration errors (679ms)
+  ✓   25 [firefox] › tests/browser/comparison.spec.ts:10:1 › fits the comparison plot and controls at all review widths in both themes (2.5s)
+  ✓   26 [firefox] › tests/browser/comparison.spec.ts:53:1 › hydrates formatted ticks, retains full tooltip/table labels, and recovers formatter errors (915ms)
+  ✓   27 [firefox] › tests/browser/comparison.spec.ts:112:3 › /comparison follows the shared site layout, navigation, and theme (1.9s)
+  ✓   28 [firefox] › tests/browser/comparison.spec.ts:112:3 › /line-comparison follows the shared site layout, navigation, and theme (2.3s)
+  ✓   29 [firefox] › tests/browser/comparison.spec.ts:112:3 › /area-comparison follows the shared site layout, navigation, and theme (2.2s)
+  ✓   30 [firefox] › tests/browser/comparison.spec.ts:112:3 › /pie-comparison follows the shared site layout, navigation, and theme (1.7s)
+  ✓   31 [firefox] › tests/browser/composed-axes.spec.ts:5:1 › keeps dual-axis native values, labels, identities and errors coherent through replacement (1.2s)
+  ✓   32 [firefox] › tests/browser/composed-axes.spec.ts:103:1 › renders independent-scale examples with correct summaries and copyable source in both themes (1.7s)
+  ✓   33 [firefox] › tests/browser/composed-chart.spec.ts:39:1 › selects raw observations from a real area interior and clears fill/stack state across kind changes (1.2s)
+  ✓   34 [firefox] › tests/browser/composed-chart.spec.ts:74:1 › retains area legend/focus identities, raw signed/zero/missing values and recovers invalid fill settings (952ms)
+  ✓   35 [firefox] › tests/browser/composed-chart.spec.ts:111:3 › renders copyable area and stacked-area examples at every responsive width in light theme (2.1s)
+  ✓   36 [firefox] › tests/browser/composed-chart.spec.ts:111:3 › renders copyable area and stacked-area examples at every responsive width in dark theme (2.5s)
+  ✓   37 [firefox] › tests/browser/composed-chart.spec.ts:167:1 › stacks real segments by group, returns raw actions and replaces grouping without losing identities (1.6s)
+  ✓   38 [firefox] › tests/browser/composed-chart.spec.ts:247:1 › hydrates a composed gallery with copyable typed source and responsive themes (1.3s)
+  ✓   39 [firefox] › tests/browser/composed-chart.spec.ts:289:1 › selects real bars and whole lines, preserves zeros/gaps, and retains hidden identities through kind changes (1.6s)
+  ✓   40 [firefox] › tests/browser/composed-chart.spec.ts:333:1 › recovers mixed states, hydrates deferred controls, refreshes palettes and releases every native resource (11.7s)
+  ✓   41 [firefox] › tests/browser/composed-chart.spec.ts:404:1 › retries a failed composed renderer import without exposing its exception (572ms)
+  ✓   42 [firefox] › tests/browser/composed-chart.spec.ts:418:1 › ignores a late composed renderer import after destruction and restores the latest inputs (608ms)
+  ✓   43 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /playground keeps customization controls readable and separate across themes and widths (1.1s)
+  ✓   44 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /formatting keeps customization controls readable and separate across themes and widths (1.0s)
+  ✓   45 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /updates keeps customization controls readable and separate across themes and widths (1.3s)
+  ✓   46 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /validation keeps customization controls readable and separate across themes and widths (1.5s)
+  ✓   47 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /line-validation keeps customization controls readable and separate across themes and widths (934ms)
+  ✓   48 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /area-validation keeps customization controls readable and separate across themes and widths (1.1s)
+  ✓   49 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /pie-validation keeps customization controls readable and separate across themes and widths (1.6s)
+  ✓   50 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /composed-validation keeps customization controls readable and separate across themes and widths (1.3s)
+  ✓   51 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /linked-validation keeps customization controls readable and separate across themes and widths (1.3s)
+  ✓   52 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /retention keeps customization controls readable and separate across themes and widths (944ms)
+  ✓   53 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /radar keeps customization controls readable and separate across themes and widths (1.7s)
+  ✓   54 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /radar-validation keeps customization controls readable and separate across themes and widths (2.5s)
+  ✓   55 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /radial keeps customization controls readable and separate across themes and widths (1.7s)
+  ✓   56 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /calendar keeps customization controls readable and separate across themes and widths (1.4s)
+  ✓   57 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /calendar-validation keeps customization controls readable and separate across themes and widths (3.3s)
+  ✓   58 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /sankey keeps customization controls readable and separate across themes and widths (1.3s)
+  ✓   59 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /sankey-validation keeps customization controls readable and separate across themes and widths (1.7s)
+  ✓   60 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /pie keeps customization controls readable and separate across themes and widths (1.0s)
+  ✓   61 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /comparison keeps customization controls readable and separate across themes and widths (834ms)
+  ✓   62 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /line-comparison keeps customization controls readable and separate across themes and widths (823ms)
+  ✓   63 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /area-comparison keeps customization controls readable and separate across themes and widths (957ms)
+  ✓   64 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /pie-comparison keeps customization controls readable and separate across themes and widths (983ms)
+  ✓   65 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /linked keeps customization controls readable and separate across themes and widths (930ms)
+  ✓   66 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /linked-example-validation keeps customization controls readable and separate across themes and widths (963ms)
+  ✓   67 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /linked-dashboard keeps customization controls readable and separate across themes and widths (1.0s)
+  ✓   68 [firefox] › tests/browser/customization-controls.spec.ts:34:3 › /dashboard-validation keeps customization controls readable and separate across themes and widths (1.0s)
+  ✓   69 [firefox] › tests/browser/customization-controls.spec.ts:110:1 › keeps numeric fields centered in one surface after client navigation (2.3s)
+  ✓   70 [firefox] › tests/browser/customization-controls.spec.ts:160:1 › keeps native disclosure and form controls usable before JavaScript loads (610ms)
+  ✓   71 [firefox] › tests/browser/customization-controls.spec.ts:181:1 › keeps dashboard fields readable when its theme differs from the site (809ms)
+  ✓   72 [firefox] › tests/browser/customization-controls.spec.ts:242:1 › retains selected choices and switch positions in forced colors (535ms)
+  ✓   73 [firefox] › tests/browser/dashboard-range.spec.ts:51:1 › commits one overview range on release and updates both charts without selecting a point (552ms)
+  ✓   74 [firefox] › tests/browser/dashboard-range.spec.ts:73:1 › selects the shared range from horizontal device detail, retaining native reset and raw zero actions (684ms)
+  ✓   75 [firefox] › tests/browser/dashboard-range.spec.ts:101:1 › Escape cancels a draft; plain click and immutable context changes never commit a range (742ms)
+  ✓   76 [firefox] › tests/browser/dashboard-range.spec.ts:124:1 › cancels resize and pointer interruption, restores plot styles, and preserves chart instances (764ms)
+  ✓   77 [firefox] › tests/browser/dashboard-range.spec.ts:165:1 › keeps dark area ranges visible in forced colors and cancels internal legend changes (602ms)
+  ✓   78 [firefox] › tests/browser/dashboard-range.spec.ts:194:1 › preserves the native touch/keyboard range at 390px and cancels lost pointer capture (491ms)
+  ✘   79 [firefox] › tests/browser/dashboard-range.spec.ts:224:1 › cleans repeated enablement and destruction during an active gesture (6.5s)
+Testing stopped early after 1 maximum allowed failures.
+
+
+  1) [firefox] › tests/browser/dashboard-range.spec.ts:224:1 › cleans repeated enablement and destruction during an active gesture
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('canvas').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('canvas').first() with timeout 5000ms
+      - waiting for locator('canvas').first()
+
+
+      235 |   await page.mouse.up();
+      236 |   await expect(page.locator('.nec-category-range-draft')).toHaveCount(0);
+    > 237 |   await expect(page.locator('canvas').first()).toBeVisible();
+          |                                                ^
+      238 |   await page.goto('/dashboard-validation');
+      239 |   await expect(dashboard.locator('canvas')).toHaveCount(2);
+      240 |   await expect(dashboard.getByRole('combobox', { name: 'From', exact: true })).toHaveValue('jan');
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/dashboard-range.spec.ts:237:48
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "[JavaScript Error: \"Content-Security-Policy: The page’s settings blocked the loading of a resource (img-src) at http://localhost:4182/favicon.ico because it violates the following directive: “default-src 'none'”\" {file: \"resource:///modules/FaviconLoader.sys.mjs\" line: 232}]",
+    + ]
+
+      3 |
+      4 | const browserErrors = new WeakMap<Page, ReturnType<typeof collectBrowserErrors>>();
+    > 5 | test.afterEach(({ page }) => expect(browserErrors.get(page) ?? []).toEqual([]));
+        |                                                                    ^
+      6 |
+      7 | async function start(page: Page) {
+      8 |   browserErrors.set(page, collectBrowserErrors(page));
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/dashboard-range.spec.ts:5:68
+
+    Error Context: test-results/rc33-firefox/dashboard-range-cleans-rep-a0fa2-on-during-an-active-gesture-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/rc33-firefox/dashboard-range-cleans-rep-a0fa2-on-during-an-active-gesture-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/rc33-firefox/dashboard-range-cleans-rep-a0fa2-on-during-an-active-gesture-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [firefox] › tests/browser/dashboard-range.spec.ts:224:1 › cleans repeated enablement and destruction during an active gesture
+  125 did not run
+  78 passed (2.6m)
+  1 error was not a part of any test, see above for details

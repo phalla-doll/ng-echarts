@@ -1,4 +1,5 @@
 import { verifyDashboard } from './dashboard-flow.mjs';
+import { verifyDashboardRange } from './dashboard-range-flow.mjs';
 import { consumerArtifact } from './consumer-artifact.mjs';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
@@ -23,15 +24,27 @@ const consumer = join(parent, 'chart-consumer');
 const installation = await readFile(join(root, 'docs/INSTALLATION.md'), 'utf8');
 const integration = await readFile(join(root, 'docs/INTEGRATION_GUIDE.md'), 'utf8');
 const dashboardComponent = dashboard
-  ? await readFile(join(root, 'projects/playground/src/app/linked/composed-dashboard.ts'), 'utf8')
+  ? await readFile(
+      join(
+        root,
+        `projects/playground/src/app/linked/composed-dashboard${dashboardRegistry ? '-baseline' : ''}.ts`,
+      ),
+      'utf8',
+    )
   : null;
 const dashboardApp = dashboard
-  ? await readFile(join(root, 'projects/playground/src/app/linked/dashboard-app.ts'), 'utf8')
+  ? await readFile(
+      join(
+        root,
+        `projects/playground/src/app/linked/dashboard${dashboardRegistry ? '-baseline' : ''}-app.ts`,
+      ),
+      'utf8',
+    )
   : null;
 const composedDashboardSource = dashboard
   ? (
       await import(
-        `data:text/javascript;base64,${Buffer.from(await readFile(join(root, 'projects/playground/src/app/linked/composed-dashboard-source.ts'))).toString('base64')}`
+        `data:text/javascript;base64,${Buffer.from(await readFile(join(root, `projects/playground/src/app/linked/composed-dashboard${dashboardRegistry ? '' : '-interaction'}-source.ts`))).toString('base64')}`
       )
     ).composedDashboardSource
   : null;
@@ -219,6 +232,7 @@ try {
       await page.goto(url);
       if (dashboard) {
         await verifyDashboard(page);
+        if (!dashboardRegistry) await verifyDashboardRange(page);
       } else {
         // Cold production hydration includes application stability and lazy renderer imports.
         // Give initial readiness the same bound as navigation; action assertions retain 5s.
@@ -336,8 +350,14 @@ try {
         ['docs/INTEGRATION_GUIDE.md', integration],
         ...(dashboard
           ? [
-              ['projects/playground/src/app/linked/composed-dashboard.ts', dashboardComponent],
-              ['projects/playground/src/app/linked/dashboard-app.ts', dashboardApp],
+              [
+                `projects/playground/src/app/linked/composed-dashboard${dashboardRegistry ? '-baseline' : ''}.ts`,
+                dashboardComponent,
+              ],
+              [
+                `projects/playground/src/app/linked/dashboard${dashboardRegistry ? '-baseline' : ''}-app.ts`,
+                dashboardApp,
+              ],
             ]
           : []),
       ].map(([name, text]) => [name, createHash('sha256').update(text).digest('hex')]),

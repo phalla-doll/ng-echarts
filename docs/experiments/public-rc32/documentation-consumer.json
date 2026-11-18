@@ -1,0 +1,83 @@
+{
+  "recordedAt": "2026-11-18T02:06:12.594Z",
+  "artifact": {
+    "name": "@mantha911/ng-echarts",
+    "version": "0.1.0-rc.32",
+    "sha256": "6984b9b20edd69fd0c326e6361d45459f3b36fe8f4c9d390f8962de8cee4f3f9",
+    "exactCandidate": true,
+    "registrySpec": "@mantha911/ng-echarts@0.1.0-rc.32"
+  },
+  "node": "v24.22.2",
+  "npm": "11.19.1",
+  "method": "Fresh pinned CLI scaffold outside workspace; execute INSTALLATION.md shell blocks; install exact registry package; copy exact INTEGRATION_GUIDE.md App; strict ngc and production build; generated server HTML then three-engine hydration/actions/updates/themes/resize.",
+  "sources": {
+    "docs/INSTALLATION.md": "c4218240520d05182e4d7a8ba3c19af4e5076dd53173a7ccd13879d0d1127a1d",
+    "docs/INTEGRATION_GUIDE.md": "b4fbc244215981f8005b541aee8e0892620150964b78a852f9b3902a5c01bf16"
+  },
+  "installedOutsideWorkspace": true,
+  "lockfileReinstall": true,
+  "workspaceAliases": false,
+  "skipLibCheck": false,
+  "strictTemplates": true,
+  "versions": {
+    "@angular/build": "22.2.6",
+    "@angular/cli": "22.2.6",
+    "@angular/common": "22.2.6",
+    "@angular/compiler-cli": "22.2.6",
+    "@angular/compiler": "22.2.6",
+    "@angular/core": "22.2.6",
+    "@angular/forms": "22.2.6",
+    "@angular/platform-browser": "22.2.6",
+    "@angular/platform-server": "22.2.6",
+    "@angular/router": "22.2.6",
+    "@angular/ssr": "22.2.6",
+    "@mantha911/ng-echarts": "0.1.0-rc.32",
+    "@types/express": "5.0.6",
+    "@types/node": "22.20.5",
+    "echarts": "6.1.0",
+    "express": "5.3.0",
+    "prettier": "3.10.1",
+    "rxjs": "7.8.2",
+    "tslib": "2.8.1",
+    "typescript": "6.0.3"
+  },
+  "generatedPackage": "chart-consumer",
+  "ssrHeadings": 4,
+  "serverCanvasCount": 0,
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "158.0.8127.18",
+      "charts": 4,
+      "keyboardEvents": true,
+      "immutableUpdates": true,
+      "themes": true,
+      "responsive": true,
+      "stableInstances": true,
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "charts": 4,
+      "keyboardEvents": true,
+      "immutableUpdates": true,
+      "themes": true,
+      "responsive": true,
+      "stableInstances": true,
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "charts": 4,
+      "keyboardEvents": true,
+      "immutableUpdates": true,
+      "themes": true,
+      "responsive": true,
+      "stableInstances": true,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

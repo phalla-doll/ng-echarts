@@ -17,6 +17,7 @@
     "radar/src/**/*.spec.ts",
     "radial/src/**/*.spec.ts",
     "calendar/src/**/*.spec.ts",
-    "sankey/src/**/*.spec.ts"
+    "sankey/src/**/*.spec.ts",
+    "interaction/src/**/*.spec.ts"
   ]
 }

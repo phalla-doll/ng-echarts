@@ -6,7 +6,7 @@ The demo is published from the root of the dedicated `gh-pages` branch at **http
 
 ## Current deployment — rc.32 payload cleanup
 
-The demo now uses the reviewed lifecycle/color cleanup, with original descriptor/theme validation preserved. npm next remains **rc.30** and latest **rc.18**; rc.32 is an unpublished source/local candidate. The [cleanup delivery record](experiments/RC32_PAYLOAD_REVIEW.md#demo-delivery) separates these identities and keeps human release gates pending.
+The demo now uses the reviewed lifecycle/color cleanup, with original descriptor/theme validation preserved. npm next now selects **rc.32** and latest **rc.18**; local rc.33 interaction work remains unpublished. The [rc.32 publication](experiments/RC32_PUBLICATION.md) has separate exact registry/consumer receipts. The [cleanup delivery record](experiments/RC32_PAYLOAD_REVIEW.md#demo-delivery) separates these identities and keeps human release gates pending.
 
 | Identity / check | Verified result |
 | --- | --- |

@@ -1,0 +1,7 @@
+{
+  "engine": "chromium",
+  "errors": [],
+  "failedRequests": [],
+  "serverLog": "Node Express server listening on http://localhost:58985\n",
+  "failure": "Error: expect(locator).toHaveAttribute(expected) failed\n\nLocator:  locator('app-composed-dashboard').locator('nec-composed-chart .plot')\nExpected: \"ready\"\nReceived: \"\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveAttribute\" locator('app-composed-dashboard').locator('nec-composed-chart .plot') with timeout 5000ms\n  - waiting for locator('app-composed-dashboard').locator('nec-composed-chart .plot')\n    14 × locator resolved to <div class=\"plot\" aria-hidden=\"true\" _ngcontent-ng-c3275228862=\"\" _echarts_instance_=\"ec_1794968248404\">…</div>\n       - unexpected value \"null\"\n"
+}

@@ -1,0 +1,140 @@
+{
+  "baselineVersion": "0.1.0-rc.32",
+  "candidateVersion": "0.1.0-rc.33",
+  "unchangedRuntimeAndDeclarations": [
+    {
+      "path": "fesm2022/mantha911-ng-echarts-area-area-renderer-BLNN_Sjy.mjs",
+      "sha256": "7f3576676fa7a0405086c3bbbd4d96b471f26ea20c8873afaeed927c5a5cfbc3"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-area.mjs",
+      "sha256": "afd667ba1fc158d973db377b611c1c5618cec205e18a015c6368737d62e25167"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-bar-bar-renderer-B7Rupncx.mjs",
+      "sha256": "e9c7194623eac08cf6db2b29ecf51def9d3e7169dd49aaa02b54136192f0f421"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-bar.mjs",
+      "sha256": "682ef34d0830a3cfa1be8581abdc938672c5c119293ae3d0dbc5557178899f3f"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-calendar-calendar-options-HP6gA6Ig.mjs",
+      "sha256": "d6ae0946e076e15101fff938069cfcf5bc8505345451a9330354c0fb1f932ca1"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-calendar-calendar-renderer-OB5QQybA.mjs",
+      "sha256": "75b75e6378af95dc76b9fe432b8e15d1530ab2d12c781d3fd2ca7289e581959b"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-calendar.mjs",
+      "sha256": "81d45bf91a41d6cf29708354faf0ca17483c771277f4ae14c27fe385a9289ed9"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-composed-composed-renderer-CSFZOsup.mjs",
+      "sha256": "763cd369406edd4f9751fceb1e709dc8e30b7eea779982c870361e577fdc523e"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-composed.mjs",
+      "sha256": "51778f8f7507932f30eac039fccf0bcb7edf86fc91a28c9a5a914547824f7ea0"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-core.mjs",
+      "sha256": "a5beaf37982bd2b0bd3bca22f9cb765e618fcb43f9bc4dcfafb69ef6d1fab320"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-line-line-renderer-BT437KP_.mjs",
+      "sha256": "874cf05befa36b50d7deb5a095570867c31b7136d454a35f9e7052b3e9e3c13a"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-line.mjs",
+      "sha256": "27c4daf3b06e1c109322fcb07410b65a3ef81ae38a483e13005f5f9fe7e883e4"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-pie-pie-renderer-C8JrAbQD.mjs",
+      "sha256": "fc81750404e702cc46551d04164817eb717ec1bb5d18c2a5915ed404dc2cff35"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-pie.mjs",
+      "sha256": "02ff49deeee8c05fe26c9af53b5dbcf48ad671b013c8efa1725307945c4e4caa"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-radar-radar-options-BiRUTJSJ.mjs",
+      "sha256": "ca93d0dba8abcbdc3a9b9fc99d657b7f150e65bb0391333891a8ccc3e0a5c466"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-radar-radar-renderer-CEc2lKig.mjs",
+      "sha256": "c4570c9324d217346601c0fb67a2f58b67a0a463f9b232e23fa81d11c65156ab"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-radar.mjs",
+      "sha256": "3c478f4a3f45464b105406faa885131f80a710ce49fa244e50d8123deeb7b811"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-radial-radial-renderer-DlH2JDoC.mjs",
+      "sha256": "6b487ff819c6c070f7d1153459d19b41eb2dc0547a53a2db56f974316e41ecb2"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-radial.mjs",
+      "sha256": "48b4646d3cabc078e693fb14cd15c9146e8b1a5d1f9aa0c0261ad7a1080dd3bd"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-sankey-sankey-renderer-DwLMFu-b.mjs",
+      "sha256": "8a1a68df7589cfb08a460ab3527fad8d88ef173026937faa476e254eb745aed9"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts-sankey.mjs",
+      "sha256": "f848ce071c93718eaa381eb3a87721941e254e2ddb472dc8a305df47abf3a194"
+    },
+    {
+      "path": "fesm2022/mantha911-ng-echarts.mjs",
+      "sha256": "84b0b4728ff7206fded9574a42bc1c391bbc2edc88c9c7798c385fcbbfaba058"
+    },
+    {
+      "path": "types/mantha911-ng-echarts-area.d.ts",
+      "sha256": "18f8fe31818d07423883b9f355cb0800d8c1ee3cd584212e45e93442ae6dd75c"
+    },
+    {
+      "path": "types/mantha911-ng-echarts-bar.d.ts",
+      "sha256": "dc494eca5d9eefaa587a90a8e4e5433d31d40bd840b42e7184b5bd5b845c9877"
+    },
+    {
+      "path": "types/mantha911-ng-echarts-calendar.d.ts",
+      "sha256": "0aa4197f73dd16e3eb4d274a2dd1a9b86a100acbf40e15898edcc28993840ecd"
+    },
+    {
+      "path": "types/mantha911-ng-echarts-composed.d.ts",
+      "sha256": "8143afe97914025ebf17b78ba0dba8c880fd15c34428cb0948fe7528398f824c"
+    },
+    {
+      "path": "types/mantha911-ng-echarts-core.d.ts",
+      "sha256": "ed95c1a2e7faa4d89583dcc2d56dc6d6cbbde92a61289e22a687fe90ce389b79"
+    },
+    {
+      "path": "types/mantha911-ng-echarts-line.d.ts",
+      "sha256": "62495c319db5604a95eaf32838cb935ac0187fc1efd235aff5cf3f92c1c80097"
+    },
+    {
+      "path": "types/mantha911-ng-echarts-pie.d.ts",
+      "sha256": "1f263168cb7d1fddb902179ac2c5141af84bc143adcaaf0c2fc366a049a21aec"
+    },
+    {
+      "path": "types/mantha911-ng-echarts-radar.d.ts",
+      "sha256": "c01515096843a6cd3e61201992dd273492b96356ed730bb521a27045fa63b919"
+    },
+    {
+      "path": "types/mantha911-ng-echarts-radial.d.ts",
+      "sha256": "2304374b247ff03f8e8aa7caa3ab1f56737af7f78cf0b36ceef9ab790f3400ff"
+    },
+    {
+      "path": "types/mantha911-ng-echarts-sankey.d.ts",
+      "sha256": "a73c4ee1565d1e62239c71d743329c2ca235b6dc5a28c9d8202aa01ee6f9be53"
+    },
+    {
+      "path": "types/mantha911-ng-echarts.d.ts",
+      "sha256": "50c8dfdbd18a32823cdc76aeba5cd7a57e6cd5d8f016abdee7d090bed9de0f53"
+    }
+  ],
+  "comparedMembers": 33,
+  "passed": true
+}

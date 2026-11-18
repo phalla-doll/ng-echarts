@@ -1,0 +1,12 @@
+
+> ng-echarts-workspace@0.0.0 check:workspace
+> npm run format:check && npm run test:prerelease-guards && npm run test:pages-provenance && npm run test:demo-assets && npm run build && npm run check:reproducibility && npm run typecheck && npm test && npm run check:consumer && npm run check:docs && npm run check:dashboard && npm run check:dashboard:interaction && npm run check:ssr && npm run check:runtime && npm run check:bundle
+
+
+> ng-echarts-workspace@0.0.0 format:check
+> prettier --check "**/*.{ts,tsx,mjs,json,html,css,yml}" .prettierrc
+
+Checking formatting...
+[warn] docs/experiments/rc33/failures/readiness-consumer/diagnostics.json
+[warn] docs/experiments/rc33/failures/readiness-consumer/page.html
+[warn] Code style issues found in 2 files. Run Prettier with --write to fix.

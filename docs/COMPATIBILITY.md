@@ -1,6 +1,6 @@
 # Compatibility and limits
 
-Recorded 16 November 2026 for published `@mantha911/ng-echarts@0.1.0-rc.28`. npm `next` selects rc.28; `latest` retains rc.18. [Publication evidence](PUBLICATION.md#rc28-oidc-publication) records exact registry bytes and consumer verification. The package is an experimental public prerelease. This table describes the tested build, not a guarantee for every version admitted by a dependency range. [Research findings](RESEARCH_FINDINGS.md#angular-22-toolchain) own upstream compatibility research; the current library manifest owns its peer contract.
+Current published package verified 18 November 2026: `@mantha911/ng-echarts@0.1.0-rc.32`. npm `next` selects rc.32; `latest` retains rc.18. [Publication evidence](experiments/RC32_PUBLICATION.md) records exact registry bytes and fresh consumer verification. Local rc.33 adds an optional [interaction entry](INTERACTION_API.md), with separate verification and unchanged existing caps. The package remains experimental. These exact tested inputs do not guarantee every version admitted by peer ranges; [research findings](RESEARCH_FINDINGS.md#angular-22-toolchain) own compatibility research and the current manifest owns the peer contract.
 
 ## Exact tested toolchain
 
@@ -38,7 +38,7 @@ SSR supplies native Angular titles, descriptions, controls and fallback plot sur
 | Bar | 200 categories × 3 series | 2,000 × 3 | Category/linear axes; grouped/stacked; vertical/horizontal; rounded solid/gradient bars |
 | Line | 200 categories × 3 series | 2,000 × 3 | Straight/smooth segments, optional points, missing-value gaps; no line-stack input |
 | Area | 200 categories × 3 series | 2,000 × 3 | Independent gradient/solid fills and same-sign stacks; gaps stay missing |
-| Composed (post-MVP) | 200 categories × 3 series | 2,000 × 3 | Vertical bars/lines/areas; one comparable-unit scale; separate named bar/area stacks; optional points/smoothing |
+| Composed (post-MVP) | 200 categories × 3 series | 2,000 × 3 | Vertical/horizontal bars/lines/areas; shared or one/two labeled value axes; separate named bar/area stacks; optional points/smoothing |
 | Pie/donut | 12 categories × 1 measure | 100 × 1 | Nonnegative values; zero totals empty; inner-radius ratio 0–0.9; outside labels may truncate or hide collisions |
 
 The [actual Angular benchmark](experiments/data/ng14-benchmark.json) uses an Apple M2 Pro, 32 GiB RAM, Darwin 27.2.0, Chromium 158.0.8127.18, production builds, DPR 1, a visible 768 px host/320 px plot, collapsed tables and disabled animation. Each operation has one warm-up and 30 samples. All normal mount/update p95 values are below the 200 ms target; legend, resize, cold loading, table creation and stress costs are reported separately. These observations establish a starting envelope on that machine, not hard API row limits or portable latency guarantees. Alternate variants, crowded labels, expanded tables and consumer formatter work have separate costs.
@@ -122,3 +122,7 @@ Current rc.28 source integrates legend layouts and default-true calendar/Sankey 
 ## rc.28 delivery and rc.29 application window
 
 [rc.28 publication](experiments/RC28_PUBLICATION.md) preserves the tested peers, eleven entry identities and lazy registration. The [rc.29 continuation](experiments/RC29_LINKED_WINDOW.md) retains the same measurement/caps. Shared zoom is an application-owned inclusive category slice, with native fields/buttons and a monthly device view; it does not register ECharts DataZoom or introduce a general-purpose library zoom API. The exact standalone dashboard remains tested against digest-verified published rc.22. Human release acceptance remains pending.
+
+## Current optional interaction boundary
+
+Published rc.32 measures root 221,007 gzip / 188,935 Brotli bytes and core 8,697 / 7,673, retaining the original twelve caps. Local rc.33 adds `/interaction` outside root/core. Its standalone lazy engine lookup and composed+interaction incremental allowance are [measured separately](experiments/RC33_GRAPHICAL_LINKING.md); they do not raise any original cap or add chart engine modules to composed usage. Native shared windowing remains compatible with published rc.22. The graphical adapter is local rc.33 only, supports a contiguous category range and requires native bounds for keyboard access. Horizontal range gestures require mouse/pen; vertical touch retains `pan-y pinch-zoom`. This is not a physical-device/browser-version certification.

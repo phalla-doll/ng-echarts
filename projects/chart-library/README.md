@@ -1,6 +1,6 @@
 # Angular chart library
 
-Experimental standalone Angular 22 components using Apache ECharts. Public prerelease identity: `@mantha911/ng-echarts`. Current local candidate: `0.1.0-rc.32`. Published npm `next` remains `0.1.0-rc.30`. Public prereleases use the `next` tag; consult the repository publication record for the current registry version. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. The API is experimental; human screen-reader interpretation remains unreviewed at the user’s request.
+Experimental standalone Angular 22 components using Apache ECharts. Public prerelease identity: `@mantha911/ng-echarts`. Current local candidate: `0.1.0-rc.33`. Published npm `next` selects `0.1.0-rc.32`. Public prereleases use the `next` tag; consult the repository publication record for the current registry version. Original library code is MIT licensed; preserve `LICENSE`, `THIRD_PARTY_NOTICES.md`, and the `third-party/` notices. The API is experimental; human screen-reader interpretation remains unreviewed at the user’s request.
 
 ## Installation
 
@@ -13,7 +13,7 @@ npm install @mantha911/ng-echarts@next echarts@6.1.0
 For a retained exact local candidate:
 
 ```sh
-npm install /absolute/path/to/mantha911-ng-echarts-0.1.0-rc.32.tgz echarts@6.1.0
+npm install /absolute/path/to/mantha911-ng-echarts-0.1.0-rc.33.tgz echarts@6.1.0
 ```
 
 Retain the tarball at the lockfile's recorded path, or store it in the consumer's `vendor/` directory. Commit the lockfile and use `npm ci` for repeat installs. Repack and reinstall to consume source changes. Table pagination is available since rc.19. Named composed bar stacks require rc.20 or later. Composed areas require rc.22 or later. Horizontal composed layout requires rc.23. The exact local candidate includes these features; a registry install must resolve a version containing the features you use.
@@ -164,3 +164,7 @@ Set `valueAxes` to one or two `ComposedValueAxis` descriptors, each with a uniqu
 A named stack within one geometry must use one axis; unknown axis IDs, invalid descriptors and cross-axis stacks produce configuration errors. Raw point events retain source numbers (a 12% formatted fraction still emits `0.12`); missing observations stay missing and zero stays observed. `valueAxes: null` retains the existing shared-scale contract. No raw ECharts options or new engine module is exposed. Horizontal composition ships since npm rc.23 and independent value axes since rc.24. The preserved rc.27 candidate consolidates internal presentation/lifecycle behavior, stabilizes declarations and retains radar scale styling. rc.28 adds Cartesian/pie legend layouts without changing the value-axis contract; rc.30 completes radar list presentation.
 
 Calendar and Sankey also accept `showDataTable` since rc.28 (default `true`). Set it to `false` to omit their disclosures and table markup. All gallery previews disable table controls; dedicated validation pages retain the native table behavior.
+
+## Optional graphical ranges (local rc.33)
+
+Import `CategoryRange` from `@mantha911/ng-echarts/interaction` to add an armed contiguous category drag to a bar or composed chart. Bind `necCategoryRange` to current ordered row IDs and `rangeEnabled` to application state; handle `categoryRangeSelect` and `categoryRangeCancel` by disarming. Keep native From/To controls for keyboard and touch alternatives. The directive never mutates data or connects instances. Vertical charts retain vertical touch scrolling; horizontal charts accept mouse/pen range gestures. Root/core do not export this entry. See the repository `docs/INTERACTION_API.md` for the complete compiled example, cancellation and payload contract. This entry is not included in published rc.32.

@@ -24,3 +24,7 @@ Use Node 24.22.2 and npm 11.19.1. Run `npm run build:lib`, then `npm start -- --
 All original family criteria remain pending: meaning/units, values/native controls, updates/focus, loading/error/empty/all-hidden states, and presentation/motion. Record pass/fail/pending for bar, line, area, pie/donut, composed, radar, radial progress, calendar, Sankey and linked flows following R06. New flow results alone do not close the original review.
 
 Reviewer/environment/source identity: pending. Exact announcements/issues: pending. Final decision and reruns: pending. Reconcile actual results into the acceptance matrix before changing any human gate.
+
+## rc.33 graphical window preparation — pending
+
+The user retains the human-review deferral. When review resumes, add the enhanced dashboard to the current-family session: use From/To without dragging, arm/cancel a graphical range, verify one shared overview/detail period and its announcement, reset the window and inspect raw zero/missing observations. Confirm native focus and transient instructions are understandable at narrow widths and with forced colors. No listening/interpretation result has been recorded. The [increment report](RC33_GRAPHICAL_LINKING.md) owns automated evidence separately.

@@ -1,0 +1,57 @@
+
+> ng-echarts-workspace@0.0.0 test:browser
+> playwright test tests/browser/dashboard-range.spec.ts --project=chromium
+
+[WebServer] (node:68925) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:68927) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/browser/dashboard-range.spec.ts:46:1 › commits one overview range on release and updates both charts without selecting a point (746ms)
+  ✓  2 [chromium] › tests/browser/dashboard-range.spec.ts:68:1 › selects the shared range from horizontal device detail, retaining native reset and raw zero actions (780ms)
+  ✘  3 [chromium] › tests/browser/dashboard-range.spec.ts:96:1 › Escape cancels a draft; plain click and immutable context changes never commit a range (5.9s)
+(node:68966) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [chromium] › tests/browser/dashboard-range.spec.ts:119:1 › cancels resize and pointer interruption, restores plot styles, and preserves chart instances (831ms)
+
+
+  1) [chromium] › tests/browser/dashboard-range.spec.ts:96:1 › Escape cancels a draft; plain click and immutable context changes never commit a range
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator:  locator('app-composed-dashboard').getByRole('combobox', { name: 'From', exact: true })
+    Expected: "apr"
+    Received: "jan"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveValue" locator('app-composed-dashboard').getByRole('combobox', { name: 'From', exact: true }) with timeout 5000ms
+      - waiting for locator('app-composed-dashboard').getByRole('combobox', { name: 'From', exact: true })
+        14 × locator resolved to <select _ngcontent-ng-c2161671530="">…</select>
+           - unexpected value "jan"
+
+
+      113 |   await page.mouse.up();
+      114 |   await expect(armed.plot).not.toHaveAttribute('data-category-range', 'ready');
+    > 115 |   await expect(dashboard.getByRole('combobox', { name: 'From', exact: true })).toHaveValue('apr');
+          |                                                                                ^
+      116 |   await expect(dashboard.getByRole('combobox', { name: 'To', exact: true })).toHaveValue('jan');
+      117 | });
+      118 |
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/dashboard-range.spec.ts:115:80
+
+    Error Context: test-results/dashboard-range-Escape-can-12db1-hanges-never-commit-a-range-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/dashboard-range-Escape-can-12db1-hanges-never-commit-a-range-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/dashboard-range-Escape-can-12db1-hanges-never-commit-a-range-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › tests/browser/dashboard-range.spec.ts:96:1 › Escape cancels a draft; plain click and immutable context changes never commit a range
+  3 passed (9.9s)

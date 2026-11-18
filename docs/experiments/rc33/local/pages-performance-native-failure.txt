@@ -1,0 +1,32 @@
+
+> ng-echarts-workspace@0.0.0 check:demo-performance
+> node tools/check-demo-performance.mjs
+
+/: 433 kB; 2802 ms first visible (mobile median of 3)
+line: 431 kB; 193 ms first visible
+area: 431 kB; 173 ms first visible
+pie: 427 kB; 140 ms first visible
+composed: 443 kB; 174 ms first visible
+radar: 377 kB; 140 ms first visible
+radial: 337 kB; 122 ms first visible
+calendar: 380 kB; 2441 ms first visible (mobile median of 3)
+sankey: 387 kB; 2485 ms first visible (mobile median of 3)
+linked: 449 kB; 2802 ms first visible (mobile median of 3)
+linked-dashboard: 455 kB; 157 ms first visible
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: linked-dashboard exceeded 455000 compressed bytes: 455411
+    at file:///Users/phalla/Documents/codes/ng-echarts/tools/check-demo-performance.mjs:209:9
+    at async withPagesLock (file:///Users/phalla/Documents/codes/ng-echarts/tools/pages-lock.mjs:38:12)
+    at async file:///Users/phalla/Documents/codes/ng-echarts/tools/check-demo-performance.mjs:44:1 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.22.2

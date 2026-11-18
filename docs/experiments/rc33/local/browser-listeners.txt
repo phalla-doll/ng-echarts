@@ -1,0 +1,20 @@
+
+> ng-echarts-workspace@0.0.0 test:browser
+> playwright test tests/browser/dashboard-range.spec.ts -g cleans repeated --output=test-results/rc33-listeners-final
+
+[WebServer] (node:37056) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:37058) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture (2.5s)
+(node:37072) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [firefox] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture (2.5s)
+(node:37096) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [webkit] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture (2.7s)
+
+  3 passed (10.1s)

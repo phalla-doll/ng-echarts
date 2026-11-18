@@ -21,6 +21,7 @@
     "area-consumer.ts",
     "pie-consumer.ts",
     "composed-consumer.ts",
-    "sankey-consumer.ts"
+    "sankey-consumer.ts",
+    "interaction-consumer.ts"
   ]
 }

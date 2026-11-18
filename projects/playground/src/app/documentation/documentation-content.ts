@@ -118,10 +118,10 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'local-package',
         title: 'Use a packed local build',
         paragraphs: [
-          'The unreleased 0.1.0-rc.32 source candidate consolidates internal lifecycle and color parsing while retaining the original descriptor/theme validation policies with unchanged public APIs and budget caps. The experimental public 0.1.0-rc.30 candidate completes radar list legends and shared presentation behavior, and retains Cartesian/pie legend layouts, gallery table opt-outs and independent value axes. npm next selects rc.30; latest retains rc.18. Every earlier archive is preserved. The shared-window dashboard also runs on rc.22. Create a production tarball from the workspace root and install it with the tested ECharts peer in a separate Angular 22 application. Replace the example path with your checkout location. Keep the archive at the lockfile path or in a vendor directory; commit the lockfile and use npm ci for repeat installs.',
+          'The unreleased 0.1.0-rc.33 source candidate adds optional graphical month ranges through the focused interaction entry. The public 0.1.0-rc.32 package contains the verified lifecycle/color cleanup and all rc.30 features. npm next selects rc.32; latest retains rc.18. Every earlier archive is preserved. The native shared-window dashboard also runs on rc.22; graphical ranges require local rc.33. Create a production tarball from the workspace root and install it with the tested ECharts peer in a separate Angular 22 application. Replace the example path with your checkout location. Keep the archive at the lockfile path or in a vendor directory; commit the lockfile and use npm ci for repeat installs.',
         ],
         source:
-          'npm run pack:lib\n\n# In your Angular 22 application:\nnpm install /path/to/ng-echarts/dist/mantha911-ng-echarts-0.1.0-rc.32.tgz echarts@6.1.0',
+          'npm run pack:lib\n\n# In your Angular 22 application:\nnpm install /path/to/ng-echarts/dist/mantha911-ng-echarts-0.1.0-rc.33.tgz echarts@6.1.0',
         language: 'Terminal',
       },
       {

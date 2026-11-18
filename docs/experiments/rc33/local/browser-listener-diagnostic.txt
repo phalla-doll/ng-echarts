@@ -1,0 +1,73 @@
+
+> ng-echarts-workspace@0.0.0 test:browser
+> playwright test tests/browser/dashboard-range.spec.ts -g cleans repeated --project=chromium --output=test-results/rc33-listener-diagnostic
+
+[WebServer] (node:36309) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:36312) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[
+  {
+    type: 'pointermove/true',
+    callbacks: [
+      'e=>{if(!r||r.pointer!==e.pointerId||l)return;if(o.isDisposed()||t.hidden){m(`context`);return}let n=t.getBoundingClientRect();if(n.width!==r.bounds.width||n.hei'
+    ]
+  },
+  {
+    type: 'pointerup/true',
+    callbacks: [
+      'e=>{if(!r||r.pointer!==e.pointerId||l||(L(e),!r))return;if(r.snapshot!==E()){m(`context`);return}let n=r.moved?q(u,r.first,r.last):null;if(A(),e.stopImmediatePr',
+      '(event) => {\n' +
+        '      var _a;\n' +
+        '      return (_a = this._hitTargetInterceptor) == null ? void 0 : _a.call(this, event);\n' +
+        '    }'
+    ]
+  },
+  {
+    type: 'pointercancel/true',
+    callbacks: [ 'e=>{r?.pointer===e.pointerId&&m(`pointercancel`)}' ]
+  },
+  {
+    type: 'keydown/true',
+    callbacks: [ 'e=>{e.key===`Escape`&&(e.preventDefault(),m(`escape`))}' ]
+  },
+  { type: 'scroll/true', callbacks: [ '()=>{r&&m(`scroll`)}' ] },
+  { type: 'blur/false', callbacks: [ '()=>m(`blur`)' ] }
+]
+  ✘  1 [chromium] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture (5.4s)
+
+
+  1) [chromium] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 6
+    Received: 7
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      268 |     const { plot } = await arm(page, dashboard);
+      269 |     if (index === 0) console.log(await page.evaluate('window.rangeListenerDetails'));
+    > 270 |     await expect.poll(() => page.evaluate('window.rangeListenerCount')).toBe(6);
+          |                                                                         ^
+      271 |     await page.keyboard.press('Escape');
+      272 |     await expect(plot.locator('.nec-category-range-draft')).toHaveCount(0);
+      273 |     await expect(plot).toHaveCSS('cursor', 'auto');
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/dashboard-range.spec.ts:270:73
+
+    Error Context: test-results/rc33-listener-diagnostic/dashboard-range-cleans-rep-a0fa2-on-during-an-active-gesture-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/rc33-listener-diagnostic/dashboard-range-cleans-rep-a0fa2-on-during-an-active-gesture-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/rc33-listener-diagnostic/dashboard-range-cleans-rep-a0fa2-on-during-an-active-gesture-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture

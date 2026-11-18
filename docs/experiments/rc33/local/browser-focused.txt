@@ -1,0 +1,38 @@
+
+> ng-echarts-workspace@0.0.0 test:browser
+> playwright test tests/browser/dashboard-range.spec.ts tests/browser/linked-dashboard.spec.ts tests/browser/dashboard-window.spec.ts
+
+[WebServer] (node:70230) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 21 tests using 1 worker
+
+(node:70234) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/browser/dashboard-range.spec.ts:49:1 › commits one overview range on release and updates both charts without selecting a point (678ms)
+  ✓   2 [chromium] › tests/browser/dashboard-range.spec.ts:71:1 › selects the shared range from horizontal device detail, retaining native reset and raw zero actions (767ms)
+  ✓   3 [chromium] › tests/browser/dashboard-range.spec.ts:99:1 › Escape cancels a draft; plain click and immutable context changes never commit a range (778ms)
+  ✓   4 [chromium] › tests/browser/dashboard-range.spec.ts:122:1 › cancels resize and pointer interruption, restores plot styles, and preserves chart instances (766ms)
+  ✓   5 [chromium] › tests/browser/dashboard-window.spec.ts:5:1 › shares the visible category window and raw plot selection in both chart directions (443ms)
+  ✓   6 [chromium] › tests/browser/linked-dashboard.spec.ts:6:1 › links composed values and native month selection through updates, replacement, legends and themes (2.0s)
+  ✓   7 [chromium] › tests/browser/linked-dashboard.spec.ts:17:1 › commits an actual stacked bar hit and exposes the exact compiled example (389ms)
+(node:70275) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   8 [firefox] › tests/browser/dashboard-range.spec.ts:49:1 › commits one overview range on release and updates both charts without selecting a point (1.5s)
+  ✓   9 [firefox] › tests/browser/dashboard-range.spec.ts:71:1 › selects the shared range from horizontal device detail, retaining native reset and raw zero actions (877ms)
+  ✓  10 [firefox] › tests/browser/dashboard-range.spec.ts:99:1 › Escape cancels a draft; plain click and immutable context changes never commit a range (704ms)
+  ✓  11 [firefox] › tests/browser/dashboard-range.spec.ts:122:1 › cancels resize and pointer interruption, restores plot styles, and preserves chart instances (710ms)
+  ✓  12 [firefox] › tests/browser/dashboard-window.spec.ts:5:1 › shares the visible category window and raw plot selection in both chart directions (531ms)
+  ✓  13 [firefox] › tests/browser/linked-dashboard.spec.ts:6:1 › links composed values and native month selection through updates, replacement, legends and themes (1.6s)
+  ✓  14 [firefox] › tests/browser/linked-dashboard.spec.ts:17:1 › commits an actual stacked bar hit and exposes the exact compiled example (517ms)
+(node:70349) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  15 [webkit] › tests/browser/dashboard-range.spec.ts:49:1 › commits one overview range on release and updates both charts without selecting a point (1.0s)
+  ✓  16 [webkit] › tests/browser/dashboard-range.spec.ts:71:1 › selects the shared range from horizontal device detail, retaining native reset and raw zero actions (680ms)
+  ✓  17 [webkit] › tests/browser/dashboard-range.spec.ts:99:1 › Escape cancels a draft; plain click and immutable context changes never commit a range (685ms)
+  ✓  18 [webkit] › tests/browser/dashboard-range.spec.ts:122:1 › cancels resize and pointer interruption, restores plot styles, and preserves chart instances (633ms)
+  ✓  19 [webkit] › tests/browser/dashboard-window.spec.ts:5:1 › shares the visible category window and raw plot selection in both chart directions (630ms)
+  ✓  20 [webkit] › tests/browser/linked-dashboard.spec.ts:6:1 › links composed values and native month selection through updates, replacement, legends and themes (2.4s)
+  ✓  21 [webkit] › tests/browser/linked-dashboard.spec.ts:17:1 › commits an actual stacked bar hit and exposes the exact compiled example (659ms)
+
+  21 passed (21.9s)

@@ -1,0 +1,41 @@
+
+> ng-echarts-workspace@0.0.0 test:browser
+> playwright test tests/browser/dashboard-range.spec.ts --output=test-results/rc33-range-complete
+
+[WebServer] (node:60705) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 24 tests using 1 worker
+
+(node:60710) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/browser/dashboard-range.spec.ts:52:1 › commits one overview range on release and updates both charts without selecting a point (572ms)
+  ✓   2 [chromium] › tests/browser/dashboard-range.spec.ts:74:1 › selects the shared range from horizontal device detail, retaining native reset and raw zero actions (796ms)
+  ✓   3 [chromium] › tests/browser/dashboard-range.spec.ts:102:1 › Escape cancels a draft; plain click and immutable context changes never commit a range (944ms)
+  ✓   4 [chromium] › tests/browser/dashboard-range.spec.ts:125:1 › cancels resize and pointer interruption, restores plot styles, and preserves chart instances (883ms)
+  ✓   5 [chromium] › tests/browser/dashboard-range.spec.ts:166:1 › keeps dark area ranges visible in forced colors and cancels internal legend changes (612ms)
+  ✓   6 [chromium] › tests/browser/dashboard-range.spec.ts:195:1 › preserves the native touch/keyboard range at 390px and cancels lost pointer capture (403ms)
+  ✓   7 [chromium] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture (2.6s)
+  ✓   8 [chromium] › tests/browser/dashboard-range.spec.ts:294:1 › can immediately rearm by keyboard after reset and drives the installed-consumer journey (1.3s)
+(node:60745) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [firefox] › tests/browser/dashboard-range.spec.ts:52:1 › commits one overview range on release and updates both charts without selecting a point (1.4s)
+  ✓  10 [firefox] › tests/browser/dashboard-range.spec.ts:74:1 › selects the shared range from horizontal device detail, retaining native reset and raw zero actions (667ms)
+  ✓  11 [firefox] › tests/browser/dashboard-range.spec.ts:102:1 › Escape cancels a draft; plain click and immutable context changes never commit a range (746ms)
+  ✓  12 [firefox] › tests/browser/dashboard-range.spec.ts:125:1 › cancels resize and pointer interruption, restores plot styles, and preserves chart instances (743ms)
+  ✓  13 [firefox] › tests/browser/dashboard-range.spec.ts:166:1 › keeps dark area ranges visible in forced colors and cancels internal legend changes (612ms)
+  ✓  14 [firefox] › tests/browser/dashboard-range.spec.ts:195:1 › preserves the native touch/keyboard range at 390px and cancels lost pointer capture (511ms)
+  ✓  15 [firefox] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture (2.0s)
+  ✓  16 [firefox] › tests/browser/dashboard-range.spec.ts:294:1 › can immediately rearm by keyboard after reset and drives the installed-consumer journey (1.0s)
+(node:61060) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  17 [webkit] › tests/browser/dashboard-range.spec.ts:52:1 › commits one overview range on release and updates both charts without selecting a point (845ms)
+  ✓  18 [webkit] › tests/browser/dashboard-range.spec.ts:74:1 › selects the shared range from horizontal device detail, retaining native reset and raw zero actions (941ms)
+  ✓  19 [webkit] › tests/browser/dashboard-range.spec.ts:102:1 › Escape cancels a draft; plain click and immutable context changes never commit a range (856ms)
+  ✓  20 [webkit] › tests/browser/dashboard-range.spec.ts:125:1 › cancels resize and pointer interruption, restores plot styles, and preserves chart instances (745ms)
+  ✓  21 [webkit] › tests/browser/dashboard-range.spec.ts:166:1 › keeps dark area ranges visible in forced colors and cancels internal legend changes (731ms)
+  ✓  22 [webkit] › tests/browser/dashboard-range.spec.ts:195:1 › preserves the native touch/keyboard range at 390px and cancels lost pointer capture (614ms)
+  ✓  23 [webkit] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture (2.4s)
+  ✓  24 [webkit] › tests/browser/dashboard-range.spec.ts:294:1 › can immediately rearm by keyboard after reset and drives the installed-consumer journey (1.0s)
+
+  24 passed (26.5s)

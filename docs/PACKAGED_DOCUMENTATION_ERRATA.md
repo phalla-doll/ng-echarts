@@ -1,6 +1,6 @@
 # Packaged documentation errata
 
-Updated 17 November 2026. npm `next` selects `@mantha911/ng-echarts@0.1.0-rc.30`; `latest` retains rc.18. Preserved rc.28/rc.29 packaged wording remains historical; rc.30 corrects the README and implements radar list legends. [Current delivery](experiments/RC30_RADAR_LEGENDS.md) records exact bytes and registry consumers.
+Updated 18 November 2026. npm `next` selects `@mantha911/ng-echarts@0.1.0-rc.32`; `latest` retains rc.18. Preserved packaged wording records its preparation checkpoint. [Current delivery](experiments/RC32_PUBLICATION.md) owns exact bytes and registry consumers; local rc.33 is separate unpublished interaction work.
 
 Published rc.28 and the sealed rc.29 archive contain readmes with historical availability wording. Their README/changelog, runtime, declarations and archive bytes remain immutable. This repository erratum and the current [installation guide](INSTALLATION.md) supersede those statements; those original documentation-only corrections did not upload or change a package version. The new rc.30 package carries the corrections in a separately verified immutable archive.
 
@@ -17,3 +17,7 @@ Published rc.28 and the sealed rc.29 archive contain readmes with historical ava
 The rc.28/rc.29 shared base exposes `legendLayout`, but those versions do not apply the list-layout class: radar renders chips for either input value. Packaged wording that groups radar with the implemented aligned-list families overstates its behavior. The [radar API](RADAR_CHART_API.md#inputs-and-states) records this limitation; published rc.30 completes the [radar template](../projects/chart-library/radar/src/lib/radar-chart.html) binding and label/note presentation, with [new evidence](experiments/RC30_RADAR_LEGENDS.md). Earlier archives remain unchanged.
 
 Human F09/R06/G2/G3/G4 remain deferred/pending. These corrections do not broaden tested dependency ranges or declare a stable API.
+
+## rc.32 preparation wording
+
+The frozen rc.32 packaged README calls rc.32 a local candidate and names rc.30 as published. Those statements describe artifact preparation before the subsequent [rc.32 upload and verification](experiments/RC32_PUBLICATION.md). Registry next now selects rc.32; latest remains rc.18. The archive, README and changelog remain immutable. Optional graphical dashboard ranges require local rc.33 and are not part of published rc.32.

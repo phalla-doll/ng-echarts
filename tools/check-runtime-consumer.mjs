@@ -1,5 +1,6 @@
 import { consumerArtifact } from './consumer-artifact.mjs';
 import { verifyDashboard } from './dashboard-flow.mjs';
+import { verifyDashboardRange } from './dashboard-range-flow.mjs';
 import { renderConcepts, renderGallery } from './browser-gallery.mjs';
 import { prepareDemo } from './prepare-demo.mjs';
 import assert from 'node:assert/strict';
@@ -428,6 +429,7 @@ async function exercise(engine, url, ssr) {
     await expect(page.locator('.gallery .table-toggle')).toHaveCount(0);
     await page.goto(`${url}/dashboard-validation`);
     await verifyDashboard(page);
+    await verifyDashboardRange(page);
     await page.goto(`${url}/away`);
     await expect(page.locator('canvas')).toHaveCount(0);
     await Promise.all(diagnostics);
@@ -504,6 +506,9 @@ try {
      assert.equal(root.LineChart, line.LineChart);
      const composed = await import('@mantha911/ng-echarts/composed');
      assert.equal(root.ComposedChart, composed.ComposedChart);
+     const interaction = await import('@mantha911/ng-echarts/interaction');
+     assert.equal(typeof interaction.CategoryRange, 'function');
+     assert.equal(root.CategoryRange, undefined);
      const sankey = await import('@mantha911/ng-echarts/sankey');
      assert.equal(typeof sankey.SankeyChart, 'function');
      assert.equal(root.SankeyChart, undefined);
@@ -618,6 +623,7 @@ try {
     entryPoints: [
       '.',
       './core',
+      './interaction',
       './bar',
       './line',
       './area',

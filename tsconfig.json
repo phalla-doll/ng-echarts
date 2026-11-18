@@ -12,7 +12,8 @@
       "@mantha911/ng-echarts/radar": ["./dist/chart-library/radar"],
       "@mantha911/ng-echarts/radial": ["./dist/chart-library/radial"],
       "@mantha911/ng-echarts/calendar": ["./dist/chart-library/calendar"],
-      "@mantha911/ng-echarts/sankey": ["./dist/chart-library/sankey"]
+      "@mantha911/ng-echarts/sankey": ["./dist/chart-library/sankey"],
+      "@mantha911/ng-echarts/interaction": ["./dist/chart-library/interaction"]
     },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

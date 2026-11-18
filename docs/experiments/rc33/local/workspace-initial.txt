@@ -1,0 +1,430 @@
+
+> ng-echarts-workspace@0.0.0 check:workspace
+> npm run format:check && npm run test:prerelease-guards && npm run test:pages-provenance && npm run test:demo-assets && npm run build && npm run check:reproducibility && npm run typecheck && npm test && npm run check:consumer && npm run check:docs && npm run check:dashboard && npm run check:dashboard:interaction && npm run check:ssr && npm run check:runtime && npm run check:bundle
+
+
+> ng-echarts-workspace@0.0.0 format:check
+> prettier --check "**/*.{ts,tsx,mjs,json,html,css,yml}" .prettierrc
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> ng-echarts-workspace@0.0.0 test:prerelease-guards
+> node --test tools/prerelease-guards.spec.mjs tools/wait-for-registry.spec.mjs
+
+✔ binds a manual release to the reviewed version, hash, main source and complete CI run (1.208959ms)
+✔ rejects invalid request GITHUB_REPOSITORY=someone/else (0.531833ms)
+✔ rejects invalid request GITHUB_REF=refs/heads/topic (0.10325ms)
+✔ rejects invalid request GITHUB_WORKFLOW_REF=phalla-doll/ng-echarts/.github/workflows/other.yml@refs/heads/main (0.102167ms)
+✔ rejects invalid request RELEASE_VERSION=1.0.0 (0.09375ms)
+✔ rejects invalid request RELEASE_VERSION=0.1.0-rc.23 (0.08775ms)
+✔ rejects invalid request RELEASE_SHA256= (0.085625ms)
+✔ rejects invalid request RELEASE_SHA256=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx (0.055958ms)
+✔ rejects invalid request RELEASE_CI_RUN=1;echo bad (0.096167ms)
+✔ rejects unaccepted CI {"head_sha":"cccccccccccccccccccccccccccccccccccccccc"} (0.136083ms)
+✔ rejects unaccepted CI {"conclusion":"failure"} (0.082417ms)
+✔ rejects unaccepted CI {"conclusion":"cancelled"} (0.066417ms)
+✔ rejects unaccepted CI {"status":"in_progress"} (0.056709ms)
+✔ rejects unaccepted CI {"event":"pull_request"} (0.058166ms)
+✔ rejects unaccepted CI {"head_branch":"topic"} (0.501ms)
+✔ rejects unaccepted CI {"path":".github/workflows/other.yml"} (0.117208ms)
+✔ rejects unaccepted CI {"repository":{"full_name":"someone/else"}} (0.067125ms)
+✔ rejects a changed archive and an unverified artifact manifest (0.238541ms)
+✔ rejects manifest/source drift and missing exact-consumer stages (0.261167ms)
+✔ waits for metadata propagation before returning a successful npm download (0.543458ms)
+✔ stops after the bounded read-only propagation attempts (0.439125ms)
+✔ does not retry authentication or other unexpected npm failures (0.107708ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 48.747333
+
+> ng-echarts-workspace@0.0.0 test:pages-provenance
+> node --test tools/pages-provenance.spec.mjs
+
+Building Pages from f8d6b91d67b8b9577c08f617317ebc642a8d4b4e (clean committed source).
+Sealed 2 Pages files; SHA-256 cad76d4f616a819e9e3fe5c5898e9392bb4d255c4631f9c82ae80b418956e97e.
+✔ isolated builds stamp their original commit and leave source/index unchanged (460.613667ms)
+✔ clean copies use the recorded Git tree even if the live checkout changes (213.006584ms)
+Building Pages from dc000b2142f87b866ef351361ed57a32ec7e9a62 (clean committed source).
+Sealed 2 Pages files; SHA-256 cad76d4f616a819e9e3fe5c5898e9392bb4d255c4631f9c82ae80b418956e97e.
+Building Pages from dc000b2142f87b866ef351361ed57a32ec7e9a62 (clean committed source).
+✔ source mutation during compilation invalidates the build instead of relabeling it (645.104958ms)
+Building Pages from dc000b2142f87b866ef351361ed57a32ec7e9a62 (working tree; local checks only).
+Sealed 2 Pages files; SHA-256 cad76d4f616a819e9e3fe5c5898e9392bb4d255c4631f9c82ae80b418956e97e.
+✔ dirty local builds can be checked but never promoted by a later commit (550.919291ms)
+✔ an identical-file commit still makes an earlier artifact stale (288.55625ms)
+✔ artifact integrity rejects modified file (320.069916ms)
+✔ artifact integrity rejects extra file (304.042083ms)
+✔ artifact integrity rejects deleted file (286.217333ms)
+✔ artifact integrity rejects symlink (298.559583ms)
+✔ missing and legacy markers cannot be used as build provenance (82.25225ms)
+✔ only a complete receipt for the exact sealed build allows publishing (571.234792ms)
+✔ source or output changes during browser checks cannot receive a receipt (256.961417ms)
+✔ a publisher rejects a different pushed main commit (192.816375ms)
+✔ the operation lock blocks concurrent work and releases after failures (74.832167ms)
+✔ public checks verify clean source and every served byte without creating a local receipt (310.575292ms)
+✔ a dead owner lock is recovered without weakening active-owner exclusion (129.152208ms)
+✔ the actual publisher rejects unverified and stale input before contacting GitHub (815.434292ms)
+✔ concept asset validation catches stale URL revisions and mismatched bundled bytes (100.754583ms)
+✔ concept validation also rejects tampered generated engines and embedded documents (99.320042ms)
+Building Pages from a627a30247798b2151d1530d0c560fd8df5d53a5 (clean committed source).
+Sealed 2 Pages files; SHA-256 cad76d4f616a819e9e3fe5c5898e9392bb4d255c4631f9c82ae80b418956e97e.
+✔ relative source aliases stay inside the isolated copy and external aliases are refused (522.376333ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6581.895625
+
+> ng-echarts-workspace@0.0.0 test:demo-assets
+> node --test tools/demo-assets.spec.mjs
+
+✔ derives web assets without changing offline bytes or interpreting replacement tokens (0.854875ms)
+✔ rejects missing engine boundaries and verifies the pinned modular engine (134.59975ms)
+✔ warms only the requested renderer graph and preserves the Pages prefix (1.539958ms)
+✔ rejects unrelated chart code entering a renderer preload graph (0.330458ms)
+✔ warms the destination component graph while keeping deferred families independent (0.556292ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 190.946458
+
+> ng-echarts-workspace@0.0.0 build
+> npm run build:lib && npm run build:playground
+
+
+> ng-echarts-workspace@0.0.0 build:lib
+> ng build chart-library --configuration production
+
+Building Angular Package
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/core'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/interaction'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @mantha911/ng-echarts/interaction
+✔ Compiling with Angular sources in partial compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @mantha911/ng-echarts/core
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/area'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/bar'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/calendar'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/composed'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/line'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/pie'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/sankey'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/radial'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @mantha911/ng-echarts/area
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts/radar'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+✔ Built @mantha911/ng-echarts/radial
+✔ Built @mantha911/ng-echarts/calendar
+✔ Built @mantha911/ng-echarts/bar
+✔ Built @mantha911/ng-echarts/line
+✔ Built @mantha911/ng-echarts/pie
+✔ Built @mantha911/ng-echarts/composed
+
+------------------------------------------------------------------------------
+Building entry point '@mantha911/ng-echarts'
+------------------------------------------------------------------------------
+- Compiling with Angular sources in partial compilation mode.
+✔ Compiling with Angular sources in partial compilation mode.
+✔ Built @mantha911/ng-echarts/sankey
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+- Copying assets
+✔ Compiling with Angular sources in partial compilation mode.
+- Writing FESM and DTS bundles
+✔ Writing FESM and DTS bundles
+✔ Built @mantha911/ng-echarts/radar
+✔ Copying assets
+- Writing package manifest
+✔ Writing package manifest
+✔ Built @mantha911/ng-echarts
+
+------------------------------------------------------------------------------
+Built Angular Package
+- from: /Users/phalla/Documents/codes/ng-echarts/projects/chart-library
+- to:   /Users/phalla/Documents/codes/ng-echarts/dist/chart-library
+------------------------------------------------------------------------------
+
+Build at: 2026-11-18T02:09:59.611Z - Time: 1694ms
+
+
+> ng-echarts-workspace@0.0.0 build:playground
+> npm run concepts:prepare && ng build playground --configuration production && node tools/prepare-demo.mjs dist/playground
+
+
+> ng-echarts-workspace@0.0.0 concepts:prepare
+> node tools/concept-assets.mjs --prepare
+
+Verified concept engine and 3 gallery assets.
+❯ Building...
+✔ Building...
+Browser bundles
+Initial chunk files  | Names                                                |  Raw size | Estimated transfer size
+chunk-BCV1fTjr.js    | -                                                    | 191.76 kB |                56.81 kB
+main-NKS7OBP3.js     | main                                                 | 149.22 kB |                36.91 kB
+styles-QYN3BAW2.css  | styles                                               |  31.69 kB |                 5.19 kB
+chunk-B6Fy8hbW.js    | -                                                    |   1.04 kB |               444 bytes
+
+                     | Initial total                                        | 373.71 kB |                99.35 kB
+
+Lazy chunk files     | Names                                                |  Raw size | Estimated transfer size
+chunk-DL9GzlCm.js    | -                                                    | 332.45 kB |                97.55 kB
+chunk-CRb5FdjZ.js    | -                                                    | 122.72 kB |                37.08 kB
+chunk-CqmiUPha.js    | linked-dashboard                                     |  72.92 kB |                11.64 kB
+chunk-g-wKztCy.js    | -                                                    |  65.69 kB |                20.72 kB
+chunk-DC7xXB9z.js    | gallery                                              |  43.50 kB |                 8.07 kB
+chunk-Dr3H5Qd6.js    | -                                                    |  34.59 kB |                12.18 kB
+chunk-B-uDCydw.js    | mantha911-ng-echarts-sankey-sankey-renderer-DwLMFu-b |  33.59 kB |                11.07 kB
+chunk-CeToufE-.js    | calendar-blocks                                      |  32.30 kB |                 9.08 kB
+chunk-BKNshgTp.js    | sankey-blocks                                        |  29.94 kB |                 8.02 kB
+chunk-D1q7IwtY.js    | radar-blocks                                         |  29.63 kB |                 7.80 kB
+chunk-CtWUYTcj.js    | -                                                    |  27.45 kB |                 9.63 kB
+chunk-CYLd8chT.js    | -                                                    |  25.32 kB |                 8.40 kB
+chunk-7EEBJ5NQ.js    | documentation                                        |  24.07 kB |                 7.61 kB
+chunk-DQXG_S4l.js    | radial-blocks                                        |  23.19 kB |                 6.18 kB
+chunk-DUF1zugG.js    | -                                                    |  22.19 kB |                 7.87 kB
+...and 52 more lazy chunks files. Use "--verbose" to show all the files.
+
+
+Server bundles
+Initial chunk files  | Names                                                |  Raw size
+server.mjs           | server                                               | 919.95 kB |
+polyfills.server.mjs | polyfills.server                                     | 237.54 kB |
+chunk-3VWN4U7Y.mjs   | -                                                    | 196.60 kB |
+chunk-7XAPAEI6.mjs   | -                                                    | 102.68 kB |
+main.server.mjs      | main.server                                          |  77.60 kB |
+chunk-HJUUWEIY.mjs   | -                                                    |  12.00 kB |
+chunk-35LMJPRC.mjs   | -                                                    |   7.77 kB |
+chunk-C2KJ4ATU.mjs   | -                                                    |   1.54 kB |
+chunk-VIU7XVWA.mjs   | -                                                    |   1.45 kB |
+chunk-5R3YYUKO.mjs   | -                                                    | 618 bytes |
+
+Lazy chunk files     | Names                                                |  Raw size
+chunk-26INICLA.mjs   | -                                                    | 350.04 kB |
+chunk-T3U5XLMV.mjs   | -                                                    | 126.52 kB |
+chunk-76RGFJE6.mjs   | linked-dashboard                                     |  72.68 kB |
+chunk-WEEC7PBK.mjs   | -                                                    |  68.59 kB |
+chunk-MDEOQ5IK.mjs   | gallery                                              |  43.04 kB |
+chunk-L24H7OKE.mjs   | -                                                    |  34.56 kB |
+chunk-KIZNZ6QY.mjs   | mantha911-ng-echarts-sankey-sankey-renderer-DwLMFu-b |  34.01 kB |
+chunk-PGSOMJ3T.mjs   | sankey-blocks                                        |  29.64 kB |
+chunk-YOIXZEGU.mjs   | calendar-blocks                                      |  28.58 kB |
+chunk-ZYXR6MLE.mjs   | -                                                    |  28.31 kB |
+chunk-RIWBEV6M.mjs   | radar-blocks                                         |  27.86 kB |
+chunk-XCW4YSX2.mjs   | -                                                    |  25.11 kB |
+chunk-VGQS3KET.mjs   | documentation                                        |  23.98 kB |
+chunk-DNWERBBJ.mjs   | radial-blocks                                        |  23.01 kB |
+chunk-SO442MJU.mjs   | -                                                    |  22.69 kB |
+...and 56 more lazy chunks files. Use "--verbose" to show all the files.
+
+Prerendered 0 static routes.
+Application bundle generation complete. [2.696 seconds] - 2026-11-18T02:10:02.908Z
+
+Output location: /Users/phalla/Documents/codes/ng-echarts/dist/playground
+
+Prepared shared concept assets and 14 renderer preload maps.
+
+> ng-echarts-workspace@0.0.0 check:reproducibility
+> node tools/check-library-reproducibility.mjs
+
+PASS: warm and two independent clean 0.1.0-rc.33 packages match 10cb93fa6b42aabcad58cde536b9f29a6da288b2b9156df03fee7de24fd4140d.
+
+> ng-echarts-workspace@0.0.0 typecheck
+> ngc -p projects/chart-library/tsconfig.lib.prod.json --noEmit && ngc -p projects/playground/tsconfig.app.json --noEmit
+
+
+> ng-echarts-workspace@0.0.0 test
+> ng test chart-library --watch=false && ng test playground --watch=false
+
+❯ Building...
+✔ Building...
+Application bundle generation complete. [1.876 seconds] - 2026-11-18T02:10:19.375Z
+
+
+ RUN  v5.1.0 /Users/phalla/Documents/codes/ng-echarts
+
+
+ Test Files  49 passed (49)
+      Tests  338 passed (338)
+   Start at  09:10:19
+   Duration  2.02s (environment 79%, tests 11%, setup 5%, transform 4%, import 1%)
+
+❯ Building...
+✔ Building...
+Application bundle generation complete. [1.700 seconds] - 2026-11-18T02:10:23.577Z
+
+
+ RUN  v5.1.0 /Users/phalla/Documents/codes/ng-echarts
+
+
+ Test Files  7 passed (7)
+      Tests  20 passed (20)
+   Start at  09:10:23
+   Duration  1.03s (environment 55%, setup 24%, transform 10%, tests 8%, import 3%, worker 1%)
+
+
+> ng-echarts-workspace@0.0.0 check:consumer
+> node tools/check-consumer.mjs
+
+PASS: packed library and ECharts declarations compile in isolation; invalid keys and formatters/options are rejected (skipLibCheck=false).
+
+> ng-echarts-workspace@0.0.0 check:docs
+> node tools/check-documentation-consumer.mjs
+
+Scaffolding the exact documented Angular application outside the workspace…
+Installing the documented version pins and local tarball…
+Compiling and building the complete integration-guide example…
+Checking documented four-chart consumer in chromium…
+Checking documented four-chart consumer in firefox…
+Checking documented four-chart consumer in webkit…
+PASS: documented installation and full application build, render and hydrate in all three engines.
+
+> ng-echarts-workspace@0.0.0 check:dashboard
+> node tools/generate-dashboard-example.mjs --check && node tools/generate-dashboard-example.mjs --interaction --check && node tools/check-documentation-consumer.mjs --dashboard
+
+Scaffolding the exact documented Angular application outside the workspace…
+Installing the documented version pins and registry package…
+Compiling and building the complete integration-guide example…
+Checking documented dashboard consumer in chromium…
+Checking documented dashboard consumer in firefox…
+Checking documented dashboard consumer in webkit…
+PASS: documented installation and full application build, render and hydrate in all three engines.
+
+> ng-echarts-workspace@0.0.0 check:dashboard:interaction
+> node tools/generate-dashboard-example.mjs --interaction --check && node tools/check-documentation-consumer.mjs --dashboard --candidate
+
+Scaffolding the exact documented Angular application outside the workspace…
+Installing the documented version pins and local tarball…
+Compiling and building the complete integration-guide example…
+Checking documented dashboard consumer in chromium…
+file:///Users/phalla/Documents/codes/ng-echarts/tools/check-documentation-consumer.mjs:323
+      throw new Error(
+            ^
+
+Error: chromium documentation consumer failed. Browser errors: []; failed requests: []. Evidence: /Users/phalla/Documents/codes/ng-echarts/test-results/documentation-dashboard-chromium
+    at file:///Users/phalla/Documents/codes/ng-echarts/tools/check-documentation-consumer.mjs:323:13 {
+  [cause]: locator.click: Timeout 30000ms exceeded.
+  Call log:
+  [2m  - waiting for locator('app-composed-dashboard').getByRole('button', { name: 'Reset zoom', exact: true })[22m
+  [2m    - locator resolved to <button type="button" aria-disabled="true" _ngcontent-ng-c3722365771=""> Reset zoom </button>[22m
+  [2m  - attempting click action[22m
+  [2m    2 × waiting for element to be visible, enabled and stable[22m
+  [2m      - element is not enabled[22m
+  [2m    - retrying click action[22m
+  [2m    - waiting 20ms[22m
+  [2m    2 × waiting for element to be visible, enabled and stable[22m
+  [2m      - element is not enabled[22m
+  [2m    - retrying click action[22m
+  [2m      - waiting 100ms[22m
+  [2m    58 × waiting for element to be visible, enabled and stable[22m
+  [2m       - element is not enabled[22m
+  [2m     - retrying click action[22m
+  [2m       - waiting 500ms[22m
+
+      at verifyDashboardRange (/Users/phalla/Documents/codes/ng-echarts/tools/dashboard-range-flow.mjs:8:76)
+      at async file:///Users/phalla/Documents/codes/ng-echarts/tools/check-documentation-consumer.mjs:235:33 {
+    log: [
+      "  - waiting for locator('app-composed-dashboard').getByRole('button', { name: 'Reset zoom', exact: true })",
+      '    - locator resolved to <button type="button" aria-disabled="true" _ngcontent-ng-c3722365771=""> Reset zoom </button>',
+      '  - attempting click action',
+      '    2 × waiting for element to be visible, enabled and stable',
+      '      - element is not enabled',
+      '    - retrying click action',
+      '    - waiting 20ms',
+      '    2 × waiting for element to be visible, enabled and stable',
+      '      - element is not enabled',
+      '    - retrying click action',
+      '      - waiting 100ms',
+      '    58 × waiting for element to be visible, enabled and stable',
+      '       - element is not enabled',
+      '     - retrying click action',
+      '       - waiting 500ms'
+    ],
+    name: 'TimeoutError'
+  }
+}
+
+Node.js v24.22.2

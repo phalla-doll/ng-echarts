@@ -12,6 +12,11 @@ import {
 } from '@angular/core';
 import { ComposedChart, type ComposedSeries } from '@mantha911/ng-echarts/composed';
 import { BarChart } from '@mantha911/ng-echarts/bar';
+import {
+  CategoryRange,
+  type CategoryRangeSelection,
+  type CategoryRangeCancellation,
+} from '@mantha911/ng-echarts/interaction';
 import type { ChartSeries, ChartTheme, PointSelection } from '@mantha911/ng-echarts/core';
 
 export interface DashboardMonth {
@@ -109,7 +114,7 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
 
 @Component({
   selector: 'app-composed-dashboard',
-  imports: [ComposedChart, BarChart],
+  imports: [ComposedChart, BarChart, CategoryRange],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <fieldset class="dashboard-window-controls">
@@ -124,7 +129,9 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
           (change)="changeWindowBound('from', from.value)"
         >
           @for (row of data(); track row.id) {
-            <option [value]="row.id">{{ row.month }}</option>
+            <option [value]="row.id" [selected]="row.id === visibleRows()[0]?.id">
+              {{ row.month }}
+            </option>
           }
         </select>
       </label>
@@ -138,11 +145,33 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
           (change)="changeWindowBound('to', to.value)"
         >
           @for (row of data(); track row.id) {
-            <option [value]="row.id">{{ row.month }}</option>
+            <option [value]="row.id" [selected]="row.id === visibleRows().at(-1)?.id">
+              {{ row.month }}
+            </option>
           }
         </select>
       </label>
       <div class="dashboard-window-actions">
+        <button
+          #overviewRange
+          type="button"
+          [attr.aria-disabled]="visibleRows().length < 2 ? 'true' : null"
+          [attr.aria-pressed]="rangeTarget() === 'overview'"
+          (click)="armRange('overview')"
+        >
+          Select overview range
+        </button>
+        @if (selectedDevice() !== null) {
+          <button
+            #detailRange
+            type="button"
+            [attr.aria-disabled]="visibleRows().length < 2 ? 'true' : null"
+            [attr.aria-pressed]="rangeTarget() === 'detail'"
+            (click)="armRange('detail')"
+          >
+            Select detail range
+          </button>
+        }
         <button
           type="button"
           [attr.aria-disabled]="visibleRows().length <= 1 ? 'true' : null"
@@ -181,6 +210,16 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
       </div>
     </fieldset>
     <p class="dashboard-window" role="status">{{ windowContext() }}</p>
+    @if (rangeTarget() !== null) {
+      <p class="dashboard-range-help" role="status">
+        {{
+          rangeTarget() === 'overview'
+            ? 'Drag across months in the overview, then release to zoom both charts.'
+            : 'Drag across months in the device detail, then release to zoom both charts. Use a mouse or pen here.'
+        }}
+        Escape cancels. From and To provide the same range without dragging.
+      </p>
+    }
     <div class="dashboard-controls">
       <label
         >Month
@@ -228,6 +267,11 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
     <p class="dashboard-context" role="status">{{ context() }}</p>
     <div class="dashboard-pair">
       <nec-composed-chart
+        [necCategoryRange]="rangeIds()"
+        [rangeEnabled]="rangeTarget() === 'overview'"
+        [rangeContext]="rangeContext()"
+        (categoryRangeSelect)="selectRange($event)"
+        (categoryRangeCancel)="cancelRange($event)"
         title="Monthly visits and trend"
         description="Desktop and mobile share a stack. The line uses up to three supplied months, including observations before the visible window. Incomplete windows have no mean. Choose a month from either chart or the Month field."
         [data]="overview()"
@@ -241,6 +285,11 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
         (pointSelect)="selectPoint($event)"
       />
       <nec-bar-chart
+        [necCategoryRange]="rangeIds()"
+        [rangeEnabled]="rangeTarget() === 'detail'"
+        [rangeContext]="rangeContext()"
+        (categoryRangeSelect)="selectRange($event)"
+        (categoryRangeCancel)="cancelRange($event)"
         [title]="detailTitle()"
         [description]="
           selectedDevice() === null
@@ -315,6 +364,11 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
       line-height: 1.6;
       color: var(--site-muted, #536176);
     }
+    .dashboard-range-help {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--site-text, #18202c);
+    }
     :where(.dashboard-controls) {
       display: flex;
       flex-wrap: wrap;
@@ -374,7 +428,10 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
       }
     }
   `,
-  host: { '[attr.data-theme]': 'theme()' },
+  host: {
+    '[attr.data-theme]': 'theme()',
+    '(keydown.escape)': 'cancelRange("escape")',
+  },
 })
 export class ComposedDashboard {
   readonly data = input.required<readonly DashboardMonth[]>();
@@ -382,6 +439,8 @@ export class ComposedDashboard {
   readonly showDataTable = input(true);
   private readonly monthField = viewChild.required<ElementRef<HTMLSelectElement>>('month');
   private readonly resetButton = viewChild<ElementRef<HTMLButtonElement>>('resetMonth');
+  private readonly overviewRangeButton = viewChild<ElementRef<HTMLButtonElement>>('overviewRange');
+  private readonly detailRangeButton = viewChild<ElementRef<HTMLButtonElement>>('detailRange');
   protected readonly kind = signal<'bar' | 'area'>('bar');
   protected readonly window = linkedSignal<readonly DashboardMonth[], DashboardWindow>({
     source: this.data,
@@ -402,6 +461,18 @@ export class ComposedDashboard {
       : 'No months to display.';
   });
   protected readonly selectedDevice = signal<'desktop' | 'mobile' | null>(null);
+  protected readonly rangeContext = computed(() => [
+    this.data(),
+    this.theme(),
+    this.kind(),
+    this.window(),
+    this.selectedDevice(),
+  ]);
+  protected readonly rangeIds = computed(() => this.visibleRows().map((row) => row.id));
+  protected readonly rangeTarget = linkedSignal<readonly unknown[], 'overview' | 'detail' | null>({
+    source: this.rangeContext,
+    computation: () => null,
+  });
   protected readonly selectedId = linkedSignal<readonly DashboardMonth[], string | null>({
     source: this.visibleRows,
     computation: (rows, previous) =>
@@ -478,10 +549,12 @@ export class ComposedDashboard {
     });
   }
   protected selectMonth(id: string): void {
+    this.rangeTarget.set(null);
     this.selectedId.set(this.visibleRows().some((row) => row.id === id) ? id : null);
     this.action.set('');
   }
   protected changeWindowBound(bound: 'from' | 'to', id: string): void {
+    this.rangeTarget.set(null);
     const rows = this.data();
     const current = this.visibleRows();
     if (!rows.some((row) => row.id === id) || !current.length) return;
@@ -505,11 +578,37 @@ export class ComposedDashboard {
     this.window.set(moveDashboardWindow(this.data(), this.window(), action, this.selectedId()));
   }
   protected resetWindow(): void {
+    this.rangeTarget.set(null);
     if (!this.fullWindow()) this.window.set(null);
   }
   protected selectDevice(id: string): void {
     this.selectedDevice.set(id === 'desktop' || id === 'mobile' ? id : null);
     this.action.set('');
+  }
+  protected armRange(target: 'overview' | 'detail'): void {
+    if (this.visibleRows().length < 2) return;
+    this.action.set('');
+    this.rangeTarget.set(this.rangeTarget() === target ? null : target);
+    // Safari does not focus buttons on pointer activation; keep Escape available during loading.
+    (target === 'overview'
+      ? this.overviewRangeButton()
+      : this.detailRangeButton()
+    )?.nativeElement.focus({ preventScroll: true });
+  }
+  protected cancelRange(reason: CategoryRangeCancellation): void {
+    this.rangeTarget.set(null);
+    if (reason === 'unavailable')
+      this.action.set('The chart is not ready for a range. Try again or use From and To.');
+  }
+  protected selectRange(selection: CategoryRangeSelection): void {
+    const target = this.rangeTarget();
+    if (target === null || !selection.rowIds.every((id) => this.rangeIds().includes(id))) return;
+    this.rangeTarget.set(null);
+    this.window.set(reconcileDashboardWindow(this.data(), selection));
+    (target === 'overview'
+      ? this.overviewRangeButton()
+      : this.detailRangeButton()
+    )?.nativeElement.focus({ preventScroll: true });
   }
   protected selectDetailPoint(point: PointSelection<{ readonly id: string }>): void {
     if (this.selectedDevice() === null) {

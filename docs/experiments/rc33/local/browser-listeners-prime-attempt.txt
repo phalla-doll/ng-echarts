@@ -1,0 +1,111 @@
+
+> ng-echarts-workspace@0.0.0 test:browser
+> playwright test tests/browser/dashboard-range.spec.ts -g cleans repeated --output=test-results/rc33-listeners-final
+
+[WebServer] (node:36632) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:36635) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture (5.5s)
+(node:36660) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [firefox] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture (5.3s)
+(node:36695) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 [webkit] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture (5.8s)
+
+
+  1) [chromium] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 6
+    Received: 7
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      268 |   for (let index = 0; index < 12; index++) {
+      269 |     const { plot } = await arm(page, dashboard);
+    > 270 |     await expect.poll(() => page.evaluate('window.rangeListenerCount')).toBe(6);
+          |                                                                         ^
+      271 |     await page.keyboard.press('Escape');
+      272 |     await expect(plot.locator('.nec-category-range-draft')).toHaveCount(0);
+      273 |     await expect(plot).toHaveCSS('cursor', 'auto');
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/dashboard-range.spec.ts:270:73
+
+    Error Context: test-results/rc33-listeners-final/dashboard-range-cleans-rep-a0fa2-on-during-an-active-gesture-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/rc33-listeners-final/dashboard-range-cleans-rep-a0fa2-on-during-an-active-gesture-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/rc33-listeners-final/dashboard-range-cleans-rep-a0fa2-on-during-an-active-gesture-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [firefox] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 6
+    Received: 7
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      268 |   for (let index = 0; index < 12; index++) {
+      269 |     const { plot } = await arm(page, dashboard);
+    > 270 |     await expect.poll(() => page.evaluate('window.rangeListenerCount')).toBe(6);
+          |                                                                         ^
+      271 |     await page.keyboard.press('Escape');
+      272 |     await expect(plot.locator('.nec-category-range-draft')).toHaveCount(0);
+      273 |     await expect(plot).toHaveCSS('cursor', 'auto');
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/dashboard-range.spec.ts:270:73
+
+    Error Context: test-results/rc33-listeners-final/dashboard-range-cleans-rep-a0fa2-on-during-an-active-gesture-firefox/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/rc33-listeners-final/dashboard-range-cleans-rep-a0fa2-on-during-an-active-gesture-firefox/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/rc33-listeners-final/dashboard-range-cleans-rep-a0fa2-on-during-an-active-gesture-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [webkit] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 6
+    Received: 7
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      268 |   for (let index = 0; index < 12; index++) {
+      269 |     const { plot } = await arm(page, dashboard);
+    > 270 |     await expect.poll(() => page.evaluate('window.rangeListenerCount')).toBe(6);
+          |                                                                         ^
+      271 |     await page.keyboard.press('Escape');
+      272 |     await expect(plot.locator('.nec-category-range-draft')).toHaveCount(0);
+      273 |     await expect(plot).toHaveCSS('cursor', 'auto');
+        at /Users/phalla/Documents/codes/ng-echarts/tests/browser/dashboard-range.spec.ts:270:73
+
+    Error Context: test-results/rc33-listeners-final/dashboard-range-cleans-rep-a0fa2-on-during-an-active-gesture-webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/rc33-listeners-final/dashboard-range-cleans-rep-a0fa2-on-during-an-active-gesture-webkit/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/rc33-listeners-final/dashboard-range-cleans-rep-a0fa2-on-during-an-active-gesture-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    [chromium] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture
+    [firefox] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture
+    [webkit] › tests/browser/dashboard-range.spec.ts:225:1 › cleans repeated enablement and destruction during an active gesture

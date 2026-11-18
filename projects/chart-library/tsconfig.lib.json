@@ -14,7 +14,8 @@
     "core/src/**/*.ts",
     "line/src/**/*.ts",
     "area/src/**/*.ts",
-    "pie/src/**/*.ts"
+    "pie/src/**/*.ts",
+    "interaction/src/**/*.ts"
   ],
   "exclude": ["**/*.spec.ts"]
 }

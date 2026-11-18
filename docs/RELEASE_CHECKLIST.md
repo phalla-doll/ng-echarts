@@ -1,10 +1,8 @@
 # Published prerelease verification
 
-The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.30`, completing radar list legends and shared internal presentation behavior while preserving all prior supported features and budget caps. [Exact CI, candidate and registry evidence](experiments/RC30_RADAR_LEGENDS.md) records complete package delivery. Preserve rc.29 and every earlier archive. Human F09/R06/G2/G3/G4 remain deferred/pending; experimental publication does not claim human interpretation or a stable API.
+The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.32`, preserving all prior supported APIs and budgets with bounded lifecycle/color cleanup. [Exact publication and registry consumers](experiments/RC32_PUBLICATION.md) record the successful one-time upload, bounded metadata timeout and passing verification-only recovery. npm next is rc.32; latest remains rc.18. Preserve every archive. Human F09/R06/G2/G3/G4 remain deferred/pending.
 
-The rc.30 publication and fresh registry-consumer status are recorded in its [receipt](experiments/public-rc30/registry-verification.json). Actual npm tags are `next: 0.1.0-rc.30` and `latest: 0.1.0-rc.18`; npm rejected deletion of the initial latest alias. The [publication procedure](PUBLICATION.md#rc30-oidc-publication) preserves that historical limitation. Human interpretation gates remain separate.
-
-Local rc.32 is a separate, unpublished payload-cleanup candidate. Its [verification and delivery record](experiments/RC32_PAYLOAD_REVIEW.md) records local checks, all six independent Linux CI jobs and the separately deployed cleanup demo. rc.30 registry bytes/tags and all human gates retain their recorded status. Do not reprepare or overwrite earlier artifacts.
+Local rc.33 is a separate unpublished interaction candidate. Its [increment record](experiments/RC33_GRAPHICAL_LINKING.md) owns current verification and payload boundaries. For sealed artifacts, use release:check; never overwrite or reprepare earlier versions.
 
 ## Prepare and verify one artifact
 
@@ -49,11 +47,11 @@ The `check:docs` and `check:runtime` scripts accept the same variables. Without 
 
 ## Verify the published registry package
 
-All three consumer scripts support exact registry installs. The helper verifies the fetched registry tarball before each consumer installs by its exact npm identity. Use rc.28 source (verified publication commit `c192030f75551ff1625055ae85ee545e062a5f04`) and the digest from its [registry receipt](experiments/public-rc28/registry-verification.json). Current source intentionally rejects a mismatched registry identity:
+All three consumer scripts support exact registry installs. The helper verifies the fetched registry tarball before each consumer installs by its exact npm identity. Use rc.32 source (verified publication commit `2876f9b4acf48be8715dc1aa95253c3a72fda6d1`) and the digest from its [registry receipt](experiments/public-rc32/registry-verification.json). Current source intentionally rejects a mismatched registry identity:
 
 ```sh
-export CHART_LIBRARY_REGISTRY_SPEC="@mantha911/ng-echarts@0.1.0-rc.28"
-export CHART_LIBRARY_TARBALL_SHA256="f556a3d25e766a4c4fb2ec343ae0bad6d57d868a0d97fd393c27e206c485d396"
+export CHART_LIBRARY_REGISTRY_SPEC="@mantha911/ng-echarts@0.1.0-rc.32"
+export CHART_LIBRARY_TARBALL_SHA256="6984b9b20edd69fd0c326e6361d45459f3b36fe8f4c9d390f8962de8cee4f3f9"
 npm run check:consumer
 npm run check:docs
 npm run check:runtime
@@ -66,7 +64,7 @@ Preserve the published archive, checksum, packaged README/changelog and notice b
 The automated candidate check requires:
 
 - Correct public identity/version, `private: false`, explicit npm registry/public access/`next` publish configuration, MIT metadata, description/repository, unchanged Angular/ECharts peer ranges, tslib dependency and `sideEffects: false`.
-- Root, core, bar, line, area, pie, composed and focused radar/radial/calendar/sankey declarations/runtime targets present, with private implementation imports blocked by installed-consumer checks.
+- Root, core, bar, line, area, pie, composed and focused radar/radial/calendar/sankey/interaction declarations/runtime targets present, with private implementation imports blocked by installed-consumer checks.
 - Complete packaged README/example, changelog, original-code [MIT license](../projects/chart-library/LICENSE), [third-party notices](../projects/chart-library/THIRD_PARTY_NOTICES.md), and preserved notice/provenance files.
 - Copied license/notice bytes matching their recorded hashes and the exact installed dependency versions; upstream EvilCharts copyright remains intact.
 - No raw workspace source or test files, node_modules, private paths or archive links in the tarball. Source maps and public declarations are intentional package files.
@@ -80,7 +78,7 @@ The recorded dependency versions describe verified inputs, not every version adm
 
 | Item | Status / evidence |
 | --- | --- |
-| Local candidate automated checks | rc.30 exact artifact, 342 unit tests, 584 browser passes/four expected skips, matching macOS/Linux warm/clean archives and [all six CI jobs](https://github.com/phalla-doll/ng-echarts/actions/runs/44015944947) pass. OIDC publication, exact registry bytes and fresh consumers pass in the [delivery record](experiments/RC30_RADAR_LEGENDS.md). Preserve every earlier [candidate record](experiments/data/local-release-0.1.0-rc.29.json); human gates remain pending. |
+| Local candidate automated checks | Local rc.33 exact artifact, 358 unit tests, 611 browser passes/four expected skips, final application/source follow-ups, warm/two-clean macOS, exact consumers, static routes and unchanged budgets pass in the [increment record](experiments/RC33_GRAPHICAL_LINKING.md). Independent source CI/deployment have separate receipts. Published rc.32 and fresh registry consumers pass in its [publication record](experiments/RC32_PUBLICATION.md). Preserve every archive; human gates remain pending. |
 | Original library license | MIT selected by the user; full text ships in the candidate |
 | Human interpretation, F09/R06 | Pending; complete the [current result sheet](experiments/RC20_HUMAN_REVIEW.md) following the [manual review](experiments/R06_MANUAL_REVIEW.md) across every family |
 | NG14/G2/G3/G4 acceptance | Pending until the required human evidence exists; successful artifact checks do not close these gates |

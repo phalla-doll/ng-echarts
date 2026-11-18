@@ -2,13 +2,13 @@
 
 # ng-echarts
 
-Published experimental release: **`@mantha911/ng-echarts@0.1.0-rc.30`**. Install with `npm install @mantha911/ng-echarts@next echarts@6.1.0`, or pin `@0.1.0-rc.30`. npm `next` selects rc.30; `latest` retains rc.18. Human F09/R06/G2/G3/G4 remain deferred/pending. See [exact publication evidence](docs/PUBLICATION.md#rc30-oidc-publication).
+Published experimental release: **`@mantha911/ng-echarts@0.1.0-rc.32`**. Install with `npm install @mantha911/ng-echarts@next echarts@6.1.0`, or pin `@0.1.0-rc.32`. npm `next` selects rc.32; `latest` retains rc.18. Human F09/R06/G2/G3/G4 remain deferred/pending. See [exact publication and verification recovery](docs/experiments/RC32_PUBLICATION.md).
 
 Earlier published **`0.1.0-rc.28`** introduced chip/list legends, gallery table opt-outs and the reviewed payload/radar/declaration fixes. It includes the independent composed value axes, horizontal composition, areas and named stacks from earlier releases. The [publication report](docs/experiments/RC28_PUBLICATION.md) preserves the exact archive and fresh registry-consumer results.
 
-Published **`0.1.0-rc.30`** completes radar list legends and shares internal state, native table actions and browser binding. The [increment/delivery report](docs/experiments/RC30_RADAR_LEGENDS.md) records exact package, payload and verification evidence; the preserved [rc.29 continuation](docs/experiments/RC29_LINKED_WINDOW.md) records the application-owned shared month window and bidirectional month/device dashboard. The complete displayed dashboard still supports published rc.22; the [live marker](https://phalla-doll.github.io/ng-echarts/preview-build.json) identifies the separately deployed source.
+Published **`0.1.0-rc.30`** completes radar list legends and shares internal state, native table actions and browser binding. The [increment/delivery report](docs/experiments/RC30_RADAR_LEGENDS.md) records exact package, payload and verification evidence; the preserved [rc.29 continuation](docs/experiments/RC29_LINKED_WINDOW.md) records the application-owned shared month window and bidirectional month/device dashboard. The separately displayed native dashboard supports published rc.22; graphical ranges require local rc.33; the [live marker](https://phalla-doll.github.io/ng-echarts/preview-build.json) identifies the separately deployed source.
 
-Local source candidate **`0.1.0-rc.32`** shares lifecycle and color parsing while retaining descriptor/theme validation policies for bounded payload savings. It is unpublished; npm next remains rc.30/latest rc.18. The [demo](docs/GITHUB_PAGES.md) now serves the cleanup from clean source `db10dc5`. See the [cleanup record and remaining limits](docs/experiments/RC32_PAYLOAD_REVIEW.md).
+Local source candidate **`0.1.0-rc.33`** adds optional graphical category ranges outside root/core and connects both dashboard charts to the existing shared window. It is unpublished; npm next selects rc.32/latest rc.18. The [interaction API](docs/INTERACTION_API.md) and [increment record](docs/experiments/RC33_GRAPHICAL_LINKING.md) own scope and actual checks. The [demo deployment record](docs/GITHUB_PAGES.md) retains its separate source identity.
 
 Current installation and feature availability are maintained in [Installation](docs/INSTALLATION.md). [Packaged documentation errata](docs/PACKAGED_DOCUMENTATION_ERRATA.md) correct historical wording in immutable rc.28/rc.29 readmes, including the radar list-layout limitation. The [documentation audit](docs/experiments/RC29_DOCUMENTATION_AUDIT.md) records coverage and checks.
 
@@ -66,6 +66,7 @@ npm install @mantha911/ng-echarts@next echarts@6.1.0
 | [Hover and press refinement](docs/experiments/HOVER_REFINEMENT.md) | Role-specific button/link feedback, preserved selection cues, touch and reduced-motion checks |
 | [Linked UI refinement](docs/experiments/LINKED_UI_REFINEMENT.md) | Before/after control, spacing, card and mobile review for the linked demo |
 | [Month preview follow-up](docs/experiments/NG20_MONTH_PREVIEWS.md) | Opt-in hover/focus context, mobile tap safeguard and current verification |
+| [Optional interaction API](docs/INTERACTION_API.md) | Controlled contiguous bar/composed range gestures, native alternatives and package boundaries |
 | [Linked charts guide](docs/LINKED_CHARTS.md) | Application-owned month/range selection, keyboard actions, resets, updates and a complete compiled example |
 | [Graphical range selection](docs/experiments/GRAPHICAL_RANGE_SELECTION.md) | Snapped pointer selection, native equivalence, cancellation, touch/focus review and rc.4 evidence |
 | [Native month ranges](docs/experiments/NG20_MONTH_RANGE.md) | Inclusive range contract, multi-row feedback, visual review and rc.3 verification |
@@ -146,7 +147,7 @@ The site includes [Get Started](http://localhost:4310/get-started), [Installatio
 | `npm run format` / `npm run format:check` | Apply/check Prettier formatting |
 | `npm run check` | Run formatting, builds, compilation, unit, declaration/runtime consumers, SSR, browser, and size checks |
 
-Verified delivery source: **342 unit tests and 584 browser passes, with four expected skips**. [Full CI](https://github.com/phalla-doll/ng-echarts/actions/runs/44015944947) passes all six jobs for `e09aa7f`; its archive matches the published rc.30 SHA-256 `e19fbb40964251f5c1c6b7d10cc3808feb6fe10eb7419ae75fff7a880b7a7c6c`. The [increment report](docs/experiments/RC30_RADAR_LEGENDS.md) separates failed-run diagnostics, clean verification, registry publication and demo delivery.
+Local rc.33 verification: **358 unit tests and 611 browser passes, with four expected skips**, plus final application/installed-source follow-ups. The exact 174,489-byte archive has SHA-256 `5d0230b8b9fccdab7d3b32e846ca5bfb1780a9cb1094f2f21b006ebc4bf33735`; warm/two-clean macOS and exact strict/docs/CSR/SSR consumers pass. Independent source CI and demo delivery have separate receipts in the [increment record](docs/experiments/RC33_GRAPHICAL_LINKING.md). Published rc.32 remains separate, and human gates stay pending.
 
 Preserved rc.24 verification: **335 unit tests and 476 browser passes, with four expected skips**; [full Linux CI passes](https://github.com/phalla-doll/ng-echarts/actions/runs/43736006909), and complete macOS/Linux package bytes match. The [increment report](docs/experiments/NG17_DUAL_AXES.md) records exact-artifact checks, visual evidence and preserved failed-run corrections. [rc.24 publication](docs/experiments/RC24_PUBLICATION.md) verifies the same preserved artifact from npm.
 
