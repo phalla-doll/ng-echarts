@@ -78,7 +78,7 @@ The recorded dependency versions describe verified inputs, not every version adm
 
 | Item | Status / evidence |
 | --- | --- |
-| Local candidate automated checks | Local rc.33 exact artifact, 358 unit tests, 611 browser passes/four expected skips, final application/source follow-ups, warm/two-clean macOS, exact consumers, static routes and unchanged budgets pass in the [increment record](experiments/RC33_GRAPHICAL_LINKING.md). Independent source CI/deployment have separate receipts. Published rc.32 and fresh registry consumers pass in its [publication record](experiments/RC32_PUBLICATION.md). Preserve every archive; human gates remain pending. |
+| Local candidate automated checks | Local rc.33 exact artifact, 358 unit tests, 611 browser passes/four expected skips, final application/source follow-ups, warm/two-clean macOS, exact consumers, static routes and unchanged budgets pass in the [increment record](experiments/RC33_GRAPHICAL_LINKING.md). All six source CI jobs pass and clean demo delivery/public verification pass with separate receipts. Published rc.32 and fresh registry consumers pass in its [publication record](experiments/RC32_PUBLICATION.md). Preserve every archive; human gates remain pending. |
 | Original library license | MIT selected by the user; full text ships in the candidate |
 | Human interpretation, F09/R06 | Pending; complete the [current result sheet](experiments/RC20_HUMAN_REVIEW.md) following the [manual review](experiments/R06_MANUAL_REVIEW.md) across every family |
 | NG14/G2/G3/G4 acceptance | Pending until the required human evidence exists; successful artifact checks do not close these gates |

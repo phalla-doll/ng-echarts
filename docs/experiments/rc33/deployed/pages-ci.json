@@ -1,0 +1,130 @@
+{
+  "conclusion": "success",
+  "databaseId": 44228067225,
+  "headSha": "fd7c4d80200817217ae98f9f4ae72d65f10fbbb3",
+  "jobs": [
+    {
+      "completedAt": "2026-11-18T03:06:52Z",
+      "conclusion": "success",
+      "databaseId": 134546042275,
+      "name": "build",
+      "startedAt": "2026-11-18T03:06:45Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-11-18T03:06:46Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-11-18T03:06:45Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-18T03:06:48Z",
+          "conclusion": "success",
+          "name": "Checkout",
+          "number": 2,
+          "startedAt": "2026-11-18T03:06:46Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-18T03:06:50Z",
+          "conclusion": "success",
+          "name": "Upload artifact",
+          "number": 3,
+          "startedAt": "2026-11-18T03:06:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-18T03:06:50Z",
+          "conclusion": "success",
+          "name": "Post Checkout",
+          "number": 6,
+          "startedAt": "2026-11-18T03:06:50Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-18T03:06:50Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 7,
+          "startedAt": "2026-11-18T03:06:50Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/44228067225/job/134546042275"
+    },
+    {
+      "completedAt": "2026-11-18T03:07:06Z",
+      "conclusion": "success",
+      "databaseId": 134546111207,
+      "name": "deploy",
+      "startedAt": "2026-11-18T03:06:57Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-11-18T03:06:58Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-11-18T03:06:57Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-18T03:07:04Z",
+          "conclusion": "success",
+          "name": "Deploy to GitHub Pages",
+          "number": 2,
+          "startedAt": "2026-11-18T03:06:58Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-18T03:07:04Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 3,
+          "startedAt": "2026-11-18T03:07:04Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/44228067225/job/134546111207"
+    },
+    {
+      "completedAt": "2026-11-18T03:06:58Z",
+      "conclusion": "success",
+      "databaseId": 134546111209,
+      "name": "report-build-status",
+      "startedAt": "2026-11-18T03:06:55Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-11-18T03:06:55Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-11-18T03:06:55Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-18T03:06:56Z",
+          "conclusion": "success",
+          "name": "Report Build Status",
+          "number": 2,
+          "startedAt": "2026-11-18T03:06:56Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-11-18T03:06:57Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 3,
+          "startedAt": "2026-11-18T03:06:56Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/44228067225/job/134546111209"
+    }
+  ],
+  "status": "completed",
+  "url": "https://github.com/phalla-doll/ng-echarts/actions/runs/44228067225"
+}

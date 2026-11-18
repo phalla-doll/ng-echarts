@@ -4,8 +4,8 @@ Current continuation (18 November 2026): rc.32 is published with exact registry 
 
 ## Immediate next work
 
-1. Complete independent Linux CI and clean-source demo delivery for the locally verified rc.33 interaction increment. Full local regression, exact candidate/reproducibility, final installed-source follow-ups and all unchanged package/Pages performance limits pass in its report.
-2. Separately deliver the verified rc.33 demo through its clean-source guard after final verification; rc.32 publication/recovery is complete. Never repeat its successful upload.
+1. The bounded rc.33 graphical window is delivered: all six source CI jobs pass, Linux/macOS archives match and the clean demo passes public three-engine checks. Evaluate the next interaction increment against fresh payload/interaction evidence; general-purpose DataZoom, disjoint selection and arbitrary family linking remain separate.
+2. Decide separately whether to publish the preserved rc.33 candidate. Current npm next remains rc.32/latest rc.18; rc.32 publication/recovery and rc.33 demo delivery are complete. Never repeat a successful upload.
 3. Resume F09/R06 only when the user lifts the human-review deferral; keep G2/G3/G4 pending.
 4. General-purpose DataZoom, disjoint selections, arbitrary family linking, broader calendar/Sankey variants and NG21 remain subsequent bounded work.
 

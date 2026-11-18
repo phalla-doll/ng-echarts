@@ -1,0 +1,33 @@
+2026-11-18T03:04:55.3346724Z Sealed 2 Pages files; SHA-256 cad76d4f616a819e9e3fe5c5898e9392bb4d255c4631f9c82ae80b418956e97e.
+2026-11-18T03:04:55.5597296Z Sealed 2 Pages files; SHA-256 cad76d4f616a819e9e3fe5c5898e9392bb4d255c4631f9c82ae80b418956e97e.
+2026-11-18T03:04:55.8297251Z Sealed 2 Pages files; SHA-256 cad76d4f616a819e9e3fe5c5898e9392bb4d255c4631f9c82ae80b418956e97e.
+2026-11-18T03:04:57.2438372Z Sealed 2 Pages files; SHA-256 cad76d4f616a819e9e3fe5c5898e9392bb4d255c4631f9c82ae80b418956e97e.
+2026-11-18T03:05:30.2984221Z PASS: warm and two independent clean 0.1.0-rc.33 packages match 5d0230b8b9fccdab7d3b32e846ca5bfb1780a9cb1094f2f21b006ebc4bf33735.
+2026-11-18T03:05:44.9564759Z       Tests  338 passed (338)
+2026-11-18T03:05:50.1217541Z       Tests  20 passed (20)
+2026-11-18T03:06:00.4295784Z PASS: packed library and ECharts declarations compile in isolation; invalid keys and formatters/options are rejected (skipLibCheck=false).
+2026-11-18T03:06:43.2451850Z PASS: documented installation and full application build, render and hydrate in all three engines.
+2026-11-18T03:07:18.2049003Z PASS: documented installation and full application build, render and hydrate in all three engines.
+2026-11-18T03:07:53.4727733Z PASS: documented installation and full application build, render and hydrate in all three engines.
+2026-11-18T03:07:54.2405640Z PASS: production SSR returns library markup and hydration metadata. Browser hydration remains a separate check.
+2026-11-18T03:09:44.2295926Z PASS: independently installed tarball builds and runs in client and SSR/hydration applications across all three engines.
+2026-11-18T03:09:47.2305916Z PASS: bar 186893 gzip / 159494 Brotli bytes; 13107 gzip / 15506 Brotli headroom; 232 engine modules, none eager.
+2026-11-18T03:09:48.2699871Z PASS: line 186591 gzip / 159086 Brotli bytes; 13409 gzip / 15914 Brotli headroom; 230 engine modules, none eager.
+2026-11-18T03:09:49.2724628Z PASS: area 187105 gzip / 159751 Brotli bytes; 12895 gzip / 15249 Brotli headroom; 230 engine modules, none eager.
+2026-11-18T03:09:50.3279033Z PASS: composed 196461 gzip / 167247 Brotli bytes; 3539 gzip / 7753 Brotli headroom; 242 engine modules, none eager.
+2026-11-18T03:09:51.2301676Z PASS: pie 163111 gzip / 139636 Brotli bytes; 36889 gzip / 35364 Brotli headroom; 199 engine modules, none eager.
+2026-11-18T03:09:52.1332711Z PASS: radar 167965 gzip / 143996 Brotli bytes; 32035 gzip / 31004 Brotli headroom; 210 engine modules, none eager.
+2026-11-18T03:09:53.0588772Z PASS: calendar 173740 gzip / 148718 Brotli bytes; 26260 gzip / 26282 Brotli headroom; 213 engine modules, none eager.
+2026-11-18T03:09:53.9706406Z PASS: sankey 171077 gzip / 146284 Brotli bytes; 28923 gzip / 28716 Brotli headroom; 205 engine modules, none eager.
+2026-11-18T03:09:54.6445602Z PASS: radial 133699 gzip / 114582 Brotli bytes; 66301 gzip / 60418 Brotli headroom; 164 engine modules, none eager.
+2026-11-18T03:09:54.7172118Z PASS: core 8697 gzip / 7673 Brotli bytes; 1303 gzip / 1327 Brotli headroom; 0 engine modules, none eager.
+2026-11-18T03:09:55.2207269Z PASS: interaction 101341 gzip / 87314 Brotli bytes; 8659 gzip / 7686 Brotli headroom; 138 engine modules, none eager.
+2026-11-18T03:09:56.2321061Z PASS: composed-interaction 202117 gzip / 174761 Brotli bytes; 344 gzip / 486 Brotli headroom; 242 engine modules, none eager.
+2026-11-18T03:09:57.4191244Z PASS: root 221007 gzip / 188935 Brotli bytes; 993 gzip / 1065 Brotli headroom; 253 engine modules, none eager.
+2026-11-18T03:09:58.5332387Z PASS: root-frame 202907 gzip / 174950 Brotli bytes; 3093 gzip / 3050 Brotli headroom; 253 engine modules, none eager.
+2026-11-18T03:10:07.1049650Z Prepared mantha911-ng-echarts-0.1.0-rc.33.tgz (174489 bytes), SHA-256 5d0230b8b9fccdab7d3b32e846ca5bfb1780a9cb1094f2f21b006ebc4bf33735
+2026-11-18T03:10:16.2061946Z PASS: packed library and ECharts declarations compile in isolation; invalid keys and formatters/options are rejected (skipLibCheck=false).
+2026-11-18T03:10:44.7785523Z PASS: documented installation and full application build, render and hydrate in all three engines.
+2026-11-18T03:12:32.6268273Z PASS: independently installed tarball builds and runs in client and SSR/hydration applications across all three engines.
+2026-11-18T03:12:34.7143504Z PASS: exact mantha911-ng-echarts-0.1.0-rc.33.tgz metadata/notices, strict declarations, fresh docs and three-engine CSR/SSR consumers. Human release gates remain pending.
+2026-11-18T03:12:35.8502546Z PASS: repeated preparation refuses to replace the archive, checksum or manifest.

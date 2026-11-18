@@ -1,0 +1,17 @@
+{
+  "sourceBaseCommit": "4fe085b6ce3eae9b0bb5c334520dd53fa9e7bec4",
+  "implementationUnchanged": true,
+  "sourceCi": "44227710359",
+  "sourceCiAttempt": 2,
+  "allSixJobsPassed": true,
+  "priorRecordsPreserved": 114,
+  "candidateVersion": "0.1.0-rc.33",
+  "candidateBytes": 174489,
+  "candidateSha256": "5d0230b8b9fccdab7d3b32e846ca5bfb1780a9cb1094f2f21b006ebc4bf33735",
+  "markerAndReceiptBytesPreserved": true,
+  "npmTags": {
+    "next": "0.1.0-rc.32",
+    "latest": "0.1.0-rc.18"
+  },
+  "humanGates": "pending"
+}

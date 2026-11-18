@@ -1,6 +1,6 @@
 # rc.33 optional graphical dashboard window
 
-Date: 18 November 2026. In-progress source candidate rc.33, unpublished. rc.32 is published with exact registry bytes and passing fresh consumers in the [publication record](RC32_PUBLICATION.md). npm latest remains rc.18. The deployed demo still identifies cleanup source `db10dc5` until a separate guarded delivery. Human F09/R06/G2/G3/G4 remain deferred/pending.
+Date: 18 November 2026. Source rc.33 is committed/pushed as `4fe085b` and deployed with its own clean sealed receipts below; the package remains unpublished. Published rc.32 has exact registry bytes and passing fresh consumers in the [publication record](RC32_PUBLICATION.md). npm latest remains rc.18. Human F09/R06/G2/G3/G4 remain deferred/pending. Independent source CI results are recorded separately from deployment.
 
 ## Agreed bounded increment
 
@@ -67,3 +67,25 @@ The final isolated [Pages build](rc33/local/pages-build.txt) seals **148 files**
 Independent source CI and a clean pushed deployment remain separate required receipts. The official deployment flow must rebuild/check clean pushed source; this dirty local snapshot is not a deployable receipt. npm next stays rc.32/latest rc.18; rc.33 is unpublished and human gates remain pending.
 
 Original text evidence bytes are preserved in [raw-text-evidence.zip](rc33/raw-text-evidence.zip). Readable new text copies remove trailing whitespace/extra blank EOF lines so repository whitespace checks pass; the [normalization record](rc33/text-evidence-normalization.json) names every affected copy. Existing archives and versioned records are not modified.
+
+## Clean-source demo delivery
+
+Clean pushed source `4fe085b6ce3eae9b0bb5c334520dd53fa9e7bec4` is deployed as static `fd7c4d80200817217ae98f9f4ae72d65f10fbbb3`, sealed SHA-256 `7ee8e19e9f30a833dd5330485d92d19a91347a1a6cf2adf14ba65eb450158361`. [Pages run 44228067225](https://github.com/phalla-doll/ng-echarts/actions/runs/44228067225) succeeds. The [official deploy log](rc33/deployed/deploy.txt) rebuilds/checks clean pushed source and validates the unchanged receipt immediately before publishing; no dirty snapshot is promoted/restamped.
+
+[Deployment metadata](rc33/deployed/deployment.json), [exact marker bytes](rc33/deployed/preview-build.txt), [receipt bytes](rc33/deployed/preview-verification.txt) and [Pages workflow](rc33/deployed/pages-ci.json) identify this artifact. All **40 routes/148 files** pass local and [public three-engine verification](rc33/deployed/public-verification.txt). All **17 unchanged performance guards** and normal-motion navigation pass in the [clean build](rc33/deployed/performance.json). The separate [live graphical journey](rc33/deployed/live-controls.json) passes in Chromium, Firefox and WebKit: pending JS download/Escape, overview and horizontal detail commits to one shared window, native reset/focus and both complete deferred source examples. No browser errors are recorded.
+
+The completed Linux workspace job's independently downloaded archive is **174,489 bytes**, matches canonical rc.33 SHA-256 `5d0230b8b9fccdab7d3b32e846ca5bfb1780a9cb1094f2f21b006ebc4bf33735`, and matches all **73 members/12 declarations** ([comparison](rc33/deployed/ci-artifact-comparison.json), [CI manifest](rc33/deployed/ci-release-manifest.json)). Its [warm/two-clean Linux result](rc33/deployed/ci-reproducibility.json) matches macOS. All six required source CI jobs now pass after the dependency-only recovery recorded below.
+
+Receipt-only updates preserve deployed source `4fe085b`, static/seal above, immutable rc.33 and every earlier artifact. npm next remains rc.32/latest rc.18; no rc.33 upload is part of this delivery. Human gates remain pending.
+
+## Hosted CI dependency recovery
+
+[Source CI 44227710359](https://github.com/phalla-doll/ng-echarts/actions/runs/44227710359) attempt 1 passes workspace and all three browser jobs, including the separate WebKit horizontal probes. The hosted Pages job reaches its unchanged 15-minute job limit while Ubuntu browser dependencies are still downloading, before build/verification ([initial results](rc33/deployed/ci-attempt1.json), [installation log](rc33/deployed/pages-install-timeout.txt)). Its dependent aggregate check fails as required. Only that Pages job and its dependent check are rerun against the same exact source; no code, assertion, timeout, package or budget changes are made. Completed recovery results are recorded below.
+
+## Completed independent CI and final preservation
+
+[All six jobs in source CI 44227710359, attempt 2](https://github.com/phalla-doll/ng-echarts/actions/runs/44227710359) pass for deployed source `4fe085b6ce3eae9b0bb5c334520dd53fa9e7bec4`: **358 unit tests**, **611 browser passes/four expected skips**, two separately recorded WebKit horizontal probes, strict/documentation/native-baseline/enhanced-source/CSR/SSR consumers, warm/two-clean reproducibility, immutability and Pages/performance. The final [source CI receipt](rc33/deployed/source-ci.json), [workspace results](rc33/deployed/ci-workspace-summary.txt) and [browser totals](rc33/deployed/ci-browser-summary.txt) preserve actual outcomes. The initial Pages dependency timeout and unchanged-source recovery remain recorded above; no failed attempt is relabelled as passing.
+
+The canonical local/Linux archives match every byte, all 73 members and 12 declarations, including matching warm/two-clean macOS/Linux builds. Receipt-only updates preserve the already verified implementation, deployed source/static/seal, all package/archive bytes, npm next rc.32/latest rc.18 and pending human F09/R06/G2/G3/G4. No new package upload or second deployment accompanies these receipts.
+
+[Final preservation](rc33/deployed/final-preservation.json) verifies that implementation files still match deployed `4fe085b`, copied marker/receipt bytes match the sealed build, canonical rc.33 remains unchanged and all 114 prior records are preserved. The [Pages CI result lines](rc33/deployed/ci-pages-summary.txt) record the successful retry. [Raw deployed text evidence](rc33/deployed/raw-text-evidence.zip) preserves original logs; readable copies trim only trailing whitespace.

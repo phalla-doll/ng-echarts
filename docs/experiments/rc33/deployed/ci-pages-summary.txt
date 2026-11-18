@@ -1,0 +1,26 @@
+2026-11-18T03:21:51.5126433Z Sealed 148 Pages files; SHA-256 a2210b0906f3d82696e4c9ebc74a3c1e806d1a9679333682d6e13b3aac96bf86.
+2026-11-18T03:21:52.5113616Z Checking 148 sealed files from 4fe085b6ce3eae9b0bb5c334520dd53fa9e7bec4.
+2026-11-18T03:22:04.4311973Z PASS: chromium static routes, reloads, lazy charts/fonts, anchors, focus, themes and mobile navigation at http://127.0.0.1:41115/ng-echarts/
+2026-11-18T03:22:24.7714374Z PASS: firefox static routes, reloads, lazy charts/fonts, anchors, focus, themes and mobile navigation at http://127.0.0.1:41115/ng-echarts/
+2026-11-18T03:22:51.7227690Z PASS: webkit static routes, reloads, lazy charts/fonts, anchors, focus, themes and mobile navigation at http://127.0.0.1:41115/ng-echarts/
+2026-11-18T03:23:02.3071257Z /: 433 kB; 2937 ms first visible (mobile median of 3)
+2026-11-18T03:23:02.5867738Z line: 431 kB; 242 ms first visible
+2026-11-18T03:23:02.8374537Z area: 431 kB; 214 ms first visible
+2026-11-18T03:23:03.0678519Z pie: 427 kB; 196 ms first visible
+2026-11-18T03:23:03.3525603Z composed: 443 kB; 249 ms first visible
+2026-11-18T03:23:03.5697648Z radar: 377 kB; 185 ms first visible
+2026-11-18T03:23:03.7687966Z radial: 337 kB; 164 ms first visible
+2026-11-18T03:23:11.3719315Z calendar: 380 kB; 2493 ms first visible (mobile median of 3)
+2026-11-18T03:23:19.2728109Z sankey: 387 kB; 2578 ms first visible (mobile median of 3)
+2026-11-18T03:23:28.2386430Z linked: 449 kB; 2942 ms first visible (mobile median of 3)
+2026-11-18T03:23:28.4852838Z linked-dashboard: 409 kB; 210 ms first visible
+2026-11-18T03:23:37.2431338Z chart-possibilities: 442 kB; 2870 ms first visible (mobile median of 3)
+2026-11-18T03:23:37.3838448Z get-started: 233 kB; 108 ms first visible
+2026-11-18T03:23:42.7063774Z installation: 234 kB; 1731 ms first visible (mobile median of 3)
+2026-11-18T03:23:42.8494589Z components: 200 kB; 109 ms first visible
+2026-11-18T03:23:43.0673243Z formatting: 384 kB; 182 ms first visible
+2026-11-18T03:23:43.2994660Z playground: 389 kB; 196 ms first visible
+2026-11-18T03:24:09.0596134Z Line Blocks first navigation: 372 ms (normal motion)
+2026-11-18T03:24:09.0596761Z Pie & Donut Blocks first navigation: 346 ms (normal motion)
+2026-11-18T03:24:09.0597351Z Calendar Heatmap first navigation: 460 ms (normal motion)
+2026-11-18T03:24:09.0597921Z Sankey Flow first navigation: 382 ms (normal motion)

@@ -4,9 +4,28 @@ The demo is published from the root of the dedicated `gh-pages` branch at **http
 
 <a id="current-deployment--shared-dashboard-window"></a>
 
-## Current deployment — rc.32 payload cleanup
+## Current deployment — rc.33 graphical dashboard window
 
-The demo now uses the reviewed lifecycle/color cleanup, with original descriptor/theme validation preserved. npm next now selects **rc.32** and latest **rc.18**; local rc.33 interaction work remains unpublished. The [rc.32 publication](experiments/RC32_PUBLICATION.md) has separate exact registry/consumer receipts. The [cleanup delivery record](experiments/RC32_PAYLOAD_REVIEW.md#demo-delivery) separates these identities and keeps human release gates pending.
+The [visits dashboard](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) now accepts an armed contiguous month range from either overview or monthly device detail. Both update the existing application-owned window; From/To and native zoom/pan/reset remain equivalent. Both complete source viewers load on disclosure interaction. npm next is published rc.32/latest rc.18; the demo uses unpublished rc.33 source. Human gates remain deferred/pending.
+
+| Identity / check | Verified result |
+| --- | --- |
+| Clean pushed source | `4fe085b6ce3eae9b0bb5c334520dd53fa9e7bec4` |
+| Static commit | `fd7c4d80200817217ae98f9f4ae72d65f10fbbb3` |
+| Sealed SHA-256 | `7ee8e19e9f30a833dd5330485d92d19a91347a1a6cf2adf14ba65eb450158361` |
+| Pages workflow | [Succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/44228067225) |
+| Delivery-source CI | [All six jobs pass](https://github.com/phalla-doll/ng-echarts/actions/runs/44227710359), after a browser-dependency-only Pages rerun; 358 unit tests, 611 browser passes/four expected skips, exact consumers and reproducibility |
+| Local/public static checks | 40 routes/148 files; Chromium, Firefox and WebKit pass |
+| Performance | All 17 unchanged guards and normal-motion navigation pass; dashboard initial transfer is 408,879 bytes under its unchanged 455,000-byte cap |
+| Live graphical/source flows | Overview/detail range commit, pending-module Escape, native reset/focus and enhanced/native source panels pass all three engines |
+
+[Delivery record](experiments/RC33_GRAPHICAL_LINKING.md), [deployment](experiments/rc33/deployed/deployment.json), [marker](experiments/rc33/deployed/preview-build.txt), [receipt](experiments/rc33/deployed/preview-verification.txt), [public checks](experiments/rc33/deployed/public-verification.txt), [performance](experiments/rc33/deployed/performance.json) and [live flows](experiments/rc33/deployed/live-controls.json) retain actual evidence. The guarded deployment rebuilds clean pushed source; it does not promote/restamp a dirty local artifact. Receipt-only follow-ups preserve this identity, every archive and all human-gate statuses.
+
+<a id="current-deployment--rc32-payload-cleanup"></a>
+
+## Earlier deployment — rc.32 payload cleanup
+
+This earlier checkpoint delivers the lifecycle/color cleanup with original descriptor/theme validation preserved. The [cleanup delivery record](experiments/RC32_PAYLOAD_REVIEW.md#demo-delivery) owns its source/static identities; [subsequent rc.32 publication](experiments/RC32_PUBLICATION.md) has separate registry/consumer receipts. Human gates remain pending.
 
 | Identity / check | Verified result |
 | --- | --- |

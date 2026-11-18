@@ -1,0 +1,3 @@
+PASS: chromium live graphical/native windows, loading cancellation, source panels and focus.
+PASS: firefox live graphical/native windows, loading cancellation, source panels and focus.
+PASS: webkit live graphical/native windows, loading cancellation, source panels and focus.
