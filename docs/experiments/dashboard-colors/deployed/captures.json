@@ -1,0 +1,21 @@
+{
+  "method": "Public Pages, three-engine verification; live captures at 390/1440 px with reduced motion; themed header images ready; source pinned to c597797e4a0ccf05087f6490de6183131e403f18.",
+  "captures": [
+    {
+      "name": "dark-1440.png",
+      "sha256": "441b2403794c4e18c5ec5bb6e3c372306fd30c88f78431bb23e21fcb5a9c8ac5"
+    },
+    {
+      "name": "dark-390.png",
+      "sha256": "e5508fc4132a776dcb8d1a66a40531d3652bebbe27013dc3df27536d102175b3"
+    },
+    {
+      "name": "light-1440.png",
+      "sha256": "a436cc365929c2a935149f9f2adf5f389321ae35c8c65d1ef7413fd6e323362e"
+    },
+    {
+      "name": "light-390.png",
+      "sha256": "0b21200c6ab37e0e9cc5381620742c85004306515ab34fd0e66e73916d07e856"
+    }
+  ]
+}

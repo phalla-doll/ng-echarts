@@ -1,0 +1,31 @@
+2026-11-18T04:01:55.0368995Z ✔ an identical-file commit still makes an earlier artifact stale (104.998422ms)
+2026-11-18T04:02:41.7379825Z PASS: warm and two independent clean 0.1.0-rc.33 packages match 5d0230b8b9fccdab7d3b32e846ca5bfb1780a9cb1094f2f21b006ebc4bf33735.
+2026-11-18T04:03:01.4662390Z  Test Files  49 passed (49)
+2026-11-18T04:03:01.4663699Z       Tests  338 passed (338)
+2026-11-18T04:03:08.4354135Z  Test Files  7 passed (7)
+2026-11-18T04:03:08.4355484Z       Tests  20 passed (20)
+2026-11-18T04:03:21.4228037Z PASS: packed library and ECharts declarations compile in isolation; invalid keys and formatters/options are rejected (skipLibCheck=false).
+2026-11-18T04:04:12.9980037Z PASS: documented installation and full application build, render and hydrate in all three engines.
+2026-11-18T04:04:57.5022430Z PASS: documented installation and full application build, render and hydrate in all three engines.
+2026-11-18T04:05:44.5186394Z PASS: documented installation and full application build, render and hydrate in all three engines.
+2026-11-18T04:05:45.7026547Z PASS: production SSR returns library markup and hydration metadata. Browser hydration remains a separate check.
+2026-11-18T04:08:03.1897448Z PASS: independently installed tarball builds and runs in client and SSR/hydration applications across all three engines.
+2026-11-18T04:08:05.8804900Z PASS: bar 186893 gzip / 159494 Brotli bytes; 13107 gzip / 15506 Brotli headroom; 232 engine modules, none eager.
+2026-11-18T04:08:07.1398663Z PASS: line 186591 gzip / 159086 Brotli bytes; 13409 gzip / 15914 Brotli headroom; 230 engine modules, none eager.
+2026-11-18T04:08:08.3506471Z PASS: area 187105 gzip / 159751 Brotli bytes; 12895 gzip / 15249 Brotli headroom; 230 engine modules, none eager.
+2026-11-18T04:08:09.6276396Z PASS: composed 196461 gzip / 167247 Brotli bytes; 3539 gzip / 7753 Brotli headroom; 242 engine modules, none eager.
+2026-11-18T04:08:10.7376562Z PASS: pie 163111 gzip / 139636 Brotli bytes; 36889 gzip / 35364 Brotli headroom; 199 engine modules, none eager.
+2026-11-18T04:08:11.8372344Z PASS: radar 167965 gzip / 143996 Brotli bytes; 32035 gzip / 31004 Brotli headroom; 210 engine modules, none eager.
+2026-11-18T04:08:12.9953489Z PASS: calendar 173740 gzip / 148718 Brotli bytes; 26260 gzip / 26282 Brotli headroom; 213 engine modules, none eager.
+2026-11-18T04:08:14.1109967Z PASS: sankey 171077 gzip / 146284 Brotli bytes; 28923 gzip / 28716 Brotli headroom; 205 engine modules, none eager.
+2026-11-18T04:08:14.9341098Z PASS: radial 133699 gzip / 114582 Brotli bytes; 66301 gzip / 60418 Brotli headroom; 164 engine modules, none eager.
+2026-11-18T04:08:15.0260267Z PASS: core 8697 gzip / 7673 Brotli bytes; 1303 gzip / 1327 Brotli headroom; 0 engine modules, none eager.
+2026-11-18T04:08:15.6467234Z PASS: interaction 101341 gzip / 87314 Brotli bytes; 8659 gzip / 7686 Brotli headroom; 138 engine modules, none eager.
+2026-11-18T04:08:16.8946871Z PASS: composed-interaction 202117 gzip / 174761 Brotli bytes; 344 gzip / 486 Brotli headroom; 242 engine modules, none eager.
+2026-11-18T04:08:18.3579753Z PASS: root 221007 gzip / 188935 Brotli bytes; 993 gzip / 1065 Brotli headroom; 253 engine modules, none eager.
+2026-11-18T04:08:19.6931778Z PASS: root-frame 202907 gzip / 174950 Brotli bytes; 3093 gzip / 3050 Brotli headroom; 253 engine modules, none eager.
+2026-11-18T04:08:44.1337809Z PASS: packed library and ECharts declarations compile in isolation; invalid keys and formatters/options are rejected (skipLibCheck=false).
+2026-11-18T04:09:25.7565670Z PASS: documented installation and full application build, render and hydrate in all three engines.
+2026-11-18T04:11:38.4405616Z PASS: independently installed tarball builds and runs in client and SSR/hydration applications across all three engines.
+2026-11-18T04:11:40.0096947Z PASS: exact mantha911-ng-echarts-0.1.0-rc.33.tgz metadata/notices, strict declarations, fresh docs and three-engine CSR/SSR consumers. Human release gates remain pending.
+2026-11-18T04:11:41.4368129Z PASS: repeated preparation refuses to replace the archive, checksum or manifest.

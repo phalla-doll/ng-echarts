@@ -1,0 +1,10 @@
+{
+  "runId": 44234286678,
+  "sourceCommit": "c597797e4a0ccf05087f6490de6183131e403f18",
+  "bytes": 174489,
+  "sha256": "5d0230b8b9fccdab7d3b32e846ca5bfb1780a9cb1094f2f21b006ebc4bf33735",
+  "archiveMatchesCanonical": true,
+  "identicalPackageMembers": 73,
+  "identicalDeclarations": 12,
+  "passed": true
+}

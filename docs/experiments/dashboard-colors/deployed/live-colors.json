@@ -1,0 +1,346 @@
+{
+  "checkedAt": "2026-11-18T04:10:11.014Z",
+  "url": "https://phalla-doll.github.io/ng-echarts/linked-dashboard/",
+  "sourceCommit": "c597797e4a0ccf05087f6490de6183131e403f18",
+  "artifactSha256": "7988f252791282c84fdc9f311d0a34f5819861e4e6984634c6d907e9371ea507",
+  "cases": 24,
+  "results": [
+    {
+      "engine": "chromium",
+      "siteTheme": "light",
+      "dashboardTheme": "light",
+      "width": 1440,
+      "surface": "rgb(255, 255, 255)",
+      "palette": [
+        [47, 138, 120],
+        [117, 136, 188],
+        [181, 133, 58]
+      ],
+      "paintedSeriesPixels": 20800,
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "siteTheme": "light",
+      "dashboardTheme": "light",
+      "width": 390,
+      "surface": "rgb(255, 255, 255)",
+      "palette": [
+        [47, 138, 120],
+        [117, 136, 188],
+        [181, 133, 58]
+      ],
+      "paintedSeriesPixels": 16812,
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "siteTheme": "light",
+      "dashboardTheme": "dark",
+      "width": 1440,
+      "surface": "rgb(17, 17, 17)",
+      "palette": [
+        [82, 183, 161],
+        [150, 166, 207],
+        [214, 183, 126]
+      ],
+      "paintedSeriesPixels": 20800,
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "siteTheme": "light",
+      "dashboardTheme": "dark",
+      "width": 390,
+      "surface": "rgb(17, 17, 17)",
+      "palette": [
+        [82, 183, 161],
+        [150, 166, 207],
+        [214, 183, 126]
+      ],
+      "paintedSeriesPixels": 17512,
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "siteTheme": "dark",
+      "dashboardTheme": "light",
+      "width": 1440,
+      "surface": "rgb(255, 255, 255)",
+      "palette": [
+        [47, 138, 120],
+        [117, 136, 188],
+        [181, 133, 58]
+      ],
+      "paintedSeriesPixels": 20800,
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "siteTheme": "dark",
+      "dashboardTheme": "light",
+      "width": 390,
+      "surface": "rgb(255, 255, 255)",
+      "palette": [
+        [47, 138, 120],
+        [117, 136, 188],
+        [181, 133, 58]
+      ],
+      "paintedSeriesPixels": 16812,
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "siteTheme": "dark",
+      "dashboardTheme": "dark",
+      "width": 1440,
+      "surface": "rgb(17, 17, 17)",
+      "palette": [
+        [82, 183, 161],
+        [150, 166, 207],
+        [214, 183, 126]
+      ],
+      "paintedSeriesPixels": 20800,
+      "passed": true
+    },
+    {
+      "engine": "chromium",
+      "siteTheme": "dark",
+      "dashboardTheme": "dark",
+      "width": 390,
+      "surface": "rgb(17, 17, 17)",
+      "palette": [
+        [82, 183, 161],
+        [150, 166, 207],
+        [214, 183, 126]
+      ],
+      "paintedSeriesPixels": 16812,
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "siteTheme": "light",
+      "dashboardTheme": "light",
+      "width": 1440,
+      "surface": "rgb(255, 255, 255)",
+      "palette": [
+        [47, 138, 120],
+        [117, 136, 188],
+        [181, 133, 58]
+      ],
+      "paintedSeriesPixels": 20638,
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "siteTheme": "light",
+      "dashboardTheme": "light",
+      "width": 390,
+      "surface": "rgb(255, 255, 255)",
+      "palette": [
+        [47, 138, 120],
+        [117, 136, 188],
+        [181, 133, 58]
+      ],
+      "paintedSeriesPixels": 16682,
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "siteTheme": "light",
+      "dashboardTheme": "dark",
+      "width": 1440,
+      "surface": "rgb(17, 17, 17)",
+      "palette": [
+        [82, 183, 161],
+        [150, 166, 207],
+        [214, 183, 126]
+      ],
+      "paintedSeriesPixels": 20638,
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "siteTheme": "light",
+      "dashboardTheme": "dark",
+      "width": 390,
+      "surface": "rgb(17, 17, 17)",
+      "palette": [
+        [82, 183, 161],
+        [150, 166, 207],
+        [214, 183, 126]
+      ],
+      "paintedSeriesPixels": 16682,
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "siteTheme": "dark",
+      "dashboardTheme": "light",
+      "width": 1440,
+      "surface": "rgb(255, 255, 255)",
+      "palette": [
+        [47, 138, 120],
+        [117, 136, 188],
+        [181, 133, 58]
+      ],
+      "paintedSeriesPixels": 20638,
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "siteTheme": "dark",
+      "dashboardTheme": "light",
+      "width": 390,
+      "surface": "rgb(255, 255, 255)",
+      "palette": [
+        [47, 138, 120],
+        [117, 136, 188],
+        [181, 133, 58]
+      ],
+      "paintedSeriesPixels": 16682,
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "siteTheme": "dark",
+      "dashboardTheme": "dark",
+      "width": 1440,
+      "surface": "rgb(17, 17, 17)",
+      "palette": [
+        [82, 183, 161],
+        [150, 166, 207],
+        [214, 183, 126]
+      ],
+      "paintedSeriesPixels": 20638,
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "siteTheme": "dark",
+      "dashboardTheme": "dark",
+      "width": 390,
+      "surface": "rgb(17, 17, 17)",
+      "palette": [
+        [82, 183, 161],
+        [150, 166, 207],
+        [214, 183, 126]
+      ],
+      "paintedSeriesPixels": 16682,
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "siteTheme": "light",
+      "dashboardTheme": "light",
+      "width": 1440,
+      "surface": "rgb(255, 255, 255)",
+      "palette": [
+        [47, 138, 120],
+        [117, 136, 188],
+        [181, 133, 58]
+      ],
+      "paintedSeriesPixels": 20801,
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "siteTheme": "light",
+      "dashboardTheme": "light",
+      "width": 390,
+      "surface": "rgb(255, 255, 255)",
+      "palette": [
+        [47, 138, 120],
+        [117, 136, 188],
+        [181, 133, 58]
+      ],
+      "paintedSeriesPixels": 17514,
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "siteTheme": "light",
+      "dashboardTheme": "dark",
+      "width": 1440,
+      "surface": "rgb(17, 17, 17)",
+      "palette": [
+        [82, 183, 161],
+        [150, 166, 207],
+        [214, 183, 126]
+      ],
+      "paintedSeriesPixels": 20801,
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "siteTheme": "light",
+      "dashboardTheme": "dark",
+      "width": 390,
+      "surface": "rgb(17, 17, 17)",
+      "palette": [
+        [82, 183, 161],
+        [150, 166, 207],
+        [214, 183, 126]
+      ],
+      "paintedSeriesPixels": 17514,
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "siteTheme": "dark",
+      "dashboardTheme": "light",
+      "width": 1440,
+      "surface": "rgb(255, 255, 255)",
+      "palette": [
+        [47, 138, 120],
+        [117, 136, 188],
+        [181, 133, 58]
+      ],
+      "paintedSeriesPixels": 20801,
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "siteTheme": "dark",
+      "dashboardTheme": "light",
+      "width": 390,
+      "surface": "rgb(255, 255, 255)",
+      "palette": [
+        [47, 138, 120],
+        [117, 136, 188],
+        [181, 133, 58]
+      ],
+      "paintedSeriesPixels": 17514,
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "siteTheme": "dark",
+      "dashboardTheme": "dark",
+      "width": 1440,
+      "surface": "rgb(17, 17, 17)",
+      "palette": [
+        [82, 183, 161],
+        [150, 166, 207],
+        [214, 183, 126]
+      ],
+      "paintedSeriesPixels": 20801,
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "siteTheme": "dark",
+      "dashboardTheme": "dark",
+      "width": 390,
+      "surface": "rgb(17, 17, 17)",
+      "palette": [
+        [82, 183, 161],
+        [150, 166, 207],
+        [214, 183, 126]
+      ],
+      "paintedSeriesPixels": 17514,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

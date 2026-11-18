@@ -1,0 +1,4 @@
+2026-11-18T04:01:48.3718106Z   2 passed (14.7s)
+2026-11-18T04:06:54.6986285Z   ✓   71 [webkit] › tests/browser/customization-controls.spec.ts:181:1 › keeps dashboard surfaces neutral and fields readable with independent themes (1.7s)
+2026-11-18T04:14:43.3326668Z   2 skipped
+2026-11-18T04:14:43.3327034Z   203 passed (12.9m)

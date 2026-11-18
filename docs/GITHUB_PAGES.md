@@ -2,9 +2,28 @@
 
 The demo is published from the root of the dedicated `gh-pages` branch at **https://phalla-doll.github.io/ng-echarts/**. Source and deployment are separate commits. Publication requires a clean, pushed `main` source, an unchanged sealed artifact and successful local checks in all three browsers.
 
+<a id="current-deployment--dashboard-colors"></a>
+
+## Current deployment — dashboard color refinement
+
+The [visits dashboard](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) now matches the neutral site palette, with charcoal dark surfaces, gray supporting text and borders, softer teal/blue/gold series and one outline per chart. Its independent theme and both displayed standalone examples are preserved. The demo still uses unpublished rc.33 source; npm next remains rc.32/latest rc.18 and human gates remain pending.
+
+| Identity / check | Verified result |
+| --- | --- |
+| Clean pushed source | `c597797e4a0ccf05087f6490de6183131e403f18` |
+| Static commit | `7199379c4a1f4f5d68296a9132c0bf06512dec86` |
+| Sealed SHA-256 | `7988f252791282c84fdc9f311d0a34f5819861e4e6984634c6d907e9371ea507` |
+| Pages workflow | [Succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/44234543474) |
+| Delivery-source CI | [All six jobs pass](https://github.com/phalla-doll/ng-echarts/actions/runs/44234286678): 358 unit tests, 611 browser passes/four expected skips, exact consumers and reproducibility |
+| Local/public static checks | 40 routes/148 files; Chromium, Firefox and WebKit pass |
+| Performance | All 17 unchanged guards and normal-motion navigation pass; dashboard initial transfer is 408,960 bytes under its unchanged 455,000-byte cap |
+| Live colors | All 24 site-theme/dashboard-theme/width cases pass in three engines, including actual series paint and single frame outlines |
+
+[Review and delivery evidence](experiments/DASHBOARD_COLORS.md#demo-delivery) retain source/static identities, exact public marker/receipt, live captures, performance and public checks. Receipt-only follow-ups preserve this deployed identity and every package archive.
+
 <a id="current-deployment--shared-dashboard-window"></a>
 
-## Current deployment — rc.33 graphical dashboard window
+## Earlier deployment — rc.33 graphical dashboard window
 
 The [visits dashboard](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) now accepts an armed contiguous month range from either overview or monthly device detail. Both update the existing application-owned window; From/To and native zoom/pan/reset remain equivalent. Both complete source viewers load on disclosure interaction. npm next is published rc.32/latest rc.18; the demo uses unpublished rc.33 source. Human gates remain deferred/pending.
 

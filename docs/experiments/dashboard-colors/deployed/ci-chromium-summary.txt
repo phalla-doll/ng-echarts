@@ -1,0 +1,2 @@
+2026-11-18T04:04:09.4986203Z   ✓   71 [chromium] › tests/browser/customization-controls.spec.ts:181:1 › keeps dashboard surfaces neutral and fields readable with independent themes (1.2s)
+2026-11-18T04:08:50.4193298Z   205 passed (7.5m)
