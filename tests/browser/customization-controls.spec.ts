@@ -178,7 +178,9 @@ test('keeps native disclosure and form controls usable before JavaScript loads',
   await context.close();
 });
 
-test('keeps dashboard fields readable when its theme differs from the site', async ({ page }) => {
+test('keeps dashboard surfaces neutral and fields readable with independent themes', async ({
+  page,
+}) => {
   const errors = collectBrowserErrors(page);
   await page.goto('/linked-dashboard');
   const dashboard = page.locator('app-composed-dashboard');
@@ -196,6 +198,20 @@ test('keeps dashboard fields readable when its theme differs from the site', asy
         'background-color',
         theme === 'light' ? 'rgb(243, 243, 243)' : 'rgb(23, 23, 23)',
       );
+      const surface = theme === 'light' ? 'rgb(255, 255, 255)' : 'rgb(17, 17, 17)';
+      await expect(dashboard.locator('.dashboard-controls')).toHaveCSS('background-color', surface);
+      await expect(dashboard.locator('.dashboard-window-controls')).toHaveCSS(
+        'background-color',
+        surface,
+      );
+      for (const frame of await dashboard.locator('.chart-frame').all()) {
+        await expect(frame).toHaveCSS('background-color', surface);
+        await expect(frame).toHaveCSS('border-top-width', '1px');
+      }
+      // ChartFrame owns the single outline; the grid children must not add another one.
+      for (const chart of await dashboard.locator('.dashboard-pair > *').all()) {
+        await expect(chart).toHaveCSS('border-top-width', '0px');
+      }
       // Measure the actual select foreground against its painted label/hover background.
       for (const hover of [false, true]) {
         if (hover) await month.hover();

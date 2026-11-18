@@ -67,7 +67,7 @@ export async function verifyDashboard(page) {
   if ((await darkTheme.getAttribute('aria-pressed')) !== 'true') await darkTheme.click();
   await expect(dashboard.locator('.chart-frame').first()).toHaveCSS(
     'background-color',
-    'rgb(24, 32, 44)',
+    'rgb(17, 17, 17)',
   );
   await darkTheme.click();
   await expect(dashboard.locator('.chart-frame').first()).toHaveCSS(

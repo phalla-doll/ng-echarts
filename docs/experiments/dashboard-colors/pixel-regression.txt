@@ -1,0 +1,46 @@
+[WebServer] (node:99729) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 33 tests using 1 worker
+
+(node:99736) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/browser/bar-chart.spec.ts:22:1 › hydrates one chart and emits equivalent pointer and keyboard table selections (488ms)
+  ✓   2 [chromium] › tests/browser/comparison.spec.ts:53:1 › hydrates formatted ticks, retains full tooltip/table labels, and recovers formatter errors (743ms)
+  ✓   3 [chromium] › tests/browser/composed-axes.spec.ts:5:1 › keeps dual-axis native values, labels, identities and errors coherent through replacement (1.0s)
+  ✓   4 [chromium] › tests/browser/composed-axes.spec.ts:103:1 › renders independent-scale examples with correct summaries and copyable source in both themes (858ms)
+  ✓   5 [chromium] › tests/browser/composed-chart.spec.ts:39:1 › selects raw observations from a real area interior and clears fill/stack state across kind changes (765ms)
+  ✓   6 [chromium] › tests/browser/composed-chart.spec.ts:289:1 › selects real bars and whole lines, preserves zeros/gaps, and retains hidden identities through kind changes (806ms)
+  ✓   7 [chromium] › tests/browser/linked-charts.spec.ts:5:1 › hydrates linked charts and connects real plot clicks, keyboard values and a native month selector (711ms)
+  ✓   8 [chromium] › tests/browser/linked-charts.spec.ts:247:1 › keeps the selected category visible with zero, missing and hidden measures and moves it by row ID (838ms)
+  ✓   9 [chromium] › tests/browser/linked-charts.spec.ts:276:1 › links an inclusive range with keyboard bounds, painted selection and equivalent single-point actions (671ms)
+  ✓  10 [chromium] › tests/browser/linked-preview.spec.ts:44:1 › offers keyboard previews, restores the selected range on blur, and cancels stale context (515ms)
+  ✓  11 [chromium] › tests/browser/value-formatting.spec.ts:11:1 › shares locale, currency, and custom numeric text across axis, tooltip, table, and raw events (785ms)
+(node:99866) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  12 [firefox] › tests/browser/bar-chart.spec.ts:22:1 › hydrates one chart and emits equivalent pointer and keyboard table selections (1.3s)
+  ✓  13 [firefox] › tests/browser/comparison.spec.ts:53:1 › hydrates formatted ticks, retains full tooltip/table labels, and recovers formatter errors (994ms)
+  ✓  14 [firefox] › tests/browser/composed-axes.spec.ts:5:1 › keeps dual-axis native values, labels, identities and errors coherent through replacement (782ms)
+  ✓  15 [firefox] › tests/browser/composed-axes.spec.ts:103:1 › renders independent-scale examples with correct summaries and copyable source in both themes (1.1s)
+  ✓  16 [firefox] › tests/browser/composed-chart.spec.ts:39:1 › selects raw observations from a real area interior and clears fill/stack state across kind changes (755ms)
+  ✓  17 [firefox] › tests/browser/composed-chart.spec.ts:289:1 › selects real bars and whole lines, preserves zeros/gaps, and retains hidden identities through kind changes (724ms)
+  ✓  18 [firefox] › tests/browser/linked-charts.spec.ts:5:1 › hydrates linked charts and connects real plot clicks, keyboard values and a native month selector (931ms)
+  ✓  19 [firefox] › tests/browser/linked-charts.spec.ts:247:1 › keeps the selected category visible with zero, missing and hidden measures and moves it by row ID (863ms)
+  ✓  20 [firefox] › tests/browser/linked-charts.spec.ts:276:1 › links an inclusive range with keyboard bounds, painted selection and equivalent single-point actions (672ms)
+  ✓  21 [firefox] › tests/browser/linked-preview.spec.ts:44:1 › offers keyboard previews, restores the selected range on blur, and cancels stale context (1.3s)
+  ✓  22 [firefox] › tests/browser/value-formatting.spec.ts:11:1 › shares locale, currency, and custom numeric text across axis, tooltip, table, and raw events (670ms)
+(node:99944) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  23 [webkit] › tests/browser/bar-chart.spec.ts:22:1 › hydrates one chart and emits equivalent pointer and keyboard table selections (705ms)
+  ✓  24 [webkit] › tests/browser/comparison.spec.ts:53:1 › hydrates formatted ticks, retains full tooltip/table labels, and recovers formatter errors (850ms)
+  ✓  25 [webkit] › tests/browser/composed-axes.spec.ts:5:1 › keeps dual-axis native values, labels, identities and errors coherent through replacement (935ms)
+  ✓  26 [webkit] › tests/browser/composed-axes.spec.ts:103:1 › renders independent-scale examples with correct summaries and copyable source in both themes (1.1s)
+  ✓  27 [webkit] › tests/browser/composed-chart.spec.ts:39:1 › selects raw observations from a real area interior and clears fill/stack state across kind changes (1.0s)
+  ✓  28 [webkit] › tests/browser/composed-chart.spec.ts:289:1 › selects real bars and whole lines, preserves zeros/gaps, and retains hidden identities through kind changes (890ms)
+  ✓  29 [webkit] › tests/browser/linked-charts.spec.ts:5:1 › hydrates linked charts and connects real plot clicks, keyboard values and a native month selector (854ms)
+  ✓  30 [webkit] › tests/browser/linked-charts.spec.ts:247:1 › keeps the selected category visible with zero, missing and hidden measures and moves it by row ID (1.2s)
+  ✓  31 [webkit] › tests/browser/linked-charts.spec.ts:276:1 › links an inclusive range with keyboard bounds, painted selection and equivalent single-point actions (716ms)
+  ✓  32 [webkit] › tests/browser/linked-preview.spec.ts:44:1 › offers keyboard previews, restores the selected range on blur, and cancels stale context (714ms)
+  ✓  33 [webkit] › tests/browser/value-formatting.spec.ts:11:1 › shares locale, currency, and custom numeric text across axis, tooltip, table, and raw events (827ms)
+
+  33 passed (30.9s)

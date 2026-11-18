@@ -317,21 +317,27 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
       min-width: 0;
       container: dashboard / inline-size;
       --nec-background: var(--site-bg, #fff);
-      --nec-text: var(--site-text, #18202c);
-      --nec-muted: var(--site-muted, #536176);
-      --nec-border: var(--site-border, #d6dce5);
+      --nec-text: var(--site-text, #171717);
+      --nec-muted: var(--site-muted, #6b6b6b);
+      --nec-border: var(--site-border, #e5e5e5);
     }
     :host([data-theme='light']) {
       --site-bg: #fff;
-      --site-text: #18202c;
-      --site-muted: #536176;
-      --site-border: #d6dce5;
+      --site-text: #171717;
+      --site-muted: #6b6b6b;
+      --site-border: #e5e5e5;
+      --nec-series-1: #2f8a78;
+      --nec-series-2: #7588bc;
+      --nec-series-3: #b5853a;
     }
     :host([data-theme='dark']) {
-      --site-bg: #18202c;
-      --site-text: #edf2fa;
-      --site-muted: #b2bfd2;
-      --site-border: #3b4a61;
+      --site-bg: #111;
+      --site-text: #f5f5f5;
+      --site-muted: #a3a3a3;
+      --site-border: #292929;
+      --nec-series-1: #52b7a1;
+      --nec-series-2: #96a6cf;
+      --nec-series-3: #d6b77e;
     }
     /* Standalone defaults yield to the demo shell's shared control layout. */
     :where(.dashboard-window-controls) {
@@ -341,7 +347,7 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
       gap: 12px 20px;
       margin: 0;
       padding: 16px;
-      border: 1px solid var(--site-border, #d6dce5);
+      border: 1px solid var(--site-border, #e5e5e5);
       border-radius: 8px;
       min-width: 0;
     }
@@ -362,12 +368,12 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
     .dashboard-window {
       font-size: 13px;
       line-height: 1.6;
-      color: var(--site-muted, #536176);
+      color: var(--site-muted, #6b6b6b);
     }
     .dashboard-range-help {
       font-size: 13px;
       line-height: 1.6;
-      color: var(--site-text, #18202c);
+      color: var(--site-text, #171717);
     }
     :where(.dashboard-controls) {
       display: flex;
@@ -379,7 +385,7 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
       display: grid;
       gap: 6px;
       font-size: 13px;
-      color: var(--site-muted, #536176);
+      color: var(--site-muted, #6b6b6b);
     }
     select,
     button {
@@ -387,21 +393,21 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
       max-width: 100%;
       padding: 8px 12px;
       font: inherit;
-      border: 1px solid var(--site-border, #d6dce5);
+      border: 1px solid var(--site-border, #e5e5e5);
       border-radius: 6px;
-      color: var(--site-text, #18202c);
+      color: var(--site-text, #171717);
       background: var(--site-bg, #fff);
       cursor: pointer;
     }
     select:focus-visible,
     button:focus-visible {
-      outline: 2px solid #2563eb;
+      outline: 2px solid var(--site-muted, #6b6b6b);
       outline-offset: 3px;
     }
     .dashboard-context {
       margin: 20px 0;
       font-size: 14px;
-      color: var(--site-text, #18202c);
+      color: var(--site-text, #171717);
     }
     .dashboard-pair {
       display: grid;
@@ -409,14 +415,12 @@ export function dashboardBreakdown(data: readonly DashboardMonth[]) {
     }
     .dashboard-pair > * {
       min-width: 0;
-      border: 1px solid var(--site-border, #d6dce5);
-      border-radius: 8px;
     }
     .dashboard-missing,
     .dashboard-action {
       font-size: 13px;
       line-height: 1.6;
-      color: var(--site-muted, #536176);
+      color: var(--site-muted, #6b6b6b);
     }
     .dashboard-action {
       min-height: 21px;

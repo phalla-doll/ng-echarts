@@ -1,0 +1,31 @@
+{
+  "recordedAt": "2026-11-18T03:42:04.474248+00:00",
+  "before": "Deployed source 4fe085b6ce3eae9b0bb5c334520dd53fa9e7bec4, 1440 px, dark theme.",
+  "after": "Local production SSR build; Chromium via scoped agent-browser; dark/light at 1440 and 390 px, plus dark area presentation.",
+  "captures": [
+    {
+      "name": "after-dark-1440.png",
+      "sha256": "3181993a81cf88d3b89c6eb069bf5ece072bb417e57e422e52d064487215e8c6"
+    },
+    {
+      "name": "after-dark-390.png",
+      "sha256": "4e6e87615218d1444f71b5a79c7405f01a3b71846e890c6bfe14e1484167430d"
+    },
+    {
+      "name": "after-dark-area-1440.png",
+      "sha256": "3c0c25610302337af8b1a7d1da2eb9523c62bd2e94fc016891e3d28d6e880a57"
+    },
+    {
+      "name": "after-light-1440.png",
+      "sha256": "41940fb17efd6ec005e475fe8cc14d209ba549162554a1f182cbb83c753f706b"
+    },
+    {
+      "name": "after-light-390.png",
+      "sha256": "ee741e00aff4306a9ee9864b98fe71dfc58219bdb27e836015983cc23ccafecd"
+    },
+    {
+      "name": "before-dark-1440.png",
+      "sha256": "1507fc93bff78cf7df489deb0bcdf0832c17c4002ba5d4d577a28decf117a87a"
+    }
+  ]
+}

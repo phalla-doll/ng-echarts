@@ -36,7 +36,7 @@ const sample: readonly DashboardMonth[] = [
     :host {
       display: block;
       font-family: system-ui, sans-serif;
-      color: var(--site-text, #18202c);
+      color: var(--site-text, #171717);
     }
     main {
       max-width: 1180px;
@@ -48,6 +48,7 @@ const sample: readonly DashboardMonth[] = [
       font-weight: 500;
     }
     p {
+      color: var(--site-muted, #6b6b6b);
       line-height: 1.6;
     }
     .controls {
@@ -60,14 +61,14 @@ const sample: readonly DashboardMonth[] = [
       min-height: 40px;
       padding: 8px 12px;
       font: inherit;
-      color: var(--site-text, #18202c);
+      color: var(--site-text, #171717);
       background: var(--site-bg, white);
-      border: 1px solid var(--site-border, #d6dce5);
+      border: 1px solid var(--site-border, #e5e5e5);
       border-radius: 6px;
       cursor: pointer;
     }
     button:focus-visible {
-      outline: 2px solid #2563eb;
+      outline: 2px solid var(--site-muted, #6b6b6b);
       outline-offset: 3px;
     }
   `,

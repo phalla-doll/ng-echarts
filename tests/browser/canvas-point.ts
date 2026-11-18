@@ -72,9 +72,14 @@ export async function selectionBandCenter(chart: Locator): Promise<number | null
 
 export async function firstGreenBarPoint(canvas: Locator): Promise<{ x: number; y: number }> {
   await canvas.scrollIntoViewIfNeeded();
-  // Find an interior pixel in the first green bar; avoid private ECharts APIs or debug globals.
+  // Find an interior pixel in the first series; honor its painted palette without private APIs.
   return canvas.evaluate((element: HTMLCanvasElement) => {
     const context = element.getContext('2d', { willReadFrequently: true })!;
+    const swatch = element.closest('nec-chart-frame')!.querySelector('.swatch')!;
+    const probe = document.createElement('canvas').getContext('2d')!;
+    probe.fillStyle = getComputedStyle(swatch).backgroundColor;
+    probe.fillRect(0, 0, 1, 1);
+    const target = probe.getImageData(0, 0, 1, 1).data;
     const pixels = context.getImageData(0, 0, element.width, element.height).data;
     // WebKit dithers even a constant-color gradient stop by one channel value.
     // Keep that paint connected without accepting translucent context bars.
@@ -82,13 +87,13 @@ export async function firstGreenBarPoint(canvas: Locator): Promise<{ x: number; 
       Math.abs(pixels[offset]! - r) <= 2 &&
       Math.abs(pixels[offset + 1]! - g) <= 2 &&
       Math.abs(pixels[offset + 2]! - b) <= 2;
-    const isGreen = (offset: number): boolean =>
-      pixels[offset + 3] === 255 && (matches(offset, 4, 120, 87) || matches(offset, 16, 185, 129));
+    const isSeriesColor = (offset: number): boolean =>
+      pixels[offset + 3] === 255 && matches(offset, target[0]!, target[1]!, target[2]!);
     for (let x = 0; x < element.width - 4; x++) {
       const ys: number[] = [];
       for (let y = 0; y < element.height; y++) {
         const offset = (y * element.width + x + 3) * 4;
-        if (isGreen(offset)) ys.push(y);
+        if (isSeriesColor(offset)) ys.push(y);
       }
       if (ys.length > 8) {
         const rect = element.getBoundingClientRect();
@@ -115,7 +120,7 @@ export async function firstGreenBarPoint(canvas: Locator): Promise<{ x: number; 
             ...(py + 1 < element.height ? [pixel + element.width] : []),
           ];
           for (const neighbor of neighbors) {
-            if (!visited.has(neighbor) && isGreen(neighbor * 4)) {
+            if (!visited.has(neighbor) && isSeriesColor(neighbor * 4)) {
               visited.add(neighbor);
               pending.push(neighbor);
             }
@@ -127,6 +132,6 @@ export async function firstGreenBarPoint(canvas: Locator): Promise<{ x: number; 
         };
       }
     }
-    throw new Error('First green bar was not painted');
+    throw new Error('First series bar was not painted');
   });
 }
