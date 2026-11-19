@@ -1,6 +1,6 @@
 # Public package publication and verification (NG22)
 
-Status: `@mantha911/ng-echarts@0.1.0-rc.32` is published on npm under `next`; `latest` retains rc.18. The [rc.32 publication](#rc32-oidc-publication) records exact bytes and passing verification-only fresh registry consumers after the successful upload’s metadata wait timed out. Local rc.33 adds optional graphical dashboard ranges and remains unpublished. Human F09/R06/G2/G3/G4 remain pending under the user’s continued prerelease deferral. Preserve every archive.
+Status: `@mantha911/ng-echarts@0.1.0-rc.32` is published on npm under `next`; `latest` retains rc.18. The [rc.32 publication](#rc32-oidc-publication) records exact bytes and passing verification-only fresh registry consumers after the successful upload’s metadata wait timed out. Local rc.33 adds optional graphical dashboard ranges and remains unpublished. The [release checklist](RELEASE_CHECKLIST.md#remaining-release-decisions) records the 19 November human review result and gate status. Preserve every archive.
 
 The [packaged documentation errata](PACKAGED_DOCUMENTATION_ERRATA.md) correct historical availability statements without rewriting published rc.28 or the sealed rc.29 candidate. Repository/demo documentation corrections do not change npm tags or package bytes.
 

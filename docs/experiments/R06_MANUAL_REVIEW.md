@@ -1,10 +1,10 @@
 # R06 screen-reader review
 
-Status: human listening review deferred at the user’s request on 12 November 2026; no listening result is recorded. Chart: bar. Task: NG06. Requirements: F05, F08, F09. Gate: G2.
+Status: pass by [user attestation on 19 November 2026](RC20_HUMAN_REVIEW.md). Chart: bar. Task: NG06. Requirements: F05, F08, F09. Gate: G2.
 
 The [R&D plan](../RND_PLAN.md#research-experiments) requires a sample to be read with a screen reader. Automated accessibility-tree, keyboard, focus, and motion checks support this review but cannot record a human listening result.
 
-Use the [rc.17 result sheet](RC17_HUMAN_REVIEW.md) to record the tested identity and per-family outcomes. It contains no completed listening results.
+The [current result sheet](RC20_HUMAN_REVIEW.md) records the full-review result. The [rc.17 result sheet](RC17_HUMAN_REVIEW.md) preserves the earlier checkpoint.
 
 ## Reproduce
 
@@ -21,7 +21,7 @@ Use Node from `.nvmrc`, run `npm run build:lib` and `npm start -- --host 127.0.0
 
 ## Record a result
 
-Record the tested commit, OS, browser/version, screen-reader/version, pass/fail per item, and any exact announcement or navigation problem. Store that result here before marking R06 passed. R06 and G2 remain pending. Per the user’s 12 November 2026 direction, this deferred review does not block NG09–NG13 development. Complete the human review before G3/G4 release acceptance; automated checks continue during implementation.
+Record the tested commit, OS, browser/version, screen-reader/version, pass/fail per item, and any exact announcement or navigation problem. Store any detailed observations in the current result sheet. The user supplied an overall pass and had no written notes.
 
 ## Development sequencing decision
 
@@ -29,7 +29,7 @@ The user asked to skip this review for now after clarifying that VoiceOver is a 
 
 ## Cross-family release review
 
-The [NG14 review](NG14_CROSS_FAMILY_ACCEPTANCE.md) records automated coverage across the four implemented families. Human F09 interpretation remains pending for every family. Apply the title/summary, legend, complete values/missing text, keyboard actions, focus, state and motion checklist to `/line-validation`, `/area-validation`, and `/pie-validation` as well as the bar routes above. For pie/donut, check category names/visibility and the one-measure table; there are no axes or series-visibility controls. For line/area, verify that missing observations are announced as missing rather than zero and that negative values remain readable. Record a family-specific result, tested commit and environment before resolving NG14/G3. No human listening result is supplied by the automated lifecycle or performance runs.
+The [NG14 review](NG14_CROSS_FAMILY_ACCEPTANCE.md) records automated coverage across the four implemented families. The full-review attestation covers F09 for all families. Apply the title/summary, legend, complete values/missing text, keyboard actions, focus, state and motion checklist to `/line-validation`, `/area-validation`, and `/pie-validation` as well as the bar routes above. For pie/donut, check category names/visibility and the one-measure table; there are no axes or series-visibility controls. For line/area, verify that missing observations are announced as missing rather than zero and that negative values remain readable. Record a family-specific result, tested commit and environment before resolving NG14/G3. No human listening result is supplied by the automated lifecycle or performance runs.
 
 NG17 extends the pending human review to `/composed-validation` and the visits/trend summary on `/composed`. Verify that comparable units and the supplied trend meaning are understandable, mixed bar/line series retain clear native legend/table actions, zero and missing values remain distinct, and reordering/kind changes retain meaningful focus and visibility. This is a checklist for the deferred session, not a recorded listening result.
 

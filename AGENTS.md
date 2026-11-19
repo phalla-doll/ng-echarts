@@ -2,7 +2,7 @@
 
 ## Project Structure and Scope
 
-Angular 22 chart library using Apache ECharts. Bar, line, area, pie/donut and composed bar/line/area charts with shared or opt-in independent value axes and separate named bar/area stacks are implemented. NG20 adds linked charts with native and graphical month ranges. NG14 automated acceptance and NG15 documentation are recorded; human interpretation and release gates remain open. The demo is deployed to GitHub Pages. Experimental `@mantha911/ng-echarts@0.1.0-rc.32` is published on npm under `next` (`latest` retains rc.18); human F09/R06/G2/G3/G4 remain pending under the user’s explicit prerelease deferral.
+Angular 22 chart library using Apache ECharts. Bar, line, area, pie/donut and composed bar/line/area charts with shared or opt-in independent value axes and separate named bar/area stacks are implemented. NG20 adds linked charts with native and graphical month ranges. NG14 automated acceptance and NG15 documentation are recorded; human interpretation and release gates remain open. The demo is deployed to GitHub Pages. Experimental `@mantha911/ng-echarts@0.1.0-rc.32` is published on npm under `next` (`latest` retains rc.18); The user confirmed the full human review passed on 19 November 2026. F09/R06 and G2/G3 pass, and G4 distribution checks pass for the sealed rc.33 candidate. See the [release checklist](docs/RELEASE_CHECKLIST.md#remaining-release-decisions).
 
 - `README.md`: overview and document index.
 - `docs/PRODUCT_SPEC.md`: MVP scope and required behavior.
