@@ -1,13 +1,12 @@
 # ng-echarts delivery backlog
 
-Current continuation (18 November 2026): rc.32 is published with exact registry bytes and passing fresh consumers after [verification-only recovery](experiments/RC32_PUBLICATION.md); npm next is rc.32/latest rc.18. The initial bounded metadata wait failed after its successful one-time upload and remains recorded. Local rc.33 adds the optional interaction entry and graphical overview/detail window; it remains unpublished. The [increment record](experiments/RC33_GRAPHICAL_LINKING.md) owns actual verification and payload evidence. The [Pages record](GITHUB_PAGES.md) retains the independently deployed source identity. Preserve every archive. On 19 November 2026, the user confirmed that the full [human review](experiments/RC20_HUMAN_REVIEW.md) passed. See the [release checklist](RELEASE_CHECKLIST.md#remaining-release-decisions) for gate status.
+Current continuation (19 November 2026). npm `next` selects [published rc.33](experiments/RC33_PUBLICATION.md) and `latest` retains rc.18. The optional `/interaction` entry adds graphical shared-window selection from either dashboard chart. The user confirmed that the full [human review](experiments/RC20_HUMAN_REVIEW.md) passed. The [release checklist](RELEASE_CHECKLIST.md#remaining-release-decisions) records gate status.
 
 ## Immediate next work
 
-1. The bounded rc.33 graphical window is delivered: all six source CI jobs pass, Linux/macOS archives match and the clean demo passes public three-engine checks. Evaluate the next interaction increment against fresh payload/interaction evidence; general-purpose DataZoom, disjoint selection and arbitrary family linking remain separate.
-2. Decide separately whether to publish the preserved rc.33 candidate. Current npm next remains rc.32/latest rc.18; rc.32 publication/recovery and rc.33 demo delivery are complete. Never repeat a successful upload.
-3. F09/R06 and G2/G3 pass based on the [user-attested human review](experiments/RC20_HUMAN_REVIEW.md) and existing automated evidence. G4 distribution checks pass for the [sealed rc.33 candidate](experiments/RC33_GRAPHICAL_LINKING.md).
-4. General-purpose DataZoom, disjoint selections, arbitrary family linking, broader calendar/Sankey variants and NG21 remain subsequent bounded work.
+Scope a small standalone consumer that uses a range on one bar chart to filter a native transaction table. Use the same application-owned bounds for keyboard and pointer input. Measure the opt-in import against existing budgets before expanding the API.
+
+General-purpose DataZoom, disjoint selections, arbitrary family linking, broader calendar/Sankey variants and NG21 remain subsequent work.
 
 ## Historical delivery plan
 
@@ -71,7 +70,7 @@ The [Chart possibilities gallery](experiments/CHART_POSSIBILITIES.md) previews t
 | NG19 | P2 | First single-year calendar heatmap and bounded Sankey implemented; broader windows and flow variants deferred | [Calendar contract and evidence](experiments/NG19_CALENDAR_HEATMAP.md); family-specific human interpretation pending |
 | NG20 | P2 | Composed overview/detail dashboard added with a published-rc.22 consumer; application-owned overview/detail link, inclusive native/graphical month ranges and controlled bar feedback implemented; opt-in one-way hover/focus preview added in rc.13; application-owned shared zoom and month selection in both chart directions now implemented in the composed dashboard; rc.33 adds graphical range selection from either dashboard chart; general library zoom, disjoint selections and arbitrary family linking remain deferred | [Initial contract](experiments/NG20_LINKED_CHARTS.md) and [selection feedback](experiments/LINKED_SELECTION_FEEDBACK.md); user prioritized linked charts after NG17 |
 | NG21 | P2 | Patterns, glow, advanced animations, and tooltip templates | Per-variant visual and performance targets agreed |
-| NG22 | P2 | Experimental package published through rc.32; exact registry bytes, fresh consumers and manual trusted publishing verified | [Current publication](PUBLICATION.md#rc32-oidc-publication) and preserved [first prerelease](experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) |
+| NG22 | P2 | Experimental package published through rc.33; exact registry bytes, fresh consumers and manual trusted publishing verified | [Current publication](experiments/RC33_PUBLICATION.md) and preserved [first prerelease](experiments/NG22_PUBLIC_PRERELEASE.md#completed-publication) |
 
 ## Definition of done
 

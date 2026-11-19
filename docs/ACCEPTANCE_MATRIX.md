@@ -1,6 +1,6 @@
 # ng-echarts acceptance matrix
 
-Current continuation (18 November 2026): npm `next` is published rc.32 and `latest` remains rc.18; exact registry bytes and fresh consumers pass in the [publication record](experiments/RC32_PUBLICATION.md). Local rc.33 adds optional graphical shared-window interactions outside root/core. Its [increment record](experiments/RC33_GRAPHICAL_LINKING.md) records 358 unit tests, 611 browser passes/four expected skips and exact-consumer/reproducibility scopes separately from later CI/deployment. Preserve every archive. On 19 November 2026, the user confirmed that the full [human review](experiments/RC20_HUMAN_REVIEW.md) passed. See the [release checklist](RELEASE_CHECKLIST.md#remaining-release-decisions) for gate status.
+Current continuation (19 November 2026). npm `next` selects [published rc.33](experiments/RC33_PUBLICATION.md) and `latest` retains rc.18. The optional `/interaction` entry adds graphical shared-window selection from either dashboard chart. The user confirmed that the full [human review](experiments/RC20_HUMAN_REVIEW.md) passed. The [release checklist](RELEASE_CHECKLIST.md#remaining-release-decisions) records gate status.
 
 Historical increment sections below retain their original version-specific evidence and limits; use the current delivery summary for npm, candidate and deployment status.
 

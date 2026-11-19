@@ -6,7 +6,7 @@ The demo is published from the root of the dedicated `gh-pages` branch at **http
 
 ## Current deployment — dashboard color refinement
 
-The [visits dashboard](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) now matches the neutral site palette, with charcoal dark surfaces, gray supporting text and borders, softer teal/blue/gold series and one outline per chart. Its independent theme and both displayed standalone examples are preserved. The demo still uses unpublished rc.33 source; npm next remains rc.32/latest rc.18 and human gates remain pending.
+The [visits dashboard](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) now matches the neutral site palette, with charcoal dark surfaces, gray supporting text and borders, softer teal/blue/gold series and one outline per chart. Its independent theme and both displayed standalone examples are preserved. The deployed source below predates [rc.33 npm publication](experiments/RC33_PUBLICATION.md). Its installation copy reflects the registry tags at deployment time.
 
 | Identity / check | Verified result |
 | --- | --- |

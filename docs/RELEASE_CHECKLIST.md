@@ -1,8 +1,8 @@
 # Published prerelease verification
 
-The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.32`, preserving all prior supported APIs and budgets with bounded lifecycle/color cleanup. [Exact publication and registry consumers](experiments/RC32_PUBLICATION.md) record the successful one-time upload, bounded metadata timeout and passing verification-only recovery. npm next is rc.32; latest remains rc.18. Preserve every archive. See [remaining release decisions](#remaining-release-decisions) for current human review and gate results.
+The published experimental candidate is `@mantha911/ng-echarts@0.1.0-rc.33`. npm `next` selects rc.33 and `latest` retains rc.18. See the [publication record](experiments/RC33_PUBLICATION.md) and [remaining release decisions](#remaining-release-decisions).
 
-Local rc.33 is a separate unpublished interaction candidate. Its [increment record](experiments/RC33_GRAPHICAL_LINKING.md) owns current verification and payload boundaries. For sealed artifacts, use release:check; never overwrite or reprepare earlier versions.
+rc.33 introduces the optional interaction entry. Its [increment record](experiments/RC33_GRAPHICAL_LINKING.md) owns current verification and payload boundaries. For sealed artifacts, use release:check; never overwrite or reprepare earlier versions.
 
 ## Prepare and verify one artifact
 
@@ -82,11 +82,11 @@ The recorded dependency versions describe verified inputs, not every version adm
 | Original library license | MIT selected by the user; full text ships in the candidate |
 | Human interpretation, F09/R06 | Pass by user attestation on 19 November 2026. The [result sheet](experiments/RC20_HUMAN_REVIEW.md) records full coverage, the absence of written notes, and the unrecorded build identity. |
 | NG14/G2/G3/G4 acceptance | G2 and NG14/G3 pass with the human result and existing automated evidence. G4 distribution checks pass for the sealed rc.33 candidate. See the [acceptance matrix](ACCEPTANCE_MATRIX.md#gate-completion). |
-| Public package name/namespace | Published as `@mantha911/ng-echarts`; npm `next` is rc.32 and `latest` is rc.18. [NG22 execution](PUBLICATION.md) |
+| Public package name/namespace | Published as `@mantha911/ng-echarts`; npm `next` is rc.33 and `latest` is rc.18. [NG22 execution](PUBLICATION.md) |
 | Registry destination/publishing credentials | Authenticated as `mantha911` after interactive npm login ([record](PUBLICATION.md)) |
 | Public API stability/versioning promise | Experimental; no stable API freeze is declared by this candidate |
 
-The rc.33 npm publication and any stable API commitment require separate release decisions.
+Any stable API commitment requires a separate release decision.
 
 ## Preview checkpoint
 

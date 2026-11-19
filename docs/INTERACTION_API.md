@@ -1,6 +1,6 @@
 # Optional category-range interaction
 
-Local rc.33 introduces `CategoryRange` from `@mantha911/ng-echarts/interaction`. It is not exported by the compatibility root or core. The published rc.32 package does not include this entry. Existing chart APIs, renderer registration and root/core budgets remain unchanged.
+Published rc.33 introduces `CategoryRange` from `@mantha911/ng-echarts/interaction`. The compatibility root and core retain their existing exports and budgets.
 
 The directive adds one contiguous, inclusive category gesture to bar or composed charts. It reads the existing chart's public ECharts coordinate APIs; it never connects instances, changes options, registers engines or owns application state. Native From/To controls must provide equivalent keyboard access. Use one graphical gesture owner per chart; do not simultaneously arm the bar chart’s existing `rangeSelection` adapter. This is application-owned windowing, not ECharts DataZoom.
 
@@ -96,6 +96,6 @@ The vertical chart supports horizontal touch drags with `pan-y pinch-zoom`, pres
 
 The dashboard uses the same shared inclusive window for an overview gesture or a horizontal device-detail gesture. Original raw point actions, independent legends, full-history trend semantics, native zoom/pan/reset and SSR/hydration remain in place. The native-only [dashboard example](COMPOSED_DASHBOARD.md) retains its digest-verified published rc.22 consumer; the enhanced displayed source has a separate candidate consumer.
 
-The [increment record](experiments/RC33_GRAPHICAL_LINKING.md) owns measured payloads and actual checks. Existing twelve budget scenarios retain their caps and exclude interaction code; additional scenarios bound the optional entry and composed+interaction increment. General-purpose DataZoom, disjoint selection, arbitrary family linking and shared legends remain subsequent work. Human F09/R06/G2/G3/G4 remain deferred/pending.
+The [increment record](experiments/RC33_GRAPHICAL_LINKING.md) owns measured payloads and actual checks. Existing twelve budget scenarios retain their caps and exclude interaction code; additional scenarios bound the optional entry and composed+interaction increment. General-purpose DataZoom, disjoint selection, arbitrary family linking and shared legends remain subsequent work. See the [human review result](experiments/RC20_HUMAN_REVIEW.md).
 
 Public API references: [ECharts getInstanceByDom](https://echarts.apache.org/en/api.html#echarts.getInstanceByDom), [coordinate conversion and containment](https://echarts.apache.org/en/api.html#echartsInstance.convertFromPixel). No upstream implementation code is copied.

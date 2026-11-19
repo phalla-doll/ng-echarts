@@ -1,0 +1,11 @@
+# rc.33 publication
+
+On 19 November 2026, GitHub trusted publishing uploaded `@mantha911/ng-echarts@0.1.0-rc.33` to npm `next`. npm `latest` remains rc.18. The optional `/interaction` entry adds graphical category ranges for the overview and detail charts. See the [interaction API](../INTERACTION_API.md) and [increment report](RC33_GRAPHICAL_LINKING.md).
+
+All six jobs in [Workspace checks 44558650665](https://github.com/phalla-doll/ng-echarts/actions/runs/44558650665) passed for `3ec00e2e3bbc2e760176f60a1a0ba0739b2732f1`. Its downloaded archive matched the sealed 174,489-byte candidate with SHA-256 `5d0230b8b9fccdab7d3b32e846ca5bfb1780a9cb1094f2f21b006ebc4bf33735`. The CI manifest identifies the exact source and records passing strict declaration, documentation, and installed runtime stages against that digest.
+
+[Publishing run 44562238721](https://github.com/phalla-doll/ng-echarts/actions/runs/44562238721) records one successful upload. The subsequent tarball request returned an unsuccessful HTTP response after version metadata became available, so that run stopped before fresh registry consumer checks. An independent registry lookup confirmed both tags and matched the advertised SHA-512 integrity and SHA-1 checksum to the sealed CI artifact. Standard npm resolution later downloaded the same SHA-256 as the sealed candidate. The [verification-only run 44563200517](https://github.com/phalla-doll/ng-echarts/actions/runs/44563200517) checks standard npm resolution and runs the fresh consumer stages.
+
+A separate verification in a detached checkout of `3ec00e2` used Node 24.22.2 and npm 11.19.1 with the exact registry version and digest. Strict declarations, the fresh documentation application, and installed CSR/SSR applications all passed. The runtime and documentation consumers passed Chromium, Firefox, and WebKit on macOS. [npm resolution](public-rc33/npm-resolution.json), [documentation consumer](public-rc33/documentation-consumer.json), and [runtime consumer](public-rc33/packed-runtime.json) record the results.
+
+The [human review record](RC20_HUMAN_REVIEW.md) records the user-attested pass. The [Pages record](../GITHUB_PAGES.md#current-deployment--dashboard-colors) identifies the separately deployed demo source.
