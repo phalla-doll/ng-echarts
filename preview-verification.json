@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-18T04:01:07.948Z",
-  "markerSha256": "0f042a11838daff58684fa32c93f188fb58460263925009d638ddf10e03ea317",
+  "checkedAt": "2026-11-20T07:50:45.484Z",
+  "markerSha256": "3a0e287dd367570b6e74ea1c265faa7b557cea1f2fec5a021226bb4b3428b7cb",
   "browsers": [
     "chromium",
     "firefox",
