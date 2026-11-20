@@ -1,3 +1,4 @@
+import { verifyBarZoomPage } from './bar-zoom-flow.mjs';
 import { renderGallery, renderConcepts } from './browser-gallery.mjs';
 import { verifyDashboard } from './dashboard-flow.mjs';
 import assert from 'node:assert/strict';
@@ -87,6 +88,7 @@ async function checkPages() {
       'dashboard-validation/',
       'linked/',
       'linked-dashboard/',
+      'bar-zoom/',
       'chart-possibilities/',
       'linked-validation/',
       'composed-validation/',
@@ -129,6 +131,12 @@ async function checkPages() {
         assert(
           html.includes('2024-02-29') && html.includes('Explore daily data'),
           'Prerendered calendar must retain native leap-day data',
+        );
+      if (path === 'bar-zoom/')
+        assert(
+          html.includes('Shipment window') &&
+            html.includes('Pan earlier') &&
+            !html.includes('<canvas'),
         );
       if (path === 'radial/')
         assert(
@@ -299,6 +307,7 @@ async function checkPages() {
         await expect(page.locator('.gallery .table-toggle')).toHaveCount(0);
         await page.goto(new URL('dashboard-validation/', site).href);
         await verifyDashboard(page);
+        await verifyBarZoomPage(page, new URL('bar-zoom/', site).href);
         await page.setViewportSize({ width: 1440, height: 1000 });
         await page.goto(new URL('line/', site).href);
         await renderGallery(page);

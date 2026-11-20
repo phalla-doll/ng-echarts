@@ -2,11 +2,13 @@
 
 This standalone Angular example lets a warehouse operator inspect a shorter span of daily shipments. One inclusive window controls the plotted categories and native value table. The From and To fields can select any span. Zoom changes the window size around its center, Pan moves by one window with clamping, and Reset shows all days. Chart range lets a user drag across the visible bars to narrow the window.
 
+Open the [live playground example](https://phalla-doll.github.io/ng-echarts/bar-zoom/) to try the chart and copy this Angular source.
+
 Install `npm install @mantha911/ng-echarts@0.1.0-rc.33 echarts@6.1.0` in an Angular 22 standalone app. Copy the complete example into `src/app/app.ts` and retain the generated bootstrap and hydration configuration. See [Installation](INSTALLATION.md) for strict TypeScript and SSR settings.
 
 ```ts
-import { Component, computed, signal } from '@angular/core';
-import { BarChart, type ChartSeries } from '@mantha911/ng-echarts/bar';
+import { Component, computed, input, signal } from '@angular/core';
+import { BarChart, type ChartSeries, type ChartTheme } from '@mantha911/ng-echarts/bar';
 import { CategoryRange, type CategoryRangeSelection } from '@mantha911/ng-echarts/interaction';
 
 interface Day {
@@ -38,8 +40,8 @@ const fullWindow = { from: 0, to: days.length - 1 };
   imports: [BarChart, CategoryRange],
   host: { '(keydown.escape)': 'armed.set(false)' },
   template: `
-    <main>
-      <h1>Shipment window</h1>
+    <section aria-labelledby="bar-zoom-heading">
+      <h1 id="bar-zoom-heading">Shipment window</h1>
       <fieldset>
         <legend>Visible days</legend>
         <div class="bounds">
@@ -106,6 +108,7 @@ const fullWindow = { from: 0, to: days.length - 1 };
         title="Daily shipments"
         description="Recorded shipments in the visible window."
         [data]="visible()"
+        [theme]="theme()"
         [series]="series"
         rowIdKey="id"
         categoryKey="label"
@@ -116,17 +119,17 @@ const fullWindow = { from: 0, to: days.length - 1 };
         (categoryRangeSelect)="selectRange($event, arm)"
         (categoryRangeCancel)="armed.set(false)"
       />
-    </main>
+    </section>
   `,
   styles: `
     :host {
       display: block;
-      color: #172d38;
+      color: var(--site-text, #172d38);
       font:
         1rem/1.5 system-ui,
         sans-serif;
     }
-    main {
+    section {
       max-inline-size: 50rem;
       margin-inline: auto;
       padding: 1rem;
@@ -139,7 +142,7 @@ const fullWindow = { from: 0, to: days.length - 1 };
       min-inline-size: 0;
       margin: 0;
       padding: 0.75rem;
-      border: 1px solid #738b96;
+      border: 1px solid var(--site-border, #738b96);
       border-radius: 0.4rem;
     }
     legend {
@@ -165,9 +168,9 @@ const fullWindow = { from: 0, to: days.length - 1 };
     select {
       font: inherit;
       padding: 0.35rem 0.55rem;
-      border: 1px solid #738b96;
+      border: 1px solid var(--site-border, #738b96);
       border-radius: 0.25rem;
-      background: #fff;
+      background: var(--site-surface, #fff);
       color: inherit;
     }
     button[aria-pressed='true'] {
@@ -175,11 +178,11 @@ const fullWindow = { from: 0, to: days.length - 1 };
       background: #13526a;
     }
     button[aria-disabled='true'] {
-      color: #526570;
-      background: #edf3f5;
+      color: var(--site-muted, #526570);
+      background: var(--site-hover, #edf3f5);
     }
     :is(button, select):focus-visible {
-      outline: 2px solid #116e8a;
+      outline: 2px solid var(--site-focus, #116e8a);
       outline-offset: 2px;
     }
     .window-status {
@@ -197,6 +200,7 @@ const fullWindow = { from: 0, to: days.length - 1 };
   `,
 })
 export class App {
+  readonly theme = input<ChartTheme>('light');
   protected readonly days = days;
   protected readonly fullWindow = fullWindow;
   protected readonly series: readonly ChartSeries<Day>[] = [

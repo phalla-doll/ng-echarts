@@ -1,3 +1,4 @@
+import { readFile } from 'node:fs/promises';
 import { expect } from '@playwright/test';
 
 export async function verifyBarZoom(page) {
@@ -84,4 +85,51 @@ export async function verifyBarZoom(page) {
   await expect
     .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
     .toBeLessThanOrEqual(320);
+}
+
+export async function verifyBarZoomPage(page, url) {
+  const guide = await readFile('docs/BAR_ZOOM_PROTOTYPE.md', 'utf8');
+  const source = guide.match(/^\x60\x60\x60ts\n([\s\S]*?)\n\x60\x60\x60/m)?.[1];
+  expect(source).toBeTruthy();
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.addInitScript(() => {
+    window.barZoomClipboard = '';
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: {
+        writeText: async (text) => {
+          window.barZoomClipboard = text;
+        },
+      },
+    });
+  });
+  await page.goto(url);
+  await expect(page.getByRole('heading', { name: 'Shipment window' })).toBeVisible();
+  const copy = page.getByRole('button', { name: 'Copy TypeScript example' });
+  await expect(copy).toHaveCount(0);
+  await verifyBarZoom(page);
+
+  const disclosure = page.locator('summary').filter({ hasText: 'Standalone Angular source' });
+  await disclosure.press('Enter');
+  await expect(copy).toBeVisible({ timeout: 30_000 });
+  await copy.click();
+  await expect.poll(() => page.evaluate(() => window.barZoomClipboard)).toBe(source);
+  await expect
+    .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
+    .toBeLessThanOrEqual(320);
+
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  const theme = page.getByRole('button', { name: /^Use (light|dark) theme$/ });
+  const dark = (await theme.getAttribute('aria-pressed')) === 'true';
+  const frame = page.locator('nec-bar-chart .chart-frame');
+  await theme.click();
+  await expect(frame).toHaveCSS(
+    'background-color',
+    dark ? 'rgb(255, 255, 255)' : 'rgb(24, 32, 44)',
+  );
+  await theme.click();
+  await expect(frame).toHaveCSS(
+    'background-color',
+    dark ? 'rgb(24, 32, 44)' : 'rgb(255, 255, 255)',
+  );
 }

@@ -23,6 +23,7 @@ const routes = {
   sankey: 445000,
   linked: 455000,
   'linked-dashboard': 455000,
+  'bar-zoom': 445000,
   'chart-possibilities': 465000,
   'get-started': 240000,
   installation: 240000,

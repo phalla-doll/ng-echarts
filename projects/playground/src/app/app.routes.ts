@@ -48,6 +48,10 @@ export const routes: Routes = [
       import('./chart-possibilities/chart-possibilities').then((m) => m.ChartPossibilities),
   },
   {
+    path: 'bar-zoom',
+    loadComponent: () => import('./bar-zoom/bar-zoom-page').then((m) => m.BarZoomPage),
+  },
+  {
     path: 'linked-dashboard',
     loadComponent: () => import('./linked/linked-dashboard').then((m) => m.LinkedDashboard),
   },

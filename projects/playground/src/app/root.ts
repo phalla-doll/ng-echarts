@@ -30,6 +30,7 @@ const pageTitles: Readonly<Record<string, string>> = {
   '/sankey': 'Sankey Flow',
   '/linked': 'Linked Charts',
   '/linked-dashboard': 'Visits dashboard',
+  '/bar-zoom': 'Bar zoom',
   '/chart-possibilities': 'Chart possibilities',
   '/linked-validation': 'Linked validation',
   '/composed-benchmark': 'Composed benchmark',
@@ -91,6 +92,7 @@ export class Root {
       '/sankey',
       '/linked',
       '/linked-dashboard',
+      '/bar-zoom',
       '/chart-possibilities',
     ].includes(this.routePath()),
   );
