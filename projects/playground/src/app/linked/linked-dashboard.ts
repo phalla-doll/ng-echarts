@@ -48,7 +48,7 @@ import { SiteAppearance } from '../shell/site-appearance';
           }
         </details>
         <p>
-          Graphical ranges use the optional interaction entry in local rc.33. The native
+          Graphical ranges use the optional interaction entry in published rc.33. The native
           shared-window dashboard remains separately verified against published rc.22. Check
           Installation for the current published package.
         </p>

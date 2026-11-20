@@ -2,9 +2,9 @@
 
 Current continuation (19 November 2026). npm `next` selects [published rc.33](experiments/RC33_PUBLICATION.md) and `latest` retains rc.18. The optional `/interaction` entry adds graphical shared-window selection from either dashboard chart. The user confirmed that the full [human review](experiments/RC20_HUMAN_REVIEW.md) passed. The [release checklist](RELEASE_CHECKLIST.md#remaining-release-decisions) records gate status.
 
-## Immediate next work
+## Transaction range example
 
-Scope a small standalone consumer that uses a range on one bar chart to filter a native transaction table. Use the same application-owned bounds for keyboard and pointer input. Measure the opt-in import against existing budgets before expanding the API.
+The [standalone transaction example](TRANSACTION_RANGE.md) uses the published rc.33 interaction entry and shares one inclusive range between native keyboard fields and pointer input. The range filters a native transaction table while keeping the full chart available. Its isolated consumer and bundle checks are part of workspace verification.
 
 General-purpose DataZoom, disjoint selections, arbitrary family linking, broader calendar/Sankey variants and NG21 remain subsequent work.
 

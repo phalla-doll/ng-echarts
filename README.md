@@ -22,7 +22,7 @@ Status: experimental bar, line, area, pie/donut, composed, focused radar, radial
 
 Build native Angular components, beginning with the upstream ECharts implementations. Preserve the selected visual designs and interactions while replacing React lifecycle, composition, state, and overlays with Angular equivalents. Validate one bar chart before expanding to the MVP collection.
 
-`ng-echarts` is the project name. The user selected `@mantha911/ng-echarts` for the experimental npm prerelease, published under the `next` dist-tag. Human screen-reader interpretation remains unreviewed at the user’s request; human release gates are not marked passed.
+`ng-echarts` is the project name. The user selected `@mantha911/ng-echarts` for the experimental npm prerelease, published under the `next` dist-tag. The human review and release gates passed for the sealed rc.33 candidate. The API remains experimental.
 
 ```sh
 npm install @mantha911/ng-echarts@next echarts@6.1.0
@@ -67,6 +67,7 @@ npm install @mantha911/ng-echarts@next echarts@6.1.0
 | [Linked UI refinement](docs/experiments/LINKED_UI_REFINEMENT.md) | Before/after control, spacing, card and mobile review for the linked demo |
 | [Month preview follow-up](docs/experiments/NG20_MONTH_PREVIEWS.md) | Opt-in hover/focus context, mobile tap safeguard and current verification |
 | [Optional interaction API](docs/INTERACTION_API.md) | Controlled contiguous bar/composed range gestures, native alternatives and package boundaries |
+| [Transaction range example](docs/TRANSACTION_RANGE.md) | Filter a native transaction table from one bar chart with pointer and keyboard controls |
 | [Linked charts guide](docs/LINKED_CHARTS.md) | Application-owned month/range selection, keyboard actions, resets, updates and a complete compiled example |
 | [Graphical range selection](docs/experiments/GRAPHICAL_RANGE_SELECTION.md) | Snapped pointer selection, native equivalence, cancellation, touch/focus review and rc.4 evidence |
 | [Native month ranges](docs/experiments/NG20_MONTH_RANGE.md) | Inclusive range contract, multi-row feedback, visual review and rc.3 verification |

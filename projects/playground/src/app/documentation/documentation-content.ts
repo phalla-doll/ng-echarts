@@ -76,7 +76,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'status',
         title: 'Project status',
         paragraphs: [
-          'The library is an experimental public prerelease under @mantha911/ng-echarts. Use the next dist-tag or a packed local build. Automated acceptance covers the four MVP families, the first shared-axis composed increment, experimental radar, radial progress, calendar heatmaps and Sankey flows. Human screen-reader interpretation and final artifact/release acceptance remain pending.',
+          'The library is an experimental public prerelease under @mantha911/ng-echarts. Use the next dist-tag or a packed local build. Automated acceptance covers the four MVP families, the first shared-axis composed increment, experimental radar, radial progress, calendar heatmaps and Sankey flows. The human review and release gates passed for the sealed rc.33 candidate.',
         ],
       },
     ],
@@ -85,7 +85,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
   installation: {
     path: '/installation',
     title: 'Installation',
-    intro: 'Build the local library and start exploring its Angular examples.',
+    intro: 'Install the npm prerelease or use a packed build in your Angular application.',
     sections: [
       {
         id: 'requirements',
@@ -99,7 +99,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'registry-package',
         title: 'Install the prerelease',
         paragraphs: [
-          'The next tag selects the experimental public rc.28 prerelease; latest retains rc.18. Human screen-reader interpretation remains unreviewed at the user’s request; the API is not declared stable.',
+          'The next tag selects the public 0.1.0-rc.33 candidate, which adds optional graphical ranges through @mantha911/ng-echarts/interaction. The latest tag still selects 0.1.0-rc.18. Pin 0.1.0-rc.33 to install this exact release.',
         ],
         source: 'npm install @mantha911/ng-echarts@next echarts@6.1.0',
         language: 'Terminal',
@@ -118,7 +118,7 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         id: 'local-package',
         title: 'Use a packed local build',
         paragraphs: [
-          'The unreleased 0.1.0-rc.33 source candidate adds optional graphical month ranges through the focused interaction entry. The public 0.1.0-rc.32 package contains the verified lifecycle/color cleanup and all rc.30 features. npm next selects rc.32; latest retains rc.18. Every earlier archive is preserved. The native shared-window dashboard also runs on rc.22; graphical ranges require local rc.33. Create a production tarball from the workspace root and install it with the tested ECharts peer in a separate Angular 22 application. Replace the example path with your checkout location. Keep the archive at the lockfile path or in a vendor directory; commit the lockfile and use npm ci for repeat installs.',
+          'Create a production tarball from the workspace root and install it with the tested ECharts peer in a separate Angular 22 application. Replace the example path with your checkout location. Keep the archive at the lockfile path or in a vendor directory; commit the lockfile and use npm ci for repeat installs.',
         ],
         source:
           'npm run pack:lib\n\n# In your Angular 22 application:\nnpm install /path/to/ng-echarts/dist/mantha911-ng-echarts-0.1.0-rc.33.tgz echarts@6.1.0',
@@ -151,14 +151,14 @@ export const documentationPages: Readonly<Record<string, DocPage>> = {
         paragraphs: [
           'Exact tests use Angular/CLI 22.2.6, TypeScript 6.0.3, RxJS 7.8.2 and ECharts 6.1.0 with Node 24.22.2/npm 11.19.1. Library peers declare Angular common/core ^22.2.6 and ECharts ^6.1.0; wider allowed ranges are not a test of every version. Chromium 158.0.8127.18, Firefox 159.0 and WebKit 27.2 cover client and SSR/hydration paths.',
           'The measured starting envelope is 200 categories and three Cartesian series, or 12 pie/donut categories, on the recorded M2 Pro reference machine. Stress fixtures use 2,000 and 100 categories respectively. These are measured inputs rather than hard API limits or portable latency promises. Crowded outside labels may be shortened or hidden; native controls retain complete text.',
-          'The APIs remain experimental. Automated tests pass; human screen-reader interpretation remains unreviewed at the user’s request. The public 0.1.0-rc.18 candidate uses MIT for original library code and includes third-party notices. Human release acceptance and registry publication remain separate.',
+          'The APIs remain experimental. The sealed rc.33 candidate passed automated checks and the human review. The package uses MIT for original library code and includes third-party notices.',
         ],
       },
       {
         id: 'development',
         title: 'Development and checks',
         paragraphs: [
-          'Run the library watcher in a second terminal when editing library source. The site consumes built /bar, /line, /area, /pie, /composed, /radar, /radial, /calendar, /sankey and /core package entries from dist/chart-library. Existing root imports remain compatible.',
+          'Run the library watcher in a second terminal when editing library source. The site consumes built /bar, /line, /area, /pie, /composed, /radar, /radial, /calendar, /sankey, /interaction and /core package entries from dist/chart-library. Existing root imports remain compatible.',
           'The full check builds the library and site, verifies strict templates and declarations, exercises isolated consumers, and runs browser scenarios in Chromium, Firefox, and WebKit.',
         ],
         source:

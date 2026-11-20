@@ -1,3 +1,4 @@
+import { verifyTransactionRange } from './transaction-range-flow.mjs';
 import { verifyDashboard } from './dashboard-flow.mjs';
 import { verifyDashboardRange } from './dashboard-range-flow.mjs';
 import { consumerArtifact } from './consumer-artifact.mjs';
@@ -18,6 +19,8 @@ import { format, resolveConfig } from 'prettier';
 const dashboard = process.argv.includes('--dashboard');
 const keep = dashboard && process.argv.includes('--keep');
 const dashboardRegistry = dashboard && !process.argv.includes('--candidate');
+const transactions = process.argv.includes('--transactions');
+const example = transactions ? 'transactions' : dashboard ? 'dashboard' : 'integration';
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const parent = await realpath(await mkdtemp(join(tmpdir(), 'ng-echarts-docs-')));
 const consumer = join(parent, 'chart-consumer');
@@ -48,10 +51,14 @@ const composedDashboardSource = dashboard
       )
     ).composedDashboardSource
   : null;
+const transactionGuide = transactions
+  ? await readFile(join(root, 'docs/TRANSACTION_RANGE.md'), 'utf8')
+  : null;
+const exampleGuide = transactionGuide ?? integration;
 const app = dashboard
   ? composedDashboardSource
-  : integration.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
-assert(app, 'Integration guide must contain the full application');
+  : exampleGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
+assert(app, 'The selected guide must contain the full application');
 const shell = (id) => {
   const code = installation.match(
     new RegExp(`<!-- ng-echarts: ${id} -->\\s*\x60\x60\x60sh\\n([\\s\\S]*?)\\n\x60\x60\x60`),
@@ -78,11 +85,11 @@ const run = async (command, args, cwd, env = {}) => {
 };
 try {
   let packed;
-  if (dashboardRegistry) {
-    // This pilot deliberately checks the immutable published baseline even when source advances.
-    const receipt = JSON.parse(
-      await readFile(join(root, 'docs/experiments/public-rc22/registry-verification.json'), 'utf8'),
-    );
+  if (dashboardRegistry || transactions) {
+    const receiptPath = transactions
+      ? 'docs/experiments/public-rc33/npm-resolution.json'
+      : 'docs/experiments/public-rc22/registry-verification.json';
+    const receipt = JSON.parse(await readFile(join(root, receiptPath), 'utf8'));
     const registrySpec = `@mantha911/ng-echarts@${receipt.version}`;
     packed = JSON.parse(
       await run(
@@ -103,7 +110,7 @@ try {
     const sha256 = createHash('sha256')
       .update(await readFile(join(parent, packed.filename)))
       .digest('hex');
-    assert.equal(sha256, receipt.sha256, 'Dashboard baseline registry digest changed');
+    assert.equal(sha256, receipt.sha256, 'Published consumer registry digest changed');
     packed = { ...packed, sha256, registrySpec, exactCandidate: true };
   } else {
     packed = await consumerArtifact(root, parent);
@@ -159,7 +166,7 @@ try {
     assert.equal(resolved.dependencies[name].version, '22.2.6');
   assert.equal(resolved.dependencies.typescript.version, '6.0.3');
   assert.equal(resolved.dependencies.echarts.version, '6.1.0');
-  console.log('Compiling and building the complete integration-guide example…');
+  console.log(`Compiling and building the complete ${example} example…`);
   await run(
     process.execPath,
     [
@@ -202,16 +209,17 @@ try {
   const response = await fetch(url);
   const html = await response.text();
   assert.equal(response.status, 200, html);
-  for (const title of dashboard
-    ? ['Visits dashboard', 'Monthly visits and trend', 'Recorded device visits']
-    : ['Monthly visits', 'Visit trends', 'Stacked visits', 'Desktop share'])
-    assert(html.includes(title));
+  const headings = transactions
+    ? ['Transaction activity', 'Daily transaction totals', 'Transactions in selected range']
+    : dashboard
+      ? ['Visits dashboard', 'Monthly visits and trend', 'Recorded device visits']
+      : ['Monthly visits', 'Visit trends', 'Stacked visits', 'Desktop share'];
+  for (const title of headings) assert(html.includes(title));
+  if (transactions) assert(html.includes('Fee adjustment'));
   assert(!html.includes('<canvas'));
   const results = [];
   for (const engine of [chromium, firefox, webkit]) {
-    console.log(
-      `Checking documented ${dashboard ? 'dashboard' : 'four-chart'} consumer in ${engine.name()}…`,
-    );
+    console.log(`Checking documented ${example} consumer in ${engine.name()}…`);
     const browser = await engine.launch();
     let page;
     const errors = [];
@@ -230,7 +238,9 @@ try {
           errors.push(message.text());
       });
       await page.goto(url);
-      if (dashboard) {
+      if (transactions) {
+        await verifyTransactionRange(page);
+      } else if (dashboard) {
         await verifyDashboard(page);
         if (!dashboardRegistry) await verifyDashboardRange(page);
       } else {
@@ -281,7 +291,7 @@ try {
       results.push({
         engine: engine.name(),
         version: browser.version(),
-        charts: dashboard ? 2 : 4,
+        charts: transactions ? 1 : dashboard ? 2 : 4,
         ...(dashboard
           ? {
               applicationOwnedSelection: true,
@@ -292,19 +302,16 @@ try {
               emptyRecovery: true,
             }
           : {}),
+        ...(transactions
+          ? { nativeRangeBounds: true, pointerRange: true, emptyRange: true, rawZero: true }
+          : { immutableUpdates: true, themes: true }),
         keyboardEvents: true,
-        immutableUpdates: true,
-        themes: true,
         responsive: true,
         stableInstances: true,
         passed: true,
       });
     } catch (error) {
-      const directory = join(
-        root,
-        'test-results',
-        `documentation-${dashboard ? 'dashboard' : 'integration'}-${engine.name()}`,
-      );
+      const directory = join(root, 'test-results', `documentation-${example}-${engine.name()}`);
       await mkdir(directory, { recursive: true });
       await writeFile(
         join(directory, 'diagnostics.json'),
@@ -341,13 +348,17 @@ try {
     npm: (await run('npm', ['--version'], consumer)).trim(),
     ...(keep ? { retainedConsumer: consumer } : {}),
     ...(dashboard ? { displayedSourceSha256: createHash('sha256').update(app).digest('hex') } : {}),
-    method: dashboard
-      ? `Fresh pinned CLI scaffold outside workspace; npm ${dashboardRegistry ? 'registry rc.22 digest-verified installation' : 'candidate installation'}; exact dashboard component/App; strict ngc, production SSR, three-engine dashboard flow.`
-      : `Fresh pinned CLI scaffold outside workspace; execute INSTALLATION.md shell blocks; install ${packed.registrySpec ? 'exact registry package' : 'local tarball'}; copy exact INTEGRATION_GUIDE.md App; strict ngc and production build; generated server HTML then three-engine hydration/actions/updates/themes/resize.`,
+    method: transactions
+      ? 'Fresh pinned CLI scaffold outside workspace; digest-verified rc.33 registry installation; exact TRANSACTION_RANGE.md App; strict ngc, production SSR and three-engine transaction range flow.'
+      : dashboard
+        ? `Fresh pinned CLI scaffold outside workspace; npm ${dashboardRegistry ? 'registry rc.22 digest-verified installation' : 'candidate installation'}; exact dashboard component/App; strict ngc, production SSR, three-engine dashboard flow.`
+        : `Fresh pinned CLI scaffold outside workspace; execute INSTALLATION.md shell blocks; install ${packed.registrySpec ? 'exact registry package' : 'local tarball'}; copy exact INTEGRATION_GUIDE.md App; strict ngc and production build; generated server HTML then three-engine hydration/actions/updates/themes/resize.`,
     sources: Object.fromEntries(
       [
         ['docs/INSTALLATION.md', installation],
-        ['docs/INTEGRATION_GUIDE.md', integration],
+        transactions
+          ? ['docs/TRANSACTION_RANGE.md', transactionGuide]
+          : ['docs/INTEGRATION_GUIDE.md', integration],
         ...(dashboard
           ? [
               [
@@ -371,17 +382,20 @@ try {
       Object.entries(resolved.dependencies).map(([name, value]) => [name, value.version]),
     ),
     generatedPackage: manifest.name,
-    ssrHeadings: dashboard ? 3 : 4,
+    ...(transactions ? { ssrTextChecks: headings.length } : { ssrHeadings: headings.length }),
     serverCanvasCount: 0,
     results,
     passed: true,
   };
+  if (transactions) await mkdir(join(root, 'test-results'), { recursive: true });
   await writeFile(
     join(
       root,
-      dashboard
-        ? `docs/experiments/data/ng20-dashboard-${dashboardRegistry ? 'registry' : 'candidate'}-consumer.json`
-        : 'docs/experiments/data/ng15-documentation-consumer.json',
+      transactions
+        ? 'test-results/transaction-range-consumer.json'
+        : dashboard
+          ? `docs/experiments/data/ng20-dashboard-${dashboardRegistry ? 'registry' : 'candidate'}-consumer.json`
+          : 'docs/experiments/data/ng15-documentation-consumer.json',
     ),
     await format(JSON.stringify(evidence), {
       ...(await resolveConfig(join(root, '.prettierrc'))),

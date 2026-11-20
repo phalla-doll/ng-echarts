@@ -44,7 +44,17 @@ const scenarios = [
     families: [],
   },
   {
+    name: 'bar-interaction',
+    entry: '/bar',
+    symbol: 'BarChart',
+    engine: true,
+    families: ['bar'],
+    interaction: true,
+    extra: "export { CategoryRange } from '@mantha911/ng-echarts/interaction';",
+  },
+  {
     name: 'composed-interaction',
+    interaction: true,
     entry: '/composed',
     symbol: 'ComposedChart',
     engine: true,
@@ -230,13 +240,16 @@ for (const scenario of scenarios) {
   );
   if (scenario.engine)
     assert(reachableEngineInputs.length > 0, `${scenario.name} must reach its lazy engine`);
-  if (scenario.name === 'composed-interaction')
+  const interactionBaseline = scenario.interaction
+    ? results.find((item) => item.name === scenario.entry.slice(1))
+    : null;
+  if (interactionBaseline)
     assert.deepEqual(
       engineInputs,
-      results
-        .find((item) => item.name === 'composed')
-        .contributingInputs.filter((name) => /node_modules\/(echarts|zrender)\//.test(name)),
-      'Opt-in composed interactions must add no engine modules',
+      interactionBaseline.contributingInputs.filter((name) =>
+        /node_modules\/(echarts|zrender)\//.test(name),
+      ),
+      `${scenario.name} must add no engine modules`,
     );
   await mkdir(outdir, { recursive: true });
   const files = [];
@@ -267,10 +280,10 @@ for (const scenario of scenarios) {
         ? { gzip: 206_000, brotli: 178_000 }
         : scenario.name === 'interaction'
           ? { gzip: 110_000, brotli: 95_000 }
-          : scenario.name === 'composed-interaction'
+          : interactionBaseline
             ? {
-                gzip: results.find((item) => item.name === 'composed').total.gzip + 6_000,
-                brotli: results.find((item) => item.name === 'composed').total.brotli + 8_000,
+                gzip: interactionBaseline.total.gzip + 6_000,
+                brotli: interactionBaseline.total.brotli + 8_000,
               }
             : scenario.engine
               ? { gzip: 200_000, brotli: 175_000 }
@@ -278,7 +291,7 @@ for (const scenario of scenarios) {
   const headroom = { gzip: budget.gzip - total.gzip, brotli: budget.brotli - total.brotli };
   const passed = total.gzip <= budget.gzip && total.brotli <= budget.brotli;
   assert(passed, `${scenario.name} exceeded its measured budget: ${JSON.stringify(total)}`);
-  if (!['interaction', 'composed-interaction'].includes(scenario.name))
+  if (scenario.name !== 'interaction' && !scenario.interaction)
     assert(
       !inputs.some((name) => /mantha911-ng-echarts-interaction/.test(name)),
       `${scenario.name} must exclude optional interactions`,

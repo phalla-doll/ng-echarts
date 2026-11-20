@@ -63,7 +63,8 @@ jobs:
 
   browser:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # Firefox was still passing scenarios when its 20-minute job limit expired.
+    timeout-minutes: ${{ matrix.browser == 'firefox' && 25 || 20 }}
     strategy:
       fail-fast: false
       matrix:

@@ -76,6 +76,8 @@ export class InteractionExample {
 }
 ```
 
+For a chart linked to application data, see [Filter transactions with a bar chart](TRANSACTION_RANGE.md).
+
 ## Contract
 
 | Binding | Meaning |

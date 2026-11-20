@@ -50,9 +50,11 @@ test('renders honest component availability and navigates copyable setup documen
     'npm install @mantha911/ng-echarts@next echarts@6.1.0',
   );
   await expect(page.locator('#registry-package')).toContainText(
-    'Human screen-reader interpretation remains unreviewed',
+    'The next tag selects the public 0.1.0-rc.33 candidate',
   );
-  await expect(page.locator('#compatibility')).toContainText('The public 0.1.0-rc.18 candidate');
+  await expect(page.locator('#compatibility')).toContainText(
+    'The sealed rc.33 candidate passed automated checks and the human review.',
+  );
   await expect(page.locator('#bootstrap')).toContainText('src/app/app.ts');
   await expect(page.locator('#bootstrap')).toContainText('strictTemplates');
   await expect(page.locator('#server-rendering')).toContainText('allowedHosts');
