@@ -2,7 +2,24 @@
 
 The demo is published from the root of the dedicated `gh-pages` branch at **https://phalla-doll.github.io/ng-echarts/**. Source and deployment are separate commits. Publication requires a clean, pushed `main` source, an unchanged sealed artifact and successful local checks in all three browsers.
 
-## Current deployment — rc.33 release documentation
+## Current deployment — bar zoom playground
+
+[Bar zoom](https://phalla-doll.github.io/ng-echarts/bar-zoom/) runs the [standalone shipment example](BAR_ZOOM_PROTOTYPE.md). From and To, zoom, pan, reset, and graphical narrowing update one visible window. The disclosure copies the complete standalone Angular app. The library's native table shows the same window as the bars.
+
+| Identity / check | Result |
+| --- | --- |
+| Clean pushed source | `87407c19c2e33786abde152b9eb9807a29a4e6c8` |
+| Static commit | `f1369aeaf910274f460e8a713bddf840d315ef91` |
+| Sealed SHA-256 | `5aed9f2ff0e2ddb7ed661fb485e184ab2adc4c9252847eaefb2890a9da33fa0c` |
+| Pages workflow | [Succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/44710418641) |
+| Local/public static checks | 41 routes and 153 sealed files pass in Chromium, Firefox, and WebKit. Public verification passed on retry after a connection reset. |
+| Performance | All 18 route guards and normal-motion navigation checks pass. Bar zoom transfers about 387 kB under its 445,000-byte budget. |
+| Standalone consumer | [Published rc.33 consumer](experiments/data/bar-zoom-playground-consumer.json) passes strict compilation, SSR, and all three browser flows. |
+| Hosted browser setup | The [first CI run](https://github.com/phalla-doll/ng-echarts/actions/runs/44710073878) exposed a container user mismatch for Firefox. The [follow-up](https://github.com/phalla-doll/ng-echarts/actions/runs/44710529678) uses the matching Playwright image and runner home owner. |
+
+<a id="current-deployment--rc33-release-documentation"></a>
+
+## Earlier deployment — rc.33 release documentation
 
 The [live installation guide](https://phalla-doll.github.io/ng-echarts/installation/) identifies public rc.33 on npm `next` and rc.18 on `latest`. Get Started records the completed human review and release gates. The live Visits dashboard identifies its graphical interaction entry as available in published rc.33.
 

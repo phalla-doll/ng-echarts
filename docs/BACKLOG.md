@@ -8,7 +8,7 @@ The [standalone transaction example](TRANSACTION_RANGE.md) uses the published rc
 
 The [bar zoom playground](https://phalla-doll.github.io/ng-echarts/bar-zoom/) runs the [standalone prototype](BAR_ZOOM_PROTOTYPE.md) and offers its complete source. The prototype uses the same published interaction entry with application-owned bounds, native zoom and pan controls, and a visible subset of chart data. The [installed consumer report](experiments/data/bar-zoom-consumer.json) records strict compilation, SSR, and all three browser results. General-purpose DataZoom, disjoint selections, arbitrary family linking, broader calendar/Sankey variants and NG21 remain open. The [npm tag policy](PUBLICATION.md#default-install-policy) records when the default install should change.
 
-Current demo and registry evidence are recorded in the [Pages deployment log](GITHUB_PAGES.md#current-deployment--rc33-release-documentation) and the [rc.33 publication report](experiments/RC33_PUBLICATION.md).
+Current demo and registry evidence are recorded in the [Pages deployment log](GITHUB_PAGES.md#current-deployment--bar-zoom-playground) and the [rc.33 publication report](experiments/RC33_PUBLICATION.md).
 
 ## Historical delivery plan through 16 November 2026
 
