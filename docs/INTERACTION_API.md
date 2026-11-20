@@ -76,7 +76,7 @@ export class InteractionExample {
 }
 ```
 
-For a chart linked to application data, see [Filter transactions with a bar chart](TRANSACTION_RANGE.md).
+For a chart linked to application data, see [Filter transactions with a bar chart](TRANSACTION_RANGE.md). To control the chart’s visible window, see [Zoom and pan one bar chart](BAR_ZOOM_PROTOTYPE.md).
 
 ## Contract
 

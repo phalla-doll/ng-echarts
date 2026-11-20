@@ -1,0 +1,89 @@
+{
+  "recordedAt": "2026-11-20T08:40:16.483Z",
+  "artifact": {
+    "name": "@mantha911/ng-echarts",
+    "version": "0.1.0-rc.33",
+    "sha256": "5d0230b8b9fccdab7d3b32e846ca5bfb1780a9cb1094f2f21b006ebc4bf33735",
+    "exactCandidate": true,
+    "registrySpec": "@mantha911/ng-echarts@0.1.0-rc.33"
+  },
+  "node": "v24.22.2",
+  "npm": "11.19.1",
+  "method": "Fresh pinned CLI scaffold outside workspace; digest-verified rc.33 registry installation; exact docs/BAR_ZOOM_PROTOTYPE.md App; strict ngc, production SSR and three-engine interaction flow.",
+  "sources": {
+    "docs/INSTALLATION.md": "f77e6642752626a314494108b58060174120f2e6b8569b41eefdef9ffdae618e",
+    "docs/BAR_ZOOM_PROTOTYPE.md": "6a99d3dd2b9b88a28c952ff8501e6a5230309f5c2ed24d44b4231a41c97d5b99"
+  },
+  "installedOutsideWorkspace": true,
+  "lockfileReinstall": true,
+  "workspaceAliases": false,
+  "skipLibCheck": false,
+  "strictTemplates": true,
+  "versions": {
+    "@angular/build": "22.2.6",
+    "@angular/cli": "22.2.6",
+    "@angular/common": "22.2.6",
+    "@angular/compiler-cli": "22.2.6",
+    "@angular/compiler": "22.2.6",
+    "@angular/core": "22.2.6",
+    "@angular/forms": "22.2.6",
+    "@angular/platform-browser": "22.2.6",
+    "@angular/platform-server": "22.2.6",
+    "@angular/router": "22.2.6",
+    "@angular/ssr": "22.2.6",
+    "@mantha911/ng-echarts": "0.1.0-rc.33",
+    "@types/express": "5.0.6",
+    "@types/node": "22.20.5",
+    "echarts": "6.1.0",
+    "express": "5.3.0",
+    "prettier": "3.10.1",
+    "rxjs": "7.8.2",
+    "tslib": "2.8.1",
+    "typescript": "6.0.3"
+  },
+  "generatedPackage": "chart-consumer",
+  "ssrTextChecks": 6,
+  "serverCanvasCount": 0,
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "158.0.8127.18",
+      "charts": 1,
+      "nativeZoomAndPan": true,
+      "pointerRange": true,
+      "focusRetention": true,
+      "rawZero": true,
+      "keyboardEvents": true,
+      "responsive": true,
+      "stableInstances": true,
+      "passed": true
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "charts": 1,
+      "nativeZoomAndPan": true,
+      "pointerRange": true,
+      "focusRetention": true,
+      "rawZero": true,
+      "keyboardEvents": true,
+      "responsive": true,
+      "stableInstances": true,
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "version": "27.2",
+      "charts": 1,
+      "nativeZoomAndPan": true,
+      "pointerRange": true,
+      "focusRetention": true,
+      "rawZero": true,
+      "keyboardEvents": true,
+      "responsive": true,
+      "stableInstances": true,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

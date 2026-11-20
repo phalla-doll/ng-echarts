@@ -1,3 +1,4 @@
+import { verifyBarZoom } from './bar-zoom-flow.mjs';
 import { verifyTransactionRange } from './transaction-range-flow.mjs';
 import { verifyDashboard } from './dashboard-flow.mjs';
 import { verifyDashboardRange } from './dashboard-range-flow.mjs';
@@ -19,8 +20,38 @@ import { format, resolveConfig } from 'prettier';
 const dashboard = process.argv.includes('--dashboard');
 const keep = dashboard && process.argv.includes('--keep');
 const dashboardRegistry = dashboard && !process.argv.includes('--candidate');
-const transactions = process.argv.includes('--transactions');
-const example = transactions ? 'transactions' : dashboard ? 'dashboard' : 'integration';
+const registryExample = process.argv.includes('--bar-zoom')
+  ? {
+      name: 'bar-zoom',
+      guide: 'docs/BAR_ZOOM_PROTOTYPE.md',
+      headings: [
+        'Shipment window',
+        'Visible days',
+        'Daily shipments',
+        'Zoom in',
+        'Pan earlier',
+        'Reset window',
+      ],
+      verify: verifyBarZoom,
+      checks: { nativeZoomAndPan: true, pointerRange: true, focusRetention: true, rawZero: true },
+      output: 'test-results/bar-zoom-consumer.json',
+    }
+  : process.argv.includes('--transactions')
+    ? {
+        name: 'transactions',
+        guide: 'docs/TRANSACTION_RANGE.md',
+        headings: [
+          'Transaction activity',
+          'Daily transaction totals',
+          'Transactions in selected range',
+        ],
+        serverText: 'Fee adjustment',
+        verify: verifyTransactionRange,
+        checks: { nativeRangeBounds: true, pointerRange: true, emptyRange: true, rawZero: true },
+        output: 'test-results/transaction-range-consumer.json',
+      }
+    : null;
+const example = registryExample?.name ?? (dashboard ? 'dashboard' : 'integration');
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const parent = await realpath(await mkdtemp(join(tmpdir(), 'ng-echarts-docs-')));
 const consumer = join(parent, 'chart-consumer');
@@ -51,10 +82,9 @@ const composedDashboardSource = dashboard
       )
     ).composedDashboardSource
   : null;
-const transactionGuide = transactions
-  ? await readFile(join(root, 'docs/TRANSACTION_RANGE.md'), 'utf8')
-  : null;
-const exampleGuide = transactionGuide ?? integration;
+const exampleGuide = registryExample
+  ? await readFile(join(root, registryExample.guide), 'utf8')
+  : integration;
 const app = dashboard
   ? composedDashboardSource
   : exampleGuide.match(/^```ts\n([\s\S]*?)\n```/m)?.[1];
@@ -85,8 +115,8 @@ const run = async (command, args, cwd, env = {}) => {
 };
 try {
   let packed;
-  if (dashboardRegistry || transactions) {
-    const receiptPath = transactions
+  if (dashboardRegistry || registryExample) {
+    const receiptPath = registryExample
       ? 'docs/experiments/public-rc33/npm-resolution.json'
       : 'docs/experiments/public-rc22/registry-verification.json';
     const receipt = JSON.parse(await readFile(join(root, receiptPath), 'utf8'));
@@ -209,13 +239,13 @@ try {
   const response = await fetch(url);
   const html = await response.text();
   assert.equal(response.status, 200, html);
-  const headings = transactions
-    ? ['Transaction activity', 'Daily transaction totals', 'Transactions in selected range']
-    : dashboard
+  const headings =
+    registryExample?.headings ??
+    (dashboard
       ? ['Visits dashboard', 'Monthly visits and trend', 'Recorded device visits']
-      : ['Monthly visits', 'Visit trends', 'Stacked visits', 'Desktop share'];
+      : ['Monthly visits', 'Visit trends', 'Stacked visits', 'Desktop share']);
   for (const title of headings) assert(html.includes(title));
-  if (transactions) assert(html.includes('Fee adjustment'));
+  if (registryExample?.serverText) assert(html.includes(registryExample.serverText));
   assert(!html.includes('<canvas'));
   const results = [];
   for (const engine of [chromium, firefox, webkit]) {
@@ -238,8 +268,8 @@ try {
           errors.push(message.text());
       });
       await page.goto(url);
-      if (transactions) {
-        await verifyTransactionRange(page);
+      if (registryExample) {
+        await registryExample.verify(page);
       } else if (dashboard) {
         await verifyDashboard(page);
         if (!dashboardRegistry) await verifyDashboardRange(page);
@@ -291,7 +321,7 @@ try {
       results.push({
         engine: engine.name(),
         version: browser.version(),
-        charts: transactions ? 1 : dashboard ? 2 : 4,
+        charts: registryExample ? 1 : dashboard ? 2 : 4,
         ...(dashboard
           ? {
               applicationOwnedSelection: true,
@@ -302,9 +332,7 @@ try {
               emptyRecovery: true,
             }
           : {}),
-        ...(transactions
-          ? { nativeRangeBounds: true, pointerRange: true, emptyRange: true, rawZero: true }
-          : { immutableUpdates: true, themes: true }),
+        ...(registryExample?.checks ?? { immutableUpdates: true, themes: true }),
         keyboardEvents: true,
         responsive: true,
         stableInstances: true,
@@ -348,17 +376,15 @@ try {
     npm: (await run('npm', ['--version'], consumer)).trim(),
     ...(keep ? { retainedConsumer: consumer } : {}),
     ...(dashboard ? { displayedSourceSha256: createHash('sha256').update(app).digest('hex') } : {}),
-    method: transactions
-      ? 'Fresh pinned CLI scaffold outside workspace; digest-verified rc.33 registry installation; exact TRANSACTION_RANGE.md App; strict ngc, production SSR and three-engine transaction range flow.'
+    method: registryExample
+      ? `Fresh pinned CLI scaffold outside workspace; digest-verified rc.33 registry installation; exact ${registryExample.guide} App; strict ngc, production SSR and three-engine interaction flow.`
       : dashboard
         ? `Fresh pinned CLI scaffold outside workspace; npm ${dashboardRegistry ? 'registry rc.22 digest-verified installation' : 'candidate installation'}; exact dashboard component/App; strict ngc, production SSR, three-engine dashboard flow.`
         : `Fresh pinned CLI scaffold outside workspace; execute INSTALLATION.md shell blocks; install ${packed.registrySpec ? 'exact registry package' : 'local tarball'}; copy exact INTEGRATION_GUIDE.md App; strict ngc and production build; generated server HTML then three-engine hydration/actions/updates/themes/resize.`,
     sources: Object.fromEntries(
       [
         ['docs/INSTALLATION.md', installation],
-        transactions
-          ? ['docs/TRANSACTION_RANGE.md', transactionGuide]
-          : ['docs/INTEGRATION_GUIDE.md', integration],
+        [registryExample?.guide ?? 'docs/INTEGRATION_GUIDE.md', exampleGuide],
         ...(dashboard
           ? [
               [
@@ -382,20 +408,19 @@ try {
       Object.entries(resolved.dependencies).map(([name, value]) => [name, value.version]),
     ),
     generatedPackage: manifest.name,
-    ...(transactions ? { ssrTextChecks: headings.length } : { ssrHeadings: headings.length }),
+    ...(registryExample ? { ssrTextChecks: headings.length } : { ssrHeadings: headings.length }),
     serverCanvasCount: 0,
     results,
     passed: true,
   };
-  if (transactions) await mkdir(join(root, 'test-results'), { recursive: true });
+  if (registryExample) await mkdir(join(root, 'test-results'), { recursive: true });
   await writeFile(
     join(
       root,
-      transactions
-        ? 'test-results/transaction-range-consumer.json'
-        : dashboard
+      registryExample?.output ??
+        (dashboard
           ? `docs/experiments/data/ng20-dashboard-${dashboardRegistry ? 'registry' : 'candidate'}-consumer.json`
-          : 'docs/experiments/data/ng15-documentation-consumer.json',
+          : 'docs/experiments/data/ng15-documentation-consumer.json'),
     ),
     await format(JSON.stringify(evidence), {
       ...(await resolveConfig(join(root, '.prettierrc'))),
