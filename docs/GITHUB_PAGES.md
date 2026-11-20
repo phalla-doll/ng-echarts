@@ -2,9 +2,25 @@
 
 The demo is published from the root of the dedicated `gh-pages` branch at **https://phalla-doll.github.io/ng-echarts/**. Source and deployment are separate commits. Publication requires a clean, pushed `main` source, an unchanged sealed artifact and successful local checks in all three browsers.
 
+## Current deployment — rc.33 release documentation
+
+The [live installation guide](https://phalla-doll.github.io/ng-echarts/installation/) identifies public rc.33 on npm `next` and rc.18 on `latest`. Get Started records the completed human review and release gates. The live Visits dashboard identifies its graphical interaction entry as available in published rc.33.
+
+| Identity / check | Verified result |
+| --- | --- |
+| Clean pushed source | `4c5ef97c17f5e44c98efa1e6e97d5612d66434a1` |
+| Static commit | `4b724009e5d5d29bf7abff37f95f96249fe464c0` |
+| Sealed SHA-256 | `584d4772c54c5d3b60f664792f0fe92b4cea20812515c8f1687f33d39e20b783` |
+| Pages workflow | [Succeeded](https://github.com/phalla-doll/ng-echarts/actions/runs/44698128240) |
+| Delivery-source CI | [Workspace checks](https://github.com/phalla-doll/ng-echarts/actions/runs/44697821872) |
+| Local/public static checks | 40 routes and 148 sealed files pass in Chromium, Firefox and WebKit. The public verifier passed on retry after a connection reset. |
+| Performance | All 17 route guards and normal-motion navigation checks pass. |
+
+The same source documents a [standalone transaction range example](TRANSACTION_RANGE.md) verified against the published rc.33 archive in a fresh Angular consumer. See the [installed consumer results](experiments/data/transaction-range-consumer.json).
+
 <a id="current-deployment--dashboard-colors"></a>
 
-## Current deployment — dashboard color refinement
+## Earlier deployment — dashboard color refinement
 
 The [visits dashboard](https://phalla-doll.github.io/ng-echarts/linked-dashboard/) now matches the neutral site palette, with charcoal dark surfaces, gray supporting text and borders, softer teal/blue/gold series and one outline per chart. Its independent theme and both displayed standalone examples are preserved. The deployed source below predates [rc.33 npm publication](experiments/RC33_PUBLICATION.md). Its installation copy reflects the registry tags at deployment time.
 
