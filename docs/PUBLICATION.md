@@ -4,6 +4,12 @@ Status. npm `next` selects `@mantha911/ng-echarts@0.1.0-rc.33` and `latest` reta
 
 The [packaged documentation errata](PACKAGED_DOCUMENTATION_ERRATA.md) correct historical availability statements without rewriting published rc.28 or the sealed rc.29 candidate. Repository/demo documentation corrections do not change npm tags or package bytes.
 
+## Default install policy
+
+Use npm `next` for verified experimental prereleases. Keep `latest` at its existing rc.18 alias until the project explicitly approves a supported default release and its compatibility policy. Untagged installs resolve through `latest`, so moving that tag changes what new consumers receive. rc.18 is itself an experimental prerelease. [npm dist-tag documentation](https://docs.npmjs.com/cli/v11/commands/npm-dist-tag/#purpose)
+
+Before moving the default tag, document the supported API and upgrade path from rc.18, verify the exact release artifact through the release checklist and verify an untagged fresh install after the move. The current installation examples use `@next` or the exact rc.33 version. Registry readback on 20 November 2026 confirmed `latest: 0.1.0-rc.18` and `next: 0.1.0-rc.33`.
+
 ## Historical checks before publication
 
 Checked 14 November 2026 with npm 11.19.1 against `https://registry.npmjs.org`:
@@ -17,6 +23,8 @@ Checked 14 November 2026 with npm 11.19.1 against `https://registry.npmjs.org`:
 Follow-up: interactive npm login succeeded as `mantha911`; the `phalla-doll` organization lookup returned Scope not found. The user then selected the matching personal scope `@mantha911/ng-echarts`. The package lookup returned 404 before creation; no previously readable package was found.
 
 ## Concrete publication sequence
+
+This sequence records the first experimental prerelease in November 2026.
 
 1. Record the chosen name, registry and owning npm user/organization. Authenticate interactively using `npm login --registry=https://registry.npmjs.org` and confirm identity with `npm whoami`. Keep credentials out of the repository and evidence files.
 2. Preserve the [human interpretation result sheet](experiments/RC17_HUMAN_REVIEW.md) as pending under the user’s explicit 14 November deferral. Future full release acceptance still requires the listening evidence; this experimental prerelease is the recorded exception.

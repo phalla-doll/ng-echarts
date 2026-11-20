@@ -47,11 +47,11 @@ The `check:docs` and `check:runtime` scripts accept the same variables. Without 
 
 ## Verify the published registry package
 
-All three consumer scripts support exact registry installs. The helper verifies the fetched registry tarball before each consumer installs by its exact npm identity. Use rc.32 source (verified publication commit `2876f9b4acf48be8715dc1aa95253c3a72fda6d1`) and the digest from its [registry receipt](experiments/public-rc32/registry-verification.json). Current source intentionally rejects a mismatched registry identity:
+All three consumer scripts support exact registry installs. The helper verifies the fetched registry tarball before each consumer installs by its exact npm identity. Use the rc.33 publication source (`3ec00e2e3bbc2e760176f60a1a0ba0739b2732f1`) and the digest from its [registry receipt](experiments/public-rc33/npm-resolution.json). The consumer guard checks that the requested registry identity matches the source version:
 
 ```sh
-export CHART_LIBRARY_REGISTRY_SPEC="@mantha911/ng-echarts@0.1.0-rc.32"
-export CHART_LIBRARY_TARBALL_SHA256="6984b9b20edd69fd0c326e6361d45459f3b36fe8f4c9d390f8962de8cee4f3f9"
+export CHART_LIBRARY_REGISTRY_SPEC="@mantha911/ng-echarts@0.1.0-rc.33"
+export CHART_LIBRARY_TARBALL_SHA256="5d0230b8b9fccdab7d3b32e846ca5bfb1780a9cb1094f2f21b006ebc4bf33735"
 npm run check:consumer
 npm run check:docs
 npm run check:runtime
@@ -78,7 +78,7 @@ The recorded dependency versions describe verified inputs, not every version adm
 
 | Item | Status / evidence |
 | --- | --- |
-| Local candidate automated checks | Local rc.33 exact artifact, 358 unit tests, 611 browser passes/four expected skips, final application/source follow-ups, warm/two-clean macOS, exact consumers, static routes and unchanged budgets pass in the [increment record](experiments/RC33_GRAPHICAL_LINKING.md). All six source CI jobs pass and clean demo delivery/public verification pass with separate receipts. Published rc.32 and fresh registry consumers pass in its [publication record](experiments/RC32_PUBLICATION.md). Preserve every archive. |
+| Local candidate automated checks | Local rc.33 exact artifact, 358 unit tests, 611 browser passes/four expected skips, final application/source follow-ups, warm/two-clean macOS, exact consumers, static routes and unchanged budgets pass in the [increment record](experiments/RC33_GRAPHICAL_LINKING.md). All six source CI jobs pass and clean demo delivery/public verification pass with separate receipts. Published rc.33 and fresh registry consumers pass in its [publication record](experiments/RC33_PUBLICATION.md). Preserve every archive. |
 | Original library license | MIT selected by the user; full text ships in the candidate |
 | Human interpretation, F09/R06 | Pass by user attestation on 19 November 2026. The [result sheet](experiments/RC20_HUMAN_REVIEW.md) records full coverage, the absence of written notes, and the unrecorded build identity. |
 | NG14/G2/G3/G4 acceptance | G2 and NG14/G3 pass with the human result and existing automated evidence. G4 distribution checks pass for the sealed rc.33 candidate. See the [acceptance matrix](ACCEPTANCE_MATRIX.md#gate-completion). |
@@ -86,7 +86,7 @@ The recorded dependency versions describe verified inputs, not every version adm
 | Registry destination/publishing credentials | Authenticated as `mantha911` after interactive npm login ([record](PUBLICATION.md)) |
 | Public API stability/versioning promise | Experimental; no stable API freeze is declared by this candidate |
 
-Any stable API commitment requires a separate release decision.
+Any stable API commitment requires a separate release decision. The [default install policy](PUBLICATION.md#default-install-policy) reserves a move of npm `latest` for an explicitly approved supported release.
 
 ## Preview checkpoint
 
